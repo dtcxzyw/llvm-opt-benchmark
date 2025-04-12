@@ -875,14 +875,16 @@ define hidden i32 @mbedtls_cipher_finish(ptr noundef %0, ptr noundef %1, ptr nou
   %17 = and i32 %16, 15
   %switch.tableidx = add nsw i32 %17, -3
   %18 = icmp ult i32 %switch.tableidx, 8
-  br i1 %18, label %switch.hole_check, label %19
+  %switch.maskindex = trunc nsw i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -33, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond67 = select i1 %18, i1 %switch.lobit, i1 false
+  %19 = and i32 %8, 16646144
+  %switch = icmp eq i32 %19, 4980736
+  %or.cond68 = or i1 %or.cond67, %switch
+  br i1 %or.cond68, label %switch.lookup, label %20
 
-19:                                               ; preds = %15
-  %.old = and i32 %8, 16646144
-  %switch.old = icmp eq i32 %.old, 4980736
-  br i1 %switch.old, label %switch.lookup, label %20
-
-20:                                               ; preds = %switch.hole_check, %19
+20:                                               ; preds = %15
   switch i32 %17, label %switch.lookup [
     i32 1, label %21
     i32 2, label %24
@@ -1012,17 +1014,8 @@ mbedtls_cipher_get_block_size.exit61:             ; preds = %79, %81
   store i64 %.0.i60, ptr %2, align 8, !tbaa !37
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %15
-  %switch.maskindex = trunc nuw nsw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -33, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  %86 = and i32 %8, 16646144
-  %switch = icmp eq i32 %86, 4980736
-  %or.cond67 = or i1 %switch, %switch.lobit
-  br i1 %or.cond67, label %switch.lookup, label %20
-
-switch.lookup:                                    ; preds = %switch.hole_check, %48, %19, %20, %mbedtls_cipher_get_block_size.exit59, %mbedtls_cipher_get_block_size.exit61, %32, %mbedtls_cipher_get_block_size.exit57, %21, %11, %3
-  %.0 = phi i32 [ -24832, %3 ], [ -24832, %11 ], [ 0, %19 ], [ %., %21 ], [ %78, %mbedtls_cipher_get_block_size.exit59 ], [ 0, %mbedtls_cipher_get_block_size.exit61 ], [ %.50, %32 ], [ %65, %mbedtls_cipher_get_block_size.exit57 ], [ -24704, %20 ], [ %spec.select, %48 ], [ 0, %switch.hole_check ]
+switch.lookup:                                    ; preds = %15, %48, %20, %mbedtls_cipher_get_block_size.exit59, %mbedtls_cipher_get_block_size.exit61, %32, %mbedtls_cipher_get_block_size.exit57, %21, %11, %3
+  %.0 = phi i32 [ -24832, %3 ], [ -24832, %11 ], [ %., %21 ], [ %78, %mbedtls_cipher_get_block_size.exit59 ], [ 0, %mbedtls_cipher_get_block_size.exit61 ], [ %.50, %32 ], [ %65, %mbedtls_cipher_get_block_size.exit57 ], [ -24704, %20 ], [ %spec.select, %48 ], [ 0, %15 ]
   ret i32 %.0
 }
 

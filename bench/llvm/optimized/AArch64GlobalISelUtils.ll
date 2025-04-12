@@ -150,14 +150,15 @@ define dso_local { i64, i8 } @_ZN4llvm17AArch64GISelUtils27getAArch64VectorSplat
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8, !tbaa !3, !range !8, !noundef !9
   %6 = trunc nuw i8 %5 to i1
+  %.not = xor i1 %6, true
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %8 = load i8, ptr %7, align 4, !range !8
   %9 = trunc nuw i8 %8 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %9
   %10 = load i64, ptr %3, align 8
-  %spec.select = select i1 %9, i64 undef, i64 %10
-  %not. = xor i8 %8, 1
-  %.sroa.0.0 = select i1 %6, i64 %spec.select, i64 undef
-  %.sroa.2.0 = select i1 %6, i8 %not., i8 0
+  %.sroa.0.0 = select i1 %or.cond, i64 undef, i64 %10
+  %not.or.cond = xor i1 %or.cond, true
+  %.sroa.2.0 = zext i1 %not.or.cond to i8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #7
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1

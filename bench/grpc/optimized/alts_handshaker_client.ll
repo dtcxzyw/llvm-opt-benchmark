@@ -3176,19 +3176,21 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit:        ; preds = %22
 32:                                               ; preds = %27
   %33 = load i32, ptr %28, align 8, !tbaa !56
   %.not39 = icmp eq i32 %33, 0
-  br i1 %.not39, label %35, label %.critedge
-
-.critedge:                                        ; preds = %27, %32
   %34 = trunc nuw i8 %9 to i1
-  br i1 %34, label %35, label %36
+  %or.cond = select i1 %.not39, i1 true, i1 %34
+  br i1 %or.cond, label %35, label %36
+
+.critedge:                                        ; preds = %27
+  %.old = trunc nuw i8 %9 to i1
+  br i1 %.old, label %35, label %36
 
 35:                                               ; preds = %.critedge, %32
   store ptr null, ptr %29, align 8, !tbaa !91
   br label %36
 
-36:                                               ; preds = %35, %.critedge, %26
-  %37 = phi ptr [ null, %26 ], [ %28, %35 ], [ %28, %.critedge ]
-  %.025 = phi i1 [ false, %26 ], [ true, %35 ], [ false, %.critedge ]
+36:                                               ; preds = %32, %35, %.critedge, %26
+  %37 = phi ptr [ null, %26 ], [ %28, %35 ], [ %28, %.critedge ], [ %28, %32 ]
+  %.025 = phi i1 [ false, %26 ], [ true, %35 ], [ false, %.critedge ], [ false, %32 ]
   invoke void @_ZN4absl12lts_202407225Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %_ZN4absl12lts_202407229MutexLockD2Ev.exit35 unwind label %38
 

@@ -122,9 +122,9 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit:
   br i1 %.not.i, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
 
 _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us: ; preds = %16, %26
-  %.014.idx59.us = phi i64 [ %.014.add.us, %26 ], [ 0, %16 ]
+  %.014.idx62.us = phi i64 [ %.014.add.us, %26 ], [ 0, %16 ]
   %20 = phi i32 [ %27, %26 ], [ 0, %16 ]
-  %.014.ptr.us = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx59.us
+  %.014.ptr.us = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx62.us
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %21 = load ptr, ptr %.014.ptr.us, align 8, !tbaa !15
   store ptr %21, ptr %6, align 8, !tbaa !14
@@ -143,14 +143,14 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19.us:
 
 26:                                               ; preds = %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19.us
   %27 = add nuw nsw i32 %20, 1
-  %.014.add.us = add nuw nsw i64 %.014.idx59.us, 8
+  %.014.add.us = add nuw nsw i64 %.014.idx62.us, 8
   %.not.us.not = icmp eq i64 %.014.add.us, 16
   br i1 %.not.us.not, label %.loopexit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit.us
 
 _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit: ; preds = %16, %37
-  %.014.idx59 = phi i64 [ %.014.add, %37 ], [ 0, %16 ]
+  %.014.idx62 = phi i64 [ %.014.add, %37 ], [ 0, %16 ]
   %28 = phi i32 [ %38, %37 ], [ 0, %16 ]
-  %.014.ptr = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx59
+  %.014.ptr = getelementptr inbounds nuw i8, ptr @_ZN11OpenImageIO6v3_1_03pvtL17device_type_namesE, i64 %.014.idx62
   store ptr %17, ptr %5, align 8, !tbaa !14
   %29 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #16
   store i64 %29, ptr %18, align 8, !tbaa !9
@@ -180,16 +180,16 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19: ; 
 
 37:                                               ; preds = %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19
   %38 = add nuw nsw i32 %28, 1
-  %.014.add = add nuw nsw i64 %.014.idx59, 8
+  %.014.add = add nuw nsw i64 %.014.idx62, 8
   %.not.not = icmp eq i64 %.014.add, 16
   br i1 %.not.not, label %.loopexit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
 
 .loopexit:                                        ; preds = %37, %26, %.thread
-  %.not57 = phi i1 [ true, %.thread ], [ false, %26 ], [ false, %37 ]
+  %.not60 = phi i1 [ true, %.thread ], [ false, %26 ], [ false, %37 ]
   %.1 = phi i1 [ %36, %.thread ], [ undef, %26 ], [ undef, %37 ]
-  %spec.select = and i1 %.not57, %.1
+  %spec.select = and i1 %.not60, %.1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  br label %55
+  br label %54
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20: ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %39 = icmp eq i8 %.sroa.034.0.extract.trunc, 7
@@ -207,36 +207,34 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20: ; preds = %_ZN11OpenImageIO6v3
   %.b = load i1, ptr @_ZN11OpenImageIO6v3_1_03pvtL19oiio_compute_deviceE, align 4
   %44 = zext i1 %.b to i32
   %45 = icmp eq i32 %43, %44
-  br i1 %45, label %55, label %46
+  br i1 %45, label %54, label %46
 
 46:                                               ; preds = %42
   %47 = icmp eq i32 %43, 1
-  br i1 %47, label %48, label %55
+  %48 = load i8, ptr @_ZN11OpenImageIO6v3_1_03pvt14cuda_supportedE, align 1, !range !7
+  %49 = trunc nuw i8 %48 to i1
+  %or.cond58 = select i1 %47, i1 %49, i1 false
+  br i1 %or.cond58, label %50, label %54
 
-48:                                               ; preds = %46
-  %49 = load i8, ptr @_ZN11OpenImageIO6v3_1_03pvt14cuda_supportedE, align 1, !tbaa !3, !range !7, !noundef !8
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %55
-
-51:                                               ; preds = %48
+50:                                               ; preds = %46
   store i1 true, ptr @_ZN11OpenImageIO6v3_1_03pvtL19oiio_compute_deviceE, align 4
-  br label %55
+  br label %54
 
 _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit24.thread: ; preds = %3, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i20
-  %52 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_03pvt13compute_mutexE) #16
-  %.not.i.i26 = icmp eq i32 %52, 0
-  br i1 %.not.i.i26, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %53
+  %51 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_03pvt13compute_mutexE) #16
+  %.not.i.i26 = icmp eq i32 %51, 0
+  br i1 %.not.i.i26, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %52
 
-53:                                               ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit24.thread
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %52) #17
+52:                                               ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit24.thread
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %51) #17
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit24.thread
-  %54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_03pvt13compute_mutexE) #16
-  br label %55
+  %53 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN11OpenImageIO6v3_1_03pvt13compute_mutexE) #16
+  br label %54
 
-55:                                               ; preds = %51, %42, %48, %46, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %.loopexit
-  %.4 = phi i1 [ %spec.select, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %51 ], [ true, %42 ], [ false, %48 ], [ false, %46 ]
+54:                                               ; preds = %50, %42, %46, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %.loopexit
+  %.4 = phi i1 [ %spec.select, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %50 ], [ true, %42 ], [ false, %46 ]
   ret i1 %.4
 }
 

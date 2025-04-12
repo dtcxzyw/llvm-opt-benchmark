@@ -1055,9 +1055,13 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
   %14 = load i32, ptr %13, align 8, !tbaa !32
   %switch.tableidx = add i32 %14, -2
   %15 = icmp ult i32 %switch.tableidx, 16
-  br i1 %15, label %switch.hole_check, label %16
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 -11769, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond14 = select i1 %15, i1 %switch.lobit, i1 false
+  br i1 %or.cond14, label %switch.lookup, label %16
 
-16:                                               ; preds = %switch.hole_check, %12, %4
+16:                                               ; preds = %12, %4
   %17 = load ptr, ptr %5, align 8, !tbaa !44
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !46
@@ -1089,9 +1093,13 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
   %35 = load i32, ptr %34, align 8, !tbaa !32
   %switch.tableidx8 = add i32 %35, -1
   %36 = icmp ult i32 %switch.tableidx8, 10
-  br i1 %36, label %switch.hole_check9, label %37
+  %switch.maskindex11 = trunc i32 %switch.tableidx8 to i16
+  %switch.shifted12 = lshr i16 561, %switch.maskindex11
+  %switch.lobit13 = trunc i16 %switch.shifted12 to i1
+  %or.cond15 = select i1 %36, i1 %switch.lobit13, i1 false
+  br i1 %or.cond15, label %switch.lookup, label %37
 
-37:                                               ; preds = %switch.hole_check9, %33, %27
+37:                                               ; preds = %33, %27
   %38 = load ptr, ptr %31, align 8, !tbaa !30
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 120
   %40 = load ptr, ptr %39, align 8
@@ -1121,20 +1129,8 @@ define dso_local noundef zeroext i1 @_ZNK24FunctionInvocationBinary6equalsEi(ptr
 54:                                               ; preds = %42, %53, %2
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -11769, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %16
-
-switch.hole_check9:                               ; preds = %33
-  %switch.maskindex11 = trunc nuw i32 %switch.tableidx8 to i16
-  %switch.shifted12 = lshr i16 561, %switch.maskindex11
-  %switch.lobit13 = trunc i16 %switch.shifted12 to i1
-  br i1 %switch.lobit13, label %switch.lookup, label %37
-
-switch.lookup:                                    ; preds = %switch.hole_check9, %switch.hole_check, %53, %42, %24, %24, %24, %54
-  %.0 = phi i1 [ false, %54 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %42 ], [ true, %53 ], [ true, %switch.hole_check ], [ true, %switch.hole_check9 ]
+switch.lookup:                                    ; preds = %33, %12, %53, %42, %24, %24, %24, %54
+  %.0 = phi i1 [ false, %54 ], [ true, %24 ], [ true, %24 ], [ true, %24 ], [ true, %42 ], [ true, %53 ], [ true, %12 ], [ true, %33 ]
   ret i1 %.0
 }
 
@@ -1238,7 +1234,11 @@ define dso_local void @_ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10
   store i64 0, ptr %4, align 8, !tbaa !25
   store i8 0, ptr %3, align 8, !tbaa !28
   %5 = icmp ult i32 %1, 16
-  br i1 %5, label %switch.hole_check, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
+  %switch.maskindex = trunc i32 %1 to i16
+  %switch.shifted = lshr i16 -8161, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %5, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 
 6:                                                ; preds = %switch.lookup
   %7 = landingpad { ptr, i32 }
@@ -1262,20 +1262,14 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %7
 
-switch.hole_check:                                ; preds = %2
-  %switch.maskindex = trunc nuw i32 %1 to i16
-  %switch.shifted = lshr i16 -8161, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %14 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw [16 x ptr], ptr @switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps, i64 0, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef 1)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %6
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %switch.hole_check, %2, %switch.lookup
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %2, %switch.lookup
   ret void
 }
 

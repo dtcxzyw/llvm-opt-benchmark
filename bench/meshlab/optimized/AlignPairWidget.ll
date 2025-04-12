@@ -1637,7 +1637,7 @@ define void @_ZN15AlignPairWidget19createRenderingDataEP9MeshModelR15MLRendering
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts.213", align 1
   %5 = alloca %struct.MLPerViewGLOptions, align 8
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %203, label %7
+  br i1 %6, label %199, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1907,39 +1907,34 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc, %7
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %185 = load i32, ptr %184, align 8
   %186 = icmp eq i32 %185, 0
-  br i1 %186, label %191, label %187
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1366
+  %188 = load i8, ptr %187, align 2
+  %189 = trunc i8 %188 to i1
+  %or.cond = select i1 %186, i1 true, i1 %189
+  %190 = xor i8 %45, 1
+  %191 = trunc nuw i8 %46 to i1
+  %192 = select i1 %191, i8 0, i8 %45
+  br i1 %or.cond, label %193, label %195
 
-187:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
-  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1366
-  %189 = load i8, ptr %188, align 2
-  %190 = trunc i8 %189 to i1
-  br i1 %190, label %191, label %196
+193:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 30
+  store i8 %190, ptr %194, align 2
+  store i8 %192, ptr %15, align 2
+  br label %197
 
-191:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit, %187
-  %192 = getelementptr inbounds nuw i8, ptr %5, i64 30
-  %193 = xor i8 %45, 1
-  store i8 %193, ptr %192, align 2
-  %194 = trunc nuw i8 %46 to i1
-  %195 = select i1 %194, i8 0, i8 %45
-  store i8 %195, ptr %15, align 2
-  br label %201
+195:                                              ; preds = %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 %190, ptr %196, align 8
+  store i8 %192, ptr %17, align 4
+  br label %197
 
-196:                                              ; preds = %187
-  %197 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %198 = xor i8 %45, 1
-  store i8 %198, ptr %197, align 8
-  %199 = trunc nuw i8 %46 to i1
-  %200 = select i1 %199, i8 0, i8 %45
-  store i8 %200, ptr %17, align 4
-  br label %201
-
-201:                                              ; preds = %191, %196
-  %.sink = phi i32 [ 0, %191 ], [ 3, %196 ]
-  %202 = call noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.sink, ptr noundef nonnull align 1 dereferenceable(7) %4)
+197:                                              ; preds = %193, %195
+  %.sink = phi i32 [ 0, %193 ], [ 3, %195 ]
+  %198 = call noundef zeroext i1 @_ZN15MLRenderingData3setEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYERKNS1_13RenderingAttsINS1_9ATT_NAMESEEE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %.sink, ptr noundef nonnull align 1 dereferenceable(7) %4)
   call void @_ZN15MLRenderingData3setERK18MLPerViewGLOptions(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(90) %5)
-  br label %203
+  br label %199
 
-203:                                              ; preds = %201, %3
+199:                                              ; preds = %197, %3
   ret void
 }
 

@@ -1961,17 +1961,16 @@ default.unreachable7:                             ; preds = %1
 28:                                               ; preds = %26, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit", %6
   %.0 = phi i8 [ %27, %26 ], [ %spec.select.i.i, %"_ZN17crossbeam_channel7flavors4list16Channel$LT$T$GT$4send17hc0911f0dcdfa715eE.exit" ], [ %7, %6 ]
   %29 = icmp ne i8 %.0, 2
-  br i1 %29, label %30, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit"
+  %.not.i = xor i1 %29, true
+  %30 = trunc i8 %.0 to i1
+  %or.cond.i = or i1 %.not.i, %30
+  br i1 %or.cond.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit", label %31
 
-30:                                               ; preds = %28
-  %31 = trunc nuw i8 %.0 to i1
-  br i1 %31, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit", label %32
-
-32:                                               ; preds = %30
+31:                                               ; preds = %28
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b45185a57254b681b92dcc8dbc2a40cb.2.llvm.1391893842591846125, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b45185a57254b681b92dcc8dbc2a40cb.4.llvm.1391893842591846125) #11
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit": ; preds = %28, %30
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125.exit": ; preds = %28
   ret i1 %29
 }
 
@@ -2252,17 +2251,16 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.exit.i: ; preds = %9, %_ZN3std
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hbe8a14ffcbc4c34cE.llvm.1391893842591846125"(i8 noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = icmp ne i8 %0, 2
-  br i1 %2, label %3, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hb3f9f7a3d3ff25bbE.llvm.1391893842591846125.exit"
+  %.not = xor i1 %2, true
+  %3 = trunc i8 %0 to i1
+  %or.cond = or i1 %.not, %3
+  br i1 %or.cond, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hb3f9f7a3d3ff25bbE.llvm.1391893842591846125.exit", label %4
 
-3:                                                ; preds = %1
-  %4 = trunc i8 %0 to i1
-  br i1 %4, label %"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hb3f9f7a3d3ff25bbE.llvm.1391893842591846125.exit", label %5
-
-5:                                                ; preds = %3
+4:                                                ; preds = %1
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.b45185a57254b681b92dcc8dbc2a40cb.2.llvm.1391893842591846125, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b45185a57254b681b92dcc8dbc2a40cb.4.llvm.1391893842591846125) #11
   unreachable
 
-"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hb3f9f7a3d3ff25bbE.llvm.1391893842591846125.exit": ; preds = %3, %1
+"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$4send28_$u7b$$u7b$closure$u7d$$u7d$17hb3f9f7a3d3ff25bbE.llvm.1391893842591846125.exit": ; preds = %1
   ret i1 %2
 }
 

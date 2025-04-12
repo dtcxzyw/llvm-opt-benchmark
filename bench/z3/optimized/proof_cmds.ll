@@ -2786,37 +2786,30 @@ _ZNK13solver_params10proof_trimEv.exit:           ; preds = %_ZNK13solver_params
           to label %_ZNK13solver_params11proof_checkEv.exit unwind label %38
 
 _ZNK13solver_params11proof_checkEv.exit:          ; preds = %_ZNK13solver_params10proof_trimEv.exit
-  %.pre = load i8, ptr %11, align 2, !tbaa !167, !range !253
-  %15 = trunc nuw i8 %.pre to i1
-  br i1 %14, label %16, label %23
+  %.not = xor i1 %14, true
+  %15 = load i8, ptr %11, align 2, !range !253
+  %16 = trunc nuw i8 %15 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %16
+  %17 = load i8, ptr %7, align 1, !range !253
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond6 = select i1 %or.cond, i1 true, i1 %18
+  br i1 %or.cond6, label %23, label %.thread
 
-16:                                               ; preds = %_ZNK13solver_params11proof_checkEv.exit
-  br i1 %15, label %.thread10, label %.thread
-
-.thread10:                                        ; preds = %16
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 0, ptr %17, align 8, !tbaa !165
-  br label %25
-
-.thread:                                          ; preds = %16
-  %18 = load i8, ptr %7, align 1, !tbaa !166, !range !253, !noundef !254
-  %19 = trunc nuw i8 %18 to i1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %21 = load ptr, ptr %20, align 8
-  %.not.i.i.not = icmp eq ptr %21, null
-  %not. = xor i1 %19, true
-  %narrow = select i1 %not., i1 %.not.i.i.not, i1 false
-  %.ph = zext i1 %narrow to i8
+.thread:                                          ; preds = %_ZNK13solver_params11proof_checkEv.exit
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %20 = load ptr, ptr %19, align 8, !tbaa !169
+  %.not.i.i.not = icmp eq ptr %20, null
+  %21 = zext i1 %.not.i.i.not to i8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %.ph, ptr %22, align 8, !tbaa !165
+  store i8 %21, ptr %22, align 8, !tbaa !165
   br label %_ZN10proof_trim11updt_paramsERK10params_ref.exit
 
 23:                                               ; preds = %_ZNK13solver_params11proof_checkEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %24, align 8, !tbaa !165
-  br i1 %15, label %25, label %_ZN10proof_trim11updt_paramsERK10params_ref.exit
+  br i1 %16, label %25, label %_ZN10proof_trim11updt_paramsERK10params_ref.exit
 
-25:                                               ; preds = %.thread10, %23
+25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = load ptr, ptr %26, align 8, !tbaa !173
   %.not.i = icmp eq ptr %27, null
@@ -2830,14 +2823,14 @@ _ZNK13solver_params11proof_checkEv.exit:          ; preds = %_ZNK13solver_params
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !255
   invoke void @_ZN10proof_trimC2ER11cmd_context(ptr noundef nonnull align 8 dereferenceable(4449) %29, ptr noundef nonnull align 8 dereferenceable(896) %31)
-          to label %.noexc5 unwind label %38
+          to label %.noexc8 unwind label %38
 
-.noexc5:                                          ; preds = %.noexc
+.noexc8:                                          ; preds = %.noexc
   %32 = load ptr, ptr %26, align 8, !tbaa !173
-  %.not.i.i4 = icmp eq ptr %32, %29
-  br i1 %.not.i.i4, label %_ZN14proof_cmds_imp4trimEv.exit, label %33
+  %.not.i.i7 = icmp eq ptr %32, %29
+  br i1 %.not.i.i7, label %_ZN14proof_cmds_imp4trimEv.exit, label %33
 
-33:                                               ; preds = %.noexc5
+33:                                               ; preds = %.noexc8
   %34 = icmp eq ptr %32, null
   br i1 %34, label %_Z7deallocI10proof_trimEvPT_.exit.i.i, label %35
 
@@ -2850,8 +2843,8 @@ _Z7deallocI10proof_trimEvPT_.exit.i.i:            ; preds = %35, %33
   store ptr %29, ptr %26, align 8, !tbaa !173
   br label %_ZN14proof_cmds_imp4trimEv.exit
 
-_ZN14proof_cmds_imp4trimEv.exit:                  ; preds = %_Z7deallocI10proof_trimEvPT_.exit.i.i, %.noexc5, %25
-  %36 = phi ptr [ %29, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %32, %.noexc5 ], [ %27, %25 ]
+_ZN14proof_cmds_imp4trimEv.exit:                  ; preds = %_Z7deallocI10proof_trimEvPT_.exit.i.i, %.noexc8, %25
+  %36 = phi ptr [ %29, %_Z7deallocI10proof_trimEvPT_.exit.i.i ], [ %32, %.noexc8 ], [ %27, %25 ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   invoke void @_ZN3sat6solver11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(4376) %37, ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %_ZN10proof_trim11updt_paramsERK10params_ref.exit unwind label %38
@@ -2863,7 +2856,7 @@ _ZN14proof_cmds_imp4trimEv.exit:                  ; preds = %_Z7deallocI10proof_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
   resume { ptr, i32 } %39
 
-_ZN10proof_trim11updt_paramsERK10params_ref.exit: ; preds = %.thread, %_ZN14proof_cmds_imp4trimEv.exit, %23
+_ZN10proof_trim11updt_paramsERK10params_ref.exit: ; preds = %_ZN14proof_cmds_imp4trimEv.exit, %.thread, %23
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
   ret void

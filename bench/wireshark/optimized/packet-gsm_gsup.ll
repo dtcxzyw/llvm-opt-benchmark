@@ -483,6 +483,7 @@ define internal fastcc void @dissect_gsup_tlvs(ptr noundef %0, i32 noundef %1, i
   %23 = icmp ult i8 %switch.tableidx4, 7
   %switch.shifted = lshr i8 119, %switch.tableidx4
   %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %23, i1 %switch.lobit, i1 false
   %24 = zext nneg i8 %switch.tableidx4 to i64
   %switch.gep6 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_gsup_tlvs.1, i64 0, i64 %24
   %switch.tableidx = add i8 %6, -80
@@ -874,10 +875,7 @@ dissect_ss_info_ie.exit:                          ; preds = %.lr.ph.i, %135
   br label %.loopexit
 
 197:                                              ; preds = %36
-  %.not8 = xor i1 %23, true
-  %switch.lobit.not = xor i1 %switch.lobit, true
-  %brmerge = select i1 %.not8, i1 true, i1 %switch.lobit.not
-  br i1 %brmerge, label %198, label %switch.lookup5
+  br i1 %or.cond, label %switch.lookup5, label %198
 
 198:                                              ; preds = %197
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.249, i32 noundef 642, ptr noundef nonnull @.str.250) #5

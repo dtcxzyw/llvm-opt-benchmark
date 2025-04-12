@@ -1252,15 +1252,13 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   %rprog_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   store ptr %call2.i.i.i39.i.i, ptr %rprog_.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %call2.i.i.i39.i.i, null
-  br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %release.i.i.i
-
-if.then.i.i.i.i.i:                                ; preds = %if.then.i.i
   %log_errors_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 22
   %5 = load i8, ptr %log_errors_.i.i.i.i.i.i, align 2
   %tobool.i.i.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i.i.i, label %if.then6.i.i.i.i.i, label %release.i.i.i
+  %or.cond = select i1 %cmp.i.i.i.i.i, i1 %tobool.i.i.i.i.i.i, i1 false
+  br i1 %or.cond, label %if.then6.i.i.i.i.i, label %release.i.i.i
 
-if.then6.i.i.i.i.i:                               ; preds = %if.then.i.i.i.i.i
+if.then6.i.i.i.i.i:                               ; preds = %if.then.i.i
   store i8 0, ptr %ref.tmp.i.i.i.i.i, align 8
   %str_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str_.i.i.i.i.i.i)
@@ -1333,7 +1331,7 @@ ehcleanup.i.i.i.i.i:                              ; preds = %lpad11.i.i.i.i.i, %
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp.i.i.i.i.i) #30
   br label %lpad.body.i.i
 
-release.i.i.i:                                    ; preds = %invoke.cont14.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then.i.i
+release.i.i.i:                                    ; preds = %invoke.cont14.i.i.i.i.i, %if.then.i.i
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %ref.tmp.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp9.i.i.i.i.i)
   %10 = atomicrmw xchg ptr %rprog_once_, i32 221 release, align 4
@@ -2514,14 +2512,14 @@ _ZN4absl7debian211string_view13remove_prefixEm.exit113: ; preds = %for.inc.i, %i
   %add.ptr.i110 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %call81
   %sub.i111 = sub nuw i64 %sub.i95, %call81
   %cmp103.not = icmp eq i32 %re_anchor.addr.0, 2
-  %spec.select227 = select i1 %cmp103.not, i32 2, i32 1
+  %spec.select231 = select i1 %cmp103.not, i32 2, i32 1
   br label %if.end106
 
 if.end106:                                        ; preds = %_ZN4absl7debian211string_view13remove_prefixEm.exit113, %if.end74
   %subtext.sroa.0.0 = phi ptr [ %add.ptr.i, %if.end74 ], [ %add.ptr.i110, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %subtext.sroa.11.0 = phi i64 [ %sub.i95, %if.end74 ], [ %sub.i111, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %prefixlen.0 = phi i64 [ 0, %if.end74 ], [ %call81, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
-  %re_anchor.addr.1 = phi i32 [ %re_anchor.addr.0, %if.end74 ], [ %spec.select227, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
+  %re_anchor.addr.1 = phi i32 [ %re_anchor.addr.0, %if.end74 ], [ %spec.select231, %_ZN4absl7debian211string_view13remove_prefixEm.exit113 ]
   %bf.load107 = load i32, ptr %error_code_.i.i, align 4
   %15 = lshr i32 %bf.load107, 29
   %.lobit = and i32 %15, 1
@@ -2532,7 +2530,7 @@ if.end106:                                        ; preds = %_ZN4absl7debian211s
   %18 = load ptr, ptr %prog_, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 96
   %19 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %cmp.i114.not220 = icmp eq ptr %19, null
+  %cmp.i114.not224 = icmp eq ptr %19, null
   %bit_state_text_max_size_.i = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load i64, ptr %bit_state_text_max_size_.i, align 8
   %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN3re25hooks7contextE)
@@ -2856,7 +2854,7 @@ land.lhs.true310:                                 ; preds = %if.end305
   br i1 %or.cond218, label %if.end388, label %if.end316
 
 if.end316:                                        ; preds = %land.lhs.true310, %if.end305
-  br i1 %cmp.i114.not220, label %if.end324, label %land.lhs.true318
+  br i1 %cmp.i114.not224, label %if.end324, label %land.lhs.true318
 
 land.lhs.true318:                                 ; preds = %if.end316
   %cmp320 = icmp ule i64 %text.coerce1, %20
@@ -2981,15 +2979,14 @@ if.then392:                                       ; preds = %if.end388
   br i1 %call396, label %if.end456, label %if.then397
 
 if.then397:                                       ; preds = %if.then392
-  br i1 %skipped_test.0193201, label %return, label %land.lhs.true399
-
-land.lhs.true399:                                 ; preds = %if.then397
+  %skipped_test.0193201.not = xor i1 %skipped_test.0193201, true
   %log_errors_.i145 = getelementptr inbounds nuw i8, ptr %this, i64 22
   %60 = load i8, ptr %log_errors_.i145, align 2
   %tobool.i146 = trunc i8 %60 to i1
-  br i1 %tobool.i146, label %if.then402, label %return
+  %or.cond219 = select i1 %skipped_test.0193201.not, i1 %tobool.i146, i1 false
+  br i1 %or.cond219, label %if.then402, label %return
 
-if.then402:                                       ; preds = %land.lhs.true399
+if.then402:                                       ; preds = %if.then397
   call void @_ZN10LogMessageC2EPKci(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp403, ptr noundef nonnull @.str, i32 noundef 878)
   %str_.i147 = getelementptr inbounds nuw i8, ptr %ref.tmp403, i64 8
   %call408 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i147, ptr noundef nonnull @.str.23)
@@ -3013,24 +3010,23 @@ if.else411:                                       ; preds = %if.else411.sink.spl
   %subtext1.sroa.0.0211 = phi ptr [ %subtext1.sroa.0.0, %if.end388 ], [ %subtext.sroa.0.0, %if.then249 ], [ %subtext.sroa.0.0, %if.end238 ], [ %subtext.sroa.0.0, %if.then190 ], [ %subtext.sroa.0.0, %if.then138 ], [ %subtext.sroa.0.0, %if.then130 ], [ %subtext.sroa.0.0, %if.else411.sink.split ]
   %skipped_test.0193201210 = phi i1 [ %skipped_test.0193201, %if.end388 ], [ true, %if.then249 ], [ true, %if.end238 ], [ true, %if.then190 ], [ true, %if.then138 ], [ true, %if.then130 ], [ true, %if.else411.sink.split ]
   %cmp415.not = icmp ugt i64 %subtext1.sroa.6.0212, %20
-  %or.cond219 = select i1 %cmp.i114.not220, i1 true, i1 %cmp415.not
+  %or.cond220 = select i1 %cmp.i114.not224, i1 true, i1 %cmp415.not
   %62 = load ptr, ptr %prog_, align 8
-  br i1 %or.cond219, label %if.else435, label %if.then416
+  br i1 %or.cond220, label %if.else435, label %if.then416
 
 if.then416:                                       ; preds = %if.else411
   %call420 = call noundef zeroext i1 @_ZN3re24Prog14SearchBitStateEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %62, ptr %subtext1.sroa.0.0211, i64 %subtext1.sroa.6.0212, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %anchor.1214, i32 noundef %kind.2213, ptr noundef %submatch, i32 noundef %spec.select)
   br i1 %call420, label %if.end456, label %if.then421
 
 if.then421:                                       ; preds = %if.then416
-  br i1 %skipped_test.0193201210, label %return, label %land.lhs.true423
-
-land.lhs.true423:                                 ; preds = %if.then421
+  %skipped_test.0193201210.not = xor i1 %skipped_test.0193201210, true
   %log_errors_.i149 = getelementptr inbounds nuw i8, ptr %this, i64 22
   %63 = load i8, ptr %log_errors_.i149, align 2
   %tobool.i150 = trunc i8 %63 to i1
-  br i1 %tobool.i150, label %if.then426, label %return
+  %or.cond221 = select i1 %skipped_test.0193201210.not, i1 %tobool.i150, i1 false
+  br i1 %or.cond221, label %if.then426, label %return
 
-if.then426:                                       ; preds = %land.lhs.true423
+if.then426:                                       ; preds = %if.then421
   call void @_ZN10LogMessageC2EPKci(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp427, ptr noundef nonnull @.str, i32 noundef 885)
   %str_.i151 = getelementptr inbounds nuw i8, ptr %ref.tmp427, i64 8
   %call432 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i151, ptr noundef nonnull @.str.24)
@@ -3047,15 +3043,14 @@ if.else435:                                       ; preds = %if.else411
   br i1 %call439, label %if.end456, label %if.then440
 
 if.then440:                                       ; preds = %if.else435
-  br i1 %skipped_test.0193201210, label %return, label %land.lhs.true442
-
-land.lhs.true442:                                 ; preds = %if.then440
+  %skipped_test.0193201210.not222 = xor i1 %skipped_test.0193201210, true
   %log_errors_.i152 = getelementptr inbounds nuw i8, ptr %this, i64 22
   %65 = load i8, ptr %log_errors_.i152, align 2
   %tobool.i153 = trunc i8 %65 to i1
-  br i1 %tobool.i153, label %if.then445, label %return
+  %or.cond223 = select i1 %skipped_test.0193201210.not222, i1 %tobool.i153, i1 false
+  br i1 %or.cond223, label %if.then445, label %return
 
-if.then445:                                       ; preds = %land.lhs.true442
+if.then445:                                       ; preds = %if.then440
   call void @_ZN10LogMessageC2EPKci(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp446, ptr noundef nonnull @.str, i32 noundef 891)
   %str_.i154 = getelementptr inbounds nuw i8, ptr %ref.tmp446, i64 8
   %call451 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %str_.i154, ptr noundef nonnull @.str.25)
@@ -3093,8 +3088,8 @@ _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %if.then460
   br label %if.end468
 
 if.end468:                                        ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %if.end456
-  %cmp469222 = icmp slt i32 %spec.select, %nsubmatch
-  br i1 %cmp469222, label %for.body.preheader, label %return
+  %cmp469226 = icmp slt i32 %spec.select, %nsubmatch
+  br i1 %cmp469226, label %for.body.preheader, label %return
 
 for.body.preheader:                               ; preds = %if.end468
   %69 = sext i32 %spec.select to i64
@@ -3114,8 +3109,8 @@ return.sink.split:                                ; preds = %if.then445, %if.the
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp446.sink) #30
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body, %return.sink.split, %if.end468, %if.then440, %land.lhs.true442, %if.then421, %land.lhs.true423, %if.then397, %land.lhs.true399, %if.then329, %if.end290, %if.end235, %if.then188, %if.end179, %if.then137, %if.else94, %if.end79, %if.then76, %land.lhs.true57, %_ZN4absl7debian211string_view13remove_suffixEm.exit, %if.then12, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then12 ], [ false, %_ZN4absl7debian211string_view13remove_suffixEm.exit ], [ false, %land.lhs.true57 ], [ false, %if.then76 ], [ false, %if.end79 ], [ false, %if.else94 ], [ false, %if.then137 ], [ true, %if.end179 ], [ false, %if.then188 ], [ true, %if.end235 ], [ false, %if.end290 ], [ false, %if.then329 ], [ false, %land.lhs.true399 ], [ false, %if.then397 ], [ false, %land.lhs.true423 ], [ false, %if.then421 ], [ false, %land.lhs.true442 ], [ false, %if.then440 ], [ true, %if.end468 ], [ false, %return.sink.split ], [ true, %for.body ], [ false, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body, %return.sink.split, %if.end468, %if.then440, %if.then421, %if.then397, %if.then329, %if.end290, %if.end235, %if.then188, %if.end179, %if.then137, %if.else94, %if.end79, %if.then76, %land.lhs.true57, %_ZN4absl7debian211string_view13remove_suffixEm.exit, %if.then12, %if.then
+  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.then12 ], [ false, %_ZN4absl7debian211string_view13remove_suffixEm.exit ], [ false, %land.lhs.true57 ], [ false, %if.then76 ], [ false, %if.end79 ], [ false, %if.else94 ], [ false, %if.then137 ], [ true, %if.end179 ], [ false, %if.then188 ], [ true, %if.end235 ], [ false, %if.end290 ], [ false, %if.then329 ], [ false, %if.then397 ], [ false, %if.then421 ], [ false, %if.then440 ], [ true, %if.end468 ], [ false, %return.sink.split ], [ true, %for.body ], [ false, %for.body.i ]
   ret i1 %retval.0
 }
 

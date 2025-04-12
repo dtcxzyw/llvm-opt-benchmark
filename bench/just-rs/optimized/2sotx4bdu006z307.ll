@@ -2959,7 +2959,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17he9daab1763283fe7E(ptr n
   br label %.outer
 
 .outer:                                           ; preds = %38, %3
-  %.017.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
+  %.018.ph = phi i64 [ %39, %38 ], [ 0, %3 ]
   %10 = call noundef ptr @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io..Read$GT$8read_buf17h4270b626d08c8e94E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0)
   %11 = icmp eq ptr %10, null
   br i1 %11, label %._crit_edge, label %.lr.ph
@@ -2977,7 +2977,7 @@ define hidden void @_ZN3std2io4copy17stack_buffer_copy17he9daab1763283fe7E(ptr n
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit": ; preds = %._crit_edge
   %17 = icmp eq i64 %14, 0
-  br i1 %17, label %33, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit20"
+  br i1 %17, label %33, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit21"
 
 .lr.ph:                                           ; preds = %.outer, %43
   %18 = phi ptr [ %45, %43 ], [ %10, %.outer ]
@@ -3015,10 +3015,10 @@ default.unreachable:                              ; preds = %.lr.ph
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit"
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.017.ph, ptr %34, align 8
+  store i64 %.018.ph, ptr %34, align 8
   br label %37
 
-"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit20": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit"
+"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit21": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit"
   %35 = call noundef ptr @_ZN3std2io5Write9write_all17h5ec9d12cc0cba19cE(ptr noalias noundef nonnull align 8 dereferenceable(112) %2, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %14)
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %.loopexit
@@ -3030,15 +3030,15 @@ default.unreachable:                              ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8192, ptr nonnull %6)
   ret void
 
-38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit20"
-  %39 = add i64 %14, %.017.ph
+38:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit21"
+  %39 = add i64 %14, %.018.ph
   store i64 0, ptr %8, align 8
   br label %.outer
 
-.loopexit:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit20", %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %27, %23, %21
-  %.lcssa46.sink = phi ptr [ %18, %21 ], [ %18, %23 ], [ %18, %27 ], [ %18, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit20" ]
+.loopexit:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit21", %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit, %27, %23, %21
+  %.lcssa47.sink = phi ptr [ %18, %21 ], [ %18, %23 ], [ %18, %27 ], [ %18, %_ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit ], [ %35, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h12eb2b51c1d4d91aE.exit21" ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.lcssa46.sink, ptr %40, align 8
+  store ptr %.lcssa47.sink, ptr %40, align 8
   br label %37
 
 _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %.lr.ph
@@ -5681,9 +5681,12 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.11107275065492906757.exit
 define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$10trim_start28_$u7b$$u7b$closure$u7d$$u7d$17hfe3bd908efc35134E.llvm.11107275065492906757"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %switch.tableidx = add i32 %1, -9
   %3 = icmp ult i32 %switch.tableidx, 24
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.shifted = lshr i32 8388639, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, 127
   br i1 %5, label %6, label %switch.lookup
 
@@ -5726,13 +5729,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.1110
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 8388639, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit
-  %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit ], [ false, %4 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit
+  %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -6535,9 +6533,12 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
 define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17ha60c11c6bea84c95E.llvm.11107275065492906757"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %switch.tableidx = add i32 %1, -9
   %3 = icmp ult i32 %switch.tableidx, 24
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.shifted = lshr i32 8388639, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, 127
   br i1 %5, label %6, label %switch.lookup
 
@@ -6580,13 +6581,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.1110
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 8388639, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit
-  %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit ], [ false, %4 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit
+  %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -6594,9 +6590,12 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 define hidden noundef zeroext i1 @"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17h162d1ebbaf3210cfE.llvm.11107275065492906757"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %switch.tableidx = add i32 %1, -9
   %3 = icmp ult i32 %switch.tableidx, 24
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.shifted = lshr i32 8388639, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, 127
   br i1 %5, label %6, label %switch.lookup
 
@@ -6639,13 +6638,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.1110
   %25 = trunc i8 %.0.i to i1
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 8388639, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit
-  %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit ], [ false, %4 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit
+  %.0 = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0
 }
 
@@ -8700,9 +8694,12 @@ _ZN4core4char7methods15encode_utf8_raw17ha5a8bd16826d1590E.llvm.1110727506549290
 define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h6c4af54dc1348e99E.llvm.11107275065492906757"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %switch.tableidx = add i32 %1, -9
   %3 = icmp ult i32 %switch.tableidx, 24
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.shifted = lshr i32 8388639, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17ha60c11c6bea84c95E.llvm.11107275065492906757.exit", label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, 127
   br i1 %5, label %6, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17ha60c11c6bea84c95E.llvm.11107275065492906757.exit"
 
@@ -8745,13 +8742,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.1110
   %25 = trunc i8 %.0.i.i to i1
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17ha60c11c6bea84c95E.llvm.11107275065492906757.exit"
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 8388639, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17ha60c11c6bea84c95E.llvm.11107275065492906757.exit", label %4
-
-"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17ha60c11c6bea84c95E.llvm.11107275065492906757.exit": ; preds = %switch.hole_check, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i
-  %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i ], [ false, %4 ], [ true, %switch.hole_check ]
+"_ZN4core3str21_$LT$impl$u20$str$GT$4trim28_$u7b$$u7b$closure$u7d$$u7d$17ha60c11c6bea84c95E.llvm.11107275065492906757.exit": ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i
+  %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -8765,9 +8757,12 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..Mu
 define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hf9925107b673fa84E.llvm.11107275065492906757"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %switch.tableidx = add i32 %1, -9
   %3 = icmp ult i32 %switch.tableidx, 24
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.shifted = lshr i32 8388639, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17h162d1ebbaf3210cfE.llvm.11107275065492906757.exit", label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, 127
   br i1 %5, label %6, label %"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17h162d1ebbaf3210cfE.llvm.11107275065492906757.exit"
 
@@ -8810,13 +8805,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.1110
   %25 = trunc i8 %.0.i.i to i1
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17h162d1ebbaf3210cfE.llvm.11107275065492906757.exit"
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 8388639, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17h162d1ebbaf3210cfE.llvm.11107275065492906757.exit", label %4
-
-"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17h162d1ebbaf3210cfE.llvm.11107275065492906757.exit": ; preds = %switch.hole_check, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i
-  %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i ], [ false, %4 ], [ true, %switch.hole_check ]
+"_ZN4core3str21_$LT$impl$u20$str$GT$8trim_end28_$u7b$$u7b$closure$u7d$$u7d$17h162d1ebbaf3210cfE.llvm.11107275065492906757.exit": ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i
+  %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -8824,9 +8814,12 @@ switch.hole_check:                                ; preds = %2
 define hidden noundef zeroext i1 @"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17hfda88cfd850b85e3E.llvm.11107275065492906757"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i32 noundef %1) unnamed_addr #10 {
   %switch.tableidx = add i32 %1, -9
   %3 = icmp ult i32 %switch.tableidx, 24
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.shifted = lshr i32 8388639, %switch.tableidx
+  %switch.lobit = trunc i32 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10trim_start28_$u7b$$u7b$closure$u7d$$u7d$17hfe3bd908efc35134E.llvm.11107275065492906757.exit", label %4
 
-4:                                                ; preds = %switch.hole_check, %2
+4:                                                ; preds = %2
   %5 = icmp ugt i32 %1, 127
   br i1 %5, label %6, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10trim_start28_$u7b$$u7b$closure$u7d$$u7d$17hfe3bd908efc35134E.llvm.11107275065492906757.exit"
 
@@ -8869,13 +8862,8 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.1110
   %25 = trunc i8 %.0.i.i to i1
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$10trim_start28_$u7b$$u7b$closure$u7d$$u7d$17hfe3bd908efc35134E.llvm.11107275065492906757.exit"
 
-switch.hole_check:                                ; preds = %2
-  %switch.shifted = lshr i32 8388639, %switch.tableidx
-  %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10trim_start28_$u7b$$u7b$closure$u7d$$u7d$17hfe3bd908efc35134E.llvm.11107275065492906757.exit", label %4
-
-"_ZN4core3str21_$LT$impl$u20$str$GT$10trim_start28_$u7b$$u7b$closure$u7d$$u7d$17hfe3bd908efc35134E.llvm.11107275065492906757.exit": ; preds = %switch.hole_check, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i
-  %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i ], [ false, %4 ], [ true, %switch.hole_check ]
+"_ZN4core3str21_$LT$impl$u20$str$GT$10trim_start28_$u7b$$u7b$closure$u7d$$u7d$17hfe3bd908efc35134E.llvm.11107275065492906757.exit": ; preds = %2, %4, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i
+  %.0.i = phi i1 [ %25, %_ZN4core7unicode12unicode_data11white_space6lookup17h3e9dac857c10d7d8E.llvm.11107275065492906757.exit.i ], [ false, %4 ], [ true, %2 ]
   ret i1 %.0.i
 }
 
@@ -9942,8 +9930,8 @@ define hidden void @_ZN6blake32io9copy_wide17h1a34a9a632121a78E(ptr noalias noun
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @_ZN3std3sys3pal4unix2fs4File4read17hafbec41c56b1e114E(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull align 1 %6, i64 noundef 65536)
   %9 = load i64, ptr %5, align 8, !range !581, !noundef !4
-  %trunc30 = trunc nuw i64 %9 to i1
-  br i1 %trunc30, label %.lr.ph, label %._crit_edge
+  %trunc29 = trunc nuw i64 %9 to i1
+  br i1 %trunc29, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %32, %.outer
   %10 = load i64, ptr %7, align 8, !noundef !4
@@ -9951,8 +9939,8 @@ define hidden void @_ZN6blake32io9copy_wide17h1a34a9a632121a78E(ptr noalias noun
   br i1 %11, label %19, label %21
 
 .lr.ph:                                           ; preds = %.outer, %32
-  %.val8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %12 = ptrtoint ptr %.val8 to i64
+  %.val9 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
+  %12 = ptrtoint ptr %.val9 to i64
   %13 = and i64 %12, 3
   switch i64 %13, label %default.unreachable [
     i64 2, label %15
@@ -9966,16 +9954,16 @@ default.unreachable:                              ; preds = %.lr.ph
 
 14:                                               ; preds = %.lr.ph
   %.mask = and i64 %12, -4294967296
-  %switch21 = icmp eq i64 %.mask, 150323855360
-  br i1 %switch21, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+  %switch20 = icmp eq i64 %.mask, 150323855360
+  br i1 %switch20, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread18, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
 
 15:                                               ; preds = %.lr.ph
-  %.mask22 = and i64 %12, -4294967296
-  %cond = icmp eq i64 %.mask22, 17179869184
-  br i1 %cond, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+  %.mask21 = and i64 %12, -4294967296
+  %cond = icmp eq i64 %.mask21, 17179869184
+  br i1 %cond, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread18, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr i8, ptr %.val8, i64 -1
+  %17 = getelementptr i8, ptr %.val9, i64 -1
   %18 = icmp ne ptr %17, null
   call void @llvm.assume(i1 %18)
   br label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
@@ -10008,28 +9996,28 @@ default.unreachable:                              ; preds = %.lr.ph
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit: ; preds = %.lr.ph, %16
   %.sink = phi i64 [ 15, %16 ], [ 16, %.lr.ph ]
-  %27 = getelementptr i8, ptr %.val8, i64 %.sink
+  %27 = getelementptr i8, ptr %.val9, i64 %.sink
   %.0.i = load i8, ptr %27, align 8, !range !595, !noundef !4
   %28 = icmp eq i8 %.0.i, 35
-  br i1 %28, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
+  br i1 %28, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread18, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread
 
-_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19: ; preds = %14, %15, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
+_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread18: ; preds = %14, %15, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !2145
-  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h533809143ae47248E.llvm.1798434116971987782(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val8)
+  call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h533809143ae47248E.llvm.1798434116971987782(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull %.val9)
   %29 = load i8, ptr %4, align 8, !range !628, !alias.scope !2152, !noalias !2145, !noundef !4
   %switch.not.i.i.i.i = icmp eq i8 %29, 3
   br i1 %switch.not.i.i.i.i, label %30, label %32
 
-30:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19
+30:                                               ; preds = %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread18
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h74fc93d42b5113ddE.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 dereferenceable(8) %8)
   br label %32
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread: ; preds = %14, %15, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.val8, ptr %31, align 8
+  store ptr %.val9, ptr %31, align 8
   br label %23
 
-32:                                               ; preds = %30, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread19
+32:                                               ; preds = %30, %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !2145
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

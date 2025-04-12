@@ -228,26 +228,24 @@ define void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef %0, ptr n
   %11 = alloca %class.anon, align 8
   %12 = load i8, ptr @_ZN3fLB17FLAGS_logtostdoutE, align 1, !tbaa !39, !range !40, !noundef !41
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %23, label %14
+  %14 = load i8, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !range !40
+  %15 = trunc nuw i8 %14 to i1
+  %or.cond = select i1 %13, i1 true, i1 %15
+  br i1 %or.cond, label %23, label %16
 
-14:                                               ; preds = %4
-  %15 = load i8, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !39, !range !40, !noundef !41
-  %16 = trunc nuw i8 %15 to i1
-  %17 = load i32, ptr @_ZN3fLI21FLAGS_stderrthresholdE, align 4
-  %.not = icmp sge i32 %0, %17
-  %or.cond.not = select i1 %16, i1 true, i1 %.not
-  br i1 %or.cond.not, label %23, label %18
-
-18:                                               ; preds = %14
-  %19 = load i8, ptr @_ZN3fLB21FLAGS_alsologtostderrE, align 1, !tbaa !39, !range !40, !noundef !41
+16:                                               ; preds = %4
+  %17 = load i32, ptr @_ZN3fLI21FLAGS_stderrthresholdE, align 4, !tbaa !42
+  %18 = icmp sge i32 %0, %17
+  %19 = load i8, ptr @_ZN3fLB21FLAGS_alsologtostderrE, align 1, !range !40
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %23, label %21
+  %or.cond3 = select i1 %18, i1 true, i1 %20
+  br i1 %or.cond3, label %23, label %21
 
-21:                                               ; preds = %18
+21:                                               ; preds = %16
   %22 = tail call noundef zeroext i1 @_ZN6google26IsGoogleLoggingInitializedEv()
   br i1 %22, label %111, label %23
 
-23:                                               ; preds = %21, %18, %14, %4
+23:                                               ; preds = %21, %16, %4
   call void @llvm.lifetime.start.p0(i64 3064, ptr nonnull %5) #21
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 16), ptr %5, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -263,11 +261,11 @@ define void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef %0, ptr n
   store ptr %26, ptr %29, align 8, !tbaa !13
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %27, ptr %30, align 8, !tbaa !14
-  store ptr %26, ptr %24, align 8, !tbaa !42
+  store ptr %26, ptr %24, align 8, !tbaa !43
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %26, ptr %31, align 8, !tbaa !43
+  store ptr %26, ptr %31, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %27, ptr %32, align 8, !tbaa !44
+  store ptr %27, ptr %32, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 272, ptr nonnull %6) #21
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %33) #21
@@ -297,7 +295,7 @@ define void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef %0, ptr n
   %45 = load i64, ptr %44, align 8
   %46 = getelementptr inbounds i8, ptr %6, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i64 5, ptr %47, align 8, !tbaa !45
+  store i64 5, ptr %47, align 8, !tbaa !46
   %48 = tail call i64 @pthread_self() #22
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %50, label %52
@@ -313,14 +311,14 @@ define void @_ZN6google8RawLog__ENS_11LogSeverityEPKciS2_z(i32 noundef %0, ptr n
 _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit: ; preds = %50, %52
   call void @llvm.lifetime.start.p0(i64 3000, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #21
-  store ptr %7, ptr %8, align 8, !tbaa !46
+  store ptr %7, ptr %8, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #21
-  store i64 3000, ptr %9, align 8, !tbaa !47
+  store i64 3000, ptr %9, align 8, !tbaa !48
   %54 = invoke noundef ptr @_ZN6google18GetLogSeverityNameENS_11LogSeverityE(i32 noundef %0)
           to label %55 unwind label %92
 
 55:                                               ; preds = %_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit
-  %56 = load i8, ptr %54, align 1, !tbaa !48
+  %56 = load i8, ptr %54, align 1, !tbaa !49
   %57 = load ptr, ptr %28, align 8, !tbaa !6
   %58 = load ptr, ptr %29, align 8, !tbaa !13
   %.not.i = icmp eq ptr %57, %58
@@ -333,16 +331,16 @@ _ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_NSt6thread2idE.exit: ; pr
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds i8, ptr %57, i64 -1
-  %63 = load i8, ptr %62, align 1, !tbaa !48
+  %63 = load i8, ptr %62, align 1, !tbaa !49
   %.not2.i = icmp eq i8 %63, 0
   br i1 %.not2.i, label %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit, label %64
 
 64:                                               ; preds = %61
   %65 = icmp ult ptr %57, %60
-  br i1 %65, label %66, label %69, !prof !49
+  br i1 %65, label %66, label %69, !prof !50
 
 66:                                               ; preds = %64
-  store i8 0, ptr %57, align 1, !tbaa !48
+  store i8 0, ptr %57, align 1, !tbaa !49
   %67 = load ptr, ptr %28, align 8, !tbaa !6
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %68, ptr %28, align 8, !tbaa !6
@@ -369,8 +367,8 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %55, %
 78:                                               ; preds = %_ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit
   %79 = sext i8 %56 to i32
   call void (ptr, ptr, ptr, ...) @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str, i32 noundef %79, ptr noundef nonnull %26, ptr noundef %77, i32 noundef %2)
-  %80 = load ptr, ptr %8, align 8, !tbaa !46
-  %81 = load i64, ptr %9, align 8, !tbaa !47
+  %80 = load ptr, ptr %8, align 8, !tbaa !47
+  %81 = load i64, ptr %9, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #21
   call void @llvm.va_start.p0(ptr nonnull %10)
   %82 = call i32 @vsnprintf(ptr noundef %80, i64 noundef %81, ptr noundef readonly %3, ptr noundef nonnull %10) #21
@@ -384,9 +382,9 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %55, %
 
 87:                                               ; preds = %84
   %88 = sub nuw i64 %81, %85
-  store i64 %88, ptr %9, align 8, !tbaa !47
+  store i64 %88, ptr %9, align 8, !tbaa !48
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 %85
-  store ptr %89, ptr %8, align 8, !tbaa !46
+  store ptr %89, ptr %8, align 8, !tbaa !47
   br label %96
 
 90:                                               ; preds = %52, %50
@@ -408,7 +406,7 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %55, %
   %.str.2.sink = phi ptr [ @.str.1, %87 ], [ @.str.2, %84 ], [ @.str.2, %78 ]
   call void @llvm.va_end.p0(ptr nonnull %10)
   call void (ptr, ptr, ptr, ...) @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef %8, ptr noundef %9, ptr noundef nonnull %.str.2.sink)
-  %97 = load ptr, ptr @stderr, align 8, !tbaa !50
+  %97 = load ptr, ptr @stderr, align 8, !tbaa !51
   %98 = call i32 @fileno(ptr noundef %97) #21
   %99 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #24
   %100 = call i64 (i64, ...) @syscall(i64 noundef 1, i32 noundef %98, ptr noundef nonnull %7, i64 noundef %99) #21
@@ -417,13 +415,13 @@ _ZN6google12_GLOBAL__N_115StaticStringBufILm3000EE4dataEv.exit: ; preds = %55, %
 
 102:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #21
-  store ptr %1, ptr %11, align 8, !tbaa !52
+  store ptr %1, ptr %11, align 8, !tbaa !53
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %2, ptr %103, align 8, !tbaa !54
+  store i32 %2, ptr %103, align 8, !tbaa !55
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %80, ptr %104, align 8, !tbaa !55
+  store ptr %80, ptr %104, align 8, !tbaa !56
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %81, ptr %105, align 8, !tbaa !56
+  store i64 %81, ptr %105, align 8, !tbaa !57
   invoke fastcc void @"_ZSt9call_onceIZN6google8RawLog__ENS0_11LogSeverityEPKciS3_zE3$_0JEEvRSt9once_flagOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %106 unwind label %108
 
@@ -488,8 +486,8 @@ define internal void @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef nonnull capture
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = load ptr, ptr %0, align 8, !tbaa !46
-  %6 = load i64, ptr %1, align 8, !tbaa !47
+  %5 = load ptr, ptr %0, align 8, !tbaa !47
+  %6 = load i64, ptr %1, align 8, !tbaa !48
   %7 = call i32 @vsnprintf(ptr noundef %5, i64 noundef %6, ptr noundef %2, ptr noundef nonnull %4) #21
   call void @llvm.va_end.p0(ptr nonnull %4)
   %8 = icmp slt i32 %7, 0
@@ -497,16 +495,16 @@ define internal void @_ZN6googleL8DoRawLogEPPcPmPKcz(ptr noundef nonnull capture
 
 9:                                                ; preds = %3
   %10 = zext nneg i32 %7 to i64
-  %11 = load i64, ptr %1, align 8, !tbaa !47
+  %11 = load i64, ptr %1, align 8, !tbaa !48
   %12 = icmp ult i64 %11, %10
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %9
   %14 = sub nuw i64 %11, %10
-  store i64 %14, ptr %1, align 8, !tbaa !47
-  %15 = load ptr, ptr %0, align 8, !tbaa !46
+  store i64 %14, ptr %1, align 8, !tbaa !48
+  %15 = load ptr, ptr %0, align 8, !tbaa !47
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %10
-  store ptr %16, ptr %0, align 8, !tbaa !46
+  store ptr %16, ptr %0, align 8, !tbaa !47
   br label %17
 
 17:                                               ; preds = %3, %9, %13
@@ -537,11 +535,11 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 define internal fastcc void @"_ZSt9call_onceIZN6google8RawLog__ENS0_11LogSeverityEPKciS3_zE3$_0JEEvRSt9once_flagOT_DpOT0_"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #21
-  store ptr %0, ptr %2, align 8, !tbaa !57
+  store ptr %0, ptr %2, align 8, !tbaa !58
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  store ptr %2, ptr %3, align 8, !tbaa !57
+  store ptr %2, ptr %3, align 8, !tbaa !58
   %4 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
-  store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6google8RawLog__ENS3_11LogSeverityEPKciS6_zE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS9_ENUlvE_8__invokeEv", ptr %4, align 8, !tbaa !57
+  store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6google8RawLog__ENS3_11LogSeverityEPKciS6_zE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS9_ENUlvE_8__invokeEv", ptr %4, align 8, !tbaa !58
   %5 = invoke noundef i32 @pthread_once(ptr noundef nonnull @_ZN6googleL7crashedE, ptr noundef nonnull @__once_proxy)
           to label %_ZL14__gthread_oncePiPFvvE.exit unwind label %8
 
@@ -559,14 +557,14 @@ _ZL14__gthread_oncePiPFvvE.exit:                  ; preds = %1
 8:                                                ; preds = %1, %6
   %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %3, align 8, !tbaa !57
-  store ptr null, ptr %4, align 8, !tbaa !57
+  store ptr null, ptr %3, align 8, !tbaa !58
+  store ptr null, ptr %4, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
   resume { ptr, i32 } %9
 
 10:                                               ; preds = %_ZL14__gthread_oncePiPFvvE.exit
-  store ptr null, ptr %3, align 8, !tbaa !57
-  store ptr null, ptr %4, align 8, !tbaa !57
+  store ptr null, ptr %3, align 8, !tbaa !58
+  store ptr null, ptr %4, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
   ret void
 }
@@ -764,21 +762,21 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #19
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZN6google8RawLog__ENS3_11LogSeverityEPKciS6_zE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS9_ENUlvE_8__invokeEv"() #20 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  %2 = load ptr, ptr %1, align 8, !tbaa !57
-  %.val.i = load ptr, ptr %2, align 8, !tbaa !58
-  %3 = load ptr, ptr %.val.i, align 8, !tbaa !52
-  store ptr %3, ptr @_ZN6googleL12crash_reasonE, align 8, !tbaa !60
+  %2 = load ptr, ptr %1, align 8, !tbaa !58
+  %.val.i = load ptr, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %.val.i, align 8, !tbaa !53
+  store ptr %3, ptr @_ZN6googleL12crash_reasonE, align 8, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !54
-  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 8), align 8, !tbaa !62
+  %5 = load i32, ptr %4, align 8, !tbaa !55
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 8), align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !56
   %8 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !56
+  %9 = load i64, ptr %8, align 8, !tbaa !57
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @_ZN6googleL9crash_bufE, ptr align 1 %7, i64 %9, i1 false)
-  store ptr @_ZN6googleL9crash_bufE, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 16), align 8, !tbaa !63
+  store ptr @_ZN6googleL9crash_bufE, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 16), align 8, !tbaa !64
   %10 = tail call noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 24), i32 noundef 32, i32 noundef 1)
-  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 280), align 8, !tbaa !64
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 280), align 8, !tbaa !65
   tail call void @_ZN6google24glog_internal_namespace_14SetCrashReasonEPKNS_7logging8internal11CrashReasonE(ptr noundef nonnull @_ZN6googleL12crash_reasonE)
   ret void
 }
@@ -861,26 +859,27 @@ attributes #26 = { builtin nounwind }
 !39 = !{!32, !32, i64 0}
 !40 = !{i8 0, i8 2}
 !41 = !{}
-!42 = !{!7, !8, i64 8}
-!43 = !{!7, !8, i64 16}
-!44 = !{!7, !8, i64 24}
-!45 = !{!24, !19, i64 16}
-!46 = !{!8, !8, i64 0}
-!47 = !{!19, !19, i64 0}
-!48 = !{!10, !10, i64 0}
-!49 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!52 = !{!53, !8, i64 0}
-!53 = !{!"_ZTSZN6google8RawLog__ENS_11LogSeverityEPKciS2_zE3$_0", !8, i64 0, !29, i64 8, !8, i64 16, !19, i64 24}
-!54 = !{!53, !29, i64 8}
-!55 = !{!53, !8, i64 16}
-!56 = !{!53, !19, i64 24}
-!57 = !{!9, !9, i64 0}
-!58 = !{!59, !9, i64 0}
-!59 = !{!"_ZTSZSt9call_onceIZN6google8RawLog__ENS0_11LogSeverityEPKciS3_zE3$_0JEEvRSt9once_flagOT_DpOT0_EUlvE_", !9, i64 0}
-!60 = !{!61, !8, i64 0}
-!61 = !{!"_ZTSN6google7logging8internal11CrashReasonE", !8, i64 0, !29, i64 8, !8, i64 16, !10, i64 24, !29, i64 280}
-!62 = !{!61, !29, i64 8}
-!63 = !{!61, !8, i64 16}
-!64 = !{!61, !29, i64 280}
+!42 = !{!29, !29, i64 0}
+!43 = !{!7, !8, i64 8}
+!44 = !{!7, !8, i64 16}
+!45 = !{!7, !8, i64 24}
+!46 = !{!24, !19, i64 16}
+!47 = !{!8, !8, i64 0}
+!48 = !{!19, !19, i64 0}
+!49 = !{!10, !10, i64 0}
+!50 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!53 = !{!54, !8, i64 0}
+!54 = !{!"_ZTSZN6google8RawLog__ENS_11LogSeverityEPKciS2_zE3$_0", !8, i64 0, !29, i64 8, !8, i64 16, !19, i64 24}
+!55 = !{!54, !29, i64 8}
+!56 = !{!54, !8, i64 16}
+!57 = !{!54, !19, i64 24}
+!58 = !{!9, !9, i64 0}
+!59 = !{!60, !9, i64 0}
+!60 = !{!"_ZTSZSt9call_onceIZN6google8RawLog__ENS0_11LogSeverityEPKciS3_zE3$_0JEEvRSt9once_flagOT_DpOT0_EUlvE_", !9, i64 0}
+!61 = !{!62, !8, i64 0}
+!62 = !{!"_ZTSN6google7logging8internal11CrashReasonE", !8, i64 0, !29, i64 8, !8, i64 16, !10, i64 24, !29, i64 280}
+!63 = !{!62, !29, i64 8}
+!64 = !{!62, !8, i64 16}
+!65 = !{!62, !29, i64 280}

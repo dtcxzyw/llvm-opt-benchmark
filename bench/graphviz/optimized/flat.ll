@@ -1075,7 +1075,7 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   %4 = getelementptr inbounds nuw i8, ptr %.16.val, i64 216
   %5 = load i8, ptr %4, align 8, !tbaa !50
   %6 = icmp eq i8 %5, 1
-  br i1 %6, label %7, label %.thread
+  br i1 %6, label %7, label %.thread21
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %.16.val, i64 364
@@ -1089,8 +1089,8 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   br i1 %12, label %16, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %.not10 = icmp eq ptr %15, null
-  br i1 %.not10, label %.thread, label %.lr.ph
+  %.not6210 = icmp eq ptr %15, null
+  br i1 %.not6210, label %.thread21, label %.lr.ph
 
 16:                                               ; preds = %7
   %17 = load i32, ptr %15, align 8
@@ -1112,38 +1112,38 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   %31 = getelementptr i8, ptr %22, i64 16
   %.val = load ptr, ptr %31, align 8, !tbaa !3
   %32 = getelementptr i8, ptr %30, i64 16
-  %.val67 = load ptr, ptr %32, align 8, !tbaa !3
+  %.val72 = load ptr, ptr %32, align 8, !tbaa !3
   %33 = getelementptr i8, ptr %.val, i64 364
   %.val.val = load i32, ptr %33, align 4, !tbaa !34
-  %34 = getelementptr i8, ptr %.val67, i64 364
-  %.val67.val = load i32, ptr %34, align 4, !tbaa !34
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.val.val, i32 %.val67.val)
-  %spec.select14.i = tail call i32 @llvm.smin.i32(i32 %.val.val, i32 %.val67.val)
-  %.not60 = icmp sgt i32 %spec.select.i, %1
-  br i1 %.not60, label %37, label %35
+  %34 = getelementptr i8, ptr %.val72, i64 364
+  %.val72.val = load i32, ptr %34, align 4, !tbaa !34
+  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.val.val, i32 %.val72.val)
+  %spec.select14.i = tail call i32 @llvm.smin.i32(i32 %.val.val, i32 %.val72.val)
+  %.not65 = icmp sgt i32 %spec.select.i, %1
+  br i1 %.not65, label %37, label %35
 
 35:                                               ; preds = %16
   store i32 %9, ptr %0, align 4, !tbaa !75
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %36, align 4, !tbaa !75
-  br label %.thread
+  br label %.thread21
 
 37:                                               ; preds = %16
-  %.not61 = icmp slt i32 %spec.select14.i, %2
-  br i1 %.not61, label %41, label %38
+  %.not66 = icmp slt i32 %spec.select14.i, %2
+  br i1 %.not66, label %41, label %38
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %39, align 4, !tbaa !75
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %9, ptr %40, align 4, !tbaa !75
-  br label %.thread
+  br label %.thread21
 
 41:                                               ; preds = %37
   %42 = icmp slt i32 %spec.select14.i, %1
   %43 = icmp sgt i32 %spec.select.i, %2
-  %or.cond = and i1 %42, %43
-  br i1 %or.cond, label %.thread, label %44
+  %or.cond67 = and i1 %42, %43
+  br i1 %or.cond67, label %.thread21, label %44
 
 44:                                               ; preds = %41
   br i1 %42, label %48, label %45
@@ -1151,8 +1151,8 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
 45:                                               ; preds = %44
   %46 = icmp eq i32 %spec.select14.i, %1
   %47 = icmp slt i32 %spec.select.i, %2
-  %or.cond63 = and i1 %46, %47
-  br i1 %or.cond63, label %48, label %50
+  %or.cond69 = and i1 %46, %47
+  br i1 %or.cond69, label %48, label %50
 
 48:                                               ; preds = %45, %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1165,19 +1165,19 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
 51:                                               ; preds = %50
   %52 = icmp eq i32 %spec.select.i, %2
   %53 = icmp sgt i32 %spec.select14.i, %1
-  %or.cond65 = and i1 %52, %53
-  br i1 %or.cond65, label %54, label %.thread
+  %or.cond71 = and i1 %52, %53
+  br i1 %or.cond71, label %54, label %.thread21
 
 54:                                               ; preds = %51, %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %9, ptr %55, align 4, !tbaa !75
-  br label %.thread
+  br label %.thread21
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %56 = phi ptr [ %69, %.lr.ph ], [ %15, %.preheader ]
-  %.013 = phi i8 [ %.1, %.lr.ph ], [ 0, %.preheader ]
-  %.04712 = phi i1 [ %.148, %.lr.ph ], [ false, %.preheader ]
+  %.013 = phi i1 [ %67, %.lr.ph ], [ false, %.preheader ]
+  %.05112 = phi i1 [ %.152, %.lr.ph ], [ false, %.preheader ]
   %57 = load i32, ptr %56, align 8
   %58 = and i32 %57, 3
   %59 = icmp eq i32 %58, 2
@@ -1189,39 +1189,40 @@ define internal fastcc void @setbounds(ptr readonly captures(none) %.16.val, ptr
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 364
   %66 = load i32, ptr %65, align 4, !tbaa !34
-  %.not58 = icmp sle i32 %66, %1
-  %.not59 = icmp slt i32 %66, %2
-  %.148 = select i1 %.not58, i1 true, i1 %.04712
-  %67 = or i1 %.not58, %.not59
-  %.1 = select i1 %67, i8 %.013, i8 1
+  %.not63 = icmp sle i32 %66, %1
+  %.not64 = icmp sge i32 %66, %2
+  %spec.select = select i1 %.not64, i1 true, i1 %.013
+  %.152 = select i1 %.not63, i1 true, i1 %.05112
+  %67 = select i1 %.not63, i1 %.013, i1 %spec.select
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next
   %69 = load ptr, ptr %68, align 8, !tbaa !29
-  %.not = icmp eq ptr %69, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
+  %.not62 = icmp eq ptr %69, null
+  br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %70 = trunc nuw i8 %.1 to i1
-  br i1 %.148, label %71, label %74
+  %not..05112 = xor i1 %.05112, true
+  %.1 = select i1 %not..05112, i1 true, i1 %spec.select
+  %or.cond = select i1 %.not63, i1 %.013, i1 %.1
+  br i1 %or.cond, label %71, label %.thread
+
+.thread:                                          ; preds = %._crit_edge
+  %70 = add nsw i32 %9, 1
+  store i32 %70, ptr %0, align 4, !tbaa !75
+  br label %.thread21
 
 71:                                               ; preds = %._crit_edge
-  br i1 %70, label %.thread, label %72
+  %.not2 = xor i1 %67, true
+  %or.cond4 = or i1 %.152, %.not2
+  br i1 %or.cond4, label %.thread21, label %72
 
 72:                                               ; preds = %71
-  %73 = add nsw i32 %9, 1
-  store i32 %73, ptr %0, align 4, !tbaa !75
-  br label %.thread
+  %73 = add nsw i32 %9, -1
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %73, ptr %74, align 4, !tbaa !75
+  br label %.thread21
 
-74:                                               ; preds = %._crit_edge
-  br i1 %70, label %75, label %.thread
-
-75:                                               ; preds = %74
-  %76 = add nsw i32 %9, -1
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %76, ptr %77, align 4, !tbaa !75
-  br label %.thread
-
-.thread:                                          ; preds = %.preheader, %71, %72, %75, %74, %41, %38, %51, %54, %35, %3
+.thread21:                                        ; preds = %.preheader, %.thread, %71, %72, %41, %38, %51, %54, %35, %3
   ret void
 }
 

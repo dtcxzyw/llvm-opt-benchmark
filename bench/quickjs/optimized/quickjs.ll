@@ -18658,14 +18658,12 @@ define dso_local { i64, i64 } @JS_GetPrototype(ptr noundef %0, i64 %1, i64 %2) l
   %24 = trunc i64 %2 to i32
   %switch.tableidx = add i32 %24, 11
   %25 = icmp ult i32 %switch.tableidx, 19
-  br i1 %25, label %switch.hole_check, label %JS_DupValue.exit
-
-switch.hole_check:                                ; preds = %23
   %switch.shifted = lshr i32 268319, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %JS_DupValue.exit
+  %or.cond = select i1 %25, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %JS_DupValue.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %23
   %26 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table.JS_GetPrototypeFree, i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -18689,9 +18687,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %36, ptr %34, align 4, !tbaa !107
   br label %JS_DupValue.exit
 
-JS_DupValue.exit:                                 ; preds = %switch.hole_check, %23, %switch.lookup, %33
-  %.sroa.07.sroa.0.0.insert.insert.i41 = phi i64 [ %.sroa.07.0.copyload13.i, %switch.lookup ], [ %.sroa.07.0.copyload13.i, %33 ], [ 0, %23 ], [ 0, %switch.hole_check ]
-  %.sroa.11.0.i40 = phi i64 [ %.sroa.11.0.copyload26.i, %switch.lookup ], [ %.sroa.11.0.copyload26.i, %33 ], [ 2, %23 ], [ 2, %switch.hole_check ]
+JS_DupValue.exit:                                 ; preds = %23, %switch.lookup, %33
+  %.sroa.07.sroa.0.0.insert.insert.i41 = phi i64 [ %.sroa.07.0.copyload13.i, %switch.lookup ], [ %.sroa.07.0.copyload13.i, %33 ], [ 0, %23 ]
+  %.sroa.11.0.i40 = phi i64 [ %.sroa.11.0.copyload26.i, %switch.lookup ], [ %.sroa.11.0.copyload26.i, %33 ], [ 2, %23 ]
   %.sroa.5.0.extract.shift = and i64 %.sroa.07.sroa.0.0.insert.insert.i41, -4294967296
   br label %37
 
@@ -18971,14 +18969,12 @@ define internal fastcc i64 @JS_GetPrototypePrimitive(ptr noundef readonly captur
   %3 = trunc i64 %1 to i32
   %switch.tableidx = add i32 %3, 11
   %4 = icmp ult i32 %switch.tableidx, 19
-  br i1 %4, label %switch.hole_check, label %9
-
-switch.hole_check:                                ; preds = %2
   %switch.shifted = lshr i32 268319, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %9
+  %or.cond = select i1 %4, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %9
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table.JS_GetPrototypeFree, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -18988,8 +18984,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.sroa.07.0.copyload13 = load i64, ptr %8, align 8, !tbaa !46
   br label %9
 
-9:                                                ; preds = %switch.hole_check, %2, %switch.lookup
-  %.sroa.07.sroa.0.0.insert.insert = phi i64 [ 0, %2 ], [ %.sroa.07.0.copyload13, %switch.lookup ], [ 0, %switch.hole_check ]
+9:                                                ; preds = %2, %switch.lookup
+  %.sroa.07.sroa.0.0.insert.insert = phi i64 [ 0, %2 ], [ %.sroa.07.0.copyload13, %switch.lookup ]
   ret i64 %.sroa.07.sroa.0.0.insert.insert
 }
 
@@ -36753,14 +36749,12 @@ JS_FreeValue.exit3561:                            ; preds = %JS_FreeValue.exit35
   %2163 = trunc i64 %2142 to i32
   %switch.tableidx = add i32 %2163, 11
   %2164 = icmp ult i32 %switch.tableidx, 19
-  br i1 %2164, label %switch.hole_check, label %JS_GetPrototype.exit.thread
-
-switch.hole_check:                                ; preds = %2162
   %switch.shifted = lshr i32 268319, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %JS_GetPrototype.exit.thread
+  %or.cond9050 = select i1 %2164, i1 %switch.lobit, i1 false
+  br i1 %or.cond9050, label %switch.lookup, label %JS_GetPrototype.exit.thread
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %2162
   %2165 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table.JS_GetPrototypeFree, i64 0, i64 %2165
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -36790,9 +36784,9 @@ JS_GetPrototype.exit:                             ; preds = %2171, %switch.looku
   %.not5054 = icmp eq i64 %2175, 6
   br i1 %.not5054, label %JS_FreeValue.exit3531.loopexit, label %JS_GetPrototype.exit.thread
 
-JS_GetPrototype.exit.thread:                      ; preds = %switch.hole_check, %2162, %2154, %2159, %JS_GetPrototype.exit
-  %.sroa.023.0.insert.insert.i6049 = phi i64 [ %.sink6554, %JS_GetPrototype.exit ], [ 0, %2154 ], [ %.sroa.02.0..sroa.02.0.30.cast.i, %2159 ], [ 0, %2162 ], [ 0, %switch.hole_check ]
-  %.sroa.6.1.i6048 = phi i64 [ %.sroa.6.1.i, %JS_GetPrototype.exit ], [ 2, %2154 ], [ -1, %2159 ], [ 2, %2162 ], [ 2, %switch.hole_check ]
+JS_GetPrototype.exit.thread:                      ; preds = %2162, %2154, %2159, %JS_GetPrototype.exit
+  %.sroa.023.0.insert.insert.i6049 = phi i64 [ %.sink6554, %JS_GetPrototype.exit ], [ 0, %2154 ], [ %.sroa.02.0..sroa.02.0.30.cast.i, %2159 ], [ 0, %2162 ]
+  %.sroa.6.1.i6048 = phi i64 [ %.sroa.6.1.i, %JS_GetPrototype.exit ], [ 2, %2154 ], [ -1, %2159 ], [ 2, %2162 ]
   %2176 = load i64, ptr %2139, align 8
   %2177 = load i64, ptr %2141, align 8
   %2178 = trunc i64 %2177 to i32
@@ -40726,10 +40720,10 @@ build_for_in_iterator.exit.thread:                ; preds = %4039, %4034, %4031,
   br i1 %.not92.i, label %4145, label %4293
 
 4145:                                             ; preds = %4143
-  %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5593.i49776018682379169609 = load i64, ptr %.sroa.053.i, align 8
+  %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5593.i49776018682379169610 = load i64, ptr %.sroa.053.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #41
-  %.sroa.039.0..sroa.039.0..cast.i = inttoptr i64 %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5593.i49776018682379169609 to ptr
+  %.sroa.039.0..sroa.039.0..cast.i = inttoptr i64 %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5593.i49776018682379169610 to ptr
   %4146 = getelementptr inbounds nuw i8, ptr %.sroa.039.0..sroa.039.0..cast.i, i64 48
   %4147 = load ptr, ptr %4146, align 8, !tbaa !46
   %4148 = load i64, ptr %4147, align 8
@@ -41022,7 +41016,7 @@ js_poll_interrupts.exit.i:                        ; preds = %4258
   store i32 0, ptr %42, align 8, !tbaa !46
   store i32 0, ptr %242, align 4
   store i64 3, ptr %243, align 8, !tbaa !121
-  %4290 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5593.i49776018682379169609, i64 %.sroa.7.0.copyload.i, i32 noundef %4289, i64 0, i64 2, ptr noundef nonnull byval(%struct.JSValue) align 8 %41, ptr noundef nonnull byval(%struct.JSValue) align 8 %42, i32 noundef 9988)
+  %4290 = call i32 @JS_DefineProperty(ptr noundef %.1, i64 %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5593.i49776018682379169610, i64 %.sroa.7.0.copyload.i, i32 noundef %4289, i64 0, i64 2, ptr noundef nonnull byval(%struct.JSValue) align 8 %41, ptr noundef nonnull byval(%struct.JSValue) align 8 %42, i32 noundef 9988)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42)
   %4291 = icmp slt i32 %4290, 0
@@ -41251,8 +41245,8 @@ js_free_prop_enum.exit:                           ; preds = %4306, %._crit_edge.
   br i1 %.not86.i, label %4395, label %.backedge.backedge
 
 4395:                                             ; preds = %4394
-  %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5687.i49866023682479179610 = load i64, ptr %.sroa.053.i, align 8
-  %4396 = call i32 @JS_DefinePropertyValue(ptr noundef %.1, i64 %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5687.i49866023682479179610, i64 %.sroa.7.0.copyload.i, i32 noundef %4387, i64 0, i64 2, i32 noundef 4)
+  %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5687.i49866023682479179611 = load i64, ptr %.sroa.053.i, align 8
+  %4396 = call i32 @JS_DefinePropertyValue(ptr noundef %.1, i64 %.sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.i.0..sroa.053.0..sroa.053.0.5687.i49866023682479179611, i64 %.sroa.7.0.copyload.i, i32 noundef %4387, i64 0, i64 2, i32 noundef 4)
   %4397 = icmp slt i32 %4396, 0
   br i1 %4397, label %js_for_in_next.exit.thread, label %4398
 
@@ -44050,13 +44044,13 @@ JS_FreeValue.exit4478:                            ; preds = %JS_NewObjectProto.e
   br label %JS_FreeValue.exit4477
 
 JS_FreeValue.exit4477:                            ; preds = %JS_FreeValue.exit4478, %5727, %5732
-  %.sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.0..sroa.0135.0.136191.i50266028682579189611 = load i64, ptr %.sroa.0135.i, align 8
+  %.sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.0..sroa.0135.0.136191.i50266028682579189612 = load i64, ptr %.sroa.0135.i, align 8
   %5734 = trunc i64 %.sroa.7.0.i40376097 to i32
   %5735 = icmp ugt i32 %5734, -12
   br i1 %5735, label %5736, label %JS_FreeValue.exit4476
 
 5736:                                             ; preds = %JS_FreeValue.exit4477
-  %5737 = inttoptr i64 %.sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.0..sroa.0135.0.136191.i50266028682579189611 to ptr
+  %5737 = inttoptr i64 %.sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.0..sroa.0135.0.136191.i50266028682579189612 to ptr
   %5738 = load i32, ptr %5737, align 4, !tbaa !107
   %5739 = add i32 %5738, -1
   store i32 %5739, ptr %5737, align 4, !tbaa !107
@@ -44065,7 +44059,7 @@ JS_FreeValue.exit4477:                            ; preds = %JS_FreeValue.exit44
 
 5741:                                             ; preds = %5736
   %5742 = load ptr, ptr %217, align 8, !tbaa !36
-  call void @__JS_FreeValueRT(ptr noundef %5742, i64 %.sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.0..sroa.0135.0.136191.i50266028682579189611, i64 %.sroa.7.0.i40376097)
+  call void @__JS_FreeValueRT(ptr noundef %5742, i64 %.sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.i.0..sroa.0135.0..sroa.0135.0.136191.i50266028682579189612, i64 %.sroa.7.0.i40376097)
   br label %JS_FreeValue.exit4476
 
 JS_FreeValue.exit4476:                            ; preds = %JS_FreeValue.exit4477, %5736, %5741
@@ -46801,7 +46795,7 @@ JS_FreeValue.exit4564:                            ; preds = %7087, %7082, %7079
   br i1 %7109, label %js_operator_private_in.exit.thread, label %._crit_edge5988
 
 ._crit_edge5988:                                  ; preds = %7106
-  %.sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.0..sroa.015.0.1739.i4948.pre6017682279159608 = load i64, ptr %.sroa.015.i, align 8
+  %.sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.0..sroa.015.0.1739.i4948.pre6017682279159609 = load i64, ptr %.sroa.015.i, align 8
   br label %JS_FreeAtom.exit6782
 
 7110:                                             ; preds = %7104
@@ -46943,7 +46937,7 @@ JS_FreeAtomStruct.exit.i.i6777:                   ; preds = %7177, %7168, %._cri
   br label %JS_FreeAtom.exit6782
 
 JS_FreeAtom.exit6782:                             ; preds = %JS_FreeAtomStruct.exit.i.i6777, %7136, %.loopexit5112, %._crit_edge5988
-  %7194 = phi i64 [ %.sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.0..sroa.015.0.1739.i4948.pre6017682279159608, %._crit_edge5988 ], [ %7122, %.loopexit5112 ], [ %7122, %7136 ], [ %7122, %JS_FreeAtomStruct.exit.i.i6777 ]
+  %7194 = phi i64 [ %.sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.i.0..sroa.015.0..sroa.015.0.1739.i4948.pre6017682279159609, %._crit_edge5988 ], [ %7122, %.loopexit5112 ], [ %7122, %7136 ], [ %7122, %JS_FreeAtomStruct.exit.i.i6777 ]
   %.031.i = phi i32 [ %7108, %._crit_edge5988 ], [ %.017.i.i4166, %.loopexit5112 ], [ %.017.i.i4166, %7136 ], [ %.017.i.i4166, %JS_FreeAtomStruct.exit.i.i6777 ]
   %7195 = inttoptr i64 %7194 to ptr
   %7196 = load i32, ptr %7195, align 4, !tbaa !107
@@ -78946,14 +78940,12 @@ define internal fastcc { i64, i64 } @JS_GetPrototypeFree(ptr noundef %0, i64 %1,
   %24 = trunc i64 %2 to i32
   %switch.tableidx = add i32 %24, 11
   %25 = icmp ult i32 %switch.tableidx, 19
-  br i1 %25, label %switch.hole_check, label %JS_DupValue.exit
-
-switch.hole_check:                                ; preds = %23
   %switch.shifted = lshr i32 268319, %switch.tableidx
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %JS_DupValue.exit
+  %or.cond = select i1 %25, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %JS_DupValue.exit
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %23
   %26 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [19 x i64], ptr @switch.table.JS_GetPrototypeFree, i64 0, i64 %26
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -78977,9 +78969,9 @@ switch.lookup:                                    ; preds = %switch.hole_check
   store i32 %36, ptr %34, align 4, !tbaa !107
   br label %JS_DupValue.exit
 
-JS_DupValue.exit:                                 ; preds = %switch.hole_check, %23, %switch.lookup, %33
-  %.sroa.07.sroa.0.0.insert.insert.i17 = phi i64 [ %.sroa.07.0.copyload13.i, %switch.lookup ], [ %.sroa.07.0.copyload13.i, %33 ], [ 0, %23 ], [ 0, %switch.hole_check ]
-  %.sroa.11.0.i16 = phi i64 [ %.sroa.11.0.copyload26.i, %switch.lookup ], [ %.sroa.11.0.copyload26.i, %33 ], [ 2, %23 ], [ 2, %switch.hole_check ]
+JS_DupValue.exit:                                 ; preds = %23, %switch.lookup, %33
+  %.sroa.07.sroa.0.0.insert.insert.i17 = phi i64 [ %.sroa.07.0.copyload13.i, %switch.lookup ], [ %.sroa.07.0.copyload13.i, %33 ], [ 0, %23 ]
+  %.sroa.11.0.i16 = phi i64 [ %.sroa.11.0.copyload26.i, %switch.lookup ], [ %.sroa.11.0.copyload26.i, %33 ], [ 2, %23 ]
   %.sroa.5.0.extract.shift.i = and i64 %.sroa.07.sroa.0.0.insert.insert.i17, -4294967296
   br label %JS_GetPrototype.exit
 
@@ -93287,19 +93279,17 @@ JS_FreeValue.exit:                                ; preds = %14, %65, %60, %JS_F
 define internal fastcc range(i32 0, 18) i32 @get_ovop_from_opcode(i32 noundef %0) unnamed_addr #30 {
   %switch.tableidx = add i32 %0, -141
   %2 = icmp ult i32 %switch.tableidx, 40
-  br i1 %2, label %switch.hole_check, label %3
-
-3:                                                ; preds = %switch.hole_check, %1
-  tail call void @abort() #44
-  unreachable
-
-switch.hole_check:                                ; preds = %1
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 611630170127, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %3
+  %or.cond = select i1 %2, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %3
 
-switch.lookup:                                    ; preds = %switch.hole_check
+3:                                                ; preds = %1
+  tail call void @abort() #44
+  unreachable
+
+switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [40 x i32], ptr @switch.table.get_ovop_from_opcode, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -175530,19 +175520,17 @@ JS_GetOpaque2.exit.thread:                        ; preds = %13, %16, %JS_GetOpa
 JS_GetOpaque2.exit:                               ; preds = %JS_GetOpaque.exit.i
   %switch.tableidx = add i32 %6, -141
   %29 = icmp ult i32 %switch.tableidx, 40
-  br i1 %29, label %switch.hole_check, label %30
-
-30:                                               ; preds = %switch.hole_check, %JS_GetOpaque2.exit
-  tail call void @abort() #44
-  unreachable
-
-switch.hole_check:                                ; preds = %JS_GetOpaque2.exit
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 611630170127, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %30
+  %or.cond = select i1 %29, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %30
 
-switch.lookup:                                    ; preds = %switch.hole_check
+30:                                               ; preds = %JS_GetOpaque2.exit
+  tail call void @abort() #44
+  unreachable
+
+switch.lookup:                                    ; preds = %JS_GetOpaque2.exit
   %31 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [40 x i64], ptr @switch.table.js_call_binary_op_simple, i64 0, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8

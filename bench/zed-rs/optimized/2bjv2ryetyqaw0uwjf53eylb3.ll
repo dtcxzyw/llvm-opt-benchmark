@@ -37482,9 +37482,12 @@ define { ptr, i64 } @_ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E(ptr noa
   %5 = load i8, ptr %0, align 1, !noundef !4
   %switch.tableidx = add i8 %5, -1
   %6 = icmp ult i8 %switch.tableidx, 8
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %1
+7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
@@ -37502,12 +37505,7 @@ define { ptr, i64 } @_ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E(ptr noa
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.183.llvm.1856919498638270738) #39
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %12 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i64], ptr @switch.table._ZN6search13SearchOptions5label17ha8aa4f1bf5771b29E, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -37528,9 +37526,12 @@ define noundef range(i8 27, -92) i8 @_ZN6search13SearchOptions4icon17ha8dc6192c2
   %5 = load i8, ptr %0, align 1, !noundef !4
   %switch.tableidx = add i8 %5, -1
   %6 = icmp ult i8 %switch.tableidx, 8
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %1
+7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
@@ -37548,12 +37549,7 @@ define noundef range(i8 27, -92) i8 @_ZN6search13SearchOptions4icon17ha8dc6192c2
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.184.llvm.1856919498638270738) #39
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %12 = shl nuw nsw i8 %switch.tableidx, 3
   %switch.shiftamt = zext nneg i8 %12 to i64
   %switch.downshift = lshr i64 8142508128567565219, %switch.shiftamt
@@ -37570,9 +37566,12 @@ define { ptr, ptr } @_ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e
   %5 = load i8, ptr %0, align 1, !noundef !4
   %switch.tableidx = add i8 %5, -1
   %6 = icmp ult i8 %switch.tableidx, 8
-  br i1 %6, label %switch.hole_check, label %7
+  %switch.shifted = lshr i8 -117, %switch.tableidx
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %6, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %7
 
-7:                                                ; preds = %switch.hole_check, %1
+7:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
@@ -37590,12 +37589,7 @@ define { ptr, ptr } @_ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e
   call void @_ZN4core9panicking9panic_fmt17h3d8fc78294164da7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.cfae85451d85cf72f2eced67e2a83e68.189.llvm.1856919498638270738) #39
   unreachable
 
-switch.hole_check:                                ; preds = %1
-  %switch.shifted = lshr i8 -117, %switch.tableidx
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %1
   %12 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN6search13SearchOptions16to_toggle_action17hf49c680f5ac4e799E, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8

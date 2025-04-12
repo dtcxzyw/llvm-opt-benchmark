@@ -453,9 +453,13 @@ define hidden range(i32 -25216, 1) i32 @mbedtls_cipher_finish(ptr noundef readon
   %8 = load i32, ptr %7, align 4, !tbaa !27
   %switch.tableidx = add i32 %8, -3
   %9 = icmp ult i32 %switch.tableidx, 8
-  br i1 %9, label %switch.hole_check, label %10
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -33, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %9, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %10
 
-10:                                               ; preds = %switch.hole_check, %6
+10:                                               ; preds = %6
   %11 = load i32, ptr %4, align 8, !tbaa !46
   %12 = and i32 %11, -2
   %switch = icmp eq i32 %12, 76
@@ -472,14 +476,8 @@ define hidden range(i32 -25216, 1) i32 @mbedtls_cipher_finish(ptr noundef readon
   %. = select i1 %.not, i32 0, i32 -25216
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %6
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -33, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %10
-
-switch.lookup:                                    ; preds = %switch.hole_check, %10, %13, %15, %3
-  %.0 = phi i32 [ -24832, %3 ], [ 0, %10 ], [ %., %15 ], [ -24704, %13 ], [ 0, %switch.hole_check ]
+switch.lookup:                                    ; preds = %6, %10, %13, %15, %3
+  %.0 = phi i32 [ -24832, %3 ], [ 0, %10 ], [ %., %15 ], [ -24704, %13 ], [ 0, %6 ]
   ret i32 %.0
 }
 
@@ -705,9 +703,13 @@ mbedtls_cipher_update.exit:                       ; preds = %45, %55
   %71 = load i32, ptr %70, align 4, !tbaa !27
   %switch.tableidx = add i32 %71, -3
   %72 = icmp ult i32 %switch.tableidx, 8
-  br i1 %72, label %switch.hole_check, label %73
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 -33, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %72, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %mbedtls_cipher_reset.exit, label %73
 
-73:                                               ; preds = %switch.hole_check, %69
+73:                                               ; preds = %69
   %74 = load i32, ptr %67, align 8, !tbaa !46
   %75 = and i32 %74, -2
   %switch.i = icmp eq i32 %75, 76
@@ -723,14 +725,8 @@ mbedtls_cipher_update.exit:                       ; preds = %45, %55
   %spec.select = select i1 %.not.i28, i32 0, i32 -25216
   br label %mbedtls_cipher_reset.exit
 
-switch.hole_check:                                ; preds = %69
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
-  %switch.shifted = lshr i8 -33, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %mbedtls_cipher_reset.exit, label %73
-
-mbedtls_cipher_reset.exit:                        ; preds = %switch.hole_check, %78, %61, %63, %44, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i, %65, %16, %10, %7, %73, %76, %66, %mbedtls_cipher_set_iv.exit.thread32, %mbedtls_cipher_update.exit, %mbedtls_cipher_set_iv.exit
-  %.0 = phi i32 [ %33, %mbedtls_cipher_set_iv.exit ], [ %.0.i25, %mbedtls_cipher_update.exit ], [ -24832, %mbedtls_cipher_set_iv.exit.thread32 ], [ -24832, %66 ], [ -24704, %76 ], [ 0, %73 ], [ -24832, %16 ], [ -24704, %10 ], [ -24832, %7 ], [ -24832, %61 ], [ -24832, %63 ], [ -25216, %44 ], [ -25472, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i ], [ -24704, %65 ], [ %spec.select, %78 ], [ 0, %switch.hole_check ]
+mbedtls_cipher_reset.exit:                        ; preds = %69, %78, %61, %63, %44, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i, %65, %16, %10, %7, %73, %76, %66, %mbedtls_cipher_set_iv.exit.thread32, %mbedtls_cipher_update.exit, %mbedtls_cipher_set_iv.exit
+  %.0 = phi i32 [ %33, %mbedtls_cipher_set_iv.exit ], [ %.0.i25, %mbedtls_cipher_update.exit ], [ -24832, %mbedtls_cipher_set_iv.exit.thread32 ], [ -24832, %66 ], [ -24704, %76 ], [ 0, %73 ], [ -24832, %16 ], [ -24704, %10 ], [ -24832, %7 ], [ -24832, %61 ], [ -24832, %63 ], [ -25216, %44 ], [ -25472, %_ZL29mbedtls_cipher_get_block_sizePK24mbedtls_cipher_context_t.exit.i ], [ -24704, %65 ], [ %spec.select, %78 ], [ 0, %69 ]
   ret i32 %.0
 }
 

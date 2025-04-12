@@ -1753,20 +1753,19 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi40EEERS2_RAT__Kc.exit: ; pr
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %24 = load i8, ptr %23, align 8, !tbaa !92, !range !105, !noundef !106
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %26, label %30
+  %.not5 = xor i1 %25, true
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %27 = load i8, ptr %26, align 8, !range !105
+  %28 = trunc nuw i8 %27 to i1
+  %or.cond = select i1 %.not5, i1 true, i1 %28
+  br i1 %or.cond, label %29, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
 
-26:                                               ; preds = %.critedge
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %28 = load i8, ptr %27, align 8, !tbaa !88, !range !105, !noundef !106
-  %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit
-
-_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit: ; preds = %26
+_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit: ; preds = %.critedge
   store i8 0, ptr %23, align 8, !tbaa !92
   call void @_ZN9grpc_core15PollingResolver20StartResolvingLockedEv(ptr noundef nonnull align 8 dereferenceable(536) %0)
-  br label %30
+  br label %29
 
-30:                                               ; preds = %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit, %26, %.critedge
+29:                                               ; preds = %_ZNSt8optionalIN17grpc_event_engine12experimental11EventEngine10TaskHandleEE5resetEv.exit, %.critedge
   ret void
 }
 

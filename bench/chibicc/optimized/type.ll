@@ -59,21 +59,19 @@ define dso_local noundef zeroext i1 @is_numeric(ptr noundef readonly captures(no
   %2 = load i32, ptr %0, align 8, !tbaa !7
   %switch.tableidx = add i32 %2, -1
   %3 = icmp ult i32 %switch.tableidx, 9
-  br i1 %3, label %switch.hole_check, label %4
+  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.shifted = lshr i16 287, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %4
 
-4:                                                ; preds = %switch.hole_check, %1
+4:                                                ; preds = %1
   %.off.i = add i32 %2, -6
   %switch.i = icmp ult i32 %.off.i, 3
   br label %switch.lookup
 
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 287, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %switch.hole_check, %4
-  %5 = phi i1 [ %switch.i, %4 ], [ true, %switch.hole_check ]
+switch.lookup:                                    ; preds = %1, %4
+  %5 = phi i1 [ %switch.i, %4 ], [ true, %1 ]
   ret i1 %5
 }
 

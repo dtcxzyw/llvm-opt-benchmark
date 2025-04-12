@@ -3878,33 +3878,31 @@ define noundef range(i32 0, 5) i32 @_ZN5Ipopt20Ma57TSolverInterface10MultiSolveE
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 118
   store i8 1, ptr %14, align 2, !tbaa !31
-  br label %24
+  br label %23
 
 15:                                               ; preds = %8
-  br i1 %1, label %.critedge, label %16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 118
+  %17 = load i8, ptr %16, align 2, !range !64
+  %18 = trunc nuw i8 %17 to i1
+  %or.cond = select i1 %1, i1 true, i1 %18
+  br i1 %or.cond, label %.critedge, label %21
 
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 118
-  %18 = load i8, ptr %17, align 2, !tbaa !31, !range !64, !noundef !65
-  %19 = trunc nuw i8 %18 to i1
-  br i1 %19, label %.critedge, label %22
-
-.critedge:                                        ; preds = %12, %16, %15
-  %20 = tail call noundef i32 @_ZN5Ipopt20Ma57TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr poison, ptr poison, i1 noundef zeroext %6, i32 noundef %7)
-  %.not.not = icmp eq i32 %20, 0
-  br i1 %.not.not, label %.thread, label %24
+.critedge:                                        ; preds = %12, %15
+  %19 = tail call noundef i32 @_ZN5Ipopt20Ma57TSolverInterface13FactorizationEPKiS2_bi(ptr noundef nonnull align 8 dereferenceable(656) %0, ptr poison, ptr poison, i1 noundef zeroext %6, i32 noundef %7)
+  %.not.not = icmp eq i32 %19, 0
+  br i1 %.not.not, label %.thread, label %23
 
 .thread:                                          ; preds = %.critedge
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 118
-  store i8 0, ptr %21, align 2, !tbaa !31
-  br label %22
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 118
+  store i8 0, ptr %20, align 2, !tbaa !31
+  br label %21
 
-22:                                               ; preds = %.thread, %16
-  %23 = tail call noundef i32 @_ZN5Ipopt20Ma57TSolverInterface9BacksolveEiPd(ptr noundef nonnull align 8 dereferenceable(656) %0, i32 noundef %4, ptr noundef %5)
-  br label %24
+21:                                               ; preds = %.thread, %15
+  %22 = tail call noundef i32 @_ZN5Ipopt20Ma57TSolverInterface9BacksolveEiPd(ptr noundef nonnull align 8 dereferenceable(656) %0, i32 noundef %4, ptr noundef %5)
+  br label %23
 
-24:                                               ; preds = %.critedge, %22, %13
-  %.012 = phi i32 [ 0, %22 ], [ 3, %13 ], [ %20, %.critedge ]
+23:                                               ; preds = %.critedge, %21, %13
+  %.012 = phi i32 [ 0, %21 ], [ 3, %13 ], [ %19, %.critedge ]
   ret i32 %.012
 }
 

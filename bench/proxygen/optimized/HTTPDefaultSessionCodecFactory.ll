@@ -141,15 +141,14 @@ define void @_ZN8proxygen30HTTPDefaultSessionCodecFactory8getCodecERKNSt7__cxx11
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::list", align 8
   %ref.tmp41 = alloca %"class.google::LogMessage", align 8
-  br i1 %isTLS, label %if.else, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %isTLS.not = xor i1 %isTLS, true
   %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 49
   %0 = load i8, ptr %hasValue.i.i, align 1
   %tobool.i.i = trunc i8 %0 to i1
-  br i1 %tobool.i.i, label %if.then, label %if.else
+  %or.cond = select i1 %isTLS.not, i1 %tobool.i.i, i1 false
+  br i1 %or.cond, label %if.then, label %if.else
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #15, !noalias !4
   invoke void @_ZN8proxygen10HTTP2CodecC1ENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(1062) %call.i, i8 noundef zeroext %direction)
           to label %_ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i, !noalias !4
@@ -199,7 +198,7 @@ _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit15: ; 
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(1062) %call.i) #14
   br label %common.resume
 
-if.else:                                          ; preds = %land.lhs.true, %entry
+if.else:                                          ; preds = %entry
   %call5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %nextProtocol) #14
   br i1 %call5, label %if.then7, label %lor.lhs.false
 

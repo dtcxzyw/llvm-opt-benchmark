@@ -30,41 +30,39 @@ define void @_ZN5folly18DelayedDestructionD0Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
-  br i1 %1, label %3, label %7
+  %.not = xor i1 %1, true
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = load i8, ptr %3, align 4, !range !7
+  %5 = trunc nuw i8 %4 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond, label %6, label %10
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !7, !range !14, !noundef !15
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %12
+6:                                                ; preds = %2
+  store i8 0, ptr %3, align 4, !tbaa !8
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(13) %0) #4
+  br label %10
 
-7:                                                ; preds = %3, %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %8, align 4, !tbaa !7
-  %9 = load ptr, ptr %0, align 8, !tbaa !16
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(13) %0) #4
-  br label %12
-
-12:                                               ; preds = %3, %7
+10:                                               ; preds = %2, %6
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction7destroyEv(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !18
+  %3 = load i32, ptr %2, align 8, !tbaa !17
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 1, ptr %5, align 4, !tbaa !7
+  store i8 1, ptr %5, align 4, !tbaa !8
   br label %10
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %0, align 8, !tbaa !16
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(13) %0, i1 noundef zeroext false)
@@ -98,15 +96,14 @@ attributes #5 = { builtin nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!7 = !{!8, !13, i64 12}
-!8 = !{!"_ZTSN5folly18DelayedDestructionE", !9, i64 0, !13, i64 12}
-!9 = !{!"_ZTSN5folly22DelayedDestructionBaseE", !10, i64 8}
-!10 = !{!"int", !11, i64 0}
-!11 = !{!"omnipotent char", !12, i64 0}
-!12 = !{!"Simple C++ TBAA"}
-!13 = !{!"bool", !11, i64 0}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"vtable pointer", !12, i64 0}
-!18 = !{!9, !10, i64 8}
+!7 = !{i8 0, i8 2}
+!8 = !{!9, !14, i64 12}
+!9 = !{!"_ZTSN5folly18DelayedDestructionE", !10, i64 0, !14, i64 12}
+!10 = !{!"_ZTSN5folly22DelayedDestructionBaseE", !11, i64 8}
+!11 = !{!"int", !12, i64 0}
+!12 = !{!"omnipotent char", !13, i64 0}
+!13 = !{!"Simple C++ TBAA"}
+!14 = !{!"bool", !12, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"vtable pointer", !13, i64 0}
+!17 = !{!10, !11, i64 8}

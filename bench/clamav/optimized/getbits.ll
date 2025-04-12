@@ -90,22 +90,19 @@ define void @_ZN8BitInput17SetExternalBufferEPh(ptr noundef nonnull align 8 capt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %10, label %5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load i8, ptr %5, align 8, !range !12
+  %7 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %7
+  br i1 %or.cond, label %9, label %8
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i8, ptr %6, align 8, !tbaa !3, !range !12, !noundef !13
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %10, label %9
-
-9:                                                ; preds = %5
+8:                                                ; preds = %2
   tail call void @_ZdaPv(ptr noundef nonnull %4) #9
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %5, %2
+9:                                                ; preds = %8, %2
   store ptr %1, ptr %3, align 8, !tbaa !11
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %11, align 8, !tbaa !3
+  store i8 1, ptr %5, align 8, !tbaa !3
   ret void
 }
 

@@ -149,15 +149,13 @@ if.end6:                                          ; preds = %if.end.i, %if.then.
   %isEmpty = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -1
   store i8 0, ptr %isEmpty, align 1
   %cmp10 = icmp eq i8 %6, 1
-  br i1 %cmp10, label %if.then11, label %if.end12
-
-if.then11:                                        ; preds = %if.end6
   %pretty_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load i8, ptr %pretty_.i, align 8
   %tobool.i = trunc i8 %7 to i1
-  br i1 %tobool.i, label %if.end.i7, label %if.end12
+  %or.cond = select i1 %cmp10, i1 %tobool.i, i1 false
+  br i1 %or.cond, label %if.end.i7, label %if.end12
 
-if.end.i7:                                        ; preds = %if.then11
+if.end.i7:                                        ; preds = %if.end6
   %OS.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load ptr, ptr %OS.i, align 8
   %OutBufEnd.i5.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -211,7 +209,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16.i:             ; preds = %if.then4.i.i11.i, %
   %cmp.i = icmp ult i32 %inc.i, %17
   br i1 %cmp.i, label %for.body.i, label %if.end12, !llvm.loop !4
 
-if.end12:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit16.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %if.then11, %entry, %if.end6
+if.end12:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit16.i, %_ZN4llvh11raw_ostreamlsEPKc.exit.i, %entry, %if.end6
   ret void
 }
 

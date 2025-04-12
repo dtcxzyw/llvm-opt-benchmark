@@ -1172,21 +1172,19 @@ switch.early.test.i:                              ; preds = %PyUnicode_READ.exit
 44:                                               ; preds = %PyUnicode_READ.exit.i
   %switch.tableidx36 = add i32 %.0.i67.fr.i, -8
   %45 = icmp ult i32 %switch.tableidx36, 6
-  br i1 %45, label %switch.hole_check, label %46
+  %switch.maskindex = trunc i32 %switch.tableidx36 to i8
+  %switch.shifted = lshr i8 55, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond = select i1 %45, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup37, label %46
 
-46:                                               ; preds = %switch.hole_check, %44
+46:                                               ; preds = %44
   %47 = icmp ugt i32 %.0.i67.fr.i, 65535
   %48 = select i1 %47, i64 12, i64 6
   br label %switch.lookup37
 
-switch.hole_check:                                ; preds = %44
-  %switch.maskindex = trunc nuw i32 %switch.tableidx36 to i8
-  %switch.shifted = lshr i8 55, %switch.maskindex
-  %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup37, label %46
-
-switch.lookup37:                                  ; preds = %switch.hole_check, %46, %switch.early.test.i
-  %.056.i = phi i64 [ %48, %46 ], [ %43, %switch.early.test.i ], [ 2, %switch.hole_check ]
+switch.lookup37:                                  ; preds = %44, %46, %switch.early.test.i
+  %.056.i = phi i64 [ %48, %46 ], [ %43, %switch.early.test.i ], [ 2, %44 ]
   %49 = xor i64 %.056.i, 9223372036854775807
   %.not.i = icmp sgt i64 %.05981.i, %49
   br i1 %.not.i, label %.thread.i, label %51
@@ -2444,27 +2442,25 @@ PyUnicode_READ.exit173:                           ; preds = %68, %72, %76
 
 PyUnicode_READ.exit175:                           ; preds = %92, %96, %100
   %.0.i174 = phi i32 [ %95, %92 ], [ %99, %96 ], [ %102, %100 ]
-  %103 = shl i32 %.5147282, 4
   %switch.tableidx = add i32 %.0.i174, -48
-  %104 = icmp ult i32 %switch.tableidx, 55
-  br i1 %104, label %switch.hole_check, label %105
-
-105:                                              ; preds = %switch.hole_check, %PyUnicode_READ.exit175
-  tail call fastcc void @raise_errmsg(ptr noundef nonnull @.str.12, ptr noundef %0, i64 noundef %63)
-  br label %.thread210
-
-switch.hole_check:                                ; preds = %PyUnicode_READ.exit175
+  %103 = icmp ult i32 %switch.tableidx, 55
   %switch.maskindex = zext nneg i32 %switch.tableidx to i64
   %switch.shifted = lshr i64 35465847073801215, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %105
+  %or.cond447 = select i1 %103, i1 %switch.lobit, i1 false
+  br i1 %or.cond447, label %switch.lookup, label %104
 
-switch.lookup:                                    ; preds = %switch.hole_check
+104:                                              ; preds = %PyUnicode_READ.exit175
+  tail call fastcc void @raise_errmsg(ptr noundef nonnull @.str.12, ptr noundef %0, i64 noundef %63)
+  br label %.thread210
+
+switch.lookup:                                    ; preds = %PyUnicode_READ.exit175
+  %105 = shl i32 %.5147282, 4
   %106 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [55 x i32], ptr @switch.table.scanstring_unicode.19, i64 0, i64 %106
   %switch.load = load i32, ptr %switch.gep, align 4
   %107 = add nsw i32 %.0.i174, %switch.load
-  %.6 = or i32 %107, %103
+  %.6 = or i32 %107, %105
   %108 = add i64 %.1149281, 1
   %exitcond336.not = icmp eq i64 %108, %88
   br i1 %exitcond336.not, label %._crit_edge, label %.lr.ph283, !llvm.loop !40
@@ -2566,23 +2562,21 @@ PyUnicode_READ.exit179:                           ; preds = %128, %132, %136
 
 PyUnicode_READ.exit181:                           ; preds = %142, %146, %150
   %.0.i180 = phi i32 [ %145, %142 ], [ %149, %146 ], [ %152, %150 ]
-  %153 = shl i32 %.0128287, 4
-  %switch.tableidx448 = add i32 %.0.i180, -48
-  %154 = icmp ult i32 %switch.tableidx448, 55
-  br i1 %154, label %switch.hole_check449, label %165
-
-switch.hole_check449:                             ; preds = %PyUnicode_READ.exit181
-  %switch.maskindex451 = zext nneg i32 %switch.tableidx448 to i64
+  %switch.tableidx449 = add i32 %.0.i180, -48
+  %153 = icmp ult i32 %switch.tableidx449, 55
+  %switch.maskindex451 = zext nneg i32 %switch.tableidx449 to i64
   %switch.shifted452 = lshr i64 35465847073801215, %switch.maskindex451
   %switch.lobit453 = trunc i64 %switch.shifted452 to i1
-  br i1 %switch.lobit453, label %switch.lookup450, label %165
+  %or.cond456 = select i1 %153, i1 %switch.lobit453, i1 false
+  br i1 %or.cond456, label %switch.lookup450, label %165
 
-switch.lookup450:                                 ; preds = %switch.hole_check449
-  %155 = zext nneg i32 %switch.tableidx448 to i64
+switch.lookup450:                                 ; preds = %PyUnicode_READ.exit181
+  %154 = shl i32 %.0128287, 4
+  %155 = zext nneg i32 %switch.tableidx449 to i64
   %switch.gep454 = getelementptr inbounds nuw [55 x i32], ptr @switch.table.scanstring_unicode.19, i64 0, i64 %155
   %switch.load455 = load i32, ptr %switch.gep454, align 4
   %156 = add nsw i32 %.0.i180, %switch.load455
-  %.1129 = or i32 %156, %153
+  %.1129 = or i32 %156, %154
   %157 = add i64 %.2150286, 1
   %exitcond337.not = icmp eq i64 %157, %111
   br i1 %exitcond337.not, label %._crit_edge290, label %.lr.ph289, !llvm.loop !41
@@ -2600,7 +2594,7 @@ switch.lookup450:                                 ; preds = %switch.hole_check44
   %164 = or disjoint i32 %163, %162
   br label %.thread191
 
-165:                                              ; preds = %switch.hole_check449, %PyUnicode_READ.exit181
+165:                                              ; preds = %PyUnicode_READ.exit181
   %166 = add i64 %.0148230, 7
   tail call fastcc void @raise_errmsg(ptr noundef nonnull @.str.12, ptr noundef %0, i64 noundef %166)
   br label %.thread210
@@ -2617,7 +2611,7 @@ switch.lookup450:                                 ; preds = %switch.hole_check44
   store i64 %63, ptr %3, align 8, !tbaa !36
   br label %171
 
-.thread210:                                       ; preds = %.thread191, %59, %52, %51, %.thread186.thread343, %165, %105, %91, %86, %66, %4, %20
+.thread210:                                       ; preds = %.thread191, %59, %52, %51, %.thread186.thread343, %165, %104, %91, %86, %66, %4, %20
   store i64 -1, ptr %3, align 8, !tbaa !36
   tail call void @PyUnicodeWriter_Discard(ptr noundef %6) #5
   br label %171

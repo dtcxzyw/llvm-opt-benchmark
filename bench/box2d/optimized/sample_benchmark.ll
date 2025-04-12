@@ -4241,23 +4241,21 @@ define linkonce_odr dso_local void @_ZN13BenchmarkRain4StepER8Settings(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %4 = load i8, ptr %3, align 1, !tbaa !173, !range !13, !noundef !14
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %10, label %6
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 42
+  %7 = load i8, ptr %6, align 2, !range !13
+  %8 = trunc nuw i8 %7 to i1
+  %or.cond = select i1 %5, i1 true, i1 %8
+  br i1 %or.cond, label %9, label %14
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 42
-  %8 = load i8, ptr %7, align 2, !tbaa !174, !range !13, !noundef !14
-  %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %15
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %.sroa.0.0.copyload = load i32, ptr %10, align 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = load i32, ptr %11, align 8, !tbaa !92
+  %13 = tail call float @StepRain(i32 %.sroa.0.0.copyload, i32 noundef %12)
+  br label %14
 
-10:                                               ; preds = %6, %2
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %.sroa.0.0.copyload = load i32, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load i32, ptr %12, align 8, !tbaa !92
-  %14 = tail call float @StepRain(i32 %.sroa.0.0.copyload, i32 noundef %13)
-  br label %15
-
-15:                                               ; preds = %10, %6
+14:                                               ; preds = %2, %9
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   ret void
 }
@@ -4496,4 +4494,3 @@ attributes #23 = { noreturn }
 !171 = !{!"_ZTSN13BenchmarkCast10CastResultE", !18, i64 0, !11, i64 8, !12, i64 12}
 !172 = !{!171, !12, i64 12}
 !173 = !{!8, !12, i64 41}
-!174 = !{!8, !12, i64 42}

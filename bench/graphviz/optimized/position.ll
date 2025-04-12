@@ -2189,21 +2189,23 @@ define range(i32 0, 2) i32 @ports_eq(ptr noundef readonly captures(none) %0, ptr
   %15 = load double, ptr %14, align 8, !tbaa !108
   %16 = load double, ptr %13, align 8, !tbaa !108
   %17 = fcmp oeq double %15, %16
-  br i1 %17, label %18, label %24
+  br i1 %17, label %18, label %25
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %20 = load double, ptr %19, align 8, !tbaa !161
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %22 = load double, ptr %21, align 8, !tbaa !161
-  %23 = fcmp oeq double %20, %22
-  br i1 %23, label %26, label %24
+  %23 = fcmp une double %20, %22
+  %24 = trunc nuw i8 %6 to i1
+  %or.cond = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond, label %43, label %26
 
-24:                                               ; preds = %18, %12
-  %25 = trunc nuw i8 %6 to i1
-  br i1 %25, label %43, label %26
+25:                                               ; preds = %12
+  %.old = trunc nuw i8 %6 to i1
+  br i1 %.old, label %43, label %26
 
-26:                                               ; preds = %24, %18
+26:                                               ; preds = %25, %18
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %28 = load double, ptr %27, align 8, !tbaa !109
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
@@ -2226,8 +2228,8 @@ define range(i32 0, 2) i32 @ports_eq(ptr noundef readonly captures(none) %0, ptr
   %42 = zext nneg i8 %41 to i32
   br label %43
 
-43:                                               ; preds = %32, %38, %24, %2
-  %44 = phi i32 [ 0, %24 ], [ 0, %2 ], [ 1, %32 ], [ %42, %38 ]
+43:                                               ; preds = %18, %32, %38, %25, %2
+  %44 = phi i32 [ 0, %25 ], [ 0, %2 ], [ 1, %32 ], [ %42, %38 ], [ 0, %18 ]
   ret i32 %44
 }
 

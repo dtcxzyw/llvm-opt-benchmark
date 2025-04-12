@@ -557,24 +557,22 @@ define weak_odr void @_ZThn200_N5folly16HHWheelTimerBaseINSt6chrono8durationIlSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly18DelayedDestruction16onDelayedDestroyEb(ptr noundef nonnull align 8 dereferenceable(13) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
-  br i1 %1, label %3, label %7
+  %.not = xor i1 %1, true
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = load i8, ptr %3, align 4, !range !64
+  %5 = trunc nuw i8 %4 to i1
+  %or.cond = select i1 %.not, i1 true, i1 %5
+  br i1 %or.cond, label %6, label %10
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %5 = load i8, ptr %4, align 4, !tbaa !67, !range !64, !noundef !65
-  %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %12
+6:                                                ; preds = %2
+  store i8 0, ptr %3, align 4, !tbaa !67
+  %7 = load ptr, ptr %0, align 8, !tbaa !62
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load ptr, ptr %8, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(13) %0) #17
+  br label %10
 
-7:                                                ; preds = %3, %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 0, ptr %8, align 4, !tbaa !67
-  %9 = load ptr, ptr %0, align 8, !tbaa !62
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(13) %0) #17
-  br label %12
-
-12:                                               ; preds = %3, %7
+10:                                               ; preds = %2, %6
   ret void
 }
 

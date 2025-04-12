@@ -28,33 +28,31 @@ define void @_ZN5ZXing6Pdf41711BoundingBoxC2Ev(ptr noundef nonnull writeonly ali
 define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_(i32 noundef %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(120) %6) local_unnamed_addr #1 align 2 {
   %8 = load i8, ptr %2, align 8, !tbaa !3, !range !11, !noundef !12
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %13, label %10
+  br i1 %9, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = load i8, ptr %4, align 8, !tbaa !3, !range !11, !noundef !12
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %.thread22, label %26
+  %13 = load i8, ptr %5, align 8, !range !11
+  %14 = trunc nuw i8 %13 to i1
+  %or.cond = select i1 %12, i1 %14, i1 false
+  br i1 %or.cond, label %20, label %26
 
-13:                                               ; preds = %7
-  %14 = load i8, ptr %3, align 8, !tbaa !3, !range !11, !noundef !12
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %..thread21_crit_edge, label %26
+15:                                               ; preds = %7
+  %16 = load i8, ptr %3, align 8, !tbaa !3, !range !11, !noundef !12
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %..thread21_crit_edge, label %26
 
-..thread21_crit_edge:                             ; preds = %13
+..thread21_crit_edge:                             ; preds = %15
   %.pre = load i8, ptr %4, align 8, !tbaa !3, !range !11
   %.pre30 = load i8, ptr %5, align 8, !range !11
   %.pre31 = trunc nuw i8 %.pre to i1
   %.pre32 = trunc nuw i8 %.pre30 to i1
-  %16 = xor i1 %.pre31, true
-  %17 = select i1 %16, i1 true, i1 %.pre32
-  br i1 %17, label %20, label %26
-
-.thread22:                                        ; preds = %10
-  %18 = load i8, ptr %5, align 8, !range !11
-  %19 = trunc nuw i8 %18 to i1
+  %18 = xor i1 %.pre31, true
+  %19 = select i1 %18, i1 true, i1 %.pre32
   br i1 %19, label %20, label %26
 
-20:                                               ; preds = %.thread22, %..thread21_crit_edge
+20:                                               ; preds = %10, %..thread21_crit_edge
   store i32 %0, ptr %6, align 8, !tbaa !13
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %1, ptr %21, align 4, !tbaa !16
@@ -69,8 +67,8 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8Nullable
   tail call void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr noundef nonnull align 8 dereferenceable(120) %6)
   br label %26
 
-26:                                               ; preds = %.thread22, %..thread21_crit_edge, %13, %10, %20
-  %.0 = phi i1 [ true, %20 ], [ false, %10 ], [ false, %.thread22 ], [ false, %13 ], [ false, %..thread21_crit_edge ]
+26:                                               ; preds = %..thread21_crit_edge, %15, %10, %20
+  %.0 = phi i1 [ true, %20 ], [ false, %10 ], [ false, %15 ], [ false, %..thread21_crit_edge ]
   ret i1 %.0
 }
 
@@ -232,33 +230,31 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i8, ptr %17, align 8, !tbaa !3, !range !11, !noundef !12
   %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %26, label %23
+  br i1 %22, label %28, label %23
 
 23:                                               ; preds = %12
   %24 = load i8, ptr %19, align 8, !tbaa !3, !range !11, !noundef !12
   %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %.thread22.i, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
+  %26 = load i8, ptr %20, align 8, !range !11
+  %27 = trunc nuw i8 %26 to i1
+  %or.cond = select i1 %25, i1 %27, i1 false
+  br i1 %or.cond, label %33, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-26:                                               ; preds = %12
-  %27 = load i8, ptr %18, align 8, !tbaa !3, !range !11, !noundef !12
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %..thread21_crit_edge.i, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
+28:                                               ; preds = %12
+  %29 = load i8, ptr %18, align 8, !tbaa !3, !range !11, !noundef !12
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %..thread21_crit_edge.i, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-..thread21_crit_edge.i:                           ; preds = %26
+..thread21_crit_edge.i:                           ; preds = %28
   %.pre.i = load i8, ptr %19, align 8, !tbaa !3, !range !11
   %.pre30.i = load i8, ptr %20, align 8, !range !11
   %.pre31.i = trunc nuw i8 %.pre.i to i1
   %.pre32.i = trunc nuw i8 %.pre30.i to i1
-  %29 = xor i1 %.pre31.i, true
-  %30 = select i1 %29, i1 true, i1 %.pre32.i
-  br i1 %30, label %33, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
-
-.thread22.i:                                      ; preds = %23
-  %31 = load i8, ptr %20, align 8, !range !11
-  %32 = trunc nuw i8 %31 to i1
+  %31 = xor i1 %.pre31.i, true
+  %32 = select i1 %31, i1 true, i1 %.pre32.i
   br i1 %32, label %33, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-33:                                               ; preds = %.thread22.i, %..thread21_crit_edge.i
+33:                                               ; preds = %23, %..thread21_crit_edge.i
   store i32 %14, ptr %4, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %16, ptr %34, align 4, !tbaa !16
@@ -381,8 +377,8 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox5MergeERKNS_8NullableIS1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %102, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread
 
-_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %..thread21_crit_edge.i, %26, %.thread22.i, %23, %69
-  %.0.i17 = phi i1 [ true, %69 ], [ false, %23 ], [ false, %.thread22.i ], [ false, %26 ], [ false, %..thread21_crit_edge.i ]
+_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit.thread: ; preds = %..thread21_crit_edge.i, %28, %23, %69
+  %.0.i17 = phi i1 [ true, %69 ], [ false, %23 ], [ false, %28 ], [ false, %..thread21_crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #7
   br label %103
 
@@ -503,26 +499,24 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   %.sroa.764.0 = phi double [ %.sroa.764.0.copyload, %._crit_edge ], [ %.sroa.764.0.copyload, %35 ], [ %34, %23 ]
   %38 = load i32, ptr %0, align 8, !tbaa !13
   %39 = trunc nuw i8 %.sroa.067.0 to i1
-  br i1 %39, label %42, label %40
+  br i1 %39, label %43, label %40
 
 40:                                               ; preds = %36
   %41 = trunc nuw i8 %.sroa.048.0 to i1
-  br i1 %41, label %.thread22.i, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
+  %42 = trunc nuw i8 %.sroa.040.0 to i1
+  %or.cond78 = select i1 %41, i1 %42, i1 false
+  br i1 %or.cond78, label %47, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
 
-42:                                               ; preds = %36
-  %43 = trunc nuw i8 %.sroa.058.0 to i1
+43:                                               ; preds = %36
+  %44 = trunc nuw i8 %.sroa.058.0 to i1
   %.pre31.i = trunc nuw i8 %.sroa.048.0 to i1
   %.pre32.i = trunc nuw i8 %.sroa.040.0 to i1
-  %44 = xor i1 %.pre31.i, true
-  %45 = select i1 %44, i1 true, i1 %.pre32.i
-  %or.cond = select i1 %43, i1 %45, i1 false
+  %45 = xor i1 %.pre31.i, true
+  %46 = select i1 %45, i1 true, i1 %.pre32.i
+  %or.cond = select i1 %44, i1 %46, i1 false
   br i1 %or.cond, label %47, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
 
-.thread22.i:                                      ; preds = %40
-  %46 = trunc nuw i8 %.sroa.040.0 to i1
-  br i1 %46, label %47, label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
-
-47:                                               ; preds = %42, %.thread22.i
+47:                                               ; preds = %40, %43
   store i32 %38, ptr %4, align 8, !tbaa !13
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %37, ptr %48, align 4, !tbaa !16
@@ -561,8 +555,8 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox14AddMissingRowsERKS1_ii
   tail call void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr noundef nonnull align 8 dereferenceable(120) %4)
   br label %_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit
 
-_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit: ; preds = %40, %42, %.thread22.i, %47
-  %.0.i = phi i1 [ true, %47 ], [ false, %40 ], [ false, %.thread22.i ], [ false, %42 ]
+_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8NullableINS_11ResultPointEEES6_S6_S6_RS1_.exit: ; preds = %40, %43, %47
+  %.0.i = phi i1 [ true, %47 ], [ false, %40 ], [ false, %43 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.7)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.750)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6)

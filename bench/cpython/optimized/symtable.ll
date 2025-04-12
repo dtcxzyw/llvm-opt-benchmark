@@ -5672,25 +5672,18 @@ _PyST_GetSymbol.exit:                             ; preds = %8, %Py_DECREF.exit.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @_PyST_IsFunctionLike(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load i32, ptr %2, align 8, !tbaa !64
-  %4 = icmp ult i32 %3, 7
-  br i1 %4, label %switch.hole_check, label %5
-
-5:                                                ; preds = %switch.hole_check, %1
-  %6 = icmp eq i32 %3, 5
-  %7 = zext i1 %6 to i32
-  br label %switch.lookup
-
-switch.hole_check:                                ; preds = %1
-  %switch.maskindex = trunc nuw i32 %3 to i8
+switch.lookup:
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %2 = load i32, ptr %1, align 8, !tbaa !64
+  %3 = icmp ult i32 %2, 7
+  %switch.maskindex = trunc i32 %2 to i8
   %switch.shifted = lshr i8 89, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %5
-
-switch.lookup:                                    ; preds = %switch.hole_check, %5
-  %8 = phi i32 [ %7, %5 ], [ 1, %switch.hole_check ]
-  ret i32 %8
+  %or.cond = select i1 %3, i1 %switch.lobit, i1 false
+  %4 = icmp eq i32 %2, 5
+  %narrow = or i1 %or.cond, %4
+  %5 = zext i1 %narrow to i32
+  ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable

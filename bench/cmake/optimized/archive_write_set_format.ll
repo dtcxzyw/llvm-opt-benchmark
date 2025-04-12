@@ -58,15 +58,13 @@ define dso_local void @__archive_write_entry_filetype_unsupported(ptr noundef %0
   %5 = add i32 %4, -4096
   %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 20)
   %7 = icmp ult i32 %6, 12
-  br i1 %7, label %switch.hole_check, label %10
-
-switch.hole_check:                                ; preds = %3
-  %switch.maskindex = trunc nuw i32 %6 to i16
+  %switch.maskindex = trunc i32 %6 to i16
   %switch.shifted = lshr i16 2603, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %10
+  %or.cond = select i1 %7, i1 %switch.lobit, i1 false
+  br i1 %or.cond, label %switch.lookup, label %10
 
-switch.lookup:                                    ; preds = %switch.hole_check
+switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %6 to i64
   %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.__archive_write_entry_filetype_unsupported, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
@@ -74,7 +72,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.7, ptr noundef %9, ptr noundef %2, ptr noundef nonnull %switch.load) #3
   br label %14
 
-10:                                               ; preds = %switch.hole_check, %3
+10:                                               ; preds = %3
   %11 = tail call ptr @archive_entry_pathname(ptr noundef %1) #3
   %12 = tail call i32 @archive_entry_mode(ptr noundef %1) #3
   %13 = zext i32 %12 to i64
