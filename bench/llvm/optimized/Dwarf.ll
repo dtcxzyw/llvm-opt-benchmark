@@ -1533,7 +1533,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf9TagStringEj(i32 noundef %0) local_
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf6getTagENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit90 [
     i64 11, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -5222,7 +5222,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf23OperationEncodingStringEj(i32 nou
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf20getOperationEncodingENS_9StringRefE(ptr readonly %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit418 [
     i64 10, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -6515,7 +6515,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf26SubOperationEncodingStringEjj(i32
   ret { ptr, i64 } { ptr @.str.990, i64 14 }
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 2) i32 @_ZN4llvm5dwarf23getSubOperationEncodingEjNS_9StringRefE(i32 noundef %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #1 {
   %.not.i.i.i.i = icmp eq i64 %2, 3
   br i1 %.not.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, label %_ZL28getLlvmUserOperationEncodingN4llvm9StringRefE.exit
@@ -6716,7 +6716,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf23AttributeEncodingStringEj(i32 nou
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf20getAttributeEncodingENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit90 [
     i64 14, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -7126,7 +7126,7 @@ switch.lookup:                                    ; preds = %1
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf13getVirtualityENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit18 [
     i64 18, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -7428,7 +7428,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf14LanguageStringEj(i32 noundef %0) 
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf11getLanguageENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit74 [
     i64 11, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -8398,7 +8398,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16ConventionStringEj(i32 noundef %0
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf20getCallingConventionENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit58 [
     i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -8811,7 +8811,7 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf13MacinfoStringEj(i32 noundef %0) l
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf10getMacinfoENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit34 [
     i64 17, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -8906,7 +8906,7 @@ switch.lookup:                                    ; preds = %1
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i32 @_ZN4llvm5dwarf8getMacroENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit66 [
     i64 15, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -9820,12 +9820,12 @@ switch.lookup:                                    ; preds = %1
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

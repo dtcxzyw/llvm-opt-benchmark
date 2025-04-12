@@ -5,14 +5,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
 define noundef ptr @strcasestr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #3
+  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #4
   %4 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %strcasechr.exit.thread, label %5
 
 5:                                                ; preds = %2
   %6 = sext i8 %4 to i32
-  %7 = tail call i32 @toupper(i32 noundef %6) #4
+  %7 = tail call i32 @toupper(i32 noundef %6) #5
   %sext = shl i32 %7, 24
   %8 = ashr exact i32 %sext, 24
   %9 = load i8, ptr %0, align 1
@@ -23,7 +23,7 @@ define noundef ptr @strcasestr(ptr noundef readonly captures(ret: address, prove
   %10 = phi i8 [ %.be, %.lr.ph.i.backedge ], [ %9, %5 ]
   %.069.i = phi ptr [ %.069.i.be, %.lr.ph.i.backedge ], [ %0, %5 ]
   %11 = sext i8 %10 to i32
-  %12 = tail call i32 @toupper(i32 noundef %11) #4
+  %12 = tail call i32 @toupper(i32 noundef %11) #5
   %13 = icmp eq i32 %12, %8
   br i1 %13, label %strcasechr.exit, label %14
 
@@ -39,7 +39,7 @@ define noundef ptr @strcasestr(ptr noundef readonly captures(ret: address, prove
   br label %.lr.ph.i, !llvm.loop !6
 
 strcasechr.exit:                                  ; preds = %.lr.ph.i
-  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069.i) #3
+  %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.069.i) #4
   %18 = icmp ult i64 %17, %3
   br i1 %18, label %strcasechr.exit.thread, label %19
 
@@ -59,20 +59,21 @@ strcasechr.exit.thread:                           ; preds = %19, %strcasechr.exi
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @toupper(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 attributes #0 = { nofree nounwind memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { nounwind willreturn memory(read) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

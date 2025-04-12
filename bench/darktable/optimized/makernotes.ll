@@ -67,10 +67,10 @@ define void @_ZN6LibRaw19parseSigmaMakernoteEiij(ptr noundef nonnull align 8 der
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
   %9 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %10 = add i16 %9, -1001
   %or.cond = icmp ult i16 %10, -1000
@@ -184,10 +184,10 @@ define void @_ZN6LibRaw19parseSigmaMakernoteEiij(ptr noundef nonnull align 8 der
   br i1 %.not, label %.loopexit20, label %19, !llvm.loop !81
 
 .loopexit20:                                      ; preds = %.loopexit, %4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   ret void
 }
 
@@ -237,9 +237,9 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %4
-  %34 = tail call ptr @__cxa_allocate_exception(i64 4) #8
+  %34 = tail call ptr @__cxa_allocate_exception(i64 4) #9
   store i32 5, ptr %34, align 16, !tbaa !83
-  tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #9
+  tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #10
   unreachable
 
 35:                                               ; preds = %4
@@ -253,7 +253,7 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   br label %373
 
 38:                                               ; preds = %35
-  %39 = tail call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.1, i64 noundef 5) #10
+  %39 = tail call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.1, i64 noundef 5) #11
   %.not108 = icmp eq i32 %39, 0
   br i1 %.not108, label %40, label %41
 
@@ -264,7 +264,7 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %43 = load i16, ptr %42, align 8, !tbaa !85
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #9
   %44 = load ptr, ptr %28, align 8, !tbaa !78
   %45 = load ptr, ptr %44, align 8, !tbaa !79
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
@@ -293,36 +293,36 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   br label %372
 
 57:                                               ; preds = %55
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11) #9
   store i16 0, ptr %11, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %13) #9
   store i16 0, ptr %13, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %15) #9
   store i16 0, ptr %15, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #9
   store i16 0, ptr %17, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %19) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %19) #9
   store i16 0, ptr %19, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %21) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %21) #9
   store i16 0, ptr %21, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %23) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %23) #9
   store i16 0, ptr %23, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %25) #9
   store i16 0, ptr %25, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %27) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %27) #9
   store i16 0, ptr %27, align 2, !tbaa !86
   %bcmp113 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) @.str.4, i64 8)
   %.not114 = icmp eq i32 %bcmp113, 0
@@ -504,43 +504,43 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   br i1 %156, label %371, label %157
 
 157:                                              ; preds = %153
-  %158 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.8, i64 noundef 4) #10
+  %158 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.8, i64 noundef 4) #11
   %.not135 = icmp eq i32 %158, 0
   br i1 %.not135, label %174, label %159
 
 159:                                              ; preds = %157
-  %160 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.15, i64 noundef 6) #10
+  %160 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.15, i64 noundef 6) #11
   %.not136 = icmp eq i32 %160, 0
   br i1 %.not136, label %174, label %161
 
 161:                                              ; preds = %159
-  %162 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.16, i64 noundef 7) #10
+  %162 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.16, i64 noundef 7) #11
   %.not137 = icmp eq i32 %162, 0
   br i1 %.not137, label %174, label %163
 
 163:                                              ; preds = %161
-  %164 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.17, i64 noundef 10) #10
+  %164 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.17, i64 noundef 10) #11
   %.not138 = icmp eq i32 %164, 0
   br i1 %.not138, label %165, label %176
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %167 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.18, i64 noundef 7) #10
+  %167 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.18, i64 noundef 7) #11
   %.not139 = icmp eq i32 %167, 0
   br i1 %.not139, label %174, label %168
 
 168:                                              ; preds = %165
-  %169 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.19, i64 noundef 5) #10
+  %169 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.19, i64 noundef 5) #11
   %.not140 = icmp eq i32 %169, 0
   br i1 %.not140, label %174, label %170
 
 170:                                              ; preds = %168
-  %171 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.20, i64 noundef 5) #10
+  %171 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.20, i64 noundef 5) #11
   %.not141 = icmp eq i32 %171, 0
   br i1 %.not141, label %174, label %172
 
 172:                                              ; preds = %170
-  %173 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.21, i64 noundef 2) #10
+  %173 = call i32 @strncasecmp(ptr noundef nonnull %166, ptr noundef nonnull @.str.21, i64 noundef 2) #11
   %.not142 = icmp eq i32 %173, 0
   br i1 %.not142, label %174, label %176
 
@@ -566,13 +566,13 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   br i1 %.not147, label %186, label %181
 
 181:                                              ; preds = %180
-  %182 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.23, i64 noundef 6) #10
+  %182 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.23, i64 noundef 6) #11
   %.not148 = icmp eq i32 %182, 0
   br i1 %.not148, label %183, label %197
 
 183:                                              ; preds = %181
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %185 = call i32 @strncasecmp(ptr noundef nonnull %184, ptr noundef nonnull @.str.24, i64 noundef 7) #10
+  %185 = call i32 @strncasecmp(ptr noundef nonnull %184, ptr noundef nonnull @.str.24, i64 noundef 7) #11
   %.not149 = icmp eq i32 %185, 0
   br i1 %.not149, label %186, label %197
 
@@ -734,7 +734,7 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   br label %.loopexit
 
 265:                                              ; preds = %262
-  %266 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.17, i64 noundef 10) #10
+  %266 = call i32 @strncasecmp(ptr noundef nonnull %36, ptr noundef nonnull @.str.17, i64 noundef 10) #11
   %.not165 = icmp eq i32 %266, 0
   %267 = load i32, ptr %201, align 4
   %.not166 = icmp eq i32 %267, 0
@@ -776,7 +776,7 @@ define void @_ZN6LibRaw22parse_makernote_0xc634Eiij(ptr noundef nonnull align 8 
   %284 = getelementptr inbounds nuw [64 x i8], ptr %206, i64 0, i64 %indvars.iv215
   %285 = load i8, ptr %284, align 1, !tbaa !87
   %286 = sext i8 %285 to i32
-  %287 = call i32 @isalnum(i32 noundef %286) #10
+  %287 = call i32 @isalnum(i32 noundef %286) #11
   %.fr = freeze i32 %287
   %.not169.not = icmp eq i32 %.fr, 0
   br i1 %.not169.not, label %switch.early.test, label %289
@@ -991,32 +991,32 @@ switch.early.test:                                ; preds = %.lr.ph
   br label %371
 
 371:                                              ; preds = %153, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %27) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %23) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %21) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   br label %372
 
 372:                                              ; preds = %371, %56, %54
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #8
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #9
   br label %373
 
 373:                                              ; preds = %372, %40, %37
@@ -1030,7 +1030,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 declare void @_ZN6LibRaw19parseNikonMakernoteEiij(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
 declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -1056,7 +1056,7 @@ declare noundef i32 @_ZN6LibRaw6getintEi(ptr noundef nonnull align 8 dereference
 declare noundef i32 @_ZN6LibRaw6streadEPcmP26LibRaw_abstract_datastream(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isalnum(i32 noundef) local_unnamed_addr #4
+declare i32 @isalnum(i32 noundef) local_unnamed_addr #5
 
 declare void @_ZN6LibRaw22parseOlympusMakernotesEijjjj(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1102,9 +1102,9 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %3
-  %35 = tail call ptr @__cxa_allocate_exception(i64 4) #8
+  %35 = tail call ptr @__cxa_allocate_exception(i64 4) #9
   store i32 5, ptr %35, align 16, !tbaa !83
-  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #9
+  tail call void @__cxa_throw(ptr nonnull %35, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #10
   unreachable
 
 36:                                               ; preds = %3
@@ -1118,7 +1118,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br label %635
 
 39:                                               ; preds = %36
-  %40 = tail call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.1, i64 noundef 5) #10
+  %40 = tail call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.1, i64 noundef 5) #11
   %.not153 = icmp eq i32 %40, 0
   br i1 %.not153, label %41, label %42
 
@@ -1132,8 +1132,8 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br i1 %.not155, label %635, label %43
 
 43:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #8
+  call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #9
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #9
   %44 = load ptr, ptr %29, align 8, !tbaa !78
   %45 = load ptr, ptr %44, align 8, !tbaa !79
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -1199,42 +1199,42 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br label %634
 
 69:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 381552
   %71 = load i16, ptr %70, align 8, !tbaa !85
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 2036
   store i32 0, ptr %72, align 4, !tbaa !100
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %12) #9
   store i16 0, ptr %12, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %14) #9
   store i16 0, ptr %14, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %16) #9
   store i16 0, ptr %16, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %18) #9
   store i16 0, ptr %18, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %20) #9
   store i16 0, ptr %20, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %22) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %22) #9
   store i16 0, ptr %22, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %24) #9
   store i16 0, ptr %24, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %26) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %26) #9
   store i16 0, ptr %26, align 2, !tbaa !86
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #8
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %28) #8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #9
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %28) #9
   store i16 0, ptr %28, align 2, !tbaa !86
   %73 = load ptr, ptr %29, align 8, !tbaa !78
   %74 = load ptr, ptr %73, align 8, !tbaa !79
@@ -1521,7 +1521,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br i1 %.not205, label %230, label %239
 
 230:                                              ; preds = %227
-  %231 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.42, i64 noundef 7) #10
+  %231 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.42, i64 noundef 7) #11
   %.not206 = icmp eq i32 %231, 0
   br i1 %.not206, label %238, label %232
 
@@ -1531,13 +1531,13 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br i1 %.not208, label %238, label %233
 
 233:                                              ; preds = %232
-  %234 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.23, i64 noundef 6) #10
+  %234 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.23, i64 noundef 6) #11
   %.not209 = icmp eq i32 %234, 0
   br i1 %.not209, label %235, label %239
 
 235:                                              ; preds = %233
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %237 = call i32 @strncasecmp(ptr noundef nonnull %236, ptr noundef nonnull @.str.24, i64 noundef 7) #10
+  %237 = call i32 @strncasecmp(ptr noundef nonnull %236, ptr noundef nonnull @.str.24, i64 noundef 7) #11
   %.not210 = icmp eq i32 %237, 0
   br i1 %.not210, label %238, label %239
 
@@ -1552,43 +1552,43 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br i1 %.not211, label %242, label %260
 
 242:                                              ; preds = %239
-  %243 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.8, i64 noundef 4) #10
+  %243 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.8, i64 noundef 4) #11
   %.not212 = icmp eq i32 %243, 0
   br i1 %.not212, label %259, label %244
 
 244:                                              ; preds = %242
-  %245 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.15, i64 noundef 6) #10
+  %245 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.15, i64 noundef 6) #11
   %.not213 = icmp eq i32 %245, 0
   br i1 %.not213, label %259, label %246
 
 246:                                              ; preds = %244
-  %247 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.16, i64 noundef 7) #10
+  %247 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.16, i64 noundef 7) #11
   %.not214 = icmp eq i32 %247, 0
   br i1 %.not214, label %259, label %248
 
 248:                                              ; preds = %246
-  %249 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.17, i64 noundef 10) #10
+  %249 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.17, i64 noundef 10) #11
   %.not215 = icmp eq i32 %249, 0
   br i1 %.not215, label %250, label %260
 
 250:                                              ; preds = %248
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %252 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.18, i64 noundef 7) #10
+  %252 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.18, i64 noundef 7) #11
   %.not216 = icmp eq i32 %252, 0
   br i1 %.not216, label %259, label %253
 
 253:                                              ; preds = %250
-  %254 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.19, i64 noundef 5) #10
+  %254 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.19, i64 noundef 5) #11
   %.not217 = icmp eq i32 %254, 0
   br i1 %.not217, label %259, label %255
 
 255:                                              ; preds = %253
-  %256 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.20, i64 noundef 5) #10
+  %256 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.20, i64 noundef 5) #11
   %.not218 = icmp eq i32 %256, 0
   br i1 %.not218, label %259, label %257
 
 257:                                              ; preds = %255
-  %258 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.21, i64 noundef 2) #10
+  %258 = call i32 @strncasecmp(ptr noundef nonnull %251, ptr noundef nonnull @.str.21, i64 noundef 2) #11
   %.not219 = icmp eq i32 %258, 0
   br i1 %.not219, label %259, label %260
 
@@ -1829,17 +1829,17 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br label %442
 
 392:                                              ; preds = %388
-  %393 = call i32 @strncasecmp(ptr noundef nonnull %295, ptr noundef nonnull @.str.44, i64 noundef 14) #10
+  %393 = call i32 @strncasecmp(ptr noundef nonnull %295, ptr noundef nonnull @.str.44, i64 noundef 14) #11
   %.not231 = icmp eq i32 %393, 0
   br i1 %.not231, label %398, label %394
 
 394:                                              ; preds = %392
-  %395 = call i32 @strncasecmp(ptr noundef nonnull %295, ptr noundef nonnull @.str.45, i64 noundef 14) #10
+  %395 = call i32 @strncasecmp(ptr noundef nonnull %295, ptr noundef nonnull @.str.45, i64 noundef 14) #11
   %.not232 = icmp eq i32 %395, 0
   br i1 %.not232, label %398, label %396
 
 396:                                              ; preds = %394
-  %397 = call i32 @strncasecmp(ptr noundef nonnull %295, ptr noundef nonnull @.str.46, i64 noundef 14) #10
+  %397 = call i32 @strncasecmp(ptr noundef nonnull %295, ptr noundef nonnull @.str.46, i64 noundef 14) #11
   %.not233 = icmp eq i32 %397, 0
   br i1 %.not233, label %398, label %405
 
@@ -1962,7 +1962,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 32
   %446 = load ptr, ptr %445, align 8
   %447 = call noundef i32 %446(ptr noundef nonnull align 8 dereferenceable(8) %443, i64 noundef %323, i32 noundef 0)
-  %448 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.17, i64 noundef 10) #10
+  %448 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.17, i64 noundef 10) #11
   %.not250 = icmp eq i32 %448, 0
   %449 = load i32, ptr %240, align 4
   %.not251 = icmp eq i32 %449, 0
@@ -2241,7 +2241,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br i1 %or.cond58, label %573, label %.loopexit267
 
 573:                                              ; preds = %568
-  %574 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.51, i64 noundef 7) #10
+  %574 = call i32 @strncasecmp(ptr noundef nonnull %37, ptr noundef nonnull @.str.51, i64 noundef 7) #11
   %.not257 = icmp eq i32 %574, 0
   br i1 %.not257, label %.thread320, label %575
 
@@ -2367,34 +2367,34 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   br label %633
 
 633:                                              ; preds = %280, %.loopexit265
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %28) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %26) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #8
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %28) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %26) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %24) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %20) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   br label %634
 
 634:                                              ; preds = %56, %62, %63, %64, %633, %68, %66
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #8
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #8
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #9
   br label %635
 
 635:                                              ; preds = %42, %634, %41, %38
@@ -2402,7 +2402,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef zeroext i16 @_ZN6LibRaw5sget2EPh(ptr noundef nonnull align 8 dereferenceable(767680), ptr noundef) local_unnamed_addr #2
 
@@ -2412,26 +2412,27 @@ declare noundef i32 @_ZN6LibRaw5sget4EPh(ptr noundef nonnull align 8 dereference
 
 declare void @_ZN6LibRaw20parseRicohMakernotesEijjjj(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 attributes #0 = { mustprogress uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #3 = { cold noreturn }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #6 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { noreturn }
-attributes #10 = { nounwind willreturn memory(read) }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { noreturn }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

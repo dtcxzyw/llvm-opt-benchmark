@@ -855,7 +855,7 @@ define hidden void @debug_screencast(ptr noalias noundef readonly captures(none)
 4:                                                ; preds = %1
   call void @llvm.va_start.p0(ptr nonnull %2)
   %5 = load ptr, ptr @stdout, align 8
-  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #15
+  %6 = call i32 @vfprintf(ptr noundef %5, ptr noundef %0, ptr noundef nonnull %2) #16
   call void @llvm.va_end.p0(ptr nonnull %2)
   br label %7
 
@@ -875,7 +875,7 @@ declare void @llvm.va_end.p0(ptr) #1
 ; Function Attrs: nounwind uwtable
 define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @jvm, align 8
-  %4 = tail call ptr @JNU_GetEnv(ptr noundef %3, i32 noundef 65538) #15
+  %4 = tail call ptr @JNU_GetEnv(ptr noundef %3, i32 noundef 65538) #16
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.storeRestoreToken, i32 noundef 742, ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %108, label %5
@@ -888,11 +888,11 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1336
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call ptr %9(ptr noundef nonnull %4, ptr noundef nonnull %0) #15
+  %10 = tail call ptr %9(ptr noundef nonnull %4, ptr noundef nonnull %0) #16
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1824
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call zeroext i8 %13(ptr noundef nonnull %4) #15
+  %14 = tail call zeroext i8 %13(ptr noundef nonnull %4) #16
   %.not76 = icmp eq i8 %14, 0
   br i1 %.not76, label %19, label %15
 
@@ -900,7 +900,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
-  tail call void %18(ptr noundef nonnull %4) #15
+  tail call void %18(ptr noundef nonnull %4) #16
   br label %19
 
 19:                                               ; preds = %15, %6
@@ -912,11 +912,11 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1336
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr %23(ptr noundef nonnull %4, ptr noundef %1) #15
+  %24 = tail call ptr %23(ptr noundef nonnull %4, ptr noundef %1) #16
   %25 = load ptr, ptr %4, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1824
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call zeroext i8 %27(ptr noundef nonnull %4) #15
+  %28 = tail call zeroext i8 %27(ptr noundef nonnull %4) #16
   %.not78 = icmp eq i8 %28, 0
   br i1 %.not78, label %33, label %29
 
@@ -924,7 +924,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %30 = load ptr, ptr %4, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
   %32 = load ptr, ptr %31, align 8
-  tail call void %32(ptr noundef nonnull %4) #15
+  tail call void %32(ptr noundef nonnull %4) #16
   br label %33
 
 33:                                               ; preds = %29, %20
@@ -935,7 +935,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull %4, ptr noundef %.0) #15
+  tail call void %37(ptr noundef nonnull %4, ptr noundef %.0) #16
   br label %109
 
 38:                                               ; preds = %33
@@ -948,11 +948,11 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1432
   %44 = load ptr, ptr %43, align 8
   %45 = shl nsw i32 %39, 2
-  %46 = tail call ptr %44(ptr noundef nonnull %4, i32 noundef %45) #15
+  %46 = tail call ptr %44(ptr noundef nonnull %4, i32 noundef %45) #16
   %47 = load ptr, ptr %4, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 1824
   %49 = load ptr, ptr %48, align 8
-  %50 = tail call zeroext i8 %49(ptr noundef nonnull %4) #15
+  %50 = tail call zeroext i8 %49(ptr noundef nonnull %4) #16
   %.not80 = icmp eq i8 %50, 0
   br i1 %.not80, label %55, label %51
 
@@ -960,7 +960,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %52 = load ptr, ptr %4, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
   %54 = load ptr, ptr %53, align 8
-  tail call void %54(ptr noundef nonnull %4) #15
+  tail call void %54(ptr noundef nonnull %4) #16
   br label %55
 
 55:                                               ; preds = %51, %41
@@ -971,11 +971,11 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %57 = load ptr, ptr %4, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1496
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call ptr %59(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef null) #15
+  %60 = tail call ptr %59(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef null) #16
   %61 = load ptr, ptr %4, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 1824
   %63 = load ptr, ptr %62, align 8
-  %64 = tail call zeroext i8 %63(ptr noundef nonnull %4) #15
+  %64 = tail call zeroext i8 %63(ptr noundef nonnull %4) #16
   %.not82 = icmp eq i8 %64, 0
   br i1 %.not82, label %69, label %65
 
@@ -983,7 +983,7 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %66 = load ptr, ptr %4, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 128
   %68 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef nonnull %4) #15
+  tail call void %68(ptr noundef nonnull %4) #16
   br label %69
 
 69:                                               ; preds = %65, %56
@@ -1028,17 +1028,17 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %85 = load ptr, ptr %4, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1560
   %87 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef nonnull %60, i32 noundef 0) #15
+  tail call void %87(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef nonnull %60, i32 noundef 0) #16
   %88 = load ptr, ptr %4, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 1128
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr @tokenStorageClass, align 8
   %92 = load ptr, ptr @storeTokenMethodID, align 8
-  tail call void (ptr, ptr, ptr, ...) %90(ptr noundef nonnull %4, ptr noundef %91, ptr noundef %92, ptr noundef %.0, ptr noundef nonnull %24, ptr noundef nonnull %46) #15
+  tail call void (ptr, ptr, ptr, ...) %90(ptr noundef nonnull %4, ptr noundef %91, ptr noundef %92, ptr noundef %.0, ptr noundef nonnull %24, ptr noundef nonnull %46) #16
   %93 = load ptr, ptr %4, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1824
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call zeroext i8 %95(ptr noundef nonnull %4) #15
+  %96 = tail call zeroext i8 %95(ptr noundef nonnull %4) #16
   %.not84 = icmp eq i8 %96, 0
   br i1 %.not84, label %101, label %97
 
@@ -1046,18 +1046,18 @@ define hidden void @storeRestoreToken(ptr noundef %0, ptr noundef %1) local_unna
   %98 = load ptr, ptr %4, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 128
   %100 = load ptr, ptr %99, align 8
-  tail call void %100(ptr noundef nonnull %4) #15
+  tail call void %100(ptr noundef nonnull %4) #16
   br label %101
 
 101:                                              ; preds = %._crit_edge, %97, %38
   %102 = load ptr, ptr %4, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 184
   %104 = load ptr, ptr %103, align 8
-  tail call void %104(ptr noundef nonnull %4, ptr noundef %.0) #15
+  tail call void %104(ptr noundef nonnull %4, ptr noundef %.0) #16
   %105 = load ptr, ptr %4, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 184
   %107 = load ptr, ptr %106, align 8
-  tail call void %107(ptr noundef nonnull %4, ptr noundef nonnull %24) #15
+  tail call void %107(ptr noundef nonnull %4, ptr noundef nonnull %24) #16
   br label %109
 
 108:                                              ; preds = %2
@@ -1086,7 +1086,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
   br label %loadSymbols.exit.thread
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @dlopen(ptr noundef nonnull @.str.17, i32 noundef 1) #15
+  %8 = tail call ptr @dlopen(ptr noundef nonnull @.str.17, i32 noundef 1) #16
   store ptr %8, ptr @pipewire_libhandle, align 8
   %.not2.i = icmp eq ptr %8, null
   br i1 %.not2.i, label %9, label %10
@@ -1096,7 +1096,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
   br label %loadSymbols.exit.thread
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @dlsym(ptr noundef nonnull %8, ptr noundef nonnull @.str.19) #15
+  %11 = tail call ptr @dlsym(ptr noundef nonnull %8, ptr noundef nonnull @.str.19) #16
   store ptr %11, ptr @fp_pw_stream_dequeue_buffer, align 8
   %.not3.i = icmp eq ptr %11, null
   br i1 %.not3.i, label %12, label %13
@@ -1107,7 +1107,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr @pipewire_libhandle, align 8
-  %15 = tail call ptr @dlsym(ptr noundef %14, ptr noundef nonnull @.str.21) #15
+  %15 = tail call ptr @dlsym(ptr noundef %14, ptr noundef nonnull @.str.21) #16
   store ptr %15, ptr @fp_pw_stream_state_as_string, align 8
   %.not4.i = icmp eq ptr %15, null
   br i1 %.not4.i, label %16, label %17
@@ -1118,7 +1118,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr @pipewire_libhandle, align 8
-  %19 = tail call ptr @dlsym(ptr noundef %18, ptr noundef nonnull @.str.22) #15
+  %19 = tail call ptr @dlsym(ptr noundef %18, ptr noundef nonnull @.str.22) #16
   store ptr %19, ptr @fp_pw_stream_queue_buffer, align 8
   %.not5.i = icmp eq ptr %19, null
   br i1 %.not5.i, label %20, label %21
@@ -1129,7 +1129,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 21:                                               ; preds = %17
   %22 = load ptr, ptr @pipewire_libhandle, align 8
-  %23 = tail call ptr @dlsym(ptr noundef %22, ptr noundef nonnull @.str.23) #15
+  %23 = tail call ptr @dlsym(ptr noundef %22, ptr noundef nonnull @.str.23) #16
   store ptr %23, ptr @fp_pw_stream_set_active, align 8
   %.not6.i = icmp eq ptr %23, null
   br i1 %.not6.i, label %24, label %25
@@ -1140,7 +1140,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr @pipewire_libhandle, align 8
-  %27 = tail call ptr @dlsym(ptr noundef %26, ptr noundef nonnull @.str.24) #15
+  %27 = tail call ptr @dlsym(ptr noundef %26, ptr noundef nonnull @.str.24) #16
   store ptr %27, ptr @fp_pw_stream_connect, align 8
   %.not7.i = icmp eq ptr %27, null
   br i1 %.not7.i, label %28, label %29
@@ -1151,7 +1151,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 29:                                               ; preds = %25
   %30 = load ptr, ptr @pipewire_libhandle, align 8
-  %31 = tail call ptr @dlsym(ptr noundef %30, ptr noundef nonnull @.str.25) #15
+  %31 = tail call ptr @dlsym(ptr noundef %30, ptr noundef nonnull @.str.25) #16
   store ptr %31, ptr @fp_pw_stream_new, align 8
   %.not8.i = icmp eq ptr %31, null
   br i1 %.not8.i, label %32, label %33
@@ -1162,7 +1162,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @pipewire_libhandle, align 8
-  %35 = tail call ptr @dlsym(ptr noundef %34, ptr noundef nonnull @.str.26) #15
+  %35 = tail call ptr @dlsym(ptr noundef %34, ptr noundef nonnull @.str.26) #16
   store ptr %35, ptr @fp_pw_stream_add_listener, align 8
   %.not9.i = icmp eq ptr %35, null
   br i1 %.not9.i, label %36, label %37
@@ -1173,7 +1173,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr @pipewire_libhandle, align 8
-  %39 = tail call ptr @dlsym(ptr noundef %38, ptr noundef nonnull @.str.27) #15
+  %39 = tail call ptr @dlsym(ptr noundef %38, ptr noundef nonnull @.str.27) #16
   store ptr %39, ptr @fp_pw_stream_disconnect, align 8
   %.not10.i = icmp eq ptr %39, null
   br i1 %.not10.i, label %40, label %41
@@ -1184,7 +1184,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr @pipewire_libhandle, align 8
-  %43 = tail call ptr @dlsym(ptr noundef %42, ptr noundef nonnull @.str.28) #15
+  %43 = tail call ptr @dlsym(ptr noundef %42, ptr noundef nonnull @.str.28) #16
   store ptr %43, ptr @fp_pw_stream_destroy, align 8
   %.not11.i = icmp eq ptr %43, null
   br i1 %.not11.i, label %44, label %45
@@ -1195,7 +1195,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr @pipewire_libhandle, align 8
-  %47 = tail call ptr @dlsym(ptr noundef %46, ptr noundef nonnull @.str.29) #15
+  %47 = tail call ptr @dlsym(ptr noundef %46, ptr noundef nonnull @.str.29) #16
   store ptr %47, ptr @fp_pw_init, align 8
   %.not12.i = icmp eq ptr %47, null
   br i1 %.not12.i, label %48, label %49
@@ -1206,7 +1206,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 49:                                               ; preds = %45
   %50 = load ptr, ptr @pipewire_libhandle, align 8
-  %51 = tail call ptr @dlsym(ptr noundef %50, ptr noundef nonnull @.str.30) #15
+  %51 = tail call ptr @dlsym(ptr noundef %50, ptr noundef nonnull @.str.30) #16
   store ptr %51, ptr @fp_pw_deinit, align 8
   %.not13.i = icmp eq ptr %51, null
   br i1 %.not13.i, label %52, label %53
@@ -1217,7 +1217,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr @pipewire_libhandle, align 8
-  %55 = tail call ptr @dlsym(ptr noundef %54, ptr noundef nonnull @.str.31) #15
+  %55 = tail call ptr @dlsym(ptr noundef %54, ptr noundef nonnull @.str.31) #16
   store ptr %55, ptr @fp_pw_context_connect_fd, align 8
   %.not14.i = icmp eq ptr %55, null
   br i1 %.not14.i, label %56, label %57
@@ -1228,7 +1228,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr @pipewire_libhandle, align 8
-  %59 = tail call ptr @dlsym(ptr noundef %58, ptr noundef nonnull @.str.32) #15
+  %59 = tail call ptr @dlsym(ptr noundef %58, ptr noundef nonnull @.str.32) #16
   store ptr %59, ptr @fp_pw_core_disconnect, align 8
   %.not15.i = icmp eq ptr %59, null
   br i1 %.not15.i, label %60, label %61
@@ -1239,7 +1239,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr @pipewire_libhandle, align 8
-  %63 = tail call ptr @dlsym(ptr noundef %62, ptr noundef nonnull @.str.33) #15
+  %63 = tail call ptr @dlsym(ptr noundef %62, ptr noundef nonnull @.str.33) #16
   store ptr %63, ptr @fp_pw_context_new, align 8
   %.not16.i = icmp eq ptr %63, null
   br i1 %.not16.i, label %64, label %65
@@ -1250,7 +1250,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr @pipewire_libhandle, align 8
-  %67 = tail call ptr @dlsym(ptr noundef %66, ptr noundef nonnull @.str.34) #15
+  %67 = tail call ptr @dlsym(ptr noundef %66, ptr noundef nonnull @.str.34) #16
   store ptr %67, ptr @fp_pw_thread_loop_new, align 8
   %.not17.i = icmp eq ptr %67, null
   br i1 %.not17.i, label %68, label %69
@@ -1261,7 +1261,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr @pipewire_libhandle, align 8
-  %71 = tail call ptr @dlsym(ptr noundef %70, ptr noundef nonnull @.str.35) #15
+  %71 = tail call ptr @dlsym(ptr noundef %70, ptr noundef nonnull @.str.35) #16
   store ptr %71, ptr @fp_pw_thread_loop_get_loop, align 8
   %.not18.i = icmp eq ptr %71, null
   br i1 %.not18.i, label %72, label %73
@@ -1272,7 +1272,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr @pipewire_libhandle, align 8
-  %75 = tail call ptr @dlsym(ptr noundef %74, ptr noundef nonnull @.str.36) #15
+  %75 = tail call ptr @dlsym(ptr noundef %74, ptr noundef nonnull @.str.36) #16
   store ptr %75, ptr @fp_pw_thread_loop_signal, align 8
   %.not19.i = icmp eq ptr %75, null
   br i1 %.not19.i, label %76, label %77
@@ -1283,7 +1283,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 77:                                               ; preds = %73
   %78 = load ptr, ptr @pipewire_libhandle, align 8
-  %79 = tail call ptr @dlsym(ptr noundef %78, ptr noundef nonnull @.str.37) #15
+  %79 = tail call ptr @dlsym(ptr noundef %78, ptr noundef nonnull @.str.37) #16
   store ptr %79, ptr @fp_pw_thread_loop_wait, align 8
   %.not20.i = icmp eq ptr %79, null
   br i1 %.not20.i, label %80, label %81
@@ -1294,7 +1294,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr @pipewire_libhandle, align 8
-  %83 = tail call ptr @dlsym(ptr noundef %82, ptr noundef nonnull @.str.38) #15
+  %83 = tail call ptr @dlsym(ptr noundef %82, ptr noundef nonnull @.str.38) #16
   store ptr %83, ptr @fp_pw_thread_loop_accept, align 8
   %.not21.i = icmp eq ptr %83, null
   br i1 %.not21.i, label %84, label %85
@@ -1305,7 +1305,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr @pipewire_libhandle, align 8
-  %87 = tail call ptr @dlsym(ptr noundef %86, ptr noundef nonnull @.str.39) #15
+  %87 = tail call ptr @dlsym(ptr noundef %86, ptr noundef nonnull @.str.39) #16
   store ptr %87, ptr @fp_pw_thread_loop_start, align 8
   %.not22.i = icmp eq ptr %87, null
   br i1 %.not22.i, label %88, label %89
@@ -1316,7 +1316,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 89:                                               ; preds = %85
   %90 = load ptr, ptr @pipewire_libhandle, align 8
-  %91 = tail call ptr @dlsym(ptr noundef %90, ptr noundef nonnull @.str.40) #15
+  %91 = tail call ptr @dlsym(ptr noundef %90, ptr noundef nonnull @.str.40) #16
   store ptr %91, ptr @fp_pw_thread_loop_stop, align 8
   %.not23.i = icmp eq ptr %91, null
   br i1 %.not23.i, label %92, label %93
@@ -1327,7 +1327,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 93:                                               ; preds = %89
   %94 = load ptr, ptr @pipewire_libhandle, align 8
-  %95 = tail call ptr @dlsym(ptr noundef %94, ptr noundef nonnull @.str.41) #15
+  %95 = tail call ptr @dlsym(ptr noundef %94, ptr noundef nonnull @.str.41) #16
   store ptr %95, ptr @fp_pw_thread_loop_destroy, align 8
   %.not24.i = icmp eq ptr %95, null
   br i1 %.not24.i, label %96, label %97
@@ -1338,7 +1338,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 97:                                               ; preds = %93
   %98 = load ptr, ptr @pipewire_libhandle, align 8
-  %99 = tail call ptr @dlsym(ptr noundef %98, ptr noundef nonnull @.str.42) #15
+  %99 = tail call ptr @dlsym(ptr noundef %98, ptr noundef nonnull @.str.42) #16
   store ptr %99, ptr @fp_pw_thread_loop_lock, align 8
   %.not25.i = icmp eq ptr %99, null
   br i1 %.not25.i, label %100, label %101
@@ -1349,7 +1349,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr @pipewire_libhandle, align 8
-  %103 = tail call ptr @dlsym(ptr noundef %102, ptr noundef nonnull @.str.43) #15
+  %103 = tail call ptr @dlsym(ptr noundef %102, ptr noundef nonnull @.str.43) #16
   store ptr %103, ptr @fp_pw_thread_loop_unlock, align 8
   %.not26.i = icmp eq ptr %103, null
   br i1 %.not26.i, label %104, label %105
@@ -1360,7 +1360,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 105:                                              ; preds = %101
   %106 = load ptr, ptr @pipewire_libhandle, align 8
-  %107 = tail call ptr @dlsym(ptr noundef %106, ptr noundef nonnull @.str.44) #15
+  %107 = tail call ptr @dlsym(ptr noundef %106, ptr noundef nonnull @.str.44) #16
   store ptr %107, ptr @fp_pw_properties_new, align 8
   %.not27.i = icmp eq ptr %107, null
   br i1 %.not27.i, label %108, label %loadSymbols.exit
@@ -1371,7 +1371,7 @@ define zeroext i8 @Java_sun_awt_screencast_ScreencastHelper_loadPipewire(ptr nou
 
 109:                                              ; preds = %108, %104, %100, %96, %92, %88, %84, %80, %76, %72, %68, %64, %60, %56, %52, %48, %44, %40, %36, %32, %28, %24, %20, %16, %12
   %110 = load ptr, ptr @pipewire_libhandle, align 8
-  %111 = tail call i32 @dlclose(ptr noundef %110) #15
+  %111 = tail call i32 @dlclose(ptr noundef %110) #16
   store ptr null, ptr @pipewire_libhandle, align 8
   br label %loadSymbols.exit.thread
 
@@ -1379,7 +1379,7 @@ loadSymbols.exit:                                 ; preds = %105
   %112 = load ptr, ptr %0, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 48
   %114 = load ptr, ptr %113, align 8
-  %115 = tail call ptr %114(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #15
+  %115 = tail call ptr %114(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #16
   store ptr %115, ptr @tokenStorageClass, align 8
   %.not10 = icmp eq ptr %115, null
   br i1 %.not10, label %loadSymbols.exit.thread, label %116
@@ -1388,7 +1388,7 @@ loadSymbols.exit:                                 ; preds = %105
   %117 = load ptr, ptr %0, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 168
   %119 = load ptr, ptr %118, align 8
-  %120 = tail call ptr %119(ptr noundef nonnull %0, ptr noundef nonnull %115) #15
+  %120 = tail call ptr %119(ptr noundef nonnull %0, ptr noundef nonnull %115) #16
   store ptr %120, ptr @tokenStorageClass, align 8
   %.not11 = icmp eq ptr %120, null
   br i1 %.not11, label %126, label %121
@@ -1397,7 +1397,7 @@ loadSymbols.exit:                                 ; preds = %105
   %122 = load ptr, ptr %0, align 8
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 904
   %124 = load ptr, ptr %123, align 8
-  %125 = tail call ptr %124(ptr noundef nonnull %0, ptr noundef nonnull %120, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #15
+  %125 = tail call ptr %124(ptr noundef nonnull %0, ptr noundef nonnull %120, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #16
   store ptr %125, ptr @storeTokenMethodID, align 8
   %.not12 = icmp eq ptr %125, null
   br i1 %.not12, label %loadSymbols.exit.thread, label %127
@@ -1410,10 +1410,10 @@ loadSymbols.exit:                                 ; preds = %105
   %128 = load ptr, ptr @gtk, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 664
   %130 = load ptr, ptr %129, align 8
-  %131 = tail call ptr %130(ptr noundef nonnull @.str.6) #15
+  %131 = tail call ptr %130(ptr noundef nonnull @.str.6) #16
   store ptr %131, ptr @activeSessionToken, align 8
-  %132 = tail call i32 (...) @initXdgDesktopPortal() #15
-  tail call void (...) @portalScreenCastCleanup() #15
+  %132 = tail call i32 (...) @initXdgDesktopPortal() #16
+  tail call void (...) @portalScreenCastCleanup() #16
   %133 = trunc i32 %132 to i8
   br label %loadSymbols.exit.thread
 
@@ -1447,11 +1447,11 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1368
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #15
+  %16 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #16
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #15
+  %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #16
   %.not105 = icmp eq i8 %20, 0
   br i1 %.not105, label %25, label %21
 
@@ -1459,7 +1459,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef nonnull %0) #15
+  tail call void %24(ptr noundef nonnull %0) #16
   br label %25
 
 25:                                               ; preds = %21, %12
@@ -1479,11 +1479,11 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1496
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null) #15
+  %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null) #16
   %37 = load ptr, ptr %0, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1824
   %39 = load ptr, ptr %38, align 8
-  %40 = tail call zeroext i8 %39(ptr noundef nonnull %0) #15
+  %40 = tail call zeroext i8 %39(ptr noundef nonnull %0) #16
   %.not27.i = icmp eq i8 %40, 0
   br i1 %.not27.i, label %45, label %41
 
@@ -1491,7 +1491,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 128
   %44 = load ptr, ptr %43, align 8
-  tail call void %44(ptr noundef nonnull %0) #15
+  tail call void %44(ptr noundef nonnull %0) #16
   br label %45
 
 45:                                               ; preds = %41, %28
@@ -1536,7 +1536,7 @@ define i32 @Java_sun_awt_screencast_ScreencastHelper_getRGBPixelsImpl(ptr nounde
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1560
   %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %36, i32 noundef 0) #15
+  tail call void %64(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %36, i32 noundef 0) #16
   br label %arrayToRectangles.exit
 
 arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45, %.split
@@ -1550,7 +1550,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1352
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #15
+  %71 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef null) #16
   br label %72
 
 72:                                               ; preds = %arrayToRectangles.exit, %67
@@ -1660,10 +1660,10 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 824
   %113 = load ptr, ptr %112, align 8
   %114 = load ptr, ptr %91, align 8
-  %115 = call ptr %113(ptr noundef %114) #15
+  %115 = call ptr %113(ptr noundef %114) #16
   %116 = mul nsw i64 %indvars.iv, %96
   %117 = getelementptr inbounds i32, ptr %115, i64 %116
-  call void %110(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %107, i32 noundef %.sroa.3.0.copyload, ptr noundef %117) #15
+  call void %110(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %107, i32 noundef %.sroa.3.0.copyload, ptr noundef %117) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -1678,7 +1678,7 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   %118 = load ptr, ptr @gtk, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 504
   %120 = load ptr, ptr %119, align 8
-  call void %120(ptr noundef nonnull %.pr152) #15
+  call void %120(ptr noundef nonnull %.pr152) #16
   store ptr null, ptr %91, align 8
   br label %.thread
 
@@ -1686,15 +1686,15 @@ arrayToRectangles.exit:                           ; preds = %._crit_edge.i, %45,
   store volatile i32 0, ptr %85, align 8
   %121 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
   %122 = load ptr, ptr @pw, align 8
-  call void %121(ptr noundef %122) #15
+  call void %121(ptr noundef %122) #16
   %123 = load ptr, ptr @fp_pw_stream_set_active, align 8
   %124 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %125, align 8
-  %127 = call i32 %123(ptr noundef %126, i1 noundef zeroext false) #15
+  %127 = call i32 %123(ptr noundef %126, i1 noundef zeroext false) #16
   %128 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %129 = load ptr, ptr @pw, align 8
-  call void %128(ptr noundef %129) #15
+  call void %128(ptr noundef %129) #16
   %130 = getelementptr inbounds nuw i8, ptr %84, i64 60
   store volatile i32 0, ptr %130, align 4
   %.pre = load ptr, ptr @screenSpace, align 8
@@ -1718,7 +1718,7 @@ releaseToken.exit.sink.split:                     ; preds = %._crit_edge142, %78
   %136 = load ptr, ptr %0, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 1360
   %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %73) #15
+  call void %138(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %73) #16
   br label %releaseToken.exit
 
 releaseToken.exit:                                ; preds = %releaseToken.exit.sink.split, %._crit_edge142, %78, %75
@@ -1764,7 +1764,7 @@ define internal fastcc i32 @makeScreencast(ptr noundef %0, i64 %.0.val, i64 %.8.
 15:                                               ; preds = %14
   %16 = load ptr, ptr @activeSessionToken, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %17) #16
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %17) #17
   %.not19.i = icmp eq i32 %18, 0
   br i1 %.not19.i, label %19, label %.thread15.i
 
@@ -1781,27 +1781,27 @@ define internal fastcc i32 @makeScreencast(ptr noundef %0, i64 %.0.val, i64 %.8.
 
 21:                                               ; preds = %.thread15.i, %.thread.i, %14
   %22 = load ptr, ptr @fp_pw_init, align 8
-  tail call void %22(ptr noundef null, ptr noundef null) #15
+  tail call void %22(ptr noundef null, ptr noundef null) #16
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 12), align 4
-  %23 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 2, i64 noundef 64) #17
+  %23 = tail call noalias dereferenceable_or_null(128) ptr @calloc(i64 noundef 2, i64 noundef 64) #18
   store ptr %23, ptr @screenSpace, align 8
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %initScreenSpace.exit.thread.i, label %initScreenSpace.exit.i
 
 initScreenSpace.exit.thread.i:                    ; preds = %21
   %24 = load ptr, ptr @stderr, align 8
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.initScreenSpace, i32 noundef 85) #18
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.initScreenSpace, i32 noundef 85) #19
   br label %36
 
 initScreenSpace.exit.i:                           ; preds = %21
-  %26 = tail call i32 (...) @initXdgDesktopPortal() #15
+  %26 = tail call i32 (...) @initXdgDesktopPortal() #16
   %.not11.i = icmp eq i32 %26, 0
   br i1 %.not11.i, label %36, label %27
 
 27:                                               ; preds = %initScreenSpace.exit.i
-  %28 = tail call i32 @getPipewireFd(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -536870912, 536870912) %2) #15
+  %28 = tail call i32 @getPipewireFd(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 -536870912, 536870912) %2) #16
   store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %36, label %30
@@ -1811,7 +1811,7 @@ initScreenSpace.exit.i:                           ; preds = %21
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 704
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @activeSessionToken, align 8
-  %35 = tail call ptr (ptr, ptr, ...) %33(ptr noundef %34, ptr noundef nonnull @.str.48, ptr noundef %0) #15
+  %35 = tail call ptr (ptr, ptr, ...) %33(ptr noundef %34, ptr noundef nonnull @.str.48, ptr noundef %0) #16
   store i1 false, ptr @hasPipewireFailed, align 4
   store i1 true, ptr @sessionClosed, align 4
   br label %38
@@ -1830,7 +1830,7 @@ initScreenSpace.exit.i:                           ; preds = %21
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr @fp_pw_thread_loop_new, align 8
-  %43 = tail call ptr %42(ptr noundef nonnull @.str.50, ptr noundef null) #15
+  %43 = tail call ptr %42(ptr noundef nonnull @.str.50, ptr noundef null) #16
   store ptr %43, ptr @pw, align 8
   %.not.i8 = icmp eq ptr %43, null
   br i1 %.not.i8, label %44, label %45
@@ -1843,8 +1843,8 @@ initScreenSpace.exit.i:                           ; preds = %21
 45:                                               ; preds = %41
   %46 = load ptr, ptr @fp_pw_context_new, align 8
   %47 = load ptr, ptr @fp_pw_thread_loop_get_loop, align 8
-  %48 = tail call ptr %47(ptr noundef nonnull %43) #15
-  %49 = tail call ptr %46(ptr noundef %48, ptr noundef null, i64 noundef 0) #15
+  %48 = tail call ptr %47(ptr noundef nonnull %43) #16
+  %49 = tail call ptr %46(ptr noundef %48, ptr noundef null, i64 noundef 0) #16
   store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 8), align 8
   %.not40.i = icmp eq ptr %49, null
   br i1 %.not40.i, label %50, label %51
@@ -1857,7 +1857,7 @@ initScreenSpace.exit.i:                           ; preds = %21
 51:                                               ; preds = %45
   %52 = load ptr, ptr @fp_pw_thread_loop_start, align 8
   %53 = load ptr, ptr @pw, align 8
-  %54 = tail call i32 %52(ptr noundef %53) #15
+  %54 = tail call i32 %52(ptr noundef %53) #16
   %.not41.i = icmp eq i32 %54, 0
   br i1 %.not41.i, label %56, label %55
 
@@ -1869,11 +1869,11 @@ initScreenSpace.exit.i:                           ; preds = %21
 56:                                               ; preds = %51
   %57 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
   %58 = load ptr, ptr @pw, align 8
-  tail call void %57(ptr noundef %58) #15
+  tail call void %57(ptr noundef %58) #16
   %59 = load ptr, ptr @fp_pw_context_connect_fd, align 8
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 8), align 8
   %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
-  %62 = tail call ptr %59(ptr noundef %60, i32 noundef %61, ptr noundef null, i64 noundef 0) #15
+  %62 = tail call ptr %59(ptr noundef %60, i32 noundef %61, ptr noundef null, i64 noundef 0) #16
   store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   %.not42.i = icmp eq ptr %62, null
   br i1 %.not42.i, label %.thread.i9, label %63
@@ -1897,7 +1897,7 @@ initScreenSpace.exit.i:                           ; preds = %21
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call i32 %68(ptr noundef %71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pw, i64 24), ptr noundef nonnull @coreEvents, ptr noundef null) #15
+  %72 = tail call i32 %68(ptr noundef %71, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @pw, i64 24), ptr noundef nonnull @coreEvents, ptr noundef null) #16
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %69, %66, %63, %38
@@ -1946,7 +1946,7 @@ initScreenSpace.exit.i:                           ; preds = %21
 
 94:                                               ; preds = %93
   %95 = load ptr, ptr @stderr, align 8
-  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.doLoop, i32 noundef 632) #18
+  %96 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.doLoop, i32 noundef 632) #19
   br label %connectStream.exit.thread.i
 
 97:                                               ; preds = %93
@@ -2070,8 +2070,8 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   %162 = load ptr, ptr @fp_pw_stream_new, align 8
   %163 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   %164 = load ptr, ptr @fp_pw_properties_new, align 8
-  %165 = call ptr (ptr, ...) %164(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef null) #15
-  %166 = call ptr %162(ptr noundef %163, ptr noundef nonnull @.str.63, ptr noundef %165) #15
+  %165 = call ptr (ptr, ...) %164(ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, ptr noundef null) #16
+  %166 = call ptr %162(ptr noundef %163, ptr noundef nonnull @.str.63, ptr noundef %165) #16
   store ptr %166, ptr %156, align 8
   %.not55.i.i = icmp eq ptr %166, null
   br i1 %.not55.i.i, label %167, label %180
@@ -2090,13 +2090,13 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.70, ptr noundef nonnull @__func__.connectStream, i32 noundef 469, i32 noundef %169, i32 noundef %171, i32 noundef %173, i32 noundef %175, i32 noundef %177, ptr noundef null)
   %178 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %179 = load ptr, ptr @pw, align 8
-  call void %178(ptr noundef %179) #15
+  call void %178(ptr noundef %179) #16
   br label %connectStream.exit.thread.i
 
 180:                                              ; preds = %160
   %181 = load ptr, ptr @fp_pw_stream_add_listener, align 8
   %182 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  call void %181(ptr noundef nonnull %166, ptr noundef nonnull %182, ptr noundef nonnull @streamEvents, ptr noundef nonnull %156) #15
+  call void %181(ptr noundef nonnull %166, ptr noundef nonnull %182, ptr noundef nonnull @streamEvents, ptr noundef nonnull %156) #16
   %183 = load ptr, ptr %157, align 8
   %184 = load i32, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 4
@@ -2159,7 +2159,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   store ptr %207, ptr %6, align 8
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.711, ptr noundef nonnull @__func__.startStream, i32 noundef 414, i32 noundef %206, ptr noundef %203)
   %208 = load ptr, ptr @fp_pw_stream_connect, align 8
-  %209 = call i32 %208(ptr noundef %203, i32 noundef 0, i32 noundef %206, i32 noundef 5, ptr noundef nonnull %6, i32 noundef 1) #15
+  %209 = call i32 %208(ptr noundef %203, i32 noundef 0, i32 noundef %206, i32 noundef 5, ptr noundef nonnull %6, i32 noundef 1) #16
   %210 = icmp sgt i32 %209, -1
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
@@ -2187,7 +2187,7 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
   call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.71, ptr noundef nonnull @__func__.connectStream, i32 noundef 485, i32 noundef %213, i32 noundef %215, i32 noundef %217, i32 noundef %219, i32 noundef %221, ptr noundef null)
   %222 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %223 = load ptr, ptr @pw, align 8
-  call void %222(ptr noundef %223) #15
+  call void %222(ptr noundef %223) #16
   br label %connectStream.exit.thread.i
 
 .preheader.i.i:                                   ; preds = %180, %225
@@ -2198,17 +2198,17 @@ checkScreen.exit.i:                               ; preds = %133, %._crit_edge.i
 225:                                              ; preds = %.preheader.i.i
   %226 = load ptr, ptr @fp_pw_thread_loop_wait, align 8
   %227 = load ptr, ptr @pw, align 8
-  call void %226(ptr noundef %227) #15
+  call void %226(ptr noundef %227) #16
   %228 = load ptr, ptr @fp_pw_thread_loop_accept, align 8
   %229 = load ptr, ptr @pw, align 8
-  call void %228(ptr noundef %229) #15
+  call void %228(ptr noundef %229) #16
   %.b53.i.i = load i1, ptr @hasPipewireFailed, align 4
   br i1 %.b53.i.i, label %230, label %.preheader.i.i, !llvm.loop !11
 
 230:                                              ; preds = %225
   %231 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %232 = load ptr, ptr @pw, align 8
-  call void %231(ptr noundef %232) #15
+  call void %231(ptr noundef %232) #16
   br label %connectStream.exit.thread.i
 
 connectStream.exit.thread56.i:                    ; preds = %.preheader.i.i
@@ -2232,13 +2232,13 @@ connectStream.exit.thread56.i:                    ; preds = %.preheader.i.i
 connectStream.exit.i:                             ; preds = %158
   %247 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
   %248 = load ptr, ptr @pw, align 8
-  call void %247(ptr noundef %248) #15
+  call void %247(ptr noundef %248) #16
   %249 = load ptr, ptr @fp_pw_stream_set_active, align 8
   %250 = load ptr, ptr %156, align 8
-  %251 = call i32 %249(ptr noundef %250, i1 noundef zeroext true) #15
+  %251 = call i32 %249(ptr noundef %250, i1 noundef zeroext true) #16
   %252 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %253 = load ptr, ptr @pw, align 8
-  call void %252(ptr noundef %253) #15
+  call void %252(ptr noundef %253) #16
   %254 = load ptr, ptr %157, align 8
   %255 = load i32, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 4
@@ -2273,7 +2273,7 @@ connectStream.exit.i:                             ; preds = %158
 274:                                              ; preds = %._crit_edge.i
   %275 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %276 = load ptr, ptr @pw, align 8
-  call void %275(ptr noundef %276) #15
+  call void %275(ptr noundef %276) #16
   br label %doLoop.exit.preheader
 
 doLoop.exit.preheader:                            ; preds = %._crit_edge.i, %274
@@ -2285,7 +2285,7 @@ connectStream.exit.thread.i:                      ; preds = %connectStream.exit.
 277:                                              ; preds = %connectStream.exit.thread.i, %.thread.i9
   %278 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %279 = load ptr, ptr @pw, align 8
-  call void %278(ptr noundef %279) #15
+  call void %278(ptr noundef %279) #16
   br label %280
 
 280:                                              ; preds = %277, %connectStream.exit.thread.i
@@ -2323,13 +2323,13 @@ doLoop.exit:                                      ; preds = %doLoop.exit.prehead
 isAllDataReady.exit:                              ; preds = %287
   %291 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
   %292 = load ptr, ptr @pw, align 8
-  call void %291(ptr noundef %292) #15
+  call void %291(ptr noundef %292) #16
   %293 = load ptr, ptr @fp_pw_thread_loop_wait, align 8
   %294 = load ptr, ptr @pw, align 8
-  call void %293(ptr noundef %294) #15
+  call void %293(ptr noundef %294) #16
   %295 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %296 = load ptr, ptr @pw, align 8
-  call void %295(ptr noundef %296) #15
+  call void %295(ptr noundef %296) #16
   %.b = load i1, ptr @hasPipewireFailed, align 4
   br i1 %.b, label %297, label %doLoop.exit, !llvm.loop !14
 
@@ -2364,7 +2364,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.45, ptr noundef nonnull @__func__.doCleanup, i32 noundef 93, ptr noundef null)
   %3 = load ptr, ptr @fp_pw_thread_loop_stop, align 8
   %4 = load ptr, ptr @pw, align 8
-  tail call void %3(ptr noundef %4) #15
+  tail call void %3(ptr noundef %4) #16
   br label %5
 
 5:                                                ; preds = %2, %0
@@ -2393,18 +2393,18 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
 14:                                               ; preds = %12
   %15 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
   %16 = load ptr, ptr @pw, align 8
-  tail call void %15(ptr noundef %16) #15
+  tail call void %15(ptr noundef %16) #16
   %17 = load ptr, ptr @fp_pw_stream_disconnect, align 8
   %18 = load ptr, ptr %10, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call i32 %17(ptr noundef %19) #15
+  %20 = tail call i32 %17(ptr noundef %19) #16
   %21 = load ptr, ptr @fp_pw_stream_destroy, align 8
   %22 = load ptr, ptr %10, align 8
   %23 = load ptr, ptr %22, align 8
-  tail call void %21(ptr noundef %23) #15
+  tail call void %21(ptr noundef %23) #16
   %24 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %25 = load ptr, ptr @pw, align 8
-  tail call void %24(ptr noundef %25) #15
+  tail call void %24(ptr noundef %25) #16
   %26 = load ptr, ptr %10, align 8
   store ptr null, ptr %26, align 8
   %.pre22 = load ptr, ptr %10, align 8
@@ -2412,7 +2412,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
 
 27:                                               ; preds = %14, %12
   %28 = phi ptr [ %.pre22, %14 ], [ %11, %12 ]
-  tail call void @free(ptr noundef %28) #15
+  tail call void @free(ptr noundef %28) #16
   store ptr null, ptr %10, align 8
   %.pre = load ptr, ptr @screenSpace, align 8
   %.pre23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
@@ -2432,19 +2432,19 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %._crit_edge
-  %37 = tail call i32 @close(i32 noundef %34) #15
+  %37 = tail call i32 @close(i32 noundef %34) #16
   store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 72), align 8
   br label %38
 
 38:                                               ; preds = %36, %._crit_edge
-  tail call void (...) @portalScreenCastCleanup() #15
+  tail call void (...) @portalScreenCastCleanup() #16
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   %.not14 = icmp eq ptr %39, null
   br i1 %.not14, label %43, label %40
 
 40:                                               ; preds = %38
   %41 = load ptr, ptr @fp_pw_core_disconnect, align 8
-  %42 = tail call i32 %41(ptr noundef nonnull %39) #15
+  %42 = tail call i32 %41(ptr noundef nonnull %39) #16
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @pw, i64 16), align 8
   br label %43
 
@@ -2455,7 +2455,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
 
 45:                                               ; preds = %43
   %46 = load ptr, ptr @fp_pw_thread_loop_destroy, align 8
-  tail call void %46(ptr noundef nonnull %44) #15
+  tail call void %46(ptr noundef nonnull %44) #16
   store ptr null, ptr @pw, align 8
   br label %47
 
@@ -2465,7 +2465,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   br i1 %.not16, label %50, label %49
 
 49:                                               ; preds = %47
-  tail call void @free(ptr noundef nonnull %48) #15
+  tail call void @free(ptr noundef nonnull %48) #16
   store ptr null, ptr @screenSpace, align 8
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @screenSpace, i64 8), align 8
   br label %50
@@ -2476,7 +2476,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr @fp_pw_deinit, align 8
-  tail call void %52() #15
+  tail call void %52() #16
   br label %53
 
 53:                                               ; preds = %51, %50
@@ -2484,7 +2484,7 @@ define internal fastcc void @doCleanup() unnamed_addr #3 {
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 680
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr @activeSessionToken, align 8
-  %58 = tail call ptr %56(ptr noundef %57, i64 noundef 0) #15
+  %58 = tail call ptr %56(ptr noundef %57, i64 noundef 0) #16
   store i1 false, ptr @sessionClosed, align 4
   ret void
 }
@@ -2494,7 +2494,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @getPipewireFd(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -2510,7 +2510,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind uwtable
 define internal void @onCoreError(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #3 {
-  %6 = tail call ptr @strerror(i32 noundef %3) #15
+  %6 = tail call ptr @strerror(i32 noundef %3) #16
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.57, ptr noundef nonnull @__func__.onCoreError, i32 noundef 560, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %6, ptr noundef %4)
   %7 = icmp eq i32 %1, 0
   br i1 %7, label %8, label %15
@@ -2518,14 +2518,14 @@ define internal void @onCoreError(ptr readnone captures(none) %0, i32 noundef %1
 8:                                                ; preds = %5
   %9 = load ptr, ptr @fp_pw_thread_loop_lock, align 8
   %10 = load ptr, ptr @pw, align 8
-  tail call void %9(ptr noundef %10) #15
+  tail call void %9(ptr noundef %10) #16
   store i1 true, ptr @hasPipewireFailed, align 4
   %11 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
   %12 = load ptr, ptr @pw, align 8
-  tail call void %11(ptr noundef %12, i1 noundef zeroext false) #15
+  tail call void %11(ptr noundef %12, i1 noundef zeroext false) #16
   %13 = load ptr, ptr @fp_pw_thread_loop_unlock, align 8
   %14 = load ptr, ptr @pw, align 8
-  tail call void %13(ptr noundef %14) #15
+  tail call void %13(ptr noundef %14) #16
   br label %15
 
 15:                                               ; preds = %8, %5
@@ -2549,9 +2549,9 @@ define internal void @onStreamStateChanged(ptr noundef readonly captures(none) %
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = load i32, ptr %14, align 4
   %16 = load ptr, ptr @fp_pw_stream_state_as_string, align 8
-  %17 = tail call ptr %16(i32 noundef %1) #15
+  %17 = tail call ptr %16(i32 noundef %1) #16
   %18 = load ptr, ptr @fp_pw_stream_state_as_string, align 8
-  %19 = tail call ptr %18(i32 noundef %2) #15
+  %19 = tail call ptr %18(i32 noundef %2) #16
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.73, ptr noundef nonnull @__func__.onStreamStateChanged, i32 noundef 363, i32 noundef %7, i32 noundef %9, i32 noundef %11, i32 noundef %13, i32 noundef %15, i32 noundef %1, ptr noundef %17, i32 noundef %2, ptr noundef %19, ptr noundef %3)
   %20 = add i32 %2, 1
   %or.cond = icmp ult i32 %20, 2
@@ -2561,7 +2561,7 @@ define internal void @onStreamStateChanged(ptr noundef readonly captures(none) %
   store i1 true, ptr @hasPipewireFailed, align 4
   %22 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
   %23 = load ptr, ptr @pw, align 8
-  tail call void %22(ptr noundef %23, i1 noundef zeroext false) #15
+  tail call void %22(ptr noundef %23, i1 noundef zeroext false) #16
   br label %24
 
 24:                                               ; preds = %4, %21
@@ -2840,7 +2840,7 @@ spa_debug_type_find_name.exit:                    ; preds = %126, %140
   store i32 1, ptr %146, align 8
   %147 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
   %148 = load ptr, ptr @pw, align 8
-  call void %147(ptr noundef %148, i1 noundef zeroext true) #15
+  call void %147(ptr noundef %148, i1 noundef zeroext true) #16
   br label %149
 
 149:                                              ; preds = %spa_format_video_raw_parse.exit.thread, %spa_format_parse.exit.thread, %spa_format_video_raw_parse.exit, %47, %spa_format_parse.exit, %3, %spa_debug_type_find_name.exit
@@ -2888,7 +2888,7 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @fp_pw_stream_dequeue_buffer, align 8
-  %28 = tail call ptr %27(ptr noundef nonnull %25) #15
+  %28 = tail call ptr %27(ptr noundef nonnull %25) #16
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %36
 
@@ -2985,7 +2985,7 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 808
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %85, align 4
-  %94 = tail call ptr %92(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %57, i32 noundef %59, i32 noundef %93, ptr noundef null, ptr noundef null) #15
+  %94 = tail call ptr %92(ptr noundef nonnull %46, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %57, i32 noundef %59, i32 noundef %93, ptr noundef null, ptr noundef null) #16
   %95 = load i32, ptr %9, align 4
   %.not111 = icmp eq i32 %95, %57
   %.pre = load i32, ptr %11, align 4
@@ -3003,11 +3003,11 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %9, align 4
   %104 = load i32, ptr %11, align 4
-  %105 = tail call ptr %102(ptr noundef %94, i32 noundef %103, i32 noundef %104, i32 noundef 2) #15
+  %105 = tail call ptr %102(ptr noundef %94, i32 noundef %103, i32 noundef %104, i32 noundef 2) #16
   %106 = load ptr, ptr @gtk, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 504
   %108 = load ptr, ptr %107, align 8
-  tail call void %108(ptr noundef %94) #15
+  tail call void %108(ptr noundef %94) #16
   br label %109
 
 109:                                              ; preds = %55, %96
@@ -3021,7 +3021,7 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %111 = load ptr, ptr @gtk, align 8
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 800
   %113 = load ptr, ptr %112, align 8
-  %114 = tail call ptr %113(i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload) #15
+  %114 = tail call ptr %113(i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload) #16
   %.not115 = icmp eq ptr %114, null
   br i1 %.not115, label %119, label %115
 
@@ -3029,19 +3029,19 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   %116 = load ptr, ptr @gtk, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 832
   %118 = load ptr, ptr %117, align 8
-  tail call void %118(ptr noundef %.0, i32 noundef %.sroa.09.0.copyload, i32 noundef %.sroa.210.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload, ptr noundef nonnull %114, i32 noundef 0, i32 noundef 0) #15
+  tail call void %118(ptr noundef %.0, i32 noundef %.sroa.09.0.copyload, i32 noundef %.sroa.210.0.copyload, i32 noundef %.sroa.3.0.copyload, i32 noundef %.sroa.6.0.copyload, ptr noundef nonnull %114, i32 noundef 0, i32 noundef 0) #16
   br label %122
 
 119:                                              ; preds = %110
   %120 = load ptr, ptr @stderr, align 8
-  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.707, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 334) #18
+  %121 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %120, ptr noundef nonnull @.str.707, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 334) #19
   br label %122
 
 122:                                              ; preds = %119, %115
   %123 = load ptr, ptr @gtk, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 504
   %125 = load ptr, ptr %124, align 8
-  tail call void %125(ptr noundef %.0) #15
+  tail call void %125(ptr noundef %.0) #16
   br label %126
 
 126:                                              ; preds = %109, %122
@@ -3058,18 +3058,18 @@ define internal void @onStreamProcess(ptr noundef readonly captures(none) %0) #3
   tail call void (ptr, ...) @debug_screencast(ptr noundef nonnull @.str.708, ptr noundef nonnull @__func__.onStreamProcess, i32 noundef 347, i32 noundef %129, i32 noundef %130, i32 noundef %131, i32 noundef %132, i32 noundef %133, ptr noundef null)
   %134 = load ptr, ptr @fp_pw_stream_queue_buffer, align 8
   %135 = load ptr, ptr %0, align 8
-  %136 = tail call i32 %134(ptr noundef %135, ptr noundef nonnull %28) #15
+  %136 = tail call i32 %134(ptr noundef %135, ptr noundef nonnull %28) #16
   %137 = load ptr, ptr @fp_pw_thread_loop_signal, align 8
   %138 = load ptr, ptr @pw, align 8
-  tail call void %137(ptr noundef %138, i1 noundef zeroext false) #15
+  tail call void %137(ptr noundef %138, i1 noundef zeroext false) #16
   br label %139
 
 139:                                              ; preds = %1, %20, %22, %126, %48, %30
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal i32 @spa_pod_parser_get(ptr noundef nonnull captures(none) %0, ...) unnamed_addr #0 {
+; Function Attrs: nofree norecurse nounwind uwtable
+define internal i32 @spa_pod_parser_get(ptr noundef nonnull captures(none) %0, ...) unnamed_addr #11 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3945,7 +3945,7 @@ thread-pre-split157.i:                            ; preds = %spa_pod_is_string.e
   %448 = inttoptr i64 %447 to ptr
   %449 = add i32 %445, -1
   %450 = zext i32 %449 to i64
-  %451 = call ptr @strncpy(ptr noundef %443, ptr noundef %448, i64 noundef %450) #15
+  %451 = call ptr @strncpy(ptr noundef %443, ptr noundef %448, i64 noundef %450) #16
   %452 = getelementptr inbounds nuw i8, ptr %443, i64 %450
   store i8 0, ptr %452, align 1
   br label %662
@@ -4329,11 +4329,11 @@ spa_pod_parser_getv.exit:                         ; preds = %29, %99, %spa_pod_p
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) unnamed_addr #13 {
   %3 = icmp eq ptr %0, null
   %spec.store.select = select i1 %3, ptr @spa_types, ptr %0
   %4 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 8
@@ -4501,7 +4501,7 @@ define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0,
 
 .critedge.i.i.i:                                  ; preds = %87
   %90 = load ptr, ptr %29, align 8
-  %91 = call i32 %89(ptr noundef %90, i32 noundef %81) #15
+  %91 = call i32 %89(ptr noundef %90, i32 noundef %81) #16
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %.critedge.i.thread.i.i, label %.critedge.thread.i.i.i
 
@@ -4605,7 +4605,7 @@ define internal void @spa_pod_builder_add(ptr noundef nonnull captures(none) %0,
 
 .critedge.i.i133.i:                               ; preds = %137
   %140 = load ptr, ptr %29, align 8
-  %141 = call i32 %139(ptr noundef %140, i32 noundef %131) #15
+  %141 = call i32 %139(ptr noundef %140, i32 noundef %131) #16
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %.critedge.i.thread.i120.i, label %.critedge.thread.i.i122.i
 
@@ -4718,7 +4718,7 @@ spa_choice_from_id.exit.i:                        ; preds = %176, %175, %174, %1
 
 .critedge.i.i146.i:                               ; preds = %185
   %188 = load ptr, ptr %29, align 8
-  %189 = call i32 %187(ptr noundef %188, i32 noundef %179) #15
+  %189 = call i32 %187(ptr noundef %188, i32 noundef %179) #16
   %190 = icmp eq i32 %189, 0
   br i1 %190, label %.critedge.i.thread.i134.i, label %.critedge.thread.i.i135.i
 
@@ -5033,7 +5033,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   br i1 %.not119.i, label %323, label %320
 
 320:                                              ; preds = %317
-  %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %319) #16
+  %321 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %319) #17
   %322 = trunc i64 %321 to i32
   call fastcc void @spa_pod_builder_string_len(ptr noundef nonnull %0, ptr noundef nonnull %319, i32 noundef %322)
   br label %spa_pod_builder_primitive.exit.i
@@ -5159,7 +5159,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
 
 .critedge.i.i161.i:                               ; preds = %381
   %384 = load ptr, ptr %29, align 8
-  %385 = call i32 %383(ptr noundef %384, i32 noundef %375) #15
+  %385 = call i32 %383(ptr noundef %384, i32 noundef %375) #16
   %386 = icmp eq i32 %385, 0
   br i1 %386, label %.critedge.i.thread.i147.i, label %.critedge.thread.i.i149.i
 
@@ -5380,7 +5380,7 @@ spa_pod_builder_bytes.exit.i:                     ; preds = %.lr.ph.i.i153.i, %.
 
 .critedge.i.i178.i:                               ; preds = %490
   %493 = load ptr, ptr %29, align 8
-  %494 = call i32 %492(ptr noundef %493, i32 noundef %484) #15
+  %494 = call i32 %492(ptr noundef %493, i32 noundef %484) #16
   %495 = icmp eq i32 %494, 0
   br i1 %495, label %.critedge.i.thread.i162.i, label %.critedge.thread.i.i165.i
 
@@ -5583,7 +5583,7 @@ spa_pod_builder_array.exit.i:                     ; preds = %.lr.ph.i.i169.i, %.
 
 585:                                              ; preds = %582
   %586 = load ptr, ptr %29, align 8
-  %587 = call i32 %584(ptr noundef %586, i32 noundef %576) #15
+  %587 = call i32 %584(ptr noundef %586, i32 noundef %576) #16
   %588 = icmp eq i32 %587, 0
   br label %.critedge.i.i180.i
 
@@ -5664,7 +5664,7 @@ spa_pod_builder_pad.exit.thread.i.i:              ; preds = %603
 
 .critedge.i.i.i.i:                                ; preds = %616
   %619 = load ptr, ptr %29, align 8
-  %620 = call i32 %618(ptr noundef %619, i32 noundef %610) #15
+  %620 = call i32 %618(ptr noundef %619, i32 noundef %610) #16
   %621 = icmp eq i32 %620, 0
   br i1 %621, label %.critedge.i.thread.i.i.i, label %.critedge.thread.i.i.i.i
 
@@ -5757,7 +5757,7 @@ define internal fastcc noundef ptr @spa_pod_builder_pop(ptr noundef nonnull capt
 .critedge.i:                                      ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %20(ptr noundef %22, i32 noundef %10) #15
+  %23 = tail call i32 %20(ptr noundef %22, i32 noundef %10) #16
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.critedge.i.thread, label %.critedge.thread.i
 
@@ -5860,7 +5860,7 @@ spa_pod_builder_frame.exit.thread:                ; preds = %spa_pod_builder_raw
 .critedge.i.i:                                    ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i32 %70(ptr noundef %72, i32 noundef %59) #15
+  %73 = tail call i32 %70(ptr noundef %72, i32 noundef %59) #16
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.critedge.i.thread.i, label %.critedge.thread.i.i
 
@@ -5897,7 +5897,7 @@ spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_po
   ret ptr %.0.i1621
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
@@ -5931,7 +5931,7 @@ define internal fastcc void @spa_pod_builder_string_len(ptr noundef nonnull capt
 .critedge.i:                                      ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %18(ptr noundef %20, i32 noundef %8) #15
+  %21 = tail call i32 %18(ptr noundef %20, i32 noundef %8) #16
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.critedge.i.thread, label %.critedge.thread.i
 
@@ -5995,7 +5995,7 @@ spa_pod_builder_raw.exit:                         ; preds = %spa_pod_builder_raw
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call i32 %44(ptr noundef %47, i32 noundef %35) #15
+  %48 = tail call i32 %44(ptr noundef %47, i32 noundef %35) #16
   %49 = icmp eq i32 %48, 0
   br label %.critedge.i.i
 
@@ -6063,7 +6063,7 @@ spa_pod_builder_raw.exit.i:                       ; preds = %spa_pod_builder_raw
 .critedge.i10.i:                                  ; preds = %71
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 %73(ptr noundef %75, i32 noundef %64) #15
+  %76 = tail call i32 %73(ptr noundef %75, i32 noundef %64) #16
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.critedge.i10.thread.i, label %.critedge.thread.i13.i
 
@@ -6133,7 +6133,7 @@ spa_pod_builder_raw.exit24.i:                     ; preds = %spa_pod_builder_raw
 .critedge.i.i.i:                                  ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call i32 %102(ptr noundef %104, i32 noundef %91) #15
+  %105 = tail call i32 %102(ptr noundef %104, i32 noundef %91) #16
   %106 = icmp eq i32 %105, 0
   br i1 %106, label %.critedge.i.thread.i.i, label %.critedge.thread.i.i.i
 
@@ -6222,7 +6222,7 @@ define internal fastcc void @spa_pod_builder_primitive(ptr noundef nonnull captu
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %29(ptr noundef %32, i32 noundef %19) #15
+  %33 = tail call i32 %29(ptr noundef %32, i32 noundef %19) #16
   %34 = icmp eq i32 %33, 0
   br label %.critedge.i
 
@@ -6302,7 +6302,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
 .critedge.i.i:                                    ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call i32 %66(ptr noundef %68, i32 noundef %57) #15
+  %69 = tail call i32 %66(ptr noundef %68, i32 noundef %57) #16
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %.critedge.i.thread.i, label %.critedge.thread.i.i
 
@@ -6372,7 +6372,7 @@ define internal fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull capt
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call i32 %17(ptr noundef %20, i32 noundef %7) #15
+  %21 = tail call i32 %17(ptr noundef %20, i32 noundef %7) #16
   %22 = icmp eq i32 %21, 0
   br label %.critedge.i
 
@@ -6447,7 +6447,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
 .critedge.i.i:                                    ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 %52(ptr noundef %54, i32 noundef %43) #15
+  %55 = tail call i32 %52(ptr noundef %54, i32 noundef %43) #16
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %.critedge.i.thread.i, label %.critedge.thread.i.i
 
@@ -6485,16 +6485,16 @@ spa_pod_builder_pad.exit.thread:                  ; preds = %.lr.ph.i.i, %.crite
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #13
+declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn }
@@ -6504,17 +6504,18 @@ attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind willreturn memory(read) }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { cold nounwind }
+attributes #11 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind willreturn memory(read) }
+attributes #18 = { nounwind allocsize(0,1) }
+attributes #19 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -61,7 +61,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable
 define hidden void @_sodium_fe25519_tobytes(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8
   %4 = zext i64 %3 to i128
@@ -4132,7 +4132,7 @@ define hidden void @_sodium_ge25519_p1p1_to_p3(ptr noundef writeonly captures(no
   ret void
 }
 
-; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable
 define hidden void @_sodium_ge25519_p2_to_p3(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %0, ptr noundef nonnull readonly align 1 dereferenceable(40) %1, i64 noundef 40, i1 noundef false) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4146,7 +4146,7 @@ define hidden void @_sodium_ge25519_p2_to_p3(ptr noundef %0, ptr noundef readonl
   ret void
 }
 
-; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable
 define hidden void @_sodium_ge25519_p3_tobytes(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [5 x i64], align 16
@@ -4176,7 +4176,7 @@ define hidden void @_sodium_ge25519_p3_tobytes(ptr noundef %0, ptr noundef reado
   ret void
 }
 
-; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable
 define hidden void @_sodium_ge25519_tobytes(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [5 x i64], align 16
@@ -4206,7 +4206,7 @@ define hidden void @_sodium_ge25519_tobytes(ptr noundef %0, ptr noundef readonly
   ret void
 }
 
-; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable
 define hidden void @_sodium_ge25519_double_scalarmult_vartime(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.ge25519_p2, align 8
   %6 = alloca [256 x i8], align 16
@@ -15660,7 +15660,7 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { nofree nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nofree norecurse nosync nounwind ssp memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

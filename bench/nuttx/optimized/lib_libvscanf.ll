@@ -16,7 +16,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %9 = icmp eq ptr %1, null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call i32 %11(ptr noundef nonnull %0) #7
+  %12 = tail call i32 %11(ptr noundef nonnull %0) #8
   %13 = load i8, ptr %2, align 1
   %.not728 = icmp eq i8 %13, 0
   br i1 %.not728, label %._crit_edge750, label %.lr.ph749
@@ -41,19 +41,19 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %.0408730 = phi i1 [ false, %.lr.ph749 ], [ %.3411, %498 ]
   %.0729 = phi i32 [ %12, %.lr.ph749 ], [ %.23, %498 ]
   %18 = sext i8 %17 to i32
-  %19 = call i32 @isspace(i32 noundef %18) #8
+  %19 = call i32 @isspace(i32 noundef %18) #9
   %.not451 = icmp eq i32 %19, 0
   br i1 %.not451, label %.loopexit625, label %.preheader624
 
 .preheader624:                                    ; preds = %16
-  %20 = call i32 @isspace(i32 noundef %.0729) #8
+  %20 = call i32 @isspace(i32 noundef %.0729) #9
   %.not452646 = icmp eq i32 %20, 0
   br i1 %.not452646, label %.loopexit625, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader624, %.lr.ph
   %21 = load ptr, ptr %10, align 8
-  %22 = call i32 %21(ptr noundef nonnull %0) #7
-  %23 = call i32 @isspace(i32 noundef %22) #8
+  %22 = call i32 %21(ptr noundef nonnull %0) #8
+  %23 = call i32 @isspace(i32 noundef %22) #9
   %.not452 = icmp eq i32 %23, 0
   br i1 %.not452, label %.loopexit625, label %.lr.ph, !llvm.loop !6
 
@@ -65,7 +65,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %.1393 = phi ptr [ %.0392733, %.loopexit625 ], [ %28, %24 ]
   %25 = load i8, ptr %.1393, align 1
   %26 = sext i8 %25 to i32
-  %27 = call i32 @isspace(i32 noundef %26) #8
+  %27 = call i32 @isspace(i32 noundef %26) #9
   %.not453 = icmp eq i32 %27, 0
   %28 = getelementptr inbounds nuw i8, ptr %.1393, i64 1
   br i1 %.not453, label %29, label %24, !llvm.loop !8
@@ -149,7 +149,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %52 = ptrtoint ptr %.2394653 to i64
   %reass.sub = sub i64 %51, %52
   %53 = add i64 %reass.sub, 1
-  %54 = call i64 @strlcpy(ptr noundef nonnull %5, ptr noundef nonnull dereferenceable(1) %.2394653, i64 noundef %53) #7
+  %54 = call i64 @strlcpy(ptr noundef nonnull %5, ptr noundef nonnull dereferenceable(1) %.2394653, i64 noundef %53) #8
   %55 = call i32 @atoi(ptr noundef nonnull %5)
   %56 = getelementptr inbounds i8, ptr %.3395, i64 -1
   br label %57
@@ -203,14 +203,14 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
 
 76:                                               ; preds = %73, %60
   %.0420 = phi ptr [ null, %60 ], [ %75, %73 ]
-  %77 = call i32 @isspace(i32 noundef %.2573) #8
+  %77 = call i32 @isspace(i32 noundef %.2573) #9
   %.not486666 = icmp eq i32 %77, 0
   br i1 %.not486666, label %._crit_edge669, label %.lr.ph668
 
 .lr.ph668:                                        ; preds = %76, %.lr.ph668
   %78 = load ptr, ptr %10, align 8
-  %79 = call i32 %78(ptr noundef nonnull %0) #7
-  %80 = call i32 @isspace(i32 noundef %79) #8
+  %79 = call i32 %78(ptr noundef nonnull %0) #8
+  %80 = call i32 @isspace(i32 noundef %79) #9
   %.not486 = icmp eq i32 %80, 0
   br i1 %.not486, label %._crit_edge669, label %.lr.ph668, !llvm.loop !11
 
@@ -240,7 +240,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   br i1 %.old1, label %88, label %.critedge
 
 88:                                               ; preds = %84, %87
-  %89 = call i32 @isspace(i32 noundef %.5576) #8
+  %89 = call i32 @isspace(i32 noundef %.5576) #9
   %.not488 = icmp eq i32 %89, 0
   br i1 %.not488, label %90, label %.critedge
 
@@ -256,7 +256,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
 94:                                               ; preds = %91, %90
   %indvars.iv.next789 = add nuw nsw i64 %indvars.iv788, 1
   %95 = load ptr, ptr %10, align 8
-  %96 = call i32 %95(ptr noundef nonnull %0) #7
+  %96 = call i32 %95(ptr noundef nonnull %0) #8
   br label %83, !llvm.loop !12
 
 .critedge:                                        ; preds = %87, %84, %88
@@ -331,7 +331,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
 127:                                              ; preds = %124, %.lr.ph663
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %128 = load ptr, ptr %10, align 8
-  %129 = call i32 %128(ptr noundef nonnull %0) #7
+  %129 = call i32 %128(ptr noundef nonnull %0) #8
   %130 = icmp samesign ult i64 %indvars.iv.next, %123
   %131 = icmp sgt i32 %129, 0
   %132 = select i1 %130, i1 %131, i1 false
@@ -501,14 +501,14 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %.2362 = phi ptr [ %.0360738, %139 ], [ %.0360738, %189 ], [ %.0360738, %201 ], [ %179, %177 ], [ %.0360738, %165 ], [ %.0360738, %153 ]
   %.2357 = phi ptr [ %.0355740, %139 ], [ %.0355740, %189 ], [ %.0355740, %201 ], [ %.0355740, %177 ], [ %167, %165 ], [ %.0355740, %153 ]
   %.2352 = phi ptr [ %.0350742, %139 ], [ %.0350742, %189 ], [ %.0350742, %201 ], [ %.0350742, %177 ], [ %.0350742, %165 ], [ %155, %153 ]
-  %205 = call i32 @isspace(i32 noundef %.2573) #8
+  %205 = call i32 @isspace(i32 noundef %.2573) #9
   %.not468671 = icmp eq i32 %205, 0
   br i1 %.not468671, label %._crit_edge674, label %.lr.ph673
 
 .lr.ph673:                                        ; preds = %204, %.lr.ph673
   %206 = load ptr, ptr %10, align 8
-  %207 = call i32 %206(ptr noundef nonnull %0) #7
-  %208 = call i32 @isspace(i32 noundef %207) #8
+  %207 = call i32 %206(ptr noundef nonnull %0) #8
+  %208 = call i32 @isspace(i32 noundef %207) #9
   %.not468 = icmp eq i32 %208, 0
   br i1 %.not468, label %._crit_edge674, label %.lr.ph673, !llvm.loop !14
 
@@ -579,7 +579,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %227 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %226
   store i8 %224, ptr %227, align 1
   %228 = load ptr, ptr %10, align 8
-  %229 = call i32 %228(ptr noundef nonnull %0) #7
+  %229 = call i32 %228(ptr noundef nonnull %0) #8
   %.not870 = icmp slt i32 %225, %spec.store.select84
   br i1 %.not870, label %.lr.ph709, label %.loopexit, !llvm.loop !15
 
@@ -649,7 +649,7 @@ switch.early.test:                                ; preds = %238
   %244 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %243
   store i8 %241, ptr %244, align 1
   %245 = load ptr, ptr %10, align 8
-  %246 = call i32 %245(ptr noundef nonnull %0) #7
+  %246 = call i32 %245(ptr noundef nonnull %0) #8
   %.not868 = icmp slt i32 %242, %spec.store.select84
   br i1 %.not868, label %.lr.ph693, label %.loopexit, !llvm.loop !16
 
@@ -681,7 +681,7 @@ switch.early.test:                                ; preds = %238
   %255 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %254
   store i8 %252, ptr %255, align 1
   %256 = load ptr, ptr %10, align 8
-  %257 = call i32 %256(ptr noundef nonnull %0) #7
+  %257 = call i32 %256(ptr noundef nonnull %0) #8
   %.not867 = icmp slt i32 %253, %spec.store.select84
   br i1 %.not867, label %.lr.ph685, label %.loopexit, !llvm.loop !17
 
@@ -713,7 +713,7 @@ switch.early.test:                                ; preds = %238
   %266 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %265
   store i8 %263, ptr %266, align 1
   %267 = load ptr, ptr %10, align 8
-  %268 = call i32 %267(ptr noundef nonnull %0) #7
+  %268 = call i32 %267(ptr noundef nonnull %0) #8
   %.not866 = icmp slt i32 %264, %spec.store.select84
   br i1 %.not866, label %.lr.ph679, label %.loopexit, !llvm.loop !18
 
@@ -789,7 +789,7 @@ switch.early.test:                                ; preds = %238
   %290 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %289
   store i8 %287, ptr %290, align 1
   %291 = load ptr, ptr %10, align 8
-  %292 = call i32 %291(ptr noundef nonnull %0) #7
+  %292 = call i32 %291(ptr noundef nonnull %0) #8
   %.not869 = icmp slt i32 %288, %spec.store.select84
   br i1 %.not869, label %.lr.ph701, label %.loopexit, !llvm.loop !19
 
@@ -801,9 +801,9 @@ switch.early.test:                                ; preds = %238
   %293 = sext i32 %.4382 to i64
   %294 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %293
   store i8 0, ptr %294, align 1
-  %295 = call ptr @__errno() #7
+  %295 = call ptr @__errno() #8
   %296 = load i32, ptr %295, align 4
-  %297 = call ptr @__errno() #7
+  %297 = call ptr @__errno() #8
   store i32 0, ptr %297, align 4
   %cond = icmp eq i32 %.1417639, 2
   br i1 %cond, label %303, label %298
@@ -838,7 +838,7 @@ switch.early.test:                                ; preds = %238
   br i1 %310, label %315, label %311
 
 311:                                              ; preds = %308
-  %312 = call ptr @__errno() #7
+  %312 = call ptr @__errno() #8
   %313 = load i32, ptr %312, align 4
   %314 = icmp eq i32 %313, 34
   br i1 %314, label %315, label %316
@@ -847,7 +847,7 @@ switch.early.test:                                ; preds = %238
   br i1 %9, label %.cont543, label %.cont543.sink.split
 
 316:                                              ; preds = %311
-  %317 = call ptr @__errno() #7
+  %317 = call ptr @__errno() #8
   store i32 %296, ptr %317, align 4
   br i1 %140, label %329, label %318
 
@@ -955,14 +955,14 @@ switch.early.test:                                ; preds = %238
 362:                                              ; preds = %347, %359, %332
   %.0337 = phi ptr [ null, %332 ], [ %349, %347 ], [ null, %359 ]
   %.0336 = phi ptr [ null, %332 ], [ null, %347 ], [ %361, %359 ]
-  %363 = call i32 @isspace(i32 noundef %.2573) #8
+  %363 = call i32 @isspace(i32 noundef %.2573) #9
   %.not465712 = icmp eq i32 %363, 0
   br i1 %.not465712, label %._crit_edge715, label %.lr.ph714
 
 .lr.ph714:                                        ; preds = %362, %.lr.ph714
   %364 = load ptr, ptr %10, align 8
-  %365 = call i32 %364(ptr noundef nonnull %0) #7
-  %366 = call i32 @isspace(i32 noundef %365) #8
+  %365 = call i32 %364(ptr noundef nonnull %0) #8
+  %366 = call i32 @isspace(i32 noundef %365) #9
   %.not465 = icmp eq i32 %366, 0
   br i1 %.not465, label %._crit_edge715, label %.lr.ph714, !llvm.loop !20
 
@@ -1025,7 +1025,7 @@ switch.early.test:                                ; preds = %238
   %382 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 0, i64 %381
   store i8 %379, ptr %382, align 1
   %383 = load ptr, ptr %10, align 8
-  %384 = call i32 %383(ptr noundef nonnull %0) #7
+  %384 = call i32 %383(ptr noundef nonnull %0) #8
   %.not871 = icmp slt i32 %380, %spec.store.select85
   br i1 %.not871, label %.lr.ph724, label %._crit_edge725.loopexit, !llvm.loop !21
 
@@ -1040,9 +1040,9 @@ switch.early.test:                                ; preds = %238
   %.13.lcssa = phi i64 [ 0, %368 ], [ %385, %._crit_edge725.loopexit ]
   %386 = getelementptr inbounds [128 x i8], ptr %5, i64 0, i64 %.13.lcssa
   store i8 0, ptr %386, align 1
-  %387 = call ptr @__errno() #7
+  %387 = call ptr @__errno() #8
   %388 = load i32, ptr %387, align 4
-  %389 = call ptr @__errno() #7
+  %389 = call ptr @__errno() #8
   store i32 0, ptr %389, align 4
   %390 = icmp sgt i32 %.1417639, 0
   br i1 %390, label %391, label %393
@@ -1063,7 +1063,7 @@ switch.early.test:                                ; preds = %238
   br i1 %397, label %402, label %398
 
 398:                                              ; preds = %395
-  %399 = call ptr @__errno() #7
+  %399 = call ptr @__errno() #8
   %400 = load i32, ptr %399, align 4
   %401 = icmp eq i32 %400, 34
   br i1 %401, label %402, label %403
@@ -1072,7 +1072,7 @@ switch.early.test:                                ; preds = %238
   br i1 %9, label %.cont543, label %.cont543.sink.split
 
 403:                                              ; preds = %398
-  %404 = call ptr @__errno() #7
+  %404 = call ptr @__errno() #8
   store i32 %388, ptr %404, align 4
   br i1 %333, label %410, label %405
 
@@ -1255,7 +1255,7 @@ switch.early.test:                                ; preds = %238
 
 488:                                              ; preds = %487
   %489 = load ptr, ptr %10, align 8
-  %490 = call i32 %489(ptr noundef nonnull %0) #7
+  %490 = call i32 %489(ptr noundef nonnull %0) #8
   br label %491
 
 491:                                              ; preds = %412, %134, %119, %410, %._crit_edge715, %488, %485, %._crit_edge674, %329, %._crit_edge669, %101
@@ -1282,7 +1282,7 @@ switch.early.test:                                ; preds = %238
 
 495:                                              ; preds = %493
   %496 = load ptr, ptr %10, align 8
-  %497 = call i32 %496(ptr noundef nonnull %0) #7
+  %497 = call i32 %496(ptr noundef nonnull %0) #8
   br label %498
 
 498:                                              ; preds = %495, %491
@@ -1334,44 +1334,45 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
-declare ptr @__errno() local_unnamed_addr #3
+declare ptr @__errno() local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #5
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

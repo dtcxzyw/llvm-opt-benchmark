@@ -13084,7 +13084,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 ; Function Attrs: noreturn
 declare void @_ZN2cv6detail17check_failed_autoEfRKNS0_12CheckContextE(float noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @logf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -14128,7 +14128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
@@ -14703,7 +14703,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 
 declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -17418,7 +17418,7 @@ declare float @llvm.fabs.f32(float) #19
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fma.f32(float, float, float) #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @expf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -18044,7 +18044,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_24GeluApproximationFunctorEE5applyEPKfPfiimi
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @tanhf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -28029,7 +28029,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11SqrtFunctorEE5applyEPKfPfiimii.exit.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @sqrtf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -29655,7 +29655,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11AcosFunctorEE5applyEPKfPfiimii.exit.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @acosf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -30467,7 +30467,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12AcoshFunctorEE5applyEPKfPfiimii.exit.loope
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @acoshf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -31279,7 +31279,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11AsinFunctorEE5applyEPKfPfiimii.exit.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @asinf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -32091,7 +32091,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12AsinhFunctorEE5applyEPKfPfiimii.exit.loope
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @asinhf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -32903,7 +32903,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11AtanFunctorEE5applyEPKfPfiimii.exit.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @atanf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -33715,7 +33715,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_12AtanhFunctorEE5applyEPKfPfiimii.exit.loope
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @atanhf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -34527,7 +34527,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10CosFunctorEE5applyEPKfPfiimii.exit.loopexi
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @cosf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -35339,7 +35339,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11CoshFunctorEE5applyEPKfPfiimii.exit.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @coshf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -36151,7 +36151,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10ErfFunctorEE5applyEPKfPfiimii.exit.loopexi
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @erff(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -37793,7 +37793,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10SinFunctorEE5applyEPKfPfiimii.exit.loopexi
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @sinf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -38605,7 +38605,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_11SinhFunctorEE5applyEPKfPfiimii.exit.loopex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @sinhf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -39419,7 +39419,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_15SoftplusFunctorEE5applyEPKfPfiimii.exit.lo
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @log1pf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -41047,7 +41047,7 @@ _ZNK2cv3dnn18BaseDefaultFunctorINS0_10TanFunctorEE5applyEPKfPfiimii.exit.loopexi
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @tanf(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -41878,7 +41878,7 @@ _ZNK2cv3dnn11CeluFunctor5applyEPKfPfiimii.exit.loopexit.us: ; preds = %._crit_ed
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @expm1f(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -45279,7 +45279,7 @@ _ZNK2cv3dnn12PowerFunctor5applyEPKfPfiimii.exit.us: ; preds = %._crit_edge.us.i.
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @powf(float noundef, float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
@@ -50348,11 +50348,11 @@ attributes #10 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" 
 attributes #11 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #12 = { cold nofree noreturn }
 attributes #13 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

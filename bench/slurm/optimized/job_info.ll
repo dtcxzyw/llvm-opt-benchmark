@@ -383,23 +383,23 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %28, align 8
-  %35 = call ptr @create_treeview_2cols_attach_to_table(ptr noundef %34) #16
-  %36 = tail call i64 @gtk_widget_get_type() #17
-  %37 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %36) #16
-  %38 = call ptr @g_object_ref(ptr noundef %37) #16
+  %35 = call ptr @create_treeview_2cols_attach_to_table(ptr noundef %34) #17
+  %36 = tail call i64 @gtk_widget_get_type() #18
+  %37 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %36) #17
+  %38 = call ptr @g_object_ref(ptr noundef %37) #17
   store ptr %38, ptr %27, align 8
   br label %42
 
 39:                                               ; preds = %31
-  %40 = tail call i64 @gtk_tree_view_get_type() #17
-  %41 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %32, i64 noundef %40) #16
+  %40 = tail call i64 @gtk_tree_view_get_type() #18
+  %41 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %32, i64 noundef %40) #17
   br label %42
 
 42:                                               ; preds = %39, %33
   %.0107 = phi ptr [ %41, %39 ], [ %35, %33 ]
   %.1106 = phi i32 [ 1, %39 ], [ %.0105, %33 ]
-  %43 = call ptr @list_iterator_create(ptr noundef %0) #16
-  %44 = call ptr @list_next(ptr noundef %43) #16
+  %43 = call ptr @list_iterator_create(ptr noundef %0) #17
+  %44 = call ptr @list_next(ptr noundef %43) #17
   %.not124174 = icmp eq ptr %44, null
   br i1 %.not124174, label %._crit_edge, label %.lr.ph
 
@@ -422,11 +422,11 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not125, label %70, label %57
 
 57:                                               ; preds = %54
-  %58 = call ptr @list_iterator_create(ptr noundef nonnull %56) #16
+  %58 = call ptr @list_iterator_create(ptr noundef nonnull %56) #17
   br label %59
 
 59:                                               ; preds = %61, %57
-  %60 = call ptr @list_next(ptr noundef %58) #16
+  %60 = call ptr @list_next(ptr noundef %58) #17
   %.not126 = icmp eq ptr %60, null
   br i1 %.not126, label %.critedge, label %61
 
@@ -442,7 +442,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %69, label %.loopexit150.sink.split, label %59, !llvm.loop !8
 
 .critedge:                                        ; preds = %59
-  call void @list_iterator_destroy(ptr noundef %58) #16
+  call void @list_iterator_destroy(ptr noundef %58) #17
   br label %70
 
 70:                                               ; preds = %.critedge, %54
@@ -452,11 +452,11 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not127, label %86, label %73
 
 73:                                               ; preds = %70
-  %74 = call ptr @list_iterator_create(ptr noundef nonnull %72) #16
+  %74 = call ptr @list_iterator_create(ptr noundef nonnull %72) #17
   br label %75
 
 75:                                               ; preds = %77, %73
-  %76 = call ptr @list_next(ptr noundef %74) #16
+  %76 = call ptr @list_next(ptr noundef %74) #17
   %.not128 = icmp eq ptr %76, null
   br i1 %.not128, label %.critedge136, label %77
 
@@ -472,27 +472,27 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %85, label %.loopexit150.sink.split, label %75, !llvm.loop !11
 
 .critedge136:                                     ; preds = %75
-  call void @list_iterator_destroy(ptr noundef %74) #16
+  call void @list_iterator_destroy(ptr noundef %74) #17
   br label %86
 
 86:                                               ; preds = %.critedge136, %70
-  %87 = call ptr @list_next(ptr noundef %43) #16
+  %87 = call ptr @list_next(ptr noundef %43) #17
   %.not124 = icmp eq ptr %87, null
   br i1 %.not124, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %86, %42
-  call void @list_iterator_destroy(ptr noundef %43) #16
+  call void @list_iterator_destroy(ptr noundef %43) #17
   br label %759
 
 .loopexit150.sink.split:                          ; preds = %61, %77
   %.lcssa.sink = phi ptr [ %74, %77 ], [ %58, %61 ]
   %.0100.ph.ph = phi ptr [ %76, %77 ], [ %60, %61 ]
-  call void @list_iterator_destroy(ptr noundef %.lcssa.sink) #16
+  call void @list_iterator_destroy(ptr noundef %.lcssa.sink) #17
   br label %.loopexit150
 
 .loopexit150:                                     ; preds = %.lr.ph, %.loopexit150.sink.split
   %.0100.ph = phi ptr [ %.0100.ph.ph, %.loopexit150.sink.split ], [ %45, %.lr.ph ]
-  call void @list_iterator_destroy(ptr noundef %43) #16
+  call void @list_iterator_destroy(ptr noundef %43) #17
   %88 = load ptr, ptr %22, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %90 = load i32, ptr %89, align 4
@@ -500,11 +500,11 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %91, label %92, label %597
 
 92:                                               ; preds = %.loopexit150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #16
-  %93 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3328, ptr noundef nonnull @__func__._display_info_job) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
+  %93 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3328, ptr noundef nonnull @__func__._display_info_job) #17
   store ptr %93, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #16
-  %94 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3329, ptr noundef nonnull @__func__._display_info_job) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #17
+  %94 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3329, ptr noundef nonnull @__func__._display_info_job) #17
   store ptr %94, ptr %16, align 8
   %95 = getelementptr inbounds nuw i8, ptr %.0100.ph, i64 56
   %96 = load ptr, ptr %95, align 8
@@ -535,7 +535,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %.lr.ph186
 
 107:                                              ; preds = %.lr.ph191
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.31) #18
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.31) #19
   unreachable
 
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
@@ -575,21 +575,21 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %.0101.lcssa = phi i32 [ 1, %92 ], [ %122, %._crit_edge192.loopexit ]
   %124 = load ptr, ptr %29, align 8
   %125 = load ptr, ptr %15, align 8
-  call void @change_grid_color_array(ptr noundef %124, i32 noundef %.0101.lcssa, ptr noundef %125, ptr noundef %123, i1 noundef zeroext true, i32 noundef 0) #16
-  call void @slurm_xfree(ptr noundef nonnull %15) #16
-  call void @slurm_xfree(ptr noundef nonnull %16) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %13) #16
-  %126 = call i64 @time(ptr noundef null) #16
+  call void @change_grid_color_array(ptr noundef %124, i32 noundef %.0101.lcssa, ptr noundef %125, ptr noundef %123, i1 noundef zeroext true, i32 noundef 0) #17
+  call void @slurm_xfree(ptr noundef nonnull %15) #17
+  call void @slurm_xfree(ptr noundef nonnull %16) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %13) #17
+  %126 = call i64 @time(ptr noundef null) #17
   %127 = load ptr, ptr %95, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #16
-  %128 = call ptr @gtk_tree_view_get_model(ptr noundef %.0107) #16
-  %129 = tail call i64 @gtk_tree_store_get_type() #17
-  %130 = call ptr @g_type_check_instance_cast(ptr noundef %128, i64 noundef %129) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #17
+  %128 = call ptr @gtk_tree_view_get_model(ptr noundef %.0107) #17
+  %129 = tail call i64 @gtk_tree_store_get_type() #18
+  %130 = call ptr @g_type_check_instance_cast(ptr noundef %128, i64 noundef %129) #17
   %.not.i = icmp eq ptr %130, null
   br i1 %.not.i, label %.thread144, label %131
 
@@ -607,13 +607,13 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %138, label %141, label %139
 
 139:                                              ; preds = %134
-  %140 = call i32 @xstrcasecmp(ptr noundef nonnull %133, ptr noundef nonnull @.str.74) #16
+  %140 = call i32 @xstrcasecmp(ptr noundef nonnull %133, ptr noundef nonnull @.str.74) #17
   %.not361.i = icmp eq i32 %140, 0
   br i1 %.not361.i, label %141, label %143
 
 141:                                              ; preds = %139, %134, %131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %13, ptr noundef nonnull align 1 dereferenceable(9) @.str.75, i64 9, i1 false)
-  %142 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #16
+  %142 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #17
   br label %176
 
 143:                                              ; preds = %139
@@ -644,7 +644,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not363.i, label %161, label %154
 
 154:                                              ; preds = %151
-  %155 = call double @difftime(i64 noundef %.1338.i, i64 noundef %153) #17
+  %155 = call double @difftime(i64 noundef %.1338.i, i64 noundef %153) #18
   %156 = getelementptr inbounds nuw i8, ptr %127, i64 616
   %157 = load i64, ptr %156, align 8
   %158 = sitofp i64 %157 to double
@@ -655,21 +655,21 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 161:                                              ; preds = %151
   %162 = getelementptr inbounds nuw i8, ptr %127, i64 760
   %163 = load i64, ptr %162, align 8
-  %164 = call double @difftime(i64 noundef %.1338.i, i64 noundef %163) #17
+  %164 = call double @difftime(i64 noundef %.1338.i, i64 noundef %163) #18
   %165 = fptosi double %164 to i64
   br label %166
 
 166:                                              ; preds = %161, %154, %145
   %.0337.i = phi i64 [ %147, %145 ], [ %160, %154 ], [ %165, %161 ]
-  %167 = call i64 @time(ptr noundef null) #16
+  %167 = call i64 @time(ptr noundef null) #17
   %168 = getelementptr inbounds nuw i8, ptr %127, i64 760
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %.0337.i, %169
   %171 = sub i64 %167, %170
-  call void @secs2time_str(i64 noundef %.0337.i, ptr noundef nonnull %13, i32 noundef 50) #16
+  call void @secs2time_str(i64 noundef %.0337.i, ptr noundef nonnull %13, i32 noundef 50) #17
   %172 = getelementptr inbounds nuw i8, ptr %.0100.ph, i64 72
   %173 = load ptr, ptr %172, align 8
-  %174 = call ptr @slurm_sort_node_list_str(ptr noundef %173) #16
+  %174 = call ptr @slurm_sort_node_list_str(ptr noundef %173) #17
   %sext393.i = shl i64 %171, 32
   %175 = ashr exact i64 %sext393.i, 32
   br label %176
@@ -678,16 +678,16 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %177 = phi ptr [ %174, %166 ], [ %142, %141 ]
   %.0339.i = phi i64 [ %175, %166 ], [ 0, %141 ]
   store ptr %177, ptr %8, align 8
-  %178 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 1) #16
+  %178 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 1) #17
   %179 = load ptr, ptr %127, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %178, ptr noundef %179) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %178, ptr noundef %179) #17
   %180 = getelementptr inbounds nuw i8, ptr %127, i64 24
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %127, i64 32
   %183 = load i32, ptr %182, align 8
-  %184 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.76, ptr noundef %181, i32 noundef %183) #16
-  %185 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 4) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %185, ptr noundef nonnull %10) #16
+  %184 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.76, ptr noundef %181, i32 noundef %183) #17
+  %185 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 4) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %185, ptr noundef nonnull %10) #17
   %186 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %187 = load ptr, ptr %186, align 8
   %.not364.i = icmp eq ptr %187, null
@@ -702,7 +702,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 191:                                              ; preds = %188, %176
   %192 = getelementptr inbounds nuw i8, ptr %127, i64 48
   %193 = load i32, ptr %192, align 8
-  %194 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %193) #16
+  %194 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %193) #17
   br label %196
 
 195:                                              ; preds = %188
@@ -710,14 +710,14 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %196
 
 196:                                              ; preds = %195, %191
-  %197 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 5) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %197, ptr noundef nonnull %10) #16
+  %197 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 5) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %197, ptr noundef nonnull %10) #17
   %198 = load ptr, ptr %186, align 8
   %.not366.i = icmp eq ptr %198, null
   br i1 %.not366.i, label %201, label %199
 
 199:                                              ; preds = %196
-  %200 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.79, ptr noundef nonnull %198) #16
+  %200 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.79, ptr noundef nonnull %198) #17
   br label %207
 
 201:                                              ; preds = %196
@@ -727,7 +727,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not367.i, label %206, label %204
 
 204:                                              ; preds = %201
-  %205 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %203) #16
+  %205 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %203) #17
   br label %207
 
 206:                                              ; preds = %201
@@ -735,8 +735,8 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %207
 
 207:                                              ; preds = %206, %204, %199
-  %208 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 6) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %208, ptr noundef nonnull %10) #16
+  %208 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 6) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %208, ptr noundef nonnull %10) #17
   %209 = getelementptr inbounds nuw i8, ptr %127, i64 88
   %210 = load i16, ptr %209, align 8
   %.not368.i = icmp eq i16 %210, 0
@@ -751,36 +751,36 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %213
 
 213:                                              ; preds = %212, %211
-  %214 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 7) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %214, ptr noundef nonnull %10) #16
-  %215 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 8) #16
+  %214 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 7) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %214, ptr noundef nonnull %10) #17
+  %215 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 8) #17
   %216 = getelementptr inbounds nuw i8, ptr %127, i64 96
   %217 = load ptr, ptr %216, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %215, ptr noundef %217) #16
-  %218 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 9) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %215, ptr noundef %217) #17
+  %218 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 9) #17
   %219 = getelementptr inbounds nuw i8, ptr %127, i64 120
   %220 = load ptr, ptr %219, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %218, ptr noundef %220) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %218, ptr noundef %220) #17
   %221 = getelementptr inbounds nuw i8, ptr %127, i64 136
   %222 = load ptr, ptr %221, align 8
   %.not369.i = icmp eq ptr %222, null
   br i1 %.not369.i, label %226, label %223
 
 223:                                              ; preds = %213
-  %224 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 10) #16
+  %224 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 10) #17
   %225 = load ptr, ptr %221, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %224, ptr noundef %225) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %224, ptr noundef %225) #17
   br label %226
 
 226:                                              ; preds = %223, %213
-  %227 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 13) #16
+  %227 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 13) #17
   %228 = getelementptr inbounds nuw i8, ptr %127, i64 152
   %229 = load ptr, ptr %228, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %227, ptr noundef %229) #16
-  %230 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 14) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %227, ptr noundef %229) #17
+  %230 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 14) #17
   %231 = getelementptr inbounds nuw i8, ptr %127, i64 160
   %232 = load ptr, ptr %231, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %230, ptr noundef %232) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %230, ptr noundef %232) #17
   %233 = getelementptr inbounds nuw i8, ptr %127, i64 184
   %234 = load i16, ptr %233, align 8
   %.not370.i = icmp eq i16 %234, 0
@@ -795,8 +795,8 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %237
 
 237:                                              ; preds = %236, %235
-  %238 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 15) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %238, ptr noundef nonnull %10) #16
+  %238 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 15) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %238, ptr noundef nonnull %10) #17
   %239 = getelementptr inbounds nuw i8, ptr %127, i64 186
   %240 = load i16, ptr %239, align 2
   %.not371.i = icmp sgt i16 %240, -1
@@ -808,26 +808,26 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 
 242:                                              ; preds = %237
   %243 = zext nneg i16 %240 to i32
-  %244 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %243) #16
+  %244 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %243) #17
   br label %245
 
 245:                                              ; preds = %242, %241
-  %246 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 16) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %246, ptr noundef nonnull %10) #16
+  %246 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 16) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %246, ptr noundef nonnull %10) #17
   %247 = getelementptr inbounds nuw i8, ptr %127, i64 548
   %248 = load i32, ptr %247, align 4
-  %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %248) #16
-  %250 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 17) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %250, ptr noundef nonnull %10) #16
+  %249 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %248) #17
+  %250 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 17) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %250, ptr noundef nonnull %10) #17
   %251 = getelementptr inbounds nuw i8, ptr %127, i64 472
   %252 = load i32, ptr %251, align 8
-  %253 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %252) #16
-  %254 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 19) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %254, ptr noundef nonnull %10) #16
+  %253 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %252) #17
+  %254 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 19) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %254, ptr noundef nonnull %10) #17
   %255 = load i32, ptr %247, align 4
-  %256 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %255) #16
-  %257 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 20) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %257, ptr noundef nonnull %10) #16
+  %256 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %255) #17
+  %257 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 20) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %257, ptr noundef nonnull %10) #17
   %258 = getelementptr inbounds nuw i8, ptr %127, i64 200
   %259 = load i16, ptr %258, align 8
   %260 = icmp eq i16 %259, -2
@@ -839,23 +839,23 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 
 262:                                              ; preds = %245
   %263 = zext i16 %259 to i32
-  %264 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %263) #16
+  %264 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %263) #17
   br label %265
 
 265:                                              ; preds = %262, %261
-  %266 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 21) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %266, ptr noundef nonnull %10) #16
-  %267 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 18) #16
+  %266 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 21) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %266, ptr noundef nonnull %10) #17
+  %267 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 18) #17
   %268 = getelementptr inbounds nuw i8, ptr %127, i64 216
   %269 = load ptr, ptr %268, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %267, ptr noundef %269) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %267, ptr noundef %269) #17
   %270 = getelementptr inbounds nuw i8, ptr %127, i64 232
   %271 = load i64, ptr %270, align 8
   %.not372.i = icmp eq i64 %271, 0
   br i1 %.not372.i, label %273, label %272
 
 272:                                              ; preds = %265
-  call void @slurm_make_time_str(ptr noundef nonnull %270, ptr noundef nonnull %10, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %270, ptr noundef nonnull %10, i32 noundef 256) #17
   br label %274
 
 273:                                              ; preds = %265
@@ -863,12 +863,12 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %274
 
 274:                                              ; preds = %273, %272
-  %275 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 22) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %275, ptr noundef nonnull %10) #16
-  %276 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 23) #16
+  %275 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 22) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %275, ptr noundef nonnull %10) #17
+  %276 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 23) #17
   %277 = getelementptr inbounds nuw i8, ptr %127, i64 248
   %278 = load ptr, ptr %277, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %276, ptr noundef %278) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %276, ptr noundef %278) #17
   %279 = getelementptr inbounds nuw i8, ptr %127, i64 256
   %280 = load i32, ptr %279, align 8
   %281 = and i32 %280, 127
@@ -880,9 +880,9 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %sext.i = add nuw i32 %285, 16777216
   %286 = icmp sgt i32 %sext.i, 33554431
   %.0334.i = select i1 %286, i32 %281, i32 0
-  %287 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.80, i32 noundef %.0335.i, i32 noundef %.0334.i) #16
-  %288 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 24) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %288, ptr noundef nonnull %10) #16
+  %287 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.80, i32 noundef %.0335.i, i32 noundef %.0334.i) #17
+  %288 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 24) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %288, ptr noundef nonnull %10) #17
   %289 = getelementptr inbounds nuw i8, ptr %127, i64 296
   %290 = load i32, ptr %289, align 8
   %291 = and i32 %290, 127
@@ -894,45 +894,45 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %sext373.i = add nuw i32 %295, 16777216
   %296 = icmp sgt i32 %sext373.i, 33554431
   %.1.i = select i1 %296, i32 %291, i32 0
-  %297 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.80, i32 noundef %.1336.i, i32 noundef %.1.i) #16
-  %298 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 25) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %298, ptr noundef nonnull %10) #16
-  %299 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 26) #16
+  %297 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.80, i32 noundef %.1336.i, i32 noundef %.1.i) #17
+  %298 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 25) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %298, ptr noundef nonnull %10) #17
+  %299 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 26) #17
   %300 = getelementptr inbounds nuw i8, ptr %127, i64 304
   %301 = load ptr, ptr %300, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %299, ptr noundef %301) #16
-  %302 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 27) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %299, ptr noundef %301) #17
+  %302 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 27) #17
   %303 = getelementptr inbounds nuw i8, ptr %127, i64 320
   %304 = load ptr, ptr %303, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %302, ptr noundef %304) #16
-  %305 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 59) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %302, ptr noundef %304) #17
+  %305 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 59) #17
   %306 = getelementptr inbounds nuw i8, ptr %127, i64 576
   %307 = load ptr, ptr %306, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %305, ptr noundef %307) #16
-  %308 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 28) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %305, ptr noundef %307) #17
+  %308 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 28) #17
   %309 = getelementptr inbounds nuw i8, ptr %127, i64 344
   %310 = load ptr, ptr %309, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %308, ptr noundef %310) #16
-  %311 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 29) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %308, ptr noundef %310) #17
+  %311 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 29) #17
   %312 = getelementptr inbounds nuw i8, ptr %127, i64 328
   %313 = load ptr, ptr %312, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %311, ptr noundef %313) #16
-  %314 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 30) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %311, ptr noundef %313) #17
+  %314 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 30) #17
   %315 = getelementptr inbounds nuw i8, ptr %127, i64 360
   %316 = load ptr, ptr %315, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %314, ptr noundef %316) #16
-  %317 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 31) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %314, ptr noundef %316) #17
+  %317 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 31) #17
   %318 = getelementptr inbounds nuw i8, ptr %127, i64 888
   %319 = load ptr, ptr %318, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %317, ptr noundef %319) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %317, ptr noundef %319) #17
   %320 = getelementptr inbounds nuw i8, ptr %127, i64 392
   %321 = load i32, ptr %320, align 8
-  %322 = call ptr @gid_to_string(i32 noundef %321) #16
+  %322 = call ptr @gid_to_string(i32 noundef %321) #17
   store ptr %322, ptr %9, align 8
-  %323 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 32) #16
+  %323 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 32) #17
   %324 = load ptr, ptr %9, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %323, ptr noundef %324) #16
-  call void @slurm_xfree(ptr noundef nonnull %9) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %323, ptr noundef %324) #17
+  call void @slurm_xfree(ptr noundef nonnull %9) #17
   %325 = load ptr, ptr %186, align 8
   %.not374.i = icmp eq ptr %325, null
   br i1 %.not374.i, label %332, label %326
@@ -942,7 +942,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %328 = load i32, ptr %327, align 8
   %329 = getelementptr inbounds nuw i8, ptr %127, i64 412
   %330 = load i32, ptr %329, align 4
-  %331 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.81, i32 noundef %328, ptr noundef nonnull %325, i32 noundef %330) #16
+  %331 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.81, i32 noundef %328, ptr noundef nonnull %325, i32 noundef %330) #17
   br label %354
 
 332:                                              ; preds = %274
@@ -956,7 +956,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %337 = load i32, ptr %336, align 8
   %338 = getelementptr inbounds nuw i8, ptr %127, i64 412
   %339 = load i32, ptr %338, align 4
-  %340 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.82, i32 noundef %337, i32 noundef %334, i32 noundef %339) #16
+  %340 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.82, i32 noundef %337, i32 noundef %334, i32 noundef %339) #17
   br label %354
 
 341:                                              ; preds = %332
@@ -970,39 +970,39 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %346 = load i32, ptr %345, align 8
   %347 = getelementptr inbounds nuw i8, ptr %127, i64 412
   %348 = load i32, ptr %347, align 4
-  %349 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.83, i32 noundef %343, i32 noundef %346, i32 noundef %348) #16
+  %349 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.83, i32 noundef %343, i32 noundef %346, i32 noundef %348) #17
   br label %354
 
 350:                                              ; preds = %341
   %351 = getelementptr inbounds nuw i8, ptr %127, i64 412
   %352 = load i32, ptr %351, align 4
-  %353 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %352) #16
+  %353 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %352) #17
   br label %354
 
 354:                                              ; preds = %350, %344, %335, %326
-  %355 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 36) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %355, ptr noundef nonnull %10) #16
+  %355 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 36) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %355, ptr noundef nonnull %10) #17
   %356 = getelementptr inbounds nuw i8, ptr %127, i64 440
-  call void @slurm_make_time_str(ptr noundef nonnull %356, ptr noundef nonnull %10, i32 noundef 256) #16
-  %357 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 38) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %357, ptr noundef nonnull %10) #16
-  %358 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 39) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %356, ptr noundef nonnull %10, i32 noundef 256) #17
+  %357 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 38) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %357, ptr noundef nonnull %10) #17
+  %358 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 39) #17
   %359 = getelementptr inbounds nuw i8, ptr %127, i64 448
   %360 = load ptr, ptr %359, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %358, ptr noundef %360) #16
-  %361 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 40) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %358, ptr noundef %360) #17
+  %361 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 40) #17
   %362 = getelementptr inbounds nuw i8, ptr %127, i64 480
   %363 = load ptr, ptr %362, align 8
   %364 = icmp eq ptr %363, null
   %spec.select394.i = select i1 %364, ptr @.str.78, ptr %363
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %361, ptr noundef nonnull %spec.select394.i) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %361, ptr noundef nonnull %spec.select394.i) #17
   %365 = getelementptr inbounds nuw i8, ptr %127, i64 592
   %366 = load i16, ptr %365, align 8
   %367 = uitofp i16 %366 to double
   %368 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %367, ptr noundef nonnull %10, i32 noundef 256, i32 noundef 0, i32 noundef -2, i32 noundef %368) #16
-  %369 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 41) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %369, ptr noundef nonnull %10) #16
+  call void @convert_num_unit(double noundef %367, ptr noundef nonnull %10, i32 noundef 256, i32 noundef 0, i32 noundef -2, i32 noundef %368) #17
+  %369 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 41) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %369, ptr noundef nonnull %10) #17
   %370 = getelementptr inbounds nuw i8, ptr %127, i64 584
   %371 = load i64, ptr %370, align 8
   %372 = and i64 %371, 9223372036854775807
@@ -1013,8 +1013,8 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %374 = uitofp nneg i64 %372 to float
   %375 = fpext float %374 to double
   %376 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %375, ptr noundef nonnull %10, i32 noundef 256, i32 noundef 2, i32 noundef -2, i32 noundef %376) #16
-  %377 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #19
+  call void @convert_num_unit(double noundef %375, ptr noundef nonnull %10, i32 noundef 256, i32 noundef 2, i32 noundef -2, i32 noundef %376) #17
+  %377 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
   %378 = getelementptr inbounds nuw i8, ptr %127, i64 488
   %379 = load ptr, ptr %378, align 8
   %.not379.i = icmp eq ptr %379, null
@@ -1048,12 +1048,12 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %390
 
 390:                                              ; preds = %389, %388, %387, %380
-  %391 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 42) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %391, ptr noundef nonnull %10) #16
-  %392 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 43) #16
+  %391 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 42) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %391, ptr noundef nonnull %10) #17
+  %392 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 43) #17
   %393 = getelementptr inbounds nuw i8, ptr %127, i64 488
   %394 = load ptr, ptr %393, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %392, ptr noundef %394) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %392, ptr noundef %394) #17
   %395 = getelementptr inbounds nuw i8, ptr %127, i64 596
   %396 = load i32, ptr %395, align 4
   %.not384.i = icmp eq i32 %396, 0
@@ -1063,7 +1063,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %398 = uitofp i32 %396 to float
   %399 = fpext float %398 to double
   %400 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %399, ptr noundef nonnull %10, i32 noundef 256, i32 noundef 2, i32 noundef -2, i32 noundef %400) #16
+  call void @convert_num_unit(double noundef %399, ptr noundef nonnull %10, i32 noundef 256, i32 noundef 2, i32 noundef -2, i32 noundef %400) #17
   br label %402
 
 401:                                              ; preds = %390
@@ -1071,63 +1071,63 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %402
 
 402:                                              ; preds = %401, %397
-  %403 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 44) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %403, ptr noundef nonnull %10) #16
-  %404 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 45) #16
+  %403 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 44) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %403, ptr noundef nonnull %10) #17
+  %404 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 45) #17
   %405 = getelementptr inbounds nuw i8, ptr %127, i64 496
   %406 = load ptr, ptr %405, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %404, ptr noundef %406) #16
-  %407 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 46) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %404, ptr noundef %406) #17
+  %407 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 46) #17
   %408 = getelementptr inbounds nuw i8, ptr %127, i64 504
   %409 = load ptr, ptr %408, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %407, ptr noundef %409) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %407, ptr noundef %409) #17
   %410 = getelementptr inbounds nuw i8, ptr %127, i64 520
   %411 = load i32, ptr %410, align 8
   %412 = zext i32 %411 to i64
   %413 = add nsw i64 %412, -2147483648
-  %414 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.88, i64 noundef %413) #16
-  %415 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 47) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %415, ptr noundef nonnull %10) #16
-  %416 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 48) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %416, ptr noundef %177) #16
-  %417 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 49) #16
+  %414 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.88, i64 noundef %413) #17
+  %415 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 47) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %415, ptr noundef nonnull %10) #17
+  %416 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 48) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %416, ptr noundef %177) #17
+  %417 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 49) #17
   %418 = getelementptr inbounds nuw i8, ptr %127, i64 280
   %419 = load ptr, ptr %418, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %417, ptr noundef %419) #16
-  %420 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 50) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %417, ptr noundef %419) #17
+  %420 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 50) #17
   %421 = getelementptr inbounds nuw i8, ptr %127, i64 672
   %422 = load ptr, ptr %421, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %420, ptr noundef %422) #16
-  %423 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 51) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %420, ptr noundef %422) #17
+  %423 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 51) #17
   %424 = getelementptr inbounds nuw i8, ptr %127, i64 728
   %425 = load ptr, ptr %424, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %423, ptr noundef %425) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %423, ptr noundef %425) #17
   %426 = getelementptr inbounds nuw i8, ptr %.0100.ph, i64 64
   %427 = load i32, ptr %426, align 8
-  %428 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %427) #16
-  %429 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 53) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %429, ptr noundef nonnull %10) #16
+  %428 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %427) #17
+  %429 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 53) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %429, ptr noundef nonnull %10) #17
   %430 = getelementptr inbounds nuw i8, ptr %127, i64 476
   %431 = load i32, ptr %430, align 4
-  %432 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %431) #16
-  %433 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 54) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %433, ptr noundef nonnull %10) #16
+  %432 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %431) #17
+  %433 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 54) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %433, ptr noundef nonnull %10) #17
   %434 = load i32, ptr %426, align 8
-  %435 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %434) #16
-  %436 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 55) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %436, ptr noundef nonnull %10) #16
-  %437 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 56) #16
+  %435 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %434) #17
+  %436 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 55) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %436, ptr noundef nonnull %10) #17
+  %437 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 56) #17
   %438 = getelementptr inbounds nuw i8, ptr %127, i64 744
   %439 = load i16, ptr %438, align 8
-  %440 = call ptr @job_share_string(i16 noundef zeroext %439) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %437, ptr noundef %440) #16
+  %440 = call ptr @job_share_string(i16 noundef zeroext %439) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %437, ptr noundef %440) #17
   %441 = getelementptr inbounds nuw i8, ptr %127, i64 396
   %442 = load i32, ptr %441, align 4
   %.not385.i = icmp eq i32 %442, 0
   br i1 %.not385.i, label %445, label %443
 
 443:                                              ; preds = %402
-  %444 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %442) #16
+  %444 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %442) #17
   br label %446
 
 445:                                              ; preds = %402
@@ -1135,15 +1135,15 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %446
 
 446:                                              ; preds = %445, %443
-  %447 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 33) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %447, ptr noundef nonnull %10) #16
+  %447 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 33) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %447, ptr noundef nonnull %10) #17
   %448 = getelementptr inbounds nuw i8, ptr %127, i64 408
   %449 = load i32, ptr %448, align 8
   %.not386.i = icmp eq i32 %449, 0
   br i1 %.not386.i, label %452, label %450
 
 450:                                              ; preds = %446
-  %451 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %449) #16
+  %451 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %449) #17
   br label %453
 
 452:                                              ; preds = %446
@@ -1151,15 +1151,15 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %453
 
 453:                                              ; preds = %452, %450
-  %454 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 35) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %454, ptr noundef nonnull %10) #16
+  %454 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 35) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %454, ptr noundef nonnull %10) #17
   %455 = getelementptr inbounds nuw i8, ptr %127, i64 400
   %456 = load ptr, ptr %455, align 8
   %.not387.i = icmp eq ptr %456, null
   br i1 %.not387.i, label %459, label %457
 
 457:                                              ; preds = %453
-  %458 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.89, ptr noundef nonnull %456) #16
+  %458 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.89, ptr noundef nonnull %456) #17
   br label %460
 
 459:                                              ; preds = %453
@@ -1167,19 +1167,19 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %460
 
 460:                                              ; preds = %459, %457
-  %461 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 34) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %461, ptr noundef nonnull %10) #16
-  %462 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 57) #16
+  %461 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 34) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %461, ptr noundef nonnull %10) #17
+  %462 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 57) #17
   %463 = getelementptr inbounds nuw i8, ptr %127, i64 568
   %464 = load ptr, ptr %463, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %462, ptr noundef %464) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %462, ptr noundef %464) #17
   %465 = getelementptr inbounds nuw i8, ptr %127, i64 600
   %466 = load i64, ptr %465, align 8
   %.not388.i = icmp eq i64 %466, 0
   br i1 %.not388.i, label %468, label %467
 
 467:                                              ; preds = %460
-  call void @slurm_make_time_str(ptr noundef nonnull %465, ptr noundef nonnull %10, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %465, ptr noundef nonnull %10, i32 noundef 256) #17
   br label %469
 
 468:                                              ; preds = %460
@@ -1187,17 +1187,17 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %469
 
 469:                                              ; preds = %468, %467
-  %470 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 58) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %470, ptr noundef nonnull %10) #16
+  %470 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 58) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %470, ptr noundef nonnull %10) #17
   %471 = getelementptr inbounds nuw i8, ptr %127, i64 624
   %472 = load i32, ptr %471, align 8
-  %473 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %472) #16
-  %474 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 60) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %474, ptr noundef nonnull %10) #16
-  %475 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 61) #16
+  %473 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %472) #17
+  %474 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 60) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %474, ptr noundef nonnull %10) #17
+  %475 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 61) #17
   %476 = getelementptr inbounds nuw i8, ptr %127, i64 656
   %477 = load ptr, ptr %476, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %475, ptr noundef %477) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %475, ptr noundef %477) #17
   %478 = getelementptr inbounds nuw i8, ptr %127, i64 776
   %479 = load ptr, ptr %478, align 8
   %.not389.i = icmp eq ptr %479, null
@@ -1206,13 +1206,13 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 480:                                              ; preds = %469
   %481 = getelementptr inbounds nuw i8, ptr %127, i64 784
   %482 = load i32, ptr %481, align 8
-  %483 = call ptr @job_state_reason_string(i32 noundef %482) #16
+  %483 = call ptr @job_state_reason_string(i32 noundef %482) #17
   br label %484
 
 484:                                              ; preds = %480, %469
   %.0.i = phi ptr [ %483, %480 ], [ %479, %469 ]
-  %485 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 62) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %485, ptr noundef %.0.i) #16
+  %485 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 62) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %485, ptr noundef %.0.i) #17
   %486 = getelementptr inbounds nuw i8, ptr %127, i64 664
   %487 = load i8, ptr %486, align 8
   %.not390.i = icmp eq i8 %487, 0
@@ -1227,8 +1227,8 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %490
 
 490:                                              ; preds = %489, %488
-  %491 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 63) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %491, ptr noundef nonnull %10) #16
+  %491 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 63) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %491, ptr noundef nonnull %10) #17
   %492 = getelementptr inbounds nuw i8, ptr %127, i64 692
   %493 = load i16, ptr %492, align 4
   %.not391.i = icmp eq i16 %493, 0
@@ -1243,41 +1243,41 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %496
 
 496:                                              ; preds = %495, %494
-  %497 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 64) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %497, ptr noundef nonnull %10) #16
-  %498 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 65) #16
+  %497 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 64) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %497, ptr noundef nonnull %10) #17
+  %498 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 65) #17
   %499 = getelementptr inbounds nuw i8, ptr %127, i64 712
   %500 = load ptr, ptr %499, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %498, ptr noundef %500) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %498, ptr noundef %500) #17
   %501 = getelementptr inbounds nuw i8, ptr %127, i64 704
   %502 = load i16, ptr %501, align 8
   %503 = zext i16 %502 to i32
-  %504 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %503) #16
-  %505 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 66) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %505, ptr noundef nonnull %10) #16
-  %506 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 67) #16
+  %504 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.77, i32 noundef %503) #17
+  %505 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 66) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %505, ptr noundef nonnull %10) #17
+  %506 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 67) #17
   %507 = getelementptr inbounds nuw i8, ptr %127, i64 432
   %508 = load i32, ptr %507, align 8
-  %509 = call ptr @job_state_string(i32 noundef %508) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %506, ptr noundef %509) #16
-  call void @slurm_get_job_stderr(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %127) #16
-  %510 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 69) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %510, ptr noundef nonnull %12) #16
-  call void @slurm_get_job_stdin(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %127) #16
-  %511 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 70) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %511, ptr noundef nonnull %12) #16
-  call void @slurm_get_job_stdout(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %127) #16
-  %512 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 71) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %512, ptr noundef nonnull %12) #16
+  %509 = call ptr @job_state_string(i32 noundef %508) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %506, ptr noundef %509) #17
+  call void @slurm_get_job_stderr(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %127) #17
+  %510 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 69) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %510, ptr noundef nonnull %12) #17
+  call void @slurm_get_job_stdin(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %127) #17
+  %511 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 70) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %511, ptr noundef nonnull %12) #17
+  call void @slurm_get_job_stdout(ptr noundef nonnull %12, i32 noundef 128, ptr noundef nonnull %127) #17
+  %512 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 71) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %512, ptr noundef nonnull %12) #17
   %513 = getelementptr inbounds nuw i8, ptr %127, i64 944
   %514 = load i32, ptr %513, align 8
   %515 = zext i32 %514 to i64
-  call void @secs2time_str(i64 noundef %515, ptr noundef nonnull %11, i32 noundef 32) #16
+  call void @secs2time_str(i64 noundef %515, ptr noundef nonnull %11, i32 noundef 32) #17
   %516 = getelementptr inbounds nuw i8, ptr %127, i64 688
   %517 = load i32, ptr %516, align 8
-  %518 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.90, i32 noundef %517, ptr noundef nonnull %11) #16
-  %519 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 72) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %519, ptr noundef nonnull %10) #16
+  %518 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 256, ptr noundef nonnull @.str.90, i32 noundef %517, ptr noundef nonnull %11) #17
+  %519 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 72) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %519, ptr noundef nonnull %10) #17
   %520 = load i16, ptr %239, align 2
   %521 = icmp eq i16 %520, -2
   %522 = icmp sgt i16 %520, -1
@@ -1291,20 +1291,20 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 524:                                              ; preds = %496
   %525 = and i16 %520, 32767
   %526 = zext nneg i16 %525 to i32
-  %527 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %526) #16
+  %527 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %526) #17
   br label %528
 
 528:                                              ; preds = %524, %523
-  %529 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 74) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %529, ptr noundef nonnull %10) #16
+  %529 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 74) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %529, ptr noundef nonnull %10) #17
   %530 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  call void @slurm_make_time_str(ptr noundef nonnull %530, ptr noundef nonnull %10, i32 noundef 256) #16
-  %531 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 75) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %531, ptr noundef nonnull %10) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %530, ptr noundef nonnull %10, i32 noundef 256) #17
+  %531 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 75) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %531, ptr noundef nonnull %10) #17
   %532 = getelementptr inbounds nuw i8, ptr %127, i64 264
-  call void @slurm_make_time_str(ptr noundef nonnull %532, ptr noundef nonnull %10, i32 noundef 256) #16
-  %533 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 76) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %533, ptr noundef nonnull %10) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %532, ptr noundef nonnull %10, i32 noundef 256) #17
+  %533 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 76) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %533, ptr noundef nonnull %10) #17
   %534 = getelementptr inbounds nuw i8, ptr %127, i64 848
   %535 = load i32, ptr %534, align 8
   %536 = icmp eq i32 %535, -1
@@ -1313,7 +1313,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 537:                                              ; preds = %528
   %538 = getelementptr inbounds nuw i8, ptr %127, i64 272
   %539 = load i64, ptr %538, align 8
-  %540 = call i64 @time(ptr noundef null) #16
+  %540 = call i64 @time(ptr noundef null) #17
   %541 = icmp sgt i64 %539, %540
   br i1 %541, label %542, label %543
 
@@ -1323,12 +1323,12 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 
 543:                                              ; preds = %537, %528
   %544 = getelementptr inbounds nuw i8, ptr %127, i64 272
-  call void @slurm_make_time_str(ptr noundef nonnull %544, ptr noundef nonnull %10, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %544, ptr noundef nonnull %10, i32 noundef 256) #17
   br label %545
 
 545:                                              ; preds = %543, %542
-  %546 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 77) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %546, ptr noundef nonnull %10) #16
+  %546 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 77) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %546, ptr noundef nonnull %10) #17
   %547 = load i32, ptr %534, align 8
   switch i32 %547, label %550 [
     i32 -2, label %548
@@ -1346,19 +1346,19 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
 550:                                              ; preds = %545
   %551 = mul i32 %547, 60
   %552 = zext i32 %551 to i64
-  call void @secs2time_str(i64 noundef %552, ptr noundef nonnull %10, i32 noundef 256) #16
+  call void @secs2time_str(i64 noundef %552, ptr noundef nonnull %10, i32 noundef 256) #17
   br label %553
 
 553:                                              ; preds = %550, %549, %548
-  %554 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 78) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %554, ptr noundef nonnull %10) #16
+  %554 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 78) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %554, ptr noundef nonnull %10) #17
   %555 = getelementptr inbounds nuw i8, ptr %127, i64 696
   %556 = load i64, ptr %555, align 8
   %.not392.i = icmp eq i64 %556, 0
   br i1 %.not392.i, label %558, label %557
 
 557:                                              ; preds = %553
-  call void @slurm_make_time_str(ptr noundef nonnull %555, ptr noundef nonnull %10, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %555, ptr noundef nonnull %10, i32 noundef 256) #17
   br label %559
 
 558:                                              ; preds = %553
@@ -1366,91 +1366,91 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %559
 
 559:                                              ; preds = %558, %557
-  %560 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 79) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %560, ptr noundef nonnull %10) #16
-  %561 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 80) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %561, ptr noundef nonnull %13) #16
+  %560 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 79) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %560, ptr noundef nonnull %10) #17
+  %561 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 80) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %561, ptr noundef nonnull %13) #17
   %562 = getelementptr inbounds nuw i8, ptr %127, i64 760
-  call void @slurm_make_time_str(ptr noundef nonnull %562, ptr noundef nonnull %10, i32 noundef 256) #16
-  %563 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 81) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %563, ptr noundef nonnull %10) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %562, ptr noundef nonnull %10, i32 noundef 256) #17
+  %563 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 81) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %563, ptr noundef nonnull %10) #17
   %564 = getelementptr inbounds nuw i8, ptr %127, i64 824
-  call void @slurm_make_time_str(ptr noundef nonnull %564, ptr noundef nonnull %10, i32 noundef 256) #16
-  %565 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 82) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %565, ptr noundef nonnull %10) #16
-  call void @secs2time_str(i64 noundef %.0339.i, ptr noundef nonnull %10, i32 noundef 256) #16
-  %566 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 83) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %566, ptr noundef nonnull %10) #16
-  %567 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 84) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %564, ptr noundef nonnull %10, i32 noundef 256) #17
+  %565 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 82) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %565, ptr noundef nonnull %10) #17
+  call void @secs2time_str(i64 noundef %.0339.i, ptr noundef nonnull %10, i32 noundef 256) #17
+  %566 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 83) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %566, ptr noundef nonnull %10) #17
+  %567 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 84) #17
   %568 = getelementptr inbounds nuw i8, ptr %127, i64 920
   %569 = load ptr, ptr %568, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %567, ptr noundef %569) #16
-  %570 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 85) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %567, ptr noundef %569) #17
+  %570 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 85) #17
   %571 = getelementptr inbounds nuw i8, ptr %127, i64 864
   %572 = load ptr, ptr %571, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %570, ptr noundef %572) #16
-  %573 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 86) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %570, ptr noundef %572) #17
+  %573 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 86) #17
   %574 = getelementptr inbounds nuw i8, ptr %127, i64 872
   %575 = load ptr, ptr %574, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %573, ptr noundef %575) #16
-  %576 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 87) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %573, ptr noundef %575) #17
+  %576 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 87) #17
   %577 = getelementptr inbounds nuw i8, ptr %127, i64 880
   %578 = load ptr, ptr %577, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %576, ptr noundef %578) #16
-  %579 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 88) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %576, ptr noundef %578) #17
+  %579 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 88) #17
   %580 = load ptr, ptr %318, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %579, ptr noundef %580) #16
-  %581 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 89) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %579, ptr noundef %580) #17
+  %581 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 89) #17
   %582 = getelementptr inbounds nuw i8, ptr %127, i64 896
   %583 = load ptr, ptr %582, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %581, ptr noundef %583) #16
-  %584 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 90) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %581, ptr noundef %583) #17
+  %584 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 90) #17
   %585 = getelementptr inbounds nuw i8, ptr %127, i64 904
   %586 = load ptr, ptr %585, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %584, ptr noundef %586) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %584, ptr noundef %586) #17
   %587 = getelementptr inbounds nuw i8, ptr %127, i64 928
   %588 = load i32, ptr %587, align 8
-  %589 = call ptr @uid_to_string_cached(i32 noundef %588) #16
-  %590 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 92) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %590, ptr noundef %589) #16
-  %591 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 93) #16
+  %589 = call ptr @uid_to_string_cached(i32 noundef %588) #17
+  %590 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 92) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %590, ptr noundef %589) #17
+  %591 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 93) #17
   %592 = getelementptr inbounds nuw i8, ptr %127, i64 952
   %593 = load ptr, ptr %592, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %591, ptr noundef %593) #16
-  %594 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 94) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %591, ptr noundef %593) #17
+  %594 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 94) #17
   %595 = getelementptr inbounds nuw i8, ptr %127, i64 960
   %596 = load ptr, ptr %595, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %594, ptr noundef %596) #16
-  call void @slurm_xfree(ptr noundef nonnull %8) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %130, ptr noundef nonnull %14, ptr noundef %594, ptr noundef %596) #17
+  call void @slurm_xfree(ptr noundef nonnull %8) #17
   br label %.thread144
 
 .thread144:                                       ; preds = %559, %._crit_edge192
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #16
-  call void @post_setup_popup_grid_list(ptr noundef nonnull %1) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
+  call void @post_setup_popup_grid_list(ptr noundef nonnull %1) #17
   br label %776
 
 597:                                              ; preds = %.loopexit150
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #16
-  %598 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3356, ptr noundef nonnull @__func__._display_info_job) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #17
+  %598 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3356, ptr noundef nonnull @__func__._display_info_job) #17
   store ptr %598, ptr %17, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #16
-  %599 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3357, ptr noundef nonnull @__func__._display_info_job) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #17
+  %599 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3357, ptr noundef nonnull @__func__._display_info_job) #17
   store ptr %599, ptr %18, align 8
   %600 = getelementptr inbounds nuw i8, ptr %.0100.ph, i64 88
   %601 = load ptr, ptr %600, align 8
-  %602 = call ptr @list_iterator_create(ptr noundef %601) #16
+  %602 = call ptr @list_iterator_create(ptr noundef %601) #17
   br label %603
 
 603:                                              ; preds = %605, %597
-  %604 = call ptr @list_next(ptr noundef %602) #16
+  %604 = call ptr @list_next(ptr noundef %602) #17
   %.not130 = icmp eq ptr %604, null
   br i1 %.not130, label %.loopexit, label %605
 
@@ -1492,7 +1492,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %.lr.ph178
 
 624:                                              ; preds = %.lr.ph182
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.31) #18
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.31) #19
   unreachable
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
@@ -1531,23 +1531,23 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %641 = load ptr, ptr %29, align 8
   %642 = load ptr, ptr %17, align 8
   %643 = load ptr, ptr %18, align 8
-  call void @change_grid_color_array(ptr noundef %641, i32 noundef %.0.lcssa, ptr noundef %642, ptr noundef %643, i1 noundef zeroext false, i32 noundef 0) #16
-  call void @slurm_xfree(ptr noundef nonnull %17) #16
-  call void @slurm_xfree(ptr noundef nonnull %18) #16
+  call void @change_grid_color_array(ptr noundef %641, i32 noundef %.0.lcssa, ptr noundef %642, ptr noundef %643, i1 noundef zeroext false, i32 noundef 0) #17
+  call void @slurm_xfree(ptr noundef nonnull %17) #17
+  call void @slurm_xfree(ptr noundef nonnull %18) #17
   %644 = getelementptr inbounds nuw i8, ptr %.0100.ph, i64 56
   %645 = load ptr, ptr %644, align 8
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 432
   %647 = load i32, ptr %646, align 8
   %648 = and i32 %647, 255
   %649 = icmp eq i32 %648, 2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
-  %650 = call ptr @gtk_tree_view_get_model(ptr noundef %.0107) #16
-  %651 = tail call i64 @gtk_tree_store_get_type() #17
-  %652 = call ptr @g_type_check_instance_cast(ptr noundef %650, i64 noundef %651) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
+  %650 = call ptr @gtk_tree_view_get_model(ptr noundef %.0107) #17
+  %651 = tail call i64 @gtk_tree_store_get_type() #18
+  %652 = call ptr @g_type_check_instance_cast(ptr noundef %650, i64 noundef %651) #17
   %.not.i137 = icmp eq ptr %652, null
   br i1 %.not.i137, label %_layout_step_record.exit, label %653
 
@@ -1557,14 +1557,14 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %656 = uitofp i32 %655 to float
   %657 = fpext float %656 to double
   %658 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %657, ptr noundef nonnull %4, i32 noundef 100, i32 noundef 0, i32 noundef -2, i32 noundef %658) #16
-  %659 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 17) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %659, ptr noundef nonnull %4) #16
+  call void @convert_num_unit(double noundef %657, ptr noundef nonnull %4, i32 noundef 100, i32 noundef 0, i32 noundef -2, i32 noundef %658) #17
+  %659 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 17) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %659, ptr noundef nonnull %4) #17
   %660 = getelementptr inbounds nuw i8, ptr %604, i64 256
   %661 = load i32, ptr %660, align 8
-  %662 = call ptr @uid_to_string_cached(i32 noundef %661) #16
-  %663 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 92) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %663, ptr noundef %662) #16
+  %662 = call ptr @uid_to_string_cached(i32 noundef %661) #17
+  %663 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 92) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %663, ptr noundef %662) #17
   %664 = load i32, ptr %604, align 8
   %.not78.i = icmp eq i32 %664, 0
   br i1 %.not78.i, label %672, label %665
@@ -1575,7 +1575,7 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   %668 = load i32, ptr %612, align 8
   %669 = getelementptr inbounds nuw i8, ptr %604, i64 168
   %670 = load i32, ptr %669, align 8
-  %671 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.94, i32 noundef %664, i32 noundef %667, i32 noundef %668, i32 noundef %670, i32 noundef %668) #16
+  %671 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.94, i32 noundef %664, i32 noundef %667, i32 noundef %668, i32 noundef %670, i32 noundef %668) #17
   br label %682
 
 672:                                              ; preds = %653
@@ -1604,54 +1604,54 @@ define dso_local void @_display_info_job(ptr noundef %0, ptr noundef %1) local_u
   br label %_stepstr_from_step.exit.i
 
 677:                                              ; preds = %672
-  %678 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 50, ptr noundef nonnull @.str.77, i32 noundef %.val.i) #16
+  %678 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 50, ptr noundef nonnull @.str.77, i32 noundef %.val.i) #17
   br label %_stepstr_from_step.exit.i
 
 _stepstr_from_step.exit.i:                        ; preds = %677, %676, %675, %674, %673
   %679 = getelementptr inbounds nuw i8, ptr %604, i64 168
   %680 = load i32, ptr %679, align 8
-  %681 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.95, i32 noundef %680, ptr noundef nonnull %5) #16
+  %681 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.95, i32 noundef %680, ptr noundef nonnull %5) #17
   br label %682
 
 682:                                              ; preds = %_stepstr_from_step.exit.i, %665
-  %683 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 36) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %683, ptr noundef nonnull %4) #16
-  %684 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 18) #16
+  %683 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 36) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %683, ptr noundef nonnull %4) #17
+  %684 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 18) #17
   %685 = getelementptr inbounds nuw i8, ptr %604, i64 48
   %686 = load ptr, ptr %685, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %684, ptr noundef %686) #16
-  %687 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 43) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %684, ptr noundef %686) #17
+  %687 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 43) #17
   %688 = getelementptr inbounds nuw i8, ptr %604, i64 56
   %689 = load ptr, ptr %688, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %687, ptr noundef %689) #16
-  %690 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 85) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %687, ptr noundef %689) #17
+  %690 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 85) #17
   %691 = getelementptr inbounds nuw i8, ptr %604, i64 200
   %692 = load ptr, ptr %691, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %690, ptr noundef %692) #16
-  %693 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 86) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %690, ptr noundef %692) #17
+  %693 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 86) #17
   %694 = getelementptr inbounds nuw i8, ptr %604, i64 216
   %695 = load ptr, ptr %694, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %693, ptr noundef %695) #16
-  %696 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 87) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %693, ptr noundef %695) #17
+  %696 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 87) #17
   %697 = getelementptr inbounds nuw i8, ptr %604, i64 224
   %698 = load ptr, ptr %697, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %696, ptr noundef %698) #16
-  %699 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 88) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %696, ptr noundef %698) #17
+  %699 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 88) #17
   %700 = getelementptr inbounds nuw i8, ptr %604, i64 232
   %701 = load ptr, ptr %700, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %699, ptr noundef %701) #16
-  %702 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 89) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %699, ptr noundef %701) #17
+  %702 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 89) #17
   %703 = getelementptr inbounds nuw i8, ptr %604, i64 240
   %704 = load ptr, ptr %703, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %702, ptr noundef %704) #16
-  %705 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 90) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %702, ptr noundef %704) #17
+  %705 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 90) #17
   %706 = getelementptr inbounds nuw i8, ptr %604, i64 248
   %707 = load ptr, ptr %706, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %705, ptr noundef %707) #16
-  %708 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 45) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %705, ptr noundef %707) #17
+  %708 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 45) #17
   %709 = getelementptr inbounds nuw i8, ptr %604, i64 64
   %710 = load ptr, ptr %709, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %708, ptr noundef %710) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %708, ptr noundef %710) #17
   br i1 %649, label %714, label %711
 
 711:                                              ; preds = %682
@@ -1667,46 +1667,46 @@ _stepstr_from_step.exit.i:                        ; preds = %677, %676, %675, %6
   br i1 %.not79.i, label %719, label %717
 
 717:                                              ; preds = %714
-  %718 = call i32 @xstrcasecmp(ptr noundef nonnull %716, ptr noundef nonnull @.str.74) #16
+  %718 = call i32 @xstrcasecmp(ptr noundef nonnull %716, ptr noundef nonnull @.str.74) #17
   %.not80.i = icmp eq i32 %718, 0
   br i1 %.not80.i, label %719, label %721
 
 719:                                              ; preds = %717, %714
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %6, ptr noundef nonnull align 1 dereferenceable(9) @.str.75, i64 9, i1 false)
-  %720 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #16
+  %720 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #17
   store ptr %720, ptr %3, align 8
   br label %732
 
 721:                                              ; preds = %717
   %722 = getelementptr inbounds nuw i8, ptr %604, i64 120
   %723 = load i64, ptr %722, align 8
-  call void @secs2time_str(i64 noundef %723, ptr noundef nonnull %6, i32 noundef 50) #16
+  call void @secs2time_str(i64 noundef %723, ptr noundef nonnull %6, i32 noundef 50) #17
   %724 = load ptr, ptr %715, align 8
-  %725 = call ptr @slurm_sort_node_list_str(ptr noundef %724) #16
+  %725 = call ptr @slurm_sort_node_list_str(ptr noundef %724) #17
   store ptr %725, ptr %3, align 8
-  %726 = call ptr @hostset_create(ptr noundef %725) #16
-  %727 = call i32 @hostset_count(ptr noundef %726) #16
-  call void @hostset_destroy(ptr noundef %726) #16
+  %726 = call ptr @hostset_create(ptr noundef %725) #17
+  %727 = call i32 @hostset_count(ptr noundef %726) #17
+  call void @hostset_destroy(ptr noundef %726) #17
   %728 = sitofp i32 %727 to float
   %729 = fpext float %728 to double
   %730 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %729, ptr noundef nonnull %4, i32 noundef 100, i32 noundef 0, i32 noundef -2, i32 noundef %730) #16
-  %731 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 53) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %731, ptr noundef nonnull %4) #16
+  call void @convert_num_unit(double noundef %729, ptr noundef nonnull %4, i32 noundef 100, i32 noundef 0, i32 noundef -2, i32 noundef %730) #17
+  %731 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 53) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %731, ptr noundef nonnull %4) #17
   br label %732
 
 732:                                              ; preds = %721, %719
   %733 = phi ptr [ %725, %721 ], [ %720, %719 ]
   %.1.i139 = phi i32 [ %.0.i138, %721 ], [ 0, %719 ]
-  %734 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 48) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %734, ptr noundef %733) #16
-  %735 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 57) #16
+  %734 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 48) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %734, ptr noundef %733) #17
+  %735 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 57) #17
   %736 = getelementptr inbounds nuw i8, ptr %604, i64 104
   %737 = load ptr, ptr %736, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %735, ptr noundef %737) #16
-  %738 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 67) #16
-  %739 = call ptr @job_state_string(i32 noundef %.1.i139) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %738, ptr noundef %739) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %735, ptr noundef %737) #17
+  %738 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 67) #17
+  %739 = call ptr @job_state_string(i32 noundef %.1.i139) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %738, ptr noundef %739) #17
   %740 = getelementptr inbounds nuw i8, ptr %604, i64 196
   %741 = load i32, ptr %740, align 4
   switch i32 %741, label %744 [
@@ -1725,49 +1725,49 @@ _stepstr_from_step.exit.i:                        ; preds = %677, %676, %675, %6
 744:                                              ; preds = %732
   %745 = mul i32 %741, 60
   %746 = zext i32 %745 to i64
-  call void @secs2time_str(i64 noundef %746, ptr noundef nonnull %4, i32 noundef 100) #16
+  call void @secs2time_str(i64 noundef %746, ptr noundef nonnull %4, i32 noundef 100) #17
   br label %747
 
 747:                                              ; preds = %744, %743, %742
-  %748 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 78) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %748, ptr noundef nonnull %4) #16
-  %749 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 80) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %749, ptr noundef nonnull %6) #16
+  %748 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 78) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %748, ptr noundef nonnull %4) #17
+  %749 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 80) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %749, ptr noundef nonnull %6) #17
   %750 = getelementptr inbounds nuw i8, ptr %604, i64 100
   %751 = load i32, ptr %750, align 4
   %752 = uitofp i32 %751 to float
   %753 = fpext float %752 to double
   %754 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %753, ptr noundef nonnull %4, i32 noundef 100, i32 noundef 0, i32 noundef -2, i32 noundef %754) #16
-  %755 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 73) #16
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %755, ptr noundef nonnull %4) #16
-  %756 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 84) #16
+  call void @convert_num_unit(double noundef %753, ptr noundef nonnull %4, i32 noundef 100, i32 noundef 0, i32 noundef -2, i32 noundef %754) #17
+  %755 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 73) #17
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %755, ptr noundef nonnull %4) #17
+  %756 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 84) #17
   %757 = getelementptr inbounds nuw i8, ptr %604, i64 208
   %758 = load ptr, ptr %757, align 8
-  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %756, ptr noundef %758) #16
-  call void @slurm_xfree(ptr noundef nonnull %3) #16
+  call void @add_display_treestore_line(i32 noundef range(i32 0, 2) %.1106, ptr noundef nonnull %652, ptr noundef nonnull %7, ptr noundef %756, ptr noundef %758) #17
+  call void @slurm_xfree(ptr noundef nonnull %3) #17
   br label %_layout_step_record.exit
 
 _layout_step_record.exit:                         ; preds = %._crit_edge183, %747
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   br label %.loopexit
 
 .loopexit:                                        ; preds = %603, %_layout_step_record.exit
   %.2 = phi i32 [ 1, %_layout_step_record.exit ], [ %.0108, %603 ]
-  call void @list_iterator_destroy(ptr noundef %602) #16
-  call void @slurm_xfree(ptr noundef nonnull %17) #16
-  call void @slurm_xfree(ptr noundef nonnull %18) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #16
+  call void @list_iterator_destroy(ptr noundef %602) #17
+  call void @slurm_xfree(ptr noundef nonnull %17) #17
+  call void @slurm_xfree(ptr noundef nonnull %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #17
   br label %759
 
 759:                                              ; preds = %._crit_edge, %.loopexit
   %.1109 = phi i32 [ %.2, %.loopexit ], [ %.0108, %._crit_edge ]
-  call void @post_setup_popup_grid_list(ptr noundef %1) #16
+  call void @post_setup_popup_grid_list(ptr noundef %1) #17
   %.not132 = icmp eq i32 %.1109, 0
   br i1 %.not132, label %760, label %776
 
@@ -1777,11 +1777,11 @@ _layout_step_record.exit:                         ; preds = %._crit_edge183, %74
   br i1 %762, label %775, label %763
 
 763:                                              ; preds = %760
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #16
-  %764 = call ptr @gtk_tree_view_get_model(ptr noundef %.0107) #16
-  %765 = tail call i64 @gtk_tree_store_get_type() #17
-  %766 = call ptr @g_type_check_instance_cast(ptr noundef %764, i64 noundef %765) #16
-  call void @add_display_treestore_line(i32 noundef 0, ptr noundef %766, ptr noundef nonnull %19, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #17
+  %764 = call ptr @gtk_tree_view_get_model(ptr noundef %.0107) #17
+  %765 = tail call i64 @gtk_tree_store_get_type() #18
+  %766 = call ptr @g_type_check_instance_cast(ptr noundef %764, i64 noundef %765) #17
+  call void @add_display_treestore_line(i32 noundef 0, ptr noundef %766, ptr noundef nonnull %19, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #17
   %767 = load ptr, ptr %22, align 8
   %768 = getelementptr inbounds nuw i8, ptr %767, i64 28
   %769 = load i32, ptr %768, align 4
@@ -1789,14 +1789,14 @@ _layout_step_record.exit:                         ; preds = %._crit_edge183, %74
   br i1 %.not133, label %774, label %770
 
 770:                                              ; preds = %763
-  %771 = call ptr @g_type_check_instance_cast(ptr noundef %764, i64 noundef %765) #16
-  %772 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 67) #16
-  %773 = call ptr @job_state_string(i32 noundef 3) #16
-  call void @add_display_treestore_line(i32 noundef 1, ptr noundef %771, ptr noundef nonnull %19, ptr noundef %772, ptr noundef %773) #16
+  %771 = call ptr @g_type_check_instance_cast(ptr noundef %764, i64 noundef %765) #17
+  %772 = call ptr @find_col_name(ptr noundef nonnull @display_data_job, i32 noundef 67) #17
+  %773 = call ptr @job_state_string(i32 noundef 3) #17
+  call void @add_display_treestore_line(i32 noundef 1, ptr noundef %771, ptr noundef nonnull %19, ptr noundef %772, ptr noundef %773) #17
   br label %774
 
 774:                                              ; preds = %770, %763
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #17
   br label %775
 
 775:                                              ; preds = %774, %760
@@ -1811,12 +1811,12 @@ _layout_step_record.exit:                         ; preds = %._crit_edge183, %74
 779:                                              ; preds = %776
   store i8 0, ptr %30, align 4
   %780 = load ptr, ptr %27, align 8
-  call void @gtk_widget_destroy(ptr noundef %780) #16
+  call void @gtk_widget_destroy(ptr noundef %780) #17
   br label %31
 
 .loopexit152:                                     ; preds = %776, %775
   %781 = load ptr, ptr %27, align 8
-  call void @gtk_widget_show_all(ptr noundef %781) #16
+  call void @gtk_widget_show_all(ptr noundef %781) #17
   br label %782
 
 782:                                              ; preds = %2, %.loopexit152
@@ -1890,16 +1890,16 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %.thread
 
 11:                                               ; preds = %1
-  tail call void @setup_popup_info(ptr noundef nonnull %0, ptr noundef nonnull @display_data_job, i32 noundef 95) #16
+  tail call void @setup_popup_info(ptr noundef nonnull %0, ptr noundef nonnull @display_data_job, i32 noundef 95) #17
   %.pr = load ptr, ptr %9, align 8
   %.not136 = icmp eq ptr %.pr, null
   br i1 %.not136, label %16, label %.thread
@@ -1912,7 +1912,7 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not137, label %16, label %15
 
 15:                                               ; preds = %.thread
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %12) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %12) #17
   store ptr null, ptr %9, align 8
   br label %61
 
@@ -1938,24 +1938,24 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not139, label %27, label %26
 
 26:                                               ; preds = %24
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %25) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %25) #17
   br label %27
 
 27:                                               ; preds = %26, %24
-  %28 = tail call ptr @__errno_location() #17
+  %28 = tail call ptr @__errno_location() #18
   %29 = load i32, ptr %28, align 4
-  %30 = tail call ptr @slurm_strerror(i32 noundef %29) #16
-  %31 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %30) #16
-  %32 = call ptr @gtk_label_new(ptr noundef nonnull %2) #16
+  %30 = tail call ptr @slurm_strerror(i32 noundef %29) #17
+  %31 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %30) #17
+  %32 = call ptr @gtk_label_new(ptr noundef nonnull %2) #17
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %34 = load ptr, ptr %33, align 8
-  %35 = tail call i64 @gtk_table_get_type() #17
-  %36 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #16
-  call void @gtk_table_attach_defaults(ptr noundef %36, ptr noundef %32, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #16
-  call void @gtk_widget_show(ptr noundef %32) #16
-  %37 = tail call i64 @gtk_widget_get_type() #17
-  %38 = call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %37) #16
-  %39 = call ptr @g_object_ref(ptr noundef %38) #16
+  %35 = tail call i64 @gtk_table_get_type() #18
+  %36 = call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %35) #17
+  call void @gtk_table_attach_defaults(ptr noundef %36, ptr noundef %32, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #17
+  call void @gtk_widget_show(ptr noundef %32) #17
+  %37 = tail call i64 @gtk_widget_get_type() #18
+  %38 = call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %37) #17
+  %39 = call ptr @g_object_ref(ptr noundef %38) #17
   store ptr %39, ptr %9, align 8
   br label %207
 
@@ -1979,23 +1979,23 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not138, label %50, label %49
 
 49:                                               ; preds = %47
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %48) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %48) #17
   br label %50
 
 50:                                               ; preds = %49, %47
   store i32 0, ptr %44, align 4
-  %51 = tail call ptr @__errno_location() #17
+  %51 = tail call ptr @__errno_location() #18
   %52 = load i32, ptr %51, align 4
-  %53 = tail call ptr @slurm_strerror(i32 noundef %52) #16
-  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %53) #16
-  %55 = call ptr @gtk_label_new(ptr noundef nonnull %2) #16
+  %53 = tail call ptr @slurm_strerror(i32 noundef %52) #17
+  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %53) #17
+  %55 = call ptr @gtk_label_new(ptr noundef nonnull %2) #17
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %57 = load ptr, ptr %56, align 8
-  call void @gtk_table_attach_defaults(ptr noundef %57, ptr noundef %55, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #16
-  call void @gtk_widget_show(ptr noundef %55) #16
-  %58 = tail call i64 @gtk_widget_get_type() #17
-  %59 = call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %58) #16
-  %60 = call ptr @g_object_ref(ptr noundef %59) #16
+  call void @gtk_table_attach_defaults(ptr noundef %57, ptr noundef %55, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #17
+  call void @gtk_widget_show(ptr noundef %55) #17
+  %58 = tail call i64 @gtk_widget_get_type() #18
+  %59 = call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %58) #17
+  %60 = call ptr @g_object_ref(ptr noundef %59) #17
   store ptr %60, ptr %9, align 8
   br label %207
 
@@ -2018,7 +2018,7 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not141, label %72, label %71
 
 71:                                               ; preds = %69
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %70) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %70) #17
   store ptr null, ptr %9, align 8
   br label %72
 
@@ -2035,23 +2035,23 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
 76:                                               ; preds = %74
   %77 = load ptr, ptr @local_display_data, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %79 = tail call ptr @create_treeview(ptr noundef %77, ptr noundef nonnull %78) #16
-  %80 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %79) #16
-  tail call void @gtk_tree_selection_set_mode(ptr noundef %80, i32 noundef 3) #16
-  %81 = tail call i64 @gtk_widget_get_type() #17
-  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %81) #16
-  %83 = tail call ptr @g_object_ref(ptr noundef %82) #16
+  %79 = tail call ptr @create_treeview(ptr noundef %77, ptr noundef nonnull %78) #17
+  %80 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %79) #17
+  tail call void @gtk_tree_selection_set_mode(ptr noundef %80, i32 noundef 3) #17
+  %81 = tail call i64 @gtk_widget_get_type() #18
+  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %81) #17
+  %83 = tail call ptr @g_object_ref(ptr noundef %82) #17
   store ptr %83, ptr %9, align 8
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %81) #16
-  tail call void @gtk_table_attach_defaults(ptr noundef %85, ptr noundef %86, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #16
+  %86 = tail call ptr @g_type_check_instance_cast(ptr noundef %79, i64 noundef %81) #17
+  tail call void @gtk_table_attach_defaults(ptr noundef %85, ptr noundef %86, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #17
   %87 = load ptr, ptr %0, align 8
-  tail call void @create_treestore(ptr noundef %79, ptr noundef %87, i32 noundef 95, i32 noundef 82, i32 noundef 11) #16
+  tail call void @create_treestore(ptr noundef %79, ptr noundef %87, i32 noundef 95, i32 noundef 82, i32 noundef 11) #17
   br label %88
 
 88:                                               ; preds = %76, %74, %72
-  tail call void @setup_popup_grid_list(ptr noundef nonnull %0) #16
+  tail call void @setup_popup_grid_list(ptr noundef nonnull %0) #17
   store i32 1, ptr %66, align 4
   %89 = load i32, ptr %6, align 8
   %90 = icmp eq i32 %89, 8
@@ -2062,9 +2062,9 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br label %207
 
 92:                                               ; preds = %88
-  %93 = tail call ptr @list_create(ptr noundef null) #16
-  %94 = tail call ptr @list_iterator_create(ptr noundef nonnull %64) #16
-  %95 = tail call ptr @list_next(ptr noundef %94) #16
+  %93 = tail call ptr @list_create(ptr noundef null) #17
+  %94 = tail call ptr @list_iterator_create(ptr noundef nonnull %64) #17
+  %95 = tail call ptr @list_next(ptr noundef %94) #17
   %.not144170 = icmp eq ptr %95, null
   br i1 %.not144170, label %._crit_edge173, label %.lr.ph172
 
@@ -2107,7 +2107,7 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not157, label %.backedge, label %113
 
 113:                                              ; preds = %111
-  %114 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %112, ptr noundef null, i32 noundef 10) #16
+  %114 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %112, ptr noundef null, i32 noundef 10) #17
   %115 = trunc i64 %114 to i32
   store i32 %115, ptr %98, align 4
   store i32 -2, ptr %99, align 4
@@ -2130,7 +2130,7 @@ define dso_local void @specific_info_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not16.i, label %_convert_char_to_job_and_step.exit, label %123
 
 123:                                              ; preds = %119
-  %124 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %121, ptr noundef null, i32 noundef 10) #16
+  %124 = call i64 @strtol(ptr noundef nonnull readonly captures(none) %121, ptr noundef null, i32 noundef 10) #17
   %125 = trunc i64 %124 to i32
   store i32 %125, ptr %99, align 4
   %.pre = load i32, ptr %98, align 8
@@ -2155,9 +2155,9 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %104, i64 928
   %134 = load i32, ptr %133, align 8
-  %135 = call ptr @uid_to_string_cached(i32 noundef %134) #16
+  %135 = call ptr @uid_to_string_cached(i32 noundef %134) #17
   %136 = load ptr, ptr %96, align 8
-  %137 = call i32 @xstrcmp(ptr noundef %135, ptr noundef %136) #16
+  %137 = call i32 @xstrcmp(ptr noundef %135, ptr noundef %136) #17
   %.not156 = icmp eq i32 %137, 0
   br i1 %.not156, label %171, label %.backedge
 
@@ -2176,7 +2176,7 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
   %145 = load ptr, ptr %96, align 8
   %146 = getelementptr inbounds nuw i8, ptr %104, i64 568
   %147 = load ptr, ptr %146, align 8
-  %148 = call i32 @xstrcmp(ptr noundef %145, ptr noundef %147) #16
+  %148 = call i32 @xstrcmp(ptr noundef %145, ptr noundef %147) #17
   %.not151 = icmp eq i32 %148, 0
   br i1 %.not151, label %149, label %.backedge
 
@@ -2188,7 +2188,7 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
 151:                                              ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %104, i64 136
   %153 = load ptr, ptr %152, align 8
-  %154 = call i32 @xstrcmp(ptr noundef nonnull %150, ptr noundef %153) #16
+  %154 = call i32 @xstrcmp(ptr noundef nonnull %150, ptr noundef %153) #17
   %.not153 = icmp eq i32 %154, 0
   br i1 %.not153, label %171, label %.backedge
 
@@ -2200,12 +2200,12 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
 
 158:                                              ; preds = %155
   %159 = load ptr, ptr %96, align 8
-  %160 = call i32 @xstrcmp(ptr noundef %159, ptr noundef nonnull %157) #16
+  %160 = call i32 @xstrcmp(ptr noundef %159, ptr noundef nonnull %157) #17
   %.not150 = icmp eq i32 %160, 0
   br i1 %.not150, label %171, label %.backedge
 
 .backedge:                                        ; preds = %168, %155, %158, %._crit_edge169, %111, %_convert_char_to_job_and_step.exit, %130, %132, %138, %141, %144, %151, %162, %165, %101
-  %161 = call ptr @list_next(ptr noundef %94) #16
+  %161 = call ptr @list_next(ptr noundef %94) #17
   %.not144 = icmp eq ptr %161, null
   br i1 %.not144, label %._crit_edge173, label %101, !llvm.loop !21
 
@@ -2217,22 +2217,22 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
 
 165:                                              ; preds = %162
   %166 = load ptr, ptr %96, align 8
-  %167 = call ptr @hostset_create(ptr noundef %166) #16
+  %167 = call ptr @hostset_create(ptr noundef %166) #17
   %.not147 = icmp eq ptr %167, null
   br i1 %.not147, label %.backedge, label %168
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr %163, align 8
-  %170 = call i32 @hostset_intersects(ptr noundef nonnull %167, ptr noundef %169) #16
+  %170 = call i32 @hostset_intersects(ptr noundef nonnull %167, ptr noundef %169) #17
   %.not148 = icmp eq i32 %170, 0
-  call void @hostset_destroy(ptr noundef nonnull %167) #16
+  call void @hostset_destroy(ptr noundef nonnull %167) #17
   br i1 %.not148, label %.backedge, label %171
 
 171:                                              ; preds = %168, %158, %149, %151, %_convert_char_to_job_and_step.exit, %132, %141, %106
-  call void @list_push(ptr noundef %93, ptr noundef nonnull %102) #16
-  %172 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4119, ptr noundef nonnull @__func__.specific_info_job) #16
+  call void @list_push(ptr noundef %93, ptr noundef nonnull %102) #17
+  %172 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4119, ptr noundef nonnull @__func__.specific_info_job) #17
   store ptr %172, ptr %3, align 8
-  %173 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4120, ptr noundef nonnull @__func__.specific_info_job) #16
+  %173 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4120, ptr noundef nonnull @__func__.specific_info_job) #17
   store ptr %173, ptr %4, align 8
   %174 = getelementptr inbounds nuw i8, ptr %104, i64 528
   %175 = load ptr, ptr %174, align 8
@@ -2261,7 +2261,7 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
   br label %.lr.ph
 
 185:                                              ; preds = %.lr.ph168
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.47) #18
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.47) #19
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2299,23 +2299,23 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
   %.0.lcssa = phi i32 [ 1, %171 ], [ %199, %._crit_edge169.loopexit ]
   %201 = load ptr, ptr %100, align 8
   %202 = load ptr, ptr %3, align 8
-  call void @change_grid_color_array(ptr noundef %201, i32 noundef %.0.lcssa, ptr noundef %202, ptr noundef %200, i1 noundef zeroext true, i32 noundef 0) #16
-  call void @slurm_xfree(ptr noundef nonnull %3) #16
-  call void @slurm_xfree(ptr noundef nonnull %4) #16
+  call void @change_grid_color_array(ptr noundef %201, i32 noundef %.0.lcssa, ptr noundef %202, ptr noundef %200, i1 noundef zeroext true, i32 noundef 0) #17
+  call void @slurm_xfree(ptr noundef nonnull %3) #17
+  call void @slurm_xfree(ptr noundef nonnull %4) #17
   br label %.backedge
 
 ._crit_edge173:                                   ; preds = %.backedge, %92
-  call void @list_iterator_destroy(ptr noundef %94) #16
-  call void @post_setup_popup_grid_list(ptr noundef nonnull %0) #16
+  call void @list_iterator_destroy(ptr noundef %94) #17
+  call void @post_setup_popup_grid_list(ptr noundef nonnull %0) #17
   %203 = load ptr, ptr %9, align 8
-  %204 = tail call i64 @gtk_tree_view_get_type() #17
-  %205 = call ptr @g_type_check_instance_cast(ptr noundef %203, i64 noundef %204) #16
+  %204 = tail call i64 @gtk_tree_view_get_type() #18
+  %205 = call ptr @g_type_check_instance_cast(ptr noundef %203, i64 noundef %204) #17
   call fastcc void @_update_info_job(ptr noundef %93, ptr noundef %205)
   %.not145 = icmp eq ptr %93, null
   br i1 %.not145, label %207, label %206
 
 206:                                              ; preds = %._crit_edge173
-  call void @list_destroy(ptr noundef nonnull %93) #16
+  call void @list_destroy(ptr noundef nonnull %93) #17
   br label %207
 
 207:                                              ; preds = %._crit_edge173, %206, %43, %20, %91, %50, %27
@@ -2326,9 +2326,9 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
   br label %210
 
 210:                                              ; preds = %61, %207
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %2) #17
   ret void
 }
 
@@ -2336,10 +2336,10 @@ _convert_char_to_job_and_step.exit:               ; preds = %116, %123, %119, %1
 define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store ptr null, ptr %3, align 8
-  %5 = tail call i64 @time(ptr noundef null) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  %5 = tail call i64 @time(ptr noundef null) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   %6 = load ptr, ptr @g_job_info_ptr, align 8
   %7 = icmp eq ptr %6, null
   %8 = icmp ne i32 %1, 0
@@ -2402,17 +2402,17 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 31:                                               ; preds = %._crit_edge, %30
   %32 = phi i64 [ %.pre, %._crit_edge ], [ 0, %30 ]
-  %33 = call i32 @slurm_load_jobs(i64 noundef %32, ptr noundef nonnull %3, i16 noundef zeroext %.154) #16
+  %33 = call i32 @slurm_load_jobs(i64 noundef %32, ptr noundef nonnull %3, i16 noundef zeroext %.154) #17
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr @g_job_info_ptr, align 8
-  call void @slurm_free_job_info_msg(ptr noundef %36) #16
+  call void @slurm_free_job_info_msg(ptr noundef %36) #17
   br label %.sink.split
 
 37:                                               ; preds = %31
-  %38 = tail call ptr @__errno_location() #17
+  %38 = tail call ptr @__errno_location() #18
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 1900
   br i1 %40, label %41, label %45
@@ -2424,7 +2424,7 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 43:                                               ; preds = %22
   store ptr null, ptr %3, align 8
-  %44 = call i32 @slurm_load_jobs(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %.1) #16
+  %44 = call i32 @slurm_load_jobs(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %.1) #17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %41, %35
@@ -2453,7 +2453,7 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 52:                                               ; preds = %47, %50
   %.sink56 = phi ptr [ %51, %50 ], [ %49, %47 ]
-  %53 = call ptr @xstrdup(ptr noundef %.sink56) #16
+  %53 = call ptr @xstrdup(ptr noundef %.sink56) #17
   store ptr %53, ptr %4, align 8
   %54 = icmp eq i32 %.2, 0
   br i1 %54, label %55, label %.loopexit
@@ -2485,7 +2485,7 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   br i1 %.not44, label %70, label %66
 
 66:                                               ; preds = %63
-  %67 = call i32 @xstrcmp(ptr noundef nonnull %65, ptr noundef %53) #16
+  %67 = call i32 @xstrcmp(ptr noundef nonnull %65, ptr noundef %53) #17
   %.not45 = icmp eq i32 %67, 0
   br i1 %.not45, label %70, label %68
 
@@ -2504,7 +2504,7 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
   br i1 %76, label %.lr.ph, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %70, %55, %52
-  call void @slurm_xfree(ptr noundef nonnull %4) #16
+  call void @slurm_xfree(ptr noundef nonnull %4) #17
   store i16 %.155, ptr @get_new_info_job.last_flags, align 2
   %77 = load ptr, ptr %3, align 8
   store ptr %77, ptr @g_job_info_ptr, align 8
@@ -2524,8 +2524,8 @@ define dso_local i32 @get_new_info_job(ptr noundef captures(none) %0, i32 nounde
 
 81:                                               ; preds = %20, %80
   %.126 = phi i32 [ %.3, %80 ], [ %spec.select48, %20 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret i32 %.126
 }
 
@@ -2546,9 +2546,9 @@ declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @get_new_info_job_step(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store ptr null, ptr %3, align 8
-  %4 = tail call i64 @time(ptr noundef null) #16
+  %4 = tail call i64 @time(ptr noundef null) #17
   %5 = load ptr, ptr @g_step_info_ptr, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp ne i32 %1, 0
@@ -2581,17 +2581,17 @@ define dso_local i32 @get_new_info_job_step(ptr noundef captures(none) %0, i32 n
   br i1 %6, label %28, label %17
 
 17:                                               ; preds = %.thread, %16
-  %18 = call i32 @slurm_get_job_steps(i64 noundef 0, i32 noundef -2, i32 noundef -2, ptr noundef nonnull %3, i16 noundef zeroext 1) #16
+  %18 = call i32 @slurm_get_job_steps(i64 noundef 0, i32 noundef -2, i32 noundef -2, ptr noundef nonnull %3, i16 noundef zeroext 1) #17
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @g_step_info_ptr, align 8
-  call void @slurm_free_job_step_info_response_msg(ptr noundef %21) #16
+  call void @slurm_free_job_step_info_response_msg(ptr noundef %21) #17
   br label %thread-pre-split.sink.split
 
 22:                                               ; preds = %17
-  %23 = tail call ptr @__errno_location() #17
+  %23 = tail call ptr @__errno_location() #18
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 1900
   br i1 %25, label %26, label %thread-pre-split
@@ -2603,7 +2603,7 @@ define dso_local i32 @get_new_info_job_step(ptr noundef captures(none) %0, i32 n
 
 28:                                               ; preds = %16
   store ptr null, ptr %3, align 8
-  %29 = call i32 @slurm_get_job_steps(i64 noundef 0, i32 noundef -2, i32 noundef -2, ptr noundef nonnull %3, i16 noundef zeroext 1) #16
+  %29 = call i32 @slurm_get_job_steps(i64 noundef 0, i32 noundef -2, i32 noundef -2, ptr noundef nonnull %3, i16 noundef zeroext 1) #17
   br label %thread-pre-split.sink.split
 
 thread-pre-split.sink.split:                      ; preds = %20, %28
@@ -2636,7 +2636,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 35:                                               ; preds = %14, %34
   %.1 = phi i32 [ %.3, %34 ], [ %spec.select21, %14 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   ret i32 %.1
 }
 
@@ -2647,7 +2647,7 @@ declare void @slurm_free_job_step_info_response_msg(ptr noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @create_model_job(i32 noundef %0) #0 {
   %2 = alloca %struct._GtkTreeIter, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #17
   store ptr null, ptr @last_model, align 8
   switch i32 %0, label %7 [
     i32 2, label %3
@@ -2658,28 +2658,28 @@ define dso_local noundef ptr @create_model_job(i32 noundef %0) #0 {
   ]
 
 3:                                                ; preds = %1
-  %4 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 2, i64 noundef 64, i64 noundef 24) #16
-  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #16
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.34, i32 noundef -1) #16
-  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #16
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.35, i32 noundef -1) #16
-  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #16
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.36, i32 noundef -1) #16
-  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #16
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.37, i32 noundef -1) #16
+  %4 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 2, i64 noundef 64, i64 noundef 24) #17
+  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #17
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.34, i32 noundef -1) #17
+  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #17
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.35, i32 noundef -1) #17
+  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #17
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.36, i32 noundef -1) #17
+  call void @gtk_list_store_append(ptr noundef %4, ptr noundef nonnull %2) #17
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.37, i32 noundef -1) #17
   br label %7
 
 5:                                                ; preds = %1, %1, %1, %1
-  %6 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 2, i64 noundef 64, i64 noundef 24) #16
-  call void @gtk_list_store_append(ptr noundef %6, ptr noundef nonnull %2) #16
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 1, i32 noundef %0, i32 noundef -1) #16
-  call void @gtk_list_store_append(ptr noundef %6, ptr noundef nonnull %2) #16
-  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull @.str.39, i32 noundef 1, i32 noundef %0, i32 noundef -1) #16
+  %6 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 2, i64 noundef 64, i64 noundef 24) #17
+  call void @gtk_list_store_append(ptr noundef %6, ptr noundef nonnull %2) #17
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull @.str.38, i32 noundef 1, i32 noundef %0, i32 noundef -1) #17
+  call void @gtk_list_store_append(ptr noundef %6, ptr noundef nonnull %2) #17
+  call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %6, ptr noundef nonnull %2, i32 noundef 0, ptr noundef nonnull @.str.39, i32 noundef 1, i32 noundef %0, i32 noundef -1) #17
   br label %7
 
 7:                                                ; preds = %1, %5, %3
   %.0 = phi ptr [ null, %1 ], [ %6, %5 ], [ %4, %3 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #17
   ret ptr %.0
 }
 
@@ -2696,55 +2696,55 @@ define dso_local void @admin_edit_job(ptr noundef %0, ptr noundef %1, ptr nounde
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
-  %10 = tail call i64 @gtk_tree_store_get_type() #17
-  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %10) #16
-  %12 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %1) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
-  %13 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3639, ptr noundef nonnull @__func__.admin_edit_job) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  %10 = tail call i64 @gtk_tree_store_get_type() #18
+  %11 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef %10) #17
+  %12 = tail call ptr @gtk_tree_path_new_from_string(ptr noundef %1) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  %13 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3639, ptr noundef nonnull @__func__.admin_edit_job) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
   store ptr null, ptr %7, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   store ptr null, ptr %8, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
   store i32 -2, ptr %9, align 4
-  %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #16
-  %15 = tail call ptr @g_object_get_data(ptr noundef %14, ptr noundef nonnull @.str.40) #16
+  %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #17
+  %15 = tail call ptr @g_object_get_data(ptr noundef %14, ptr noundef nonnull @.str.40) #17
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %69, label %18
 
 18:                                               ; preds = %4
-  %19 = tail call i32 @xstrcmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.33) #16
+  %19 = tail call i32 @xstrcmp(ptr noundef nonnull %2, ptr noundef nonnull @.str.33) #17
   %.not40 = icmp eq i32 %19, 0
   br i1 %.not40, label %69, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call i64 @gtk_tree_model_get_type() #17
-  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #16
-  %23 = call i32 @gtk_tree_model_get_iter(ptr noundef %22, ptr noundef nonnull %5, ptr noundef %12) #16
-  call void @slurm_init_job_desc_msg(ptr noundef %13) #16
-  %24 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %24, ptr noundef nonnull %5, i32 noundef 36, ptr noundef nonnull %6, i32 noundef %17, ptr noundef nonnull %8, i32 noundef -1) #16
+  %21 = tail call i64 @gtk_tree_model_get_type() #18
+  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #17
+  %23 = call i32 @gtk_tree_model_get_iter(ptr noundef %22, ptr noundef nonnull %5, ptr noundef %12) #17
+  call void @slurm_init_job_desc_msg(ptr noundef %13) #17
+  %24 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %24, ptr noundef nonnull %5, i32 noundef 36, ptr noundef nonnull %6, i32 noundef %17, ptr noundef nonnull %8, i32 noundef -1) #17
   %25 = load ptr, ptr %6, align 8
   %.not41 = icmp eq ptr %25, null
   br i1 %.not41, label %69, label %26
 
 26:                                               ; preds = %20
-  %27 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 40) #19
+  %27 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 40) #20
   %.not42 = icmp eq ptr %27, null
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %.0 = select i1 %.not42, ptr %25, ptr %28
-  %29 = call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #16
+  %29 = call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #17
   %30 = trunc i64 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 340
   store i32 %30, ptr %31, align 4
   %32 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %32) #16
-  %33 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %33, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull %9, i32 noundef -1) #16
+  call void @g_free(ptr noundef %32) #17
+  %33 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %33, ptr noundef nonnull %5, i32 noundef 3, ptr noundef nonnull %9, i32 noundef -1) #17
   %34 = load i32, ptr %9, align 4
   %.not43 = icmp eq i32 %34, 0
   br i1 %.not43, label %36, label %35
@@ -2756,8 +2756,8 @@ define dso_local void @admin_edit_job(ptr noundef %0, ptr noundef %1, ptr nounde
 36:                                               ; preds = %26
   %37 = load i32, ptr %31, align 4
   store i32 %37, ptr %9, align 4
-  %38 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %38, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %31, i32 noundef -1) #16
+  %38 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %38, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %31, i32 noundef -1) #17
   br label %39
 
 39:                                               ; preds = %36, %35
@@ -2774,9 +2774,9 @@ define dso_local void @admin_edit_job(ptr noundef %0, ptr noundef %1, ptr nounde
 45:                                               ; preds = %43
   store ptr %44, ptr %7, align 8
   store ptr null, ptr @got_edit_signal, align 8
-  %46 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #16
+  %46 = call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %21) #17
   call void @admin_job(ptr noundef %46, ptr noundef nonnull %5, ptr noundef nonnull %44, ptr noundef null)
-  call void @slurm_xfree(ptr noundef nonnull %7) #16
+  call void @slurm_xfree(ptr noundef nonnull %7) #17
   br label %69
 
 47:                                               ; preds = %43
@@ -2785,59 +2785,59 @@ define dso_local void @admin_edit_job(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not45, label %53, label %49
 
 49:                                               ; preds = %47
-  %50 = call i32 @xstrcmp(ptr noundef nonnull %48, ptr noundef nonnull %2) #16
+  %50 = call i32 @xstrcmp(ptr noundef nonnull %48, ptr noundef nonnull %2) #17
   %.not46 = icmp eq i32 %50, 0
   br i1 %.not46, label %51, label %53
 
 51:                                               ; preds = %49
-  %52 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.41) #16
+  %52 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.41) #17
   br label %68
 
 53:                                               ; preds = %49, %47
-  %54 = call i32 @slurm_update_job(ptr noundef nonnull %13) #16
+  %54 = call i32 @slurm_update_job(ptr noundef nonnull %13) #17
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %53
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %11, ptr noundef nonnull %5, i32 noundef %17, ptr noundef nonnull %2, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %11, ptr noundef nonnull %5, i32 noundef %17, ptr noundef nonnull %2, i32 noundef -1) #17
   %57 = load i32, ptr %31, align 4
-  %58 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.42, i32 noundef %57, ptr noundef %40, ptr noundef nonnull %2) #16
+  %58 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.42, i32 noundef %57, ptr noundef %40, ptr noundef nonnull %2) #17
   br label %68
 
 59:                                               ; preds = %53
-  %60 = tail call ptr @__errno_location() #17
+  %60 = tail call ptr @__errno_location() #18
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, 2037
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %59
-  %64 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.43, ptr noundef %40) #16
+  %64 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.43, ptr noundef %40) #17
   br label %68
 
 65:                                               ; preds = %59, %39
   %66 = load i32, ptr %31, align 4
-  %67 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, i32 noundef %66, ptr noundef %40, ptr noundef nonnull %2) #16
+  %67 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, i32 noundef %66, ptr noundef %40, ptr noundef nonnull %2) #17
   br label %68
 
 68:                                               ; preds = %56, %65, %63, %51
   %.sink = phi ptr [ %58, %56 ], [ %67, %65 ], [ %64, %63 ], [ %52, %51 ]
   store ptr %.sink, ptr %7, align 8
-  call void @display_edit_note(ptr noundef %.sink) #16
-  call void @g_free(ptr noundef %.sink) #16
+  call void @display_edit_note(ptr noundef %.sink) #17
+  call void @g_free(ptr noundef %.sink) #17
   br label %69
 
 69:                                               ; preds = %20, %4, %18, %68, %45
-  call void @slurm_free_job_desc_msg(ptr noundef %13) #16
-  call void @gtk_tree_path_free(ptr noundef %12) #16
+  call void @slurm_free_job_desc_msg(ptr noundef %13) #17
+  call void @gtk_tree_path_free(ptr noundef %12) #17
   %70 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %70) #16
+  call void @g_free(ptr noundef %70) #17
   %71 = load ptr, ptr @sview_mutex, align 8
-  call void @g_mutex_unlock(ptr noundef %71) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @g_mutex_unlock(ptr noundef %71) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   ret void
 }
 
@@ -2854,7 +2854,7 @@ declare void @slurm_init_job_desc_msg(ptr noundef) local_unnamed_addr #2
 
 declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
@@ -2863,8 +2863,8 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store i8 0, ptr @global_edit_error, align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %304, label %6
@@ -2923,8 +2923,8 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   ]
 
 7:                                                ; preds = %6
-  tail call void @slurm_xfree(ptr noundef nonnull @got_edit_signal) #16
-  %8 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.34) #16
+  tail call void @slurm_xfree(ptr noundef nonnull @got_edit_signal) #17
+  %8 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.34) #17
   %.not223 = icmp eq i32 %8, 0
   br i1 %.not223, label %9, label %10
 
@@ -2933,23 +2933,23 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %11 = tail call ptr @xstrdup(ptr noundef %1) #17
   store ptr %11, ptr @got_edit_signal, align 8
   br label %302
 
 12:                                               ; preds = %6
-  %13 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %13 = tail call ptr @xstrdup(ptr noundef %1) #17
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %13, ptr %14, align 8
   br label %302
 
 15:                                               ; preds = %6
-  %16 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.188) #16
+  %16 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.188) #17
   %.not222 = icmp eq i32 %16, 0
   br i1 %.not222, label %.thread, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @time_str2mins(ptr noundef %1) #16
+  %18 = tail call i32 @time_str2mins(ptr noundef %1) #17
   %19 = icmp slt i32 %18, 1
   %20 = icmp ne i32 %18, -1
   %or.cond = and i1 %19, %20
@@ -2962,12 +2962,12 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 22:                                               ; preds = %6
-  %23 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.188) #16
+  %23 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.188) #17
   %.not221 = icmp eq i32 %23, 0
   br i1 %.not221, label %.thread228, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #16
+  %25 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #17
   %26 = trunc i64 %25 to i32
   %or.cond3 = icmp slt i32 %26, -1
   br i1 %or.cond3, label %.sink.split, label %.thread228
@@ -2979,7 +2979,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 28:                                               ; preds = %6
-  %29 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #16
+  %29 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #17
   %30 = trunc i64 %29 to i32
   %31 = xor i32 %30, -2147483648
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -2987,7 +2987,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 33:                                               ; preds = %6
-  %34 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #16
+  %34 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #17
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr %4, align 8
   %37 = load i8, ptr %36, align 1
@@ -3018,7 +3018,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 47:                                               ; preds = %6
-  %48 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #16
+  %48 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #17
   %49 = trunc i64 %48 to i32
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %.sink.split, label %51
@@ -3029,7 +3029,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 53:                                               ; preds = %6
-  %54 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #16
+  %54 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #17
   %55 = trunc i64 %54 to i32
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %.sink.split, label %57
@@ -3041,13 +3041,13 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 60:                                               ; preds = %6
-  %61 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %61 = tail call ptr @xstrdup(ptr noundef %1) #17
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store ptr %61, ptr %62, align 8
   br label %302
 
 63:                                               ; preds = %6
-  %64 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #16
+  %64 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #17
   %65 = trunc i64 %64 to i32
   %66 = load ptr, ptr %4, align 8
   %67 = load i8, ptr %66, align 1
@@ -3077,7 +3077,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 76:                                               ; preds = %6
-  %77 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #16
+  %77 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #17
   %78 = trunc i64 %77 to i32
   %79 = load ptr, ptr %4, align 8
   %80 = load i8, ptr %79, align 1
@@ -3109,7 +3109,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 90:                                               ; preds = %6
-  %91 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #16
+  %91 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #17
   %92 = trunc i64 %91 to i32
   %93 = load ptr, ptr %4, align 8
   %94 = load i8, ptr %93, align 1
@@ -3139,7 +3139,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 103:                                              ; preds = %6
-  %104 = call i64 @strtoll(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #16
+  %104 = call i64 @strtoll(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #17
   %105 = load ptr, ptr %4, align 8
   %106 = load i8, ptr %105, align 1
   switch i8 %106, label %111 [
@@ -3159,12 +3159,12 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
 
 111:                                              ; preds = %103, %109, %107
   %.0188 = phi i64 [ %108, %107 ], [ %110, %109 ], [ %104, %103 ]
-  %112 = tail call ptr @xstrcasestr(ptr noundef %1, ptr noundef nonnull @.str.199) #16
+  %112 = tail call ptr @xstrcasestr(ptr noundef %1, ptr noundef nonnull @.str.199) #17
   %.not218 = icmp eq ptr %112, null
   br i1 %.not218, label %113, label %.sink.split
 
 113:                                              ; preds = %111
-  %114 = tail call ptr @xstrcasestr(ptr noundef %1, ptr noundef nonnull @.str.200) #16
+  %114 = tail call ptr @xstrcasestr(ptr noundef %1, ptr noundef nonnull @.str.200) #17
   %.not219 = icmp eq ptr %114, null
   %.str.202..str.201 = select i1 %.not219, ptr @.str.202, ptr @.str.201
   %115 = icmp slt i64 %.0188, 1
@@ -3181,7 +3181,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 120:                                              ; preds = %6
-  %121 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #16
+  %121 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %4, i32 noundef 10) #17
   %122 = trunc i64 %121 to i32
   %123 = load ptr, ptr %4, align 8
   %124 = load i8, ptr %123, align 1
@@ -3211,43 +3211,43 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 133:                                              ; preds = %6
-  %134 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %134 = tail call ptr @xstrdup(ptr noundef %1) #17
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %134, ptr %135, align 8
   br label %302
 
 136:                                              ; preds = %6
-  %137 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %137 = tail call ptr @xstrdup(ptr noundef %1) #17
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %137, ptr %138, align 8
   br label %302
 
 139:                                              ; preds = %6
-  %140 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %140 = tail call ptr @xstrdup(ptr noundef %1) #17
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %140, ptr %141, align 8
   br label %302
 
 142:                                              ; preds = %6
-  %143 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %143 = tail call ptr @xstrdup(ptr noundef %1) #17
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %143, ptr %144, align 8
   br label %302
 
 145:                                              ; preds = %6
-  %146 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %146 = tail call ptr @xstrdup(ptr noundef %1) #17
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr %146, ptr %147, align 8
   br label %302
 
 148:                                              ; preds = %6
-  %149 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %149 = tail call ptr @xstrdup(ptr noundef %1) #17
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr %149, ptr %150, align 8
   br label %302
 
 151:                                              ; preds = %6
-  %152 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #16
+  %152 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #17
   %.not217 = icmp eq i32 %152, 0
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 626
   br i1 %.not217, label %154, label %155
@@ -3261,7 +3261,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 156:                                              ; preds = %6
-  %157 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #16
+  %157 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #17
   %.not216 = icmp eq i32 %157, 0
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br i1 %.not216, label %159, label %160
@@ -3275,7 +3275,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 161:                                              ; preds = %6
-  %162 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #16
+  %162 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #17
   %163 = trunc i64 %162 to i32
   %164 = icmp slt i32 %163, 1
   br i1 %164, label %.sink.split, label %165
@@ -3287,7 +3287,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 168:                                              ; preds = %6
-  %169 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #16
+  %169 = tail call i64 @strtol(ptr noundef captures(none) %1, ptr noundef null, i32 noundef 10) #17
   %170 = trunc i64 %169 to i32
   %171 = icmp slt i32 %170, 1
   br i1 %171, label %.sink.split, label %172
@@ -3300,7 +3300,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 176:                                              ; preds = %6
-  %177 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #16
+  %177 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #17
   %.not215 = icmp eq i32 %177, 0
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 520
   br i1 %.not215, label %179, label %180
@@ -3314,7 +3314,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 181:                                              ; preds = %6
-  %182 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #16
+  %182 = tail call i32 @xstrcasecmp(ptr noundef %1, ptr noundef nonnull @.str.38) #17
   %.not214 = icmp eq i32 %182, 0
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 552
   br i1 %.not214, label %184, label %185
@@ -3328,97 +3328,97 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   br label %302
 
 186:                                              ; preds = %6
-  %187 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %187 = tail call ptr @xstrdup(ptr noundef %1) #17
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store ptr %187, ptr %188, align 8
   br label %302
 
 189:                                              ; preds = %6
-  %190 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %190 = tail call ptr @xstrdup(ptr noundef %1) #17
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %190, ptr %191, align 8
   br label %302
 
 192:                                              ; preds = %6
-  %193 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %193 = tail call ptr @xstrdup(ptr noundef %1) #17
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr %193, ptr %194, align 8
   br label %302
 
 195:                                              ; preds = %6
-  %196 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %196 = tail call ptr @xstrdup(ptr noundef %1) #17
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %196, ptr %197, align 8
   br label %302
 
 198:                                              ; preds = %6
-  %199 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %199 = tail call ptr @xstrdup(ptr noundef %1) #17
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %199, ptr %200, align 8
   br label %302
 
 201:                                              ; preds = %6
-  %202 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %202 = tail call ptr @xstrdup(ptr noundef %1) #17
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store ptr %202, ptr %203, align 8
   br label %302
 
 204:                                              ; preds = %6
-  %205 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %205 = tail call ptr @xstrdup(ptr noundef %1) #17
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr %205, ptr %206, align 8
   br label %302
 
 207:                                              ; preds = %6
-  %208 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %208 = tail call ptr @xstrdup(ptr noundef %1) #17
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 696
   store ptr %208, ptr %209, align 8
   br label %302
 
 210:                                              ; preds = %6
-  %211 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %211 = tail call ptr @xstrdup(ptr noundef %1) #17
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %211, ptr %212, align 8
   br label %302
 
 213:                                              ; preds = %6
-  %214 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %214 = tail call ptr @xstrdup(ptr noundef %1) #17
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 712
   store ptr %214, ptr %215, align 8
   br label %302
 
 216:                                              ; preds = %6
-  %217 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %217 = tail call ptr @xstrdup(ptr noundef %1) #17
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr %217, ptr %218, align 8
   br label %302
 
 219:                                              ; preds = %6
-  %220 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %220 = tail call ptr @xstrdup(ptr noundef %1) #17
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %220, ptr %221, align 8
   br label %302
 
 222:                                              ; preds = %6
-  %223 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %223 = tail call ptr @xstrdup(ptr noundef %1) #17
   store ptr %223, ptr %0, align 8
   br label %302
 
 224:                                              ; preds = %6
-  %225 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %225 = tail call ptr @xstrdup(ptr noundef %1) #17
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %225, ptr %226, align 8
   br label %302
 
 227:                                              ; preds = %6
-  %228 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %228 = tail call ptr @xstrdup(ptr noundef %1) #17
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store ptr %228, ptr %229, align 8
   br label %302
 
 230:                                              ; preds = %6
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  tail call void @slurm_xfree(ptr noundef nonnull %231) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %231) #17
   %232 = tail call fastcc ptr @_read_file(ptr noundef %1)
   store ptr %232, ptr %231, align 8
   %233 = icmp eq ptr %232, null
@@ -3438,7 +3438,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %238 ]
   %239 = load ptr, ptr %237, align 8
   %240 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv
-  tail call void @slurm_xfree(ptr noundef %240) #16
+  tail call void @slurm_xfree(ptr noundef %240) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %241 = load i32, ptr %235, align 8
   %242 = zext i32 %241 to i64
@@ -3447,98 +3447,98 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
 
 .loopexit:                                        ; preds = %238, %234
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @slurm_xfree(ptr noundef nonnull %244) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %244) #17
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  tail call void @slurm_xfree(ptr noundef nonnull %245) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %245) #17
   store i32 1, ptr %235, align 8
-  %246 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 1013, ptr noundef nonnull @__func__._set_job_msg) #16
+  %246 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 1013, ptr noundef nonnull @__func__._set_job_msg) #17
   store ptr %246, ptr %244, align 8
   %247 = load i8, ptr %1, align 1
   %248 = icmp eq i8 %247, 47
   br i1 %248, label %249, label %256
 
 249:                                              ; preds = %.loopexit
-  %250 = tail call ptr @xstrdup(ptr noundef nonnull %1) #16
+  %250 = tail call ptr @xstrdup(ptr noundef nonnull %1) #17
   %251 = load ptr, ptr %244, align 8
   store ptr %250, ptr %251, align 8
-  %252 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #19
+  %252 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 47) #20
   %.not213 = icmp eq ptr %252, null
   br i1 %.not213, label %302, label %253
 
 253:                                              ; preds = %249
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 1
-  %255 = tail call ptr @xstrdup(ptr noundef nonnull %254) #16
+  %255 = tail call ptr @xstrdup(ptr noundef nonnull %254) #17
   store ptr %255, ptr %245, align 8
   br label %302
 
 256:                                              ; preds = %.loopexit
-  %257 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 1020, ptr noundef nonnull @__func__._set_job_msg) #16
+  %257 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4096, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 1020, ptr noundef nonnull @__func__._set_job_msg) #17
   %258 = load ptr, ptr %244, align 8
   store ptr %257, ptr %258, align 8
   %259 = load ptr, ptr %244, align 8
   %260 = load ptr, ptr %259, align 8
-  %261 = tail call ptr @getcwd(ptr noundef %260, i64 noundef 4096) #16
+  %261 = tail call ptr @getcwd(ptr noundef %260, i64 noundef 4096) #17
   %.not212 = icmp eq ptr %261, null
   br i1 %.not212, label %.sink.split, label %262
 
 262:                                              ; preds = %256
   %263 = load ptr, ptr %244, align 8
-  tail call void @_xstrcat(ptr noundef %263, ptr noundef nonnull @.str.232) #16
+  tail call void @_xstrcat(ptr noundef %263, ptr noundef nonnull @.str.232) #17
   %264 = load ptr, ptr %244, align 8
-  tail call void @_xstrcat(ptr noundef %264, ptr noundef nonnull %1) #16
-  %265 = tail call ptr @xstrdup(ptr noundef nonnull %1) #16
+  tail call void @_xstrcat(ptr noundef %264, ptr noundef nonnull %1) #17
+  %265 = tail call ptr @xstrdup(ptr noundef nonnull %1) #17
   store ptr %265, ptr %245, align 8
   br label %302
 
 266:                                              ; preds = %6
-  %267 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %267 = tail call ptr @xstrdup(ptr noundef %1) #17
   %268 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %267, ptr %268, align 8
   br label %302
 
 269:                                              ; preds = %6, %6
-  %270 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #16
+  %270 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #17
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %270, ptr %271, align 8
   %.not210 = icmp eq i64 %270, 0
   br i1 %.not210, label %.sink.split, label %272
 
 272:                                              ; preds = %269
-  %273 = tail call i64 @time(ptr noundef null) #16
+  %273 = tail call i64 @time(ptr noundef null) #17
   %274 = icmp slt i64 %270, %273
   br i1 %274, label %275, label %302
 
 275:                                              ; preds = %272
-  %276 = tail call i64 @time(ptr noundef null) #16
+  %276 = tail call i64 @time(ptr noundef null) #17
   store i64 %276, ptr %271, align 8
   br label %302
 
 277:                                              ; preds = %6
-  %278 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #16
+  %278 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #17
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 %278, ptr %279, align 8
   %.not209 = icmp eq i64 %278, 0
   br i1 %.not209, label %.sink.split, label %280
 
 280:                                              ; preds = %277
-  %281 = tail call i64 @time(ptr noundef null) #16
+  %281 = tail call i64 @time(ptr noundef null) #17
   %282 = icmp slt i64 %278, %281
   br i1 %282, label %.sink.split, label %302
 
 283:                                              ; preds = %6
-  %284 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %284 = tail call ptr @xstrdup(ptr noundef %1) #17
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store ptr %284, ptr %285, align 8
   br label %302
 
 286:                                              ; preds = %6
-  %287 = tail call ptr @xstrdup(ptr noundef %1) #16
+  %287 = tail call ptr @xstrdup(ptr noundef %1) #17
   %288 = getelementptr inbounds nuw i8, ptr %0, i64 848
   store ptr %287, ptr %288, align 8
   br label %302
 
 289:                                              ; preds = %6
-  %290 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 10) #16
+  %290 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 10) #17
   %291 = trunc i64 %290 to i32
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store i32 %291, ptr %292, align 8
@@ -3553,7 +3553,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
 
 297:                                              ; preds = %294
   %298 = getelementptr inbounds nuw i8, ptr %293, i64 1
-  %299 = tail call i32 @time_str2mins(ptr noundef nonnull %298) #16
+  %299 = tail call i32 @time_str2mins(ptr noundef nonnull %298) #17
   %300 = mul nsw i32 %299, 60
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 864
   store i32 %300, ptr %301, align 8
@@ -3561,7 +3561,7 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
 
 302:                                              ; preds = %6, %184, %185, %179, %180, %159, %160, %154, %155, %289, %294, %297, %280, %272, %275, %262, %253, %249, %116, %118, %9, %10, %286, %283, %266, %227, %224, %222, %219, %216, %213, %210, %207, %204, %201, %198, %195, %192, %189, %186, %172, %165, %148, %145, %142, %139, %136, %133, %131, %101, %87, %74, %60, %57, %51, %44, %28, %.thread228, %.thread, %12
   %.0190 = phi ptr [ @.str.238, %297 ], [ @.str.238, %294 ], [ @.str.238, %289 ], [ @.str.237, %286 ], [ @.str.236, %283 ], [ @.str.235, %280 ], [ @.str.234, %275 ], [ @.str.234, %272 ], [ @.str.233, %266 ], [ @.str.231, %253 ], [ @.str.231, %249 ], [ @.str.231, %262 ], [ @.str.230, %227 ], [ @.str.229, %224 ], [ @.str.228, %222 ], [ @.str.227, %219 ], [ @.str.226, %216 ], [ @.str.225, %213 ], [ @.str.224, %210 ], [ @.str.223, %207 ], [ @.str.222, %204 ], [ @.str.221, %201 ], [ @.str.220, %198 ], [ @.str.219, %195 ], [ @.str.218, %192 ], [ @.str.217, %189 ], [ @.str.216, %186 ], [ @.str.213, %172 ], [ @.str.212, %165 ], [ @.str.209, %148 ], [ @.str.208, %145 ], [ @.str.207, %142 ], [ @.str.206, %139 ], [ @.str.205, %136 ], [ @.str.204, %133 ], [ @.str.203, %131 ], [ @.str.201, %118 ], [ @.str.202, %116 ], [ @.str.198, %101 ], [ @.str.197, %87 ], [ @.str.196, %74 ], [ @.str.195, %60 ], [ @.str.194, %57 ], [ @.str.193, %51 ], [ @.str.192, %44 ], [ @.str.191, %28 ], [ @.str.190, %.thread228 ], [ @.str.189, %.thread ], [ @.str.187, %12 ], [ @.str.33, %10 ], [ @.str.33, %9 ], [ @.str.210, %155 ], [ @.str.210, %154 ], [ @.str.211, %160 ], [ @.str.211, %159 ], [ @.str.214, %180 ], [ @.str.214, %179 ], [ @.str.215, %185 ], [ @.str.215, %184 ], [ @.str.239, %6 ]
-  %303 = tail call i32 @xstrcmp(ptr noundef nonnull %.0190, ptr noundef nonnull @.str.239) #16
+  %303 = tail call i32 @xstrcmp(ptr noundef nonnull %.0190, ptr noundef nonnull @.str.239) #17
   %.not224 = icmp eq i32 %303, 0
   br i1 %.not224, label %304, label %.sink.split
 
@@ -3573,8 +3573,8 @@ define internal fastcc ptr @_set_job_msg(ptr noundef %0, ptr noundef %1, i32 nou
 
 304:                                              ; preds = %.sink.split, %302, %3
   %.0187 = phi ptr [ null, %3 ], [ %.0190, %302 ], [ %.0187.ph, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret ptr %.0187
 }
 
@@ -3592,26 +3592,26 @@ define dso_local void @admin_job(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %14 = alloca [255 x i8], align 16
   %15 = alloca ptr, align 8
   store ptr %2, ptr %11, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #17
   store i32 -2, ptr %12, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #17
   store i32 -2, ptr %13, align 4
-  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #16
-  %16 = tail call i32 @xstrcmp(ptr noundef %2, ptr noundef nonnull @.str.62) #16
+  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
+  %16 = tail call i32 @xstrcmp(ptr noundef %2, ptr noundef nonnull @.str.62) #17
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %127
 
 18:                                               ; preds = %4
   store i32 0, ptr @global_error_code, align 4
-  %19 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #16
+  %19 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #17
   store ptr %19, ptr @foreach_list, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %22, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @gtk_tree_view_get_selection(ptr noundef nonnull %3) #16
-  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %21, ptr noundef nonnull @selected_foreach_build_list, ptr noundef null) #16
+  %21 = tail call ptr @gtk_tree_view_get_selection(ptr noundef nonnull %3) #17
+  tail call void @gtk_tree_selection_selected_foreach(ptr noundef %21, ptr noundef nonnull @selected_foreach_build_list, ptr noundef null) #17
   br label %23
 
 22:                                               ; preds = %18
@@ -3619,10 +3619,10 @@ define dso_local void @admin_job(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %23
 
 23:                                               ; preds = %22, %20
-  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %10) #17
   %24 = load ptr, ptr @foreach_list, align 8
-  %25 = tail call ptr @list_iterator_create(ptr noundef %24) #16
-  %26 = tail call ptr @list_next(ptr noundef %25) #16
+  %25 = tail call ptr @list_iterator_create(ptr noundef %24) #17
+  %26 = tail call ptr @list_next(ptr noundef %25) #17
   %.not412.i.i = icmp eq ptr %26, null
   br i1 %.not412.i.i, label %_edit_each_job.exit.i, label %.lr.ph.i.i
 
@@ -3637,50 +3637,50 @@ define dso_local void @admin_job(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 32:                                               ; preds = %.lr.ph.i.i
   %33 = load ptr, ptr @main_window, align 8
-  %34 = tail call i64 @gtk_window_get_type() #17
-  %35 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %34) #16
-  %36 = call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef nonnull @.str.62, ptr noundef %35, i32 noundef 3, ptr noundef null) #16
-  %37 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #16
-  call void @gtk_window_set_type_hint(ptr noundef %37, i32 noundef 0) #16
-  %38 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #16
-  call void @gtk_window_set_transient_for(ptr noundef %38, ptr noundef null) #16
-  %39 = tail call i64 @gtk_dialog_get_type() #17
-  %40 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #16
-  %41 = call ptr @gtk_dialog_add_button(ptr noundef %40, ptr noundef nonnull @.str.64, i32 noundef -5) #16
-  %42 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #16
-  call void @gtk_window_set_default(ptr noundef %42, ptr noundef %41) #16
-  %43 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #16
-  %44 = call ptr @gtk_dialog_add_button(ptr noundef %43, ptr noundef nonnull @.str.65, i32 noundef -6) #16
-  %45 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #16
-  %46 = call ptr @gtk_dialog_add_button(ptr noundef %45, ptr noundef nonnull @.str.248, i32 noundef -4) #16
-  %47 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #16
-  call void @gtk_window_set_default_size(ptr noundef %47, i32 noundef 200, i32 noundef 400) #16
+  %34 = tail call i64 @gtk_window_get_type() #18
+  %35 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %34) #17
+  %36 = call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef nonnull @.str.62, ptr noundef %35, i32 noundef 3, ptr noundef null) #17
+  %37 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #17
+  call void @gtk_window_set_type_hint(ptr noundef %37, i32 noundef 0) #17
+  %38 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #17
+  call void @gtk_window_set_transient_for(ptr noundef %38, ptr noundef null) #17
+  %39 = tail call i64 @gtk_dialog_get_type() #18
+  %40 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #17
+  %41 = call ptr @gtk_dialog_add_button(ptr noundef %40, ptr noundef nonnull @.str.64, i32 noundef -5) #17
+  %42 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #17
+  call void @gtk_window_set_default(ptr noundef %42, ptr noundef %41) #17
+  %43 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #17
+  %44 = call ptr @gtk_dialog_add_button(ptr noundef %43, ptr noundef nonnull @.str.65, i32 noundef -6) #17
+  %45 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #17
+  %46 = call ptr @gtk_dialog_add_button(ptr noundef %45, ptr noundef nonnull @.str.248, i32 noundef -4) #17
+  %47 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %34) #17
+  call void @gtk_window_set_default_size(ptr noundef %47, i32 noundef 200, i32 noundef 400) #17
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %49 = load i32, ptr %48, align 8
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 255, ptr noundef nonnull @.str.249, i32 noundef %49) #16
-  %51 = call ptr @gtk_label_new(ptr noundef nonnull %10) #16
-  %52 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4582, ptr noundef nonnull @__func__._edit_each_job) #16
-  call void @slurm_init_job_desc_msg(ptr noundef %52) #16
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 255, ptr noundef nonnull @.str.249, i32 noundef %49) #17
+  %51 = call ptr @gtk_label_new(ptr noundef nonnull %10) #17
+  %52 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4582, ptr noundef nonnull @__func__._edit_each_job) #17
+  call void @slurm_init_job_desc_msg(ptr noundef %52) #17
   %53 = load i32, ptr %48, align 8
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 340
   store i32 %53, ptr %54, align 4
-  %55 = call ptr @create_scrolled_window() #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
+  %55 = call ptr @create_scrolled_window() #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
   store i32 0, ptr %9, align 4
-  call void @gtk_scrolled_window_set_policy(ptr noundef %55, i32 noundef 2, i32 noundef 1) #16
-  %56 = tail call i64 @gtk_bin_get_type() #17
-  %57 = call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %56) #16
+  call void @gtk_scrolled_window_set_policy(ptr noundef %55, i32 noundef 2, i32 noundef 1) #17
+  %56 = tail call i64 @gtk_bin_get_type() #18
+  %57 = call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %56) #17
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 112
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call i64 @gtk_viewport_get_type() #17
-  %61 = call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef %60) #16
-  %62 = call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %56) #16
+  %60 = tail call i64 @gtk_viewport_get_type() #18
+  %61 = call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef %60) #17
+  %62 = call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %56) #17
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 112
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call i64 @gtk_table_get_type() #17
-  %66 = call ptr @g_type_check_instance_cast(ptr noundef %64, i64 noundef %65) #16
-  call void @gtk_table_resize(ptr noundef %66, i32 noundef 95, i32 noundef 2) #16
-  call void @gtk_table_set_homogeneous(ptr noundef %66, i32 noundef 0) #16
+  %65 = tail call i64 @gtk_table_get_type() #18
+  %66 = call ptr @g_type_check_instance_cast(ptr noundef %64, i64 noundef %65) #17
+  call void @gtk_table_resize(ptr noundef %66, i32 noundef 95, i32 noundef 2) #17
+  call void @gtk_table_set_homogeneous(ptr noundef %66, i32 noundef 0) #17
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.loopexit.i.i.i, %32
@@ -3704,7 +3704,7 @@ define dso_local void @admin_job(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %or.cond.i.i.i, label %75, label %67, !llvm.loop !26
 
 75:                                               ; preds = %71
-  call void @display_admin_edit(ptr noundef %66, ptr noundef %52, ptr noundef nonnull %9, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %72, ptr noundef nonnull @_admin_edit_combo_box_job, ptr noundef nonnull @_admin_focus_out_job, ptr noundef nonnull @_set_active_combo_job) #16
+  call void @display_admin_edit(ptr noundef %66, ptr noundef %52, ptr noundef nonnull %9, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %72, ptr noundef nonnull @_admin_edit_combo_box_job, ptr noundef nonnull @_admin_focus_out_job, ptr noundef nonnull @_set_active_combo_job) #17
   br label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %67, %75
@@ -3714,32 +3714,32 @@ define dso_local void @admin_job(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 _admin_full_edit_job.exit.i.i:                    ; preds = %.loopexit.i.i.i
   %77 = load i32, ptr %9, align 4
-  call void @gtk_table_resize(ptr noundef %66, i32 noundef %77, i32 noundef 2) #16
-  %78 = tail call i64 @gtk_widget_get_type() #17
-  %79 = call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %78) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
-  %80 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #16
+  call void @gtk_table_resize(ptr noundef %66, i32 noundef %77, i32 noundef 2) #17
+  %78 = tail call i64 @gtk_widget_get_type() #18
+  %79 = call ptr @g_type_check_instance_cast(ptr noundef %55, i64 noundef %78) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
+  %80 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #17
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 240
   %82 = load ptr, ptr %81, align 8
-  %83 = tail call i64 @gtk_box_get_type() #17
-  %84 = call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef %83) #16
-  call void @gtk_box_pack_start(ptr noundef %84, ptr noundef %51, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  %83 = tail call i64 @gtk_box_get_type() #18
+  %84 = call ptr @g_type_check_instance_cast(ptr noundef %82, i64 noundef %83) #17
+  call void @gtk_box_pack_start(ptr noundef %84, ptr noundef %51, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %.not42.i.i = icmp eq ptr %79, null
   br i1 %.not42.i.i, label %90, label %85
 
 85:                                               ; preds = %_admin_full_edit_job.exit.i.i
-  %86 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #16
+  %86 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #17
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 240
   %88 = load ptr, ptr %87, align 8
-  %89 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef %83) #16
-  call void @gtk_box_pack_start(ptr noundef %89, ptr noundef nonnull %79, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
+  %89 = call ptr @g_type_check_instance_cast(ptr noundef %88, i64 noundef %83) #17
+  call void @gtk_box_pack_start(ptr noundef %89, ptr noundef nonnull %79, i32 noundef 1, i32 noundef 1, i32 noundef 0) #17
   br label %90
 
 90:                                               ; preds = %85, %_admin_full_edit_job.exit.i.i
-  call void @gtk_widget_show_all(ptr noundef %36) #16
-  %91 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #16
-  %92 = call i32 @gtk_dialog_run(ptr noundef %91) #16
-  call void @gtk_widget_destroy(ptr noundef %36) #16
+  call void @gtk_widget_show_all(ptr noundef %36) #17
+  %91 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef %39) #17
+  %92 = call i32 @gtk_dialog_run(ptr noundef %91) #17
+  call void @gtk_widget_destroy(ptr noundef %36) #17
   %93 = load ptr, ptr @got_edit_signal, align 8
   %94 = icmp ne ptr %93, null
   %95 = icmp eq i32 %92, -4
@@ -3747,7 +3747,7 @@ _admin_full_edit_job.exit.i.i:                    ; preds = %.loopexit.i.i.i
   br i1 %or.cond3.i.i, label %96, label %97
 
 96:                                               ; preds = %90
-  call void @slurm_free_job_desc_msg(ptr noundef %52) #16
+  call void @slurm_free_job_desc_msg(ptr noundef %52) #17
   br label %_edit_each_job.exit.i
 
 97:                                               ; preds = %90
@@ -3767,52 +3767,52 @@ _admin_full_edit_job.exit.i.i:                    ; preds = %.loopexit.i.i.i
   br i1 %or.cond5.not.i.i, label %108, label %106
 
 106:                                              ; preds = %102
-  %107 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.250) #16
+  %107 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.250) #17
   br label %123
 
 108:                                              ; preds = %102
-  %109 = call i32 @slurm_update_job(ptr noundef %52) #16
+  %109 = call i32 @slurm_update_job(ptr noundef %52) #17
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %111, label %114
 
 111:                                              ; preds = %108
   %112 = load i32, ptr %48, align 8
-  %113 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.251, i32 noundef %112) #16
+  %113 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.251, i32 noundef %112) #17
   br label %123
 
 114:                                              ; preds = %108
-  %115 = tail call ptr @__errno_location() #17
+  %115 = tail call ptr @__errno_location() #18
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, 2037
   %118 = load i32, ptr %48, align 8
   br i1 %117, label %119, label %121
 
 119:                                              ; preds = %114
-  %120 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.252, i32 noundef %118) #16
+  %120 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.252, i32 noundef %118) #17
   br label %123
 
 121:                                              ; preds = %114
-  %122 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.253, i32 noundef %118) #16
+  %122 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.253, i32 noundef %118) #17
   br label %123
 
 123:                                              ; preds = %121, %119, %111, %106, %100
   %.0.i.i = phi ptr [ %101, %100 ], [ %107, %106 ], [ %113, %111 ], [ %120, %119 ], [ %122, %121 ]
-  call void @display_edit_note(ptr noundef %.0.i.i) #16
-  call void @g_free(ptr noundef %.0.i.i) #16
-  call void @slurm_free_job_desc_msg(ptr noundef %52) #16
-  %124 = call ptr @list_next(ptr noundef %25) #16
+  call void @display_edit_note(ptr noundef %.0.i.i) #17
+  call void @g_free(ptr noundef %.0.i.i) #17
+  call void @slurm_free_job_desc_msg(ptr noundef %52) #17
+  %124 = call ptr @list_next(ptr noundef %25) #17
   %.not41.i.i = icmp eq ptr %124, null
   br i1 %.not41.i.i, label %_edit_each_job.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
 _edit_each_job.exit.i:                            ; preds = %123, %.lr.ph.i.i, %96, %23
-  call void @slurm_xfree(ptr noundef nonnull @stacked_job_list) #16
-  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %10) #16
+  call void @slurm_xfree(ptr noundef nonnull @stacked_job_list) #17
+  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %10) #17
   %125 = load ptr, ptr @foreach_list, align 8
   %.not8.i = icmp eq ptr %125, null
   br i1 %.not8.i, label %_edit_jobs.exit, label %126
 
 126:                                              ; preds = %_edit_each_job.exit.i
-  call void @list_destroy(ptr noundef nonnull %125) #16
+  call void @list_destroy(ptr noundef nonnull %125) #17
   br label %_edit_jobs.exit
 
 _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit.i, %126
@@ -3821,29 +3821,29 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
 
 127:                                              ; preds = %4
   %128 = load ptr, ptr @main_window, align 8
-  %129 = tail call i64 @gtk_window_get_type() #17
-  %130 = tail call ptr @g_type_check_instance_cast(ptr noundef %128, i64 noundef %129) #16
-  %131 = tail call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef %2, ptr noundef %130, i32 noundef 3, ptr noundef null) #16
-  %132 = tail call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #16
-  tail call void @gtk_window_set_type_hint(ptr noundef %132, i32 noundef 0) #16
-  %133 = tail call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #16
-  tail call void @gtk_window_set_transient_for(ptr noundef %133, ptr noundef null) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 36, ptr noundef nonnull %15, i32 noundef -1) #16
+  %129 = tail call i64 @gtk_window_get_type() #18
+  %130 = tail call ptr @g_type_check_instance_cast(ptr noundef %128, i64 noundef %129) #17
+  %131 = tail call ptr (ptr, ptr, i32, ptr, ...) @gtk_dialog_new_with_buttons(ptr noundef %2, ptr noundef %130, i32 noundef 3, ptr noundef null) #17
+  %132 = tail call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #17
+  tail call void @gtk_window_set_type_hint(ptr noundef %132, i32 noundef 0) #17
+  %133 = tail call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #17
+  tail call void @gtk_window_set_transient_for(ptr noundef %133, ptr noundef null) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 36, ptr noundef nonnull %15, i32 noundef -1) #17
   %134 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %134, null
   br i1 %.not, label %351, label %135
 
 135:                                              ; preds = %127
-  %136 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %134, i32 noundef 40) #19
+  %136 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %134, i32 noundef 40) #20
   %.not58 = icmp eq ptr %136, null
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 1
   %.0 = select i1 %.not58, ptr %134, ptr %137
-  %138 = call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #16
+  %138 = call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #17
   %139 = trunc i64 %138 to i32
   store i32 %139, ptr %12, align 4
   %140 = load ptr, ptr %15, align 8
-  call void @g_free(ptr noundef %140) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %13, i32 noundef -1) #16
+  call void @g_free(ptr noundef %140) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %13, i32 noundef -1) #17
   %141 = load i32, ptr %13, align 4
   %.not59 = icmp eq i32 %141, 0
   br i1 %.not59, label %143, label %142
@@ -3855,56 +3855,56 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
 143:                                              ; preds = %135
   %144 = load i32, ptr %12, align 4
   store i32 %144, ptr %13, align 4
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %12, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %12, i32 noundef -1) #17
   br label %145
 
 145:                                              ; preds = %143, %142
-  %146 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4704, ptr noundef nonnull @__func__.admin_job) #16
-  call void @slurm_init_job_desc_msg(ptr noundef %146) #16
-  %147 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.63, ptr noundef %2) #16
+  %146 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 912, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4704, ptr noundef nonnull @__func__.admin_job) #17
+  call void @slurm_init_job_desc_msg(ptr noundef %146) #17
+  %147 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.63, ptr noundef %2) #17
   %.not60 = icmp eq i32 %147, 0
   br i1 %.not60, label %148, label %156
 
 148:                                              ; preds = %145
-  %149 = tail call i64 @gtk_dialog_get_type() #17
-  %150 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %149) #16
-  %151 = call ptr @gtk_dialog_add_button(ptr noundef %150, ptr noundef nonnull @.str.64, i32 noundef -5) #16
-  %152 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #16
-  call void @gtk_window_set_default(ptr noundef %152, ptr noundef %151) #16
-  %153 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %149) #16
-  %154 = call ptr @gtk_dialog_add_button(ptr noundef %153, ptr noundef nonnull @.str.65, i32 noundef -6) #16
-  %155 = call ptr @create_entry() #16
+  %149 = tail call i64 @gtk_dialog_get_type() #18
+  %150 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %149) #17
+  %151 = call ptr @gtk_dialog_add_button(ptr noundef %150, ptr noundef nonnull @.str.64, i32 noundef -5) #17
+  %152 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #17
+  call void @gtk_window_set_default(ptr noundef %152, ptr noundef %151) #17
+  %153 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %149) #17
+  %154 = call ptr @gtk_dialog_add_button(ptr noundef %153, ptr noundef nonnull @.str.65, i32 noundef -6) #17
+  %155 = call ptr @create_entry() #17
   br label %._crit_edge.sink.split
 
 156:                                              ; preds = %145
-  %157 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.37, ptr noundef %2) #16
+  %157 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.37, ptr noundef %2) #17
   %.not61 = icmp eq i32 %157, 0
   br i1 %.not61, label %158, label %165
 
 158:                                              ; preds = %156
-  %159 = tail call i64 @gtk_dialog_get_type() #17
-  %160 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %159) #16
-  %161 = call ptr @gtk_dialog_add_button(ptr noundef %160, ptr noundef nonnull @.str.67, i32 noundef -5) #16
-  %162 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #16
-  call void @gtk_window_set_default(ptr noundef %162, ptr noundef %161) #16
-  %163 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %159) #16
-  %164 = call ptr @gtk_dialog_add_button(ptr noundef %163, ptr noundef nonnull @.str.65, i32 noundef -6) #16
+  %159 = tail call i64 @gtk_dialog_get_type() #18
+  %160 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %159) #17
+  %161 = call ptr @gtk_dialog_add_button(ptr noundef %160, ptr noundef nonnull @.str.67, i32 noundef -5) #17
+  %162 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #17
+  call void @gtk_window_set_default(ptr noundef %162, ptr noundef %161) #17
+  %163 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %159) #17
+  %164 = call ptr @gtk_dialog_add_button(ptr noundef %163, ptr noundef nonnull @.str.65, i32 noundef -6) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(47) %14, ptr noundef nonnull align 1 dereferenceable(47) @.str.68, i64 47, i1 false)
   br label %._crit_edge.sink.split
 
 165:                                              ; preds = %156
-  %166 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.35, ptr noundef %2) #16
+  %166 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.35, ptr noundef %2) #17
   %.not62 = icmp eq i32 %166, 0
   br i1 %.not62, label %167, label %177
 
 167:                                              ; preds = %165
-  %168 = tail call i64 @gtk_dialog_get_type() #17
-  %169 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %168) #16
-  %170 = call ptr @gtk_dialog_add_button(ptr noundef %169, ptr noundef nonnull @.str.67, i32 noundef -5) #16
-  %171 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #16
-  call void @gtk_window_set_default(ptr noundef %171, ptr noundef %170) #16
-  %172 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %168) #16
-  %173 = call ptr @gtk_dialog_add_button(ptr noundef %172, ptr noundef nonnull @.str.69, i32 noundef -6) #16
+  %168 = tail call i64 @gtk_dialog_get_type() #18
+  %169 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %168) #17
+  %170 = call ptr @gtk_dialog_add_button(ptr noundef %169, ptr noundef nonnull @.str.67, i32 noundef -5) #17
+  %171 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #17
+  call void @gtk_window_set_default(ptr noundef %171, ptr noundef %170) #17
+  %172 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %168) #17
+  %173 = call ptr @gtk_dialog_add_button(ptr noundef %172, ptr noundef nonnull @.str.69, i32 noundef -6) #17
   %174 = load i32, ptr %13, align 4
   %.not63 = icmp eq i32 %174, -5
   br i1 %.not63, label %176, label %175
@@ -3918,18 +3918,18 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
   br label %._crit_edge.sink.split
 
 177:                                              ; preds = %165
-  %178 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.36, ptr noundef %2) #16
+  %178 = call i32 @xstrcasecmp(ptr noundef nonnull @.str.36, ptr noundef %2) #17
   %.not64 = icmp eq i32 %178, 0
-  %179 = tail call i64 @gtk_dialog_get_type() #17
+  %179 = tail call i64 @gtk_dialog_get_type() #18
   br i1 %.not64, label %180, label %._crit_edge
 
 180:                                              ; preds = %177
-  %181 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %179) #16
-  %182 = call ptr @gtk_dialog_add_button(ptr noundef %181, ptr noundef nonnull @.str.67, i32 noundef -5) #16
-  %183 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #16
-  call void @gtk_window_set_default(ptr noundef %183, ptr noundef %182) #16
-  %184 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %179) #16
-  %185 = call ptr @gtk_dialog_add_button(ptr noundef %184, ptr noundef nonnull @.str.65, i32 noundef -6) #16
+  %181 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %179) #17
+  %182 = call ptr @gtk_dialog_add_button(ptr noundef %181, ptr noundef nonnull @.str.67, i32 noundef -5) #17
+  %183 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %129) #17
+  call void @gtk_window_set_default(ptr noundef %183, ptr noundef %182) #17
+  %184 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %179) #17
+  %185 = call ptr @gtk_dialog_add_button(ptr noundef %184, ptr noundef nonnull @.str.65, i32 noundef -6) #17
   %186 = load i32, ptr %13, align 4
   %.not65 = icmp eq i32 %186, -5
   br i1 %.not65, label %188, label %187
@@ -3947,7 +3947,7 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
   %.pre-phi.ph = phi i64 [ %159, %158 ], [ %149, %148 ], [ %168, %176 ], [ %168, %175 ], [ %179, %188 ], [ %179, %187 ]
   %.052.ph = phi i32 [ 5, %158 ], [ 1, %148 ], [ 3, %176 ], [ 3, %175 ], [ 6, %188 ], [ 6, %187 ]
   %.050.ph = phi ptr [ null, %158 ], [ %155, %148 ], [ null, %176 ], [ null, %175 ], [ null, %188 ], [ null, %187 ]
-  %189 = call ptr @gtk_label_new(ptr noundef nonnull %.sink) #16
+  %189 = call ptr @gtk_label_new(ptr noundef nonnull %.sink) #17
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %177
@@ -3955,40 +3955,40 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
   %.052 = phi i32 [ 0, %177 ], [ %.052.ph, %._crit_edge.sink.split ]
   %.051 = phi ptr [ null, %177 ], [ %189, %._crit_edge.sink.split ]
   %.050 = phi ptr [ null, %177 ], [ %.050.ph, %._crit_edge.sink.split ]
-  %190 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %.pre-phi) #16
+  %190 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %.pre-phi) #17
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 240
   %192 = load ptr, ptr %191, align 8
-  %193 = tail call i64 @gtk_box_get_type() #17
-  %194 = call ptr @g_type_check_instance_cast(ptr noundef %192, i64 noundef %193) #16
-  call void @gtk_box_pack_start(ptr noundef %194, ptr noundef %.051, i32 noundef 0, i32 noundef 0, i32 noundef 0) #16
+  %193 = tail call i64 @gtk_box_get_type() #18
+  %194 = call ptr @g_type_check_instance_cast(ptr noundef %192, i64 noundef %193) #17
+  call void @gtk_box_pack_start(ptr noundef %194, ptr noundef %.051, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %.not66 = icmp eq ptr %.050, null
   br i1 %.not66, label %200, label %195
 
 195:                                              ; preds = %._crit_edge
-  %196 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %.pre-phi) #16
+  %196 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %.pre-phi) #17
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 240
   %198 = load ptr, ptr %197, align 8
-  %199 = call ptr @g_type_check_instance_cast(ptr noundef %198, i64 noundef %193) #16
-  call void @gtk_box_pack_start(ptr noundef %199, ptr noundef nonnull %.050, i32 noundef 1, i32 noundef 1, i32 noundef 0) #16
+  %199 = call ptr @g_type_check_instance_cast(ptr noundef %198, i64 noundef %193) #17
+  call void @gtk_box_pack_start(ptr noundef %199, ptr noundef nonnull %.050, i32 noundef 1, i32 noundef 1, i32 noundef 0) #17
   br label %200
 
 200:                                              ; preds = %195, %._crit_edge
-  call void @gtk_widget_show_all(ptr noundef %131) #16
-  %201 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %.pre-phi) #16
-  %202 = call i32 @gtk_dialog_run(ptr noundef %201) #16
+  call void @gtk_widget_show_all(ptr noundef %131) #17
+  %201 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %.pre-phi) #17
+  %202 = call i32 @gtk_dialog_run(ptr noundef %201) #17
   %203 = icmp eq i32 %202, -5
   br i1 %203, label %204, label %348
 
 204:                                              ; preds = %200
   store i32 0, ptr @global_error_code, align 4
-  %205 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #16
+  %205 = call ptr @list_create(ptr noundef nonnull @xfree_ptr) #17
   store ptr %205, ptr @foreach_list, align 8
   %.not67 = icmp eq ptr %3, null
   br i1 %.not67, label %208, label %206
 
 206:                                              ; preds = %204
-  %207 = call ptr @gtk_tree_view_get_selection(ptr noundef nonnull %3) #16
-  call void @gtk_tree_selection_selected_foreach(ptr noundef %207, ptr noundef nonnull @selected_foreach_build_list, ptr noundef null) #16
+  %207 = call ptr @gtk_tree_view_get_selection(ptr noundef nonnull %3) #17
+  call void @gtk_tree_selection_selected_foreach(ptr noundef %207, ptr noundef nonnull @selected_foreach_build_list, ptr noundef null) #17
   br label %209
 
 208:                                              ; preds = %204
@@ -3999,13 +3999,13 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
   br i1 %.not60, label %210, label %.thread.i
 
 210:                                              ; preds = %209
-  %211 = tail call i64 @gtk_entry_get_type() #17
-  %212 = call ptr @g_type_check_instance_cast(ptr noundef %.050, i64 noundef %211) #16
-  %213 = call ptr @gtk_entry_get_text(ptr noundef %212) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  %211 = tail call i64 @gtk_entry_get_type() #18
+  %212 = call ptr @g_type_check_instance_cast(ptr noundef %.050, i64 noundef %211) #17
+  %213 = call ptr @gtk_entry_get_text(ptr noundef %212) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   store ptr null, ptr %8, align 8
-  %214 = call i64 @strtol(ptr noundef %213, ptr noundef nonnull %7, i32 noundef 10) #16
+  %214 = call i64 @strtol(ptr noundef %213, ptr noundef nonnull %7, i32 noundef 10) #17
   %215 = load ptr, ptr %7, align 8
   %216 = load i8, ptr %215, align 1
   %217 = icmp eq i8 %216, 0
@@ -4022,12 +4022,12 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %236 ], [ 0, %210 ]
   %222 = getelementptr inbounds nuw [30 x %struct.signv], ptr @sig_name_num, i64 0, i64 %indvars.iv.i.i
   %223 = load ptr, ptr %222, align 16
-  %224 = call i32 @xstrcasecmp(ptr noundef %223, ptr noundef %213) #16
+  %224 = call i32 @xstrcasecmp(ptr noundef %223, ptr noundef %213) #17
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %226, label %229
 
 226:                                              ; preds = %.preheader.i.i
-  call void @slurm_xfree(ptr noundef nonnull %8) #16
+  call void @slurm_xfree(ptr noundef nonnull %8) #17
   %227 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %228 = load i16, ptr %227, align 8
   br label %_xlate_signal_name.exit.i
@@ -4038,14 +4038,14 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
 
 231:                                              ; preds = %229
   %232 = load ptr, ptr %222, align 16
-  %233 = call ptr @xstrdup(ptr noundef %232) #16
+  %233 = call ptr @xstrdup(ptr noundef %232) #17
   store ptr %233, ptr %8, align 8
   br label %236
 
 234:                                              ; preds = %229
-  call void @_xstrcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.269) #16
+  call void @_xstrcat(ptr noundef nonnull %8, ptr noundef nonnull @.str.269) #17
   %235 = load ptr, ptr %222, align 16
-  call void @_xstrcat(ptr noundef nonnull %8, ptr noundef %235) #16
+  call void @_xstrcat(ptr noundef nonnull %8, ptr noundef %235) #17
   br label %236
 
 236:                                              ; preds = %234, %231
@@ -4054,27 +4054,27 @@ _edit_jobs.exit:                                  ; preds = %_edit_each_job.exit
   br i1 %exitcond.not.i.i, label %_xlate_signal_name.exit.thread.i, label %.preheader.i.i, !llvm.loop !29
 
 _xlate_signal_name.exit.thread.i:                 ; preds = %236
-  call void @slurm_xfree(ptr noundef nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @slurm_xfree(ptr noundef nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   br label %238
 
 _xlate_signal_name.exit.i:                        ; preds = %226, %220
   %.013.i.i = phi i16 [ %221, %220 ], [ %228, %226 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
   %237 = icmp eq i16 %.013.i.i, -2
   br i1 %237, label %238, label %.thread.i
 
 238:                                              ; preds = %_xlate_signal_name.exit.i, %_xlate_signal_name.exit.thread.i
-  %239 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.262, ptr noundef %213) #16
+  %239 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.262, ptr noundef %213) #17
   br label %.sink.split.i
 
 .thread.i:                                        ; preds = %_xlate_signal_name.exit.i, %209
   %.045.i = phi i16 [ 9, %209 ], [ %.013.i.i, %_xlate_signal_name.exit.i ]
   %240 = load ptr, ptr @foreach_list, align 8
-  %241 = call ptr @list_iterator_create(ptr noundef %240) #16
-  %242 = call ptr @list_next(ptr noundef %241) #16
+  %241 = call ptr @list_iterator_create(ptr noundef %240) #17
+  %242 = call ptr @list_next(ptr noundef %241) #17
   %243 = icmp eq ptr %242, null
   %244 = load i32, ptr @global_error_code, align 4
   %245 = icmp ne i32 %244, 0
@@ -4109,24 +4109,24 @@ _xlate_signal_name.exit.i:                        ; preds = %226, %220
   br i1 %257, label %.preheader.i, label %258
 
 258:                                              ; preds = %.lr.ph.split.us.i
-  call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #17
   store i64 0, ptr %6, align 8
   store i32 %254, ptr %246, align 8
   store i32 -2, ptr %247, align 4
   store i32 %256, ptr %248, align 8
   store i32 0, ptr %249, align 4
-  %259 = call ptr @log_build_step_id_str(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 45, i16 noundef zeroext 0) #16
+  %259 = call ptr @log_build_step_id_str(ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 45, i16 noundef zeroext 0) #17
   br label %260
 
 260:                                              ; preds = %266, %258
   %.033.i.us.i = phi i32 [ 0, %258 ], [ %270, %266 ]
-  %261 = call i32 @slurm_kill_job_step(i32 noundef %254, i32 noundef range(i32 -1, -2) %256, i16 noundef zeroext %spec.store.select.i52.i, i16 noundef zeroext 0) #16
+  %261 = call i32 @slurm_kill_job_step(i32 noundef %254, i32 noundef range(i32 -1, -2) %256, i16 noundef zeroext %spec.store.select.i52.i, i16 noundef zeroext 0) #17
   %262 = icmp eq i32 %261, 0
   br i1 %262, label %_cancel_step_id.exit.us.i, label %263
 
 263:                                              ; preds = %260
-  %264 = tail call ptr @__errno_location() #17
+  %264 = tail call ptr @__errno_location() #18
   %265 = load i32, ptr %264, align 4
   switch i32 %265, label %.thread28.i.us.i [
     i32 2020, label %266
@@ -4134,11 +4134,11 @@ _xlate_signal_name.exit.i:                        ; preds = %226, %220
   ]
 
 266:                                              ; preds = %263, %263
-  %267 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.272, i32 noundef %251, ptr noundef nonnull %5) #16
-  call void @display_edit_note(ptr noundef %267) #16
-  call void @g_free(ptr noundef %267) #16
+  %267 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.272, i32 noundef %251, ptr noundef nonnull %5) #17
+  call void @display_edit_note(ptr noundef %267) #17
+  call void @g_free(ptr noundef %267) #17
   %268 = add nuw nsw i32 %.033.i.us.i, 5
-  %269 = call i32 @sleep(i32 noundef %268) #16
+  %269 = call i32 @sleep(i32 noundef %268) #17
   %270 = add nuw nsw i32 %.033.i.us.i, 1
   %exitcond.not.i53.us.i = icmp eq i32 %270, 10
   br i1 %exitcond.not.i53.us.i, label %..thread28_crit_edge.i.us.i, label %260, !llvm.loop !30
@@ -4153,31 +4153,31 @@ _xlate_signal_name.exit.i:                        ; preds = %226, %220
   br i1 %.not25.i.us.i, label %275, label %272
 
 272:                                              ; preds = %.thread28.i.us.i
-  %273 = call ptr @slurm_strerror(i32 noundef %271) #16
-  %274 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.273, ptr noundef nonnull %5, ptr noundef %273) #16
-  call void @display_edit_note(ptr noundef %274) #16
-  call void @g_free(ptr noundef %274) #16
+  %273 = call ptr @slurm_strerror(i32 noundef %271) #17
+  %274 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.273, ptr noundef nonnull %5, ptr noundef %273) #17
+  call void @display_edit_note(ptr noundef %274) #17
+  call void @g_free(ptr noundef %274) #17
   br label %_cancel_step_id.exit.us.i
 
 275:                                              ; preds = %.thread28.i.us.i
-  %276 = call ptr @slurm_strerror(i32 noundef 2021) #16
-  call void @display_edit_note(ptr noundef %276) #16
+  %276 = call ptr @slurm_strerror(i32 noundef 2021) #17
+  call void @display_edit_note(ptr noundef %276) #17
   br label %_cancel_step_id.exit.us.i
 
 _cancel_step_id.exit.us.i:                        ; preds = %260, %275, %272
   %.2.i55.us.i = phi i32 [ %271, %272 ], [ 2021, %275 ], [ 0, %260 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %5) #17
   br label %_cancel_job_id.exit.us.i
 
 .preheader.i:                                     ; preds = %.lr.ph.split.us.i, %282
   %.032.i.us.i = phi i32 [ %286, %282 ], [ 0, %.lr.ph.split.us.i ]
-  %277 = call i32 @slurm_kill_job(i32 noundef %254, i16 noundef zeroext %spec.store.select.i52.i, i16 noundef zeroext 0) #16
+  %277 = call i32 @slurm_kill_job(i32 noundef %254, i16 noundef zeroext %spec.store.select.i52.i, i16 noundef zeroext 0) #17
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %_cancel_job_id.exit.us.i, label %279
 
 279:                                              ; preds = %.preheader.i
-  %280 = tail call ptr @__errno_location() #17
+  %280 = tail call ptr @__errno_location() #18
   %281 = load i32, ptr %280, align 4
   switch i32 %281, label %.thread27.i.us.i [
     i32 2020, label %282
@@ -4185,11 +4185,11 @@ _cancel_step_id.exit.us.i:                        ; preds = %260, %275, %272
   ]
 
 282:                                              ; preds = %279, %279
-  %283 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.270, i32 noundef %251, i32 noundef %254) #16
-  call void @display_edit_note(ptr noundef %283) #16
-  call void @g_free(ptr noundef %283) #16
+  %283 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.270, i32 noundef %251, i32 noundef %254) #17
+  call void @display_edit_note(ptr noundef %283) #17
+  call void @g_free(ptr noundef %283) #17
   %284 = add nuw nsw i32 %.032.i.us.i, 5
-  %285 = call i32 @sleep(i32 noundef %284) #16
+  %285 = call i32 @sleep(i32 noundef %284) #17
   %286 = add nuw nsw i32 %.032.i.us.i, 1
   %exitcond.not.i51.us.i = icmp eq i32 %286, 10
   br i1 %exitcond.not.i51.us.i, label %..thread27_crit_edge.i.us.i, label %.preheader.i, !llvm.loop !31
@@ -4202,23 +4202,23 @@ _cancel_step_id.exit.us.i:                        ; preds = %260, %275, %272
   %287 = phi i32 [ %.pre.i.us.i, %..thread27_crit_edge.i.us.i ], [ %281, %279 ]
   %288 = and i32 %287, -5
   %or.cond.not.i.us.i = icmp eq i32 %288, 2017
-  %289 = call ptr @slurm_strerror(i32 noundef %287) #16
+  %289 = call ptr @slurm_strerror(i32 noundef %287) #17
   br i1 %or.cond.not.i.us.i, label %292, label %290
 
 290:                                              ; preds = %.thread27.i.us.i
-  %291 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.271, i32 noundef %254, ptr noundef %289) #16
-  call void @display_edit_note(ptr noundef %291) #16
-  call void @g_free(ptr noundef %291) #16
+  %291 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.271, i32 noundef %254, ptr noundef %289) #17
+  call void @display_edit_note(ptr noundef %291) #17
+  call void @g_free(ptr noundef %291) #17
   br label %_cancel_job_id.exit.us.i
 
 292:                                              ; preds = %.thread27.i.us.i
-  call void @display_edit_note(ptr noundef %289) #16
+  call void @display_edit_note(ptr noundef %289) #17
   br label %_cancel_job_id.exit.us.i
 
 _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292, %290, %_cancel_step_id.exit.us.i
   %storemerge.i = phi i32 [ %.2.i55.us.i, %_cancel_step_id.exit.us.i ], [ %287, %290 ], [ %287, %292 ], [ 0, %.preheader.i ]
   store i32 %storemerge.i, ptr @global_error_code, align 4
-  %293 = call ptr @list_next(ptr noundef %241) #16
+  %293 = call ptr @list_next(ptr noundef %241) #17
   %294 = icmp eq ptr %293, null
   %295 = load i32, ptr @global_error_code, align 4
   %296 = icmp ne i32 %295, 0
@@ -4229,20 +4229,20 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %297 = phi ptr [ %305, %304 ], [ %242, %.lr.ph.i ]
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
   %299 = load i32, ptr %298, align 8
-  %300 = call i32 @slurm_requeue(i32 noundef %299, i32 noundef 0) #16
+  %300 = call i32 @slurm_requeue(i32 noundef %299, i32 noundef 0) #17
   %.not50.us.i = icmp eq i32 %300, 0
   br i1 %.not50.us.i, label %304, label %301
 
 301:                                              ; preds = %.lr.ph.split.us18.i
   store i32 %300, ptr @global_error_code, align 4
-  %302 = call ptr @slurm_strerror(i32 noundef %300) #16
-  %303 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.263, i32 noundef %299, ptr noundef %302) #16
-  call void @display_edit_note(ptr noundef %303) #16
-  call void @g_free(ptr noundef %303) #16
+  %302 = call ptr @slurm_strerror(i32 noundef %300) #17
+  %303 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.263, i32 noundef %299, ptr noundef %302) #17
+  call void @display_edit_note(ptr noundef %303) #17
+  call void @g_free(ptr noundef %303) #17
   br label %304
 
 304:                                              ; preds = %301, %.lr.ph.split.us18.i
-  %305 = call ptr @list_next(ptr noundef %241) #16
+  %305 = call ptr @list_next(ptr noundef %241) #17
   %306 = icmp eq ptr %305, null
   %307 = load i32, ptr @global_error_code, align 4
   %308 = icmp ne i32 %307, 0
@@ -4258,11 +4258,11 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   br i1 %313, label %316, label %314
 
 314:                                              ; preds = %.lr.ph.split.us22.i
-  %315 = call i32 @slurm_suspend(i32 noundef %311) #16
+  %315 = call i32 @slurm_suspend(i32 noundef %311) #17
   br label %318
 
 316:                                              ; preds = %.lr.ph.split.us22.i
-  %317 = call i32 @slurm_resume(i32 noundef %311) #16
+  %317 = call i32 @slurm_resume(i32 noundef %311) #17
   br label %318
 
 318:                                              ; preds = %316, %314
@@ -4272,13 +4272,13 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
 
 319:                                              ; preds = %318
   store i32 0, ptr @global_error_code, align 4
-  %320 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.264, i32 noundef %311) #16
-  call void @display_edit_note(ptr noundef %320) #16
-  call void @g_free(ptr noundef %320) #16
+  %320 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.264, i32 noundef %311) #17
+  call void @display_edit_note(ptr noundef %320) #17
+  call void @g_free(ptr noundef %320) #17
   br label %321
 
 321:                                              ; preds = %319, %318
-  %322 = call ptr @list_next(ptr noundef %241) #16
+  %322 = call ptr @list_next(ptr noundef %241) #17
   %323 = icmp eq ptr %322, null
   %324 = load i32, ptr @global_error_code, align 4
   %325 = icmp ne i32 %324, 0
@@ -4286,7 +4286,7 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   br i1 %or.cond3.us23.i, label %._crit_edge.i, label %.lr.ph.split.us22.i, !llvm.loop !32
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
-  %326 = call ptr @list_next(ptr noundef %241) #16
+  %326 = call ptr @list_next(ptr noundef %241) #17
   %327 = icmp eq ptr %326, null
   %328 = load i32, ptr @global_error_code, align 4
   %329 = icmp ne i32 %328, 0
@@ -4310,38 +4310,38 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
 
 333:                                              ; preds = %332
   %334 = load ptr, ptr @stacked_job_list, align 8
-  %335 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.265, ptr noundef %334) #16
+  %335 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.265, ptr noundef %334) #17
   br label %.sink.split.i
 
 336:                                              ; preds = %332
   %337 = load ptr, ptr @stacked_job_list, align 8
-  %338 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.266, ptr noundef %337) #16
+  %338 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.266, ptr noundef %337) #17
   br label %.sink.split.i
 
 339:                                              ; preds = %332
   %340 = load ptr, ptr @stacked_job_list, align 8
-  %341 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.267, ptr noundef %340) #16
+  %341 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.267, ptr noundef %340) #17
   br label %.sink.split.i
 
 342:                                              ; preds = %332
   %343 = load ptr, ptr @stacked_job_list, align 8
-  %344 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.268, ptr noundef %343) #16
+  %344 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.268, ptr noundef %343) #17
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %342, %339, %336, %333, %238
   %.sink58.i = phi ptr [ %239, %238 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ]
-  call void @display_edit_note(ptr noundef %.sink58.i) #16
-  call void @g_free(ptr noundef %.sink58.i) #16
+  call void @display_edit_note(ptr noundef %.sink58.i) #17
+  call void @g_free(ptr noundef %.sink58.i) #17
   br label %process_foreach_list.exit
 
 process_foreach_list.exit:                        ; preds = %._crit_edge.i, %332, %.sink.split.i
-  call void @slurm_xfree(ptr noundef nonnull @stacked_job_list) #16
+  call void @slurm_xfree(ptr noundef nonnull @stacked_job_list) #17
   %345 = load ptr, ptr @foreach_list, align 8
   %.not68 = icmp eq ptr %345, null
   br i1 %.not68, label %347, label %346
 
 346:                                              ; preds = %process_foreach_list.exit
-  call void @list_destroy(ptr noundef nonnull %345) #16
+  call void @list_destroy(ptr noundef nonnull %345) #17
   br label %347
 
 347:                                              ; preds = %346, %process_foreach_list.exit
@@ -4350,8 +4350,8 @@ process_foreach_list.exit:                        ; preds = %._crit_edge.i, %332
 
 348:                                              ; preds = %347, %200
   store i8 0, ptr @global_entry_changed, align 1
-  call void @slurm_free_job_desc_msg(ptr noundef %146) #16
-  call void @gtk_widget_destroy(ptr noundef %131) #16
+  call void @slurm_free_job_desc_msg(ptr noundef %146) #17
+  call void @gtk_widget_destroy(ptr noundef %131) #17
   %349 = load ptr, ptr @got_edit_signal, align 8
   %.not69 = icmp eq ptr %349, null
   br i1 %.not69, label %351, label %350
@@ -4360,14 +4360,14 @@ process_foreach_list.exit:                        ; preds = %._crit_edge.i, %332
   store ptr %349, ptr %11, align 8
   store ptr null, ptr @got_edit_signal, align 8
   call void @admin_job(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %349, ptr noundef %3)
-  call void @slurm_xfree(ptr noundef nonnull %11) #16
+  call void @slurm_xfree(ptr noundef nonnull %11) #17
   br label %351
 
 351:                                              ; preds = %348, %350, %127, %_edit_jobs.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #17
   ret void
 }
 
@@ -4392,14 +4392,14 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store ptr null, ptr %4, align 8
   %.b90 = load i1, ptr @get_info_job.set_opts, align 1
   br i1 %.b90, label %9, label %8
 
 8:                                                ; preds = %2
-  tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #16
+  tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #17
   br label %9
 
 9:                                                ; preds = %8, %2
@@ -4415,7 +4415,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %12
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %13) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %13) #17
   br label %15
 
 15:                                               ; preds = %14, %12
@@ -4452,7 +4452,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %25
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %24) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %24) #17
   store ptr null, ptr @get_info_job.display_widget, align 8
   br label %67
 
@@ -4476,21 +4476,21 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not93, label %39, label %38
 
 38:                                               ; preds = %36
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %37) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %37) #17
   br label %39
 
 39:                                               ; preds = %38, %36
   store i32 0, ptr @get_info_job.view, align 4
-  %40 = tail call ptr @__errno_location() #17
+  %40 = tail call ptr @__errno_location() #18
   %41 = load i32, ptr %40, align 4
-  %42 = tail call ptr @slurm_strerror(i32 noundef %41) #16
-  %43 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %42) #16
-  %44 = call ptr @gtk_label_new(ptr noundef nonnull %3) #16
-  call void @gtk_table_attach_defaults(ptr noundef nonnull %0, ptr noundef %44, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #16
-  call void @gtk_widget_show(ptr noundef %44) #16
-  %45 = tail call i64 @gtk_widget_get_type() #17
-  %46 = call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef %45) #16
-  %47 = call ptr @g_object_ref(ptr noundef %46) #16
+  %42 = tail call ptr @slurm_strerror(i32 noundef %41) #17
+  %43 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %42) #17
+  %44 = call ptr @gtk_label_new(ptr noundef nonnull %3) #17
+  call void @gtk_table_attach_defaults(ptr noundef nonnull %0, ptr noundef %44, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #17
+  call void @gtk_widget_show(ptr noundef %44) #17
+  %45 = tail call i64 @gtk_widget_get_type() #18
+  %46 = call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef %45) #17
+  %47 = call ptr @g_object_ref(ptr noundef %46) #17
   store ptr %47, ptr @get_info_job.display_widget, align 8
   br label %152
 
@@ -4514,21 +4514,21 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not92, label %58, label %57
 
 57:                                               ; preds = %55
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %56) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %56) #17
   br label %58
 
 58:                                               ; preds = %57, %55
   store i32 0, ptr @get_info_job.view, align 4
-  %59 = tail call ptr @__errno_location() #17
+  %59 = tail call ptr @__errno_location() #18
   %60 = load i32, ptr %59, align 4
-  %61 = tail call ptr @slurm_strerror(i32 noundef %60) #16
-  %62 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %61) #16
-  %63 = call ptr @gtk_label_new(ptr noundef nonnull %3) #16
-  call void @gtk_table_attach_defaults(ptr noundef nonnull %0, ptr noundef %63, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #16
-  call void @gtk_widget_show(ptr noundef %63) #16
-  %64 = tail call i64 @gtk_widget_get_type() #17
-  %65 = call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef %64) #16
-  %66 = call ptr @g_object_ref(ptr noundef %65) #16
+  %61 = tail call ptr @slurm_strerror(i32 noundef %60) #17
+  %62 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.46, ptr noundef %61) #17
+  %63 = call ptr @gtk_label_new(ptr noundef nonnull %3) #17
+  call void @gtk_table_attach_defaults(ptr noundef nonnull %0, ptr noundef %63, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #17
+  call void @gtk_widget_show(ptr noundef %63) #17
+  %64 = tail call i64 @gtk_widget_get_type() #18
+  %65 = call ptr @g_type_check_instance_cast(ptr noundef %63, i64 noundef %64) #17
+  %66 = call ptr @g_object_ref(ptr noundef %65) #17
   store ptr %66, ptr @get_info_job.display_widget, align 8
   br label %152
 
@@ -4545,7 +4545,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not95, label %.thread127, label %73
 
 73:                                               ; preds = %71
-  %74 = tail call i64 @gtk_tree_view_get_type() #17
+  %74 = tail call i64 @gtk_tree_view_get_type() #18
   %75 = load ptr, ptr %72, align 8
   %.not96 = icmp eq ptr %75, null
   br i1 %.not96, label %79, label %76
@@ -4556,37 +4556,37 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %78, label %.critedge, label %79
 
 79:                                               ; preds = %76, %73
-  %80 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %72, i64 noundef %74) #19
+  %80 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %72, i64 noundef %74) #20
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.thread127, label %.critedge
 
 .critedge:                                        ; preds = %76, %79
-  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %72, i64 noundef %74) #16
-  %83 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %82) #16
-  %84 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %83) #16
+  %82 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %72, i64 noundef %74) #17
+  %83 = tail call ptr @gtk_tree_view_get_selection(ptr noundef %82) #17
+  %84 = tail call i32 @gtk_tree_selection_count_selected_rows(ptr noundef %83) #17
   %.not98 = icmp eq i32 %84, 0
   br i1 %.not98, label %.thread127, label %85
 
 85:                                               ; preds = %.critedge
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8
   %86 = load ptr, ptr @get_info_job.display_widget, align 8
-  %87 = tail call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %74) #16
-  call void @gtk_tree_view_get_cursor(ptr noundef %87, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  %87 = tail call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %74) #17
+  call void @gtk_tree_view_get_cursor(ptr noundef %87, ptr noundef nonnull %4, ptr noundef nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %.pre = load ptr, ptr %4, align 8
   %88 = icmp eq ptr %.pre, null
   br i1 %88, label %.thread127, label %126
 
 .thread127:                                       ; preds = %71, %79, %.critedge, %85
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  %89 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3827, ptr noundef nonnull @__func__.get_info_job) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
+  %89 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 98304, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3827, ptr noundef nonnull @__func__.get_info_job) #17
   store ptr %89, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #16
-  %90 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3828, ptr noundef nonnull @__func__.get_info_job) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
+  %90 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24576, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3828, ptr noundef nonnull @__func__.get_info_job) #17
   store ptr %90, ptr %7, align 8
-  %91 = call ptr @list_iterator_create(ptr noundef nonnull %70) #16
-  %92 = call ptr @list_next(ptr noundef %91) #16
+  %91 = call ptr @list_iterator_create(ptr noundef nonnull %70) #17
+  %92 = call ptr @list_next(ptr noundef %91) #17
   %.not100115 = icmp eq ptr %92, null
   br i1 %.not100115, label %._crit_edge119, label %.lr.ph118
 
@@ -4629,7 +4629,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br label %.lr.ph
 
 110:                                              ; preds = %.lr.ph114
-  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.47) #18
+  call void (ptr, ...) @fatal(ptr noundef nonnull @.str.47) #19
   unreachable
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4657,7 +4657,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader107, %.lr.ph118
   %.1 = phi i32 [ %.0116, %.lr.ph118 ], [ %.0116, %.preheader107 ], [ %.2., %._crit_edge ]
-  %122 = call ptr @list_next(ptr noundef %91) #16
+  %122 = call ptr @list_next(ptr noundef %91) #17
   %.not100 = icmp eq ptr %122, null
   br i1 %.not100, label %._crit_edge119.loopexit, label %.lr.ph118
 
@@ -4667,25 +4667,25 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 ._crit_edge119:                                   ; preds = %._crit_edge119.loopexit, %.thread127
   %.0.lcssa = phi i32 [ 1, %.thread127 ], [ %123, %._crit_edge119.loopexit ]
-  call void @list_iterator_destroy(ptr noundef %91) #16
+  call void @list_iterator_destroy(ptr noundef %91) #17
   %124 = load ptr, ptr @grid_button_list, align 8
-  call void @change_grid_color_array(ptr noundef %124, i32 noundef %.0.lcssa, ptr noundef %89, ptr noundef %90, i1 noundef zeroext true, i32 noundef 0) #16
-  call void @slurm_xfree(ptr noundef nonnull %6) #16
-  call void @slurm_xfree(ptr noundef nonnull %7) #16
+  call void @change_grid_color_array(ptr noundef %124, i32 noundef %.0.lcssa, ptr noundef %89, ptr noundef %90, i1 noundef zeroext true, i32 noundef 0) #17
+  call void @slurm_xfree(ptr noundef nonnull %6) #17
+  call void @slurm_xfree(ptr noundef nonnull %7) #17
   %125 = load ptr, ptr @grid_button_list, align 8
-  call void @change_grid_color(ptr noundef %125, i32 noundef -1, i32 noundef -1, i32 noundef -1, i1 noundef zeroext true, i32 noundef 0) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
+  call void @change_grid_color(ptr noundef %125, i32 noundef -1, i32 noundef -1, i32 noundef -1, i1 noundef zeroext true, i32 noundef 0) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   br label %132
 
 126:                                              ; preds = %85
   %127 = load ptr, ptr @get_info_job.display_widget, align 8
-  %128 = tail call i64 @gtk_tree_view_get_type() #17
-  %129 = call ptr @g_type_check_instance_cast(ptr noundef %127, i64 noundef %128) #16
+  %128 = tail call i64 @gtk_tree_view_get_type() #18
+  %129 = call ptr @g_type_check_instance_cast(ptr noundef %127, i64 noundef %128) #17
   %130 = load ptr, ptr @grid_button_list, align 8
-  call void @highlight_grid(ptr noundef %129, i32 noundef 52, i32 noundef 12, ptr noundef %130) #16
+  call void @highlight_grid(ptr noundef %129, i32 noundef 52, i32 noundef 12, ptr noundef %130) #17
   %131 = load ptr, ptr %4, align 8
-  call void @gtk_tree_path_free(ptr noundef %131) #16
+  call void @gtk_tree_path_free(ptr noundef %131) #17
   br label %132
 
 132:                                              ; preds = %126, %._crit_edge119
@@ -4697,7 +4697,7 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %or.cond7, label %.thread, label %137
 
 .thread:                                          ; preds = %132
-  call void @gtk_widget_destroy(ptr noundef nonnull %135) #16
+  call void @gtk_widget_destroy(ptr noundef nonnull %135) #17
   store ptr null, ptr @get_info_job.display_widget, align 8
   br label %138
 
@@ -4707,30 +4707,30 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
 
 138:                                              ; preds = %.thread, %137
   %139 = load ptr, ptr @local_display_data, align 8
-  %140 = call ptr @create_treeview(ptr noundef %139, ptr noundef nonnull @grid_button_list) #16
-  %141 = call ptr @gtk_tree_view_get_selection(ptr noundef %140) #16
-  call void @gtk_tree_selection_set_mode(ptr noundef %141, i32 noundef 3) #16
-  %142 = tail call i64 @gtk_widget_get_type() #17
-  %143 = call ptr @g_type_check_instance_cast(ptr noundef %140, i64 noundef %142) #16
-  %144 = call ptr @g_object_ref(ptr noundef %143) #16
+  %140 = call ptr @create_treeview(ptr noundef %139, ptr noundef nonnull @grid_button_list) #17
+  %141 = call ptr @gtk_tree_view_get_selection(ptr noundef %140) #17
+  call void @gtk_tree_selection_set_mode(ptr noundef %141, i32 noundef 3) #17
+  %142 = tail call i64 @gtk_widget_get_type() #18
+  %143 = call ptr @g_type_check_instance_cast(ptr noundef %140, i64 noundef %142) #17
+  %144 = call ptr @g_object_ref(ptr noundef %143) #17
   store ptr %144, ptr @get_info_job.display_widget, align 8
-  %145 = tail call i64 @gtk_table_get_type() #17
-  %146 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %145) #16
-  %147 = call ptr @g_type_check_instance_cast(ptr noundef %140, i64 noundef %142) #16
-  call void @gtk_table_attach_defaults(ptr noundef %146, ptr noundef %147, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #16
-  call void @create_treestore(ptr noundef %140, ptr noundef nonnull @display_data_job, i32 noundef 95, i32 noundef 82, i32 noundef 11) #16
-  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 48, i32 noundef 100) #16
-  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 49, i32 noundef 100) #16
-  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 50, i32 noundef 100) #16
-  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 51, i32 noundef 100) #16
+  %145 = tail call i64 @gtk_table_get_type() #18
+  %146 = call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %145) #17
+  %147 = call ptr @g_type_check_instance_cast(ptr noundef %140, i64 noundef %142) #17
+  call void @gtk_table_attach_defaults(ptr noundef %146, ptr noundef %147, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 1) #17
+  call void @create_treestore(ptr noundef %140, ptr noundef nonnull @display_data_job, i32 noundef 95, i32 noundef 82, i32 noundef 11) #17
+  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 48, i32 noundef 100) #17
+  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 49, i32 noundef 100) #17
+  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 50, i32 noundef 100) #17
+  call void @set_column_width_fixed(ptr noundef %140, i32 noundef 51, i32 noundef 100) #17
   %.pre126 = load ptr, ptr @get_info_job.display_widget, align 8
   br label %148
 
 148:                                              ; preds = %138, %137
   %149 = phi ptr [ %.pre126, %138 ], [ %135, %137 ]
   store i32 1, ptr @get_info_job.view, align 4
-  %150 = tail call i64 @gtk_tree_view_get_type() #17
-  %151 = call ptr @g_type_check_instance_cast(ptr noundef %149, i64 noundef %150) #16
+  %150 = tail call i64 @gtk_tree_view_get_type() #18
+  %151 = call ptr @g_type_check_instance_cast(ptr noundef %149, i64 noundef %150) #17
   call fastcc void @_update_info_job(ptr noundef nonnull %70, ptr noundef %151)
   br label %152
 
@@ -4751,12 +4751,12 @@ define dso_local void @get_info_job(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not105, label %159, label %158
 
 158:                                              ; preds = %155
-  call void @gdk_window_set_cursor(ptr noundef nonnull %157, ptr noundef null) #16
+  call void @gdk_window_set_cursor(ptr noundef nonnull %157, ptr noundef null) #17
   br label %159
 
 159:                                              ; preds = %153, %155, %158, %19, %15
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #17
   ret void
 }
 
@@ -4794,22 +4794,22 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %.not128, label %.thread, label %14
 
 .thread:                                          ; preds = %11
-  %12 = tail call ptr @list_create(ptr noundef null) #16
+  %12 = tail call ptr @list_create(ptr noundef null) #17
   store ptr %12, ptr @_create_job_info_list.info_list, align 8
-  %13 = tail call ptr @list_create(ptr noundef nonnull @_job_info_list_del) #16
+  %13 = tail call ptr @list_create(ptr noundef nonnull @_job_info_list_del) #17
   store ptr %13, ptr @_create_job_info_list.odd_info_list, align 8
   br label %20
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @list_flush(ptr noundef nonnull %6) #16
+  %15 = tail call i32 @list_flush(ptr noundef nonnull %6) #17
   %16 = load ptr, ptr @_create_job_info_list.odd_info_list, align 8
-  %17 = tail call ptr @list_create(ptr noundef nonnull @_job_info_list_del) #16
+  %17 = tail call ptr @list_create(ptr noundef nonnull @_job_info_list_del) #17
   store ptr %17, ptr @_create_job_info_list.odd_info_list, align 8
   %.not129 = icmp eq ptr %16, null
   br i1 %.not129, label %20, label %18
 
 18:                                               ; preds = %14
-  %19 = tail call ptr @list_iterator_create(ptr noundef nonnull %16) #16
+  %19 = tail call ptr @list_iterator_create(ptr noundef nonnull %16) #17
   br label %20
 
 20:                                               ; preds = %.thread, %18, %14
@@ -4841,12 +4841,12 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %.not130, label %.thread162, label %.preheader
 
 .preheader:                                       ; preds = %32, %34
-  %33 = call ptr @list_next(ptr noundef nonnull %.0117) #16
+  %33 = call ptr @list_next(ptr noundef nonnull %.0117) #17
   %.not131 = icmp eq ptr %33, null
   br i1 %.not131, label %.thread165, label %34
 
 .thread165:                                       ; preds = %.preheader
-  call void @list_iterator_reset(ptr noundef nonnull %.0117) #16
+  call void @list_iterator_reset(ptr noundef nonnull %.0117) #17
   br label %.thread162
 
 34:                                               ; preds = %.preheader
@@ -4857,13 +4857,13 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %38, label %39, label %.preheader, !llvm.loop !36
 
 39:                                               ; preds = %34
-  %40 = call ptr @list_remove(ptr noundef nonnull %.0117) #16
+  %40 = call ptr @list_remove(ptr noundef nonnull %.0117) #17
   call fastcc void @_job_info_free(ptr noundef %33)
-  call void @list_iterator_reset(ptr noundef nonnull %.0117) #16
+  call void @list_iterator_reset(ptr noundef nonnull %.0117) #17
   br label %42
 
 .thread162:                                       ; preds = %32, %.thread165
-  %41 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 144, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3123, ptr noundef nonnull @__func__._create_job_info_list) #16
+  %41 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 144, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 3123, ptr noundef nonnull @__func__._create_job_info_list) #17
   br label %42
 
 42:                                               ; preds = %39, %.thread162
@@ -4885,21 +4885,21 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %.not134, label %114, label %51
 
 51:                                               ; preds = %48, %42
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
   %52 = load ptr, ptr @_create_job_info_list.info_list, align 8
-  %53 = call ptr @list_find_first(ptr noundef %52, ptr noundef nonnull @_task_array_match, ptr noundef nonnull %28) #16
+  %53 = call ptr @list_find_first(ptr noundef %52, ptr noundef nonnull @_task_array_match, ptr noundef nonnull %28) #17
   %54 = load ptr, ptr %46, align 8
   %.not137 = icmp eq ptr %54, null
   br i1 %.not137, label %57, label %55
 
 55:                                               ; preds = %51
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.79, ptr noundef nonnull %54) #16
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.79, ptr noundef nonnull %54) #17
   br label %61
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %28, i64 52
   %59 = load i32, ptr %58, align 4
-  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.77, i32 noundef %59) #16
+  %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.77, i32 noundef %59) #17
   br label %61
 
 61:                                               ; preds = %57, %55
@@ -4907,10 +4907,10 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %.not138, label %62, label %67
 
 62:                                               ; preds = %61
-  %63 = call ptr @list_create(ptr noundef null) #16
+  %63 = call ptr @list_create(ptr noundef null) #17
   %64 = getelementptr inbounds nuw i8, ptr %.1114, i64 128
   store ptr %63, ptr %64, align 8
-  %65 = call ptr @hostlist_create(ptr noundef null) #16
+  %65 = call ptr @hostlist_create(ptr noundef null) #17
   %66 = getelementptr inbounds nuw i8, ptr %.1114, i64 96
   store ptr %65, ptr %66, align 8
   br label %74
@@ -4931,7 +4931,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   %75 = phi ptr [ %65, %62 ], [ %.pre, %67 ]
   %.0112 = phi i1 [ false, %62 ], [ %or.cond148.not, %67 ]
   %.0111 = phi ptr [ %.1114, %62 ], [ %53, %67 ]
-  %76 = call i32 @hostlist_push_host(ptr noundef %75, ptr noundef nonnull %4) #16
+  %76 = call i32 @hostlist_push_host(ptr noundef %75, ptr noundef nonnull %4) #17
   %77 = getelementptr inbounds nuw i8, ptr %28, i64 432
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %78, 255
@@ -4945,7 +4945,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %.not139, label %84, label %86
 
 84:                                               ; preds = %81
-  %85 = call ptr @list_create(ptr noundef null) #16
+  %85 = call ptr @list_create(ptr noundef null) #17
   store ptr %85, ptr %82, align 8
   br label %86
 
@@ -4956,13 +4956,13 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %.not140, label %89, label %91
 
 89:                                               ; preds = %86
-  %90 = call ptr @hostlist_create(ptr noundef null) #16
+  %90 = call ptr @hostlist_create(ptr noundef null) #17
   store ptr %90, ptr %87, align 8
   br label %91
 
 91:                                               ; preds = %89, %86
   %92 = phi ptr [ %90, %89 ], [ %88, %86 ]
-  %93 = call i32 @hostlist_push_host(ptr noundef %92, ptr noundef nonnull %4) #16
+  %93 = call i32 @hostlist_push_host(ptr noundef %92, ptr noundef nonnull %4) #17
   br label %.sink.split
 
 94:                                               ; preds = %74
@@ -4979,7 +4979,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
 .sink.split:                                      ; preds = %91, %98
   %.sink188.in = phi ptr [ %99, %98 ], [ %82, %91 ]
   %.sink188 = load ptr, ptr %.sink188.in, align 8
-  call void @list_append(ptr noundef %.sink188, ptr noundef nonnull %.1114) #16
+  call void @list_append(ptr noundef %.sink188, ptr noundef nonnull %.1114) #17
   br label %100
 
 100:                                              ; preds = %.sink.split, %94
@@ -4991,21 +4991,21 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
 
 104:                                              ; preds = %100
   %105 = load i32, ptr %29, align 4
-  %106 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.81, i32 noundef %103, ptr noundef nonnull %101, i32 noundef %105) #16
+  %106 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.81, i32 noundef %103, ptr noundef nonnull %101, i32 noundef %105) #17
   br label %112
 
 107:                                              ; preds = %100
   %108 = getelementptr inbounds nuw i8, ptr %28, i64 52
   %109 = load i32, ptr %108, align 4
   %110 = load i32, ptr %29, align 4
-  %111 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.82, i32 noundef %103, i32 noundef %109, i32 noundef %110) #16
+  %111 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.82, i32 noundef %103, i32 noundef %109, i32 noundef %110) #17
   br label %112
 
 112:                                              ; preds = %107, %104
   %.sink = phi ptr [ %111, %107 ], [ %106, %104 ]
   %113 = getelementptr inbounds nuw i8, ptr %.1114, i64 48
   store ptr %.sink, ptr %113, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
   br label %156
 
 114:                                              ; preds = %48
@@ -5015,20 +5015,20 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   br i1 %.not135, label %153, label %117
 
 117:                                              ; preds = %114
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #17
   %118 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %119 = load i32, ptr %118, align 8
-  %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.77, i32 noundef %119) #16
+  %120 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.77, i32 noundef %119) #17
   %121 = load ptr, ptr @_create_job_info_list.info_list, align 8
-  %122 = call ptr @list_find_first(ptr noundef %121, ptr noundef nonnull @_het_job_id_match, ptr noundef nonnull %28) #16
+  %122 = call ptr @list_find_first(ptr noundef %121, ptr noundef nonnull @_het_job_id_match, ptr noundef nonnull %28) #17
   %.not136 = icmp eq ptr %122, null
   br i1 %.not136, label %123, label %128
 
 123:                                              ; preds = %117
-  %124 = call ptr @list_create(ptr noundef null) #16
+  %124 = call ptr @list_create(ptr noundef null) #17
   %125 = getelementptr inbounds nuw i8, ptr %.1114, i64 128
   store ptr %124, ptr %125, align 8
-  %126 = call ptr @hostlist_create(ptr noundef null) #16
+  %126 = call ptr @hostlist_create(ptr noundef null) #17
   %127 = getelementptr inbounds nuw i8, ptr %.1114, i64 96
   store ptr %126, ptr %127, align 8
   br label %135
@@ -5049,7 +5049,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   %136 = phi ptr [ %126, %123 ], [ %.pre185, %128 ]
   %.2 = phi i1 [ false, %123 ], [ %or.cond152.not, %128 ]
   %.0 = phi ptr [ %.1114, %123 ], [ %122, %128 ]
-  %137 = call i32 @hostlist_push_host(ptr noundef %136, ptr noundef nonnull %5) #16
+  %137 = call i32 @hostlist_push_host(ptr noundef %136, ptr noundef nonnull %5) #17
   %138 = getelementptr inbounds nuw i8, ptr %28, i64 432
   %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 255
@@ -5062,28 +5062,28 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
 144:                                              ; preds = %135
   %145 = getelementptr inbounds nuw i8, ptr %.0, i64 128
   %146 = load ptr, ptr %145, align 8
-  call void @list_append(ptr noundef %146, ptr noundef nonnull %.1114) #16
+  call void @list_append(ptr noundef %146, ptr noundef nonnull %.1114) #17
   br label %147
 
 147:                                              ; preds = %135, %144
   %148 = load i32, ptr %115, align 4
   %149 = load i32, ptr %118, align 8
   %150 = load i32, ptr %29, align 4
-  %151 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.83, i32 noundef %148, i32 noundef %149, i32 noundef %150) #16
+  %151 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.83, i32 noundef %148, i32 noundef %149, i32 noundef %150) #17
   %152 = getelementptr inbounds nuw i8, ptr %.1114, i64 48
   store ptr %151, ptr %152, align 8
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #17
   br label %156
 
 153:                                              ; preds = %114
-  %154 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.77, i32 noundef %44) #16
+  %154 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.77, i32 noundef %44) #17
   %155 = getelementptr inbounds nuw i8, ptr %.1114, i64 48
   store ptr %154, ptr %155, align 8
   br label %156
 
 156:                                              ; preds = %147, %153, %112
   %.1 = phi i1 [ %.0112, %112 ], [ %.2, %147 ], [ false, %153 ]
-  %157 = call ptr @list_create(ptr noundef null) #16
+  %157 = call ptr @list_create(ptr noundef null) #17
   %158 = getelementptr inbounds nuw i8, ptr %.1114, i64 88
   store ptr %157, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %.1114, i64 80
@@ -5097,7 +5097,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
   store i32 %164, ptr %.1114, align 8
   %165 = getelementptr inbounds nuw i8, ptr %28, i64 512
   %166 = load ptr, ptr %165, align 8
-  %167 = call ptr @xstrdup(ptr noundef %166) #16
+  %167 = call ptr @xstrdup(ptr noundef %166) #17
   %168 = getelementptr inbounds nuw i8, ptr %.1114, i64 72
   store ptr %167, ptr %168, align 8
   %169 = getelementptr inbounds nuw i8, ptr %28, i64 552
@@ -5126,7 +5126,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
 
 183:                                              ; preds = %179
   %184 = load ptr, ptr %158, align 8
-  call void @list_append(ptr noundef %184, ptr noundef nonnull %174) #16
+  call void @list_append(ptr noundef %184, ptr noundef nonnull %174) #17
   %.pre186 = load i32, ptr %24, align 8
   br label %185
 
@@ -5142,7 +5142,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
 
 189:                                              ; preds = %._crit_edge
   %190 = load ptr, ptr @_create_job_info_list.odd_info_list, align 8
-  call void @list_append(ptr noundef %190, ptr noundef nonnull %.1114) #16
+  call void @list_append(ptr noundef %190, ptr noundef nonnull %.1114) #17
   br label %191
 
 191:                                              ; preds = %189, %._crit_edge
@@ -5158,7 +5158,7 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
 
 196:                                              ; preds = %191
   %197 = load ptr, ptr @_create_job_info_list.info_list, align 8
-  call void @list_append(ptr noundef %197, ptr noundef nonnull %.1114) #16
+  call void @list_append(ptr noundef %197, ptr noundef nonnull %.1114) #17
   br label %198
 
 198:                                              ; preds = %191, %196, %26
@@ -5170,14 +5170,14 @@ define internal fastcc ptr @_create_job_info_list(ptr noundef %0, ptr noundef %1
 
 ._crit_edge176:                                   ; preds = %198, %20
   %202 = load ptr, ptr @_create_job_info_list.info_list, align 8
-  call void @list_sort(ptr noundef %202, ptr noundef nonnull @_sview_job_sort_aval_dec) #16
+  call void @list_sort(ptr noundef %202, ptr noundef nonnull @_sview_job_sort_aval_dec) #17
   %203 = load ptr, ptr @_create_job_info_list.odd_info_list, align 8
-  call void @list_sort(ptr noundef %203, ptr noundef nonnull @_sview_job_sort_aval_dec) #16
+  call void @list_sort(ptr noundef %203, ptr noundef nonnull @_sview_job_sort_aval_dec) #17
   br i1 %.not129161, label %205, label %204
 
 204:                                              ; preds = %._crit_edge176
-  call void @list_iterator_destroy(ptr noundef %.0117) #16
-  call void @list_destroy(ptr noundef nonnull %.0118160) #16
+  call void @list_iterator_destroy(ptr noundef %.0117) #17
+  call void @list_destroy(ptr noundef nonnull %.0118160) #17
   br label %205
 
 205:                                              ; preds = %3, %._crit_edge176, %204
@@ -5215,10 +5215,10 @@ declare void @set_column_width_fixed(ptr noundef, i32 noundef, i32 noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
-  %4 = tail call ptr @gtk_tree_view_get_model(ptr noundef %1) #16
-  tail call void @set_for_update(ptr noundef %4, i32 noundef 91) #16
-  %5 = tail call ptr @list_iterator_create(ptr noundef %0) #16
-  %6 = tail call ptr @list_next(ptr noundef %5) #16
+  %4 = tail call ptr @gtk_tree_view_get_model(ptr noundef %1) #17
+  tail call void @set_for_update(ptr noundef %4, i32 noundef 91) #17
+  %5 = tail call ptr @list_iterator_create(ptr noundef %0) #17
+  %6 = tail call ptr @list_next(ptr noundef %5) #17
   %.not42 = icmp eq ptr %6, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph
 
@@ -5242,23 +5242,23 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   br i1 %13, label %14, label %.thread46
 
 14:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store ptr null, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %4, ptr noundef nonnull %15, i32 noundef 36, ptr noundef nonnull %3, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %4, ptr noundef nonnull %15, i32 noundef 36, ptr noundef nonnull %3, i32 noundef -1) #17
   %16 = load ptr, ptr %3, align 8
   %.not35 = icmp eq ptr %16, null
   br i1 %.not35, label %32, label %17, !llvm.loop !39
 
 17:                                               ; preds = %14
-  %18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 40) #19
+  %18 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 40) #20
   %.not36 = icmp eq ptr %18, null
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %.029 = select i1 %.not36, ptr %16, ptr %19
-  %20 = call i64 @strtol(ptr noundef nonnull captures(none) %.029, ptr noundef null, i32 noundef 10) #16
+  %20 = call i64 @strtol(ptr noundef nonnull captures(none) %.029, ptr noundef null, i32 noundef 10) #17
   %21 = trunc i64 %20 to i32
   %22 = load ptr, ptr %3, align 8
-  call void @g_free(ptr noundef %22) #16
+  call void @g_free(ptr noundef %22) #17
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 412
   %24 = load i32, ptr %23, align 4
   %.not37 = icmp eq i32 %24, %21
@@ -5281,41 +5281,41 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   br label %33
 
 32:                                               ; preds = %14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   br label %.backedge
 
 33:                                               ; preds = %17, %25, %28, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %.pre43 = load i8, ptr %11, align 8, !range !18
   %34 = trunc nuw i8 %.pre43 to i1
   br i1 %34, label %35, label %.thread46
 
 35:                                               ; preds = %33
-  %36 = tail call i64 @gtk_tree_store_get_type() #17
-  %37 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %36) #16
+  %36 = tail call i64 @gtk_tree_store_get_type() #18
+  %37 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %36) #17
   call fastcc void @_update_job_record(ptr noundef %7, ptr noundef %37, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %.backedge
 
 .thread46:                                        ; preds = %.thread44, %12, %33
-  %38 = tail call i64 @gtk_tree_store_get_type() #17
-  %39 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %38) #16
+  %38 = tail call i64 @gtk_tree_store_get_type() #18
+  %39 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %38) #17
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @gtk_tree_store_append(ptr noundef %39, ptr noundef nonnull %40, ptr noundef null) #16
+  call void @gtk_tree_store_append(ptr noundef %39, ptr noundef nonnull %40, ptr noundef null) #17
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %42 = load i32, ptr %41, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %39, ptr noundef nonnull %40, i32 noundef 0, i32 noundef %42, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %39, ptr noundef nonnull %40, i32 noundef 0, i32 noundef %42, i32 noundef -1) #17
   call fastcc void @_update_job_record(ptr noundef nonnull %7, ptr noundef %39, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   store i8 1, ptr %11, align 8
   br label %.backedge
 
 .backedge:                                        ; preds = %35, %.thread46, %32
-  %43 = call ptr @list_next(ptr noundef %5) #16
+  %43 = call ptr @list_next(ptr noundef %5) #17
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.backedge, %2
-  call void @list_iterator_destroy(ptr noundef %5) #16
-  call void @remove_old(ptr noundef %4, i32 noundef 91) #16
+  call void @list_iterator_destroy(ptr noundef %5) #17
+  call void @remove_old(ptr noundef %4, i32 noundef 91) #17
   store ptr %4, ptr @last_model, align 8
   ret void
 }
@@ -5352,26 +5352,26 @@ define dso_local void @set_menus_job(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 6:                                                ; preds = %4
-  tail call void @make_fields_menu(ptr noundef null, ptr noundef %1, ptr noundef nonnull @display_data_job, i32 noundef 95) #16
+  tail call void @make_fields_menu(ptr noundef null, ptr noundef %1, ptr noundef nonnull @display_data_job, i32 noundef 95) #17
   br label %19
 
 7:                                                ; preds = %4
-  tail call void @make_options_menu(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @options_data_job) #16
+  tail call void @make_options_menu(ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef nonnull @options_data_job) #17
   br label %19
 
 8:                                                ; preds = %4
-  tail call void @highlight_grid(ptr noundef %0, i32 noundef 52, i32 noundef 12, ptr noundef %1) #16
+  tail call void @highlight_grid(ptr noundef %0, i32 noundef 52, i32 noundef 12, ptr noundef %1) #17
   br label %19
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @gtk_tree_view_get_model(ptr noundef %0) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
-  %11 = call i32 @gtk_tree_model_get_iter(ptr noundef %10, ptr noundef nonnull %5, ptr noundef %2) #16
+  %10 = tail call ptr @gtk_tree_view_get_model(ptr noundef %0) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  %11 = call i32 @gtk_tree_model_get_iter(ptr noundef %10, ptr noundef nonnull %5, ptr noundef %2) #17
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %9
-  call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.48) #16
+  call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.48) #17
   br label %13
 
 13:                                               ; preds = %13, %12
@@ -5379,16 +5379,16 @@ define dso_local void @set_menus_job(ptr noundef %0, ptr noundef %1, ptr noundef
 
 14:                                               ; preds = %9
   call void @popup_all_job(ptr noundef %10, ptr noundef nonnull %5, i32 noundef 8)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   br label %19
 
 15:                                               ; preds = %4
   %16 = load ptr, ptr %0, align 8
-  tail call void @make_fields_menu(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %16, i32 noundef 95) #16
+  tail call void @make_fields_menu(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %16, i32 noundef 95) #17
   br label %19
 
 17:                                               ; preds = %4
-  tail call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.49, i32 noundef %3) #16
+  tail call void (ptr, i32, ptr, ...) @g_log(ptr noundef null, i32 noundef 4, ptr noundef nonnull @.str.49, i32 noundef %3) #17
   br label %18
 
 18:                                               ; preds = %18, %17
@@ -5415,68 +5415,68 @@ define dso_local void @popup_all_job(ptr noundef %0, ptr noundef %1, i32 noundef
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %7, i8 0, i64 100, i1 false)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #17
   store i32 -2, ptr %8, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
   store i32 -2, ptr %9, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #17
   store ptr null, ptr %10, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #17
   store ptr null, ptr %11, align 8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 36, ptr noundef nonnull %11, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 36, ptr noundef nonnull %11, i32 noundef -1) #17
   %13 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %162, label %14
 
 14:                                               ; preds = %3
-  %15 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 40) #19
+  %15 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 40) #20
   %.not52 = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %.0 = select i1 %.not52, ptr %13, ptr %16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   store ptr null, ptr %4, align 8
-  %17 = call i64 @strtol(ptr noundef nonnull %.0, ptr noundef nonnull %4, i32 noundef 10) #16
+  %17 = call i64 @strtol(ptr noundef nonnull %.0, ptr noundef nonnull %4, i32 noundef 10) #17
   %18 = trunc i64 %17 to i32
   %19 = load ptr, ptr %4, align 8
   %20 = icmp eq ptr %19, %.0
   br i1 %20, label %21, label %_id_from_stepstr.exit
 
 21:                                               ; preds = %14
-  %22 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.96) #19
+  %22 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.96) #20
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %_id_from_stepstr.exit, label %23
 
 23:                                               ; preds = %21
-  %24 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.99) #19
+  %24 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.99) #20
   %.not7.i = icmp eq i32 %24, 0
   br i1 %.not7.i, label %_id_from_stepstr.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.97) #19
+  %26 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.97) #20
   %.not8.i = icmp eq i32 %26, 0
   br i1 %.not8.i, label %_id_from_stepstr.exit, label %27
 
 27:                                               ; preds = %25
-  %28 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.98) #19
+  %28 = call i32 @strcasecmp(ptr noundef nonnull %.0, ptr noundef nonnull @.str.98) #20
   %.not9.i = icmp eq i32 %28, 0
   %..i = select i1 %.not9.i, i32 -6, i32 -2
   br label %_id_from_stepstr.exit
 
 _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, %27
   %.0.i = phi i32 [ %18, %14 ], [ -3, %21 ], [ -5, %23 ], [ -4, %25 ], [ %..i, %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   store i32 %.0.i, ptr %8, align 4
   %29 = load ptr, ptr %11, align 8
-  call void @g_free(ptr noundef %29) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 37, ptr noundef nonnull %11, i32 noundef -1) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 10, ptr noundef nonnull %6, i32 noundef -1) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %9, i32 noundef -1) #16
+  call void @g_free(ptr noundef %29) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 37, ptr noundef nonnull %11, i32 noundef -1) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 10, ptr noundef nonnull %6, i32 noundef -1) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %9, i32 noundef -1) #17
   %30 = load i32, ptr %9, align 4
   %.not53 = icmp eq i32 %30, 0
   br i1 %.not53, label %32, label %31
@@ -5488,7 +5488,7 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
 32:                                               ; preds = %_id_from_stepstr.exit
   %33 = load i32, ptr %8, align 4
   store i32 %33, ptr %9, align 4
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %8, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef nonnull %8, i32 noundef -1) #17
   br label %34
 
 34:                                               ; preds = %32, %31
@@ -5506,11 +5506,11 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br i1 %37, label %39, label %41
 
 39:                                               ; preds = %35
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.50, ptr noundef %38) #16
+  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.50, ptr noundef %38) #17
   br label %68
 
 41:                                               ; preds = %35
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.51, ptr noundef %38) #16
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.51, ptr noundef %38) #17
   br label %68
 
 43:                                               ; preds = %34
@@ -5520,11 +5520,11 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br i1 %45, label %47, label %49
 
 47:                                               ; preds = %43
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.52, ptr noundef %46) #16
+  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.52, ptr noundef %46) #17
   br label %68
 
 49:                                               ; preds = %43
-  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.53, ptr noundef %46) #16
+  %50 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.53, ptr noundef %46) #17
   br label %68
 
 51:                                               ; preds = %34
@@ -5534,11 +5534,11 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br i1 %53, label %55, label %57
 
 55:                                               ; preds = %51
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.54, ptr noundef %54) #16
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.54, ptr noundef %54) #17
   br label %68
 
 57:                                               ; preds = %51
-  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.55, ptr noundef %54) #16
+  %58 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.55, ptr noundef %54) #17
   br label %68
 
 59:                                               ; preds = %34
@@ -5548,15 +5548,15 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br i1 %61, label %63, label %65
 
 63:                                               ; preds = %59
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.56, ptr noundef %62) #16
+  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.56, ptr noundef %62) #17
   br label %68
 
 65:                                               ; preds = %59
-  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.57, ptr noundef %62) #16
+  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.57, ptr noundef %62) #17
   br label %68
 
 67:                                               ; preds = %34
-  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.58, i32 noundef %2) #16
+  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.58, i32 noundef %2) #17
   br label %68
 
 68:                                               ; preds = %63, %65, %55, %57, %47, %49, %39, %41, %67
@@ -5574,14 +5574,14 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br i1 %.not54, label %81, label %76
 
 76:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
-  %77 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.59, ptr noundef nonnull %71, ptr noundef nonnull %69) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #17
+  %77 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.59, ptr noundef nonnull %71, ptr noundef nonnull %69) #17
   store ptr %77, ptr %12, align 8
-  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
+  %78 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #20
   %79 = sub i64 99, %78
-  %80 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %77, i64 noundef %79) #16
-  call void @slurm_xfree(ptr noundef nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
+  %80 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef %77, i64 noundef %79) #17
+  call void @slurm_xfree(ptr noundef nonnull %12) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #17
   br label %81
 
 81:                                               ; preds = %76, %73, %68
@@ -5590,13 +5590,13 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br i1 %.not55, label %84, label %83
 
 83:                                               ; preds = %81
-  call void @g_free(ptr noundef nonnull %82) #16
+  call void @g_free(ptr noundef nonnull %82) #17
   br label %84
 
 84:                                               ; preds = %83, %81
   %85 = load ptr, ptr @popup_list, align 8
-  %86 = call ptr @list_iterator_create(ptr noundef %85) #16
-  %87 = call ptr @list_next(ptr noundef %86) #16
+  %86 = call ptr @list_iterator_create(ptr noundef %85) #17
+  %87 = call ptr @list_next(ptr noundef %86) #17
   %.not5661 = icmp eq ptr %87, null
   br i1 %.not5661, label %._crit_edge, label %.lr.ph
 
@@ -5610,37 +5610,37 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
 91:                                               ; preds = %.lr.ph
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %93 = load ptr, ptr %92, align 8
-  %94 = call i32 @xstrcmp(ptr noundef %93, ptr noundef nonnull %7) #16
+  %94 = call i32 @xstrcmp(ptr noundef %93, ptr noundef nonnull %7) #17
   %.not58 = icmp eq i32 %94, 0
   br i1 %.not58, label %102, label %95
 
 95:                                               ; preds = %91, %.lr.ph
-  %96 = call ptr @list_next(ptr noundef %86) #16
+  %96 = call ptr @list_next(ptr noundef %86) #17
   %.not56 = icmp eq ptr %96, null
   br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %95, %84
-  call void @list_iterator_destroy(ptr noundef %86) #16
+  call void @list_iterator_destroy(ptr noundef %86) #17
   %97 = icmp eq i32 %2, 8
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %._crit_edge
-  %99 = call ptr @create_popup_info(i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7) #16
+  %99 = call ptr @create_popup_info(i32 noundef 8, i32 noundef 0, ptr noundef nonnull %7) #17
   br label %108
 
 100:                                              ; preds = %._crit_edge
-  %101 = call ptr @create_popup_info(i32 noundef 0, i32 noundef %2, ptr noundef nonnull %7) #16
+  %101 = call ptr @create_popup_info(i32 noundef 0, i32 noundef %2, ptr noundef nonnull %7) #17
   br label %108
 
 102:                                              ; preds = %91
-  call void @list_iterator_destroy(ptr noundef %86) #16
+  call void @list_iterator_destroy(ptr noundef %86) #17
   %103 = getelementptr inbounds nuw i8, ptr %88, i64 104
   %104 = load ptr, ptr %103, align 8
-  %105 = tail call i64 @gtk_window_get_type() #17
-  %106 = call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %105) #16
-  call void @gtk_window_present(ptr noundef %106) #16
+  %105 = tail call i64 @gtk_window_get_type() #18
+  %106 = call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef %105) #17
+  call void @gtk_window_present(ptr noundef %106) #17
   %107 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %107) #16
+  call void @g_free(ptr noundef %107) #17
   br label %162
 
 108:                                              ; preds = %98, %100
@@ -5669,7 +5669,7 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
 
 120:                                              ; preds = %114, %108
   %121 = phi ptr [ null, %114 ], [ %.pre, %108 ]
-  call void @g_free(ptr noundef %121) #16
+  call void @g_free(ptr noundef %121) #17
   switch i32 %2, label %155 [
     i32 4, label %122
     i32 1, label %129
@@ -5679,7 +5679,7 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   ]
 
 122:                                              ; preds = %120
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull %5, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 48, ptr noundef nonnull %5, i32 noundef -1) #17
   %123 = load ptr, ptr %5, align 8
   %124 = getelementptr inbounds nuw i8, ptr %.044, i64 128
   %125 = load ptr, ptr %124, align 8
@@ -5690,7 +5690,7 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br label %156
 
 129:                                              ; preds = %120
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 57, ptr noundef nonnull %5, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 57, ptr noundef nonnull %5, i32 noundef -1) #17
   %130 = load ptr, ptr %5, align 8
   %131 = getelementptr inbounds nuw i8, ptr %.044, i64 128
   %132 = load ptr, ptr %131, align 8
@@ -5701,7 +5701,7 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br label %156
 
 136:                                              ; preds = %120
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 65, ptr noundef nonnull %5, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 65, ptr noundef nonnull %5, i32 noundef -1) #17
   %137 = load ptr, ptr %5, align 8
   %138 = getelementptr inbounds nuw i8, ptr %.044, i64 128
   %139 = load ptr, ptr %138, align 8
@@ -5728,28 +5728,28 @@ _id_from_stepstr.exit:                            ; preds = %14, %21, %23, %25, 
   br label %156
 
 155:                                              ; preds = %120
-  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.60, i32 noundef %2) #16
+  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.60, i32 noundef %2) #17
   br label %156
 
 156:                                              ; preds = %155, %143, %136, %129, %122, %120
-  %157 = call zeroext i1 @sview_thread_new(ptr noundef nonnull @popup_thr, ptr noundef nonnull %.044, ptr noundef nonnull %10) #16
+  %157 = call zeroext i1 @sview_thread_new(ptr noundef nonnull @popup_thr, ptr noundef nonnull %.044, ptr noundef nonnull %10) #17
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %156
   %159 = load ptr, ptr %10, align 8
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
-  call void (ptr, ...) @g_printerr(ptr noundef nonnull @.str.61, ptr noundef %161) #16
+  call void (ptr, ...) @g_printerr(ptr noundef nonnull @.str.61, ptr noundef %161) #17
   br label %162
 
 162:                                              ; preds = %156, %3, %158, %102
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   ret void
 }
 
@@ -5763,10 +5763,10 @@ declare void @g_print(ptr noundef, ...) local_unnamed_addr #2
 
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @create_popup_info(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -5820,30 +5820,30 @@ define internal void @selected_foreach_build_list(ptr noundef %0, ptr readnone c
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
   store i32 -2, ptr %6, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #17
   %10 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %53, label %11
 
 11:                                               ; preds = %4
-  %12 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 40) #19
+  %12 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 40) #20
   %.not41 = icmp eq ptr %12, null
   br i1 %.not41, label %22, label %13
 
 13:                                               ; preds = %11
-  %14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 95) #19
+  %14 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %10, i32 noundef 95) #20
   %.not42 = icmp eq ptr %14, null
-  %15 = call i64 @strtol(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 10) #16
+  %15 = call i64 @strtol(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 10) #17
   %16 = trunc i64 %15 to i32
   %17 = load ptr, ptr %9, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %19 = call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #16
+  %19 = call i64 @strtol(ptr noundef nonnull captures(none) %18, ptr noundef null, i32 noundef 10) #17
   %20 = trunc i64 %19 to i32
   %. = select i1 %.not42, i32 -2, i32 %16
   %.47 = select i1 %.not42, i32 -2, i32 %20
@@ -5858,12 +5858,12 @@ define internal void @selected_foreach_build_list(ptr noundef %0, ptr readnone c
   %.133 = phi i32 [ %.48, %13 ], [ -2, %11 ]
   %.1 = phi i32 [ %.49, %13 ], [ -2, %11 ]
   %.0 = phi ptr [ %21, %13 ], [ %10, %11 ]
-  %23 = call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #16
+  %23 = call i64 @strtol(ptr noundef nonnull captures(none) %.0, ptr noundef null, i32 noundef 10) #17
   %24 = trunc i64 %23 to i32
   store i32 %24, ptr %5, align 4
   %25 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %25) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #16
+  call void @g_free(ptr noundef %25) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 3, ptr noundef nonnull %6, i32 noundef -1) #17
   %26 = load i32, ptr %6, align 4
   %.not43 = icmp eq i32 %26, 0
   br i1 %.not43, label %28, label %27
@@ -5874,12 +5874,12 @@ define internal void @selected_foreach_build_list(ptr noundef %0, ptr readnone c
 
 28:                                               ; preds = %22
   store i32 %24, ptr %6, align 4
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #17
   br label %29
 
 29:                                               ; preds = %28, %27
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 68, ptr noundef nonnull %7, i32 noundef -1) #16
-  %30 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4512, ptr noundef nonnull @__func__.selected_foreach_build_list) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %0, ptr noundef %2, i32 noundef 68, ptr noundef nonnull %7, i32 noundef -1) #17
+  %30 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 4512, ptr noundef nonnull @__func__.selected_foreach_build_list) #17
   %31 = load i32, ptr %5, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 %31, ptr %32, align 8
@@ -5899,11 +5899,11 @@ define internal void @selected_foreach_build_list(ptr noundef %0, ptr readnone c
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 44
   store i32 %.1, ptr %40, align 4
   %41 = load ptr, ptr @foreach_list, align 8
-  call void @list_append(ptr noundef %41, ptr noundef nonnull %30) #16
+  call void @list_append(ptr noundef %41, ptr noundef nonnull %30) #17
   %42 = load ptr, ptr @stacked_job_list, align 8
   %.not44 = icmp eq ptr %42, null
   %.str.258..str.257 = select i1 %.not44, ptr @.str.258, ptr @.str.257
-  call void @_xstrcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull %.str.258..str.257) #16
+  call void @_xstrcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull %.str.258..str.257) #17
   %43 = icmp eq i32 %.135, -2
   %44 = icmp eq i32 %.133, -2
   %or.cond = select i1 %43, i1 %44, i1 false
@@ -5911,18 +5911,18 @@ define internal void @selected_foreach_build_list(ptr noundef %0, ptr readnone c
 
 45:                                               ; preds = %29
   %46 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.77, i32 noundef %46) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.77, i32 noundef %46) #17
   br label %50
 
 47:                                               ; preds = %29
   br i1 %44, label %49, label %48
 
 48:                                               ; preds = %47
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.259, i32 noundef %.133, i32 noundef %.1) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.259, i32 noundef %.133, i32 noundef %.1) #17
   br label %50
 
 49:                                               ; preds = %47
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.260, i32 noundef %.137, i32 noundef %.135) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.260, i32 noundef %.137, i32 noundef %.135) #17
   br label %50
 
 50:                                               ; preds = %48, %49, %45
@@ -5931,15 +5931,15 @@ define internal void @selected_foreach_build_list(ptr noundef %0, ptr readnone c
   br i1 %.not46, label %53, label %52
 
 52:                                               ; preds = %50
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.261, i32 noundef %51) #16
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull @stacked_job_list, ptr noundef nonnull @.str.261, i32 noundef %51) #17
   br label %53
 
 53:                                               ; preds = %50, %52, %4
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   ret void
 }
 
@@ -5998,7 +5998,7 @@ define dso_local void @cluster_change_job() local_unnamed_addr #0 {
   br i1 %.b90.i, label %24, label %23
 
 23:                                               ; preds = %._crit_edge
-  tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #16
+  tail call void @set_page_opts(i32 noundef 0, ptr noundef nonnull @display_data_job, i32 noundef 95, ptr noundef nonnull @.str.240) #17
   br label %24
 
 24:                                               ; preds = %23, %._crit_edge
@@ -6008,7 +6008,7 @@ define dso_local void @cluster_change_job() local_unnamed_addr #0 {
   br i1 %.not.i, label %get_info_job.exit, label %26
 
 26:                                               ; preds = %24
-  tail call void @gtk_widget_destroy(ptr noundef nonnull %25) #16
+  tail call void @gtk_widget_destroy(ptr noundef nonnull %25) #17
   br label %get_info_job.exit
 
 get_info_job.exit:                                ; preds = %24, %26
@@ -6043,12 +6043,12 @@ declare void @slurm_get_job_stdout(ptr noundef, i32 noundef, ptr noundef) local_
 
 declare i32 @hostset_count(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 declare i32 @time_str2mins(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -6057,19 +6057,19 @@ declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #2
 define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   %3 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #16
+  call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
+  %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0) #17
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %38, label %6
 
 6:                                                ; preds = %1
-  %7 = call i32 @fstat(i32 noundef %4, ptr noundef nonnull %2) #16
+  %7 = call i32 @fstat(i32 noundef %4, ptr noundef nonnull %2) #17
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call i32 @close(i32 noundef %4) #16
+  %9 = tail call i32 @close(i32 noundef %4) #17
   br label %38
 
 10:                                               ; preds = %6
@@ -6079,7 +6079,7 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
   %14 = shl i64 %12, 32
   %sext = add i64 %14, 4294967296
   %15 = ashr exact i64 %sext, 32
-  %16 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 498, ptr noundef nonnull @__func__._read_file) #16
+  %16 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %15, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.30, i32 noundef 498, ptr noundef nonnull @__func__._read_file) #17
   store ptr %16, ptr %3, align 8
   %17 = icmp sgt i32 %13, 0
   br i1 %17, label %.lr.ph.split.us, label %.loopexit
@@ -6090,12 +6090,12 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
   %19 = getelementptr inbounds i8, ptr %16, i64 %18
   %20 = sub nsw i32 %13, %.016.ph26
   %21 = sext i32 %20 to i64
-  %22 = tail call i64 @read(i32 noundef %4, ptr noundef %19, i64 noundef %21) #16
+  %22 = tail call i64 @read(i32 noundef %4, ptr noundef %19, i64 noundef %21) #17
   %23 = icmp slt i64 %22, 0
   br i1 %23, label %.lr.ph25, label %.outer
 
 .lr.ph25:                                         ; preds = %.lr.ph.split.us
-  %24 = tail call ptr @__errno_location() #17
+  %24 = tail call ptr @__errno_location() #18
   br label %25
 
 25:                                               ; preds = %.lr.ph25, %27
@@ -6106,12 +6106,12 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
   ]
 
 27:                                               ; preds = %25, %25
-  %28 = tail call i64 @read(i32 noundef %4, ptr noundef %19, i64 noundef %21) #16
+  %28 = tail call i64 @read(i32 noundef %4, ptr noundef %19, i64 noundef %21) #17
   %29 = icmp slt i64 %28, 0
   br i1 %29, label %25, label %.outer
 
 .split24.us:                                      ; preds = %25
-  call void @slurm_xfree(ptr noundef nonnull %3) #16
+  call void @slurm_xfree(ptr noundef nonnull %3) #17
   br label %.loopexit
 
 .outer:                                           ; preds = %27, %.lr.ph.split.us
@@ -6122,7 +6122,7 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
   br i1 %32, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !44
 
 .loopexit:                                        ; preds = %.outer, %10, %.split24.us
-  %33 = call i32 @close(i32 noundef %4) #16
+  %33 = call i32 @close(i32 noundef %4) #17
   %34 = load ptr, ptr %3, align 8
   %35 = ashr exact i64 %14, 32
   %36 = getelementptr inbounds i8, ptr %34, i64 %35
@@ -6132,12 +6132,12 @@ define internal fastcc ptr @_read_file(ptr noundef readonly captures(none) %0) u
 
 38:                                               ; preds = %1, %.loopexit, %8
   %.0 = phi ptr [ null, %8 ], [ %37, %.loopexit ], [ null, %1 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %2) #17
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
@@ -6163,18 +6163,18 @@ declare i32 @list_flush(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @_job_info_list_del(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr %0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %1
   tail call fastcc void @_job_info_free(ptr noundef %0)
-  call void @slurm_xfree(ptr noundef nonnull %2) #16
+  call void @slurm_xfree(ptr noundef nonnull %2) #17
   br label %4
 
 4:                                                ; preds = %3, %1
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   ret void
 }
 
@@ -6183,16 +6183,16 @@ declare ptr @list_remove(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_job_info_free(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @slurm_xfree(ptr noundef nonnull %2) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %2) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @slurm_xfree(ptr noundef nonnull %3) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %3) #17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %1
-  tail call void @list_destroy(ptr noundef nonnull %5) #16
+  tail call void @list_destroy(ptr noundef nonnull %5) #17
   br label %7
 
 7:                                                ; preds = %6, %1
@@ -6203,7 +6203,7 @@ define internal fastcc void @_job_info_free(ptr noundef nonnull %0) unnamed_addr
   br i1 %.not25, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @list_destroy(ptr noundef nonnull %9) #16
+  tail call void @list_destroy(ptr noundef nonnull %9) #17
   br label %11
 
 11:                                               ; preds = %10, %7
@@ -6214,22 +6214,22 @@ define internal fastcc void @_job_info_free(ptr noundef nonnull %0) unnamed_addr
   br i1 %.not26, label %15, label %14
 
 14:                                               ; preds = %11
-  tail call void @list_destroy(ptr noundef nonnull %13) #16
+  tail call void @list_destroy(ptr noundef nonnull %13) #17
   br label %15
 
 15:                                               ; preds = %14, %11
   store ptr null, ptr %12, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @slurm_xfree(ptr noundef nonnull %16) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %16) #17
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @slurm_xfree(ptr noundef nonnull %17) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %17) #17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %21, label %20
 
 20:                                               ; preds = %15
-  tail call void @hostlist_destroy(ptr noundef nonnull %19) #16
+  tail call void @hostlist_destroy(ptr noundef nonnull %19) #17
   br label %21
 
 21:                                               ; preds = %20, %15
@@ -6240,7 +6240,7 @@ define internal fastcc void @_job_info_free(ptr noundef nonnull %0) unnamed_addr
   br i1 %.not28, label %25, label %24
 
 24:                                               ; preds = %21
-  tail call void @hostlist_destroy(ptr noundef nonnull %23) #16
+  tail call void @hostlist_destroy(ptr noundef nonnull %23) #17
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -6314,7 +6314,7 @@ define internal range(i32 -1, 2) i32 @_sview_job_sort_aval_dec(ptr noundef reado
   br i1 %.not19, label %22, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @xstrcmp(ptr noundef nonnull %14, ptr noundef nonnull %17) #16
+  %19 = tail call i32 @xstrcmp(ptr noundef nonnull %14, ptr noundef nonnull %17) #17
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %23, label %21
 
@@ -6379,48 +6379,48 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %46 = alloca ptr, align 8
   %47 = alloca [32 x i8], align 16
   %48 = alloca %struct._GtkTreeIter, align 8
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %14) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %15) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %32) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %36) #16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %37) #16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %38) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %40) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %44) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #16
-  %49 = tail call i64 @time(ptr noundef null) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #16
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %14) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %20) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %23) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %25) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %26) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %27) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %30) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %31) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %32) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %33) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %34) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %35) #17
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %36) #17
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %37) #17
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %38) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %39) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %40) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %41) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %42) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %43) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %44) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #17
+  %49 = tail call i64 @time(ptr noundef null) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %2, null
@@ -6430,7 +6430,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %56 = load i32, ptr %55, align 8
-  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 40, ptr noundef nonnull @.str.76, ptr noundef %54, i32 noundef %56) #16
+  %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 40, ptr noundef nonnull @.str.76, ptr noundef %54, i32 noundef %56) #17
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %59 = load ptr, ptr %58, align 8
   %.not287 = icmp eq ptr %59, null
@@ -6443,7 +6443,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not288, label %75, label %63
 
 63:                                               ; preds = %60
-  %64 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %62) #16
+  %64 = tail call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %62) #17
   store ptr %64, ptr %58, align 8
   %65 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %66 = load i32, ptr %65, align 4
@@ -6453,16 +6453,16 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %69 = load i32, ptr %68, align 8
-  %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.241, i32 noundef %69, ptr noundef %64) #16
+  %70 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.241, i32 noundef %69, ptr noundef %64) #17
   br label %73
 
 71:                                               ; preds = %63
-  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.242, i32 noundef %66, ptr noundef %64) #16
+  %72 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.242, i32 noundef %66, ptr noundef %64) #17
   br label %73
 
 73:                                               ; preds = %71, %67
-  tail call void @slurm_xfree(ptr noundef nonnull %58) #16
-  %74 = call ptr @xstrdup(ptr noundef nonnull %35) #16
+  tail call void @slurm_xfree(ptr noundef nonnull %58) #17
+  %74 = call ptr @xstrdup(ptr noundef nonnull %35) #17
   store ptr %74, ptr %58, align 8
   br label %75
 
@@ -6479,7 +6479,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not291, label %93, label %81
 
 81:                                               ; preds = %78
-  %82 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %80) #16
+  %82 = call ptr @hostlist_ranged_string_xmalloc(ptr noundef nonnull %80) #17
   store ptr %82, ptr %76, align 8
   %83 = getelementptr inbounds nuw i8, ptr %51, i64 396
   %84 = load i32, ptr %83, align 4
@@ -6489,16 +6489,16 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %87 = load i32, ptr %86, align 8
-  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.241, i32 noundef %87, ptr noundef %82) #16
+  %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.241, i32 noundef %87, ptr noundef %82) #17
   br label %91
 
 89:                                               ; preds = %81
-  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.242, i32 noundef %84, ptr noundef %82) #16
+  %90 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.242, i32 noundef %84, ptr noundef %82) #17
   br label %91
 
 91:                                               ; preds = %89, %85
-  call void @slurm_xfree(ptr noundef nonnull %76) #16
-  %92 = call ptr @xstrdup(ptr noundef nonnull %35) #16
+  call void @slurm_xfree(ptr noundef nonnull %76) #17
+  %92 = call ptr @xstrdup(ptr noundef nonnull %35) #17
   store ptr %92, ptr %76, align 8
   br label %93
 
@@ -6531,17 +6531,17 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not304, label %111, label %107
 
 107:                                              ; preds = %104, %101
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %94) #16
+  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %94) #17
   store i32 4271950, ptr %8, align 16
   %109 = load ptr, ptr %76, align 8
-  %110 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.89, ptr noundef %109) #16
+  %110 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.89, ptr noundef %109) #17
   br label %175
 
 111:                                              ; preds = %104
   br i1 %.not293, label %175, label %112
 
 112:                                              ; preds = %111
-  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %94) #16
+  %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %94) #17
   br label %175
 
 114:                                              ; preds = %98, %93
@@ -6573,10 +6573,10 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 127:                                              ; preds = %124, %121
   %128 = load ptr, ptr %58, align 8
-  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %128) #16
+  %129 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %128) #17
   store i32 4271950, ptr %8, align 16
   %130 = load ptr, ptr %58, align 8
-  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.89, ptr noundef %130) #16
+  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.89, ptr noundef %130) #17
   br label %175
 
 132:                                              ; preds = %124
@@ -6584,7 +6584,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 133:                                              ; preds = %132
   %134 = load ptr, ptr %58, align 8
-  %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %134) #16
+  %135 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %134) #17
   br label %175
 
 136:                                              ; preds = %118, %114
@@ -6596,12 +6596,12 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %141 = load ptr, ptr %140, align 8
-  %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %141) #16
+  %142 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %141) #17
   %143 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %144 = load i32, ptr %143, align 8
-  %145 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 20, ptr noundef nonnull @.str.77, i32 noundef %144) #16
+  %145 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 20, ptr noundef nonnull @.str.77, i32 noundef %144) #17
   %146 = load ptr, ptr %137, align 8
-  %147 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.79, ptr noundef %146) #16
+  %147 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.79, ptr noundef %146) #17
   br label %175
 
 148:                                              ; preds = %136
@@ -6613,12 +6613,12 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %153 = load ptr, ptr %152, align 8
-  %154 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %153) #16
+  %154 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %153) #17
   %155 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %156 = load i32, ptr %155, align 8
-  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 20, ptr noundef nonnull @.str.77, i32 noundef %156) #16
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 20, ptr noundef nonnull @.str.77, i32 noundef %156) #17
   %158 = load i32, ptr %149, align 4
-  %159 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.77, i32 noundef %158) #16
+  %159 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 20, ptr noundef nonnull @.str.77, i32 noundef %158) #17
   br label %175
 
 160:                                              ; preds = %148
@@ -6627,18 +6627,18 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %.not299 = icmp eq i32 %162, 0
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %164 = load ptr, ptr %163, align 8
-  %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %164) #16
+  %165 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %35, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %164) #17
   br i1 %.not299, label %175, label %166
 
 166:                                              ; preds = %160
   %167 = load i32, ptr %161, align 4
-  %168 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %41, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %167) #16
+  %168 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %41, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %167) #17
   %169 = getelementptr inbounds nuw i8, ptr %51, i64 400
   %170 = load ptr, ptr %169, align 8
-  %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %42, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %170) #16
+  %171 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %42, i64 noundef 40, ptr noundef nonnull @.str.89, ptr noundef %170) #17
   %172 = getelementptr inbounds nuw i8, ptr %51, i64 408
   %173 = load i32, ptr %172, align 8
-  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %43, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %173) #16
+  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %43, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %173) #17
   br label %175
 
 175:                                              ; preds = %160, %132, %133, %127, %151, %166, %139, %107, %112, %111
@@ -6684,7 +6684,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 191:                                              ; preds = %183
   %192 = zext nneg i16 %189 to i32
-  %193 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %192) #16
+  %193 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %192) #17
   %.pre = load i16, ptr %188, align 2
   br label %194
 
@@ -6702,7 +6702,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 199:                                              ; preds = %194
   %200 = and i16 %195, 32767
   %201 = zext nneg i16 %200 to i32
-  %202 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %201) #16
+  %202 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %201) #17
   br label %203
 
 203:                                              ; preds = %199, %198
@@ -6717,27 +6717,27 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 208:                                              ; preds = %203
   %209 = zext i16 %205 to i32
-  %210 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %209) #16
+  %210 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %209) #17
   br label %211
 
 211:                                              ; preds = %208, %207
   %212 = getelementptr inbounds nuw i8, ptr %51, i64 548
   %213 = load i32, ptr %212, align 4
-  %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %213) #16
+  %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %21, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %213) #17
   %215 = getelementptr inbounds nuw i8, ptr %51, i64 592
   %216 = load i16, ptr %215, align 8
   %217 = uitofp i16 %216 to double
   %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %217, ptr noundef nonnull %26, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %218) #16
+  call void @convert_num_unit(double noundef %217, ptr noundef nonnull %26, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %218) #17
   %219 = getelementptr inbounds nuw i8, ptr %51, i64 472
   %220 = load i32, ptr %219, align 8
-  %221 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %220) #16
+  %221 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %220) #17
   %222 = getelementptr inbounds nuw i8, ptr %51, i64 596
   %223 = load i32, ptr %222, align 4
   %224 = uitofp i32 %223 to float
   %225 = fpext float %224 to double
   %226 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %225, ptr noundef nonnull %23, i32 noundef 40, i32 noundef 2, i32 noundef -2, i32 noundef %226) #16
+  call void @convert_num_unit(double noundef %225, ptr noundef nonnull %23, i32 noundef 40, i32 noundef 2, i32 noundef -2, i32 noundef %226) #17
   %227 = getelementptr inbounds nuw i8, ptr %51, i64 256
   %228 = load i32, ptr %227, align 8
   %229 = and i32 %228, 127
@@ -6749,7 +6749,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %sext = add nuw i32 %233, 16777216
   %234 = icmp sgt i32 %sext, 33554431
   %.0260 = select i1 %234, i32 %229, i32 0
-  %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.0261, i32 noundef %.0260) #16
+  %235 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %20, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.0261, i32 noundef %.0260) #17
   %236 = getelementptr inbounds nuw i8, ptr %51, i64 296
   %237 = load i32, ptr %236, align 8
   %238 = and i32 %237, 127
@@ -6761,10 +6761,10 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %sext311 = add nuw i32 %242, 16777216
   %243 = icmp sgt i32 %sext311, 33554431
   %.1 = select i1 %243, i32 %238, i32 0
-  %244 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.1262, i32 noundef %.1) #16
+  %244 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 40, ptr noundef nonnull @.str.80, i32 noundef %.1262, i32 noundef %.1) #17
   %245 = getelementptr inbounds nuw i8, ptr %51, i64 392
   %246 = load i32, ptr %245, align 8
-  %247 = call ptr @gid_to_string(i32 noundef %246) #16
+  %247 = call ptr @gid_to_string(i32 noundef %246) #17
   store ptr %247, ptr %45, align 8
   %248 = getelementptr inbounds nuw i8, ptr %51, i64 584
   %249 = load i64, ptr %248, align 8
@@ -6776,8 +6776,8 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %252 = uitofp nneg i64 %250 to float
   %253 = fpext float %252 to double
   %254 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %253, ptr noundef nonnull %25, i32 noundef 40, i32 noundef 2, i32 noundef -2, i32 noundef %254) #16
-  %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #19
+  call void @convert_num_unit(double noundef %253, ptr noundef nonnull %25, i32 noundef 40, i32 noundef 2, i32 noundef -2, i32 noundef %254) #17
+  %255 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #20
   %256 = getelementptr inbounds nuw i8, ptr %51, i64 488
   %257 = load ptr, ptr %256, align 8
   %.not314 = icmp eq ptr %257, null
@@ -6813,9 +6813,9 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 268:                                              ; preds = %258, %266, %265, %267
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %270 = load i32, ptr %269, align 8
-  %271 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %270) #16
+  %271 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %270) #17
   %272 = load i32, ptr %269, align 8
-  %273 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %272) #16
+  %273 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %27, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %272) #17
   %274 = getelementptr inbounds nuw i8, ptr %51, i64 776
   %275 = load ptr, ptr %274, align 8
   %.not319 = icmp eq ptr %275, null
@@ -6824,7 +6824,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 276:                                              ; preds = %268
   %277 = getelementptr inbounds nuw i8, ptr %51, i64 784
   %278 = load i32, ptr %277, align 8
-  %279 = call ptr @job_state_reason_string(i32 noundef %278) #16
+  %279 = call ptr @job_state_reason_string(i32 noundef %278) #17
   br label %280
 
 280:                                              ; preds = %268, %276
@@ -6841,7 +6841,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %286 = load i32, ptr %285, align 8
   %287 = zext i32 %286 to i64
   %288 = add nsw i64 %287, -2147483648
-  %289 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 40, ptr noundef nonnull @.str.88, i64 noundef %288) #16
+  %289 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %31, i64 noundef 40, ptr noundef nonnull @.str.88, i64 noundef %288) #17
   %290 = getelementptr inbounds nuw i8, ptr %51, i64 512
   %291 = load ptr, ptr %290, align 8
   %.not322 = icmp eq ptr %291, null
@@ -6855,13 +6855,13 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %296, label %299, label %297
 
 297:                                              ; preds = %292
-  %298 = call i32 @xstrcasecmp(ptr noundef nonnull %291, ptr noundef nonnull @.str.74) #16
+  %298 = call i32 @xstrcasecmp(ptr noundef nonnull %291, ptr noundef nonnull @.str.74) #17
   %.not323 = icmp eq i32 %298, 0
   br i1 %.not323, label %299, label %301
 
 299:                                              ; preds = %297, %292, %280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.75, i64 9, i1 false)
-  %300 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #16
+  %300 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #17
   br label %334
 
 301:                                              ; preds = %297
@@ -6892,7 +6892,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not325, label %319, label %312
 
 312:                                              ; preds = %309
-  %313 = call double @difftime(i64 noundef %.1266, i64 noundef %311) #17
+  %313 = call double @difftime(i64 noundef %.1266, i64 noundef %311) #18
   %314 = getelementptr inbounds nuw i8, ptr %51, i64 616
   %315 = load i64, ptr %314, align 8
   %316 = sitofp i64 %315 to double
@@ -6903,21 +6903,21 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 319:                                              ; preds = %309
   %320 = getelementptr inbounds nuw i8, ptr %51, i64 760
   %321 = load i64, ptr %320, align 8
-  %322 = call double @difftime(i64 noundef %.1266, i64 noundef %321) #17
+  %322 = call double @difftime(i64 noundef %.1266, i64 noundef %321) #18
   %323 = fptosi double %322 to i64
   br label %324
 
 324:                                              ; preds = %312, %319, %303
   %.0265 = phi i64 [ %305, %303 ], [ %318, %312 ], [ %323, %319 ]
-  %325 = call i64 @time(ptr noundef null) #16
+  %325 = call i64 @time(ptr noundef null) #17
   %326 = getelementptr inbounds nuw i8, ptr %51, i64 760
   %327 = load i64, ptr %326, align 8
   %328 = add i64 %.0265, %327
   %329 = sub i64 %325, %328
-  call void @secs2time_str(i64 noundef %.0265, ptr noundef nonnull %10, i32 noundef 40) #16
+  call void @secs2time_str(i64 noundef %.0265, ptr noundef nonnull %10, i32 noundef 40) #17
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %331 = load ptr, ptr %330, align 8
-  %332 = call ptr @slurm_sort_node_list_str(ptr noundef %331) #16
+  %332 = call ptr @slurm_sort_node_list_str(ptr noundef %331) #17
   %sext330 = shl i64 %329, 32
   %333 = ashr exact i64 %sext330, 32
   br label %334
@@ -6933,7 +6933,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 338:                                              ; preds = %334
   %339 = load i32, ptr %269, align 8
-  %340 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %339) #16
+  %340 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %339) #17
   br label %342
 
 341:                                              ; preds = %334
@@ -6943,11 +6943,11 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 342:                                              ; preds = %341, %338
   %343 = getelementptr inbounds nuw i8, ptr %51, i64 624
   %344 = load i32, ptr %343, align 8
-  %345 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %344) #16
+  %345 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %344) #17
   %346 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  call void @slurm_make_time_str(ptr noundef nonnull %346, ptr noundef nonnull %44, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %346, ptr noundef nonnull %44, i32 noundef 256) #17
   %347 = getelementptr inbounds nuw i8, ptr %51, i64 264
-  call void @slurm_make_time_str(ptr noundef nonnull %347, ptr noundef nonnull %13, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %347, ptr noundef nonnull %13, i32 noundef 256) #17
   %348 = getelementptr inbounds nuw i8, ptr %51, i64 848
   %349 = load i32, ptr %348, align 8
   %350 = icmp eq i32 %349, -1
@@ -6956,7 +6956,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 351:                                              ; preds = %342
   %352 = getelementptr inbounds nuw i8, ptr %51, i64 272
   %353 = load i64, ptr %352, align 8
-  %354 = call i64 @time(ptr noundef null) #16
+  %354 = call i64 @time(ptr noundef null) #17
   %355 = icmp sgt i64 %353, %354
   br i1 %355, label %356, label %357
 
@@ -6966,7 +6966,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 357:                                              ; preds = %351, %342
   %358 = getelementptr inbounds nuw i8, ptr %51, i64 272
-  call void @slurm_make_time_str(ptr noundef nonnull %358, ptr noundef nonnull %15, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %358, ptr noundef nonnull %15, i32 noundef 256) #17
   br label %359
 
 359:                                              ; preds = %357, %356
@@ -6987,7 +6987,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 363:                                              ; preds = %359
   %364 = mul i32 %360, 60
   %365 = zext i32 %364 to i64
-  call void @secs2time_str(i64 noundef %365, ptr noundef nonnull %17, i32 noundef 40) #16
+  call void @secs2time_str(i64 noundef %365, ptr noundef nonnull %17, i32 noundef 40) #17
   br label %366
 
 366:                                              ; preds = %362, %363, %361
@@ -6997,7 +6997,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not327, label %370, label %369
 
 369:                                              ; preds = %366
-  call void @slurm_make_time_str(ptr noundef nonnull %367, ptr noundef nonnull %32, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %367, ptr noundef nonnull %32, i32 noundef 256) #17
   br label %371
 
 370:                                              ; preds = %366
@@ -7011,7 +7011,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not328, label %375, label %374
 
 374:                                              ; preds = %371
-  call void @slurm_make_time_str(ptr noundef nonnull %372, ptr noundef nonnull %11, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %372, ptr noundef nonnull %11, i32 noundef 256) #17
   br label %376
 
 375:                                              ; preds = %371
@@ -7020,16 +7020,16 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 376:                                              ; preds = %375, %374
   %377 = getelementptr inbounds nuw i8, ptr %51, i64 760
-  call void @slurm_make_time_str(ptr noundef nonnull %377, ptr noundef nonnull %14, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %377, ptr noundef nonnull %14, i32 noundef 256) #17
   %378 = getelementptr inbounds nuw i8, ptr %51, i64 824
-  call void @slurm_make_time_str(ptr noundef nonnull %378, ptr noundef nonnull %12, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %378, ptr noundef nonnull %12, i32 noundef 256) #17
   %379 = getelementptr inbounds nuw i8, ptr %51, i64 232
   %380 = load i64, ptr %379, align 8
   %.not329 = icmp eq i64 %380, 0
   br i1 %.not329, label %382, label %381
 
 381:                                              ; preds = %376
-  call void @slurm_make_time_str(ptr noundef nonnull %379, ptr noundef nonnull %40, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %379, ptr noundef nonnull %40, i32 noundef 256) #17
   br label %383
 
 382:                                              ; preds = %376
@@ -7037,10 +7037,10 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br label %383
 
 383:                                              ; preds = %382, %381
-  call void @slurm_get_job_stderr(ptr noundef nonnull %36, i32 noundef 128, ptr noundef nonnull %51) #16
-  call void @slurm_get_job_stdin(ptr noundef nonnull %37, i32 noundef 128, ptr noundef nonnull %51) #16
-  call void @slurm_get_job_stdout(ptr noundef nonnull %38, i32 noundef 128, ptr noundef nonnull %51) #16
-  call void @secs2time_str(i64 noundef %.0264, ptr noundef nonnull %16, i32 noundef 40) #16
+  call void @slurm_get_job_stderr(ptr noundef nonnull %36, i32 noundef 128, ptr noundef nonnull %51) #17
+  call void @slurm_get_job_stdin(ptr noundef nonnull %37, i32 noundef 128, ptr noundef nonnull %51) #17
+  call void @slurm_get_job_stdout(ptr noundef nonnull %38, i32 noundef 128, ptr noundef nonnull %51) #17
+  call void @secs2time_str(i64 noundef %.0264, ptr noundef nonnull %16, i32 noundef 40) #17
   %384 = getelementptr inbounds nuw i8, ptr %51, i64 688
   %385 = load i32, ptr %384, align 8
   %.not331 = icmp eq i32 %385, -2
@@ -7054,13 +7054,13 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 
 389:                                              ; preds = %386
   %390 = zext i32 %388 to i64
-  call void @secs2time_str(i64 noundef %390, ptr noundef nonnull %47, i32 noundef 32) #16
+  call void @secs2time_str(i64 noundef %390, ptr noundef nonnull %47, i32 noundef 32) #17
   %391 = load i32, ptr %384, align 8
-  %392 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %391, ptr noundef nonnull %47) #16
+  %392 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.90, i32 noundef %391, ptr noundef nonnull %47) #17
   br label %396
 
 393:                                              ; preds = %386
-  %394 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %385) #16
+  %394 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %33, ptr noundef nonnull dereferenceable(1) @.str.77, i32 noundef %385) #17
   br label %396
 
 395:                                              ; preds = %383
@@ -7070,7 +7070,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 396:                                              ; preds = %389, %393, %395
   %397 = getelementptr inbounds nuw i8, ptr %51, i64 928
   %398 = load i32, ptr %397, align 8
-  %399 = call ptr @uid_to_string_cached(i32 noundef %398) #16
+  %399 = call ptr @uid_to_string_cached(i32 noundef %398) #17
   %brmerge = or i1 %3, %4
   br i1 %brmerge, label %400, label %431
 
@@ -7111,13 +7111,13 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %425 = load ptr, ptr %424, align 8
   %426 = getelementptr inbounds nuw i8, ptr %51, i64 568
   %427 = load ptr, ptr %426, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %409, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %411, i32 noundef 9, ptr noundef %413, i32 noundef 10, ptr noundef %415, i32 noundef 11, ptr noundef %419, i32 noundef 12, i32 noundef %416, i32 noundef 13, ptr noundef %421, i32 noundef 14, ptr noundef %423, i32 noundef 15, ptr noundef nonnull %.0269, i32 noundef 26, ptr noundef %425, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %427, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %409, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %411, i32 noundef 9, ptr noundef %413, i32 noundef 10, ptr noundef %415, i32 noundef 11, ptr noundef %419, i32 noundef 12, i32 noundef %416, i32 noundef 13, ptr noundef %421, i32 noundef 14, ptr noundef %423, i32 noundef 15, ptr noundef nonnull %.0269, i32 noundef 26, ptr noundef %425, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %427, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef -1) #17
   br i1 %4, label %428, label %511
 
 428:                                              ; preds = %408
   %429 = load ptr, ptr %51, align 8
-  %430 = call ptr @job_state_string(i32 noundef 0) #16
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %429, i32 noundef 67, ptr noundef %430, i32 noundef -1) #16
+  %430 = call ptr @job_state_string(i32 noundef 0) #17
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %429, i32 noundef 67, ptr noundef %430, i32 noundef -1) #17
   br label %511
 
 431:                                              ; preds = %396, %406
@@ -7168,7 +7168,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %476 = load ptr, ptr %475, align 8
   %477 = getelementptr inbounds nuw i8, ptr %51, i64 744
   %478 = load i16, ptr %477, align 8
-  %479 = call ptr @job_share_string(i16 noundef zeroext %478) #16
+  %479 = call ptr @job_share_string(i16 noundef zeroext %478) #17
   %480 = getelementptr inbounds nuw i8, ptr %51, i64 568
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr inbounds nuw i8, ptr %51, i64 656
@@ -7180,7 +7180,7 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %488 = load ptr, ptr %487, align 8
   %489 = getelementptr inbounds nuw i8, ptr %51, i64 432
   %490 = load i32, ptr %489, align 8
-  %491 = call ptr @job_state_string(i32 noundef %490) #16
+  %491 = call ptr @job_state_string(i32 noundef %490) #17
   %492 = load i32, ptr %489, align 8
   %493 = getelementptr inbounds nuw i8, ptr %51, i64 920
   %494 = load ptr, ptr %493, align 8
@@ -7200,13 +7200,13 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   %508 = load ptr, ptr %507, align 8
   %509 = getelementptr inbounds nuw i8, ptr %51, i64 960
   %510 = load ptr, ptr %509, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %432, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %434, i32 noundef 9, ptr noundef %436, i32 noundef 10, ptr noundef %438, i32 noundef 11, ptr noundef %442, i32 noundef 12, i32 noundef %439, i32 noundef 13, ptr noundef %444, i32 noundef 14, ptr noundef %446, i32 noundef 15, ptr noundef nonnull %.0269, i32 noundef 16, ptr noundef nonnull %34, i32 noundef 17, ptr noundef nonnull %21, i32 noundef 19, ptr noundef nonnull %24, i32 noundef 20, ptr noundef nonnull %21, i32 noundef 21, ptr noundef nonnull %29, i32 noundef 18, ptr noundef %448, i32 noundef 41, ptr noundef nonnull %26, i32 noundef 22, ptr noundef nonnull %40, i32 noundef 23, ptr noundef %450, i32 noundef 24, ptr noundef nonnull %20, i32 noundef 25, ptr noundef nonnull %19, i32 noundef 26, ptr noundef %452, i32 noundef 27, ptr noundef %454, i32 noundef 59, ptr noundef %456, i32 noundef 28, ptr noundef %458, i32 noundef 29, ptr noundef %460, i32 noundef 30, ptr noundef %462, i32 noundef 32, ptr noundef %247, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 39, ptr noundef %464, i32 noundef 40, ptr noundef %466, i32 noundef 42, ptr noundef nonnull %25, i32 noundef 43, ptr noundef %448, i32 noundef 45, ptr noundef %468, i32 noundef 47, ptr noundef nonnull %31, i32 noundef 52, ptr noundef %470, i32 noundef 48, ptr noundef %335, i32 noundef 49, ptr noundef %472, i32 noundef 50, ptr noundef %474, i32 noundef 51, ptr noundef %476, i32 noundef 53, ptr noundef nonnull %22, i32 noundef 54, ptr noundef nonnull %28, i32 noundef 55, ptr noundef nonnull %27, i32 noundef 56, ptr noundef %479, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %481, i32 noundef 58, ptr noundef nonnull %32, i32 noundef 60, ptr noundef nonnull %30, i32 noundef 61, ptr noundef %483, i32 noundef 62, ptr noundef %.0267, i32 noundef 63, ptr noundef nonnull %.str.39..str.38346, i32 noundef 64, ptr noundef nonnull %.0270, i32 noundef 66, i32 noundef %486, i32 noundef 65, ptr noundef %488, i32 noundef 67, ptr noundef %491, i32 noundef 68, i32 noundef %492, i32 noundef 69, ptr noundef nonnull %36, i32 noundef 70, ptr noundef nonnull %37, i32 noundef 71, ptr noundef nonnull %38, i32 noundef 72, ptr noundef nonnull %33, i32 noundef 74, ptr noundef nonnull %39, i32 noundef 75, ptr noundef nonnull %44, i32 noundef 76, ptr noundef nonnull %13, i32 noundef 77, ptr noundef nonnull %15, i32 noundef 79, ptr noundef nonnull %11, i32 noundef 80, ptr noundef nonnull %10, i32 noundef 81, ptr noundef nonnull %14, i32 noundef 82, ptr noundef nonnull %12, i32 noundef 83, ptr noundef nonnull %16, i32 noundef 78, ptr noundef nonnull %17, i32 noundef 44, ptr noundef nonnull %23, i32 noundef 84, ptr noundef %494, i32 noundef 85, ptr noundef %496, i32 noundef 86, ptr noundef %498, i32 noundef 87, ptr noundef %500, i32 noundef 88, ptr noundef %502, i32 noundef 89, ptr noundef %504, i32 noundef 90, ptr noundef %506, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef 93, ptr noundef %508, i32 noundef 94, ptr noundef %510, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 1, ptr noundef %432, i32 noundef 3, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %18, i32 noundef 5, ptr noundef nonnull %8, i32 noundef 6, ptr noundef nonnull %9, i32 noundef 7, ptr noundef nonnull %.str.39..str.38, i32 noundef 8, ptr noundef %434, i32 noundef 9, ptr noundef %436, i32 noundef 10, ptr noundef %438, i32 noundef 11, ptr noundef %442, i32 noundef 12, i32 noundef %439, i32 noundef 13, ptr noundef %444, i32 noundef 14, ptr noundef %446, i32 noundef 15, ptr noundef nonnull %.0269, i32 noundef 16, ptr noundef nonnull %34, i32 noundef 17, ptr noundef nonnull %21, i32 noundef 19, ptr noundef nonnull %24, i32 noundef 20, ptr noundef nonnull %21, i32 noundef 21, ptr noundef nonnull %29, i32 noundef 18, ptr noundef %448, i32 noundef 41, ptr noundef nonnull %26, i32 noundef 22, ptr noundef nonnull %40, i32 noundef 23, ptr noundef %450, i32 noundef 24, ptr noundef nonnull %20, i32 noundef 25, ptr noundef nonnull %19, i32 noundef 26, ptr noundef %452, i32 noundef 27, ptr noundef %454, i32 noundef 59, ptr noundef %456, i32 noundef 28, ptr noundef %458, i32 noundef 29, ptr noundef %460, i32 noundef 30, ptr noundef %462, i32 noundef 32, ptr noundef %247, i32 noundef 36, ptr noundef nonnull %35, i32 noundef 37, ptr noundef nonnull %35, i32 noundef 39, ptr noundef %464, i32 noundef 40, ptr noundef %466, i32 noundef 42, ptr noundef nonnull %25, i32 noundef 43, ptr noundef %448, i32 noundef 45, ptr noundef %468, i32 noundef 47, ptr noundef nonnull %31, i32 noundef 52, ptr noundef %470, i32 noundef 48, ptr noundef %335, i32 noundef 49, ptr noundef %472, i32 noundef 50, ptr noundef %474, i32 noundef 51, ptr noundef %476, i32 noundef 53, ptr noundef nonnull %22, i32 noundef 54, ptr noundef nonnull %28, i32 noundef 55, ptr noundef nonnull %27, i32 noundef 56, ptr noundef %479, i32 noundef 33, ptr noundef nonnull %41, i32 noundef 34, ptr noundef nonnull %42, i32 noundef 35, ptr noundef nonnull %43, i32 noundef 57, ptr noundef %481, i32 noundef 58, ptr noundef nonnull %32, i32 noundef 60, ptr noundef nonnull %30, i32 noundef 61, ptr noundef %483, i32 noundef 62, ptr noundef %.0267, i32 noundef 63, ptr noundef nonnull %.str.39..str.38346, i32 noundef 64, ptr noundef nonnull %.0270, i32 noundef 66, i32 noundef %486, i32 noundef 65, ptr noundef %488, i32 noundef 67, ptr noundef %491, i32 noundef 68, i32 noundef %492, i32 noundef 69, ptr noundef nonnull %36, i32 noundef 70, ptr noundef nonnull %37, i32 noundef 71, ptr noundef nonnull %38, i32 noundef 72, ptr noundef nonnull %33, i32 noundef 74, ptr noundef nonnull %39, i32 noundef 75, ptr noundef nonnull %44, i32 noundef 76, ptr noundef nonnull %13, i32 noundef 77, ptr noundef nonnull %15, i32 noundef 79, ptr noundef nonnull %11, i32 noundef 80, ptr noundef nonnull %10, i32 noundef 81, ptr noundef nonnull %14, i32 noundef 82, ptr noundef nonnull %12, i32 noundef 83, ptr noundef nonnull %16, i32 noundef 78, ptr noundef nonnull %17, i32 noundef 44, ptr noundef nonnull %23, i32 noundef 84, ptr noundef %494, i32 noundef 85, ptr noundef %496, i32 noundef 86, ptr noundef %498, i32 noundef 87, ptr noundef %500, i32 noundef 88, ptr noundef %502, i32 noundef 89, ptr noundef %504, i32 noundef 90, ptr noundef %506, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %399, i32 noundef 93, ptr noundef %508, i32 noundef 94, ptr noundef %510, i32 noundef -1) #17
   br label %511
 
 511:                                              ; preds = %408, %428, %431
   %512 = getelementptr inbounds nuw i8, ptr %51, i64 504
   %513 = load ptr, ptr %512, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 46, ptr noundef %513, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef nonnull %spec.select, i32 noundef 46, ptr noundef %513, i32 noundef -1) #17
   br i1 %3, label %514, label %529
 
 514:                                              ; preds = %511
@@ -7227,11 +7227,11 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not338, label %529, label %522
 
 522:                                              ; preds = %520, %517, %514
-  %523 = tail call i64 @gtk_tree_model_get_type() #17
-  %524 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %523) #16
-  %525 = call i32 @gtk_tree_model_iter_children(ptr noundef %524, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #16
+  %523 = tail call i64 @gtk_tree_model_get_type() #18
+  %524 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %523) #17
+  %525 = call i32 @gtk_tree_model_iter_children(ptr noundef %524, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #17
   %.not344 = icmp eq i32 %525, 0
-  %526 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %523) #16
+  %526 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %523) #17
   br i1 %.not344, label %528, label %527
 
 527:                                              ; preds = %522
@@ -7263,11 +7263,11 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
   br i1 %.not341, label %551, label %538
 
 538:                                              ; preds = %536, %533, %530
-  %539 = tail call i64 @gtk_tree_model_get_type() #17
-  %540 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %539) #16
-  %541 = call i32 @gtk_tree_model_iter_children(ptr noundef %540, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #16
+  %539 = tail call i64 @gtk_tree_model_get_type() #18
+  %540 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %539) #17
+  %541 = call i32 @gtk_tree_model_iter_children(ptr noundef %540, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #17
   %.not343 = icmp eq i32 %541, 0
-  %542 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %539) #16
+  %542 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %539) #17
   br i1 %.not343, label %544, label %543
 
 543:                                              ; preds = %538
@@ -7277,34 +7277,34 @@ define internal fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noun
 544:                                              ; preds = %538
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr null, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %546 = load ptr, ptr %545, align 8
-  %547 = call ptr @list_iterator_create(ptr noundef %546) #16
-  %548 = call ptr @list_next(ptr noundef %547) #16
+  %547 = call ptr @list_iterator_create(ptr noundef %546) #17
+  %548 = call ptr @list_next(ptr noundef %547) #17
   %.not25.i349 = icmp eq ptr %548, null
   br i1 %.not25.i349, label %_update_info_task.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %544, %.lr.ph
   %549 = phi ptr [ %550, %.lr.ph ], [ %548, %544 ]
   call fastcc void @_handle_task_check(ptr noundef %549, ptr noundef %542, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %spec.select, i1 noundef zeroext false)
-  %550 = call ptr @list_next(ptr noundef %547) #16
+  %550 = call ptr @list_next(ptr noundef %547) #17
   %.not25.i = icmp eq ptr %550, null
   br i1 %.not25.i, label %_update_info_task.exit, label %.lr.ph, !llvm.loop !45
 
 _update_info_task.exit:                           ; preds = %.lr.ph, %544
-  call void @list_iterator_destroy(ptr noundef %547) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @list_iterator_destroy(ptr noundef %547) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %558
 
 551:                                              ; preds = %536, %529
-  %552 = tail call i64 @gtk_tree_model_get_type() #17
-  %553 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %552) #16
-  %554 = call i32 @gtk_tree_model_iter_children(ptr noundef %553, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #16
+  %552 = tail call i64 @gtk_tree_model_get_type() #18
+  %553 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %552) #17
+  %554 = call i32 @gtk_tree_model_iter_children(ptr noundef %553, ptr noundef nonnull %48, ptr noundef nonnull %spec.select) #17
   %.not342 = icmp eq i32 %554, 0
-  %555 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %552) #16
+  %555 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %552) #17
   br i1 %.not342, label %557, label %556
 
 556:                                              ; preds = %551
@@ -7316,49 +7316,49 @@ _update_info_task.exit:                           ; preds = %.lr.ph, %544
   br label %558
 
 558:                                              ; preds = %_update_info_task.exit, %543, %557, %556, %527, %528
-  call void @slurm_xfree(ptr noundef nonnull %45) #16
-  call void @slurm_xfree(ptr noundef nonnull %46) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %44) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %40) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %38) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %37) #16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %36) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %32) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %15) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #16
+  call void @slurm_xfree(ptr noundef nonnull %45) #17
+  call void @slurm_xfree(ptr noundef nonnull %46) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %48) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %47) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %44) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %42) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %41) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %40) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %39) #17
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %38) #17
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %37) #17
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %36) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %35) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %34) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %33) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %32) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %30) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %28) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %25) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %23) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %15) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #17
   ret void
 }
 
@@ -7374,21 +7374,21 @@ define internal fastcc void @_update_info_task(ptr noundef nonnull %0, ptr nound
   %7 = alloca i32, align 4
   %8 = alloca %struct._GtkTreeIter, align 8
   store ptr %2, ptr %6, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %10 = tail call i64 @gtk_tree_store_get_type() #17
+  %10 = tail call i64 @gtk_tree_store_get_type() #18
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %10) #16
-  tail call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 91, i32 noundef 0, i32 noundef -1) #16
-  %13 = tail call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %2) #16
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %10) #17
+  tail call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 91, i32 noundef 0, i32 noundef -1) #17
+  %13 = tail call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %2) #17
   %.not22 = icmp eq i32 %13, 0
   br i1 %.not22, label %14, label %11, !llvm.loop !46
 
@@ -7406,7 +7406,7 @@ define internal fastcc void @_update_info_task(ptr noundef nonnull %0, ptr nound
   br i1 %.not23, label %22, label %19
 
 19:                                               ; preds = %18
-  %20 = tail call i32 @list_count(ptr noundef nonnull %17) #16
+  %20 = tail call i32 @list_count(ptr noundef nonnull %17) #17
   %.not24 = icmp eq i32 %20, 0
   br i1 %.not24, label %22, label %21
 
@@ -7421,32 +7421,32 @@ define internal fastcc void @_update_info_task(ptr noundef nonnull %0, ptr nound
 
 25:                                               ; preds = %15, %22
   %.sink = phi ptr [ %24, %22 ], [ %17, %15 ]
-  %26 = tail call ptr @list_iterator_create(ptr noundef %.sink) #16
-  %27 = tail call ptr @list_next(ptr noundef %26) #16
+  %26 = tail call ptr @list_iterator_create(ptr noundef %.sink) #17
+  %27 = tail call ptr @list_next(ptr noundef %26) #17
   %.not2530 = icmp eq ptr %27, null
   br i1 %.not2530, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
   %28 = phi ptr [ %29, %.lr.ph ], [ %27, %25 ]
   call fastcc void @_handle_task_check(ptr noundef %28, ptr noundef %1, ptr noundef %6, ptr noundef %8, ptr noundef %3, i1 noundef zeroext false)
-  %29 = tail call ptr @list_next(ptr noundef %26) #16
+  %29 = tail call ptr @list_next(ptr noundef %26) #17
   %.not25 = icmp eq ptr %29, null
   br i1 %.not25, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
-  tail call void @list_iterator_destroy(ptr noundef %26) #16
+  tail call void @list_iterator_destroy(ptr noundef %26) #17
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader.backedge
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 91, ptr noundef nonnull %7, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %8, i32 noundef 91, ptr noundef nonnull %7, i32 noundef -1) #17
   %30 = load i32, ptr %7, align 4
   %.not27 = icmp eq i32 %30, 0
   br i1 %.not27, label %31, label %35
 
 31:                                               ; preds = %.preheader
-  %32 = tail call i64 @gtk_tree_store_get_type() #17
-  %33 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %32) #16
-  %34 = call i32 @gtk_tree_store_remove(ptr noundef %33, ptr noundef nonnull %8) #16
+  %32 = tail call i64 @gtk_tree_store_get_type() #18
+  %33 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %32) #17
+  %34 = call i32 @gtk_tree_store_remove(ptr noundef %33, ptr noundef nonnull %8) #17
   %.not28 = icmp eq i32 %34, 0
   br i1 %.not28, label %.loopexit, label %.preheader.backedge
 
@@ -7454,13 +7454,13 @@ define internal fastcc void @_update_info_task(ptr noundef nonnull %0, ptr nound
   br label %.preheader, !llvm.loop !47
 
 35:                                               ; preds = %.preheader
-  %36 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %8) #16
+  %36 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %8) #17
   %.not29 = icmp eq i32 %36, 0
   br i1 %.not29, label %.loopexit, label %.preheader.backedge
 
 .loopexit:                                        ; preds = %31, %35, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #17
   ret void
 }
 
@@ -7470,21 +7470,21 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
   %6 = alloca i32, align 4
   %7 = alloca %struct._GtkTreeIter, align 8
   %8 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  %10 = tail call i64 @gtk_tree_store_get_type() #17
+  %10 = tail call i64 @gtk_tree_store_get_type() #18
   br label %11
 
 11:                                               ; preds = %11, %9
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %10) #16
-  tail call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 91, i32 noundef 0, i32 noundef -1) #16
-  %13 = tail call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %2) #16
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %10) #17
+  tail call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %12, ptr noundef nonnull %2, i32 noundef 91, i32 noundef 0, i32 noundef -1) #17
+  %13 = tail call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %2) #17
   %.not38 = icmp eq i32 %13, 0
   br i1 %.not38, label %14, label %11, !llvm.loop !48
 
@@ -7495,8 +7495,8 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
 15:                                               ; preds = %14, %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr @list_iterator_create(ptr noundef %17) #16
-  %19 = tail call ptr @list_next(ptr noundef %18) #16
+  %18 = tail call ptr @list_iterator_create(ptr noundef %17) #17
+  %19 = tail call ptr @list_next(ptr noundef %18) #17
   %.not3951 = icmp eq ptr %19, null
   br i1 %.not3951, label %._crit_edge, label %.lr.ph53
 
@@ -7512,49 +7512,49 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
 
 23:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.03552, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %.03552, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %.03552, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #17
   %24 = load ptr, ptr %8, align 8
-  %25 = call i64 @strtol(ptr noundef nonnull captures(none) %24, ptr noundef null, i32 noundef 10) #16
+  %25 = call i64 @strtol(ptr noundef nonnull captures(none) %24, ptr noundef null, i32 noundef 10) #17
   %26 = trunc i64 %25 to i32
-  call void @g_free(ptr noundef nonnull %24) #16
+  call void @g_free(ptr noundef nonnull %24) #17
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 176
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, %26
   br i1 %29, label %.thread48, label %.lr.ph
 
 .thread48:                                        ; preds = %38, %23
-  %30 = tail call i64 @gtk_tree_store_get_type() #17
-  %31 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %30) #16
+  %30 = tail call i64 @gtk_tree_store_get_type() #18
+  %31 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %30) #17
   %32 = load ptr, ptr %20, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 432
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 255
   %36 = icmp eq i32 %35, 2
   call fastcc void @_update_step_record(ptr noundef %22, ptr noundef %31, ptr noundef nonnull %.03552, i1 noundef zeroext %36)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   br label %53
 
 .lr.ph:                                           ; preds = %23, %38
-  %37 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %.03552) #16
+  %37 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %.03552) #17
   %.not45 = icmp eq i32 %37, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   br i1 %.not45, label %.thread, label %38
 
 38:                                               ; preds = %.lr.ph
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %.03552, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %.03552, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #17
   %39 = load ptr, ptr %8, align 8
-  %40 = call i64 @strtol(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #16
+  %40 = call i64 @strtol(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #17
   %41 = trunc i64 %40 to i32
-  call void @g_free(ptr noundef nonnull %39) #16
+  call void @g_free(ptr noundef nonnull %39) #17
   %42 = load i32, ptr %27, align 8
   %43 = icmp eq i32 %42, %41
   br i1 %43, label %.thread48, label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %21
-  %44 = tail call i64 @gtk_tree_store_get_type() #17
-  %45 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %44) #16
+  %44 = tail call i64 @gtk_tree_store_get_type() #18
+  %45 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %44) #17
   %46 = load ptr, ptr %20, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 412
   %48 = load i32, ptr %47, align 4
@@ -7562,33 +7562,33 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 255
   %52 = icmp eq i32 %51, 2
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
-  call void @gtk_tree_store_append(ptr noundef %45, ptr noundef nonnull %5, ptr noundef nonnull %3) #16
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %45, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %48, i32 noundef -1) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #17
+  call void @gtk_tree_store_append(ptr noundef %45, ptr noundef nonnull %5, ptr noundef nonnull %3) #17
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %45, ptr noundef nonnull %5, i32 noundef 0, i32 noundef %48, i32 noundef -1) #17
   call fastcc void @_update_step_record(ptr noundef nonnull %22, ptr noundef %45, ptr noundef nonnull %5, i1 noundef zeroext %52)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #17
   br label %53
 
 53:                                               ; preds = %.thread48, %.thread
   %.4 = phi ptr [ null, %.thread ], [ %.03552, %.thread48 ]
-  %54 = call ptr @list_next(ptr noundef %18) #16
+  %54 = call ptr @list_next(ptr noundef %18) #17
   %.not39 = icmp eq ptr %54, null
   br i1 %.not39, label %._crit_edge, label %21, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %53, %15
-  call void @list_iterator_destroy(ptr noundef %18) #16
+  call void @list_iterator_destroy(ptr noundef %18) #17
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader.backedge
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 91, ptr noundef nonnull %6, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 91, ptr noundef nonnull %6, i32 noundef -1) #17
   %55 = load i32, ptr %6, align 4
   %.not41 = icmp eq i32 %55, 0
   br i1 %.not41, label %56, label %60
 
 56:                                               ; preds = %.preheader
-  %57 = tail call i64 @gtk_tree_store_get_type() #17
-  %58 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %57) #16
-  %59 = call i32 @gtk_tree_store_remove(ptr noundef %58, ptr noundef nonnull %7) #16
+  %57 = tail call i64 @gtk_tree_store_get_type() #18
+  %58 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %57) #17
+  %59 = call i32 @gtk_tree_store_remove(ptr noundef %58, ptr noundef nonnull %7) #17
   %.not42 = icmp eq i32 %59, 0
   br i1 %.not42, label %.loopexit, label %.preheader.backedge
 
@@ -7596,13 +7596,13 @@ define internal fastcc void @_update_info_step(ptr noundef nonnull readonly capt
   br label %.preheader, !llvm.loop !50
 
 60:                                               ; preds = %.preheader
-  %61 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %7) #16
+  %61 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef nonnull %7) #17
   %.not43 = icmp eq i32 %61, 0
   br i1 %.not43, label %.loopexit, label %.preheader.backedge
 
 .loopexit:                                        ; preds = %60, %56, %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #17
   ret void
 }
 
@@ -7625,9 +7625,9 @@ define internal fastcc void @_handle_task_check(ptr noundef nonnull %0, ptr noun
   br label %11
 
 11:                                               ; preds = %26, %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #17
   %12 = load ptr, ptr %2, align 8
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef %12, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %1, ptr noundef %12, i32 noundef 36, ptr noundef nonnull %8, i32 noundef -1) #17
   %.022 = load ptr, ptr %.022.in, align 8
   %13 = load ptr, ptr %8, align 8
   %14 = icmp ne ptr %13, null
@@ -7636,7 +7636,7 @@ define internal fastcc void @_handle_task_check(ptr noundef nonnull %0, ptr noun
   br i1 %or.cond, label %16, label %22
 
 16:                                               ; preds = %11
-  %17 = call i32 @xstrcmp(ptr noundef nonnull %13, ptr noundef nonnull %.022) #16
+  %17 = call i32 @xstrcmp(ptr noundef nonnull %13, ptr noundef nonnull %.022) #17
   %.not25 = icmp eq i32 %17, 0
   br i1 %.not25, label %.thread28, label %._crit_edge
 
@@ -7645,42 +7645,42 @@ define internal fastcc void @_handle_task_check(ptr noundef nonnull %0, ptr noun
   br label %22
 
 .thread28:                                        ; preds = %16
-  %18 = tail call i64 @gtk_tree_store_get_type() #17
-  %19 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %18) #16
+  %18 = tail call i64 @gtk_tree_store_get_type() #18
+  %19 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %18) #17
   %20 = load ptr, ptr %2, align 8
   call fastcc void @_update_job_record(ptr noundef %0, ptr noundef %19, ptr noundef %20, i1 noundef zeroext false, i1 noundef zeroext %5)
   %21 = load ptr, ptr %8, align 8
-  call void @g_free(ptr noundef %21) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @g_free(ptr noundef %21) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   br label %32
 
 22:                                               ; preds = %._crit_edge, %11
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %13, %11 ]
-  call void @g_free(ptr noundef %23) #16
+  call void @g_free(ptr noundef %23) #17
   %24 = load ptr, ptr %2, align 8
-  %25 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef %24) #16
+  %25 = call i32 @gtk_tree_model_iter_next(ptr noundef %1, ptr noundef %24) #17
   %.not26 = icmp eq i32 %25, 0
   br i1 %.not26, label %.thread, label %26
 
 .thread:                                          ; preds = %22
   store ptr null, ptr %2, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   br label %27
 
 26:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #17
   br label %11
 
 27:                                               ; preds = %.thread, %6
-  %28 = tail call i64 @gtk_tree_store_get_type() #17
-  %29 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %28) #16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
-  call void @gtk_tree_store_append(ptr noundef %29, ptr noundef nonnull %7, ptr noundef nonnull %4) #16
+  %28 = tail call i64 @gtk_tree_store_get_type() #18
+  %29 = call ptr @g_type_check_instance_cast(ptr noundef %1, i64 noundef %28) #17
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #17
+  call void @gtk_tree_store_append(ptr noundef %29, ptr noundef nonnull %7, ptr noundef nonnull %4) #17
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load i32, ptr %30, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %29, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %31, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %29, ptr noundef nonnull %7, i32 noundef 0, i32 noundef %31, i32 noundef -1) #17
   call fastcc void @_update_job_record(ptr noundef nonnull %0, ptr noundef %29, ptr noundef nonnull %7, i1 noundef zeroext false, i1 noundef zeroext %5)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #17
   br label %32
 
 32:                                               ; preds = %.thread28, %27
@@ -7703,16 +7703,16 @@ define internal fastcc void @_update_step_record(ptr noundef nonnull %0, ptr nou
   %12 = alloca [40 x i8], align 16
   %13 = alloca [400 x i8], align 16
   %14 = alloca [40 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #16
-  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %13) #16
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %10) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #17
+  call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %13) #17
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #17
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load i32, ptr %15, align 8
   %17 = load i32, ptr @sview_colors_cnt, align 4
@@ -7721,7 +7721,7 @@ define internal fastcc void @_update_step_record(ptr noundef nonnull %0, ptr nou
   %20 = uitofp i32 %19 to float
   %21 = fpext float %20 to double
   %22 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %21, ptr noundef nonnull %6, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %22) #16
+  call void @convert_num_unit(double noundef %21, ptr noundef nonnull %6, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %22) #17
   br i1 %3, label %26, label %23
 
 23:                                               ; preds = %4
@@ -7737,13 +7737,13 @@ define internal fastcc void @_update_step_record(ptr noundef nonnull %0, ptr nou
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = call i32 @xstrcasecmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.74) #16
+  %30 = call i32 @xstrcasecmp(ptr noundef nonnull %28, ptr noundef nonnull @.str.74) #17
   %.not43 = icmp eq i32 %30, 0
   br i1 %.not43, label %31, label %33
 
 31:                                               ; preds = %29, %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(9) @.str.75, i64 9, i1 false)
-  %32 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #16
+  %32 = call ptr @xstrdup(ptr noundef nonnull @.str.74) #17
   store ptr %32, ptr %5, align 8
   store i8 0, ptr %9, align 16
   br label %43
@@ -7751,17 +7751,17 @@ define internal fastcc void @_update_step_record(ptr noundef nonnull %0, ptr nou
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load i64, ptr %34, align 8
-  call void @secs2time_str(i64 noundef %35, ptr noundef nonnull %7, i32 noundef 40) #16
+  call void @secs2time_str(i64 noundef %35, ptr noundef nonnull %7, i32 noundef 40) #17
   %36 = load ptr, ptr %27, align 8
-  %37 = call ptr @slurm_sort_node_list_str(ptr noundef %36) #16
+  %37 = call ptr @slurm_sort_node_list_str(ptr noundef %36) #17
   store ptr %37, ptr %5, align 8
-  %38 = call ptr @hostset_create(ptr noundef %37) #16
-  %39 = call i32 @hostset_count(ptr noundef %38) #16
-  call void @hostset_destroy(ptr noundef %38) #16
+  %38 = call ptr @hostset_create(ptr noundef %37) #17
+  %39 = call i32 @hostset_count(ptr noundef %38) #17
+  call void @hostset_destroy(ptr noundef %38) #17
   %40 = sitofp i32 %39 to float
   %41 = fpext float %40 to double
   %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %41, ptr noundef nonnull %9, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %42) #16
+  call void @convert_num_unit(double noundef %41, ptr noundef nonnull %9, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %42) #17
   br label %43
 
 43:                                               ; preds = %33, %31
@@ -7772,7 +7772,7 @@ define internal fastcc void @_update_step_record(ptr noundef nonnull %0, ptr nou
   %47 = uitofp i32 %46 to float
   %48 = fpext float %47 to double
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 516), align 4
-  call void @convert_num_unit(double noundef %48, ptr noundef nonnull %11, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %49) #16
+  call void @convert_num_unit(double noundef %48, ptr noundef nonnull %11, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef %49) #17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %51 = load i32, ptr %50, align 4
   %switch = icmp ugt i32 %51, -3
@@ -7785,12 +7785,12 @@ define internal fastcc void @_update_step_record(ptr noundef nonnull %0, ptr nou
 53:                                               ; preds = %43
   %54 = mul i32 %51, 60
   %55 = zext i32 %54 to i64
-  call void @secs2time_str(i64 noundef %55, ptr noundef nonnull %8, i32 noundef 40) #16
+  call void @secs2time_str(i64 noundef %55, ptr noundef nonnull %8, i32 noundef 40) #17
   br label %56
 
 56:                                               ; preds = %53, %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  call void @slurm_make_time_str(ptr noundef nonnull %57, ptr noundef nonnull %10, i32 noundef 256) #16
+  call void @slurm_make_time_str(ptr noundef nonnull %57, ptr noundef nonnull %10, i32 noundef 256) #17
   %.val = load i32, ptr %15, align 8
   switch i32 %.val, label %62 [
     i32 -3, label %58
@@ -7816,13 +7816,13 @@ define internal fastcc void @_update_step_record(ptr noundef nonnull %0, ptr nou
   br label %_stepstr_from_step.exit
 
 62:                                               ; preds = %56
-  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %.val) #16
+  %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %14, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %.val) #17
   %.pre = load i32, ptr %15, align 8
   br label %_stepstr_from_step.exit
 
 _stepstr_from_step.exit:                          ; preds = %58, %59, %60, %61, %62
   %64 = phi i32 [ -3, %58 ], [ -4, %59 ], [ -6, %60 ], [ -5, %61 ], [ %.pre, %62 ]
-  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %64) #16
+  %65 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 40, ptr noundef nonnull @.str.77, i32 noundef %64) #17
   %66 = load i32, ptr %0, align 8
   %.not44 = icmp eq i32 %66, 0
   br i1 %.not44, label %74, label %67
@@ -7833,20 +7833,20 @@ _stepstr_from_step.exit:                          ; preds = %58, %59, %60, %61, 
   %70 = load i32, ptr %15, align 8
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %72 = load i32, ptr %71, align 8
-  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 400, ptr noundef nonnull @.str.94, i32 noundef %66, i32 noundef %69, i32 noundef %70, i32 noundef %72, i32 noundef %70) #16
+  %73 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 400, ptr noundef nonnull @.str.94, i32 noundef %66, i32 noundef %69, i32 noundef %70, i32 noundef %72, i32 noundef %70) #17
   br label %78
 
 74:                                               ; preds = %_stepstr_from_step.exit
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %76 = load i32, ptr %75, align 8
-  %77 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 400, ptr noundef nonnull @.str.95, i32 noundef %76, ptr noundef nonnull %14) #16
+  %77 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 400, ptr noundef nonnull @.str.95, i32 noundef %76, ptr noundef nonnull %14) #17
   br label %78
 
 78:                                               ; preds = %74, %67
   %79 = urem i32 %16, %17
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %81 = load i32, ptr %80, align 8
-  %82 = call ptr @uid_to_string_cached(i32 noundef %81) #16
+  %82 = call ptr @uid_to_string_cached(i32 noundef %81) #17
   %83 = sext i32 %79 to i64
   %84 = getelementptr inbounds [0 x ptr], ptr @sview_colors, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 8
@@ -7860,7 +7860,7 @@ _stepstr_from_step.exit:                          ; preds = %58, %59, %60, %61, 
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %95 = load ptr, ptr %94, align 8
-  %96 = call ptr @job_state_string(i32 noundef %.1) #16
+  %96 = call ptr @job_state_string(i32 noundef %.1) #17
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -7875,23 +7875,23 @@ _stepstr_from_step.exit:                          ; preds = %58, %59, %60, %61, 
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %110 = load ptr, ptr %109, align 8
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef %2, i32 noundef 3, i32 noundef 0, i32 noundef 11, ptr noundef %85, i32 noundef 12, i32 noundef %79, i32 noundef 17, ptr noundef nonnull %6, i32 noundef 18, ptr noundef %87, i32 noundef 36, ptr noundef nonnull %14, i32 noundef 37, ptr noundef nonnull %13, i32 noundef 43, ptr noundef %89, i32 noundef 45, ptr noundef %91, i32 noundef 52, ptr noundef %93, i32 noundef 48, ptr noundef %44, i32 noundef 53, ptr noundef nonnull %9, i32 noundef 57, ptr noundef %95, i32 noundef 67, ptr noundef %96, i32 noundef 73, ptr noundef nonnull %11, i32 noundef 80, ptr noundef nonnull %7, i32 noundef 81, ptr noundef nonnull %10, i32 noundef 78, ptr noundef nonnull %8, i32 noundef 84, ptr noundef %98, i32 noundef 85, ptr noundef %100, i32 noundef 86, ptr noundef %102, i32 noundef 87, ptr noundef %104, i32 noundef 88, ptr noundef %106, i32 noundef 89, ptr noundef %108, i32 noundef 90, ptr noundef %110, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %82, i32 noundef -1) #16
-  call void @slurm_xfree(ptr noundef nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #16
-  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %13) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #16
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #16
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %1, ptr noundef %2, i32 noundef 3, i32 noundef 0, i32 noundef 11, ptr noundef %85, i32 noundef 12, i32 noundef %79, i32 noundef 17, ptr noundef nonnull %6, i32 noundef 18, ptr noundef %87, i32 noundef 36, ptr noundef nonnull %14, i32 noundef 37, ptr noundef nonnull %13, i32 noundef 43, ptr noundef %89, i32 noundef 45, ptr noundef %91, i32 noundef 52, ptr noundef %93, i32 noundef 48, ptr noundef %44, i32 noundef 53, ptr noundef nonnull %9, i32 noundef 57, ptr noundef %95, i32 noundef 67, ptr noundef %96, i32 noundef 73, ptr noundef nonnull %11, i32 noundef 80, ptr noundef nonnull %7, i32 noundef 81, ptr noundef nonnull %10, i32 noundef 78, ptr noundef nonnull %8, i32 noundef 84, ptr noundef %98, i32 noundef 85, ptr noundef %100, i32 noundef 86, ptr noundef %102, i32 noundef 87, ptr noundef %104, i32 noundef 88, ptr noundef %106, i32 noundef 89, ptr noundef %108, i32 noundef 90, ptr noundef %110, i32 noundef 91, i32 noundef 1, i32 noundef 92, ptr noundef %82, i32 noundef -1) #17
+  call void @slurm_xfree(ptr noundef nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #17
+  call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %13) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #17
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @gtk_window_set_default_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -7916,46 +7916,46 @@ define internal void @_admin_edit_combo_box_job(ptr noundef %0, ptr noundef %1) 
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   store i32 0, ptr %4, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %2
-  %7 = call i32 @gtk_combo_box_get_active_iter(ptr noundef %0, ptr noundef nonnull %3) #16
+  %7 = call i32 @gtk_combo_box_get_active_iter(ptr noundef %0, ptr noundef nonnull %3) #17
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %8, label %9
 
 8:                                                ; preds = %6
-  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.254) #16
+  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.254) #17
   br label %17
 
 9:                                                ; preds = %6
-  %10 = call ptr @gtk_combo_box_get_model(ptr noundef %0) #16
+  %10 = call ptr @gtk_combo_box_get_model(ptr noundef %0) #17
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %11, label %12
 
 11:                                               ; preds = %9
-  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.254) #16
+  call void (ptr, ...) @g_print(ptr noundef nonnull @.str.254) #17
   br label %17
 
 12:                                               ; preds = %9
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #16
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %5, i32 noundef -1) #17
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %10, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4, i32 noundef -1) #17
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %4, align 4
   %15 = call fastcc ptr @_set_job_msg(ptr noundef nonnull %1, ptr noundef %13, i32 noundef %14)
   %16 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %16) #16
+  call void @g_free(ptr noundef %16) #17
   br label %17
 
 17:                                               ; preds = %2, %12, %11, %8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
   ret void
 }
 
@@ -7966,8 +7966,8 @@ define internal noundef i32 @_admin_focus_out_job(ptr noundef %0, ptr readnone c
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @gtk_entry_get_max_length(ptr noundef %0) #16
-  %8 = tail call ptr @gtk_entry_get_text(ptr noundef %0) #16
+  %7 = tail call i32 @gtk_entry_get_max_length(ptr noundef %0) #17
+  %8 = tail call ptr @gtk_entry_get_text(ptr noundef %0) #17
   %9 = add nsw i32 %7, -500
   %10 = tail call fastcc ptr @_set_job_msg(ptr noundef %2, ptr noundef %8, i32 noundef %9)
   %11 = load i8, ptr @global_edit_error, align 1, !range !18, !noundef !19
@@ -7980,13 +7980,13 @@ define internal noundef i32 @_admin_focus_out_job(ptr noundef %0, ptr readnone c
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void @g_free(ptr noundef nonnull %14) #16
+  tail call void @g_free(ptr noundef nonnull %14) #17
   br label %16
 
 16:                                               ; preds = %15, %13
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 340
   %18 = load i32, ptr %17, align 4
-  %19 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, i32 noundef %18, ptr noundef %10, ptr noundef %8) #16
+  %19 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.44, i32 noundef %18, ptr noundef %10, ptr noundef %8) #17
   store ptr %19, ptr @global_edit_error_msg, align 8
   br label %20
 
@@ -8001,13 +8001,13 @@ define internal noundef i32 @_admin_focus_out_job(ptr noundef %0, ptr readnone c
 ; Function Attrs: nounwind uwtable
 define internal void @_set_active_combo_job(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %4
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5, i32 noundef -1) #16
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %5, i32 noundef -1) #17
   %.pr = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %.pr, null
   br i1 %.not8, label %.thread, label %7
@@ -8022,43 +8022,43 @@ define internal void @_set_active_combo_job(ptr noundef %0, ptr noundef %1, ptr 
   ]
 
 8:                                                ; preds = %7
-  %9 = call i32 @xstrcasecmp(ptr noundef nonnull %.pr, ptr noundef nonnull @.str.34) #16
+  %9 = call i32 @xstrcasecmp(ptr noundef nonnull %.pr, ptr noundef nonnull @.str.34) #17
   %.not11 = icmp eq i32 %9, 0
   br i1 %.not11, label %27, label %10
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr %5, align 8
-  %12 = call i32 @xstrcasecmp(ptr noundef %11, ptr noundef nonnull @.str.35) #16
+  %12 = call i32 @xstrcasecmp(ptr noundef %11, ptr noundef nonnull @.str.35) #17
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %27, label %13
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %5, align 8
-  %15 = call i32 @xstrcasecmp(ptr noundef %14, ptr noundef nonnull @.str.255) #16
+  %15 = call i32 @xstrcasecmp(ptr noundef %14, ptr noundef nonnull @.str.255) #17
   %.not13 = icmp eq i32 %15, 0
   br i1 %.not13, label %27, label %16
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %5, align 8
-  %18 = call i32 @xstrcasecmp(ptr noundef %17, ptr noundef nonnull @.str.256) #16
+  %18 = call i32 @xstrcasecmp(ptr noundef %17, ptr noundef nonnull @.str.256) #17
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %27, label %19
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr %5, align 8
-  %21 = call i32 @xstrcasecmp(ptr noundef %20, ptr noundef nonnull @.str.37) #16
+  %21 = call i32 @xstrcasecmp(ptr noundef %20, ptr noundef nonnull @.str.37) #17
   %.not15 = icmp eq i32 %21, 0
   %. = select i1 %.not15, i32 5, i32 0
   br label %27
 
 22:                                               ; preds = %7, %7, %7, %7
-  %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.pr, ptr noundef nonnull @.str.38) #16
+  %23 = call i32 @xstrcasecmp(ptr noundef nonnull %.pr, ptr noundef nonnull @.str.38) #17
   %.not9 = icmp eq i32 %23, 0
   br i1 %.not9, label %27, label %24
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %5, align 8
-  %26 = call i32 @xstrcasecmp(ptr noundef %25, ptr noundef nonnull @.str.39) #16
+  %26 = call i32 @xstrcasecmp(ptr noundef %25, ptr noundef nonnull @.str.39) #17
   %.not10 = icmp eq i32 %26, 0
   %.16 = zext i1 %.not10 to i32
   br label %27
@@ -8066,13 +8066,13 @@ define internal void @_set_active_combo_job(ptr noundef %0, ptr noundef %1, ptr 
 27:                                               ; preds = %24, %22, %19, %16, %13, %10, %8, %7
   %.1 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ %., %19 ], [ 0, %22 ], [ %.16, %24 ]
   %28 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %28) #16
+  call void @g_free(ptr noundef %28) #17
   br label %.thread
 
 .thread:                                          ; preds = %4, %6, %27
   %.0 = phi i32 [ %.1, %27 ], [ 0, %6 ], [ 0, %4 ]
-  call void @gtk_combo_box_set_active(ptr noundef %0, i32 noundef %.0) #16
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @gtk_combo_box_set_active(ptr noundef %0, i32 noundef %.0) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   ret void
 }
 
@@ -8106,7 +8106,7 @@ declare ptr @log_build_step_id_str(ptr noundef, ptr noundef, i32 noundef, i16 no
 declare i32 @slurm_kill_job_step(i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #15
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -8114,20 +8114,21 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
-attributes #18 = { noreturn nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(none) }
+attributes #19 = { noreturn nounwind }
+attributes #20 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 

@@ -84,7 +84,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE18growAndEmplaceBackIJRKNS
 @.str.72 = private unnamed_addr constant [7 x i8] c"future\00", align 1
 @_ZN4llvm3PPCL10PPCCPUInfoE = internal constant [65 x { { ptr, i64 } }] [{ { ptr, i64 } } { { ptr, i64 } { ptr @.str.2, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.5, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.4, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.3, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.53, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.54, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.55, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.56, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.57, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.58, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.59, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.60, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.61, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.6, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.10, i64 2 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.62, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.12, i64 2 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.63, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.14, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.64, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.15, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.65, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.66, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.67, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.18, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.17, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.20, i64 2 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.22, i64 2 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.21, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.68, i64 11 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.16, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.69, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.70, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.7, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.8, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.24, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.23, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.26, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.25, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.30, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.29, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.28, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.27, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.32, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.31, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.34, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.33, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.36, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.35, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.38, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.37, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.40, i64 4 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.39, i64 6 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.42, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.41, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.44, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.43, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.45, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.47, i64 3 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.71, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.48, i64 9 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.49, i64 5 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.50, i64 11 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.51, i64 7 } }, { { ptr, i64 } } { { ptr, i64 } { ptr @.str.72, i64 6 } }], align 16
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3PPC16normalizeCPUNameENS_9StringRefE(ptr %0, i64 %1) local_unnamed_addr #0 {
   switch i64 %1, label %.thread654 [
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
@@ -329,7 +329,7 @@ _ZN4llvm15SmallVectorImplINS_9StringRefEE12emplace_backIJRKNS_13StringLiteralEEE
   br i1 %.not, label %4, label %5
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm3PPC10isValidCPUENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #3 {
   %.fr4 = freeze i64 %1
   %3 = icmp eq i64 %.fr4, 0
@@ -490,15 +490,15 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
-attributes #0 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #6 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

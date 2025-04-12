@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN12CDSConstants9constantsE = hidden local_unnamed_addr global [7 x %struct.CDSConst] [%struct.CDSConst { ptr @.str.16, i64 4027296674 }, %struct.CDSConst { ptr @.str.17, i64 4027296680 }, %struct.CDSConst { ptr @.str.18, i64 4 }, %struct.CDSConst { ptr @.str.19, i64 88 }, %struct.CDSConst { ptr @.str.20, i64 792 }, %struct.CDSConst { ptr @.str.21, i64 816 }, %struct.CDSConst { ptr @.str.22, i64 8 }], align 16
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN12CDSConstants14get_cds_offsetEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %3
 
@@ -55,10 +55,10 @@ define hidden noundef i64 @_ZN12CDSConstants14get_cds_offsetEPKc(ptr noundef rea
   ret i64 %.05
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN12CDSConstants16get_cds_constantEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %3
 
@@ -85,8 +85,8 @@ define hidden noundef i64 @_ZN12CDSConstants16get_cds_constantEPKc(ptr noundef r
   ret i64 %.05
 }
 
-attributes #0 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

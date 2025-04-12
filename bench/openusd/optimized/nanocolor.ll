@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_colorSpaces = internal global [18 x %struct.pxr_nc_1_0_ColorSpace] [%struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_acescg, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE6D0E560000000, float 0x3FD2C08320000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC51EB860000000, float 0x3FEA8F5C20000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC0624DE0000000, float 0x3FA6872B00000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD49667C0000000, float 0x3FD59C62A0000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_adobergb, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FCAE147A0000000, float 0x3FE6B851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 0x4001980000000000, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_g18_ap1, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE6D0E560000000, float 0x3FD2C08320000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC51EB860000000, float 0x3FEA8F5C20000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC0624DE0000000, float 0x3FA6872B00000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD49667C0000000, float 0x3FD59C62A0000000 }, float 0x3FFCCCCCC0000000, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_g22_ap1, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE6D0E560000000, float 0x3FD2C08320000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC51EB860000000, float 0x3FEA8F5C20000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC0624DE0000000, float 0x3FA6872B00000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD49667C0000000, float 0x3FD59C62A0000000 }, float 0x40019999A0000000, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_g18_rec709, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD3333340000000, float 0x3FE3333340000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 0x3FFCCCCCC0000000, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_g22_rec709, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD3333340000000, float 0x3FE3333340000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 0x40019999A0000000, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_lin_adobergb, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FCAE147A0000000, float 0x3FE6B851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_lin_ap0, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE782A9A0000000, float 0x3FD0FAACE0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0.000000e+00, float 1.000000e+00 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3F1A36E2E0000000, float 0xBFB3B645A0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD49667C0000000, float 0x3FD59C62A0000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_lin_ap1, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE6D0E560000000, float 0x3FD2C08320000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC51EB860000000, float 0x3FEA8F5C20000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC0624DE0000000, float 0x3FA6872B00000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD49667C0000000, float 0x3FD59C62A0000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_lin_displayp3, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE5C28F60000000, float 0x3FD47AE140000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD0F5C280000000, float 0x3FE6147AE0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_lin_rec709, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD3333340000000, float 0x3FE3333340000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_lin_rec2020, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE6A7EFA0000000, float 0x3FD2B020C0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC5C28F60000000, float 0x3FE9810620000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC0C49BA0000000, float 0x3FA78D4FE0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_lin_srgb, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD3333340000000, float 0x3FE3333340000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_srgb_displayp3, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE5C28F60000000, float 0x3FD47AE140000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD0F5C280000000, float 0x3FE6147AE0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 0x4003333340000000, float 0x3FAC28F5C0000000 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_srgb_texture, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD3333340000000, float 0x3FE3333340000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 0x4003333340000000, float 0x3FAC28F5C0000000 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_sRGB, %struct.pxr_nc_1_0_Chromaticity { float 0x3FE47AE140000000, float 0x3FD51EB860000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD3333340000000, float 0x3FE3333340000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FC3333340000000, float 0x3FAEB851E0000000 }, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD40346E0000000, float 0x3FD50E5600000000 }, float 0x4003333340000000, float 0x3FAC28F5C0000000 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_identity, %struct.pxr_nc_1_0_Chromaticity { float 1.000000e+00, float 0.000000e+00 }, %struct.pxr_nc_1_0_Chromaticity { float 0.000000e+00, float 1.000000e+00 }, %struct.pxr_nc_1_0_Chromaticity zeroinitializer, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD5555560000000, float 0x3FD5555560000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }, %struct.pxr_nc_1_0_ColorSpace { %struct.pxr_nc_1_0_ColorSpaceDescriptor { ptr @_raw, %struct.pxr_nc_1_0_Chromaticity { float 1.000000e+00, float 0.000000e+00 }, %struct.pxr_nc_1_0_Chromaticity { float 0.000000e+00, float 1.000000e+00 }, %struct.pxr_nc_1_0_Chromaticity zeroinitializer, %struct.pxr_nc_1_0_Chromaticity { float 0x3FD5555560000000, float 0x3FD5555560000000 }, float 1.000000e+00, float 0.000000e+00 }, float 0.000000e+00, float 0.000000e+00, %struct.pxr_nc_1_0_M33f zeroinitializer }], align 16
 @constinit.19 = private unnamed_addr constant [9 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], align 4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @pxr_nc_1_0_GetDescription(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %57, label %2
@@ -187,7 +187,7 @@ define ptr @pxr_nc_1_0_GetDescription(ptr noundef readonly captures(address_is_n
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -261,7 +261,7 @@ define zeroext i1 @pxr_nc_1_0_ColorSpaceEqual(ptr noundef readonly captures(addr
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #4
 
-; Function Attrs: nofree nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define void @pxr_nc_1_0_InitColorSpaceLibrary() local_unnamed_addr #5 {
   br label %1
 
@@ -277,7 +277,7 @@ define void @pxr_nc_1_0_InitColorSpaceLibrary() local_unnamed_addr #5 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define internal fastcc void @_NcInitColorSpace(ptr noundef captures(address_is_null) %0) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %122, label %2
@@ -923,7 +923,7 @@ pxr_nc_1_0_RGBToXYZ.exit210:                      ; preds = %185, %189
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define { <2 x float>, float } @pxr_nc_1_0_RGBToXYZ(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %4
@@ -1510,7 +1510,7 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %3
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define { <2 x float>, float } @pxr_nc_1_0_TransformColor(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, float %3) local_unnamed_addr #12 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -1793,7 +1793,7 @@ nc_FromLinear.exit49:                             ; preds = %168, %166, %4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
-; Function Attrs: nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define void @pxr_nc_1_0_TransformColors(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #19 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -2113,7 +2113,7 @@ nc_FromLinear.exit72:                             ; preds = %165, %167
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define void @pxr_nc_1_0_TransformColorsWithAlpha(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #19 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -2442,7 +2442,7 @@ nc_FromLinear.exit93:                             ; preds = %189, %191
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define { <2 x float>, float } @NcNormalizeLuminance(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, float %2, float noundef %3) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nc_FromLinear.exit79, label %5
@@ -2726,7 +2726,7 @@ nc_FromLinear.exit79:                             ; preds = %155, %153, %pxr_nc_
   ret { <2 x float>, float } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define { <2 x float>, float } @pxr_nc_1_0_XYZToRGB(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nc_FromLinear.exit33, label %pxr_nc_1_0_GetXYZtoRGBMatrix.exit
@@ -2904,7 +2904,7 @@ define { <2 x float>, float } @pxr_nc_1_0_YxyToXYZ(<2 x float> %0, float %1) loc
   ret { <2 x float>, float } %.fca.1.insert
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
 define noundef ptr @pxr_nc_1_0_GetNamedColorSpace(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -3181,7 +3181,7 @@ define { <2 x float>, float } @NcNormalizeYxy(<2 x float> %0, float %1) local_un
   ret { <2 x float>, float } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define { <2 x float>, float } @pxr_nc_1_0_YxyToRGB(ptr noundef captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
   %.sroa.03.0.vec.extract.i = extractelement <2 x float> %1, i64 0
   %.sroa.03.4.vec.extract.i = extractelement <2 x float> %1, i64 1
@@ -3230,38 +3230,38 @@ define { <2 x float>, float } @pxr_nc_1_0_YxyToRGB(ptr noundef captures(address_
   ret { <2 x float>, float } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @expf(float noundef) local_unnamed_addr #22
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @logf(float noundef) local_unnamed_addr #22
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @powf(float noundef, float noundef) local_unnamed_addr #22
 
-attributes #0 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nofree nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { nofree nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { nofree norecurse nounwind memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nofree norecurse nounwind memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nofree norecurse nosync nounwind memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { nounwind willreturn memory(read) }
 attributes #24 = { nounwind }
 attributes #25 = { nounwind allocsize(0,1) }

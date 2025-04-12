@@ -3,7 +3,7 @@ source_filename = "bench/libsodium/original/shorthash_siphashx24_ref.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i64, ptr %3, align 1
   %6 = getelementptr i8, ptr %3, i64 8
@@ -300,7 +300,7 @@ default.unreachable:                              ; preds = %._crit_edge
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #1
 
-attributes #0 = { nofree nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nounwind ssp memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

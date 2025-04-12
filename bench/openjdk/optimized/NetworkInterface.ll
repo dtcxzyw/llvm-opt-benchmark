@@ -79,7 +79,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #14
+  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #15
   store ptr %6, ptr @ni_class, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %116, label %8
@@ -88,7 +88,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #14
+  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #15
   store ptr %12, ptr @ni_class, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %116, label %14
@@ -97,7 +97,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 752
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #14
+  %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #15
   store ptr %18, ptr @ni_nameID, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %116, label %20
@@ -107,7 +107,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 752
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @ni_class, align 8
-  %25 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #14
+  %25 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #15
   store ptr %25, ptr @ni_indexID, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %116, label %27
@@ -117,7 +117,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 752
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @ni_class, align 8
-  %32 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #14
+  %32 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #15
   store ptr %32, ptr @ni_addrsID, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %116, label %34
@@ -127,7 +127,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 752
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @ni_class, align 8
-  %39 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #14
+  %39 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef %38, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #15
   store ptr %39, ptr @ni_bindsID, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %116, label %41
@@ -137,7 +137,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 752
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @ni_class, align 8
-  %46 = tail call ptr %44(ptr noundef nonnull %0, ptr noundef %45, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2) #14
+  %46 = tail call ptr %44(ptr noundef nonnull %0, ptr noundef %45, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.2) #15
   store ptr %46, ptr @ni_descID, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %116, label %48
@@ -147,7 +147,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 752
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @ni_class, align 8
-  %53 = tail call ptr %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #14
+  %53 = tail call ptr %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #15
   store ptr %53, ptr @ni_virutalID, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %116, label %55
@@ -157,7 +157,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 752
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr @ni_class, align 8
-  %60 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #14
+  %60 = tail call ptr %58(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13) #15
   store ptr %60, ptr @ni_childsID, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %116, label %62
@@ -167,7 +167,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 752
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr @ni_class, align 8
-  %67 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef %66, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #14
+  %67 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef %66, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #15
   store ptr %67, ptr @ni_parentID, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %116, label %69
@@ -177,7 +177,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 264
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr @ni_class, align 8
-  %74 = tail call ptr %72(ptr noundef nonnull %0, ptr noundef %73, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #14
+  %74 = tail call ptr %72(ptr noundef nonnull %0, ptr noundef %73, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #15
   store ptr %74, ptr @ni_ctrID, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %116, label %76
@@ -186,7 +186,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %77 = load ptr, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call ptr %79(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #14
+  %80 = tail call ptr %79(ptr noundef nonnull %0, ptr noundef nonnull @.str.18) #15
   store ptr %80, ptr @ni_ibcls, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %116, label %82
@@ -195,7 +195,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %83 = load ptr, ptr %0, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 168
   %85 = load ptr, ptr %84, align 8
-  %86 = tail call ptr %85(ptr noundef nonnull %0, ptr noundef nonnull %80) #14
+  %86 = tail call ptr %85(ptr noundef nonnull %0, ptr noundef nonnull %80) #15
   store ptr %86, ptr @ni_ibcls, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %116, label %88
@@ -204,7 +204,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %89 = load ptr, ptr %0, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 264
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call ptr %91(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #14
+  %92 = tail call ptr %91(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #15
   store ptr %92, ptr @ni_ibctrID, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %116, label %94
@@ -214,7 +214,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 752
   %97 = load ptr, ptr %96, align 8
   %98 = load ptr, ptr @ni_ibcls, align 8
-  %99 = tail call ptr %97(ptr noundef nonnull %0, ptr noundef %98, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #14
+  %99 = tail call ptr %97(ptr noundef nonnull %0, ptr noundef %98, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20) #15
   store ptr %99, ptr @ni_ibaddressID, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %116, label %101
@@ -224,7 +224,7 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 752
   %104 = load ptr, ptr %103, align 8
   %105 = load ptr, ptr @ni_ibcls, align 8
-  %106 = tail call ptr %104(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #14
+  %106 = tail call ptr %104(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22) #15
   store ptr %106, ptr @ni_ib4broadcastID, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %116, label %108
@@ -234,13 +234,13 @@ define void @Java_java_net_NetworkInterface_init(ptr noundef %0, ptr noundef rea
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 752
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr @ni_ibcls, align 8
-  %113 = tail call ptr %111(ptr noundef nonnull %0, ptr noundef %112, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #14
+  %113 = tail call ptr %111(ptr noundef nonnull %0, ptr noundef %112, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24) #15
   store ptr %113, ptr @ni_ib4maskID, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %116, label %115
 
 115:                                              ; preds = %108
-  tail call void @initInetAddressIDs(ptr noundef nonnull %0) #14
+  tail call void @initInetAddressIDs(ptr noundef nonnull %0) #15
   br label %116
 
 116:                                              ; preds = %108, %101, %94, %88, %82, %76, %69, %62, %55, %48, %41, %34, %27, %20, %14, %8, %2, %115
@@ -259,24 +259,24 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nounde
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1352
   %8 = load ptr, ptr %7, align 8
-  %9 = call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %4) #14
+  %9 = call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %4) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %18
 
 11:                                               ; preds = %3
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #15
   br label %56
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
-  %16 = call zeroext i8 %15(ptr noundef nonnull %0) #14
+  %16 = call zeroext i8 %15(ptr noundef nonnull %0) #15
   %.not54 = icmp eq i8 %16, 0
   br i1 %.not54, label %17, label %56
 
 17:                                               ; preds = %12
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #15
   br label %56
 
 18:                                               ; preds = %5
@@ -288,11 +288,11 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nounde
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1360
   %24 = load ptr, ptr %23, align 8
-  call void %24(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %9) #14
+  call void %24(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %9) #15
   br label %56
 
 25:                                               ; preds = %18
-  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 58) #15
+  %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 58) #16
   %.not60 = icmp eq ptr %26, null
   br i1 %.not60, label %31, label %27
 
@@ -303,7 +303,7 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nounde
   br label %33
 
 31:                                               ; preds = %25
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   br label %33
 
 33:                                               ; preds = %31, %27
@@ -313,7 +313,7 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nounde
 35:                                               ; preds = %33, %41
   %.04664 = phi ptr [ %19, %33 ], [ %43, %41 ]
   %36 = load ptr, ptr %.04664, align 8
-  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #15
+  %37 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
   %38 = icmp eq i64 %37, %34
   br i1 %38, label %39, label %41
 
@@ -340,7 +340,7 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %45, %50
   %.267 = phi ptr [ %.2, %50 ], [ %.265, %45 ]
   %47 = load ptr, ptr %.267, align 8
-  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %47) #15
+  %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %47) #16
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %.loopexit, label %50
 
@@ -360,7 +360,7 @@ define ptr @Java_java_net_NetworkInterface_getByName0(ptr noundef %0, ptr nounde
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 1360
   %55 = load ptr, ptr %54, align 8
-  call void %55(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %9) #14
+  call void %55(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %9) #15
   call fastcc void @freeif(ptr noundef nonnull %19)
   br label %56
 
@@ -375,12 +375,12 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @enumInterfaces(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
+  %2 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #15
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %13
 
 4:                                                ; preds = %1
-  %5 = tail call ptr @__errno_location() #16
+  %5 = tail call ptr @__errno_location() #17
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %7 [
     i32 93, label %8
@@ -388,40 +388,40 @@ define internal fastcc ptr @enumInterfaces(ptr noundef %0) unnamed_addr #0 {
   ]
 
 7:                                                ; preds = %4
-  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #14
+  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #15
   br label %8
 
 8:                                                ; preds = %4, %4, %7
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0) #14
+  %12 = tail call ptr %11(ptr noundef nonnull %0) #15
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %openSocket.exit, label %34
 
 13:                                               ; preds = %1
   %14 = tail call fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef %2)
-  %15 = tail call i32 @close(i32 noundef %2) #14
+  %15 = tail call i32 @close(i32 noundef %2) #15
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr %18(ptr noundef nonnull %0) #14
+  %19 = tail call ptr %18(ptr noundef nonnull %0) #15
   %.not26 = icmp eq ptr %19, null
   br i1 %.not26, label %openSocket.exit, label %.sink.split
 
 openSocket.exit:                                  ; preds = %8, %13
   %.0 = phi ptr [ %14, %13 ], [ null, %8 ]
-  %20 = tail call i32 (...) @ipv6_available() #14
+  %20 = tail call i32 (...) @ipv6_available() #15
   %.not27 = icmp eq i32 %20, 0
   br i1 %.not27, label %34, label %21
 
 21:                                               ; preds = %openSocket.exit
-  %22 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #14
+  %22 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #15
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %openSocket.exit30
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @__errno_location() #16
+  %25 = tail call ptr @__errno_location() #17
   %26 = load i32, ptr %25, align 4
   switch i32 %26, label %27 [
     i32 93, label %.sink.split
@@ -429,16 +429,16 @@ openSocket.exit:                                  ; preds = %8, %13
   ]
 
 27:                                               ; preds = %24
-  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #14
+  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #15
   br label %.sink.split
 
 openSocket.exit30:                                ; preds = %21
   %28 = tail call fastcc ptr @enumIPv6Interfaces(ptr noundef nonnull %0, i32 noundef %22, ptr noundef %.0)
-  %29 = tail call i32 @close(i32 noundef %22) #14
+  %29 = tail call i32 @close(i32 noundef %22) #15
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 120
   %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr %32(ptr noundef nonnull %0) #14
+  %33 = tail call ptr %32(ptr noundef nonnull %0) #15
   %.not28 = icmp eq ptr %33, null
   br i1 %.not28, label %34, label %.sink.split
 
@@ -452,13 +452,13 @@ openSocket.exit30:                                ; preds = %21
   ret ptr %.023
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
@@ -468,7 +468,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @ni_class, align 8
   %7 = load ptr, ptr @ni_ctrID, align 8
-  %8 = tail call ptr (ptr, ptr, ptr, ...) %5(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7) #14
+  %8 = tail call ptr (ptr, ptr, ptr, ...) %5(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7) #15
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
 
@@ -477,7 +477,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1336
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %14) #14
+  %15 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %14) #15
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %17
 
@@ -486,19 +486,19 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 832
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @ni_nameID, align 8
-  tail call void %20(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %21, ptr noundef nonnull %15) #14
+  tail call void %20(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %21, ptr noundef nonnull %15) #15
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 832
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @ni_descID, align 8
-  tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %25, ptr noundef nonnull %15) #14
+  tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %25, ptr noundef nonnull %15) #15
   %26 = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 872
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @ni_indexID, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load i32, ptr %30, align 8
-  tail call void %28(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %29, i32 noundef %31) #14
+  tail call void %28(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %29, i32 noundef %31) #15
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 840
   %34 = load ptr, ptr %33, align 8
@@ -507,7 +507,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %37 = load i8, ptr %36, align 4
   %.not = icmp ne i8 %37, 0
   %38 = zext i1 %.not to i8
-  tail call void %34(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %35, i8 noundef zeroext %38) #14
+  tail call void %34(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %35, i8 noundef zeroext %38) #15
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0177211 = load ptr, ptr %39, align 8
   %.not196212 = icmp eq ptr %.0177211, null
@@ -528,7 +528,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1376
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @ia_class, align 8
-  %46 = tail call ptr %44(ptr noundef nonnull %0, i32 noundef %.0183.lcssa, ptr noundef %45, ptr noundef null) #14
+  %46 = tail call ptr %44(ptr noundef nonnull %0, i32 noundef %.0183.lcssa, ptr noundef %45, ptr noundef null) #15
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %48
 
@@ -537,7 +537,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1376
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @ni_ibcls, align 8
-  %53 = tail call ptr %51(ptr noundef nonnull %0, i32 noundef %.0183.lcssa, ptr noundef %52, ptr noundef null) #14
+  %53 = tail call ptr %51(ptr noundef nonnull %0, i32 noundef %.0183.lcssa, ptr noundef %52, ptr noundef null) #15
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.loopexit, label %.preheader209
 
@@ -561,7 +561,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr @ia4_class, align 8
   %63 = load ptr, ptr @ia4_ctrID, align 8
-  %64 = tail call ptr (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63) #14
+  %64 = tail call ptr (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63) #15
   %.not200 = icmp eq ptr %64, null
   br i1 %.not200, label %.loopexit, label %65
 
@@ -569,12 +569,12 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %66 = load ptr, ptr %.1178219, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4
-  %69 = tail call i32 @htonl(i32 noundef %68) #16
-  tail call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %64, i32 noundef %69) #14
+  %69 = tail call i32 @htonl(i32 noundef %68) #17
+  tail call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %64, i32 noundef %69) #15
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1824
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call zeroext i8 %72(ptr noundef nonnull %0) #14
+  %73 = tail call zeroext i8 %72(ptr noundef nonnull %0) #15
   %.not201 = icmp eq i8 %73, 0
   br i1 %.not201, label %74, label %.loopexit
 
@@ -584,7 +584,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr @ni_ibcls, align 8
   %79 = load ptr, ptr @ni_ibctrID, align 8
-  %80 = tail call ptr (ptr, ptr, ptr, ...) %77(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %79) #14
+  %80 = tail call ptr (ptr, ptr, ptr, ...) %77(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %79) #15
   %.not202 = icmp eq ptr %80, null
   br i1 %.not202, label %.loopexit, label %81
 
@@ -593,7 +593,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 832
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @ni_ibaddressID, align 8
-  tail call void %84(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef %85, ptr noundef nonnull %64) #14
+  tail call void %84(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef %85, ptr noundef nonnull %64) #15
   %86 = getelementptr inbounds nuw i8, ptr %.1178219, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not203 = icmp eq ptr %87, null
@@ -605,7 +605,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %91 = load ptr, ptr %90, align 8
   %92 = load ptr, ptr @ia4_class, align 8
   %93 = load ptr, ptr @ia4_ctrID, align 8
-  %94 = tail call ptr (ptr, ptr, ptr, ...) %91(ptr noundef nonnull %0, ptr noundef %92, ptr noundef %93) #14
+  %94 = tail call ptr (ptr, ptr, ptr, ...) %91(ptr noundef nonnull %0, ptr noundef %92, ptr noundef %93) #15
   %.not204 = icmp eq ptr %94, null
   br i1 %.not204, label %.loopexit, label %95
 
@@ -613,12 +613,12 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %96 = load ptr, ptr %86, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
-  %99 = tail call i32 @htonl(i32 noundef %98) #16
-  tail call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %94, i32 noundef %99) #14
+  %99 = tail call i32 @htonl(i32 noundef %98) #17
+  tail call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %94, i32 noundef %99) #15
   %100 = load ptr, ptr %0, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 1824
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call zeroext i8 %102(ptr noundef nonnull %0) #14
+  %103 = tail call zeroext i8 %102(ptr noundef nonnull %0) #15
   %.not205 = icmp eq i8 %103, 0
   br i1 %.not205, label %104, label %.loopexit
 
@@ -627,11 +627,11 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 832
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr @ni_ib4broadcastID, align 8
-  tail call void %107(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef %108, ptr noundef nonnull %94) #14
+  tail call void %107(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef %108, ptr noundef nonnull %94) #15
   %109 = load ptr, ptr %0, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 184
   %111 = load ptr, ptr %110, align 8
-  tail call void %111(ptr noundef nonnull %0, ptr noundef nonnull %94) #14
+  tail call void %111(ptr noundef nonnull %0, ptr noundef nonnull %94) #15
   br label %112
 
 112:                                              ; preds = %104, %81
@@ -641,16 +641,16 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %116 = load ptr, ptr @ni_ib4maskID, align 8
   %117 = getelementptr inbounds nuw i8, ptr %.1178219, i64 16
   %118 = load i16, ptr %117, align 8
-  tail call void %115(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef %116, i16 noundef signext %118) #14
+  tail call void %115(ptr noundef nonnull %0, ptr noundef nonnull %80, ptr noundef %116, i16 noundef signext %118) #15
   %119 = load ptr, ptr %0, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1392
   %121 = load ptr, ptr %120, align 8
   %122 = add nsw i32 %.0181217, 1
-  tail call void %121(ptr noundef nonnull %0, ptr noundef nonnull %53, i32 noundef %.0181217, ptr noundef nonnull %80) #14
+  tail call void %121(ptr noundef nonnull %0, ptr noundef nonnull %53, i32 noundef %.0181217, ptr noundef nonnull %80) #15
   %123 = load ptr, ptr %0, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 184
   %125 = load ptr, ptr %124, align 8
-  tail call void %125(ptr noundef nonnull %0, ptr noundef nonnull %80) #14
+  tail call void %125(ptr noundef nonnull %0, ptr noundef nonnull %80) #15
   %.pr = load i32, ptr %55, align 4
   br label %126
 
@@ -667,14 +667,14 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr @ia6_class, align 8
   %134 = load ptr, ptr @ia6_ctrID, align 8
-  %135 = tail call ptr (ptr, ptr, ptr, ...) %132(ptr noundef nonnull %0, ptr noundef %133, ptr noundef %134) #14
+  %135 = tail call ptr (ptr, ptr, ptr, ...) %132(ptr noundef nonnull %0, ptr noundef %133, ptr noundef %134) #15
   %.not206 = icmp eq ptr %135, null
   br i1 %.not206, label %.loopexit, label %136
 
 136:                                              ; preds = %129
   %137 = load ptr, ptr %.1178219, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %139 = tail call zeroext i8 @setInet6Address_ipaddress(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef nonnull %138) #14
+  %139 = tail call zeroext i8 @setInet6Address_ipaddress(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef nonnull %138) #15
   %140 = icmp eq i8 %139, 0
   br i1 %140, label %.loopexit, label %141
 
@@ -686,8 +686,8 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   br i1 %.not207, label %148, label %145
 
 145:                                              ; preds = %141
-  %146 = tail call zeroext i8 @setInet6Address_scopeid(ptr noundef nonnull %0, ptr noundef nonnull %135, i32 noundef %144) #14
-  %147 = tail call zeroext i8 @setInet6Address_scopeifname(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef nonnull %8) #14
+  %146 = tail call zeroext i8 @setInet6Address_scopeid(ptr noundef nonnull %0, ptr noundef nonnull %135, i32 noundef %144) #15
+  %147 = tail call zeroext i8 @setInet6Address_scopeifname(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef nonnull %8) #15
   br label %148
 
 148:                                              ; preds = %141, %145
@@ -696,7 +696,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr @ni_ibcls, align 8
   %153 = load ptr, ptr @ni_ibctrID, align 8
-  %154 = tail call ptr (ptr, ptr, ptr, ...) %151(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %153) #14
+  %154 = tail call ptr (ptr, ptr, ptr, ...) %151(ptr noundef nonnull %0, ptr noundef %152, ptr noundef %153) #15
   %.not208 = icmp eq ptr %154, null
   br i1 %.not208, label %.loopexit, label %155
 
@@ -705,23 +705,23 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 832
   %158 = load ptr, ptr %157, align 8
   %159 = load ptr, ptr @ni_ibaddressID, align 8
-  tail call void %158(ptr noundef nonnull %0, ptr noundef nonnull %154, ptr noundef %159, ptr noundef nonnull %135) #14
+  tail call void %158(ptr noundef nonnull %0, ptr noundef nonnull %154, ptr noundef %159, ptr noundef nonnull %135) #15
   %160 = load ptr, ptr %0, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 864
   %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr @ni_ib4maskID, align 8
   %164 = getelementptr inbounds nuw i8, ptr %.1178219, i64 16
   %165 = load i16, ptr %164, align 8
-  tail call void %162(ptr noundef nonnull %0, ptr noundef nonnull %154, ptr noundef %163, i16 noundef signext %165) #14
+  tail call void %162(ptr noundef nonnull %0, ptr noundef nonnull %154, ptr noundef %163, i16 noundef signext %165) #15
   %166 = load ptr, ptr %0, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 1392
   %168 = load ptr, ptr %167, align 8
   %169 = add nsw i32 %.1182, 1
-  tail call void %168(ptr noundef nonnull %0, ptr noundef nonnull %53, i32 noundef %.1182, ptr noundef nonnull %154) #14
+  tail call void %168(ptr noundef nonnull %0, ptr noundef nonnull %53, i32 noundef %.1182, ptr noundef nonnull %154) #15
   %170 = load ptr, ptr %0, align 8
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 184
   %172 = load ptr, ptr %171, align 8
-  tail call void %172(ptr noundef nonnull %0, ptr noundef nonnull %154) #14
+  tail call void %172(ptr noundef nonnull %0, ptr noundef nonnull %154) #15
   br label %173
 
 173:                                              ; preds = %155, %126
@@ -731,11 +731,11 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 1392
   %176 = load ptr, ptr %175, align 8
   %177 = add nuw nsw i32 %.0174218, 1
-  tail call void %176(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef %.0174218, ptr noundef %.1) #14
+  tail call void %176(ptr noundef nonnull %0, ptr noundef nonnull %46, i32 noundef %.0174218, ptr noundef %.1) #15
   %178 = load ptr, ptr %0, align 8
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 184
   %180 = load ptr, ptr %179, align 8
-  tail call void %180(ptr noundef nonnull %0, ptr noundef %.1) #14
+  tail call void %180(ptr noundef nonnull %0, ptr noundef %.1) #15
   %181 = getelementptr inbounds nuw i8, ptr %.1178219, i64 24
   %.1178 = load ptr, ptr %181, align 8
   %.not197 = icmp eq ptr %.1178, null
@@ -762,7 +762,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 1376
   %187 = load ptr, ptr %186, align 8
   %188 = load ptr, ptr @ni_class, align 8
-  %189 = tail call ptr %187(ptr noundef nonnull %0, i32 noundef %.0180.lcssa, ptr noundef %188, ptr noundef null) #14
+  %189 = tail call ptr %187(ptr noundef nonnull %0, i32 noundef %.0180.lcssa, ptr noundef %188, ptr noundef null) #15
   %190 = icmp eq ptr %189, null
   br i1 %190, label %.loopexit, label %.preheader
 
@@ -783,12 +783,12 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 832
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr @ni_parentID, align 8
-  tail call void %196(ptr noundef nonnull %0, ptr noundef nonnull %191, ptr noundef %197, ptr noundef nonnull %8) #14
+  tail call void %196(ptr noundef nonnull %0, ptr noundef nonnull %191, ptr noundef %197, ptr noundef nonnull %8) #15
   %198 = load ptr, ptr %0, align 8
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 1392
   %200 = load ptr, ptr %199, align 8
   %201 = add nuw nsw i32 %.0179232, 1
-  tail call void %200(ptr noundef nonnull %0, ptr noundef nonnull %189, i32 noundef %.0179232, ptr noundef nonnull %191) #14
+  tail call void %200(ptr noundef nonnull %0, ptr noundef nonnull %189, i32 noundef %.0179232, ptr noundef nonnull %191) #15
   %202 = getelementptr inbounds nuw i8, ptr %.1176233, i64 32
   %.1176 = load ptr, ptr %202, align 8
   %.not199 = icmp eq ptr %.1176, null
@@ -799,33 +799,33 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 832
   %205 = load ptr, ptr %204, align 8
   %206 = load ptr, ptr @ni_addrsID, align 8
-  tail call void %205(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %206, ptr noundef nonnull %46) #14
+  tail call void %205(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %206, ptr noundef nonnull %46) #15
   %207 = load ptr, ptr %0, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 832
   %209 = load ptr, ptr %208, align 8
   %210 = load ptr, ptr @ni_bindsID, align 8
-  tail call void %209(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %210, ptr noundef nonnull %53) #14
+  tail call void %209(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %210, ptr noundef nonnull %53) #15
   %211 = load ptr, ptr %0, align 8
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 832
   %213 = load ptr, ptr %212, align 8
   %214 = load ptr, ptr @ni_childsID, align 8
-  tail call void %213(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %214, ptr noundef nonnull %189) #14
+  tail call void %213(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %214, ptr noundef nonnull %189) #15
   %215 = load ptr, ptr %0, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 184
   %217 = load ptr, ptr %216, align 8
-  tail call void %217(ptr noundef nonnull %0, ptr noundef nonnull %15) #14
+  tail call void %217(ptr noundef nonnull %0, ptr noundef nonnull %15) #15
   %218 = load ptr, ptr %0, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 184
   %220 = load ptr, ptr %219, align 8
-  tail call void %220(ptr noundef nonnull %0, ptr noundef nonnull %46) #14
+  tail call void %220(ptr noundef nonnull %0, ptr noundef nonnull %46) #15
   %221 = load ptr, ptr %0, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 184
   %223 = load ptr, ptr %222, align 8
-  tail call void %223(ptr noundef nonnull %0, ptr noundef nonnull %53) #14
+  tail call void %223(ptr noundef nonnull %0, ptr noundef nonnull %53) #15
   %224 = load ptr, ptr %0, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 184
   %226 = load ptr, ptr %225, align 8
-  tail call void %226(ptr noundef nonnull %0, ptr noundef nonnull %189) #14
+  tail call void %226(ptr noundef nonnull %0, ptr noundef nonnull %189) #15
   br label %.loopexit
 
 .loopexit:                                        ; preds = %148, %129, %136, %74, %88, %95, %58, %65, %.lr.ph234, %._crit_edge228, %48, %._crit_edge, %10, %2, %._crit_edge235
@@ -849,7 +849,7 @@ define internal fastcc void @freeif(ptr noundef captures(address_is_null) %0) un
   %.017 = phi ptr [ %5, %.lr.ph ], [ %3, %.lr.ph21 ]
   %4 = getelementptr inbounds nuw i8, ptr %.017, i64 24
   %5 = load ptr, ptr %4, align 8
-  tail call void @free(ptr noundef nonnull %.017) #14
+  tail call void @free(ptr noundef nonnull %.017) #15
   %.not14 = icmp eq ptr %5, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
@@ -866,7 +866,7 @@ define internal fastcc void @freeif(ptr noundef captures(address_is_null) %0) un
 9:                                                ; preds = %8, %._crit_edge
   %10 = getelementptr inbounds nuw i8, ptr %.01219, i64 32
   %11 = load ptr, ptr %10, align 8
-  tail call void @free(ptr noundef nonnull %.01219) #14
+  tail call void @free(ptr noundef nonnull %.01219) #15
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !14
 
@@ -913,11 +913,11 @@ define ptr @Java_java_net_NetworkInterface_getByIndex0(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddress0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %2) #14
+  %4 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %2) #15
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call zeroext i8 %7(ptr noundef nonnull %0) #14
+  %8 = tail call zeroext i8 %7(ptr noundef nonnull %0) #15
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %openSocket.exit51.thread
 
@@ -928,12 +928,12 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddres
   ]
 
 10:                                               ; preds = %9
-  %11 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
+  %11 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #15
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %22
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @__errno_location() #16
+  %14 = tail call ptr @__errno_location() #17
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %16 [
     i32 93, label %17
@@ -941,24 +941,24 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_NetworkInterface_boundInetAddres
   ]
 
 16:                                               ; preds = %13
-  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #14
+  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #15
   br label %17
 
 17:                                               ; preds = %13, %13, %16
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %20(ptr noundef nonnull %0) #14
+  %21 = tail call ptr %20(ptr noundef nonnull %0) #15
   %.not45 = icmp eq ptr %21, null
   br i1 %.not45, label %find_bound_interface.exit, label %openSocket.exit51.thread
 
 22:                                               ; preds = %10
   %23 = tail call fastcc ptr @enumIPv4Interfaces(ptr noundef nonnull %0, i32 noundef %11)
-  %24 = tail call i32 @close(i32 noundef %11) #14
+  %24 = tail call i32 @close(i32 noundef %11) #15
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %27 = load ptr, ptr %26, align 8
-  %28 = tail call ptr %27(ptr noundef nonnull %0) #14
+  %28 = tail call ptr %27(ptr noundef nonnull %0) #15
   %.not46 = icmp eq ptr %28, null
   br i1 %.not46, label %openSocket.exit, label %find_bound_interface.exit
 
@@ -990,16 +990,16 @@ openSocket.exit:                                  ; preds = %22
   %36 = load ptr, ptr %.03550.us.us.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %2) #14
+  %39 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %2) #15
   %40 = load ptr, ptr %0, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1824
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call zeroext i8 %42(ptr noundef nonnull %0) #14
+  %43 = tail call zeroext i8 %42(ptr noundef nonnull %0) #15
   %.not42.us.us.i = icmp eq i8 %43, 0
   br i1 %.not42.us.us.i, label %44, label %find_bound_interface.exit
 
 44:                                               ; preds = %35
-  %45 = tail call i32 @htonl(i32 noundef %38) #16
+  %45 = tail call i32 @htonl(i32 noundef %38) #17
   %46 = icmp eq i32 %45, %39
   br i1 %46, label %find_bound_interface.exit, label %47
 
@@ -1010,17 +1010,17 @@ openSocket.exit:                                  ; preds = %22
   br i1 %.not38.us.us.i, label %._crit_edge51.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !17
 
 49:                                               ; preds = %9
-  %50 = tail call i32 (...) @ipv6_available() #14
+  %50 = tail call i32 (...) @ipv6_available() #15
   %.not42 = icmp eq i32 %50, 0
   br i1 %.not42, label %find_bound_interface.exit, label %51
 
 51:                                               ; preds = %49
-  %52 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #14
+  %52 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #15
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %openSocket.exit51
 
 54:                                               ; preds = %51
-  %55 = tail call ptr @__errno_location() #16
+  %55 = tail call ptr @__errno_location() #17
   %56 = load i32, ptr %55, align 4
   switch i32 %56, label %57 [
     i32 93, label %openSocket.exit51.thread
@@ -1028,16 +1028,16 @@ openSocket.exit:                                  ; preds = %22
   ]
 
 57:                                               ; preds = %54
-  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #14
+  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.28) #15
   br label %openSocket.exit51.thread
 
 openSocket.exit51:                                ; preds = %51
   %58 = tail call fastcc ptr @enumIPv6Interfaces(ptr noundef nonnull %0, i32 noundef %52, ptr noundef null)
-  %59 = tail call i32 @close(i32 noundef %52) #14
+  %59 = tail call i32 @close(i32 noundef %52) #15
   %60 = load ptr, ptr %0, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 120
   %62 = load ptr, ptr %61, align 8
-  %63 = tail call ptr %62(ptr noundef nonnull %0) #14
+  %63 = tail call ptr %62(ptr noundef nonnull %0) #15
   %.not43 = icmp eq ptr %63, null
   br i1 %.not43, label %64, label %find_bound_interface.exit
 
@@ -1067,34 +1067,34 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
   %5 = alloca %struct.sockaddr, align 2
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %6, align 8
-  %7 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35090, ptr noundef nonnull %3) #14
+  %7 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35090, ptr noundef nonnull %3) #15
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %2
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.31) #14
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.31) #15
   br label %60
 
 10:                                               ; preds = %2
   %11 = load i32, ptr %3, align 8
   %12 = sext i32 %11 to i64
-  %13 = call noalias ptr @malloc(i64 noundef %12) #17
+  %13 = call noalias ptr @malloc(i64 noundef %12) #18
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %16
 
 15:                                               ; preds = %10
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #15
   br label %60
 
 16:                                               ; preds = %10
   store ptr %13, ptr %6, align 8
-  %17 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35090, ptr noundef nonnull %3) #14
+  %17 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35090, ptr noundef nonnull %3) #15
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %16
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.31) #14
-  call void @free(ptr noundef nonnull %13) #14
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.31) #15
+  call void @free(ptr noundef nonnull %13) #15
   br label %60
 
 20:                                               ; preds = %16
@@ -1118,7 +1118,7 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
 
 26:                                               ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
-  %27 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35091, ptr noundef nonnull %.0413) #14
+  %27 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35091, ptr noundef nonnull %.0413) #15
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %36
 
@@ -1130,7 +1130,7 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
 
 32:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 2 dereferenceable(16) %4, i64 16, i1 false)
-  %33 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35097, ptr noundef nonnull %.0413) #14
+  %33 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35097, ptr noundef nonnull %.0413) #15
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %36
 
@@ -1141,14 +1141,14 @@ define internal fastcc ptr @enumIPv4Interfaces(ptr noundef %0, i32 noundef range
 36:                                               ; preds = %32, %35, %29, %26
   %.039 = phi ptr [ %5, %35 ], [ null, %32 ], [ null, %29 ], [ null, %26 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, ptr noundef nonnull align 2 dereferenceable(16) %4, i64 16, i1 false)
-  %37 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35099, ptr noundef nonnull %.0413) #14
+  %37 = call i32 (i32, i64, ...) @ioctl(i32 noundef %1, i64 noundef 35099, ptr noundef nonnull %.0413) #15
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %translateIPv4AddressToPrefix.exit
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %.0413, i64 20
   %41 = load i32, ptr %40, align 4
-  %42 = call i32 @ntohl(i32 noundef %41) #16
+  %42 = call i32 @ntohl(i32 noundef %41) #17
   %.not9.i = icmp eq i32 %42, 0
   br i1 %.not9.i, label %translateIPv4AddressToPrefix.exit, label %.lr.ph.preheader.i
 
@@ -1164,7 +1164,7 @@ translateIPv4AddressToPrefix.exit:                ; preds = %.lr.ph.preheader.i,
   %47 = load ptr, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8
-  %50 = call ptr %49(ptr noundef nonnull %0) #14
+  %50 = call ptr %49(ptr noundef nonnull %0) #15
   %.not46 = icmp eq ptr %50, null
   br i1 %.not46, label %translateIPv4AddressToPrefix.exit._crit_edge, label %51
 
@@ -1173,7 +1173,7 @@ translateIPv4AddressToPrefix.exit._crit_edge:     ; preds = %translateIPv4Addres
   br label %52
 
 51:                                               ; preds = %translateIPv4AddressToPrefix.exit
-  call void @free(ptr noundef %13) #14
+  call void @free(ptr noundef %13) #15
   call fastcc void @freeif(ptr noundef %46)
   br label %60
 
@@ -1190,7 +1190,7 @@ translateIPv4AddressToPrefix.exit._crit_edge:     ; preds = %translateIPv4Addres
 
 ._crit_edge:                                      ; preds = %52, %20
   %.042.lcssa = phi ptr [ null, %20 ], [ %.1, %52 ]
-  call void @free(ptr noundef %13) #14
+  call void @free(ptr noundef %13) #15
   br label %60
 
 60:                                               ; preds = %._crit_edge, %51, %19, %15, %9
@@ -1236,16 +1236,16 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
   %13 = load ptr, ptr %.03550.us.us, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = tail call i32 @getInetAddress_addr(ptr noundef %0, ptr noundef %2) #14
+  %16 = tail call i32 @getInetAddress_addr(ptr noundef %0, ptr noundef %2) #15
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #14
+  %20 = tail call zeroext i8 %19(ptr noundef nonnull %0) #15
   %.not42.us.us = icmp eq i8 %20, 0
   br i1 %.not42.us.us, label %21, label %.thread
 
 21:                                               ; preds = %12
-  %22 = tail call i32 @htonl(i32 noundef %15) #16
+  %22 = tail call i32 @htonl(i32 noundef %15) #17
   %23 = icmp eq i32 %22, %16
   br i1 %23, label %.thread, label %24
 
@@ -1278,8 +1278,8 @@ define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef rea
 32:                                               ; preds = %.lr.ph.us69
   %33 = load ptr, ptr %.03550.us53.us, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %35 = call zeroext i8 @getInet6Address_ipaddress(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5) #14
-  %36 = call i32 @getInet6Address_scopeid(ptr noundef %0, ptr noundef %2) #14
+  %35 = call zeroext i8 @getInet6Address_ipaddress(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %5) #15
+  %36 = call i32 @getInet6Address_scopeid(ptr noundef %0, ptr noundef %2) #15
   %.not39.us.us = icmp eq i32 %36, 0
   br i1 %.not39.us.us, label %.preheader, label %37
 
@@ -1348,14 +1348,14 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
 
 22:                                               ; preds = %.preheader, %24
   %.1 = phi ptr [ %30, %24 ], [ %2, %.preheader ]
-  %23 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.35, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %4) #14
+  %23 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.35, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %9, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %4) #15
   %.not7 = icmp eq i32 %23, -1
   br i1 %.not7, label %35, label %24
 
 24:                                               ; preds = %22
-  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 40, ptr noundef nonnull @.str.36, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #14
+  %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 40, ptr noundef nonnull @.str.36, ptr noundef nonnull %5, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %11, i8 0, i64 28, i1 false)
-  %26 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %10, ptr noundef nonnull %20) #14
+  %26 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %10, ptr noundef nonnull %20) #15
   %27 = load i32, ptr %9, align 4
   store i32 %27, ptr %21, align 4
   %28 = load i32, ptr %6, align 4
@@ -1364,7 +1364,7 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
   %31 = load ptr, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
-  %34 = call ptr %33(ptr noundef nonnull %0) #14
+  %34 = call ptr %33(ptr noundef nonnull %0) #15
   %.not8 = icmp eq ptr %34, null
   br i1 %.not8, label %22, label %35, !llvm.loop !20
 
@@ -1380,11 +1380,11 @@ define internal fastcc noundef ptr @enumIPv6Interfaces(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define ptr @Java_java_net_NetworkInterface_getByInetAddress0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %2) #14
+  %4 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %2) #15
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1824
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call zeroext i8 %7(ptr noundef nonnull %0) #14
+  %8 = tail call zeroext i8 %7(ptr noundef nonnull %0) #15
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %19
 
@@ -1441,7 +1441,7 @@ define ptr @Java_java_net_NetworkInterface_getAll(ptr noundef %0, ptr noundef %1
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1376
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0, i32 noundef %5, ptr noundef %1, ptr noundef null) #14
+  %12 = tail call ptr %11(ptr noundef nonnull %0, i32 noundef %5, ptr noundef %1, ptr noundef null) #15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.sink.split, label %.preheader
 
@@ -1457,11 +1457,11 @@ define ptr @Java_java_net_NetworkInterface_getAll(ptr noundef %0, ptr noundef %1
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1392
   %19 = load ptr, ptr %18, align 8
   %20 = add nuw nsw i32 %.03040, 1
-  tail call void %19(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef %.03040, ptr noundef nonnull %14) #14
+  tail call void %19(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef %.03040, ptr noundef nonnull %14) #15
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %14) #14
+  tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %14) #15
   %24 = getelementptr inbounds nuw i8, ptr %.139, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not35 = icmp eq ptr %25, null
@@ -1497,33 +1497,33 @@ define internal fastcc range(i32 -1, 65536) i32 @getFlags0(ptr noundef %0, ptr n
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1352
   %8 = load ptr, ptr %7, align 8
-  %9 = call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4) #14
+  %9 = call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %4) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %18
 
 11:                                               ; preds = %2
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #15
   br label %43
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
-  %16 = call zeroext i8 %15(ptr noundef nonnull %0) #14
+  %16 = call zeroext i8 %15(ptr noundef nonnull %0) #15
   %.not27 = icmp eq i8 %16, 0
   br i1 %.not27, label %17, label %43
 
 17:                                               ; preds = %12
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #15
   br label %43
 
 18:                                               ; preds = %5
-  %19 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
+  %19 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #15
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %getFlags.exit
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @__errno_location() #16
+  %22 = tail call ptr @__errno_location() #17
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %27 [
     i32 93, label %24
@@ -1531,17 +1531,17 @@ define internal fastcc range(i32 -1, 65536) i32 @getFlags0(ptr noundef %0, ptr n
   ]
 
 24:                                               ; preds = %21, %21
-  %25 = call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #14
+  %25 = call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #15
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %getFlags.exit
 
 27:                                               ; preds = %24, %21
   %.str.30.sink.i = phi ptr [ @.str.29, %24 ], [ @.str.30, %21 ]
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #14
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #15
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1360
   %30 = load ptr, ptr %29, align 8
-  call void %30(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #14
+  call void %30(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #15
   br label %43
 
 getFlags.exit:                                    ; preds = %24, %18
@@ -1549,23 +1549,23 @@ getFlags.exit:                                    ; preds = %24, %18
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 noundef 16) #14
+  %32 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %9, i64 noundef 16) #15
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 0, ptr %33, align 1
-  %34 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03.i.ph, i64 noundef 35091, ptr noundef nonnull %3) #14
+  %34 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03.i.ph, i64 noundef 35091, ptr noundef nonnull %3) #15
   %35 = icmp slt i32 %34, 0
   %36 = load i16, ptr %31, align 8
   %37 = zext i16 %36 to i32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
-  %38 = call i32 @close(i32 noundef %.03.i.ph) #14
+  %38 = call i32 @close(i32 noundef %.03.i.ph) #15
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1360
   %41 = load ptr, ptr %40, align 8
-  call void %41(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #14
+  call void %41(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9) #15
   br i1 %35, label %42, label %43
 
 42:                                               ; preds = %getFlags.exit
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #14
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27) #15
   br label %43
 
 43:                                               ; preds = %getFlags.exit, %12, %17, %42, %27, %11
@@ -1612,24 +1612,24 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nound
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1352
   %12 = load ptr, ptr %11, align 8
-  %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %8) #14
+  %13 = call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %8) #15
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %22
 
 15:                                               ; preds = %5
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #15
   br label %45
 
 16:                                               ; preds = %9
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1824
   %19 = load ptr, ptr %18, align 8
-  %20 = call zeroext i8 %19(ptr noundef nonnull %0) #14
+  %20 = call zeroext i8 %19(ptr noundef nonnull %0) #15
   %.not41 = icmp eq i8 %20, 0
   br i1 %.not41, label %21, label %45
 
 21:                                               ; preds = %16
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #15
   br label %45
 
 22:                                               ; preds = %9
@@ -1640,7 +1640,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nound
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1600
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %6) #14
+  call void %27(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %6) #15
   br label %28
 
 28:                                               ; preds = %22, %24
@@ -1652,7 +1652,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nound
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1408
   %34 = load ptr, ptr %33, align 8
-  %35 = call ptr %34(ptr noundef nonnull %0, i32 noundef %29) #14
+  %35 = call ptr %34(ptr noundef nonnull %0, i32 noundef %29) #15
   %36 = icmp eq ptr %35, null
   br i1 %36, label %41, label %37
 
@@ -1660,7 +1660,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nound
   %38 = load ptr, ptr %0, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1664
   %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull %0, ptr noundef nonnull %35, i32 noundef 0, i32 noundef %29, ptr noundef nonnull %7) #14
+  call void %40(ptr noundef nonnull %0, ptr noundef nonnull %35, i32 noundef 0, i32 noundef %29, ptr noundef nonnull %7) #15
   br label %41
 
 41:                                               ; preds = %31, %37, %28
@@ -1668,7 +1668,7 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nound
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1360
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %13) #14
+  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %13) #15
   br label %45
 
 45:                                               ; preds = %16, %21, %41, %15
@@ -1676,18 +1676,18 @@ define ptr @Java_java_net_NetworkInterface_getMacAddr0(ptr noundef %0, ptr nound
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.ifreq, align 8
-  %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
+  %5 = tail call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #15
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @__errno_location() #16
+  %8 = tail call ptr @__errno_location() #17
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %openSocketWithFallback.exit [
     i32 93, label %10
@@ -1695,31 +1695,31 @@ define internal fastcc range(i32 -1, 7) i32 @getMacAddress(ptr noundef %0, ptr n
   ]
 
 10:                                               ; preds = %7, %7
-  %11 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #14
+  %11 = tail call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #15
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %openSocketWithFallback.exit, label %13
 
 openSocketWithFallback.exit:                      ; preds = %7, %10
   %.str.30.sink.i = phi ptr [ @.str.29, %10 ], [ @.str.30, %7 ]
-  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #14
+  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #15
   br label %.loopexit
 
 13:                                               ; preds = %10, %3
   %.03.i.ph = phi i32 [ %5, %3 ], [ %11, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
-  %15 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 15) #14
-  %16 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.03.i.ph, i64 noundef 35111, ptr noundef nonnull %4) #14
+  %15 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 15) #15
+  %16 = call i32 (i32, i64, ...) @ioctl(i32 noundef %.03.i.ph, i64 noundef 35111, ptr noundef nonnull %4) #15
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %13
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.37) #14
-  %19 = call i32 @close(i32 noundef %.03.i.ph) #14
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.37) #15
+  %19 = call i32 @close(i32 noundef %.03.i.ph) #15
   br label %.loopexit
 
 20:                                               ; preds = %13
-  %21 = call i32 @close(i32 noundef %.03.i.ph) #14
+  %21 = call i32 @close(i32 noundef %.03.i.ph) #15
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2, ptr noundef nonnull align 2 dereferenceable(6) %22, i64 6, i1 false)
   br label %24
@@ -1752,33 +1752,33 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef r
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1352
   %10 = load ptr, ptr %9, align 8
-  %11 = call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %6) #14
+  %11 = call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %6) #15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %20
 
 13:                                               ; preds = %4
-  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #14
+  tail call void @JNU_ThrowNullPointerException(ptr noundef %0, ptr noundef nonnull @.str.25) #15
   br label %46
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1824
   %17 = load ptr, ptr %16, align 8
-  %18 = call zeroext i8 %17(ptr noundef nonnull %0) #14
+  %18 = call zeroext i8 %17(ptr noundef nonnull %0) #15
   %.not29 = icmp eq i8 %18, 0
   br i1 %.not29, label %19, label %46
 
 19:                                               ; preds = %14
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #15
   br label %46
 
 20:                                               ; preds = %7
-  %21 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #14
+  %21 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #15
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @__errno_location() #16
+  %24 = tail call ptr @__errno_location() #17
   %25 = load i32, ptr %24, align 4
   switch i32 %25, label %29 [
     i32 93, label %26
@@ -1786,17 +1786,17 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef r
   ]
 
 26:                                               ; preds = %23, %23
-  %27 = call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #14
+  %27 = call i32 @socket(i32 noundef 10, i32 noundef 2, i32 noundef 0) #15
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %26, %23
   %.str.30.sink.i = phi ptr [ @.str.29, %26 ], [ @.str.30, %23 ]
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #14
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull %.str.30.sink.i) #15
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1360
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #14
+  call void %32(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
   br label %46
 
 33:                                               ; preds = %26, %20
@@ -1804,13 +1804,13 @@ define i32 @Java_java_net_NetworkInterface_getMTU0(ptr noundef %0, ptr noundef r
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
-  %35 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %11, i64 noundef 15) #14
-  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03.i.ph, i64 noundef 35105, ptr noundef nonnull %5) #14
+  %35 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull readonly dereferenceable(1) %11, i64 noundef 15) #15
+  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %.03.i.ph, i64 noundef 35105, ptr noundef nonnull %5) #15
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %33
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.38) #14
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.38) #15
   br label %getMTU.exit
 
 39:                                               ; preds = %33
@@ -1824,8 +1824,8 @@ getMTU.exit:                                      ; preds = %38, %39
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1360
   %44 = load ptr, ptr %43, align 8
-  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #14
-  %45 = call i32 @close(i32 noundef %.03.i.ph) #14
+  call void %44(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %11) #15
+  %45 = call i32 @close(i32 noundef %.03.i.ph) #15
   br label %46
 
 46:                                               ; preds = %14, %19, %getMTU.exit, %29, %13
@@ -1844,7 +1844,7 @@ declare void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef, ptr noundef, p
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
@@ -1865,13 +1865,13 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #3
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 2, 11) %6, i16 noundef signext %7) unnamed_addr #0 {
@@ -1880,7 +1880,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %11 = alloca %struct.ifreq, align 8
   %12 = alloca [16 x i8], align 16
   %13 = alloca [16 x i8], align 16
-  %14 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16) #14
+  %14 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16) #15
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 15
   store i8 0, ptr %15, align 1
   store i8 0, ptr %13, align 16
@@ -1889,12 +1889,12 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %18 = shl nuw nsw i32 %17, 1
   %narrow = add nuw nsw i32 %18, 32
   %19 = zext nneg i32 %narrow to i64
-  %20 = call noalias ptr @malloc(i64 noundef %19) #17
+  %20 = call noalias ptr @malloc(i64 noundef %19) #18
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %8
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #15
   br label %115
 
 23:                                               ; preds = %8
@@ -1921,7 +1921,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   %.sink = phi ptr [ %31, %30 ], [ null, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %.sink, ptr %33, align 8
-  %34 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #15
+  %34 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 58) #16
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %47, label %35
 
@@ -1930,10 +1930,10 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
-  %37 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
+  %37 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #15
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 15
   store i8 0, ptr %38, align 1
-  %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35091, ptr noundef nonnull %11) #14
+  %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35091, ptr noundef nonnull %11) #15
   %40 = icmp slt i32 %39, 0
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br i1 %40, label %41, label %42
@@ -1959,7 +1959,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
 .lr.ph:                                           ; preds = %47, %51
   %.0106130 = phi ptr [ %53, %51 ], [ %3, %47 ]
   %48 = load ptr, ptr %.0106130, align 8
-  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %48) #15
+  %49 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %48) #16
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.loopexit126.loopexit, label %51
 
@@ -1970,27 +1970,27 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   br i1 %cond, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %51, %47
-  %54 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #17
+  %54 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %._crit_edge
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #15
   br label %115
 
 57:                                               ; preds = %._crit_edge
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store ptr %58, ptr %54, align 8
-  %59 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #14
+  %59 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 16) #15
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 55
   store i8 0, ptr %60, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
-  %62 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #14
+  %62 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %12, i64 noundef 16) #15
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 15
   store i8 0, ptr %63, align 1
-  %64 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35123, ptr noundef nonnull %10) #14
+  %64 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35123, ptr noundef nonnull %10) #15
   %65 = load i32, ptr %61, align 8
   %.inv.i = icmp sgt i32 %64, -1
   %.0.i120 = select i1 %.inv.i, i32 %65, i32 -1
@@ -2030,7 +2030,7 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
 .lr.ph135:                                        ; preds = %73, %78
   %.2133 = phi ptr [ %.2, %78 ], [ %.2131, %73 ]
   %75 = load ptr, ptr %.2133, align 8
-  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %75) #15
+  %76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %75) #16
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.loopexit, label %78
 
@@ -2041,27 +2041,27 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   br i1 %cond119, label %._crit_edge136, label %.lr.ph135, !llvm.loop !25
 
 ._crit_edge136:                                   ; preds = %78, %73
-  %80 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #17
+  %80 = call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #18
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %._crit_edge136
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #15
   br label %115
 
 83:                                               ; preds = %._crit_edge136
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store ptr %84, ptr %80, align 8
-  %85 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 16) #14
+  %85 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %84, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 16) #15
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 55
   store i8 0, ptr %86, align 1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
-  %88 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #14
+  %88 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %13, i64 noundef 16) #15
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 15
   store i8 0, ptr %89, align 1
-  %90 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35123, ptr noundef nonnull %9) #14
+  %90 = call i32 (i32, i64, ...) @ioctl(i32 noundef range(i32 0, -2147483648) %1, i64 noundef 35123, ptr noundef nonnull %9) #15
   %91 = load i32, ptr %87, align 8
   %.inv.i121 = icmp sgt i32 %90, -1
   %.0.i122 = select i1 %.inv.i121, i32 %91, i32 -1
@@ -2082,12 +2082,12 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
 
 .loopexit:                                        ; preds = %.lr.ph135, %83
   %.3 = phi ptr [ %80, %83 ], [ %.2133, %.lr.ph135 ]
-  %98 = call noalias ptr @malloc(i64 noundef %19) #17
+  %98 = call noalias ptr @malloc(i64 noundef %19) #18
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %.loopexit
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #14
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.32) #15
   br label %115
 
 101:                                              ; preds = %.loopexit
@@ -2128,53 +2128,54 @@ define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.cttz.i32(i32, i1 immarg) #12
+declare i32 @llvm.cttz.i32(i32, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(none) }
-attributes #17 = { nounwind allocsize(0) }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind willreturn memory(none) }
+attributes #18 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

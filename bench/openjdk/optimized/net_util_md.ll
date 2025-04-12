@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @NET_ThrowByNameWithLastError(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
+  tail call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef %1, ptr noundef %2) #14
   ret void
 }
 
@@ -38,18 +38,18 @@ define void @NET_ThrowNew(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_
   ]
 
 5:                                                ; preds = %3
-  %6 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 512, ptr noundef nonnull @.str.1, ptr noundef nonnull %spec.store.select) #13
-  call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #13
+  %6 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %4, i64 noundef 512, ptr noundef nonnull @.str.1, ptr noundef nonnull %spec.store.select) #14
+  call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #14
   br label %10
 
 7:                                                ; preds = %3
-  tail call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select) #13
+  tail call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull %spec.store.select) #14
   br label %10
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #14
+  %9 = tail call ptr @__errno_location() #15
   store i32 %1, ptr %9, align 4
-  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.store.select) #13
+  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %spec.store.select) #14
   br label %10
 
 10:                                               ; preds = %8, %7, %5
@@ -67,12 +67,12 @@ declare void @JNU_ThrowByNameWithLastError(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @IPv4_supported() local_unnamed_addr #0 {
-  %1 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #13
+  %1 = tail call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #14
   %2 = icmp slt i32 %1, 0
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 @close(i32 noundef %1) #13
+  %4 = tail call i32 @close(i32 noundef %1) #14
   br label %5
 
 5:                                                ; preds = %0, %3
@@ -88,12 +88,12 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @IPv6_supported() local_unnamed_addr #0 {
   %1 = alloca [255 x i8], align 16
-  %2 = tail call i32 @socket(i32 noundef 10, i32 noundef 1, i32 noundef 0) #13
+  %2 = tail call i32 @socket(i32 noundef 10, i32 noundef 1, i32 noundef 0) #14
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %15, label %4
 
 4:                                                ; preds = %0
-  %5 = tail call i32 @close(i32 noundef %2) #13
+  %5 = tail call i32 @close(i32 noundef %2) #14
   %6 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
@@ -105,7 +105,7 @@ define hidden range(i32 0, 2) i32 @IPv6_supported() local_unnamed_addr #0 {
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %8
-  %13 = call ptr @JVM_FindLibraryEntry(ptr noundef null, ptr noundef nonnull @.str.6) #13
+  %13 = call ptr @JVM_FindLibraryEntry(ptr noundef null, ptr noundef nonnull @.str.6) #14
   %14 = icmp ne ptr %13, null
   %. = zext i1 %14 to i32
   br label %15
@@ -132,15 +132,15 @@ define hidden range(i32 0, 2) i32 @reuseport_supported(i32 noundef %0) local_unn
   store i32 1, ptr %2, align 4
   %.not = icmp eq i32 %0, 0
   %.10 = select i1 %.not, i32 2, i32 10
-  %3 = tail call i32 @socket(i32 noundef %.10, i32 noundef 1, i32 noundef 0) #13
+  %3 = tail call i32 @socket(i32 noundef %.10, i32 noundef 1, i32 noundef 0) #14
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = call i32 @setsockopt(i32 noundef %3, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %2, i32 noundef 4) #13
+  %6 = call i32 @setsockopt(i32 noundef %3, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %2, i32 noundef 4) #14
   %.not9 = icmp eq i32 %6, 0
   %. = zext i1 %.not9 to i32
-  %7 = call i32 @close(i32 noundef %3) #13
+  %7 = call i32 @close(i32 noundef %3) #14
   br label %8
 
 8:                                                ; preds = %1, %5
@@ -153,28 +153,28 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @NET_ThrowUnknownHostExceptionWithGaiError(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call ptr @gai_strerror(i32 noundef %2) #13
+  %4 = tail call ptr @gai_strerror(i32 noundef %2) #14
   %5 = icmp eq ptr %4, null
   %spec.store.select = select i1 %5, ptr @.str.8, ptr %4
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %7 = add i64 %6, 6
-  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #15
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #16
   %9 = add i64 %7, %8
   %10 = shl i64 %9, 32
   %sext = add i64 %10, 8589934592
   %11 = ashr exact i64 %sext, 32
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #16
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #17
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %24, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %12, i64 noundef %11, ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull %spec.store.select) #13
-  %15 = tail call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef nonnull %12) #13
+  %14 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %12, i64 noundef %11, ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull %spec.store.select) #14
+  %15 = tail call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef nonnull %12) #14
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %23, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %15) #13
+  %17 = tail call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %15) #14
   %.not24 = icmp eq ptr %17, null
   br i1 %.not24, label %23, label %18
 
@@ -182,11 +182,11 @@ define hidden void @NET_ThrowUnknownHostExceptionWithGaiError(ptr noundef %0, pt
   %19 = load ptr, ptr %0, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %17) #13
+  %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef nonnull %17) #14
   br label %23
 
 23:                                               ; preds = %16, %18, %13
-  tail call void @free(ptr noundef nonnull %12) #13
+  tail call void @free(ptr noundef nonnull %12) #14
   br label %24
 
 24:                                               ; preds = %23, %3
@@ -196,7 +196,7 @@ define hidden void @NET_ThrowUnknownHostExceptionWithGaiError(ptr noundef %0, pt
 ; Function Attrs: nounwind
 declare ptr @gai_strerror(i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
@@ -220,17 +220,17 @@ define noundef i32 @NET_EnableFastTcpLoopback(i32 noundef %0) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
-  %8 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %1) #13
+  %8 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %1) #14
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1824
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call zeroext i8 %11(ptr noundef nonnull %0) #13
+  %12 = tail call zeroext i8 %11(ptr noundef nonnull %0) #14
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %13, label %69
 
 13:                                               ; preds = %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %3, i8 0, i64 28, i1 false)
-  %14 = tail call i32 (...) @ipv6_available() #13
+  %14 = tail call i32 (...) @ipv6_available() #14
   %.not48 = icmp eq i32 %14, 0
   %.not51 = icmp eq i32 %8, 1
   br i1 %.not48, label %55, label %15
@@ -245,11 +245,11 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
 
 18:                                               ; preds = %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %19 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %1) #13
+  %19 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %1) #14
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #13
+  %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #14
   %.not49 = icmp eq i8 %23, 0
   br i1 %.not49, label %24, label %69
 
@@ -280,12 +280,12 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
   br label %42
 
 40:                                               ; preds = %17
-  %41 = call zeroext i8 @getInet6Address_ipaddress(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7) #13
+  %41 = call zeroext i8 @getInet6Address_ipaddress(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %7) #14
   br label %42
 
 42:                                               ; preds = %26, %24, %40
   %43 = trunc i32 %2 to i16
-  %44 = call zeroext i16 @htons(i16 noundef zeroext %43) #14
+  %44 = call zeroext i16 @htons(i16 noundef zeroext %43) #15
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %44, ptr %45, align 2
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -306,7 +306,7 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
   br i1 %or.cond4, label %52, label %69
 
 52:                                               ; preds = %48
-  %53 = call i32 @getInet6Address_scopeid(ptr noundef nonnull %0, ptr noundef %1) #13
+  %53 = call i32 @getInet6Address_scopeid(ptr noundef nonnull %0, ptr noundef %1) #14
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %53, ptr %54, align 4
   br label %69
@@ -315,24 +315,24 @@ define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr nound
   br i1 %.not51, label %.thread, label %56
 
 56:                                               ; preds = %55
-  tail call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11) #13
+  tail call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.11) #14
   br label %69
 
 .thread:                                          ; preds = %15, %55
-  %57 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %1) #13
+  %57 = tail call i32 @getInetAddress_addr(ptr noundef nonnull %0, ptr noundef %1) #14
   %58 = load ptr, ptr %0, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1824
   %60 = load ptr, ptr %59, align 8
-  %61 = tail call zeroext i8 %60(ptr noundef nonnull %0) #13
+  %61 = tail call zeroext i8 %60(ptr noundef nonnull %0) #14
   %.not52 = icmp eq i8 %61, 0
   br i1 %.not52, label %62, label %69
 
 62:                                               ; preds = %.thread
   %63 = trunc i32 %2 to i16
-  %64 = tail call zeroext i16 @htons(i16 noundef zeroext %63) #14
+  %64 = tail call zeroext i16 @htons(i16 noundef zeroext %63) #15
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %64, ptr %65, align 2
-  %66 = tail call i32 @htonl(i32 noundef %57) #14
+  %66 = tail call i32 @htonl(i32 noundef %57) #15
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %66, ptr %67, align 4
   store i16 2, ptr %3, align 4
@@ -359,19 +359,19 @@ declare i32 @getInetAddress_addr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare zeroext i8 @getInet6Address_ipaddress(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i32 @getInet6Address_scopeid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @htonl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @NET_IsIPv4Mapped(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @NET_IsIPv4Mapped(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   br label %3
 
 2:                                                ; preds = %3
@@ -407,7 +407,7 @@ define hidden range(i32 0, 2) i32 @NET_IsIPv4Mapped(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @NET_IPv4MappedToIPv4(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+define hidden i32 @NET_IPv4MappedToIPv4(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -430,7 +430,7 @@ define hidden i32 @NET_IPv4MappedToIPv4(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @NET_IsEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @NET_IsEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   br label %4
 
 3:                                                ; preds = %4
@@ -453,7 +453,7 @@ define hidden range(i32 0, 2) i32 @NET_IsEqual(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @NET_IsZeroAddr(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @NET_IsZeroAddr(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   br label %3
 
 2:                                                ; preds = %3
@@ -478,7 +478,7 @@ define i32 @NET_GetSockOpt(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   %6 = alloca i32, align 4
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 4
-  %8 = call i32 @getsockopt(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6) #13
+  %8 = call i32 @getsockopt(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %6) #14
   %9 = load i32, ptr %6, align 4
   store i32 %9, ptr %4, align 4
   %10 = icmp slt i32 %8, 0
@@ -513,18 +513,18 @@ define i32 @NET_SetSockOpt(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   br i1 %or.cond, label %9, label %19
 
 9:                                                ; preds = %5
-  %10 = tail call i32 (...) @ipv6_available() #13
+  %10 = tail call i32 (...) @ipv6_available() #14
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.thread, label %11
 
 11:                                               ; preds = %9
   store i32 1, ptr %6, align 4
-  %12 = call i32 @setsockopt(i32 noundef %0, i32 noundef 41, i32 noundef 33, ptr noundef nonnull %6, i32 noundef 4) #13
+  %12 = call i32 @setsockopt(i32 noundef %0, i32 noundef 41, i32 noundef 33, ptr noundef nonnull %6, i32 noundef 4) #14
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %27, label %14
 
 14:                                               ; preds = %11
-  %15 = call i32 @setsockopt(i32 noundef %0, i32 noundef 41, i32 noundef 67, ptr noundef %3, i32 noundef %4) #13
+  %15 = call i32 @setsockopt(i32 noundef %0, i32 noundef 41, i32 noundef 67, ptr noundef %3, i32 noundef %4) #14
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %27, label %.thread
 
@@ -550,7 +550,7 @@ define i32 @NET_SetSockOpt(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr n
   br label %25
 
 25:                                               ; preds = %.sink.split, %22, %19
-  %26 = call i32 @setsockopt(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #13
+  %26 = call i32 @setsockopt(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) #14
   br label %27
 
 27:                                               ; preds = %14, %11, %25
@@ -567,18 +567,18 @@ define i32 @NET_Bind(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnam
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = tail call i32 @ntohl(i32 noundef %8) #14
+  %9 = tail call i32 @ntohl(i32 noundef %8) #15
   %10 = and i32 %9, 2130706687
   %11 = icmp eq i32 %10, 2130706687
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %6
-  %13 = tail call ptr @__errno_location() #14
+  %13 = tail call ptr @__errno_location() #15
   store i32 99, ptr %13, align 4
   br label %16
 
 14:                                               ; preds = %6, %3
-  %15 = tail call i32 @bind(i32 noundef %0, ptr nonnull %1, i32 noundef %2) #13
+  %15 = tail call i32 @bind(i32 noundef %0, ptr nonnull %1, i32 noundef %2) #14
   br label %16
 
 16:                                               ; preds = %14, %12
@@ -586,8 +586,8 @@ define i32 @NET_Bind(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnam
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @ntohl(i32 noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
@@ -595,7 +595,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.pollfd, align 4
-  %6 = tail call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #13
+  %6 = tail call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #14
   %7 = sext i32 %3 to i64
   %8 = mul nsw i64 %7, 1000000
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -606,7 +606,7 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %spec.select21 = or disjoint i16 %spec.select, %12
   %13 = and i32 %2, 4
   %.not20 = icmp eq i32 %13, 0
-  %14 = tail call ptr @__errno_location() #14
+  %14 = tail call ptr @__errno_location() #15
   br i1 %.not20, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %4
@@ -621,8 +621,8 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   store i32 0, ptr %14, align 4
   %16 = sdiv i64 %.017.us, 1000000
   %17 = trunc i64 %16 to i32
-  %18 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %17) #13
-  %19 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #13
+  %18 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %17) #14
+  %19 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #14
   %.neg.us = sub i64 %.016.us, %19
   %20 = add i64 %.neg.us, %.017.us
   %21 = icmp slt i64 %20, 1000000
@@ -640,8 +640,8 @@ define hidden i32 @NET_Wait(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   store i32 0, ptr %14, align 4
   %24 = sdiv i64 %.017, 1000000
   %25 = trunc i64 %24 to i32
-  %26 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %25) #13
-  %27 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #13
+  %26 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %25) #14
+  %27 = call i64 @JVM_NanoTime(ptr noundef %0, ptr noundef null) #14
   %.neg = sub i64 %.016, %27
   %28 = add i64 %.neg, %.017
   %29 = icmp slt i64 %28, 1000000
@@ -677,18 +677,19 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(none) }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(none) }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

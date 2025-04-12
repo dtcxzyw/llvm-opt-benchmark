@@ -339,7 +339,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 10) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 10) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS4doItEPNS_6ESTree4NodeE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -1588,7 +1588,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.284, i64 noundef 4) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.284, i64 noundef 4) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree15NullLiteralNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
@@ -1619,7 +1619,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18BooleanLiteralNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
@@ -1649,7 +1649,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 34) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 34) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -1835,7 +1835,7 @@ sw.bb.i.i:                                        ; preds = %"_ZN6hermes10decode
   br i1 %cmp.i.i16.i.i, label %if.then.i.i18.i.i, label %if.then4.i.i.i.i
 
 if.then.i.i18.i.i:                                ; preds = %sw.bb.i.i
-  %call3.i.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull @.str.287, i64 noundef 2) #12
+  %call3.i.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %17, ptr noundef nonnull @.str.287, i64 noundef 2) #13
   br label %for.cond.backedge.i.i
 
 if.then4.i.i.i.i:                                 ; preds = %sw.bb.i.i
@@ -1863,7 +1863,7 @@ sw.bb6.i.i:                                       ; preds = %"_ZN6hermes10decode
   br i1 %cmp.i.i25.i.i, label %if.then.i.i31.i.i, label %if.then4.i.i28.i.i
 
 if.then.i.i31.i.i:                                ; preds = %sw.bb6.i.i
-  %call3.i.i32.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %21, ptr noundef nonnull @.str.288, i64 noundef 2) #12
+  %call3.i.i32.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %21, ptr noundef nonnull @.str.288, i64 noundef 2) #13
   br label %for.cond.backedge.i.i
 
 if.then4.i.i28.i.i:                               ; preds = %sw.bb6.i.i
@@ -1886,7 +1886,7 @@ sw.bb9.i.i:                                       ; preds = %"_ZN6hermes10decode
   br i1 %cmp.i.i40.i.i, label %if.then.i.i46.i.i, label %if.then4.i.i43.i.i
 
 if.then.i.i46.i.i:                                ; preds = %sw.bb9.i.i
-  %call3.i.i47.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %25, ptr noundef nonnull @.str.289, i64 noundef 2) #12
+  %call3.i.i47.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %25, ptr noundef nonnull @.str.289, i64 noundef 2) #13
   br label %for.cond.backedge.i.i
 
 if.then4.i.i43.i.i:                               ; preds = %sw.bb9.i.i
@@ -1909,7 +1909,7 @@ sw.bb12.i.i:                                      ; preds = %"_ZN6hermes10decode
   br i1 %cmp.i.i55.i.i, label %if.then.i.i61.i.i, label %if.then4.i.i58.i.i
 
 if.then.i.i61.i.i:                                ; preds = %sw.bb12.i.i
-  %call3.i.i62.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %29, ptr noundef nonnull @.str.290, i64 noundef 2) #12
+  %call3.i.i62.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %29, ptr noundef nonnull @.str.290, i64 noundef 2) #13
   br label %for.cond.backedge.i.i
 
 if.then4.i.i58.i.i:                               ; preds = %sw.bb12.i.i
@@ -1932,7 +1932,7 @@ sw.bb15.i.i:                                      ; preds = %"_ZN6hermes10decode
   br i1 %cmp.i.i70.i.i, label %if.then.i.i76.i.i, label %if.then4.i.i73.i.i
 
 if.then.i.i76.i.i:                                ; preds = %sw.bb15.i.i
-  %call3.i.i77.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %33, ptr noundef nonnull @.str.291, i64 noundef 2) #12
+  %call3.i.i77.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %33, ptr noundef nonnull @.str.291, i64 noundef 2) #13
   br label %for.cond.backedge.i.i
 
 if.then4.i.i73.i.i:                               ; preds = %sw.bb15.i.i
@@ -1955,7 +1955,7 @@ sw.bb18.i.i:                                      ; preds = %"_ZN6hermes10decode
   br i1 %cmp.i.i85.i.i, label %if.then.i.i91.i.i, label %if.then4.i.i88.i.i
 
 if.then.i.i91.i.i:                                ; preds = %sw.bb18.i.i
-  %call3.i.i92.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %37, ptr noundef nonnull @.str.292, i64 noundef 2) #12
+  %call3.i.i92.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %37, ptr noundef nonnull @.str.292, i64 noundef 2) #13
   br label %for.cond.backedge.i.i
 
 if.then4.i.i88.i.i:                               ; preds = %sw.bb18.i.i
@@ -1978,7 +1978,7 @@ sw.bb21.i.i:                                      ; preds = %"_ZN6hermes10decode
   br i1 %cmp.i.i100.i.i, label %if.then.i.i106.i.i, label %if.then4.i.i103.i.i
 
 if.then.i.i106.i.i:                               ; preds = %sw.bb21.i.i
-  %call3.i.i107.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %41, ptr noundef nonnull @.str.293, i64 noundef 2) #12
+  %call3.i.i107.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %41, ptr noundef nonnull @.str.293, i64 noundef 2) #13
   br label %for.cond.backedge.i.i
 
 if.then4.i.i103.i.i:                              ; preds = %sw.bb21.i.i
@@ -1998,7 +1998,7 @@ if.then.i2.i:                                     ; preds = %"_ZN6hermes10decode
   br i1 %cmp.not.i.i.i, label %if.end.i111.i.i, label %if.then.i109.i.i
 
 if.then.i109.i.i:                                 ; preds = %if.then.i2.i
-  %call.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 noundef zeroext 92) #12
+  %call.i.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 noundef zeroext 92) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit.i.i
 
 if.end.i111.i.i:                                  ; preds = %if.then.i2.i
@@ -2017,7 +2017,7 @@ _ZN4llvh11raw_ostreamlsEc.exit.i.i:               ; preds = %if.end.i111.i.i, %i
   br i1 %cmp.not.i115.i.i, label %if.end.i119.i.i, label %if.then.i116.i.i
 
 if.then.i116.i.i:                                 ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i.i
-  %call.i117.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i110.i.i, i8 noundef zeroext 34) #12
+  %call.i117.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i110.i.i, i8 noundef zeroext 34) #13
   br label %for.cond.backedge.i.i
 
 if.end.i119.i.i:                                  ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i.i
@@ -2034,7 +2034,7 @@ if.end48.i.i:                                     ; preds = %"_ZN6hermes10decode
 if.then52.i.i:                                    ; preds = %if.end48.i.i
   %51 = load ptr, ptr %v, align 8
   %conv54.i.i = trunc nuw nsw i32 %retval.0.i.i.i to i8
-  %call55.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %51, i8 noundef zeroext %conv54.i.i) #12
+  %call55.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %51, i8 noundef zeroext %conv54.i.i) #13
   br label %for.cond.backedge.i.i
 
 if.end56.i.i:                                     ; preds = %if.end48.i.i
@@ -2054,7 +2054,7 @@ if.then58.i.i:                                    ; preds = %if.end56.i.i
   br i1 %cmp.i.i147.i.i, label %if.then.i.i153.i.i, label %if.then4.i.i150.i.i
 
 if.then.i.i153.i.i:                               ; preds = %if.then58.i.i
-  %call3.i.i154.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %52, ptr noundef nonnull @.str.294, i64 noundef 2) #12
+  %call3.i.i154.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %52, ptr noundef nonnull @.str.294, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit155.i.i
 
 if.then4.i.i150.i.i:                              ; preds = %if.then58.i.i
@@ -2073,7 +2073,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit155.i.i:          ; preds = %if.then4.i.i150.i.i
   store i8 1, ptr %Hex.i.i.i.i, align 4, !alias.scope !6
   store i8 0, ptr %Upper.i.i.i.i, align 1, !alias.scope !6
   store i8 0, ptr %HexPrefix.i.i.i.i, align 2, !alias.scope !6
-  %call62.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i152.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp.i.i) #12
+  %call62.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i152.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp.i.i) #13
   br label %for.cond.backedge.i.i
 
 if.end63.i.i:                                     ; preds = %if.end56.i.i
@@ -2095,7 +2095,7 @@ if.then65.i.i:                                    ; preds = %if.end63.i.i, %if.e
   br i1 %cmp.i.i162.i.i, label %if.then.i.i168.i.i, label %if.then4.i.i165.i.i
 
 if.then.i.i168.i.i:                               ; preds = %if.then65.i.i
-  %call3.i.i169.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %56, ptr noundef nonnull @.str.295, i64 noundef 2) #12
+  %call3.i.i169.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %56, ptr noundef nonnull @.str.295, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit170.i.i
 
 if.then4.i.i165.i.i:                              ; preds = %if.then65.i.i
@@ -2114,7 +2114,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit170.i.i:          ; preds = %if.then4.i.i165.i.i
   store i8 1, ptr %Hex.i.i173.i.i, align 4, !alias.scope !9
   store i8 0, ptr %Upper.i.i174.i.i, align 1, !alias.scope !9
   store i8 0, ptr %HexPrefix.i.i175.i.i, align 2, !alias.scope !9
-  %call70.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i167.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp68.i.i) #12
+  %call70.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i167.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp68.i.i) #13
   br label %for.cond.backedge.i.i
 
 _ZN6hermes11encodeUTF16IPtEEvRT_j.exit.i.i:       ; preds = %if.end63.i.i
@@ -2138,7 +2138,7 @@ _ZN6hermes11encodeUTF16IPtEEvRT_j.exit.i.i:       ; preds = %if.end63.i.i
   br i1 %cmp.i.i186.i.i, label %if.then.i.i192.i.i, label %if.then4.i.i189.i.i
 
 if.then.i.i192.i.i:                               ; preds = %_ZN6hermes11encodeUTF16IPtEEvRT_j.exit.i.i
-  %call3.i.i193.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %64, ptr noundef nonnull @.str.295, i64 noundef 2) #12
+  %call3.i.i193.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %64, ptr noundef nonnull @.str.295, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit194.i.i
 
 if.then4.i.i189.i.i:                              ; preds = %_ZN6hermes11encodeUTF16IPtEEvRT_j.exit.i.i
@@ -2156,7 +2156,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit194.i.i:          ; preds = %if.then4.i.i189.i.i
   store i8 1, ptr %Hex.i.i197.i.i, align 4, !alias.scope !12
   store i8 0, ptr %Upper.i.i198.i.i, align 1, !alias.scope !12
   store i8 0, ptr %HexPrefix.i.i199.i.i, align 2, !alias.scope !12
-  %call76.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i191.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp74.i.i) #12
+  %call76.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i191.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp74.i.i) #13
   %OutBufEnd.i5.i201.i.i = getelementptr inbounds nuw i8, ptr %call76.i.i, i64 16
   %68 = load ptr, ptr %OutBufEnd.i5.i201.i.i, align 8
   %OutBufCur.i6.i202.i.i = getelementptr inbounds nuw i8, ptr %call76.i.i, i64 24
@@ -2168,7 +2168,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit194.i.i:          ; preds = %if.then4.i.i189.i.i
   br i1 %cmp.i.i206.i.i, label %if.then.i.i212.i.i, label %if.then4.i.i209.i.i
 
 if.then.i.i212.i.i:                               ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit194.i.i
-  %call3.i.i213.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call76.i.i, ptr noundef nonnull @.str.295, i64 noundef 2) #12
+  %call3.i.i213.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call76.i.i, ptr noundef nonnull @.str.295, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit214.i.i
 
 if.then4.i.i209.i.i:                              ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit194.i.i
@@ -2186,7 +2186,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit214.i.i:          ; preds = %if.then4.i.i209.i.i
   store i8 1, ptr %Hex.i.i217.i.i, align 4, !alias.scope !15
   store i8 0, ptr %Upper.i.i218.i.i, align 1, !alias.scope !15
   store i8 0, ptr %HexPrefix.i.i219.i.i, align 2, !alias.scope !15
-  %call81.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i211.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp78.i.i) #12
+  %call81.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_15FormattedNumberE(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i211.i.i, ptr noundef nonnull align 8 dereferenceable(23) %ref.tmp78.i.i) #13
   br label %for.cond.backedge.i.i
 
 _ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_.exit.i: ; preds = %for.cond.backedge.i.i, %_ZN4llvh11raw_ostreamlsEc.exit.i
@@ -2203,7 +2203,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_.exit.i
-  %call.i7.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %71, i8 noundef zeroext 34) #12
+  %call.i7.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %71, i8 noundef zeroext 34) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17StringLiteralNodeE.exit
 
 if.end.i9.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS26printEscapedStringContentsEN4llvh9StringRefEcS3_.exit.i
@@ -2221,9 +2221,9 @@ define internal fastcc void @_ZN6hermes6ESTree6detail11VisitCallerINS_12_GLOBAL_
 entry:
   %buf8.i = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %buf8.i)
-  %call.i = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %node.48.val, ptr noundef nonnull %buf8.i, i64 noundef 32) #12
+  %call.i = call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %node.48.val, ptr noundef nonnull %buf8.i, i64 noundef 32) #13
   %0 = load ptr, ptr %v, align 8
-  %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %buf8.i, i64 noundef %call.i) #12
+  %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull %buf8.i, i64 noundef %call.i) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %buf8.i)
   ret void
 }
@@ -2240,7 +2240,7 @@ entry:
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 47) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 47) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -2267,7 +2267,7 @@ _ZN4llvh11raw_ostreamlsEc.exit.i:                 ; preds = %if.end.i.i, %if.the
   br i1 %cmp.i.i, label %if.then.i6.i, label %if.end.i4.i
 
 if.then.i6.i:                                     ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %agg.tmp.sroa.0.0.copyload.i, i64 noundef %agg.tmp.sroa.2.0.copyload.i) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef %agg.tmp.sroa.0.0.copyload.i, i64 noundef %agg.tmp.sroa.2.0.copyload.i) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit.i
 
 if.end.i4.i:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit.i
@@ -2291,7 +2291,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit.i:    ; preds = %if.then4.i.i, %if.e
   br i1 %cmp.not.i9.i, label %if.end.i13.i, label %if.then.i10.i
 
 if.then.i10.i:                                    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit.i
-  %call.i11.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 47) #12
+  %call.i11.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 47) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit15.i
 
 if.end.i13.i:                                     ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit.i
@@ -2318,7 +2318,7 @@ _ZN4llvh11raw_ostreamlsEc.exit15.i:               ; preds = %if.end.i13.i, %if.t
   br i1 %cmp.i21.i, label %if.then.i27.i, label %if.end.i22.i
 
 if.then.i27.i:                                    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit15.i
-  %call3.i28.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef %agg.tmp8.sroa.0.0.copyload.i, i64 noundef %agg.tmp8.sroa.2.0.copyload.i) #12
+  %call3.i28.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %11, ptr noundef %agg.tmp8.sroa.0.0.copyload.i, i64 noundef %agg.tmp8.sroa.2.0.copyload.i) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree17RegExpLiteralNodeE.exit
 
 if.end.i22.i:                                     ; preds = %_ZN4llvh11raw_ostreamlsEc.exit15.i
@@ -2350,7 +2350,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.300, i64 noundef 4) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.300, i64 noundef 4) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree18ThisExpressionNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
@@ -2378,7 +2378,7 @@ entry:
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.301, i64 noundef 5) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef nonnull @.str.301, i64 noundef 5) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree9SuperNodeE.exit
 
 if.then4.i.i.i:                                   ; preds = %entry
@@ -2406,7 +2406,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef %node.48.val.0.val, i64 noundef %node.48.val.8.val) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %v.0.val, ptr noundef %node.48.val.0.val, i64 noundef %node.48.val.8.val) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree14IdentifierNodeE.exit
 
 if.end.i.i:                                       ; preds = %entry
@@ -2430,14 +2430,14 @@ declare void @abort() local_unnamed_addr #1
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree4NodeE(ptr noundef %n) unnamed_addr #2 align 2 {
 entry:
-  %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #12
+  %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() #13
   %call2 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull @.str.2)
   %call3 = tail call { ptr, i64 } @_ZN6hermes6ESTree4Node11getNodeNameEv(ptr noundef nonnull align 8 dereferenceable(48) %n)
   %0 = extractvalue { ptr, i64 } %call3, 0
   %1 = extractvalue { ptr, i64 } %call3, 1
   %call4 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(36) %call2, ptr %0, i64 %1)
   %call5 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %call4, ptr noundef nonnull @.str.3)
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 }
 
@@ -2450,7 +2450,7 @@ entry:
   br i1 %tobool.i.not, label %_ZN4llvh9StringRefC2EPKc.exit, label %cond.true.i.split
 
 cond.true.i.split:                                ; preds = %entry
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Str) #14
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Str) #15
   %OutBufEnd.i5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5, align 8
   %OutBufCur.i6 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2462,7 +2462,7 @@ cond.true.i.split:                                ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %cond.true.i.split
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %Str, i64 noundef %call.i) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull %Str, i64 noundef %call.i) #13
   br label %_ZN4llvh9StringRefC2EPKc.exit
 
 if.end.i:                                         ; preds = %cond.true.i.split
@@ -2495,7 +2495,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %Str.coerce0, i64 noundef %Str.coerce1) #12
+  %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef %Str.coerce0, i64 noundef %Str.coerce1) #13
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -2530,7 +2530,7 @@ entry:
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -2565,9 +2565,9 @@ if.then:                                          ; preds = %for.body
 
 if.then.i:                                        ; preds = %if.then
   %1 = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext 10) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext 10) #13
   %2 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i, i32 noundef %2) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i, i32 noundef %2) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i, %if.then, %for.body
@@ -2585,7 +2585,7 @@ if.then.i3:                                       ; preds = %if.end
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i3
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.236, i64 noundef 1) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.236, i64 noundef 1) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS17visitStmtInABlockEPNS_6ESTree4NodeES4_.exit
 
 if.then4.i.i:                                     ; preds = %if.then.i3
@@ -2693,7 +2693,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.237, i64 noundef 6) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.237, i64 noundef 6) #13
   br label %if.end
 
 if.then4.i.i:                                     ; preds = %if.then
@@ -2716,7 +2716,7 @@ if.end:                                           ; preds = %if.then4.i.i, %if.t
   br i1 %cmp.i.i14, label %if.then.i.i20, label %if.then4.i.i17
 
 if.then.i.i20:                                    ; preds = %if.end
-  %call3.i.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull @.str.238, i64 noundef 8) #12
+  %call3.i.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull @.str.238, i64 noundef 8) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit22
 
 if.then4.i.i17:                                   ; preds = %if.end
@@ -2739,7 +2739,7 @@ if.then6:                                         ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then6
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 42) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 42) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %if.then6
@@ -2760,7 +2760,7 @@ if.then10:                                        ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i24:                                      ; preds = %if.then10
   %this.val = load ptr, ptr %this, align 8
-  %call.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %if.then19
 
 if.else:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit22
@@ -2777,7 +2777,7 @@ if.then13:                                        ; preds = %if.else
   br i1 %cmp.not.i28, label %if.end.i32, label %if.then.i29
 
 if.then.i29:                                      ; preds = %if.then13
-  %call.i30 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 32) #12
+  %call.i30 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 32) #13
   br label %if.then19
 
 if.end.i32:                                       ; preds = %if.then13
@@ -2807,7 +2807,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 40) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 40) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -2850,7 +2850,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -2877,7 +2877,7 @@ for.end:                                          ; preds = %if.end, %_ZN4llvh11
   br i1 %cmp.not.i7, label %if.end.i11, label %if.then.i8
 
 if.then.i8:                                       ; preds = %for.end
-  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 41) #12
+  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit13
 
 if.end.i11:                                       ; preds = %for.end
@@ -2912,7 +2912,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.241, i64 noundef 5) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.241, i64 noundef 5) #13
   br label %if.end
 
 if.then4.i.i:                                     ; preds = %if.then
@@ -2967,7 +2967,7 @@ if.then7:                                         ; preds = %if.then5
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then7
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 32) #13
   br label %if.end10
 
 if.end.i:                                         ; preds = %if.then7
@@ -2991,7 +2991,7 @@ if.else:                                          ; preds = %land.lhs.true, %_ZN
   br i1 %cmp.not.i22, label %if.end.i26, label %if.then.i23
 
 if.then.i23:                                      ; preds = %if.else
-  %call.i24 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 40) #12
+  %call.i24 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 40) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit28
 
 if.end.i26:                                       ; preds = %if.else
@@ -3035,7 +3035,7 @@ if.then22:                                        ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then22
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val16, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val16, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end23
 
 if.then4.i.i.i:                                   ; preds = %if.then22
@@ -3062,7 +3062,7 @@ for.end:                                          ; preds = %if.end23, %_ZN4llvh
   br i1 %cmp.not.i32, label %if.end.i36, label %if.then.i33
 
 if.then.i33:                                      ; preds = %for.end
-  %call.i34 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 noundef zeroext 41) #12
+  %call.i34 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 noundef zeroext 41) #13
   br label %if.end27
 
 if.end.i36:                                       ; preds = %for.end
@@ -3079,7 +3079,7 @@ if.end27:                                         ; preds = %if.end.i36, %if.the
 
 if.then.i40:                                      ; preds = %if.end27
   %this.val14 = load ptr, ptr %this, align 8
-  %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val14, i8 noundef zeroext 32) #12
+  %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val14, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.end27, %if.then.i40
@@ -3095,7 +3095,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.end27, %if.then.
   br i1 %cmp.i.i48, label %if.then.i.i54, label %if.then4.i.i51
 
 if.then.i.i54:                                    ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call3.i.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef nonnull @.str.242, i64 noundef 2) #12
+  %call3.i.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %24, ptr noundef nonnull @.str.242, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit56
 
 if.then4.i.i51:                                   ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -3112,7 +3112,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit56:               ; preds = %if.then.i.i54, %if.
 
 if.then.i59:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit56
   %this.val = load ptr, ptr %this, align 8
-  %call.i60 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i60 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit61:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit56, %if.then.i59
@@ -3145,7 +3145,7 @@ if.then.i66:                                      ; preds = %if.end.i63
   br i1 %cmp.not.i.i, label %if.end.i.i69, label %if.then.i.i67
 
 if.then.i.i67:                                    ; preds = %if.then.i66
-  %call.i.i68 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %30, i8 noundef zeroext 40) #12
+  %call.i.i68 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %30, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i69:                                     ; preds = %if.then.i66
@@ -3164,7 +3164,7 @@ if.then3.i:                                       ; preds = %if.end.i63
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %33, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %33, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -3188,7 +3188,7 @@ if.then8.i:                                       ; preds = %if.end.i.i69, %if.t
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %36, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %36, i8 noundef zeroext 41) #13
   br label %if.end35
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -3753,8 +3753,8 @@ return:                                           ; preds = %if.then49.i, %if.th
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i64 0, 4294967360) i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly captures(address) %node) unnamed_addr #7 align 2 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define internal fastcc range(i64 0, 4294967360) i64 @_ZN6hermes12_GLOBAL__N_15GenJS13getPrecedenceEPNS_6ESTree4NodeE(i8 %this.8.val, ptr noundef readonly captures(address) %node) unnamed_addr #8 align 2 {
 entry:
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i, align 8
@@ -3863,8 +3863,8 @@ return:                                           ; preds = %entry, %entry, %ent
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef range(i32 0, 19) i32 @_ZN6hermes12_GLOBAL__N_119getBinaryPrecedenceEN4llvh9StringRefE(ptr readonly captures(none) %op.coerce0, i64 %op.coerce1) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
+define internal fastcc noundef range(i32 0, 19) i32 @_ZN6hermes12_GLOBAL__N_119getBinaryPrecedenceEN4llvh9StringRefE(ptr readonly captures(none) %op.coerce0, i64 %op.coerce1) unnamed_addr #9 {
 land.lhs.true.i877:
   switch i64 %op.coerce1, label %_ZN4llvh12StringSwitchIN6hermes12_GLOBAL__N_110PrecedenceES3_E7DefaultES3_.exit [
     i64 2, label %if.end.i.i889
@@ -4002,7 +4002,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.270, i64 noundef 5) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.270, i64 noundef 5) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -4020,7 +4020,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
@@ -4033,7 +4033,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i5
 
 if.then.i5:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #12
+  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -4055,7 +4055,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i5, %if.end
   br i1 %cmp.not.i10, label %if.end.i14, label %if.then.i11
 
 if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 41) #12
+  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -4099,7 +4099,7 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
 
 if.then.i:                                        ; preds = %if.then
   %this.val8 = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val8, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val8, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.then, %if.then.i
@@ -4115,7 +4115,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.then, %if.then.i
   br i1 %cmp.i.i10, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.271, i64 noundef 2) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.271, i64 noundef 2) #13
   br label %return
 
 if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -4136,7 +4136,7 @@ if.then8:                                         ; preds = %land.lhs.true, %if.
 
 if.then.i12:                                      ; preds = %if.then8
   %this.val = load ptr, ptr %this, align 8
-  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14:    ; preds = %if.then8, %if.then.i12
@@ -4149,7 +4149,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14:    ; preds = %if.then8, %if.then.
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14
-  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 123) #12
+  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 123) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit14
@@ -4169,9 +4169,9 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i15, %if.en
 
 if.then.i18:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %13 = load ptr, ptr %this, align 8
-  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #12
+  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #13
   %14 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i19, i32 noundef %14) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i19, i32 noundef %14) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i18
@@ -4197,7 +4197,7 @@ if.then.i22:                                      ; preds = %if.else
   br i1 %cmp.i.i68, label %if.then.i.i74, label %if.then4.i.i71
 
 if.then.i.i74:                                    ; preds = %if.then.i22
-  %call3.i.i75 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef nonnull @.str.236, i64 noundef 1) #12
+  %call3.i.i75 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef nonnull @.str.236, i64 noundef 1) #13
   br label %if.end14
 
 if.then4.i.i71:                                   ; preds = %if.then.i22
@@ -4217,9 +4217,9 @@ if.end14:                                         ; preds = %if.else, %if.then.i
 
 if.then.i29:                                      ; preds = %if.end14
   %21 = load ptr, ptr %this, align 8
-  %call.i30 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 10) #12
+  %call.i30 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 10) #13
   %22 = load i32, ptr %indent_.i, align 4
-  %call2.i32 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i30, i32 noundef %22) #12
+  %call2.i32 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i30, i32 noundef %22) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit33
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit33:  ; preds = %if.end14, %if.then.i29
@@ -4232,7 +4232,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit33:  ; preds = %if.end14, %if.then.
   br i1 %cmp.i.i40, label %if.then.i.i46, label %if.then4.i.i43
 
 if.then.i.i46:                                    ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit33
-  %call3.i.i47 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %23, ptr noundef nonnull @.str.272, i64 noundef 1) #12
+  %call3.i.i47 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %23, ptr noundef nonnull @.str.272, i64 noundef 1) #13
   br label %return
 
 if.then4.i.i43:                                   ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit33
@@ -4254,9 +4254,9 @@ if.else17:                                        ; preds = %if.end
 
 if.then.i54:                                      ; preds = %if.else17
   %29 = load ptr, ptr %this, align 8
-  %call.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %29, i8 noundef zeroext 10) #12
+  %call.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %29, i8 noundef zeroext 10) #13
   %30 = load i32, ptr %indent_.i49, align 4
-  %call2.i57 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i55, i32 noundef %30) #12
+  %call2.i57 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i55, i32 noundef %30) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit58
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit58:  ; preds = %if.else17, %if.then.i54
@@ -4286,7 +4286,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.273, i64 noundef 2) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.273, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -4310,7 +4310,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i:                                        ; preds = %if.then
   %this.val5 = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val5, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val5, i8 noundef zeroext 32) #13
   br label %if.end
 
 if.else:                                          ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -4323,7 +4323,7 @@ if.else:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.i.i13, label %if.then.i.i19, label %if.then4.i.i16
 
 if.then.i.i19:                                    ; preds = %if.else
-  %call3.i.i20 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull @.str.236, i64 noundef 1) #12
+  %call3.i.i20 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull @.str.236, i64 noundef 1) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit21
 
 if.then4.i.i16:                                   ; preds = %if.else
@@ -4341,10 +4341,10 @@ _ZN4llvh11raw_ostreamlsEPKc.exit21:               ; preds = %if.then.i.i19, %if.
 
 if.then.i22:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit21
   %11 = load ptr, ptr %this, align 8
-  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 10) #12
+  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 10) #13
   %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %12 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i23, i32 noundef %12) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i23, i32 noundef %12) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i22, %_ZN4llvh11raw_ostreamlsEPKc.exit21, %if.then.i, %if.then
@@ -4360,7 +4360,7 @@ if.end:                                           ; preds = %if.then.i22, %_ZN4l
   br i1 %cmp.i.i30, label %if.then.i.i36, label %if.then4.i.i33
 
 if.then.i.i36:                                    ; preds = %if.end
-  %call3.i.i37 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull @.str.270, i64 noundef 5) #12
+  %call3.i.i37 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull @.str.270, i64 noundef 5) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit38
 
 if.then4.i.i33:                                   ; preds = %if.end
@@ -4378,7 +4378,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit38:               ; preds = %if.then.i.i36, %if.
 
 if.then.i40:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit38
   %this.val = load ptr, ptr %this, align 8
-  %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit38, %if.then.i40
@@ -4391,7 +4391,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42:    ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i43
 
 if.then.i43:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42
-  %call.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 40) #12
+  %call.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 40) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit42
@@ -4413,7 +4413,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i43, %if.en
   br i1 %cmp.not.i48, label %if.end.i52, label %if.then.i49
 
 if.then.i49:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %call.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 41) #12
+  %call.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit54
 
 if.end.i52:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -4447,7 +4447,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.274, i64 noundef 4) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.274, i64 noundef 4) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -4468,7 +4468,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   br i1 %cmp.not.i25, label %if.end.i29, label %if.then.i26
 
 if.then.i26:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %call.i27 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #12
+  %call.i27 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit31
 
 if.end.i29:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -4490,7 +4490,7 @@ _ZN4llvh11raw_ostreamlsEc.exit31:                 ; preds = %if.then.i26, %if.en
   br i1 %cmp.i, label %if.then.i21, label %if.end.i19
 
 if.then.i21:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit31
-  %call3.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i28, ptr noundef nonnull @.str.243, i64 noundef 2) #12
+  %call3.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i28, ptr noundef nonnull @.str.243, i64 noundef 2) #13
   %OutBufCur.i8.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call3.i22, i64 24
   %.pre = load ptr, ptr %OutBufCur.i8.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
@@ -4511,7 +4511,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i21, %if.en
   br i1 %cmp.not.i10, label %if.end.i14, label %if.then.i11
 
 if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i20, i8 noundef zeroext 32) #12
+  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i20, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
@@ -4532,7 +4532,7 @@ _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.en
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit16
-  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 41) #12
+  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEc.exit16
@@ -4567,7 +4567,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.274, i64 noundef 4) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.274, i64 noundef 4) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -4588,7 +4588,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
   br i1 %cmp.not.i25, label %if.end.i29, label %if.then.i26
 
 if.then.i26:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
-  %call.i27 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #12
+  %call.i27 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit31
 
 if.end.i29:                                       ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
@@ -4610,7 +4610,7 @@ _ZN4llvh11raw_ostreamlsEc.exit31:                 ; preds = %if.then.i26, %if.en
   br i1 %cmp.i, label %if.then.i21, label %if.end.i19
 
 if.then.i21:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit31
-  %call3.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i28, ptr noundef nonnull @.str.275, i64 noundef 2) #12
+  %call3.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i28, ptr noundef nonnull @.str.275, i64 noundef 2) #13
   %OutBufCur.i8.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call3.i22, i64 24
   %.pre = load ptr, ptr %OutBufCur.i8.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
@@ -4631,7 +4631,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i21, %if.en
   br i1 %cmp.not.i10, label %if.end.i14, label %if.then.i11
 
 if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i20, i8 noundef zeroext 32) #12
+  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i20, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit16
 
 if.end.i14:                                       ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
@@ -4652,7 +4652,7 @@ _ZN4llvh11raw_ostreamlsEc.exit16:                 ; preds = %if.then.i11, %if.en
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit16
-  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 41) #12
+  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN4llvh11raw_ostreamlsEc.exit16
@@ -4681,7 +4681,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.274, i64 noundef 4) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.274, i64 noundef 4) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -4716,7 +4716,7 @@ if.then.i43:                                      ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i46, label %if.then.i.i44
 
 if.then.i.i44:                                    ; preds = %if.then.i43
-  %call.i.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 40) #12
+  %call.i.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i46:                                     ; preds = %if.then.i43
@@ -4735,7 +4735,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -4759,7 +4759,7 @@ if.then8.i:                                       ; preds = %if.end.i.i46, %if.t
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -4778,7 +4778,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   br i1 %cmp.not.i, label %if.end.i14, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
-  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 59) #12
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 59) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i14:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
@@ -4801,7 +4801,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i16:                                      ; preds = %if.then
   %this.val11 = load ptr, ptr %this, align 8
-  %call.i17 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val11, i8 noundef zeroext 32) #12
+  %call.i17 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val11, i8 noundef zeroext 32) #13
   %.pre = load ptr, ptr %_test, align 8
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
@@ -4820,7 +4820,7 @@ if.end:                                           ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i21, label %if.end.i25, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.end
-  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 59) #12
+  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 59) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit27
 
 if.end.i25:                                       ; preds = %if.end
@@ -4843,7 +4843,7 @@ if.then8:                                         ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i30:                                      ; preds = %if.then8
   %this.val = load ptr, ptr %this, align 8
-  %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   %.pre47 = load ptr, ptr %_update, align 8
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
 
@@ -4862,7 +4862,7 @@ if.end10:                                         ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i36, label %if.end.i40, label %if.then.i37
 
 if.then.i37:                                      ; preds = %if.end10
-  %call.i38 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %27, i8 noundef zeroext 41) #12
+  %call.i38 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %27, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit42
 
 if.end.i40:                                       ; preds = %if.end10
@@ -4899,7 +4899,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i3, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.271, i64 noundef 2) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.271, i64 noundef 2) #13
   br label %return
 
 if.then4.i.i:                                     ; preds = %if.then
@@ -4918,7 +4918,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext 123) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext 123) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -4939,9 +4939,9 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 
 if.then.i5:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %9 = load ptr, ptr %this, align 8
-  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 10) #12
+  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 10) #13
   %10 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i6, i32 noundef %10) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i6, i32 noundef %10) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i5
@@ -4955,9 +4955,9 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
   %13 = load ptr, ptr %this, align 8
-  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #12
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #13
   %14 = load i32, ptr %indent_.i, align 4
-  %call2.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i13, i32 noundef %14) #12
+  %call2.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i13, i32 noundef %14) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit16
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit16:  ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit, %if.then.i12
@@ -4970,7 +4970,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit16:  ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i19, label %if.end.i23, label %if.then.i20
 
 if.then.i20:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit16
-  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 125) #12
+  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 125) #13
   br label %return
 
 if.end.i23:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit16
@@ -4998,7 +4998,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.276, i64 noundef 5) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.276, i64 noundef 5) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -5024,7 +5024,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -5057,7 +5057,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.277, i64 noundef 8) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.277, i64 noundef 8) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -5083,7 +5083,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -5116,7 +5116,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.278, i64 noundef 6) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.278, i64 noundef 6) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -5148,7 +5148,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.279, i64 noundef 6) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.279, i64 noundef 6) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -5174,7 +5174,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -5207,7 +5207,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.280, i64 noundef 6) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.280, i64 noundef 6) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -5225,7 +5225,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val6 = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
@@ -5238,7 +5238,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i8
 
 if.then.i8:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #12
+  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -5260,7 +5260,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i8, %if.end
   br i1 %cmp.not.i13, label %if.end.i17, label %if.then.i14
 
 if.then.i14:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %call.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 41) #12
+  %call.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit19
 
 if.end.i17:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -5276,7 +5276,7 @@ _ZN4llvh11raw_ostreamlsEc.exit19:                 ; preds = %if.then.i14, %if.en
 
 if.then.i22:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit19
   %this.val = load ptr, ptr %this, align 8
-  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit19, %if.then.i22
@@ -5289,7 +5289,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24:    ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i27, label %if.end.i31, label %if.then.i28
 
 if.then.i28:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24
-  %call.i29 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 123) #12
+  %call.i29 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 123) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit33
 
 if.end.i31:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit24
@@ -5305,10 +5305,10 @@ _ZN4llvh11raw_ostreamlsEc.exit33:                 ; preds = %if.then.i28, %if.en
 
 if.then.i35:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit33
   %16 = load ptr, ptr %this, align 8
-  %call.i36 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 10) #12
+  %call.i36 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 10) #13
   %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %17 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i36, i32 noundef %17) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i36, i32 noundef %17) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit33, %if.then.i35
@@ -5331,9 +5331,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then.i41:                                      ; preds = %for.body
   %19 = load ptr, ptr %this, align 8
-  %call.i42 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 10) #12
+  %call.i42 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 10) #13
   %20 = load i32, ptr %indent_.i43, align 4
-  %call2.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i42, i32 noundef %20) #12
+  %call2.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i42, i32 noundef %20) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit45:  ; preds = %for.body, %if.then.i41
@@ -5352,7 +5352,7 @@ for.end:                                          ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i48, label %if.end.i52, label %if.then.i49
 
 if.then.i49:                                      ; preds = %for.end
-  %call.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 125) #12
+  %call.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 125) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit54
 
 if.end.i52:                                       ; preds = %for.end
@@ -5380,7 +5380,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i4 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext 58) #12
+  %call.i4 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %1, i8 noundef zeroext 58) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -5397,10 +5397,10 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
 
 if.then.i6:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %5 = load ptr, ptr %this, align 8
-  %call.i7 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 10) #12
+  %call.i7 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 10) #13
   %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %6 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i7, i32 noundef %6) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i7, i32 noundef %6) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i6
@@ -5437,7 +5437,7 @@ if.then.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -5456,7 +5456,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -5480,7 +5480,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -5508,7 +5508,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.281, i64 noundef 3) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.281, i64 noundef 3) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -5553,7 +5553,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.282, i64 noundef 2) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.282, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -5571,7 +5571,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val10 = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val10, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val10, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
@@ -5584,7 +5584,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
 
 if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #12
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -5606,7 +5606,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i12, %if.en
   br i1 %cmp.not.i17, label %if.end.i21, label %if.then.i18
 
 if.then.i18:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 41) #12
+  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 41) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit23
 
 if.end.i21:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -5660,7 +5660,7 @@ if.then14:                                        ; preds = %if.end
   br i1 %cmp.i.i31, label %if.then.i.i37, label %if.then4.i.i34
 
 if.then.i.i37:                                    ; preds = %if.then14
-  %call3.i.i38 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull @.str.236, i64 noundef 1) #12
+  %call3.i.i38 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull @.str.236, i64 noundef 1) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit39
 
 if.then4.i.i34:                                   ; preds = %if.then14
@@ -5677,10 +5677,10 @@ _ZN4llvh11raw_ostreamlsEPKc.exit39:               ; preds = %if.then.i.i37, %if.
 
 if.then.i41:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit39
   %23 = load ptr, ptr %this, align 8
-  %call.i42 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %23, i8 noundef zeroext 10) #12
+  %call.i42 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %23, i8 noundef zeroext 10) #13
   %indent_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %24 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i42, i32 noundef %24) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i42, i32 noundef %24) #13
   br label %if.end17
 
 if.else:                                          ; preds = %if.end
@@ -5690,7 +5690,7 @@ if.else:                                          ; preds = %if.end
 
 if.then.i45:                                      ; preds = %if.else
   %this.val = load ptr, ptr %this, align 8
-  %call.i46 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i46 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %if.end17
 
 if.end17:                                         ; preds = %if.then.i45, %if.else, %if.then.i41, %_ZN4llvh11raw_ostreamlsEPKc.exit39
@@ -5706,7 +5706,7 @@ if.end17:                                         ; preds = %if.then.i45, %if.el
   br i1 %cmp.i.i54, label %if.then.i.i60, label %if.then4.i.i57
 
 if.then.i.i60:                                    ; preds = %if.end17
-  %call3.i.i61 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %25, ptr noundef nonnull @.str.283, i64 noundef 4) #12
+  %call3.i.i61 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %25, ptr noundef nonnull @.str.283, i64 noundef 4) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit62
 
 if.then4.i.i57:                                   ; preds = %if.end17
@@ -5766,7 +5766,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -5799,7 +5799,7 @@ if.then.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -5818,7 +5818,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -5842,7 +5842,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -5873,7 +5873,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 123) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 123) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -5916,7 +5916,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -5943,7 +5943,7 @@ for.end:                                          ; preds = %if.end, %_ZN4llvh11
   br i1 %cmp.not.i6, label %if.end.i10, label %if.then.i7
 
 if.then.i7:                                       ; preds = %for.end
-  %call.i8 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 125) #12
+  %call.i8 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 125) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit12
 
 if.end.i10:                                       ; preds = %for.end
@@ -5968,7 +5968,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 91) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 91) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -6012,7 +6012,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val5, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val5, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -6039,7 +6039,7 @@ if.then.i34:                                      ; preds = %if.end
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i34
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i34
@@ -6063,7 +6063,7 @@ if.then8.i:                                       ; preds = %if.then.i.i, %if.en
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -6102,7 +6102,7 @@ if.then8:                                         ; preds = %for.end
   br i1 %cmp.i.i.i18, label %if.then.i.i.i21, label %if.then4.i.i.i19
 
 if.then.i.i.i21:                                  ; preds = %if.then8
-  %call3.i.i.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i11, i64 noundef %call.i.i.i12) #12
+  %call3.i.i.i22 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i11, i64 noundef %call.i.i.i12) #13
   br label %if.end9
 
 if.then4.i.i.i19:                                 ; preds = %if.then8
@@ -6122,7 +6122,7 @@ if.end9:                                          ; preds = %if.then4.i.i.i19, %
   br i1 %cmp.not.i26, label %if.end.i30, label %if.then.i27
 
 if.then.i27:                                      ; preds = %if.end9
-  %call.i28 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 93) #12
+  %call.i28 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 93) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit32
 
 if.end.i30:                                       ; preds = %if.end9
@@ -6150,7 +6150,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.302, i64 noundef 4) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.302, i64 noundef 4) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -6185,7 +6185,7 @@ if.then.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i13, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %if.then.i
-  %call.i.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 40) #12
+  %call.i.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i13:                                     ; preds = %if.then.i
@@ -6204,7 +6204,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -6228,7 +6228,7 @@ if.then8.i:                                       ; preds = %if.end.i.i13, %if.t
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -6239,7 +6239,7 @@ if.end.i19.i:                                     ; preds = %if.then8.i
 
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit: ; preds = %if.end6.i.thread, %if.end.i19.i, %if.then.i16.i, %_ZN4llvh11raw_ostreamlsEPKc.exit
   %15 = load ptr, ptr %this, align 8
-  %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 40) #12
+  %call3 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 40) #13
   %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 72
   %__begin2.sroa.0.052 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -6274,7 +6274,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -6301,7 +6301,7 @@ if.then.i39:                                      ; preds = %if.end
   br i1 %cmp.not.i.i42, label %if.end.i.i47, label %if.then.i.i43
 
 if.then.i.i43:                                    ; preds = %if.then.i39
-  %call.i.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 noundef zeroext 40) #12
+  %call.i.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 noundef zeroext 40) #13
   br label %if.then8.i19
 
 if.end.i.i47:                                     ; preds = %if.then.i39
@@ -6325,7 +6325,7 @@ if.then8.i19:                                     ; preds = %if.then.i.i43, %if.
   br i1 %cmp.not.i15.i22, label %if.end.i19.i27, label %if.then.i16.i23
 
 if.then.i16.i23:                                  ; preds = %if.then8.i19
-  %call.i17.i24 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %23, i8 noundef zeroext 41) #12
+  %call.i17.i24 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %23, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit49
 
 if.end.i19.i27:                                   ; preds = %if.then8.i19
@@ -6342,7 +6342,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParens
 
 for.end:                                          ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit49, %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %26 = load ptr, ptr %this, align 8
-  %call11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %26, i8 noundef zeroext 41) #12
+  %call11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %26, i8 noundef zeroext 41) #13
   ret void
 }
 
@@ -6367,7 +6367,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.303, i64 noundef 7) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.303, i64 noundef 7) #13
   br label %if.end
 
 if.then4.i.i:                                     ; preds = %if.then
@@ -6382,7 +6382,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.i9, label %if.then.i.i15, label %if.then4.i.i12
 
 if.then.i.i15:                                    ; preds = %if.else
-  %call3.i.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.304, i64 noundef 6) #12
+  %call3.i.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.304, i64 noundef 6) #13
   br label %if.end
 
 if.then4.i.i12:                                   ; preds = %if.else
@@ -6417,7 +6417,7 @@ if.then.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i20, label %if.then.i.i18
 
 if.then.i.i18:                                    ; preds = %if.then.i
-  %call.i.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 40) #12
+  %call.i.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i20:                                     ; preds = %if.then.i
@@ -6436,7 +6436,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -6460,7 +6460,7 @@ if.then8.i:                                       ; preds = %if.end.i.i20, %if.t
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -6500,7 +6500,7 @@ if.then.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -6519,7 +6519,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -6543,7 +6543,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -6554,7 +6554,7 @@ if.end.i19.i:                                     ; preds = %if.then8.i
 
 _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit: ; preds = %if.end6.i.thread, %if.end.i19.i, %if.then.i16.i, %entry
   %11 = load ptr, ptr %this, align 8
-  %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 40) #12
+  %call = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 40) #13
   %_arguments = getelementptr inbounds nuw i8, ptr %node, i64 64
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 72
   %__begin2.sroa.0.049 = load ptr, ptr %Next.i.i.i.i, align 8
@@ -6589,7 +6589,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -6616,7 +6616,7 @@ if.then.i36:                                      ; preds = %if.end
   br i1 %cmp.not.i.i39, label %if.end.i.i44, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %if.then.i36
-  %call.i.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 40) #12
+  %call.i.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 40) #13
   br label %if.then8.i16
 
 if.end.i.i44:                                     ; preds = %if.then.i36
@@ -6640,7 +6640,7 @@ if.then8.i16:                                     ; preds = %if.then.i.i40, %if.
   br i1 %cmp.not.i15.i19, label %if.end.i19.i24, label %if.then.i16.i20
 
 if.then.i16.i20:                                  ; preds = %if.then8.i16
-  %call.i17.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 41) #12
+  %call.i17.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit46
 
 if.end.i19.i24:                                   ; preds = %if.then8.i16
@@ -6657,7 +6657,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParens
 
 for.end:                                          ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit46, %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %22 = load ptr, ptr %this, align 8
-  %call9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 41) #12
+  %call9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 41) #13
   ret void
 }
 
@@ -6688,7 +6688,7 @@ if.then.i24:                                      ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i24
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i24
@@ -6707,7 +6707,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -6731,7 +6731,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -6748,7 +6748,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val6 = load ptr, ptr %this, align 8
-  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
+  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
@@ -6769,7 +6769,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.i, label %if.then.i12, label %if.end.i10
 
 if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i10:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -6790,7 +6790,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i12, %if.en
 
 if.then.i15:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %this.val = load ptr, ptr %this, align 8
-  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17:    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
@@ -6817,7 +6817,7 @@ if.then.i50:                                      ; preds = %if.end.i19
   br i1 %cmp.not.i.i53, label %if.end.i.i58, label %if.then.i.i54
 
 if.then.i.i54:                                    ; preds = %if.then.i50
-  %call.i.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 40) #12
+  %call.i.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 40) #13
   br label %if.then8.i30
 
 if.end.i.i58:                                     ; preds = %if.then.i50
@@ -6836,7 +6836,7 @@ if.then3.i40:                                     ; preds = %if.end.i19
   br i1 %cmp.not.i5.i43, label %if.end.i9.i48, label %if.then.i6.i44
 
 if.then.i6.i44:                                   ; preds = %if.then3.i40
-  %call.i7.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 32) #12
+  %call.i7.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 32) #13
   br label %if.end6.i28.thread
 
 if.end.i9.i48:                                    ; preds = %if.then3.i40
@@ -6860,7 +6860,7 @@ if.then8.i30:                                     ; preds = %if.end.i.i58, %if.t
   br i1 %cmp.not.i15.i33, label %if.end.i19.i38, label %if.then.i16.i34
 
 if.then.i16.i34:                                  ; preds = %if.then8.i30
-  %call.i17.i35 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 41) #12
+  %call.i17.i35 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22
 
 if.end.i19.i38:                                   ; preds = %if.then8.i30
@@ -6881,7 +6881,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = load i8, ptr %1, align 1
   %conv = sext i8 %2 to i32
-  %call3 = tail call i32 @isalpha(i32 noundef %conv) #14
+  %call3 = tail call i32 @isalpha(i32 noundef %conv) #15
   %tobool.not = icmp eq i32 %call3, 0
   %3 = load ptr, ptr %this, align 8
   %agg.tmp.sroa.2.0.call5.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6897,7 +6897,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull %1, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull %1, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i:                                         ; preds = %entry
@@ -6924,7 +6924,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i8, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.then
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 32) #13
   br label %if.end
 
 if.end.i8:                                        ; preds = %if.then
@@ -6958,7 +6958,7 @@ if.then.i13:                                      ; preds = %if.end.i10
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i13
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i13
@@ -6977,7 +6977,7 @@ if.then3.i:                                       ; preds = %if.end.i10
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -7001,7 +7001,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -7015,7 +7015,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isalpha(i32 noundef) local_unnamed_addr #9
+declare i32 @isalpha(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS5visitEPNS_6ESTree20UpdateExpressionNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %node) unnamed_addr #0 align 2 {
@@ -7043,7 +7043,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.then
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -7082,7 +7082,7 @@ if.then.i29:                                      ; preds = %if.end.i8
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i29
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i29
@@ -7101,7 +7101,7 @@ if.then3.i:                                       ; preds = %if.end.i8
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -7125,7 +7125,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 41) #13
   br label %if.end
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -7159,7 +7159,7 @@ if.then.i55:                                      ; preds = %if.end.i10
   br i1 %cmp.not.i.i58, label %if.end.i.i63, label %if.then.i.i59
 
 if.then.i.i59:                                    ; preds = %if.then.i55
-  %call.i.i60 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 40) #12
+  %call.i.i60 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 40) #13
   br label %if.then8.i35
 
 if.end.i.i63:                                     ; preds = %if.then.i55
@@ -7178,7 +7178,7 @@ if.then3.i45:                                     ; preds = %if.end.i10
   br i1 %cmp.not.i5.i48, label %if.end.i9.i53, label %if.then.i6.i49
 
 if.then.i6.i49:                                   ; preds = %if.then3.i45
-  %call.i7.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 32) #12
+  %call.i7.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 32) #13
   br label %if.end6.i33.thread
 
 if.end.i9.i53:                                    ; preds = %if.then3.i45
@@ -7202,7 +7202,7 @@ if.then8.i35:                                     ; preds = %if.end.i.i63, %if.t
   br i1 %cmp.not.i15.i38, label %if.end.i19.i43, label %if.then.i16.i39
 
 if.then.i16.i39:                                  ; preds = %if.then8.i35
-  %call.i17.i40 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 noundef zeroext 41) #12
+  %call.i17.i40 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit13
 
 if.end.i19.i43:                                   ; preds = %if.then8.i35
@@ -7229,7 +7229,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   br i1 %cmp.i19, label %if.then.i25, label %if.end.i20
 
 if.then.i25:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit13
-  %call3.i26 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %28, ptr noundef %agg.tmp5.sroa.0.0.copyload, i64 noundef %agg.tmp5.sroa.2.0.copyload) #12
+  %call3.i26 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %28, ptr noundef %agg.tmp5.sroa.0.0.copyload, i64 noundef %agg.tmp5.sroa.2.0.copyload) #13
   br label %if.end
 
 if.end.i20:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit13
@@ -7268,7 +7268,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 91) #12
+  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 91) #13
   br label %if.end
 
 if.end.i:                                         ; preds = %if.then
@@ -7281,7 +7281,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i13, label %if.then.i10
 
 if.then.i10:                                      ; preds = %if.else
-  %call.i11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 46) #12
+  %call.i11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 46) #13
   br label %if.end
 
 if.end.i13:                                       ; preds = %if.else
@@ -7308,7 +7308,7 @@ if.then6:                                         ; preds = %if.end
   br i1 %cmp.not.i19, label %if.end.i23, label %if.then.i20
 
 if.then.i20:                                      ; preds = %if.then6
-  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 93) #12
+  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 93) #13
   br label %if.end9
 
 if.end.i23:                                       ; preds = %if.then6
@@ -7348,7 +7348,7 @@ if.then.i24:                                      ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i24
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i24
@@ -7367,7 +7367,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -7391,7 +7391,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -7408,7 +7408,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val6 = load ptr, ptr %this, align 8
-  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
+  %call.i9 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
@@ -7429,7 +7429,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.i, label %if.then.i12, label %if.end.i10
 
 if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i10:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -7450,7 +7450,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i12, %if.en
 
 if.then.i15:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
   %this.val = load ptr, ptr %this, align 8
-  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit17:    ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit, %if.then.i15
@@ -7477,7 +7477,7 @@ if.then.i50:                                      ; preds = %if.end.i19
   br i1 %cmp.not.i.i53, label %if.end.i.i58, label %if.then.i.i54
 
 if.then.i.i54:                                    ; preds = %if.then.i50
-  %call.i.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 40) #12
+  %call.i.i55 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 40) #13
   br label %if.then8.i30
 
 if.end.i.i58:                                     ; preds = %if.then.i50
@@ -7496,7 +7496,7 @@ if.then3.i40:                                     ; preds = %if.end.i19
   br i1 %cmp.not.i5.i43, label %if.end.i9.i48, label %if.then.i6.i44
 
 if.then.i6.i44:                                   ; preds = %if.then3.i40
-  %call.i7.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 32) #12
+  %call.i7.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 32) #13
   br label %if.end6.i28.thread
 
 if.end.i9.i48:                                    ; preds = %if.then3.i40
@@ -7520,7 +7520,7 @@ if.then8.i30:                                     ; preds = %if.end.i.i58, %if.t
   br i1 %cmp.not.i15.i33, label %if.end.i19.i38, label %if.then.i16.i34
 
 if.then.i16.i34:                                  ; preds = %if.then8.i30
-  %call.i17.i35 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 41) #12
+  %call.i17.i35 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit22
 
 if.end.i19.i38:                                   ; preds = %if.then8.i30
@@ -7560,7 +7560,7 @@ if.then.i52:                                      ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i52
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i52
@@ -7579,7 +7579,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -7603,7 +7603,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -7620,7 +7620,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val11 = load ptr, ptr %this, align 8
-  %call.i14 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val11, i8 noundef zeroext 32) #12
+  %call.i14 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val11, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
@@ -7633,7 +7633,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i, label %if.end.i17, label %if.then.i15
 
 if.then.i15:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 63) #12
+  %call.i16 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %12, i8 noundef zeroext 63) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i17:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -7649,7 +7649,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i15, %if.en
 
 if.then.i20:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %this.val9 = load ptr, ptr %this, align 8
-  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val9, i8 noundef zeroext 32) #12
+  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val9, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit22:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %if.then.i20
@@ -7676,7 +7676,7 @@ if.then.i78:                                      ; preds = %if.end.i24
   br i1 %cmp.not.i.i81, label %if.end.i.i86, label %if.then.i.i82
 
 if.then.i.i82:                                    ; preds = %if.then.i78
-  %call.i.i83 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 40) #12
+  %call.i.i83 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 40) #13
   br label %if.then8.i58
 
 if.end.i.i86:                                     ; preds = %if.then.i78
@@ -7695,7 +7695,7 @@ if.then3.i68:                                     ; preds = %if.end.i24
   br i1 %cmp.not.i5.i71, label %if.end.i9.i76, label %if.then.i6.i72
 
 if.then.i6.i72:                                   ; preds = %if.then3.i68
-  %call.i7.i73 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 32) #12
+  %call.i7.i73 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 32) #13
   br label %if.end6.i56.thread
 
 if.end.i9.i76:                                    ; preds = %if.then3.i68
@@ -7719,7 +7719,7 @@ if.then8.i58:                                     ; preds = %if.end.i.i86, %if.t
   br i1 %cmp.not.i15.i61, label %if.end.i19.i66, label %if.then.i16.i62
 
 if.then.i16.i62:                                  ; preds = %if.then8.i58
-  %call.i17.i63 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 41) #12
+  %call.i17.i63 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %22, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27
 
 if.end.i19.i66:                                   ; preds = %if.then8.i58
@@ -7735,7 +7735,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 
 if.then.i30:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27
   %this.val7 = load ptr, ptr %this, align 8
-  %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val7, i8 noundef zeroext 32) #12
+  %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val7, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32:    ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit27, %if.then.i30
@@ -7748,7 +7748,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32:    ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i35, label %if.end.i39, label %if.then.i36
 
 if.then.i36:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
-  %call.i37 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 noundef zeroext 58) #12
+  %call.i37 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %25, i8 noundef zeroext 58) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit41
 
 if.end.i39:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit32
@@ -7764,7 +7764,7 @@ _ZN4llvh11raw_ostreamlsEc.exit41:                 ; preds = %if.then.i36, %if.en
 
 if.then.i44:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit41
   %this.val = load ptr, ptr %this, align 8
-  %call.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i45 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit46
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit46:    ; preds = %_ZN4llvh11raw_ostreamlsEc.exit41, %if.then.i44
@@ -7791,7 +7791,7 @@ if.then.i114:                                     ; preds = %if.end.i48
   br i1 %cmp.not.i.i117, label %if.end.i.i122, label %if.then.i.i118
 
 if.then.i.i118:                                   ; preds = %if.then.i114
-  %call.i.i119 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %29, i8 noundef zeroext 40) #12
+  %call.i.i119 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %29, i8 noundef zeroext 40) #13
   br label %if.then8.i94
 
 if.end.i.i122:                                    ; preds = %if.then.i114
@@ -7810,7 +7810,7 @@ if.then3.i104:                                    ; preds = %if.end.i48
   br i1 %cmp.not.i5.i107, label %if.end.i9.i112, label %if.then.i6.i108
 
 if.then.i6.i108:                                  ; preds = %if.then3.i104
-  %call.i7.i109 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %32, i8 noundef zeroext 32) #12
+  %call.i7.i109 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %32, i8 noundef zeroext 32) #13
   br label %if.end6.i92.thread
 
 if.end.i9.i112:                                   ; preds = %if.then3.i104
@@ -7834,7 +7834,7 @@ if.then8.i94:                                     ; preds = %if.end.i.i122, %if.
   br i1 %cmp.not.i15.i97, label %if.end.i19.i102, label %if.then.i16.i98
 
 if.then.i16.i98:                                  ; preds = %if.then8.i94
-  %call.i17.i99 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %35, i8 noundef zeroext 41) #12
+  %call.i17.i99 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %35, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit51
 
 if.end.i19.i102:                                  ; preds = %if.then8.i94
@@ -7855,7 +7855,7 @@ entry:
   %1 = load ptr, ptr %0, align 8
   %2 = load i8, ptr %1, align 1
   %conv = sext i8 %2 to i32
-  %call3 = tail call i32 @isalpha(i32 noundef %conv) #14
+  %call3 = tail call i32 @isalpha(i32 noundef %conv) #15
   %tobool.not = icmp eq i32 %call3, 0
   %_left = getelementptr inbounds nuw i8, ptr %node, i64 48
   %3 = load ptr, ptr %_left, align 8
@@ -7881,7 +7881,7 @@ if.then.i27:                                      ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i27
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i27
@@ -7900,7 +7900,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -7924,7 +7924,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -7944,7 +7944,7 @@ lor.lhs.false.i:                                  ; preds = %_ZN6hermes12_GLOBAL
   br i1 %tobool2.i, label %if.then.i, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
-  %call.i11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val8, i8 noundef zeroext 32) #12
+  %call.i11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val8, i8 noundef zeroext 32) #13
   %.pre = load ptr, ptr %this, align 8
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
@@ -7965,7 +7965,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %lor.lhs.false.i, %i
   br i1 %cmp.i, label %if.then.i14, label %if.end.i12
 
 if.then.i14:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %15, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i12:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -7989,7 +7989,7 @@ lor.lhs.false.i15:                                ; preds = %_ZN4llvh11raw_ostre
   br i1 %tobool2.i16, label %if.then.i18, label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20
 
 if.then.i18:                                      ; preds = %lor.lhs.false.i15, %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit20:    ; preds = %lor.lhs.false.i15, %if.then.i18
@@ -8016,7 +8016,7 @@ if.then.i53:                                      ; preds = %if.end.i22
   br i1 %cmp.not.i.i56, label %if.end.i.i61, label %if.then.i.i57
 
 if.then.i.i57:                                    ; preds = %if.then.i53
-  %call.i.i58 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 40) #12
+  %call.i.i58 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %21, i8 noundef zeroext 40) #13
   br label %if.then8.i33
 
 if.end.i.i61:                                     ; preds = %if.then.i53
@@ -8035,7 +8035,7 @@ if.then3.i43:                                     ; preds = %if.end.i22
   br i1 %cmp.not.i5.i46, label %if.end.i9.i51, label %if.then.i6.i47
 
 if.then.i6.i47:                                   ; preds = %if.then3.i43
-  %call.i7.i48 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 32) #12
+  %call.i7.i48 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 32) #13
   br label %if.end6.i31.thread
 
 if.end.i9.i51:                                    ; preds = %if.then3.i43
@@ -8059,7 +8059,7 @@ if.then8.i33:                                     ; preds = %if.end.i.i61, %if.t
   br i1 %cmp.not.i15.i36, label %if.end.i19.i41, label %if.then.i16.i37
 
 if.then.i16.i37:                                  ; preds = %if.then8.i33
-  %call.i17.i38 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %27, i8 noundef zeroext 41) #12
+  %call.i17.i38 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %27, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit25
 
 if.end.i19.i41:                                   ; preds = %if.then8.i33
@@ -8084,7 +8084,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 35) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 35) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -8121,7 +8121,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.305, i64 noundef 5) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.305, i64 noundef 5) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %if.then
@@ -8141,7 +8141,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.i12, label %if.then.i.i18, label %if.then4.i.i15
 
 if.then.i.i18:                                    ; preds = %if.else
-  %call3.i.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.306, i64 noundef 7) #12
+  %call3.i.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.306, i64 noundef 7) #13
   br label %if.end
 
 if.then4.i.i15:                                   ; preds = %if.else
@@ -8161,7 +8161,7 @@ if.end:                                           ; preds = %if.then4.i.i15, %if
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 58) #12
+  %call.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 58) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %if.end
@@ -8188,9 +8188,9 @@ if.then8:                                         ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i24:                                      ; preds = %if.then8
   %13 = load ptr, ptr %this, align 8
-  %call.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #12
+  %call.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #13
   %14 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i25, i32 noundef %14) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i25, i32 noundef %14) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %if.then8, %if.then.i24
@@ -8214,7 +8214,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %this.val6 = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val6, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %entry, %if.then.i
@@ -8230,7 +8230,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %entry, %if.then.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.307, i64 noundef 5) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.307, i64 noundef 5) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -8253,7 +8253,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i9:                                       ; preds = %if.then
   %this.val = load ptr, ptr %this, align 8
-  %call.i10 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i10 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11:    ; preds = %if.then, %if.then.i9
@@ -8266,7 +8266,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11:    ; preds = %if.then, %if.then.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i12
 
 if.then.i12:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11
-  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 40) #12
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 noundef zeroext 40) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit11
@@ -8287,7 +8287,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i12, %if.en
   br i1 %cmp.not.i17, label %if.end.i21, label %if.then.i18
 
 if.then.i18:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #12
+  %call.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #13
   br label %if.end
 
 if.end.i21:                                       ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
@@ -8332,7 +8332,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull %cond, i64 noundef %call.i.i) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull %cond, i64 noundef %call.i.i) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %if.then
@@ -8371,7 +8371,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   %OutBufCur.i5.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call3.i, i64 24
   %.pre = load ptr, ptr %OutBufCur.i5.phi.trans.insert, align 8
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
@@ -8396,7 +8396,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %if.then.i, %if.end.
   br i1 %cmp.not.i, label %if.end.i9, label %if.then.i7
 
 if.then.i7:                                       ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %retval.0.i, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i9:                                        ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
@@ -8441,7 +8441,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -8474,7 +8474,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 96) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 96) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -8516,7 +8516,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp.i8, label %if.then.i11, label %if.end.i9
 
 if.then.i11:                                      ; preds = %for.body
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit
 
 if.end.i9:                                        ; preds = %for.body
@@ -8547,7 +8547,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.i18, label %if.then.i23, label %if.end.i19
 
 if.then.i23:                                      ; preds = %if.then
-  %call3.i24 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull @.str.310, i64 noundef 2) #12
+  %call3.i24 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull @.str.310, i64 noundef 2) #13
   br label %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25
 
 if.end.i19:                                       ; preds = %if.then
@@ -8570,7 +8570,7 @@ _ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25:    ; preds = %if.then.i23, %if.en
   br i1 %cmp.not.i30, label %if.end.i34, label %if.then.i31
 
 if.then.i31:                                      ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25
-  %call.i32 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 125) #12
+  %call.i32 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 125) #13
   br label %for.inc
 
 if.end.i34:                                       ; preds = %_ZN4llvh11raw_ostreamlsENS_9StringRefE.exit25
@@ -8596,7 +8596,7 @@ for.end:                                          ; preds = %for.inc, %_ZN4llvh1
   br i1 %cmp.not.i39, label %if.end.i43, label %if.then.i40
 
 if.then.i40:                                      ; preds = %for.end
-  %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 noundef zeroext 96) #12
+  %call.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 noundef zeroext 96) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit45
 
 if.end.i43:                                       ; preds = %for.end
@@ -8636,7 +8636,7 @@ if.then.i:                                        ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i
@@ -8655,7 +8655,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -8679,7 +8679,7 @@ if.then8.i:                                       ; preds = %if.end.i.i, %if.the
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -8713,7 +8713,7 @@ if.then.i34:                                      ; preds = %if.end.i5
   br i1 %cmp.not.i.i37, label %if.end.i.i42, label %if.then.i.i38
 
 if.then.i.i38:                                    ; preds = %if.then.i34
-  %call.i.i39 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 40) #12
+  %call.i.i39 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 40) #13
   br label %if.then8.i14
 
 if.end.i.i42:                                     ; preds = %if.then.i34
@@ -8732,7 +8732,7 @@ if.then3.i24:                                     ; preds = %if.end.i5
   br i1 %cmp.not.i5.i27, label %if.end.i9.i32, label %if.then.i6.i28
 
 if.then.i6.i28:                                   ; preds = %if.then3.i24
-  %call.i7.i29 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 32) #12
+  %call.i7.i29 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %16, i8 noundef zeroext 32) #13
   br label %if.end6.i12.thread
 
 if.end.i9.i32:                                    ; preds = %if.then3.i24
@@ -8756,7 +8756,7 @@ if.then8.i14:                                     ; preds = %if.end.i.i42, %if.t
   br i1 %cmp.not.i15.i17, label %if.end.i19.i22, label %if.then.i16.i18
 
 if.then.i16.i18:                                  ; preds = %if.then8.i14
-  %call.i17.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 41) #12
+  %call.i17.i19 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %19, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit8
 
 if.end.i19.i22:                                   ; preds = %if.then8.i14
@@ -8811,7 +8811,7 @@ if.then.thread:                                   ; preds = %if.end.i.i90
 
 if.then.i:                                        ; preds = %if.then.thread, %if.then
   %7 = phi ptr [ %4, %if.then.thread ], [ %1, %if.then ]
-  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #12
+  %call3.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef %agg.tmp.sroa.0.0.copyload, i64 noundef %agg.tmp.sroa.2.0.copyload) #13
   br label %if.end20
 
 if.end.i:                                         ; preds = %if.then
@@ -8854,7 +8854,7 @@ if.then11:                                        ; preds = %if.then8
   br i1 %cmp.i.i31, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then11
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull @.str.241, i64 noundef 5) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %13, ptr noundef nonnull @.str.241, i64 noundef 5) #13
   br label %if.end
 
 if.then4.i.i:                                     ; preds = %if.then11
@@ -8880,7 +8880,7 @@ if.then15:                                        ; preds = %if.end
   br i1 %cmp.not.i, label %if.end.i37, label %if.then.i35
 
 if.then.i35:                                      ; preds = %if.then15
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 42) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 42) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i37:                                       ; preds = %if.then15
@@ -8897,7 +8897,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i35, %if.en
 
 if.then.i39:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
   %this.val29 = load ptr, ptr %this, align 8
-  %call.i40 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val29, i8 noundef zeroext 32) #12
+  %call.i40 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val29, i8 noundef zeroext 32) #13
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then.i39, %_ZN4llvh11raw_ostreamlsEc.exit, %if.then4.i, %if.end.i, %if.then.i, %if.else, %if.end
@@ -8918,7 +8918,7 @@ if.then24:                                        ; preds = %if.then22
 
 if.then.i43:                                      ; preds = %if.then24
   %this.val27 = load ptr, ptr %this, align 8
-  %call.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val27, i8 noundef zeroext 32) #12
+  %call.i44 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val27, i8 noundef zeroext 32) #13
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then.i43, %if.then24, %if.then22
@@ -8931,7 +8931,7 @@ if.end25:                                         ; preds = %if.then.i43, %if.th
   br i1 %cmp.not.i48, label %if.end.i52, label %if.then.i49
 
 if.then.i49:                                      ; preds = %if.end25
-  %call.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 91) #12
+  %call.i50 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %24, i8 noundef zeroext 91) #13
   br label %if.end33
 
 if.end.i52:                                       ; preds = %if.end25
@@ -8953,7 +8953,7 @@ if.then30:                                        ; preds = %if.end28
   br i1 %cmp.not.i57, label %if.end.i61, label %if.then.i58
 
 if.then.i58:                                      ; preds = %if.then30
-  %call.i59 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %27, i8 noundef zeroext 32) #12
+  %call.i59 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %27, i8 noundef zeroext 32) #13
   br label %if.end33
 
 if.end.i61:                                       ; preds = %if.then30
@@ -8980,7 +8980,7 @@ if.then36:                                        ; preds = %if.end33
   br i1 %cmp.not.i67, label %if.end.i71, label %if.then.i68
 
 if.then.i68:                                      ; preds = %if.then36
-  %call.i69 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %32, i8 noundef zeroext 93) #12
+  %call.i69 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %32, i8 noundef zeroext 93) #13
   br label %if.end39
 
 if.end.i71:                                       ; preds = %if.then36
@@ -9033,7 +9033,7 @@ if.else54:                                        ; preds = %lor.lhs.false
   br i1 %cmp.not.i76, label %if.end.i80, label %if.then.i77
 
 if.then.i77:                                      ; preds = %if.else54
-  %call.i78 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %40, i8 noundef zeroext 58) #12
+  %call.i78 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %40, i8 noundef zeroext 58) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit82
 
 if.end.i80:                                       ; preds = %if.else54
@@ -9050,7 +9050,7 @@ _ZN4llvh11raw_ostreamlsEc.exit82:                 ; preds = %if.then.i77, %if.en
 
 if.then.i85:                                      ; preds = %_ZN4llvh11raw_ostreamlsEc.exit82
   %this.val = load ptr, ptr %this, align 8
-  %call.i86 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i86 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   %this.val.i.pre = load i8, ptr %43, align 8
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit87
 
@@ -9073,7 +9073,7 @@ if.then.i91:                                      ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i.i, label %if.end.i.i94, label %if.then.i.i92
 
 if.then.i.i92:                                    ; preds = %if.then.i91
-  %call.i.i93 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 noundef zeroext 40) #12
+  %call.i.i93 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %45, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i94:                                     ; preds = %if.then.i91
@@ -9097,7 +9097,7 @@ if.then8.i:                                       ; preds = %if.then.i.i92, %if.
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %48, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %48, i8 noundef zeroext 41) #13
   br label %if.end58
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -9125,7 +9125,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.312, i64 noundef 5) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.312, i64 noundef 5) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -9149,7 +9149,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 noundef zeroext 32) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %if.then
@@ -9179,7 +9179,7 @@ if.then5:                                         ; preds = %if.end
   br i1 %cmp.i.i13, label %if.then.i.i19, label %if.then4.i.i16
 
 if.then.i.i19:                                    ; preds = %if.then5
-  %call3.i.i20 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull @.str.313, i64 noundef 9) #12
+  %call3.i.i20 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull @.str.313, i64 noundef 9) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit21
 
 if.then4.i.i16:                                   ; preds = %if.then5
@@ -9201,7 +9201,7 @@ if.end8:                                          ; preds = %_ZN4llvh11raw_ostre
 
 if.then.i24:                                      ; preds = %if.end8
   %this.val = load ptr, ptr %this, align 8
-  %call.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %if.end8, %if.then.i24
@@ -9221,7 +9221,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 123) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 123) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -9246,7 +9246,7 @@ if.then:                                          ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.not.i6, label %if.end.i10, label %if.then.i7
 
 if.then.i7:                                       ; preds = %if.then
-  %call.i8 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 noundef zeroext 125) #12
+  %call.i8 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %4, i8 noundef zeroext 125) #13
   br label %return
 
 if.end.i10:                                       ; preds = %if.then
@@ -9277,9 +9277,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then.i14:                                      ; preds = %for.body
   %9 = load ptr, ptr %this, align 8
-  %call.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 10) #12
+  %call.i15 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 noundef zeroext 10) #13
   %10 = load i32, ptr %indent_.i, align 4
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i15, i32 noundef %10) #12
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i15, i32 noundef %10) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %for.body, %if.then.i14
@@ -9304,9 +9304,9 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 if.then.i22:                                      ; preds = %for.end
   %13 = load ptr, ptr %this, align 8
-  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #12
+  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 10) #13
   %14 = load i32, ptr %indent_.i, align 4
-  %call2.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i23, i32 noundef %14) #12
+  %call2.i25 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream6indentEj(ptr noundef nonnull align 8 dereferenceable(36) %call.i23, i32 noundef %14) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit26
 
 _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit26:  ; preds = %for.end, %if.then.i22
@@ -9319,7 +9319,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit26:  ; preds = %for.end, %if.then.i
   br i1 %cmp.not.i29, label %if.end.i33, label %if.then.i30
 
 if.then.i30:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit26
-  %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 125) #12
+  %call.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %15, i8 noundef zeroext 125) #13
   br label %return
 
 if.end.i33:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit26
@@ -9360,7 +9360,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i34, label %if.then.i.i40, label %if.then4.i.i37
 
 if.then.i.i40:                                    ; preds = %if.then.i
-  %call3.i.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull @.str.314, i64 noundef 7) #12
+  %call3.i.i41 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef nonnull @.str.314, i64 noundef 7) #13
   br label %if.end.i
 
 if.then4.i.i37:                                   ; preds = %if.then.i
@@ -9383,7 +9383,7 @@ if.then5.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i21, label %if.end.i25, label %if.then.i22
 
 if.then.i22:                                      ; preds = %if.then5.i
-  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 91) #12
+  %call.i23 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 91) #13
   br label %if.then15.i
 
 if.end.i25:                                       ; preds = %if.then5.i
@@ -9407,7 +9407,7 @@ if.then15.i:                                      ; preds = %if.end.i25, %if.the
   br i1 %cmp.not.i11, label %if.end.i15, label %if.then.i12
 
 if.then.i12:                                      ; preds = %if.then15.i
-  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 93) #12
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %11, i8 noundef zeroext 93) #13
   br label %if.end18.i
 
 if.end.i15:                                       ; preds = %if.then15.i
@@ -9433,7 +9433,7 @@ if.then20.i:                                      ; preds = %if.end18.i
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then20.i
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull @.str.308, i64 noundef 3) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %14, ptr noundef nonnull @.str.308, i64 noundef 3) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %if.then20.i
@@ -9457,7 +9457,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.ex
   br i1 %cmp.not.i, label %if.end.i7, label %if.then.i5
 
 if.then.i5:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit
-  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 59) #12
+  %call.i6 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 noundef zeroext 59) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i7:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit
@@ -9495,7 +9495,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %cmp.i.i24, label %if.then.i.i30, label %if.then4.i.i27
 
 if.then.i.i30:                                    ; preds = %if.then.i
-  %call3.i.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.314, i64 noundef 7) #12
+  %call3.i.i31 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull @.str.314, i64 noundef 7) #13
   br label %if.end.i
 
 if.then4.i.i27:                                   ; preds = %if.then.i
@@ -9515,7 +9515,7 @@ if.end.i:                                         ; preds = %if.then4.i.i27, %if
   br i1 %cmp.not.i11, label %if.end.i15, label %if.then.i12
 
 if.then.i12:                                      ; preds = %if.end.i
-  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 35) #12
+  %call.i13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 35) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit17
 
 if.end.i15:                                       ; preds = %if.end.i
@@ -9542,7 +9542,7 @@ if.then20.i:                                      ; preds = %_ZN4llvh11raw_ostre
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then20.i
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef nonnull @.str.308, i64 noundef 3) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %10, ptr noundef nonnull @.str.308, i64 noundef 3) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %if.then20.i
@@ -9566,7 +9566,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.ex
   br i1 %cmp.not.i, label %if.end.i6, label %if.then.i4
 
 if.then.i4:                                       ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit
-  %call.i5 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 59) #12
+  %call.i5 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %14, i8 noundef zeroext 59) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i6:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS18visitClassPropertyEbbbPNS_6ESTree4NodeES4_S4_.exit
@@ -9600,7 +9600,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %if.then
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.314, i64 noundef 7) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %1, ptr noundef nonnull @.str.314, i64 noundef 7) #13
   br label %if.end
 
 if.then4.i.i:                                     ; preds = %if.then
@@ -9641,7 +9641,7 @@ if.then6:                                         ; preds = %if.then4
   br i1 %cmp.i.i28, label %if.then.i.i34, label %if.then4.i.i31
 
 if.then.i.i34:                                    ; preds = %if.then6
-  %call3.i.i35 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull @.str.237, i64 noundef 6) #12
+  %call3.i.i35 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull @.str.237, i64 noundef 6) #13
   br label %if.end9
 
 if.then4.i.i31:                                   ; preds = %if.then6
@@ -9667,7 +9667,7 @@ if.then11:                                        ; preds = %if.end9
   br i1 %cmp.not.i, label %if.end.i37, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then11
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 42) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 42) #13
   br label %if.end14
 
 if.end.i37:                                       ; preds = %if.then11
@@ -9703,7 +9703,7 @@ if.then18:                                        ; preds = %if.end.i82
   br i1 %cmp.i.i44, label %if.then.i.i50, label %if.then4.i.i47
 
 if.then.i.i50:                                    ; preds = %if.then18
-  %call3.i.i51 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull @.str.316, i64 noundef 4) #12
+  %call3.i.i51 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %18, ptr noundef nonnull @.str.316, i64 noundef 4) #13
   br label %if.end29
 
 if.then4.i.i47:                                   ; preds = %if.then18
@@ -9731,7 +9731,7 @@ if.then24:                                        ; preds = %if.end.i
   br i1 %cmp.i.i59, label %if.then.i.i65, label %if.then4.i.i62
 
 if.then.i.i65:                                    ; preds = %if.then24
-  %call3.i.i66 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %23, ptr noundef nonnull @.str.318, i64 noundef 4) #12
+  %call3.i.i66 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %23, ptr noundef nonnull @.str.318, i64 noundef 4) #13
   br label %if.end29
 
 if.then4.i.i62:                                   ; preds = %if.then24
@@ -9757,7 +9757,7 @@ if.then31:                                        ; preds = %if.end29
   br i1 %cmp.not.i70, label %if.end.i74, label %if.then.i71
 
 if.then.i71:                                      ; preds = %if.then31
-  %call.i72 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %28, i8 noundef zeroext 91) #12
+  %call.i72 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %28, i8 noundef zeroext 91) #13
   br label %if.end34
 
 if.end.i74:                                       ; preds = %if.then31
@@ -9784,7 +9784,7 @@ if.then37:                                        ; preds = %if.end34
   br i1 %cmp.not.i80, label %if.end.i84, label %if.then.i81
 
 if.then.i81:                                      ; preds = %if.then37
-  %call.i82 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %33, i8 noundef zeroext 93) #12
+  %call.i82 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %33, i8 noundef zeroext 93) #13
   br label %if.end40
 
 if.end.i84:                                       ; preds = %if.then37
@@ -9814,7 +9814,7 @@ entry:
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 91) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 noundef zeroext 91) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %entry
@@ -9858,7 +9858,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.then4.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.then
-  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #12
+  %call3.i.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %this.val, ptr noundef nonnull %cond.i, i64 noundef %call.i.i.i) #13
   br label %if.end
 
 if.then4.i.i.i:                                   ; preds = %if.then
@@ -9885,7 +9885,7 @@ if.then.i17:                                      ; preds = %if.end
   br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i17
-  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 40) #12
+  %call.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %7, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i:                                       ; preds = %if.then.i17
@@ -9909,7 +9909,7 @@ if.then8.i:                                       ; preds = %if.then.i.i, %if.en
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %10, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS11printParensEPNS_6ESTree4NodeES4_NS0_10NeedParensE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -9934,7 +9934,7 @@ for.end:                                          ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.not.i9, label %if.end.i13, label %if.then.i10
 
 if.then.i10:                                      ; preds = %for.end
-  %call.i11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 93) #12
+  %call.i11 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %13, i8 noundef zeroext 93) #13
   br label %_ZN4llvh11raw_ostreamlsEc.exit15
 
 if.end.i13:                                       ; preds = %for.end
@@ -9962,7 +9962,7 @@ entry:
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.319, i64 noundef 3) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull @.str.319, i64 noundef 3) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %entry
@@ -9980,7 +9980,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val = load ptr, ptr %this, align 8
-  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i
@@ -10017,7 +10017,7 @@ if.then.i19:                                      ; preds = %if.end.i
   br i1 %cmp.not.i.i, label %if.end.i.i22, label %if.then.i.i20
 
 if.then.i.i20:                                    ; preds = %if.then.i19
-  %call.i.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #12
+  %call.i.i21 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 noundef zeroext 40) #13
   br label %if.then8.i
 
 if.end.i.i22:                                     ; preds = %if.then.i19
@@ -10036,7 +10036,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br i1 %cmp.not.i5.i, label %if.end.i9.i, label %if.then.i6.i
 
 if.then.i6.i:                                     ; preds = %if.then3.i
-  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #12
+  %call.i7.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %5, i8 noundef zeroext 32) #13
   br label %if.end6.i.thread
 
 if.end.i9.i:                                      ; preds = %if.then3.i
@@ -10060,7 +10060,7 @@ if.then8.i:                                       ; preds = %if.end.i.i22, %if.t
   br i1 %cmp.not.i15.i, label %if.end.i19.i, label %if.then.i16.i
 
 if.then.i16.i:                                    ; preds = %if.then8.i
-  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #12
+  %call.i17.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
 
 if.end.i19.i:                                     ; preds = %if.then8.i
@@ -10077,7 +10077,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
 
 if.then.i:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit
   %this.val5 = load ptr, ptr %this, align 8
-  %call.i8 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val5, i8 noundef zeroext 32) #12
+  %call.i8 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val5, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit, %if.then.i
@@ -10090,7 +10090,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit:      ; preds = %_ZN6hermes12_GLOBAL
   br i1 %cmp.i.i, label %if.then.i.i, label %if.then4.i.i
 
 if.then.i.i:                                      ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull @.str.309, i64 noundef 1) #12
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %12, ptr noundef nonnull @.str.309, i64 noundef 1) #13
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 if.then4.i.i:                                     ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit
@@ -10107,7 +10107,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 
 if.then.i11:                                      ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   %this.val = load ptr, ptr %this, align 8
-  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #12
+  %call.i12 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %this.val, i8 noundef zeroext 32) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13
 
 _ZN6hermes12_GLOBAL__N_15GenJS5spaceEb.exit13:    ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit, %if.then.i11
@@ -10134,7 +10134,7 @@ if.then.i48:                                      ; preds = %if.end.i15
   br i1 %cmp.not.i.i51, label %if.end.i.i56, label %if.then.i.i52
 
 if.then.i.i52:                                    ; preds = %if.then.i48
-  %call.i.i53 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 noundef zeroext 40) #12
+  %call.i.i53 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %17, i8 noundef zeroext 40) #13
   br label %if.then8.i28
 
 if.end.i.i56:                                     ; preds = %if.then.i48
@@ -10153,7 +10153,7 @@ if.then3.i38:                                     ; preds = %if.end.i15
   br i1 %cmp.not.i5.i41, label %if.end.i9.i46, label %if.then.i6.i42
 
 if.then.i6.i42:                                   ; preds = %if.then3.i38
-  %call.i7.i43 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 noundef zeroext 32) #12
+  %call.i7.i43 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %20, i8 noundef zeroext 32) #13
   br label %if.end6.i26.thread
 
 if.end.i9.i46:                                    ; preds = %if.then3.i38
@@ -10177,7 +10177,7 @@ if.then8.i28:                                     ; preds = %if.end.i.i56, %if.t
   br i1 %cmp.not.i15.i31, label %if.end.i19.i36, label %if.then.i16.i32
 
 if.then.i16.i32:                                  ; preds = %if.then8.i28
-  %call.i17.i33 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %23, i8 noundef zeroext 41) #12
+  %call.i17.i33 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %23, i8 noundef zeroext 41) #13
   br label %_ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.exit18
 
 if.end.i19.i36:                                   ; preds = %if.then8.i28
@@ -10190,30 +10190,31 @@ _ZN6hermes12_GLOBAL__N_15GenJS10printChildEPNS_6ESTree4NodeES4_NS0_8ChildPosE.ex
   ret void
 }
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { cold mustprogress noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
+attributes #8 = { mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

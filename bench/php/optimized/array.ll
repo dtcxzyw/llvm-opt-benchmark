@@ -26714,7 +26714,7 @@ define internal i32 @php_array_key_compare_string_natural(ptr noundef readonly c
   ret i32 %.0
 }
 
-; Function Attrs: nofree noinline nounwind memory(read) uwtable
+; Function Attrs: nofree noinline norecurse nounwind memory(read) uwtable
 define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_locale(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
   %3 = tail call fastcc i32 @php_array_reverse_key_compare_string_locale_unstable(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
@@ -26733,7 +26733,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_c
   ret i32 %.0
 }
 
-; Function Attrs: nofree noinline nounwind memory(read) uwtable
+; Function Attrs: nofree noinline norecurse nounwind memory(read) uwtable
 define internal i32 @php_array_key_compare_string_locale(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
@@ -27500,14 +27500,14 @@ zend_print_long_to_buf.exit:                      ; preds = %58, %zend_print_ulo
 
 declare i32 @strnatcmp_ex(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
-; Function Attrs: nofree noinline nounwind memory(read) uwtable
+; Function Attrs: nofree noinline norecurse nounwind memory(read) uwtable
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @php_array_reverse_key_compare_string_locale_unstable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #17 {
   %3 = tail call fastcc i32 @php_array_key_compare_string_locale_unstable(ptr noundef %0, ptr noundef %1)
   %4 = sub nsw i32 0, %3
   ret i32 %4
 }
 
-; Function Attrs: nofree noinline nounwind memory(read) uwtable
+; Function Attrs: nofree noinline norecurse nounwind memory(read) uwtable
 define internal fastcc i32 @php_array_key_compare_string_locale_unstable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #17 {
   %3 = alloca [21 x i8], align 16
   %4 = alloca [21 x i8], align 16
@@ -27631,7 +27631,7 @@ php_array_key_compare_string_locale_unstable_i.exit: ; preds = %49, %zend_print_
   ret i32 %55
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
 declare i32 @strcoll(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: noinline nounwind uwtable
@@ -28883,7 +28883,7 @@ declare i64 @llvm.smax.i64(i64, i64) #19
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i64(i64, i64) #19
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -28912,10 +28912,10 @@ attributes #13 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #14 = { mustprogress nofree noinline norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { allocsize(0,1) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nofree noinline nounwind memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nofree noinline norecurse nounwind memory(read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #20 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 attributes #21 = { nounwind }
 attributes #22 = { nounwind allocsize(0) }
 attributes #23 = { memory(none) }

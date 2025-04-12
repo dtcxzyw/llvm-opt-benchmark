@@ -48,7 +48,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #11
+  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %109, label %8
 
@@ -56,7 +56,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #11
+  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #12
   store ptr %12, ptr @smi_class, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %109, label %14
@@ -65,7 +65,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %15 = load ptr, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 264
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #11
+  %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #12
   store ptr %18, ptr @smi_ctrID, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %109, label %20
@@ -74,7 +74,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %21 = load ptr, ptr %0, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
-  %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #11
+  %24 = tail call ptr %23(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #12
   %25 = icmp eq ptr %24, null
   br i1 %25, label %109, label %26
 
@@ -82,7 +82,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 752
   %29 = load ptr, ptr %28, align 8
-  %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #11
+  %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #12
   store ptr %30, ptr @src_valueID, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %109, label %32
@@ -91,7 +91,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 752
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #11
+  %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #12
   store ptr %36, ptr @src_typeID, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %109, label %38
@@ -100,7 +100,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load ptr, ptr %40, align 8
-  %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #11
+  %42 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull @.str.8) #12
   %43 = icmp eq ptr %42, null
   br i1 %43, label %109, label %44
 
@@ -108,7 +108,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %45 = load ptr, ptr %0, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 168
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef nonnull %42) #11
+  %48 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef nonnull %42) #12
   store ptr %48, ptr @ssf_class, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %109, label %50
@@ -117,7 +117,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 264
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9) #11
+  %54 = tail call ptr %53(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.9) #12
   store ptr %54, ptr @ssf_ctrID, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %109, label %56
@@ -126,7 +126,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %57 = load ptr, ptr %0, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load ptr, ptr %58, align 8
-  %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #11
+  %60 = tail call ptr %59(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #12
   %61 = icmp eq ptr %60, null
   br i1 %61, label %109, label %62
 
@@ -134,7 +134,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %63 = load ptr, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 168
   %65 = load ptr, ptr %64, align 8
-  %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %60) #11
+  %66 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %60) #12
   store ptr %66, ptr @sac_class, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %109, label %68
@@ -143,7 +143,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %69 = load ptr, ptr %0, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 264
   %71 = load ptr, ptr %70, align 8
-  %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11) #11
+  %72 = tail call ptr %71(ptr noundef nonnull %0, ptr noundef nonnull %60, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11) #12
   store ptr %72, ptr @sac_ctrID, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %109, label %74
@@ -152,7 +152,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %75 = load ptr, ptr %0, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load ptr, ptr %76, align 8
-  %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #11
+  %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #12
   %79 = icmp eq ptr %78, null
   br i1 %79, label %109, label %80
 
@@ -160,7 +160,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %81 = load ptr, ptr %0, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 168
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %78) #11
+  %84 = tail call ptr %83(ptr noundef nonnull %0, ptr noundef nonnull %78) #12
   store ptr %84, ptr @spc_class, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %109, label %86
@@ -169,7 +169,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %87 = load ptr, ptr %0, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 264
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %78, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13) #11
+  %90 = tail call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %78, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.13) #12
   store ptr %90, ptr @spc_ctrID, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %109, label %92
@@ -178,7 +178,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %93 = load ptr, ptr %0, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
   %95 = load ptr, ptr %94, align 8
-  %96 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #11
+  %96 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #12
   %97 = icmp eq ptr %96, null
   br i1 %97, label %109, label %98
 
@@ -186,7 +186,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %99 = load ptr, ptr %0, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 168
   %101 = load ptr, ptr %100, align 8
-  %102 = tail call ptr %101(ptr noundef nonnull %0, ptr noundef nonnull %96) #11
+  %102 = tail call ptr %101(ptr noundef nonnull %0, ptr noundef nonnull %96) #12
   store ptr %102, ptr @ss_class, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %109, label %104
@@ -195,7 +195,7 @@ define void @Java_sun_nio_ch_sctp_SctpChannelImpl_initIDs(ptr noundef %0, ptr no
   %105 = load ptr, ptr %0, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 264
   %107 = load ptr, ptr %106, align 8
-  %108 = tail call ptr %107(ptr noundef nonnull %0, ptr noundef nonnull %96, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #11
+  %108 = tail call ptr %107(ptr noundef nonnull %0, ptr noundef nonnull %96, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.15) #12
   store ptr %108, ptr @ss_ctrID, align 8
   br label %109
 
@@ -245,13 +245,13 @@ define hidden void @getControlData(ptr noundef %0, ptr noundef writeonly capture
   store i8 %25, ptr %26, align 2
   %27 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %28 = load i32, ptr %27, align 4
-  %29 = tail call i32 @ntohl(i32 noundef %28) #12
+  %29 = tail call i32 @ntohl(i32 noundef %28) #13
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %29, ptr %30, align 4
   br label %.loopexit
 
 31:                                               ; preds = %.lr.ph, %12
-  %32 = tail call ptr @__cmsg_nxthdr(ptr noundef %0, ptr noundef nonnull %.019) #11
+  %32 = tail call ptr @__cmsg_nxthdr(ptr noundef %0, ptr noundef nonnull %.019) #12
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
@@ -259,13 +259,13 @@ define hidden void @getControlData(ptr noundef %0, ptr noundef writeonly capture
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @__cmsg_nxthdr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @setControlData(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -323,7 +323,7 @@ define hidden void @setControlData(ptr noundef captures(none) %0, ptr noundef re
   br i1 %.not22, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @htonl(i32 noundef %30) #12
+  %32 = tail call i32 @htonl(i32 noundef %30) #13
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %32, ptr %33, align 4
   br label %34
@@ -336,7 +336,7 @@ define hidden void @setControlData(ptr noundef captures(none) %0, ptr noundef re
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -348,7 +348,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   %12 = load i32, ptr %11, align 4
   %13 = sub i32 %12, %4
   %14 = add i32 %12, -48
-  %15 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %6) #11
+  %15 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %6) #12
   %16 = icmp eq ptr %15, null
   br i1 %16, label %83, label %17
 
@@ -359,12 +359,12 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %21 = zext nneg i32 %14 to i64
-  %22 = tail call noalias ptr @malloc(i64 noundef %21) #13
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #14
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %25
 
 24:                                               ; preds = %19
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.16) #11
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.16) #12
   br label %83
 
 25:                                               ; preds = %19
@@ -376,12 +376,12 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1832
   %30 = load ptr, ptr %29, align 8
-  %31 = call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef %21) #11
+  %31 = call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %22, i64 noundef %21) #12
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %25
-  call void @free(ptr noundef nonnull %22) #11
+  call void @free(ptr noundef nonnull %22) #12
   br label %83
 
 34:                                               ; preds = %25
@@ -406,16 +406,16 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %43, label %44, label %58
 
 44:                                               ; preds = %41
-  %45 = call i64 @recvmsg(i32 noundef %1, ptr noundef nonnull %9, i32 noundef 0) #11
+  %45 = call i64 @recvmsg(i32 noundef %1, ptr noundef nonnull %9, i32 noundef 0) #12
   %46 = trunc i64 %45 to i32
   %47 = icmp slt i32 %46, 0
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %44
-  call void @free(ptr noundef nonnull %22) #11
-  %49 = tail call ptr @__errno_location() #12
+  call void @free(ptr noundef nonnull %22) #12
+  %49 = tail call ptr @__errno_location() #13
   %50 = load i32, ptr %49, align 4
-  %51 = call i32 @sctpHandleSocketError(ptr noundef nonnull %0, i32 noundef %50) #11
+  %51 = call i32 @sctpHandleSocketError(ptr noundef nonnull %0, i32 noundef %50) #12
   br label %83
 
 52:                                               ; preds = %44
@@ -430,7 +430,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not64, label %57, label %58
 
 57:                                               ; preds = %53, %52
-  call void @free(ptr noundef nonnull %22) #11
+  call void @free(ptr noundef nonnull %22) #12
   br label %83
 
 58:                                               ; preds = %41, %53, %17
@@ -447,7 +447,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   %67 = load i32, ptr %66, align 4
   %68 = load i16, ptr %10, align 4
   %69 = zext i16 %68 to i32
-  %70 = call ptr (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef %65, ptr noundef nonnull %15, ptr noundef %.0, i32 noundef %67, i32 noundef %69) #11
+  %70 = call ptr (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, i32 noundef %65, ptr noundef nonnull %15, ptr noundef %.0, i32 noundef %67, i32 noundef %69) #12
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %74
 
@@ -456,7 +456,7 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   br i1 %.not65, label %83, label %73
 
 73:                                               ; preds = %72
-  call void @free(ptr noundef %.056) #11
+  call void @free(ptr noundef %.056) #12
   br label %83
 
 74:                                               ; preds = %58
@@ -464,12 +464,12 @@ define hidden void @handleSendFailed(ptr noundef %0, i32 noundef %1, ptr noundef
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 832
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr @src_valueID, align 8
-  call void %77(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %78, ptr noundef nonnull %70) #11
+  call void %77(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %78, ptr noundef nonnull %70) #12
   %79 = load ptr, ptr %0, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 872
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr @src_typeID, align 8
-  call void %81(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %82, i32 noundef 2) #11
+  call void %81(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %82, i32 noundef 2) #12
   br label %83
 
 83:                                               ; preds = %72, %73, %7, %74, %57, %48, %33, %24
@@ -494,7 +494,7 @@ declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @sctpHandleSocketError(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #1
+declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
@@ -517,7 +517,7 @@ define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr nounde
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 14
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  %20 = tail call ptr (ptr, ptr, ptr, ...) %9(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, i32 noundef %13, i32 noundef %.0, i32 noundef %16, i32 noundef %19) #11
+  %20 = tail call ptr (ptr, ptr, ptr, ...) %9(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %11, i32 noundef %13, i32 noundef %.0, i32 noundef %16, i32 noundef %19) #12
   %21 = icmp eq ptr %20, null
   br i1 %21, label %31, label %22
 
@@ -526,12 +526,12 @@ define hidden void @handleAssocChange(ptr noundef %0, ptr noundef %1, ptr nounde
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 832
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @src_valueID, align 8
-  tail call void %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %26, ptr noundef nonnull %20) #11
+  tail call void %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %26, ptr noundef nonnull %20) #12
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 872
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @src_typeID, align 8
-  tail call void %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30, i32 noundef 3) #11
+  tail call void %29(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %30, i32 noundef 3) #12
   br label %31
 
 31:                                               ; preds = %3, %22
@@ -547,7 +547,7 @@ define hidden void @handleShutdown(ptr noundef %0, ptr noundef %1, ptr noundef r
   %8 = load ptr, ptr @ss_ctrID, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 4
-  %11 = tail call ptr (ptr, ptr, ptr, ...) %6(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %8, i32 noundef %10) #11
+  %11 = tail call ptr (ptr, ptr, ptr, ...) %6(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %8, i32 noundef %10) #12
   %12 = icmp eq ptr %11, null
   br i1 %12, label %22, label %13
 
@@ -556,12 +556,12 @@ define hidden void @handleShutdown(ptr noundef %0, ptr noundef %1, ptr noundef r
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 832
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @src_valueID, align 8
-  tail call void %16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %11) #11
+  tail call void %16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %17, ptr noundef nonnull %11) #12
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 872
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @src_typeID, align 8
-  tail call void %20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %21, i32 noundef 5) #11
+  tail call void %20(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %21, i32 noundef 5) #12
   br label %22
 
 22:                                               ; preds = %3, %13
@@ -574,7 +574,7 @@ switch.lookup:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %6 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %5) #11
+  %6 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %5) #12
   %7 = icmp eq ptr %6, null
   br i1 %7, label %28, label %8
 
@@ -589,7 +589,7 @@ switch.lookup:
   %14 = load ptr, ptr @spc_ctrID, align 8
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %16 = load i32, ptr %15, align 4
-  %17 = tail call ptr (ptr, ptr, ptr, ...) %12(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %14, i32 noundef %16, ptr noundef nonnull %6, i32 noundef %spec.select) #11
+  %17 = tail call ptr (ptr, ptr, ptr, ...) %12(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %14, i32 noundef %16, ptr noundef nonnull %6, i32 noundef %spec.select) #12
   %18 = icmp eq ptr %17, null
   br i1 %18, label %28, label %19
 
@@ -598,12 +598,12 @@ switch.lookup:
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 832
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @src_valueID, align 8
-  tail call void %22(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %23, ptr noundef nonnull %17) #11
+  tail call void %22(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %23, ptr noundef nonnull %17) #12
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 872
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @src_typeID, align 8
-  tail call void %26(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %27, i32 noundef 4) #11
+  tail call void %26(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %27, i32 noundef 4) #12
   br label %28
 
 28:                                               ; preds = %8, %switch.lookup, %19
@@ -611,7 +611,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @handleUninteresting(ptr noundef readnone captures(none) %0) local_unnamed_addr #9 {
+define hidden void @handleUninteresting(ptr noundef readnone captures(none) %0) local_unnamed_addr #10 {
   ret void
 }
 
@@ -649,7 +649,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
-  %27 = tail call ptr (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %20, i32 noundef %.0.i, i32 noundef %23, i32 noundef %26) #11
+  %27 = tail call ptr (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %0, ptr noundef %17, ptr noundef %18, i32 noundef %20, i32 noundef %.0.i, i32 noundef %23, i32 noundef %26) #12
   %28 = icmp eq ptr %27, null
   br i1 %28, label %handleAssocChange.exit, label %29
 
@@ -658,12 +658,12 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 832
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @src_valueID, align 8
-  tail call void %32(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %33, ptr noundef nonnull %27) #11
+  tail call void %32(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %33, ptr noundef nonnull %27) #12
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 872
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr @src_typeID, align 8
-  tail call void %36(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %37, i32 noundef 3) #11
+  tail call void %36(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %37, i32 noundef 3) #12
   br label %handleAssocChange.exit
 
 38:                                               ; preds = %7
@@ -674,7 +674,7 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   %43 = load ptr, ptr @ss_ctrID, align 8
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load i32, ptr %44, align 4
-  %46 = tail call ptr (ptr, ptr, ptr, ...) %41(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %43, i32 noundef %45) #11
+  %46 = tail call ptr (ptr, ptr, ptr, ...) %41(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %43, i32 noundef %45) #12
   %47 = icmp eq ptr %46, null
   br i1 %47, label %handleAssocChange.exit, label %48
 
@@ -683,19 +683,19 @@ define hidden zeroext range(i8 0, 2) i8 @handleNotification(ptr noundef %0, i32 
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 832
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @src_valueID, align 8
-  tail call void %51(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %52, ptr noundef nonnull %46) #11
+  tail call void %51(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %52, ptr noundef nonnull %46) #12
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 872
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr @src_typeID, align 8
-  tail call void %55(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %56, i32 noundef 5) #11
+  tail call void %55(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %56, i32 noundef 5) #12
   br label %handleAssocChange.exit
 
 switch.lookup19:                                  ; preds = %7
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %60 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %59) #11
+  %60 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef nonnull %59) #12
   %61 = icmp eq ptr %60, null
   br i1 %61, label %handleAssocChange.exit, label %62
 
@@ -710,7 +710,7 @@ switch.lookup19:                                  ; preds = %7
   %68 = load ptr, ptr @spc_ctrID, align 8
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %70 = load i32, ptr %69, align 4
-  %71 = tail call ptr (ptr, ptr, ptr, ...) %66(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %68, i32 noundef %70, ptr noundef nonnull %60, i32 noundef %spec.select) #11
+  %71 = tail call ptr (ptr, ptr, ptr, ...) %66(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %68, i32 noundef %70, ptr noundef nonnull %60, i32 noundef %spec.select) #12
   %72 = icmp eq ptr %71, null
   br i1 %72, label %handleAssocChange.exit, label %73
 
@@ -719,12 +719,12 @@ switch.lookup19:                                  ; preds = %7
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 832
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr @src_valueID, align 8
-  tail call void %76(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %77, ptr noundef nonnull %71) #11
+  tail call void %76(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %77, ptr noundef nonnull %71) #12
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 872
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @src_typeID, align 8
-  tail call void %80(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %81, i32 noundef 4) #11
+  tail call void %80(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %81, i32 noundef 4) #12
   br label %handleAssocChange.exit
 
 handleAssocChange.exit:                           ; preds = %7, %73, %62, %switch.lookup19, %48, %38, %29, %10, %9
@@ -734,7 +734,7 @@ handleAssocChange.exit:                           ; preds = %7, %73, %62, %switc
 
 ; Function Attrs: nounwind uwtable
 define hidden void @handleMessage(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 {
-  %7 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %5) #11
+  %7 = tail call ptr @SockAddrToInetSocketAddress(ptr noundef %0, ptr noundef %5) #12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %54, label %9
 
@@ -773,7 +773,7 @@ getControlData.exit:                              ; preds = %19
   %30 = zext nneg i16 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
   %32 = load i32, ptr %31, align 4
-  %33 = tail call i32 @ntohl(i32 noundef %32) #12
+  %33 = tail call i32 @ntohl(i32 noundef %32) #13
   %34 = load ptr, ptr %0, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 224
   %36 = load ptr, ptr %35, align 8
@@ -782,12 +782,12 @@ getControlData.exit:                              ; preds = %19
   %39 = zext i16 %26 to i32
   %.not = icmp ne i8 %4, 0
   %40 = zext i1 %.not to i32
-  %41 = tail call ptr (ptr, ptr, ptr, ...) %36(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %38, i32 noundef %25, ptr noundef nonnull %7, i32 noundef %spec.store.select, i32 noundef %39, i32 noundef %40, i32 noundef %30, i32 noundef %33) #11
+  %41 = tail call ptr (ptr, ptr, ptr, ...) %36(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %38, i32 noundef %25, ptr noundef nonnull %7, i32 noundef %spec.store.select, i32 noundef %39, i32 noundef %40, i32 noundef %30, i32 noundef %33) #12
   %42 = icmp eq ptr %41, null
   br i1 %42, label %54, label %45
 
 43:                                               ; preds = %19, %.lr.ph.i
-  %44 = tail call ptr @__cmsg_nxthdr(ptr noundef %2, ptr noundef nonnull %.019.i) #11
+  %44 = tail call ptr @__cmsg_nxthdr(ptr noundef %2, ptr noundef nonnull %.019.i) #12
   %.not.i = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %.not.i)
   br label %.lr.ph.i
@@ -797,12 +797,12 @@ getControlData.exit:                              ; preds = %19
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 832
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @src_valueID, align 8
-  tail call void %48(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %49, ptr noundef nonnull %41) #11
+  tail call void %48(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %49, ptr noundef nonnull %41) #12
   %50 = load ptr, ptr %0, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 872
   %52 = load ptr, ptr %51, align 8
   %53 = load ptr, ptr @src_typeID, align 8
-  tail call void %52(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %53, i32 noundef 1) #11
+  tail call void %52(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %53, i32 noundef 1) #12
   br label %54
 
 54:                                               ; preds = %getControlData.exit, %6, %45
@@ -839,12 +839,12 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   br i1 %23, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %7, %37
-  %24 = call i64 @recvmsg(i32 noundef %2, ptr noundef nonnull %10, i32 noundef %14) #11
+  %24 = call i64 @recvmsg(i32 noundef %2, ptr noundef nonnull %10, i32 noundef %14) #12
   %25 = icmp slt i64 %24, 0
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %.split.us
-  %27 = tail call ptr @__errno_location() #12
+  %27 = tail call ptr @__errno_location() #13
   %28 = load i32, ptr %27, align 4
   switch i32 %28, label %.split59.us [
     i32 11, label %.split61.us.loopexit135
@@ -884,12 +884,12 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   br i1 %.not50.us, label %.split67.us, label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %7, %72
-  %40 = call i64 @recvmsg(i32 noundef %2, ptr noundef nonnull %10, i32 noundef %14) #11
+  %40 = call i64 @recvmsg(i32 noundef %2, ptr noundef nonnull %10, i32 noundef %14) #12
   %41 = icmp slt i64 %40, 0
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %.split
-  %43 = tail call ptr @__errno_location() #12
+  %43 = tail call ptr @__errno_location() #13
   %44 = load i32, ptr %43, align 4
   switch i32 %44, label %.split59.us [
     i32 11, label %.split61.us.loopexit129
@@ -903,7 +903,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
 
 .split59.us:                                      ; preds = %26, %42
   %.us-phi = phi i32 [ %44, %42 ], [ %28, %26 ]
-  %46 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %.us-phi) #11
+  %46 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %.us-phi) #12
   br label %.split61.us
 
 47:                                               ; preds = %45, %.split
@@ -919,12 +919,12 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   br i1 %.not48, label %52, label %.thread
 
 52:                                               ; preds = %50
-  %53 = call noalias dereferenceable_or_null(148) ptr @malloc(i64 noundef 148) #13
+  %53 = call noalias dereferenceable_or_null(148) ptr @malloc(i64 noundef 148) #14
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %52
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.17) #11
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef %0, ptr noundef nonnull @.str.17) #12
   br label %.split61.us
 
 56:                                               ; preds = %52
@@ -933,15 +933,15 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   store ptr %57, ptr %9, align 16
   %58 = sub nsw i64 148, %.040
   store i64 %58, ptr %17, align 8
-  %59 = call i64 @recvmsg(i32 noundef %2, ptr noundef nonnull %10, i32 noundef %14) #11
+  %59 = call i64 @recvmsg(i32 noundef %2, ptr noundef nonnull %10, i32 noundef %14) #12
   %60 = icmp slt i64 %59, 0
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %56
-  %62 = tail call ptr @__errno_location() #12
+  %62 = tail call ptr @__errno_location() #13
   %63 = load i32, ptr %62, align 4
-  %64 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %63) #11
-  call void @free(ptr noundef nonnull %53) #11
+  %64 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %63) #12
+  call void @free(ptr noundef nonnull %53) #12
   br label %.split61.us
 
 65:                                               ; preds = %56
@@ -951,7 +951,7 @@ define noundef i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_receive0(ptr noundef %0
   %68 = trunc i64 %67 to i32
   %69 = call zeroext i8 @handleNotification(ptr noundef %0, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %53, i32 noundef %68, i8 zeroext poison, ptr noundef nonnull %8)
   %.not49 = icmp eq i8 %69, 0
-  call void @free(ptr noundef nonnull %53) #11
+  call void @free(ptr noundef nonnull %53) #12
   br i1 %.not49, label %.thread96, label %.split61.us
 
 .thread:                                          ; preds = %50
@@ -1009,7 +1009,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nound
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %11
-  %19 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull %13, i8 noundef zeroext 1) #11
+  %19 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull %13, i8 noundef zeroext 1) #12
   %.not19 = icmp eq i32 %19, 0
   br i1 %.not19, label %._crit_edge, label %58
 
@@ -1076,19 +1076,19 @@ define i32 @Java_sun_nio_ch_sctp_SctpChannelImpl_send0(ptr noundef %0, ptr nound
   br i1 %.not22.i, label %setControlData.exit, label %44
 
 44:                                               ; preds = %43
-  %45 = call i32 @htonl(i32 noundef %10) #12
+  %45 = call i32 @htonl(i32 noundef %10) #13
   %46 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 %45, ptr %46, align 8
   br label %setControlData.exit
 
 setControlData.exit:                              ; preds = %43, %44
   store i64 48, ptr %29, align 8
-  %47 = call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %15, i32 noundef 0) #11
+  %47 = call i64 @sendmsg(i32 noundef %2, ptr noundef nonnull %15, i32 noundef 0) #12
   %48 = icmp slt i64 %47, 0
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %setControlData.exit
-  %50 = tail call ptr @__errno_location() #12
+  %50 = tail call ptr @__errno_location() #13
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %54 [
     i32 11, label %58
@@ -1100,11 +1100,11 @@ setControlData.exit:                              ; preds = %43, %44
   br label %58
 
 53:                                               ; preds = %49
-  call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #11
+  call void @JNU_ThrowByName(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19) #12
   br label %56
 
 54:                                               ; preds = %49
-  %55 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %51) #11
+  %55 = call i32 @sctpHandleSocketError(ptr noundef %0, i32 noundef %51) #12
   br label %58
 
 56:                                               ; preds = %53, %setControlData.exit
@@ -1123,22 +1123,23 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #10
+declare void @llvm.assume(i1 noundef) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { nounwind allocsize(0) }
+attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

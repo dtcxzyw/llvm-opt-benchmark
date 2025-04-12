@@ -42,7 +42,7 @@ define dso_local { ptr, i64 } @_ZN4llvm17AArch64BuildAttrs13getVendorNameEj(i32 
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 405) i32 @_ZN4llvm17AArch64BuildAttrs11getVendorIDENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %5 [
     i64 22, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -89,7 +89,7 @@ define dso_local { ptr, i64 } @_ZN4llvm17AArch64BuildAttrs14getOptionalStrEj(i32
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 405) i32 @_ZN4llvm17AArch64BuildAttrs13getOptionalIDENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   %.not.i.i.i = icmp eq i64 %1, 8
   br i1 %.not.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, label %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18SubsectionOptionalES2_E4CaseENS_13StringLiteralES2_.exit10
@@ -136,7 +136,7 @@ define dso_local { ptr, i64 } @_ZN4llvm17AArch64BuildAttrs10getTypeStrEj(i32 nou
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 405) i32 @_ZN4llvm17AArch64BuildAttrs9getTypeIDENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs14SubsectionTypeES2_E5CasesENS_13StringLiteralES4_S2_.exit13 [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i
@@ -200,7 +200,7 @@ define dso_local { ptr, i64 } @_ZN4llvm17AArch64BuildAttrs18getPauthABITagsStrEj
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 1, 405) i32 @_ZN4llvm17AArch64BuildAttrs17getPauthABITagsIDENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   switch i64 %1, label %5 [
     i64 18, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
@@ -245,7 +245,7 @@ switch.lookup:                                    ; preds = %1
   ret { ptr, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 405) i32 @_ZN4llvm17AArch64BuildAttrs23getFeatureAndBitsTagsIDENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #1 {
   %.not.i.i.i = icmp eq i64 %1, 15
   br i1 %.not.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, label %_ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18FeatureAndBitsTagsES2_E4CaseENS_13StringLiteralES2_.exit18.thread
@@ -271,12 +271,12 @@ _ZN4llvm12StringSwitchINS_17AArch64BuildAttrs18FeatureAndBitsTagsES2_E4CaseENS_1
   ret i32 %6
 }
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -111,7 +111,7 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_bartlett_hann(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -152,10 +152,10 @@ declare float @llvm.fabs.f32(float) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @cosf(float noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_blackman(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -192,7 +192,7 @@ define hidden void @FLAC__window_blackman(ptr noundef writeonly captures(none) %
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not.not12 = icmp sgt i32 %1, 0
   br i1 %.not.not12, label %.lr.ph, label %._crit_edge
@@ -272,7 +272,7 @@ define hidden void @FLAC__window_connes(ptr noundef writeonly captures(none) %0,
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_flattop(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -321,7 +321,7 @@ define hidden void @FLAC__window_flattop(ptr noundef writeonly captures(none) %0
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_gauss(ptr noundef writeonly captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #1 {
   %4 = add nsw i32 %1, -1
   %5 = sitofp i32 %4 to double
@@ -388,10 +388,10 @@ FLAC__window_gauss.exit:                          ; preds = %13, %22, %.preheade
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_hamming(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -422,7 +422,7 @@ define hidden void @FLAC__window_hamming(ptr noundef writeonly captures(none) %0
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_hann(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -453,7 +453,7 @@ define hidden void @FLAC__window_hann(ptr noundef writeonly captures(none) %0, i
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_kaiser_bessel(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -496,7 +496,7 @@ define hidden void @FLAC__window_kaiser_bessel(ptr noundef writeonly captures(no
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_nuttall(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -678,7 +678,7 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_tukey(ptr noundef writeonly captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #1 {
   %4 = fcmp reassoc nsz arcp ugt float %2, 0.000000e+00
   br i1 %4, label %8, label %5
@@ -858,7 +858,7 @@ FLAC__window_rectangle.exit:                      ; preds = %.lr.ph.i, %15, %40,
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #1 {
   %6 = sitofp i32 %1 to float
   %7 = fmul reassoc nsz arcp float %3, %6
@@ -1289,7 +1289,7 @@ FLAC__window_partial_tukey.exit:                  ; preds = %FLAC__window_partia
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable
 define hidden void @FLAC__window_punchout_tukey(ptr noundef writeonly captures(none) %0, i32 noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #1 {
   br label %tailrecurse
 
@@ -1553,9 +1553,9 @@ declare i32 @llvm.smin.i32(i32, i32) #4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind sspstrong memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nounwind sspstrong memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nounwind }

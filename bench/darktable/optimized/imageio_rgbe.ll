@@ -28,7 +28,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   %7 = alloca ptr, align 8
   %8 = alloca [8 x float], align 16
   %9 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #15
   %10 = icmp ne ptr %3, null
   br i1 %10, label %11, label %16
 
@@ -50,10 +50,10 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = tail call ptr @__errno_location() #15
+  %20 = tail call ptr @__errno_location() #16
   %21 = load i32, ptr %20, align 4, !tbaa !15
-  %22 = call ptr @strerror(i32 noundef %21) #14
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %22) #14
+  %22 = call ptr @strerror(i32 noundef %21) #15
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %22) #15
   br label %121
 
 23:                                               ; preds = %16
@@ -82,7 +82,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br i1 %37, label %48, label %38
 
 38:                                               ; preds = %33
-  %39 = tail call ptr @__ctype_b_loc() #15
+  %39 = tail call ptr @__ctype_b_loc() #16
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = sext i8 %36 to i64
   %42 = getelementptr inbounds i16, ptr %40, i64 %41
@@ -113,10 +113,10 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br label %.critedge.split.preheader
 
 54:                                               ; preds = %48
-  %55 = tail call ptr @__errno_location() #15
+  %55 = tail call ptr @__errno_location() #16
   %56 = load i32, ptr %55, align 4, !tbaa !15
-  %57 = call ptr @strerror(i32 noundef %56) #14
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %57) #14
+  %57 = call ptr @strerror(i32 noundef %56) #15
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %57) #15
   br label %121
 
 .critedge:                                        ; preds = %23
@@ -164,13 +164,13 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br i1 %.not87, label %103, label %73
 
 73:                                               ; preds = %72
-  %74 = call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.1) #14
+  %74 = call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.1) #15
   %.not67 = icmp eq i32 %74, 0
   br i1 %.not67, label %83, label %75
 
 75:                                               ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  %76 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %63, ptr noundef nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  %76 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %63, ptr noundef nonnull %6) #15
   %77 = load ptr, ptr %6, align 8, !tbaa !21
   %.not72 = icmp eq ptr %63, %77
   br i1 %.not72, label %82, label %78
@@ -184,17 +184,17 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br label %82
 
 82:                                               ; preds = %78, %75
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   br label %103
 
 83:                                               ; preds = %73
-  %84 = call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #14
+  %84 = call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.2) #15
   %.not68 = icmp eq i32 %84, 0
   br i1 %.not68, label %93, label %85
 
 85:                                               ; preds = %83
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  %86 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %62, ptr noundef nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  %86 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef nonnull %62, ptr noundef nonnull %7) #15
   %87 = load ptr, ptr %7, align 8, !tbaa !21
   %.not71 = icmp eq ptr %62, %87
   br i1 %.not71, label %92, label %88
@@ -208,17 +208,17 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br label %92
 
 92:                                               ; preds = %88, %85
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   br label %103
 
 93:                                               ; preds = %83
-  %94 = call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.3) #14
+  %94 = call i32 @g_str_has_prefix(ptr noundef nonnull %5, ptr noundef nonnull @.str.3) #15
   %.not69 = icmp eq i32 %94, 0
   br i1 %.not69, label %103, label %95
 
 95:                                               ; preds = %93
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
   br label %97
 
 96:                                               ; preds = %97
@@ -229,7 +229,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
 97:                                               ; preds = %95, %96
   %indvars.iv = phi i64 [ 0, %95 ], [ %indvars.iv.next, %96 ]
   %.05282 = phi ptr [ %61, %95 ], [ %101, %96 ]
-  %98 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %.05282, ptr noundef nonnull %9) #14
+  %98 = call reassoc nsz arcp contract afn double @g_ascii_strtod(ptr noundef %.05282, ptr noundef nonnull %9) #15
   %99 = fptrunc reassoc nsz arcp contract afn double %98 to float
   %100 = getelementptr inbounds nuw [8 x float], ptr %8, i64 0, i64 %indvars.iv
   store float %99, ptr %100, align 4, !tbaa !23
@@ -242,8 +242,8 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %97, %.critedge78
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #15
   br label %103
 
 103:                                              ; preds = %72, %82, %93, %.loopexit, %92
@@ -253,10 +253,10 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br i1 %105, label %.split85.us, label %.critedge.split
 
 .split85.us:                                      ; preds = %68, %103
-  %106 = tail call ptr @__errno_location() #15
+  %106 = tail call ptr @__errno_location() #16
   %107 = load i32, ptr %106, align 4, !tbaa !15
-  %108 = call ptr @strerror(i32 noundef %107) #14
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %108) #14
+  %108 = call ptr @strerror(i32 noundef %107) #15
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %108) #15
   br label %121
 
 .split.us:                                        ; preds = %.critedge.split.us, %.critedge.split.us, %.critedge.split, %.critedge.split
@@ -265,7 +265,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br i1 %.not73, label %109, label %.preheader
 
 109:                                              ; preds = %.split.us
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.4) #14
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.4) #15
   br label %121
 
 .preheader:                                       ; preds = %.split.us, %110
@@ -279,24 +279,24 @@ define range(i32 -1, 1) i32 @RGBE_ReadHeader(ptr noundef captures(none) %0, ptr 
   br i1 %112, label %113, label %.preheader
 
 113:                                              ; preds = %110
-  %114 = tail call ptr @__errno_location() #15
+  %114 = tail call ptr @__errno_location() #16
   %115 = load i32, ptr %114, align 4, !tbaa !15
-  %116 = call ptr @strerror(i32 noundef %115) #14
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %116) #14
+  %116 = call ptr @strerror(i32 noundef %115) #15
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %116) #15
   br label %121
 
 117:                                              ; preds = %.preheader
-  %118 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.6, ptr noundef %2, ptr noundef %1) #14
+  %118 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.6, ptr noundef %2, ptr noundef %1) #15
   %119 = icmp slt i32 %118, 2
   br i1 %119, label %120, label %121
 
 120:                                              ; preds = %117
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7) #14
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.7) #15
   br label %121
 
 121:                                              ; preds = %54, %.split85.us, %109, %113, %120, %117, %19
   %.054 = phi i32 [ -1, %19 ], [ -1, %54 ], [ -1, %113 ], [ -1, %120 ], [ -1, %109 ], [ -1, %.split85.us ], [ 0, %117 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #15
   ret i32 %.054
 }
 
@@ -325,7 +325,7 @@ declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @RGBE_ReadPixels(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %.loopexit
 
@@ -344,10 +344,10 @@ define range(i32 -1, 1) i32 @RGBE_ReadPixels(ptr noundef captures(none) %0, ptr 
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @__errno_location() #15
+  %14 = tail call ptr @__errno_location() #16
   %15 = load i32, ptr %14, align 4, !tbaa !15
-  %16 = tail call ptr @strerror(i32 noundef %15) #14
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %16) #14
+  %16 = tail call ptr @strerror(i32 noundef %15) #15
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %16) #15
   br label %.loopexit
 
 17:                                               ; preds = %9
@@ -360,7 +360,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadPixels(ptr noundef captures(none) %0, ptr 
 21:                                               ; preds = %17
   %22 = zext i8 %20 to i32
   %23 = add nsw i32 %22, -136
-  %24 = tail call reassoc nsz arcp contract afn float @ldexpf(float noundef 1.000000e+00, i32 noundef %23) #15
+  %24 = tail call reassoc nsz arcp contract afn float @ldexpf(float noundef 1.000000e+00, i32 noundef %23) #16
   %25 = load i8, ptr %4, align 1, !tbaa !12
   %26 = uitofp i8 %25 to float
   %27 = fmul reassoc nsz arcp contract afn float %24, %26
@@ -385,7 +385,7 @@ rgbe2float.exit:                                  ; preds = %17, %21
 
 .loopexit:                                        ; preds = %rgbe2float.exit, %3, %13
   %.07 = phi i32 [ -1, %13 ], [ 0, %3 ], [ 0, %rgbe2float.exit ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   ret i32 %.07
 }
 
@@ -396,8 +396,8 @@ declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i6
 define range(i32 -1, 1) i32 @RGBE_ReadPixels_RLE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [2 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6) #15
   %7 = add i32 %2, -32768
   %or.cond = icmp ult i32 %7, -32760
   br i1 %or.cond, label %20, label %.preheader112
@@ -431,11 +431,11 @@ define range(i32 -1, 1) i32 @RGBE_ReadPixels_RLE(ptr noundef captures(none) %0, 
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph269
-  tail call void @free(ptr noundef %.089268) #14
-  %26 = tail call ptr @__errno_location() #15
+  tail call void @free(ptr noundef %.089268) #15
+  %26 = tail call ptr @__errno_location() #16
   %27 = load i32, ptr %26, align 4, !tbaa !15
-  %28 = tail call ptr @strerror(i32 noundef %27) #14
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %28) #14
+  %28 = tail call ptr @strerror(i32 noundef %27) #15
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %28) #15
   br label %.loopexit113
 
 29:                                               ; preds = %.lr.ph269
@@ -461,7 +461,7 @@ define range(i32 -1, 1) i32 @RGBE_ReadPixels_RLE(ptr noundef captures(none) %0, 
 40:                                               ; preds = %36
   %41 = zext i8 %39 to i32
   %42 = add nsw i32 %41, -136
-  %43 = tail call reassoc nsz arcp contract afn float @ldexpf(float noundef 1.000000e+00, i32 noundef %42) #15
+  %43 = tail call reassoc nsz arcp contract afn float @ldexpf(float noundef 1.000000e+00, i32 noundef %42) #16
   %44 = uitofp i8 %30 to float
   %45 = fmul reassoc nsz arcp contract afn float %43, %44
   store float %45, ptr %.093266, align 4, !tbaa !23
@@ -483,7 +483,7 @@ rgbe2float.exit:                                  ; preds = %40, %52
   store float %.sink181, ptr %38, align 4, !tbaa !23
   store float %.sink, ptr %37, align 4, !tbaa !23
   %53 = getelementptr inbounds nuw i8, ptr %.093266, i64 12
-  tail call void @free(ptr noundef %.089268) #14
+  tail call void @free(ptr noundef %.089268) #15
   %54 = mul nuw nsw i32 %.091267, %2
   %55 = add nsw i32 %54, -1
   %56 = tail call i32 @RGBE_ReadPixels(ptr noundef %0, ptr noundef nonnull %53, i32 noundef %55)
@@ -499,8 +499,8 @@ rgbe2float.exit:                                  ; preds = %40, %52
   br i1 %.not101, label %64, label %63
 
 63:                                               ; preds = %57
-  tail call void @free(ptr noundef %.089268) #14
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.8) #14
+  tail call void @free(ptr noundef %.089268) #15
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.8) #15
   br label %.loopexit113
 
 64:                                               ; preds = %57
@@ -508,7 +508,7 @@ rgbe2float.exit:                                  ; preds = %40, %52
   br i1 %65, label %66, label %.preheader111.preheader
 
 66:                                               ; preds = %64
-  %67 = tail call noalias ptr @malloc(i64 noundef %12) #16
+  %67 = tail call noalias ptr @malloc(i64 noundef %12) #17
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %.preheader111.preheader
 
@@ -517,7 +517,7 @@ rgbe2float.exit:                                  ; preds = %40, %52
   br label %.preheader111
 
 69:                                               ; preds = %66
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9) #14
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.9) #15
   br label %.loopexit113
 
 .loopexit110:                                     ; preds = %.loopexit, %.preheader111
@@ -551,11 +551,11 @@ rgbe2float.exit:                                  ; preds = %40, %52
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %74
-  tail call void @free(ptr noundef nonnull %.190185) #14
-  %78 = tail call ptr @__errno_location() #15
+  tail call void @free(ptr noundef nonnull %.190185) #15
+  %78 = tail call ptr @__errno_location() #16
   %79 = load i32, ptr %78, align 4, !tbaa !15
-  %80 = tail call ptr @strerror(i32 noundef %79) #14
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %80) #14
+  %80 = tail call ptr @strerror(i32 noundef %79) #15
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %80) #15
   br label %.loopexit113
 
 81:                                               ; preds = %74
@@ -577,8 +577,8 @@ rgbe2float.exit:                                  ; preds = %40, %52
   br label %.lr.ph
 
 91:                                               ; preds = %87
-  tail call void @free(ptr noundef nonnull %.190185) #14
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #14
+  tail call void @free(ptr noundef nonnull %.190185) #15
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #15
   br label %.loopexit113
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -598,8 +598,8 @@ rgbe2float.exit:                                  ; preds = %40, %52
   br i1 %or.cond107, label %99, label %100
 
 99:                                               ; preds = %95
-  tail call void @free(ptr noundef nonnull %.190185) #14
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #14
+  tail call void @free(ptr noundef nonnull %.190185) #15
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.10) #15
   br label %.loopexit113
 
 100:                                              ; preds = %95
@@ -617,11 +617,11 @@ rgbe2float.exit:                                  ; preds = %40, %52
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %103
-  tail call void @free(ptr noundef nonnull %.190185) #14
-  %109 = tail call ptr @__errno_location() #15
+  tail call void @free(ptr noundef nonnull %.190185) #15
+  %109 = tail call ptr @__errno_location() #16
   %110 = load i32, ptr %109, align 4, !tbaa !15
-  %111 = tail call ptr @strerror(i32 noundef %110) #14
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %111) #14
+  %111 = tail call ptr @strerror(i32 noundef %110) #15
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.12, ptr noundef %111) #15
   br label %.loopexit113
 
 112:                                              ; preds = %103
@@ -656,7 +656,7 @@ rgbe2float.exit:                                  ; preds = %40, %52
 122:                                              ; preds = %.lr.ph154
   %123 = zext i8 %119 to i32
   %124 = add nsw i32 %123, -136
-  %125 = tail call reassoc nsz arcp contract afn float @ldexpf(float noundef 1.000000e+00, i32 noundef %124) #15
+  %125 = tail call reassoc nsz arcp contract afn float @ldexpf(float noundef 1.000000e+00, i32 noundef %124) #16
   %126 = uitofp i8 %116 to float
   %127 = fmul reassoc nsz arcp contract afn float %125, %126
   store float %127, ptr %.295152, align 4, !tbaa !23
@@ -689,13 +689,13 @@ rgbe2float.exit109:                               ; preds = %122, %134
 
 ._crit_edge:                                      ; preds = %.loopexit191, %.preheader112
   %.089.lcssa = phi ptr [ null, %.preheader112 ], [ %.190185, %.loopexit191 ]
-  tail call void @free(ptr noundef %.089.lcssa) #14
+  tail call void @free(ptr noundef %.089.lcssa) #15
   br label %.loopexit113
 
 .loopexit113:                                     ; preds = %77, %91, %99, %108, %._crit_edge, %69, %63, %rgbe2float.exit, %25, %20
   %.086 = phi i32 [ %22, %20 ], [ -1, %25 ], [ %56, %rgbe2float.exit ], [ -1, %63 ], [ -1, %69 ], [ 0, %._crit_edge ], [ -1, %108 ], [ -1, %99 ], [ -1, %91 ], [ -1, %77 ]
-  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   ret i32 %.086
 }
 
@@ -716,7 +716,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_rgbe(ptr noundef %0, ptr noundef rea
   br i1 %.not, label %139, label %9
 
 9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %12 = call i32 @RGBE_ReadHeader(ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %4)
@@ -734,7 +734,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_rgbe(ptr noundef %0, ptr noundef rea
   %19 = sext i32 %18 to i64
   %20 = mul nsw i64 %19, %17
   %21 = mul i64 %20, 12
-  %22 = call ptr @dt_alloc_aligned(i64 noundef %21) #14
+  %22 = call ptr @dt_alloc_aligned(i64 noundef %21) #15
   call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 64) ]
   %.not59 = icmp eq ptr %22, null
   br i1 %.not59, label %23, label %25
@@ -751,7 +751,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_rgbe(ptr noundef %0, ptr noundef rea
   br i1 %.not60, label %31, label %29
 
 29:                                               ; preds = %25
-  call void @free(ptr noundef nonnull %22) #14
+  call void @free(ptr noundef nonnull %22) #15
   %30 = call i32 @fclose(ptr noundef nonnull %8)
   br label %138
 
@@ -761,7 +761,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_rgbe(ptr noundef %0, ptr noundef rea
   store i32 4, ptr %33, align 16, !tbaa !37
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1492
   store i32 1, ptr %34, align 4, !tbaa !38
-  %35 = call ptr @dt_mipmap_cache_alloc(ptr noundef %2, ptr noundef nonnull %0) #14
+  %35 = call ptr @dt_mipmap_cache_alloc(ptr noundef %2, ptr noundef nonnull %0) #15
   %.not61 = icmp eq ptr %35, null
   br i1 %.not61, label %138, label %.preheader77
 
@@ -770,8 +770,8 @@ define range(i32 0, 9) i32 @dt_imageio_open_rgbe(ptr noundef %0, ptr noundef rea
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %113, %.preheader77
-  call void @free(ptr noundef nonnull %22) #14
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #14
+  call void @free(ptr noundef nonnull %22) #15
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 44
@@ -876,12 +876,12 @@ _xy2matrix.exit:                                  ; preds = %45
   %110 = fmul reassoc nsz arcp contract afn float %72, %109
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store float %110, ptr %111, align 8, !tbaa !23
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7) #15
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.preheader77, %113
   %.05379 = phi i64 [ %115, %113 ], [ 0, %.preheader77 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %.idx62 = mul i64 %.05379, 12
   %112 = getelementptr i8, ptr %22, i64 %.idx62
@@ -892,7 +892,7 @@ _xy2matrix.exit:                                  ; preds = %45
   %114 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
   %.val70 = load <4 x float>, ptr %5, align 16, !tbaa !12
   store <4 x float> %.val70, ptr %114, align 16, !tbaa !12, !alias.scope !39, !nontemporal !42
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #15
   %115 = add nuw i64 %.05379, 1
   %exitcond83.not = icmp eq i64 %115, %20
   br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph
@@ -915,7 +915,7 @@ _xy2matrix.exit:                                  ; preds = %45
 
 123:                                              ; preds = %133
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 1616
-  %125 = call i32 @mat3inv(ptr noundef nonnull %124, ptr noundef nonnull %7) #14
+  %125 = call i32 @mat3inv(ptr noundef nonnull %124, ptr noundef nonnull %7) #15
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store i32 2, ptr %126, align 16, !tbaa !43
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 1496
@@ -927,8 +927,8 @@ _xy2matrix.exit:                                  ; preds = %45
   store i32 %131, ptr %128, align 4, !tbaa !45
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   store i32 6, ptr %132, align 16, !tbaa !46
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #15
   br label %138
 
 133:                                              ; preds = %134
@@ -948,7 +948,7 @@ _xy2matrix.exit:                                  ; preds = %45
 
 138:                                              ; preds = %23, %29, %31, %123, %13
   %.1 = phi i32 [ 2, %13 ], [ 6, %29 ], [ 2, %23 ], [ 0, %123 ], [ 8, %31 ]
-  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #15
   br label %139
 
 139:                                              ; preds = %3, %138
@@ -983,16 +983,16 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #12
 
 declare ptr @dt_alloc_aligned(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #12
+declare void @llvm.assume(i1 noundef) #13
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1006,11 +1006,12 @@ attributes #8 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vecto
 attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #11 = { nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { nounwind allocsize(0) }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

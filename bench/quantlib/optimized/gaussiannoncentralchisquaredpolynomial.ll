@@ -1929,7 +1929,7 @@ entry:
   ret double %1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_13f_3Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 3.000000e+00) #35, !tbaa !57
@@ -1946,7 +1946,7 @@ entry:
   ret double %3
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_13f_4Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 4.000000e+00) #35, !tbaa !57
@@ -1972,7 +1972,7 @@ entry:
   ret double %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_13f_5Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 5.000000e+00) #35, !tbaa !57
@@ -2009,7 +2009,7 @@ entry:
   ret double %11
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_13f_6Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 6.000000e+00) #35, !tbaa !57
@@ -2059,7 +2059,7 @@ entry:
   ret double %17
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_13f_7Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 7.000000e+00) #35, !tbaa !57
@@ -2124,7 +2124,7 @@ entry:
   ret double %24
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_13f_8Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 8.000000e+00) #35, !tbaa !57
@@ -2206,7 +2206,7 @@ entry:
   ret double %32
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_13f_9Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 9.000000e+00) #35, !tbaa !57
@@ -2307,7 +2307,7 @@ entry:
   ret double %41
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_10Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.000000e+01) #35, !tbaa !57
@@ -2429,7 +2429,7 @@ entry:
   ret double %51
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_11Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.100000e+01) #35, !tbaa !57
@@ -2574,7 +2574,7 @@ entry:
   ret double %62
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_12Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.200000e+01) #35, !tbaa !57
@@ -2744,7 +2744,7 @@ entry:
   ret double %74
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_13Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.300000e+01) #35, !tbaa !57
@@ -2941,7 +2941,7 @@ entry:
   ret double %87
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_14Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.400000e+01) #35, !tbaa !57
@@ -3167,7 +3167,7 @@ entry:
   ret double %101
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_15Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.500000e+01) #35, !tbaa !57
@@ -3424,7 +3424,7 @@ entry:
   ret double %116
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_16Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.600000e+01) #35, !tbaa !57
@@ -3714,7 +3714,7 @@ entry:
   ret double %132
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_17Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.700000e+01) #35, !tbaa !57
@@ -4039,7 +4039,7 @@ entry:
   ret double %149
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_18Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.800000e+01) #35, !tbaa !57
@@ -4401,7 +4401,7 @@ entry:
   ret double %167
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_19Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 1.900000e+01) #35, !tbaa !57
@@ -4802,7 +4802,7 @@ entry:
   ret double %186
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_20Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.000000e+01) #35, !tbaa !57
@@ -5244,7 +5244,7 @@ entry:
   ret double %206
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_21Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.100000e+01) #35, !tbaa !57
@@ -5729,7 +5729,7 @@ entry:
   ret double %227
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_22Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.200000e+01) #35, !tbaa !57
@@ -6259,7 +6259,7 @@ entry:
   ret double %249
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_23Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.300000e+01) #35, !tbaa !57
@@ -6836,7 +6836,7 @@ entry:
   ret double %272
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_24Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.400000e+01) #35, !tbaa !57
@@ -7462,7 +7462,7 @@ entry:
   ret double %296
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_25Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.500000e+01) #35, !tbaa !57
@@ -8139,7 +8139,7 @@ entry:
   ret double %321
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_26Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.600000e+01) #35, !tbaa !57
@@ -8869,7 +8869,7 @@ entry:
   ret double %347
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef double @_ZN8QuantLib12_GLOBAL__N_14f_27Edd(double noundef %_nu, double noundef %_lambda) #13 {
 entry:
   %call.i = tail call noundef double @pow(double noundef %_lambda, double noundef 2.700000e+01) #35, !tbaa !57
@@ -9723,7 +9723,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -11061,7 +11061,7 @@ unreachable:                                      ; preds = %invoke.cont2
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
@@ -13958,10 +13958,10 @@ return:                                           ; preds = %if.then13, %if.else
   ret double %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #21
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
@@ -14456,7 +14456,7 @@ cleanup105:                                       ; preds = %fpclassify_not_zero
   ret double %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -14616,7 +14616,7 @@ if.end56:                                         ; preds = %if.else, %if.then31
 
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -17349,10 +17349,10 @@ if.end56:                                         ; preds = %if.else, %if.then31
   ret x86_fp80 %result.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @sinl(x86_fp80 noundef) local_unnamed_addr #21
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @powl(x86_fp80 noundef, x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -17971,10 +17971,10 @@ ehcleanup35:                                      ; preds = %if.then.i.i60, %_ZN
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @logl(x86_fp80 noundef) local_unnamed_addr #21
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @expl(x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
@@ -18603,7 +18603,7 @@ if.end122:                                        ; preds = %cond.true111, %if.t
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @sinhl(x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
@@ -19464,10 +19464,10 @@ if.end23:                                         ; preds = %_ZN5boost4math5expm
   ret x86_fp80 %result.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @log1pl(x86_fp80 noundef) local_unnamed_addr #21
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @coshl(x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -19526,7 +19526,7 @@ if.end26:                                         ; preds = %if.end6
   br label %common.ret20
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare x86_fp80 @sqrtl(x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind uwtable
@@ -19580,7 +19580,7 @@ attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #10 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { cold nofree noreturn }
@@ -19588,10 +19588,10 @@ attributes #17 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-prote
 attributes #18 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #20 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #22 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #23 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress noreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #27 = { mustprogress uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

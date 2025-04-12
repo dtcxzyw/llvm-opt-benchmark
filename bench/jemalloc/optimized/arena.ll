@@ -123,11 +123,11 @@ define hidden void @je_arena_basic_stats_merge(ptr noundef readnone captures(non
   %17 = load ptr, ptr %16, align 8, !tbaa !8
   store ptr %17, ptr %3, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  %19 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %18, i32 noundef 1) #18
+  %19 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %18, i32 noundef 1) #17
   store i64 %19, ptr %4, align 8, !tbaa !11
-  %20 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %18, i32 noundef 2) #18
+  %20 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %18, i32 noundef 2) #17
   store i64 %20, ptr %5, align 8, !tbaa !11
-  tail call void @je_pa_shard_basic_stats_merge(ptr noundef nonnull %18, ptr noundef %6, ptr noundef %7, ptr noundef %8) #18
+  tail call void @je_pa_shard_basic_stats_merge(ptr noundef nonnull %18, ptr noundef %6, ptr noundef %7, ptr noundef %8) #17
   ret void
 }
 
@@ -151,7 +151,7 @@ atomic_load_u.exit:
 ; Function Attrs: nounwind uwtable
 define hidden i64 @je_arena_decay_ms_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10664
-  %4 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %3, i32 noundef %1) #18
+  %4 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %3, i32 noundef %1) #17
   ret i64 %4
 }
 
@@ -177,20 +177,20 @@ atomic_store_zu.exit:
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   store ptr %28, ptr %3, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  %30 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %29, i32 noundef 1) #18
+  %30 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %29, i32 noundef 1) #17
   store i64 %30, ptr %4, align 8, !tbaa !11
-  %31 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %29, i32 noundef 2) #18
+  %31 = tail call i64 @je_pa_decay_ms_get(ptr noundef nonnull %29, i32 noundef 2) #17
   store i64 %31, ptr %5, align 8, !tbaa !11
-  tail call void @je_pa_shard_basic_stats_merge(ptr noundef nonnull %29, ptr noundef %6, ptr noundef %7, ptr noundef %8) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #18
+  tail call void @je_pa_shard_basic_stats_merge(ptr noundef nonnull %29, ptr noundef %6, ptr noundef %7, ptr noundef %8) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #17
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #17
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %33 = load ptr, ptr %32, align 16, !tbaa !13
-  call void @je_base_stats_get(ptr noundef %0, ptr noundef %33, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20) #18
+  call void @je_base_stats_get(ptr noundef %0, ptr noundef %33, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20) #17
   %34 = getelementptr i8, ptr %1, i64 72912
   %.val = load ptr, ptr %34, align 8, !tbaa !66
   %35 = getelementptr inbounds nuw i8, ptr %.val, i64 56
@@ -242,13 +242,13 @@ atomic_store_zu.exit:
 
 73:                                               ; preds = %94
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  call void @je_pa_shard_stats_merge(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %74, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %43) #18
+  call void @je_pa_shard_stats_merge(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %74, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %43) #17
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 10424
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 10496
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
-  %79 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %78) #18
+  %79 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %78) #17
   %.not.i = icmp eq i32 %79, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %81
 
@@ -258,7 +258,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %73
   br label %82
 
 81:                                               ; preds = %73
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %77) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %77) #17
   br label %82
 
 82:                                               ; preds = %81, %malloc_mutex_trylock_final.exit.i
@@ -412,10 +412,10 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %mal
   store atomic i32 0, ptr %175 monotonic, align 4
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 10488
   store atomic i8 0, ptr %176 monotonic, align 1
-  %177 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %78) #18
+  %177 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %78) #17
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 10552
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 10624
-  %180 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %179) #18
+  %180 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %179) #17
   %.not.i145 = icmp eq i32 %180, 0
   br i1 %.not.i145, label %malloc_mutex_trylock_final.exit.i147, label %182
 
@@ -425,7 +425,7 @@ malloc_mutex_trylock_final.exit.i147:             ; preds = %select.unfold._crit
   br label %183
 
 182:                                              ; preds = %select.unfold._crit_edge
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %178) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %178) #17
   br label %183
 
 183:                                              ; preds = %182, %malloc_mutex_trylock_final.exit.i147
@@ -452,10 +452,10 @@ malloc_mutex_lock.exit148:                        ; preds = %183, %189
   store atomic i32 0, ptr %193 monotonic, align 4
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 10616
   store atomic i8 0, ptr %194 monotonic, align 1
-  %195 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %179) #18
+  %195 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %179) #17
   %196 = load ptr, ptr %32, align 16, !tbaa !13
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 104
-  %198 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %197) #18
+  %198 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %197) #17
   %.not.i149 = icmp eq i32 %198, 0
   br i1 %.not.i149, label %malloc_mutex_trylock_final.exit.i151, label %200
 
@@ -466,7 +466,7 @@ malloc_mutex_trylock_final.exit.i151:             ; preds = %malloc_mutex_lock.e
 
 200:                                              ; preds = %malloc_mutex_lock.exit148
   %201 = getelementptr inbounds nuw i8, ptr %196, i64 32
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %201) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %201) #17
   br label %202
 
 202:                                              ; preds = %200, %malloc_mutex_trylock_final.exit.i151
@@ -498,14 +498,14 @@ malloc_mutex_lock.exit152:                        ; preds = %202, %208
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 96
   store atomic i8 0, ptr %217 monotonic, align 1
   %218 = getelementptr inbounds nuw i8, ptr %216, i64 104
-  %219 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %218) #18
-  call void @je_pa_shard_mtx_stats_read(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %173) #18
+  %219 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %218) #17
+  call void @je_pa_shard_mtx_stats_read(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %173) #17
   %220 = getelementptr inbounds nuw i8, ptr %9, i64 10376
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 79032
-  call void @je_nstime_copy(ptr noundef nonnull %220, ptr noundef nonnull %221) #18
+  call void @je_nstime_copy(ptr noundef nonnull %220, ptr noundef nonnull %221) #17
   %222 = load ptr, ptr @je_nstime_update, align 8, !tbaa !106
-  call void %222(ptr noundef nonnull %220) #18
-  call void @je_nstime_subtract(ptr noundef nonnull %220, ptr noundef nonnull %221) #18
+  call void %222(ptr noundef nonnull %220) #17
+  call void @je_nstime_subtract(ptr noundef nonnull %220, ptr noundef nonnull %221) #17
   br label %.preheader
 
 .preheader:                                       ; preds = %malloc_mutex_lock.exit152, %._crit_edge
@@ -541,12 +541,12 @@ malloc_mutex_lock.exit152:                        ; preds = %202, %208
   br label %248
 
 247:                                              ; preds = %._crit_edge
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #17
   ret void
 
 ._crit_edge:                                      ; preds = %bin_stats_merge.exit, %.preheader
@@ -566,7 +566,7 @@ malloc_mutex_lock.exit152:                        ; preds = %202, %208
   %256 = getelementptr inbounds nuw %struct.bin_s, ptr %251, i64 %indvars.iv169
   %.0.i153 = select i1 %254, ptr %255, ptr %256
   %257 = getelementptr inbounds nuw i8, ptr %.0.i153, i64 72
-  %258 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %257) #18
+  %258 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %257) #17
   %.not.i.i154 = icmp eq i32 %258, 0
   br i1 %.not.i.i154, label %malloc_mutex_trylock_final.exit.i.i, label %260
 
@@ -576,7 +576,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %248
   br label %261
 
 260:                                              ; preds = %248
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i153) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i153) #17
   br label %261
 
 261:                                              ; preds = %260, %malloc_mutex_trylock_final.exit.i.i
@@ -598,14 +598,14 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %248
   br label %malloc_mutex_lock.exit.i
 
 malloc_mutex_lock.exit.i:                         ; preds = %267, %261
-  call void @je_nstime_add(ptr noundef nonnull %227, ptr noundef nonnull %.0.i153) #18
+  call void @je_nstime_add(ptr noundef nonnull %227, ptr noundef nonnull %.0.i153) #17
   %271 = getelementptr inbounds nuw i8, ptr %.0.i153, i64 8
-  %272 = call i32 @je_nstime_compare(ptr noundef nonnull %271, ptr noundef nonnull %228) #18
+  %272 = call i32 @je_nstime_compare(ptr noundef nonnull %271, ptr noundef nonnull %228) #17
   %273 = icmp sgt i32 %272, 0
   br i1 %273, label %274, label %275
 
 274:                                              ; preds = %malloc_mutex_lock.exit.i
-  call void @je_nstime_copy(ptr noundef nonnull %228, ptr noundef nonnull %271) #18
+  call void @je_nstime_copy(ptr noundef nonnull %228, ptr noundef nonnull %271) #17
   br label %275
 
 275:                                              ; preds = %274, %malloc_mutex_lock.exit.i
@@ -707,7 +707,7 @@ bin_stats_merge.exit:                             ; preds = %275, %288
   store i64 %347, ptr %246, align 8, !tbaa !141
   %348 = getelementptr inbounds nuw i8, ptr %.0.i153, i64 64
   store atomic i8 0, ptr %348 monotonic, align 1
-  %349 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %257) #18
+  %349 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %257) #17
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %350 = load i32, ptr %223, align 4, !tbaa !107
   %351 = zext i32 %350 to i64
@@ -745,7 +745,7 @@ tsdn_witness_tsdp_get.exit:
   %8 = load ptr, ptr %7, align 8, !tbaa !143
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 10744
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 69408
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #18
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #17
   %.not.i.i = icmp eq i32 %11, 0
   br i1 %.not.i.i, label %malloc_mutex_trylock_final.exit.i.i, label %13
 
@@ -755,7 +755,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %6
   br label %14
 
 13:                                               ; preds = %6
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %2) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %2) #17
   br label %14
 
 14:                                               ; preds = %13, %malloc_mutex_trylock_final.exit.i.i
@@ -778,10 +778,10 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %6
 
 arena_decay_impl.exit:                            ; preds = %14, %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 10688
-  tail call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %2, ptr noundef %8, ptr noundef nonnull %9, i1 noundef zeroext true) #18
+  tail call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull %2, ptr noundef %8, ptr noundef nonnull %9, i1 noundef zeroext true) #17
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 69400
   store atomic i8 0, ptr %25 monotonic, align 1
-  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #18
+  %26 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #17
   br label %27
 
 27:                                               ; preds = %arena_decay_impl.exit, %tsdn_witness_tsdp_get.exit
@@ -814,7 +814,7 @@ arena_background_thread_inactivity_check.exit:    ; preds = %27, %30, %39
 define hidden ptr @je_arena_extent_alloc_large(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #17
   store i8 0, ptr %7, align 1, !tbaa !147
   %8 = icmp ult i64 %2, 4097
   br i1 %8, label %9, label %15, !prof !148
@@ -854,7 +854,7 @@ sz_size2index.exit:                               ; preds = %17, %15, %9
   %32 = add i64 %31, %2
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %34 = load ptr, ptr %33, align 16, !tbaa !13
-  %35 = tail call ptr @je_base_ehooks_get(ptr noundef %34) #18
+  %35 = tail call ptr @je_base_ehooks_get(ptr noundef %34) #17
   %36 = load i64, ptr @je_opt_san_guard_large, align 8, !tbaa !11
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %san_large_extent_decide_guard.exit, label %38
@@ -901,7 +901,7 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   %56 = icmp uge i64 %2, %55
   %57 = select i1 %4, i1 %56, i1 false
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  %59 = call ptr @je_pa_alloc(ptr noundef %0, ptr noundef nonnull %58, i64 noundef %32, i64 noundef %3, i1 noundef zeroext false, i32 noundef %.0.i, i1 noundef zeroext %57, i1 noundef zeroext %.0.i35, ptr noundef nonnull %7) #18
+  %59 = call ptr @je_pa_alloc(ptr noundef %0, ptr noundef nonnull %58, i64 noundef %32, i64 noundef %3, i1 noundef zeroext false, i32 noundef %.0.i, i1 noundef zeroext %57, i1 noundef zeroext %.0.i35, ptr noundef nonnull %7) #17
   %60 = icmp eq ptr %59, null
   br i1 %60, label %94, label %61
 
@@ -918,7 +918,7 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   %66 = and i64 %65, 8128
   %67 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 range(i64 1, -2305843009213693952) %66, i1 true)
   %68 = xor i64 %67, 63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
   %69 = icmp eq ptr %0, null
   br i1 %69, label %75, label %70
 
@@ -945,7 +945,7 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
   %84 = load ptr, ptr %83, align 8, !tbaa !151
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %82
   store ptr %85, ptr %83, align 8, !tbaa !151
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   br label %arena_cache_oblivious_randomize.exit
 
 arena_cache_oblivious_randomize.exit:             ; preds = %79, %61
@@ -970,7 +970,7 @@ arena_cache_oblivious_randomize.exit:             ; preds = %79, %61
   br label %94
 
 94:                                               ; preds = %86, %88, %arena_cache_oblivious_randomize.exit, %san_large_extent_decide_guard.exit
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #17
   ret ptr %59
 }
 
@@ -978,7 +978,7 @@ arena_cache_oblivious_randomize.exit:             ; preds = %79, %61
 define hidden ptr @je_arena_get_ehooks(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 79024
   %3 = load ptr, ptr %2, align 16, !tbaa !13
-  %4 = tail call ptr @je_base_ehooks_get(ptr noundef %3) #18
+  %4 = tail call ptr @je_base_ehooks_get(ptr noundef %3) #17
   ret ptr %4
 }
 
@@ -1027,7 +1027,7 @@ sz_size2index.exit:                               ; preds = %10
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %32) #18
+  %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %32) #17
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %35
 
@@ -1037,7 +1037,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %26
   br label %36
 
 35:                                               ; preds = %26
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %31) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %31) #17
   br label %36
 
 36:                                               ; preds = %35, %malloc_mutex_trylock_final.exit.i
@@ -1065,7 +1065,7 @@ malloc_mutex_lock.exit:                           ; preds = %36, %42
   store i64 %48, ptr %46, align 8, !tbaa !114
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store atomic i8 0, ptr %49 monotonic, align 1
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #18
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #17
   br label %56
 
 sz_size2index.exit.thread15:                      ; preds = %10, %sz_size2index.exit
@@ -1138,7 +1138,7 @@ sz_size2index.exit:                               ; preds = %10
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
-  %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %32) #18
+  %33 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %32) #17
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %35
 
@@ -1148,7 +1148,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %26
   br label %36
 
 35:                                               ; preds = %26
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %31) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %31) #17
   br label %36
 
 36:                                               ; preds = %35, %malloc_mutex_trylock_final.exit.i
@@ -1176,7 +1176,7 @@ malloc_mutex_lock.exit:                           ; preds = %36, %42
   store i64 %48, ptr %46, align 8, !tbaa !118
   %49 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store atomic i8 0, ptr %49 monotonic, align 1
-  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #18
+  %50 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %32) #17
   br label %56
 
 sz_size2index.exit.thread15:                      ; preds = %10, %sz_size2index.exit
@@ -1223,7 +1223,7 @@ define hidden zeroext i1 @je_arena_decay_ms_set(ptr noundef %0, ptr noundef %1, 
   %6 = trunc i8 %5 to i1
   %..i = select i1 %6, i32 1, i32 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  %8 = tail call zeroext i1 @je_pa_decay_ms_set(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %2, i64 noundef %3, i32 noundef %..i) #18
+  %8 = tail call zeroext i1 @je_pa_decay_ms_set(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %2, i64 noundef %3, i32 noundef %..i) #17
   ret i1 %8
 }
 
@@ -1237,7 +1237,7 @@ define hidden void @je_arena_decay(ptr noundef %0, ptr noundef %1, i1 noundef ze
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72928
-  tail call void @je_sec_flush(ptr noundef %0, ptr noundef nonnull %6) #18
+  tail call void @je_sec_flush(ptr noundef %0, ptr noundef nonnull %6) #17
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -1250,16 +1250,16 @@ define hidden void @je_arena_decay(ptr noundef %0, ptr noundef %1, i1 noundef ze
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 30296
-  %15 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %14) #18
+  %15 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %14) #17
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 39952
-  %17 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %16) #18
+  %17 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %16) #17
   %18 = sub i64 0, %15
   %19 = icmp eq i64 %17, %18
   br i1 %19, label %pa_shard_dont_decay_muzzy.exit.i, label %pa_shard_dont_decay_muzzy.exit.thread.i
 
 pa_shard_dont_decay_muzzy.exit.i:                 ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 10688
-  %21 = tail call i64 @je_pac_decay_ms_get(ptr noundef nonnull %20, i32 noundef 2) #18
+  %21 = tail call i64 @je_pac_decay_ms_get(ptr noundef nonnull %20, i32 noundef 2) #17
   %22 = icmp slt i64 %21, 1
   br i1 %22, label %arena_decay_muzzy.exit, label %pa_shard_dont_decay_muzzy.exit.thread.i
 
@@ -1284,7 +1284,7 @@ define hidden void @je_arena_do_deferred_work(ptr noundef %0, ptr noundef %1) lo
   %5 = load ptr, ptr %4, align 8, !tbaa !143
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 10744
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 69408
-  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %7) #18
+  %8 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %7) #17
   %.not.i.i4 = icmp eq i32 %8, 0
   br i1 %.not.i.i4, label %9, label %je_arena_decay.exit
 
@@ -1310,20 +1310,20 @@ define hidden void @je_arena_do_deferred_work(ptr noundef %0, ptr noundef %1) lo
 
 20:                                               ; preds = %16, %9
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 10688
-  %22 = tail call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, i32 noundef 0) #18
+  %22 = tail call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef %5, ptr noundef nonnull %6, i32 noundef 0) #17
   store atomic i8 0, ptr %10 monotonic, align 1
-  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #18
+  %23 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #17
   %24 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 30296
-  %26 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %25) #18
+  %26 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %25) #17
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 39952
-  %28 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %27) #18
+  %28 = tail call i64 @je_eset_npages_get(ptr noundef nonnull %27) #17
   %29 = sub i64 0, %26
   %30 = icmp eq i64 %28, %29
   br i1 %30, label %pa_shard_dont_decay_muzzy.exit.i.i, label %pa_shard_dont_decay_muzzy.exit.thread.i.i
 
 pa_shard_dont_decay_muzzy.exit.i.i:               ; preds = %20
-  %31 = tail call i64 @je_pac_decay_ms_get(ptr noundef nonnull %21, i32 noundef 2) #18
+  %31 = tail call i64 @je_pac_decay_ms_get(ptr noundef nonnull %21, i32 noundef 2) #17
   %32 = icmp slt i64 %31, 1
   br i1 %32, label %je_arena_decay.exit, label %pa_shard_dont_decay_muzzy.exit.thread.i.i
 
@@ -1333,7 +1333,7 @@ pa_shard_dont_decay_muzzy.exit.thread.i.i:        ; preds = %pa_shard_dont_decay
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 30184
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 71192
-  %38 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %37) #18
+  %38 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %37) #17
   %.not.i.i = icmp eq i32 %38, 0
   br i1 %.not.i.i, label %39, label %je_arena_decay.exit
 
@@ -1358,15 +1358,15 @@ pa_shard_dont_decay_muzzy.exit.thread.i.i:        ; preds = %pa_shard_dont_decay
   br label %50
 
 50:                                               ; preds = %46, %39
-  %51 = tail call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %33, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0) #18
+  %51 = tail call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %21, ptr noundef nonnull %33, ptr noundef nonnull %35, ptr noundef nonnull %36, i32 noundef 0) #17
   store atomic i8 0, ptr %40 monotonic, align 1
-  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #18
+  %52 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %37) #17
   %53 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
   br label %je_arena_decay.exit
 
 je_arena_decay.exit:                              ; preds = %2, %50, %pa_shard_dont_decay_muzzy.exit.thread.i.i, %pa_shard_dont_decay_muzzy.exit.i.i
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_do_deferred_work(ptr noundef %0, ptr noundef nonnull %54) #18
+  tail call void @je_pa_shard_do_deferred_work(ptr noundef %0, ptr noundef nonnull %54) #17
   ret void
 }
 
@@ -1375,10 +1375,10 @@ declare void @je_pa_shard_do_deferred_work(ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_slab_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !tbaa !147
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %4) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, ptr noundef nonnull %4) #17
   %6 = load i8, ptr %4, align 1, !tbaa !147, !range !154, !noundef !155
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %9
@@ -1388,7 +1388,7 @@ define hidden void @je_arena_slab_dalloc(ptr noundef %0, ptr noundef %1, ptr nou
   br label %9
 
 9:                                                ; preds = %8, %3
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
   ret void
 }
 
@@ -1402,12 +1402,12 @@ define hidden void @je_arena_prof_promote(ptr noundef readnone captures(none) %0
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @je_arena_dalloc_promoted(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #6 {
   %5 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5) #17
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8, !prof !150
 
 7:                                                ; preds = %4
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #18
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #17
   br label %tsdn_rtree_ctx.exit
 
 8:                                                ; preds = %4
@@ -1428,7 +1428,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %7, %8
   %18 = load i64, ptr %17, align 8, !tbaa !156, !noalias !159
   %19 = icmp ne i64 %18, %13
   call void @llvm.assume(i1 %19)
-  %20 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %10, i1 noundef zeroext true, i1 noundef zeroext false) #18, !noalias !159
+  %20 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %10, i1 noundef zeroext true, i1 noundef zeroext false) #17, !noalias !159
   unreachable
 }
 
@@ -1440,7 +1440,7 @@ define hidden void @je_arena_reset(ptr noundef %0, ptr noundef %1) local_unnamed
   %6 = alloca %struct.rtree_ctx_s, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 10552
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 10624
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %8) #18
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %8) #17
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %11
 
@@ -1450,7 +1450,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %2
   br label %12
 
 11:                                               ; preds = %2
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %7) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %7) #17
   br label %12
 
 12:                                               ; preds = %11, %malloc_mutex_trylock_final.exit.i
@@ -1487,7 +1487,7 @@ malloc_mutex_lock.exit:                           ; preds = %12, %18
 ._crit_edge:                                      ; preds = %malloc_mutex_lock.exit35, %malloc_mutex_lock.exit
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 10616
   store atomic i8 0, ptr %27 monotonic, align 1
-  %28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #18
+  %28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #17
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 10664
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 69336
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 69456
@@ -1511,12 +1511,12 @@ malloc_mutex_lock.exit:                           ; preds = %12, %18
   %45 = sub nsw i64 0, %44
   %46 = getelementptr inbounds i8, ptr %.029.val, i64 %45
   store atomic i8 0, ptr %23 monotonic, align 1
-  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #18
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #18
+  %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #17
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %6) #17
   br i1 %24, label %48, label %tsdn_rtree_ctx.exit, !prof !150
 
 48:                                               ; preds = %41
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %6) #18
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %6) #17
   br label %tsdn_rtree_ctx.exit
 
 tsdn_rtree_ctx.exit:                              ; preds = %41, %48
@@ -1593,15 +1593,15 @@ tsdn_rtree_ctx.exit:                              ; preds = %41, %48
   br label %rtree_metadata_read.exit
 
 92:                                               ; preds = %77
-  %93 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %49, i1 noundef zeroext true, i1 noundef zeroext false) #18
+  %93 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %49, i1 noundef zeroext true, i1 noundef zeroext false) #17
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %56, %66, %78, %92
   %.0.i.i = phi ptr [ %61, %56 ], [ %73, %66 ], [ %93, %92 ], [ %91, %78 ]
   %94 = load atomic i64, ptr %.0.i.i monotonic, align 8, !noalias !165
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #18
-  call void @je_large_dalloc(ptr noundef %0, ptr noundef nonnull %.02959) #18
-  %95 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #17
+  call void @je_large_dalloc(ptr noundef %0, ptr noundef nonnull %.02959) #17
+  %95 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %8) #17
   %.not.i32 = icmp eq i32 %95, 0
   br i1 %.not.i32, label %malloc_mutex_trylock_final.exit.i34, label %96
 
@@ -1610,7 +1610,7 @@ malloc_mutex_trylock_final.exit.i34:              ; preds = %rtree_metadata_read
   br label %97
 
 96:                                               ; preds = %rtree_metadata_read.exit
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %7) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %7) #17
   br label %97
 
 97:                                               ; preds = %96, %malloc_mutex_trylock_final.exit.i34
@@ -1645,7 +1645,7 @@ malloc_mutex_lock.exit35:                         ; preds = %97, %101
   br label %108
 
 107:                                              ; preds = %._crit_edge62
-  call void @je_pa_shard_reset(ptr noundef %0, ptr noundef nonnull %29) #18
+  call void @je_pa_shard_reset(ptr noundef %0, ptr noundef nonnull %29) #17
   ret void
 
 ._crit_edge62:                                    ; preds = %arena_bin_reset.exit, %.preheader
@@ -1665,7 +1665,7 @@ malloc_mutex_lock.exit35:                         ; preds = %97, %101
   %116 = getelementptr inbounds nuw %struct.bin_s, ptr %111, i64 %indvars.iv
   %.0.i36 = select i1 %114, ptr %115, ptr %116
   %117 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 72
-  %118 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #18
+  %118 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #17
   %.not.i.i37 = icmp eq i32 %118, 0
   br i1 %.not.i.i37, label %malloc_mutex_trylock_final.exit.i.i, label %120
 
@@ -1675,7 +1675,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %108
   br label %121
 
 120:                                              ; preds = %108
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #17
   br label %121
 
 121:                                              ; preds = %120, %malloc_mutex_trylock_final.exit.i.i
@@ -1704,7 +1704,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %127, %121
 
 134:                                              ; preds = %malloc_mutex_lock.exit.i
   %135 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 256
-  call void @je_batcher_init(ptr noundef nonnull %135, i64 noundef 16) #18
+  call void @je_batcher_init(ptr noundef nonnull %135, i64 noundef 16) #17
   br label %136
 
 136:                                              ; preds = %134, %malloc_mutex_lock.exit.i
@@ -1717,10 +1717,10 @@ malloc_mutex_lock.exit.i:                         ; preds = %127, %121
   store ptr null, ptr %137, align 8, !tbaa !170
   %140 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 64
   store atomic i8 0, ptr %140 monotonic, align 1
-  %141 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  %141 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
   store i8 0, ptr %5, align 1, !tbaa !147
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %138, ptr noundef nonnull %5) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %138, ptr noundef nonnull %5) #17
   %142 = load i8, ptr %5, align 1, !tbaa !147, !range !154, !noundef !155
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %144, label %je_arena_slab_dalloc.exit.i
@@ -1732,7 +1732,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %127, %121
 
 147:                                              ; preds = %144
   %148 = load ptr, ptr %32, align 8, !tbaa !143
-  %149 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %34) #18
+  %149 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %34) #17
   %.not.i.i.i50 = icmp eq i32 %149, 0
   br i1 %.not.i.i.i50, label %malloc_mutex_trylock_final.exit.i.i.i53, label %150
 
@@ -1741,7 +1741,7 @@ malloc_mutex_trylock_final.exit.i.i.i53:          ; preds = %147
   br label %151
 
 150:                                              ; preds = %147
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %30) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %30) #17
   br label %151
 
 151:                                              ; preds = %150, %malloc_mutex_trylock_final.exit.i.i.i53
@@ -1760,9 +1760,9 @@ malloc_mutex_trylock_final.exit.i.i.i53:          ; preds = %147
   br label %arena_decay_impl.exit.i52
 
 arena_decay_impl.exit.i52:                        ; preds = %155, %151
-  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %30, ptr noundef %148, ptr noundef nonnull %33, i1 noundef zeroext true) #18
+  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %30, ptr noundef %148, ptr noundef nonnull %33, i1 noundef zeroext true) #17
   store atomic i8 0, ptr %35 monotonic, align 1
-  %158 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #18
+  %158 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #17
   br label %159
 
 159:                                              ; preds = %arena_decay_impl.exit.i52, %144
@@ -1787,8 +1787,8 @@ arena_decay_impl.exit.i52:                        ; preds = %155, %151
   br label %je_arena_slab_dalloc.exit.i
 
 je_arena_slab_dalloc.exit.i:                      ; preds = %170, %162, %159, %139
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
-  %171 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
+  %171 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #17
   %.not.i45.i = icmp eq i32 %171, 0
   br i1 %.not.i45.i, label %malloc_mutex_trylock_final.exit.i47.i, label %172
 
@@ -1797,7 +1797,7 @@ malloc_mutex_trylock_final.exit.i47.i:            ; preds = %je_arena_slab_dallo
   br label %173
 
 172:                                              ; preds = %je_arena_slab_dalloc.exit.i
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #17
   br label %173
 
 173:                                              ; preds = %172, %malloc_mutex_trylock_final.exit.i47.i
@@ -1818,7 +1818,7 @@ malloc_mutex_trylock_final.exit.i47.i:            ; preds = %je_arena_slab_dallo
 
 malloc_mutex_lock.exit48.i:                       ; preds = %177, %173, %136
   %181 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 232
-  %182 = call ptr @je_edata_heap_remove_first(ptr noundef nonnull %181) #18
+  %182 = call ptr @je_edata_heap_remove_first(ptr noundef nonnull %181) #17
   %.not4160.i = icmp eq ptr %182, null
   br i1 %.not4160.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1830,10 +1830,10 @@ malloc_mutex_lock.exit48.i:                       ; preds = %177, %173, %136
 185:                                              ; preds = %malloc_mutex_lock.exit53.i, %.lr.ph.i
   %186 = phi ptr [ %182, %.lr.ph.i ], [ %226, %malloc_mutex_lock.exit53.i ]
   store atomic i8 0, ptr %183 monotonic, align 1
-  %187 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #18
+  %187 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #17
   store i8 0, ptr %4, align 1, !tbaa !147
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %186, ptr noundef nonnull %4) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %186, ptr noundef nonnull %4) #17
   %188 = load i8, ptr %4, align 1, !tbaa !147, !range !154, !noundef !155
   %189 = trunc nuw i8 %188 to i1
   br i1 %189, label %190, label %je_arena_slab_dalloc.exit49.i
@@ -1845,7 +1845,7 @@ malloc_mutex_lock.exit48.i:                       ; preds = %177, %173, %136
 
 193:                                              ; preds = %190
   %194 = load ptr, ptr %32, align 8, !tbaa !143
-  %195 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %34) #18
+  %195 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %34) #17
   %.not.i.i.i43 = icmp eq i32 %195, 0
   br i1 %.not.i.i.i43, label %malloc_mutex_trylock_final.exit.i.i.i46, label %196
 
@@ -1854,7 +1854,7 @@ malloc_mutex_trylock_final.exit.i.i.i46:          ; preds = %193
   br label %197
 
 196:                                              ; preds = %193
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %30) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %30) #17
   br label %197
 
 197:                                              ; preds = %196, %malloc_mutex_trylock_final.exit.i.i.i46
@@ -1873,9 +1873,9 @@ malloc_mutex_trylock_final.exit.i.i.i46:          ; preds = %193
   br label %arena_decay_impl.exit.i45
 
 arena_decay_impl.exit.i45:                        ; preds = %201, %197
-  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %30, ptr noundef %194, ptr noundef nonnull %33, i1 noundef zeroext true) #18
+  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %30, ptr noundef %194, ptr noundef nonnull %33, i1 noundef zeroext true) #17
   store atomic i8 0, ptr %35 monotonic, align 1
-  %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #18
+  %204 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #17
   br label %205
 
 205:                                              ; preds = %arena_decay_impl.exit.i45, %190
@@ -1900,8 +1900,8 @@ arena_decay_impl.exit.i45:                        ; preds = %201, %197
   br label %je_arena_slab_dalloc.exit49.i
 
 je_arena_slab_dalloc.exit49.i:                    ; preds = %216, %208, %205, %185
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #18
-  %217 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #17
+  %217 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #17
   %.not.i50.i = icmp eq i32 %217, 0
   br i1 %.not.i50.i, label %malloc_mutex_trylock_final.exit.i52.i, label %218
 
@@ -1910,7 +1910,7 @@ malloc_mutex_trylock_final.exit.i52.i:            ; preds = %je_arena_slab_dallo
   br label %219
 
 218:                                              ; preds = %je_arena_slab_dalloc.exit49.i
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #17
   br label %219
 
 219:                                              ; preds = %218, %malloc_mutex_trylock_final.exit.i52.i
@@ -1929,7 +1929,7 @@ malloc_mutex_trylock_final.exit.i52.i:            ; preds = %je_arena_slab_dallo
   br label %malloc_mutex_lock.exit53.i
 
 malloc_mutex_lock.exit53.i:                       ; preds = %223, %219
-  %226 = call ptr @je_edata_heap_remove_first(ptr noundef nonnull %181) #18
+  %226 = call ptr @je_edata_heap_remove_first(ptr noundef nonnull %181) #17
   %.not41.i = icmp eq ptr %226, null
   br i1 %.not41.i, label %._crit_edge.i, label %185, !llvm.loop !171
 
@@ -1988,10 +1988,10 @@ malloc_mutex_lock.exit53.i:                       ; preds = %223, %219
 
 arena_bin_slabs_full_remove.exit.i:               ; preds = %254, %237, %230
   store atomic i8 0, ptr %228 monotonic, align 1
-  %255 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #18
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
+  %255 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #17
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1, !tbaa !147
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %231, ptr noundef nonnull %3) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %231, ptr noundef nonnull %3) #17
   %256 = load i8, ptr %3, align 1, !tbaa !147, !range !154, !noundef !155
   %257 = trunc nuw i8 %256 to i1
   br i1 %257, label %258, label %je_arena_slab_dalloc.exit55.i
@@ -2003,7 +2003,7 @@ arena_bin_slabs_full_remove.exit.i:               ; preds = %254, %237, %230
 
 261:                                              ; preds = %258
   %262 = load ptr, ptr %32, align 8, !tbaa !143
-  %263 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %34) #18
+  %263 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %34) #17
   %.not.i.i.i40 = icmp eq i32 %263, 0
   br i1 %.not.i.i.i40, label %malloc_mutex_trylock_final.exit.i.i.i, label %264
 
@@ -2012,7 +2012,7 @@ malloc_mutex_trylock_final.exit.i.i.i:            ; preds = %261
   br label %265
 
 264:                                              ; preds = %261
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %30) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %30) #17
   br label %265
 
 265:                                              ; preds = %264, %malloc_mutex_trylock_final.exit.i.i.i
@@ -2031,9 +2031,9 @@ malloc_mutex_trylock_final.exit.i.i.i:            ; preds = %261
   br label %arena_decay_impl.exit.i
 
 arena_decay_impl.exit.i:                          ; preds = %269, %265
-  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %30, ptr noundef %262, ptr noundef nonnull %33, i1 noundef zeroext true) #18
+  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %39, ptr noundef nonnull %30, ptr noundef %262, ptr noundef nonnull %33, i1 noundef zeroext true) #17
   store atomic i8 0, ptr %35 monotonic, align 1
-  %272 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #18
+  %272 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %34) #17
   br label %273
 
 273:                                              ; preds = %arena_decay_impl.exit.i, %258
@@ -2058,8 +2058,8 @@ arena_decay_impl.exit.i:                          ; preds = %269, %265
   br label %je_arena_slab_dalloc.exit55.i
 
 je_arena_slab_dalloc.exit55.i:                    ; preds = %284, %276, %273, %arena_bin_slabs_full_remove.exit.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
-  %285 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
+  %285 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %117) #17
   %.not.i56.i = icmp eq i32 %285, 0
   br i1 %.not.i56.i, label %malloc_mutex_trylock_final.exit.i58.i, label %286
 
@@ -2068,7 +2068,7 @@ malloc_mutex_trylock_final.exit.i58.i:            ; preds = %je_arena_slab_dallo
   br label %287
 
 286:                                              ; preds = %je_arena_slab_dalloc.exit55.i
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i36) #17
   br label %287
 
 287:                                              ; preds = %286, %malloc_mutex_trylock_final.exit.i58.i
@@ -2098,7 +2098,7 @@ arena_bin_reset.exit:                             ; preds = %malloc_mutex_lock.e
   store i64 0, ptr %295, align 8, !tbaa !132
   %296 = getelementptr inbounds nuw i8, ptr %.0.i36, i64 64
   store atomic i8 0, ptr %296 monotonic, align 1
-  %297 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #18
+  %297 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %117) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %298 = load i32, ptr %104, align 4, !tbaa !107
   %299 = zext i32 %298 to i64
@@ -2115,11 +2115,11 @@ define hidden void @je_arena_destroy(ptr noundef %0, ptr noundef %1) local_unnam
   %3 = alloca [32 x ptr], align 16
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_destroy(ptr noundef %0, ptr noundef nonnull %5) #18
+  tail call void @je_pa_shard_destroy(ptr noundef %0, ptr noundef nonnull %5) #17
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %7 = load ptr, ptr %6, align 16, !tbaa !13
   %.val = load i32, ptr %7, align 8, !tbaa !174
-  tail call void @je_arena_set(i32 noundef %.val, ptr noundef null) #18
+  tail call void @je_arena_set(i32 noundef %.val, ptr noundef null) #17
   %8 = load i8, ptr @je_opt_retain, align 1, !tbaa !147, !range !154, !noundef !155
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %arena_prepare_base_deletion.exit, label %10
@@ -2127,10 +2127,10 @@ define hidden void @je_arena_destroy(ptr noundef %0, ptr noundef %1) local_unnam
 10:                                               ; preds = %2
   %11 = load ptr, ptr %6, align 16, !tbaa !13
   %.val.i = load i32, ptr %11, align 8, !tbaa !174
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #18
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #17
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   store i32 0, ptr %4, align 4, !tbaa !4
-  %12 = tail call i32 @je_narenas_total_get() #18
+  %12 = tail call i32 @je_narenas_total_get() #17
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %arena_prepare_base_deletion_sync_finish.exit.i, label %.lr.ph.preheader.i
 
@@ -2153,7 +2153,7 @@ define hidden void @je_arena_destroy(ptr noundef %0, ptr noundef %1) local_unnam
   %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
   %15 = load ptr, ptr %14, align 8, !tbaa !177
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
-  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %16) #18
+  %17 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %16) #17
   %.not.i.i.i = icmp eq i32 %17, 0
   br i1 %.not.i.i.i, label %malloc_mutex_trylock_final.exit.i.i.i, label %19
 
@@ -2163,7 +2163,7 @@ malloc_mutex_trylock_final.exit.i.i.i:            ; preds = %.lr.ph.i.i
   br label %20
 
 19:                                               ; preds = %.lr.ph.i.i
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %15) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %15) #17
   br label %20
 
 20:                                               ; preds = %19, %malloc_mutex_trylock_final.exit.i.i.i
@@ -2187,14 +2187,14 @@ malloc_mutex_trylock_final.exit.i.i.i:            ; preds = %.lr.ph.i.i
 malloc_mutex_lock.exit.i.i:                       ; preds = %26, %20
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 64
   store atomic i8 0, ptr %30 monotonic, align 1
-  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #18
+  %31 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %16) #17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %arena_prepare_base_deletion_sync_finish.exit.i, label %.lr.ph.i.i, !llvm.loop !178
 
 arena_prepare_base_deletion_sync_finish.exit.i:   ; preds = %malloc_mutex_lock.exit.i.i, %._crit_edge.i, %10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #18
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #17
   br label %arena_prepare_base_deletion.exit
 
 .lr.ph.i:                                         ; preds = %arena_get.exit.thread.i, %.lr.ph.preheader.i
@@ -2225,7 +2225,7 @@ arena_get.exit.thread.i:                          ; preds = %37, %33, %.lr.ph.i
 
 arena_prepare_base_deletion.exit:                 ; preds = %2, %arena_prepare_base_deletion_sync_finish.exit.i
   %41 = load ptr, ptr %6, align 16, !tbaa !13
-  tail call void @je_base_delete(ptr noundef %0, ptr noundef %41) #18
+  tail call void @je_base_delete(ptr noundef %0, ptr noundef %41) #17
   ret void
 }
 
@@ -2328,7 +2328,7 @@ je_arena_bin_choose.exit:                         ; preds = %6, %26, %30
   %42 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %38, i64 %41
   %43 = getelementptr inbounds nuw %struct.bin_s, ptr %38, i64 %41
   %.0.i.i = select i1 %40, ptr %42, ptr %43
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13) #18
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %13) #17
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
@@ -2365,7 +2365,7 @@ je_arena_bin_choose.exit:                         ; preds = %6, %26, %30
   %.077 = phi i16 [ 0, %je_arena_bin_choose.exit ], [ %.178176, %arena_bin_flush_batch_after_unlock.exit ]
   %.074 = phi ptr [ null, %je_arena_bin_choose.exit ], [ %510, %arena_bin_flush_batch_after_unlock.exit ]
   %.073 = phi i1 [ true, %je_arena_bin_choose.exit ], [ false, %arena_bin_flush_batch_after_unlock.exit ]
-  %75 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %44) #18
+  %75 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %44) #17
   %.not.i113 = icmp eq i32 %75, 0
   br i1 %.not.i113, label %malloc_mutex_trylock_final.exit.i, label %76
 
@@ -2374,7 +2374,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %74
   br label %77
 
 76:                                               ; preds = %74
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i) #17
   br label %77
 
 77:                                               ; preds = %76, %malloc_mutex_trylock_final.exit.i
@@ -2405,24 +2405,24 @@ malloc_mutex_lock.exit:                           ; preds = %77, %81
   store i64 0, ptr %52, align 8, !tbaa !187
   store i32 0, ptr %53, align 8, !tbaa !188
   store ptr null, ptr %54, align 8, !tbaa !162
-  %88 = call i64 @je_batcher_pop_begin(ptr noundef %0, ptr noundef nonnull %56) #18
+  %88 = call i64 @je_batcher_pop_begin(ptr noundef %0, ptr noundef nonnull %56) #17
   %89 = icmp eq i64 %88, -1
   br i1 %89, label %arena_bin_flush_batch_after_lock.exit, label %90
 
 90:                                               ; preds = %85
-  %91 = call i64 @je_batcher_pop_get_pushes(ptr noundef %0, ptr noundef nonnull %56) #18
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #18
+  %91 = call i64 @je_batcher_pop_get_pushes(ptr noundef %0, ptr noundef nonnull %56) #17
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %12) #17
   %.not199 = icmp eq i64 %88, 0
   br i1 %.not199, label %._crit_edge.thread, label %.lr.ph173.preheader
 
 ._crit_edge.thread:                               ; preds = %90
-  call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %56) #18
+  call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %56) #17
   br label %._crit_edge174
 
 .lr.ph173.preheader:                              ; preds = %90
   %92 = shl nuw i64 %88, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 8 %57, i64 %92, i1 false)
-  call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %56) #18
+  call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %56) #17
   br label %.lr.ph173
 
 ._crit_edge174:                                   ; preds = %arena_dalloc_bin_locked_step.exit, %._crit_edge.thread
@@ -2438,7 +2438,7 @@ malloc_mutex_lock.exit:                           ; preds = %77, %81
   %97 = load i64, ptr %67, align 8, !tbaa !140
   %98 = add i64 %97, %88
   store i64 %98, ptr %67, align 8, !tbaa !140
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #17
   br label %arena_bin_flush_batch_after_lock.exit
 
 .lr.ph173:                                        ; preds = %.lr.ph173.preheader, %arena_dalloc_bin_locked_step.exit
@@ -2545,7 +2545,7 @@ malloc_mutex_lock.exit:                           ; preds = %77, %81
   br label %je_arena_dalloc_bin_locked_handle_newly_empty.exit
 
 166:                                              ; preds = %129
-  call void @je_edata_heap_remove(ptr noundef nonnull %62, ptr noundef nonnull %102) #18
+  call void @je_edata_heap_remove(ptr noundef nonnull %62, ptr noundef nonnull %102) #17
   %167 = load i64, ptr %63, align 8, !tbaa !134
   %168 = add i64 %167, -1
   store i64 %168, ptr %63, align 8, !tbaa !134
@@ -2826,7 +2826,7 @@ edata_list_active_append.exit.i.i:                ; preds = %288, %283
   br label %arena_bin_slabs_full_insert.exit.i
 
 arena_bin_slabs_full_insert.exit.i:               ; preds = %.lr.ph179, %edata_list_active_append.exit.i.i, %280
-  %303 = call ptr @je_edata_heap_remove_first(ptr noundef nonnull %62) #18
+  %303 = call ptr @je_edata_heap_remove_first(ptr noundef nonnull %62) #17
   %304 = icmp eq ptr %303, null
   br i1 %304, label %309, label %arena_bin_refill_slabcur_no_fresh_slab.exit
 
@@ -2902,7 +2902,7 @@ arena_bin_refill_slabcur_no_fresh_slab.exit:      ; preds = %arena_bin_slabs_ful
 
 arena_bin_flush_batch_before_unlock.exit93:       ; preds = %.thread148.thread, %332
   store atomic i8 0, ptr %45 monotonic, align 1
-  %337 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #18
+  %337 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #17
   %338 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !4
   %339 = icmp ult i32 %3, %338
   br i1 %339, label %340, label %arena_bin_flush_batch_after_unlock.exit95
@@ -2930,10 +2930,10 @@ arena_bin_flush_batch_before_unlock.exit93:       ; preds = %.thread148.thread, 
   %347 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %346
   %348 = load atomic i64, ptr %347 monotonic, align 8
   %.0.i.i119 = inttoptr i64 %348 to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #17
   store i8 0, ptr %11, align 1, !tbaa !147
   %349 = getelementptr inbounds nuw i8, ptr %.0.i.i119, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %349, ptr noundef nonnull %345, ptr noundef nonnull %11) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %349, ptr noundef nonnull %345, ptr noundef nonnull %11) #17
   %350 = load i8, ptr %11, align 1, !tbaa !147, !range !154, !noundef !155
   %351 = trunc nuw i8 %350 to i1
   br i1 %351, label %352, label %je_arena_slab_dalloc.exit
@@ -2943,7 +2943,7 @@ arena_bin_flush_batch_before_unlock.exit93:       ; preds = %.thread148.thread, 
   br label %je_arena_slab_dalloc.exit
 
 je_arena_slab_dalloc.exit:                        ; preds = %343, %352
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #17
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count
   br i1 %exitcond214.not, label %.preheader, label %343, !llvm.loop !203
@@ -2991,10 +2991,10 @@ edata_list_active_remove.exit:                    ; preds = %355, %372
   %374 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %373
   %375 = load atomic i64, ptr %374 monotonic, align 8
   %.0.i.i122 = inttoptr i64 %375 to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #17
   store i8 0, ptr %10, align 1, !tbaa !147
   %376 = getelementptr inbounds nuw i8, ptr %.0.i.i122, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %376, ptr noundef nonnull %.val106197, ptr noundef nonnull %10) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %376, ptr noundef nonnull %.val106197, ptr noundef nonnull %10) #17
   %377 = load i8, ptr %10, align 1, !tbaa !147, !range !154, !noundef !155
   %378 = trunc nuw i8 %377 to i1
   br i1 %378, label %379, label %je_arena_slab_dalloc.exit123
@@ -3004,7 +3004,7 @@ edata_list_active_remove.exit:                    ; preds = %355, %372
   br label %je_arena_slab_dalloc.exit123
 
 je_arena_slab_dalloc.exit123:                     ; preds = %edata_list_active_remove.exit, %379
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
   %380 = icmp eq ptr %.val106, null
   br i1 %380, label %arena_bin_flush_batch_after_unlock.exit95, label %.lr.ph198, !llvm.loop !204
 
@@ -3029,7 +3029,7 @@ arena_bin_flush_batch_after_unlock.exit95:        ; preds = %je_arena_slab_dallo
 
 arena_bin_flush_batch_before_unlock.exit:         ; preds = %.critedge, %382
   store atomic i8 0, ptr %45 monotonic, align 1
-  %388 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #18
+  %388 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %44) #17
   %389 = load i32, ptr @je_bin_info_nbatched_sizes, align 4, !tbaa !4
   %390 = icmp ult i32 %3, %389
   br i1 %390, label %391, label %arena_bin_flush_batch_after_unlock.exit
@@ -3053,10 +3053,10 @@ arena_bin_flush_batch_before_unlock.exit:         ; preds = %.critedge, %382
   %397 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %396
   %398 = load atomic i64, ptr %397 monotonic, align 8
   %.0.i.i125 = inttoptr i64 %398 to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #17
   store i8 0, ptr %9, align 1, !tbaa !147
   %399 = getelementptr inbounds nuw i8, ptr %.0.i.i125, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %399, ptr noundef nonnull %395, ptr noundef nonnull %9) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %399, ptr noundef nonnull %395, ptr noundef nonnull %9) #17
   %400 = load i8, ptr %9, align 1, !tbaa !147, !range !154, !noundef !155
   %401 = trunc nuw i8 %400 to i1
   br i1 %401, label %402, label %je_arena_slab_dalloc.exit126
@@ -3073,7 +3073,7 @@ arena_bin_flush_batch_before_unlock.exit:         ; preds = %.critedge, %382
   %409 = load ptr, ptr %408, align 8, !tbaa !143
   %410 = getelementptr inbounds nuw i8, ptr %.0.i.i125, i64 10744
   %411 = getelementptr inbounds nuw i8, ptr %.0.i.i125, i64 69408
-  %412 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %411) #18
+  %412 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %411) #17
   %.not.i.i.i138 = icmp eq i32 %412, 0
   br i1 %.not.i.i.i138, label %malloc_mutex_trylock_final.exit.i.i.i, label %414
 
@@ -3083,7 +3083,7 @@ malloc_mutex_trylock_final.exit.i.i.i:            ; preds = %407
   br label %415
 
 414:                                              ; preds = %407
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %403) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %403) #17
   br label %415
 
 415:                                              ; preds = %414, %malloc_mutex_trylock_final.exit.i.i.i
@@ -3106,10 +3106,10 @@ malloc_mutex_trylock_final.exit.i.i.i:            ; preds = %407
 
 arena_decay_impl.exit.i:                          ; preds = %421, %415
   %425 = getelementptr inbounds nuw i8, ptr %.0.i.i125, i64 10688
-  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %425, ptr noundef nonnull %403, ptr noundef %409, ptr noundef nonnull %410, i1 noundef zeroext true) #18
+  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %425, ptr noundef nonnull %403, ptr noundef %409, ptr noundef nonnull %410, i1 noundef zeroext true) #17
   %426 = getelementptr inbounds nuw i8, ptr %.0.i.i125, i64 69400
   store atomic i8 0, ptr %426 monotonic, align 1
-  %427 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %411) #18
+  %427 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %411) #17
   br label %428
 
 428:                                              ; preds = %arena_decay_impl.exit.i, %402
@@ -3135,7 +3135,7 @@ arena_decay_impl.exit.i:                          ; preds = %421, %415
   br label %je_arena_slab_dalloc.exit126
 
 je_arena_slab_dalloc.exit126:                     ; preds = %440, %431, %428, %.lr.ph189
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %441 = load i32, ptr %53, align 8, !tbaa !188
   %442 = zext i32 %441 to i64
@@ -3184,10 +3184,10 @@ edata_list_active_remove.exit128:                 ; preds = %446, %463
   %465 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %464
   %466 = load atomic i64, ptr %465 monotonic, align 8
   %.0.i.i130 = inttoptr i64 %466 to ptr
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #17
   store i8 0, ptr %8, align 1, !tbaa !147
   %467 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %467, ptr noundef nonnull %.val108191, ptr noundef nonnull %8) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %467, ptr noundef nonnull %.val108191, ptr noundef nonnull %8) #17
   %468 = load i8, ptr %8, align 1, !tbaa !147, !range !154, !noundef !155
   %469 = trunc nuw i8 %468 to i1
   br i1 %469, label %470, label %je_arena_slab_dalloc.exit131
@@ -3204,7 +3204,7 @@ edata_list_active_remove.exit128:                 ; preds = %446, %463
   %477 = load ptr, ptr %476, align 8, !tbaa !143
   %478 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 10744
   %479 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 69408
-  %480 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %479) #18
+  %480 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %479) #17
   %.not.i.i.i142 = icmp eq i32 %480, 0
   br i1 %.not.i.i.i142, label %malloc_mutex_trylock_final.exit.i.i.i145, label %482
 
@@ -3214,7 +3214,7 @@ malloc_mutex_trylock_final.exit.i.i.i145:         ; preds = %475
   br label %483
 
 482:                                              ; preds = %475
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %471) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %471) #17
   br label %483
 
 483:                                              ; preds = %482, %malloc_mutex_trylock_final.exit.i.i.i145
@@ -3237,10 +3237,10 @@ malloc_mutex_trylock_final.exit.i.i.i145:         ; preds = %475
 
 arena_decay_impl.exit.i144:                       ; preds = %489, %483
   %493 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 10688
-  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %493, ptr noundef nonnull %471, ptr noundef %477, ptr noundef nonnull %478, i1 noundef zeroext true) #18
+  call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %493, ptr noundef nonnull %471, ptr noundef %477, ptr noundef nonnull %478, i1 noundef zeroext true) #17
   %494 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 69400
   store atomic i8 0, ptr %494 monotonic, align 1
-  %495 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %479) #18
+  %495 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %479) #17
   br label %496
 
 496:                                              ; preds = %arena_decay_impl.exit.i144, %470
@@ -3266,7 +3266,7 @@ arena_decay_impl.exit.i144:                       ; preds = %489, %483
   br label %je_arena_slab_dalloc.exit131
 
 je_arena_slab_dalloc.exit131:                     ; preds = %508, %499, %496, %edata_list_active_remove.exit128
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #17
   %.val108 = load ptr, ptr %54, align 8, !tbaa !162
   %509 = icmp eq ptr %.val108, null
   br i1 %509, label %arena_bin_flush_batch_after_unlock.exit, label %.lr.ph192, !llvm.loop !204
@@ -3276,10 +3276,10 @@ arena_bin_flush_batch_after_unlock.exit:          ; preds = %je_arena_slab_dallo
   br label %74
 
 511:                                              ; preds = %arena_bin_flush_batch_after_unlock.exit95
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #17
   store i8 0, ptr %7, align 1, !tbaa !147
   %512 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %512, ptr noundef nonnull %.276220, ptr noundef nonnull %7) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %512, ptr noundef nonnull %.276220, ptr noundef nonnull %7) #17
   %513 = load i8, ptr %7, align 1, !tbaa !147, !range !154, !noundef !155
   %514 = trunc nuw i8 %513 to i1
   br i1 %514, label %515, label %je_arena_slab_dalloc.exit132
@@ -3289,7 +3289,7 @@ arena_bin_flush_batch_after_unlock.exit:          ; preds = %je_arena_slab_dallo
   br label %je_arena_slab_dalloc.exit132
 
 je_arena_slab_dalloc.exit132:                     ; preds = %511, %515
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #17
   br label %516
 
 516:                                              ; preds = %je_arena_slab_dalloc.exit132, %arena_bin_flush_batch_after_unlock.exit95
@@ -3355,7 +3355,7 @@ ticker_geom_ticks.exit:                           ; preds = %537
   br label %arena_decay_ticks.exit
 
 arena_decay_ticks.exit:                           ; preds = %529, %ticker_geom_ticks.exit, %cache_bin_finish_fill.exit, %539
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13) #18
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %13) #17
   ret void
 }
 
@@ -3363,11 +3363,11 @@ arena_decay_ticks.exit:                           ; preds = %529, %ticker_geom_t
 define internal fastcc ptr @arena_slab_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
 tsdn_witness_tsdp_get.exit:
   %5 = alloca i8, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
   store i8 0, ptr %5, align 1, !tbaa !147
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %7 = load ptr, ptr %6, align 16, !tbaa !13
-  %8 = tail call ptr @je_base_ehooks_get(ptr noundef %7) #18
+  %8 = tail call ptr @je_base_ehooks_get(ptr noundef %7) #17
   %9 = load i64, ptr @je_opt_san_guard_small, align 8, !tbaa !11
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %san_slab_extent_decide_guard.exit, label %11
@@ -3395,7 +3395,7 @@ san_slab_extent_decide_guard.exit:                ; preds = %tsdn_witness_tsdp_g
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 10664
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !208
-  %24 = call ptr @je_pa_alloc(ptr noundef %0, ptr noundef nonnull %21, i64 noundef %23, i64 noundef 4096, i1 noundef zeroext true, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext %.0.i, ptr noundef nonnull %5) #18
+  %24 = call ptr @je_pa_alloc(ptr noundef %0, ptr noundef nonnull %21, i64 noundef %23, i64 noundef 4096, i1 noundef zeroext true, i32 noundef %2, i1 noundef zeroext false, i1 noundef zeroext %.0.i, ptr noundef nonnull %5) #17
   %25 = load i8, ptr %5, align 1, !tbaa !147, !range !154, !noundef !155
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %28
@@ -3422,11 +3422,11 @@ san_slab_extent_decide_guard.exit:                ; preds = %tsdn_witness_tsdp_g
   %41 = or i64 %40, %35
   store i64 %41, ptr %24, align 8, !tbaa !153
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @je_bitmap_init(ptr noundef nonnull %31, ptr noundef nonnull %42, i1 noundef zeroext false) #18
+  call void @je_bitmap_init(ptr noundef nonnull %31, ptr noundef nonnull %42, i1 noundef zeroext false) #17
   br label %43
 
 43:                                               ; preds = %28, %30
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
   ret ptr %24
 }
 
@@ -3623,7 +3623,7 @@ edata_list_active_append.exit:                    ; preds = %86, %82, %80
   %.059.lcssa = phi i64 [ 0, %je_arena_bin_choose.exit ], [ %81, %edata_list_active_append.exit ], [ %.05989, %.lr.ph ]
   %.1 = phi ptr [ null, %je_arena_bin_choose.exit ], [ %.2, %edata_list_active_append.exit ], [ null, %.lr.ph ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
-  %98 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %97) #18
+  %98 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %97) #17
   %.not.i68 = icmp eq i32 %98, 0
   br i1 %.not.i68, label %malloc_mutex_trylock_final.exit.i, label %100
 
@@ -3633,7 +3633,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %.critedge
   br label %101
 
 100:                                              ; preds = %.critedge
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i) #17
   br label %101
 
 101:                                              ; preds = %100, %malloc_mutex_trylock_final.exit.i
@@ -3726,7 +3726,7 @@ edata_list_active_concat.exit:                    ; preds = %118, %120, %117, %1
   store i64 %151, ptr %149, align 8, !tbaa !122
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   store atomic i8 0, ptr %152 monotonic, align 1
-  %153 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %97) #18
+  %153 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %97) #17
   br i1 %16, label %arena_decay_ticks.exit, label %154, !prof !150
 
 154:                                              ; preds = %edata_list_active_concat.exit
@@ -3808,7 +3808,7 @@ define internal fastcc void @arena_bin_lower_slab(ptr noundef readonly captures(
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  tail call void @je_edata_heap_insert(ptr noundef nonnull %17, ptr noundef nonnull %5) #18
+  tail call void @je_edata_heap_insert(ptr noundef nonnull %17, ptr noundef nonnull %5) #17
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %19 = load i64, ptr %18, align 8, !tbaa !134
   %20 = add i64 %19, 1
@@ -3865,7 +3865,7 @@ arena_bin_slabs_full_insert.exit:                 ; preds = %edata_list_active_a
 
 46:                                               ; preds = %6, %3
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  tail call void @je_edata_heap_insert(ptr noundef nonnull %47, ptr noundef %1) #18
+  tail call void @je_edata_heap_insert(ptr noundef nonnull %47, ptr noundef %1) #17
   br label %48
 
 48:                                               ; preds = %46, %arena_bin_slabs_full_insert.exit
@@ -3971,7 +3971,7 @@ je_arena_bin_choose.exit.i:                       ; preds = %39, %33, %29
   %54 = getelementptr inbounds nuw %struct.bin_s, ptr %49, i64 %52
   %.0.i.i.i = select i1 %51, ptr %53, ptr %54
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
-  %56 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %55) #18
+  %56 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %55) #17
   %.not.i.i = icmp eq i32 %56, 0
   br i1 %.not.i.i, label %malloc_mutex_trylock_final.exit.i.i, label %58
 
@@ -3981,7 +3981,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %je_arena_bin_choose
   br label %59
 
 58:                                               ; preds = %je_arena_bin_choose.exit.i
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i.i) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i.i) #17
   br label %59
 
 59:                                               ; preds = %58, %malloc_mutex_trylock_final.exit.i.i
@@ -4011,9 +4011,9 @@ malloc_mutex_lock.exit.i:                         ; preds = %65, %59
   %72 = getelementptr inbounds nuw [36 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %45
   %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store atomic i8 0, ptr %73 monotonic, align 1
-  %74 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #18
+  %74 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #17
   %75 = tail call fastcc ptr @arena_slab_alloc(ptr noundef %0, ptr noundef nonnull %.014202327, i32 noundef %3, i32 noundef %.0.i.i, ptr noundef nonnull %72)
-  %76 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %55) #18
+  %76 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %55) #17
   %.not.i53.i = icmp eq i32 %76, 0
   br i1 %.not.i53.i, label %malloc_mutex_trylock_final.exit.i55.i, label %77
 
@@ -4022,7 +4022,7 @@ malloc_mutex_trylock_final.exit.i55.i:            ; preds = %71
   br label %78
 
 77:                                               ; preds = %71
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i.i) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i.i) #17
   br label %78
 
 78:                                               ; preds = %77, %malloc_mutex_trylock_final.exit.i55.i
@@ -4052,7 +4052,7 @@ malloc_mutex_lock.exit56.i:                       ; preds = %82, %78
 
 90:                                               ; preds = %88
   store atomic i8 0, ptr %73 monotonic, align 1
-  %91 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #18
+  %91 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #17
   br label %arena_malloc_small.exit
 
 92:                                               ; preds = %88
@@ -4125,15 +4125,15 @@ arena_bin_malloc_with_fresh_slab.exit.i:          ; preds = %._crit_edge.loopexi
   store i64 %132, ptr %130, align 8, !tbaa !122
   %133 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   store atomic i8 0, ptr %133 monotonic, align 1
-  %134 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #18
+  %134 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %55) #17
   %.not.i18 = icmp eq ptr %.048.i, null
   br i1 %.not.i18, label %140, label %135
 
 135:                                              ; preds = %123
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #17
   store i8 0, ptr %7, align 1, !tbaa !147
   %136 = getelementptr inbounds nuw i8, ptr %.014202327, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %136, ptr noundef nonnull %.048.i, ptr noundef nonnull %7) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %136, ptr noundef nonnull %.048.i, ptr noundef nonnull %7) #17
   %137 = load i8, ptr %7, align 1, !tbaa !147, !range !154, !noundef !155
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %je_arena_slab_dalloc.exit.i
@@ -4143,7 +4143,7 @@ arena_bin_malloc_with_fresh_slab.exit.i:          ; preds = %._crit_edge.loopexi
   br label %je_arena_slab_dalloc.exit.i
 
 je_arena_slab_dalloc.exit.i:                      ; preds = %139, %135
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #17
   br label %140
 
 140:                                              ; preds = %je_arena_slab_dalloc.exit.i, %123
@@ -4199,7 +4199,7 @@ ticker_geom_ticks.exit.i:                         ; preds = %151
   %168 = zext i32 %3 to i64
   %169 = getelementptr inbounds nuw [232 x i64], ptr @je_sz_index2size_tab, i64 0, i64 %168
   %170 = load i64, ptr %169, align 8, !tbaa !11
-  %171 = tail call ptr @je_large_malloc(ptr noundef %0, ptr noundef nonnull %.0142022, i64 noundef %170, i1 noundef zeroext %4) #18
+  %171 = tail call ptr @je_large_malloc(ptr noundef %0, ptr noundef nonnull %.0142022, i64 noundef %170, i1 noundef zeroext %4) #17
   br label %arena_malloc_small.exit
 
 arena_malloc_small.exit:                          ; preds = %153, %ticker_geom_ticks.exit.i, %143, %142, %90, %arena_choose_maybe_huge.exit, %167
@@ -4284,7 +4284,7 @@ sz_size2index.exit:                               ; preds = %19, %17, %11
   br label %cache_bin_alloc_impl.exit.thread
 
 cache_bin_alloc_impl.exit:                        ; preds = %45
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #17
   %51 = tail call fastcc ptr @arena_choose(ptr noundef %0, ptr noundef %1)
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread, label %53, !prof !150
@@ -4300,15 +4300,15 @@ cache_bin_alloc_impl.exit:                        ; preds = %45
 
 .thread:                                          ; preds = %55, %cache_bin_alloc_impl.exit
   %.0.i21.ph = phi ptr [ null, %cache_bin_alloc_impl.exit ], [ %56, %55 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #17
   br label %arena_malloc.exit
 
 57:                                               ; preds = %53
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %36, i32 noundef %.0.i, i1 noundef zeroext true) #18
-  %58 = call ptr @je_tcache_alloc_small_hard(ptr noundef %0, ptr noundef nonnull %51, ptr noundef nonnull %6, ptr noundef nonnull %36, i32 noundef %.0.i, ptr noundef nonnull %8) #18
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %36, i32 noundef %.0.i, i1 noundef zeroext true) #17
+  %58 = call ptr @je_tcache_alloc_small_hard(ptr noundef %0, ptr noundef nonnull %51, ptr noundef nonnull %6, ptr noundef nonnull %36, i32 noundef %.0.i, ptr noundef nonnull %8) #17
   %59 = load i8, ptr %8, align 1, !tbaa !147, !range !154, !noundef !155
   %.not = icmp eq i8 %59, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #17
   br i1 %.not, label %arena_malloc.exit, label %cache_bin_alloc_impl.exit.thread
 
 cache_bin_alloc_impl.exit.thread:                 ; preds = %44, %48, %57
@@ -4337,11 +4337,11 @@ cache_bin_alloc_impl.exit.thread:                 ; preds = %44, %48, %57
   br i1 %69, label %70, label %72, !prof !148
 
 70:                                               ; preds = %68
-  %71 = tail call ptr @je_large_malloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %4) #18
+  %71 = tail call ptr @je_large_malloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %4) #17
   br label %arena_malloc.exit
 
 72:                                               ; preds = %68
-  %73 = tail call ptr @je_large_palloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #18
+  %73 = tail call ptr @je_large_palloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #17
   br label %arena_malloc.exit
 
 arena_malloc.exit:                                ; preds = %.critedge.i, %.thread, %57, %63, %72, %70
@@ -4427,7 +4427,7 @@ define hidden void @je_arena_dalloc_bin_locked_handle_newly_empty(ptr noundef re
 
 48:                                               ; preds = %9
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  tail call void @je_edata_heap_remove(ptr noundef nonnull %49, ptr noundef nonnull %2) #18
+  tail call void @je_edata_heap_remove(ptr noundef nonnull %49, ptr noundef nonnull %2) #17
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %51 = load i64, ptr %50, align 8, !tbaa !134
   %52 = add i64 %51, -1
@@ -4506,12 +4506,12 @@ arena_bin_slabs_full_remove.exit:                 ; preds = %4, %17, %36
 define hidden void @je_arena_dalloc_small(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #18
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4) #17
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7, !prof !150
 
 6:                                                ; preds = %2
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #18
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #17
   br label %tsdn_rtree_ctx.exit
 
 7:                                                ; preds = %2
@@ -4592,7 +4592,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %6, %7
   br label %rtree_read.exit
 
 52:                                               ; preds = %37
-  %53 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %9, i1 noundef zeroext true, i1 noundef zeroext false) #18, !noalias !214
+  %53 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %9, i1 noundef zeroext true, i1 noundef zeroext false) #17, !noalias !214
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %16, %26, %38, %52
@@ -4602,7 +4602,7 @@ rtree_read.exit:                                  ; preds = %16, %26, %38, %52
   %56 = ashr exact i64 %55, 16
   %57 = and i64 %56, -128
   %58 = inttoptr i64 %57 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #18
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #17
   %.val.i = load i64, ptr %58, align 128, !tbaa !153
   %59 = and i64 %.val.i, 4095
   %60 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %59
@@ -4624,7 +4624,7 @@ rtree_read.exit:                                  ; preds = %16, %26, %38, %52
   %75 = getelementptr inbounds nuw %struct.bin_s, ptr %71, i64 %66
   %.0.i.i10 = select i1 %73, ptr %74, ptr %75
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 72
-  %77 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %76) #18
+  %77 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %76) #17
   %.not.i25.i = icmp eq i32 %77, 0
   br i1 %.not.i25.i, label %malloc_mutex_trylock_final.exit.i.i, label %79
 
@@ -4634,7 +4634,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %rtree_read.exit
   br label %80
 
 79:                                               ; preds = %rtree_read.exit
-  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i10) #18
+  call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.0.i.i10) #17
   br label %80
 
 80:                                               ; preds = %79, %malloc_mutex_trylock_final.exit.i.i
@@ -4758,7 +4758,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %86, %80
 
 156:                                              ; preds = %117
   %157 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 232
-  call void @je_edata_heap_remove(ptr noundef nonnull %157, ptr noundef nonnull %58) #18
+  call void @je_edata_heap_remove(ptr noundef nonnull %157, ptr noundef nonnull %58) #17
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 184
   %159 = load i64, ptr %158, align 8, !tbaa !134
   %160 = add i64 %159, -1
@@ -4851,14 +4851,14 @@ arena_dalloc_bin_locked_step.exit.i:              ; preds = %je_arena_dalloc_bin
   store i64 %208, ptr %206, align 8, !tbaa !122
   %209 = getelementptr inbounds nuw i8, ptr %.0.i.i10, i64 64
   store atomic i8 0, ptr %209 monotonic, align 1
-  %210 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %76) #18
+  %210 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %76) #17
   br i1 %.not.i, label %211, label %arena_dalloc_bin.exit
 
 211:                                              ; preds = %arena_dalloc_bin_locked_step.exit.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #17
   store i8 0, ptr %3, align 1, !tbaa !147
   %212 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %212, ptr noundef nonnull %58, ptr noundef nonnull %3) #18
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %212, ptr noundef nonnull %58, ptr noundef nonnull %3) #17
   %213 = load i8, ptr %3, align 1, !tbaa !147, !range !154, !noundef !155
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %215, label %je_arena_slab_dalloc.exit.i
@@ -4868,7 +4868,7 @@ arena_dalloc_bin_locked_step.exit.i:              ; preds = %je_arena_dalloc_bin
   br label %je_arena_slab_dalloc.exit.i
 
 je_arena_slab_dalloc.exit.i:                      ; preds = %215, %211
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #17
   br label %arena_dalloc_bin.exit
 
 arena_dalloc_bin.exit:                            ; preds = %arena_dalloc_bin_locked_step.exit.i, %je_arena_slab_dalloc.exit.i
@@ -4919,12 +4919,12 @@ arena_decay_ticks.exit:                           ; preds = %216, %ticker_geom_t
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_arena_ralloc_no_move(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8) #18
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %8) #17
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %11, !prof !150
 
 10:                                               ; preds = %7
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %8) #18
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %8) #17
   br label %tsdn_rtree_ctx.exit
 
 11:                                               ; preds = %7
@@ -5005,7 +5005,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %10, %11
   br label %rtree_read.exit
 
 56:                                               ; preds = %41
-  %57 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i37, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false) #18, !noalias !220
+  %57 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i37, i64 noundef %13, i1 noundef zeroext true, i1 noundef zeroext false) #17, !noalias !220
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %20, %30, %42, %56
@@ -5015,7 +5015,7 @@ rtree_read.exit:                                  ; preds = %20, %30, %42, %56
   %60 = ashr exact i64 %59, 16
   %61 = and i64 %60, -128
   %62 = inttoptr i64 %61 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8) #18
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %8) #17
   %63 = icmp ugt i64 %3, 8070450532247928832
   br i1 %63, label %arena_decay_ticks.exit, label %64, !prof !150
 
@@ -5218,7 +5218,7 @@ ticker_geom_ticks.exit:                           ; preds = %164
   br i1 %or.cond, label %183, label %arena_decay_ticks.exit
 
 183:                                              ; preds = %180
-  %184 = call zeroext i1 @je_large_ralloc_no_move(ptr noundef %0, ptr noundef %62, i64 noundef %.0.i34, i64 noundef %.0.i35, i1 noundef zeroext %5) #18
+  %184 = call zeroext i1 @je_large_ralloc_no_move(ptr noundef %0, ptr noundef %62, i64 noundef %.0.i34, i64 noundef %.0.i35, i1 noundef zeroext %5) #17
   br label %arena_decay_ticks.exit
 
 arena_decay_ticks.exit:                           ; preds = %156, %sz_s2u.exit36.thread, %166, %152, %ticker_geom_ticks.exit, %180, %149, %rtree_read.exit, %183
@@ -5363,7 +5363,7 @@ sz_s2u.exit:                                      ; preds = %.thread88, %sz_s2u.
   br i1 %7, label %88, label %95, !prof !148
 
 88:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #17
   %89 = call zeroext i1 @je_arena_ralloc_no_move(ptr noundef %0, ptr noundef %2, i64 noundef %3, i64 noundef %83, i64 noundef 0, i1 noundef zeroext %6, ptr noundef nonnull %14)
   br i1 %89, label %.critedge, label %90
 
@@ -5373,12 +5373,12 @@ sz_s2u.exit:                                      ; preds = %.thread88, %sz_s2u.
   %not. = zext nneg i8 %92 to i32
   %93 = ptrtoint ptr %2 to i64
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  tail call void @je_hook_invoke_expand(i32 noundef %not., ptr noundef %2, i64 noundef %3, i64 noundef %83, i64 noundef %93, ptr noundef nonnull %94) #18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #18
+  tail call void @je_hook_invoke_expand(i32 noundef %not., ptr noundef %2, i64 noundef %3, i64 noundef %83, i64 noundef %93, ptr noundef nonnull %94) #17
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #17
   br label %arena_sdalloc.exit
 
 .critedge:                                        ; preds = %88
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #18
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #17
   br label %95
 
 95:                                               ; preds = %.critedge, %87
@@ -5388,7 +5388,7 @@ sz_s2u.exit:                                      ; preds = %.thread88, %sz_s2u.
   br i1 %or.cond, label %98, label %100
 
 98:                                               ; preds = %95
-  %99 = tail call ptr @je_large_ralloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %83, i64 noundef %5, i1 noundef zeroext %6, ptr noundef %8, ptr noundef %9) #18
+  %99 = tail call ptr @je_large_ralloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %83, i64 noundef %5, i1 noundef zeroext %6, ptr noundef %8, ptr noundef %9) #17
   br label %arena_sdalloc.exit
 
 100:                                              ; preds = %95
@@ -5467,7 +5467,7 @@ sz_size2index.exit.i85:                           ; preds = %111, %109, %103
   br label %cache_bin_alloc_impl.exit.thread.i
 
 cache_bin_alloc_impl.exit.i:                      ; preds = %138
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #17
   %144 = tail call fastcc ptr @arena_choose(ptr noundef %0, ptr noundef %1)
   %145 = icmp eq ptr %144, null
   br i1 %145, label %.thread.i, label %146, !prof !150
@@ -5483,15 +5483,15 @@ cache_bin_alloc_impl.exit.i:                      ; preds = %138
 
 .thread.i:                                        ; preds = %148, %cache_bin_alloc_impl.exit.i
   %.0.i23.ph.i = phi ptr [ null, %cache_bin_alloc_impl.exit.i ], [ %149, %148 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #17
   br label %arena_ralloc_move_helper.exit
 
 150:                                              ; preds = %146
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %129, i32 noundef %.0.i.i, i1 noundef zeroext true) #18
-  %151 = call ptr @je_tcache_alloc_small_hard(ptr noundef %0, ptr noundef nonnull %144, ptr noundef nonnull %8, ptr noundef nonnull %129, i32 noundef %.0.i.i, ptr noundef nonnull %11) #18
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %129, i32 noundef %.0.i.i, i1 noundef zeroext true) #17
+  %151 = call ptr @je_tcache_alloc_small_hard(ptr noundef %0, ptr noundef nonnull %144, ptr noundef nonnull %8, ptr noundef nonnull %129, i32 noundef %.0.i.i, ptr noundef nonnull %11) #17
   %152 = load i8, ptr %11, align 1, !tbaa !147, !range !154, !noundef !155
   %.not61.i = icmp eq i8 %152, 0
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #17
   br i1 %.not61.i, label %arena_sdalloc.exit, label %cache_bin_alloc_impl.exit.thread.i
 
 cache_bin_alloc_impl.exit.thread.i:               ; preds = %150, %141, %137
@@ -5559,7 +5559,7 @@ cache_bin_alloc_impl.exit30.i:                    ; preds = %176
   br i1 %183, label %arena_sdalloc.exit, label %184, !prof !150
 
 184:                                              ; preds = %cache_bin_alloc_impl.exit30.i
-  tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %167, i32 noundef %.0.i.i, i1 noundef zeroext false) #18
+  tail call void @je_tcache_bin_flush_stashed(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %167, i32 noundef %.0.i.i, i1 noundef zeroext false) #17
   br i1 %102, label %185, label %193, !prof !148
 
 185:                                              ; preds = %184
@@ -5589,7 +5589,7 @@ cache_bin_alloc_impl.exit30.i:                    ; preds = %176
 
 sz_s2u.exit.i.i:                                  ; preds = %195, %193, %185
   %.0.i.i.i = phi i64 [ %192, %185 ], [ %202, %195 ], [ 0, %193 ]
-  %203 = tail call ptr @je_large_malloc(ptr noundef %0, ptr noundef nonnull %182, i64 noundef %.0.i.i.i, i1 noundef zeroext %6) #18
+  %203 = tail call ptr @je_large_malloc(ptr noundef %0, ptr noundef nonnull %182, i64 noundef %.0.i.i.i, i1 noundef zeroext %6) #17
   br label %arena_ralloc_move_helper.exit
 
 204:                                              ; preds = %179, %175
@@ -5705,11 +5705,11 @@ isdalloct.exit:                                   ; preds = %arena_ralloc_move_h
   %263 = select i1 %262, i32 8, i32 9
   %264 = ptrtoint ptr %.0.i84 to i64
   %265 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @je_hook_invoke_alloc(i32 noundef %263, ptr noundef nonnull %.0.i84, i64 noundef %264, ptr noundef nonnull %265) #18
+  call void @je_hook_invoke_alloc(i32 noundef %263, ptr noundef nonnull %.0.i84, i64 noundef %264, ptr noundef nonnull %265) #17
   %266 = load i8, ptr %9, align 8, !tbaa !229, !range !154, !noundef !155
   %267 = trunc nuw i8 %266 to i1
   %268 = select i1 %267, i32 3, i32 4
-  call void @je_hook_invoke_dalloc(i32 noundef %268, ptr noundef %2, ptr noundef nonnull %265) #18
+  call void @je_hook_invoke_dalloc(i32 noundef %268, ptr noundef %2, ptr noundef nonnull %265) #17
   %269 = call i64 @llvm.umin.i64(i64 %83, i64 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i84, ptr align 1 %2, i64 %269, i1 false)
   %270 = icmp eq ptr %0, null
@@ -5790,7 +5790,7 @@ cache_bin_dalloc_easy.exit23.i:                   ; preds = %298
   %313 = zext i16 %.val79 to i32
   %314 = load i32, ptr @je_opt_lg_tcache_flush_small_div, align 4, !tbaa !4
   %315 = lshr i32 %313, %314
-  call void @je_tcache_bin_flush_small(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %301, i32 noundef %.0.i.i70, i32 noundef %315) #18
+  call void @je_tcache_bin_flush_small(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %301, i32 noundef %.0.i.i70, i32 noundef %315) #17
   %316 = load ptr, ptr %301, align 8, !tbaa !93
   %317 = ptrtoint ptr %316 to i64
   %318 = load i16, ptr %304, align 2, !tbaa !100
@@ -5840,7 +5840,7 @@ cache_bin_dalloc_easy.exit26.i:                   ; preds = %332
   %339 = zext i16 %.val78 to i32
   %340 = load i32, ptr @je_opt_lg_tcache_flush_large_div, align 4, !tbaa !4
   %341 = lshr i32 %339, %340
-  call void @je_tcache_bin_flush_large(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %329, i32 noundef %.0.i.i7091, i32 noundef %341) #18
+  call void @je_tcache_bin_flush_large(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %329, i32 noundef %.0.i.i7091, i32 noundef %341) #17
   %342 = load ptr, ptr %329, align 8, !tbaa !93
   %343 = ptrtoint ptr %342 to i64
   %344 = load i16, ptr %334, align 2, !tbaa !100
@@ -5856,11 +5856,11 @@ cache_bin_dalloc_easy.exit26.i:                   ; preds = %332
 
 349:                                              ; preds = %326, %sz_size2index.exit.i.thread
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %12) #18
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %12) #17
   br i1 %270, label %350, label %351, !prof !150
 
 350:                                              ; preds = %349
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %12) #18
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %12) #17
   br label %tsdn_rtree_ctx.exit.i
 
 351:                                              ; preds = %349
@@ -5872,9 +5872,9 @@ tsdn_rtree_ctx.exit.i:                            ; preds = %351, %350
   %353 = ptrtoint ptr %2 to i64
   call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef %0, ptr noundef nonnull %.0.i.i72, i64 noundef %353)
   %354 = load ptr, ptr %13, align 8, !tbaa !238
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %12) #18
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  call void @je_large_dalloc(ptr noundef %0, ptr noundef %354) #18
+  call void @je_large_dalloc(ptr noundef %0, ptr noundef %354) #17
   br label %arena_sdalloc.exit
 
 arena_sdalloc.exit:                               ; preds = %240, %sz_s2u_compute.exit37.i, %cache_bin_alloc_impl.exit30.i, %150, %sz_sa2u.exit.i, %sz_s2u_compute.exit66, %61, %26, %272, %311, %321, %cache_bin_dalloc_easy.exit23.i.thread, %310, %cache_bin_dalloc_easy.exit26.i.thread, %347, %cache_bin_dalloc_easy.exit26.i, %tsdn_rtree_ctx.exit.i, %90, %arena_ralloc_move_helper.exit, %sz_s2u.exit, %98
@@ -5905,7 +5905,7 @@ define hidden ptr @je_arena_set_extent_hooks(ptr noundef %0, ptr noundef %1, ptr
   %8 = urem i64 %6, %7
   %9 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %5, i64 %8, i32 2
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #18
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #17
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %13
 
@@ -5915,7 +5915,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %3
   br label %14
 
 13:                                               ; preds = %3
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %9) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %9) #17
   br label %14
 
 14:                                               ; preds = %13, %malloc_mutex_trylock_final.exit.i
@@ -5938,13 +5938,13 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %3
 
 malloc_mutex_lock.exit:                           ; preds = %14, %20
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_disable_hpa(ptr noundef %0, ptr noundef nonnull %24) #18
+  tail call void @je_pa_shard_disable_hpa(ptr noundef %0, ptr noundef nonnull %24) #17
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %26 = load ptr, ptr %25, align 16, !tbaa !13
-  %27 = tail call ptr @je_base_extent_hooks_set(ptr noundef %26, ptr noundef %2) #18
+  %27 = tail call ptr @je_base_extent_hooks_set(ptr noundef %26, ptr noundef %2) #17
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store atomic i8 0, ptr %28 monotonic, align 1
-  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #18
+  %29 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #17
   ret ptr %27
 }
 
@@ -5960,35 +5960,35 @@ atomic_store_u.exit:
   ret i1 false
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @je_arena_name_get(ptr noundef %0, ptr noundef %1) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @je_arena_name_get(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 79040
-  %4 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 0, i64 noundef 32) #19
+  %4 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %3, i32 noundef 0, i64 noundef 32) #18
   %5 = ptrtoint ptr %4 to i64
   %6 = ptrtoint ptr %3 to i64
   %reass.sub = sub i64 %5, %6
   %7 = add i64 %reass.sub, 1
-  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull %3, i64 noundef %7) #18
+  %8 = tail call ptr @strncpy(ptr noundef %1, ptr noundef nonnull %3, i64 noundef %7) #17
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #10
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @je_arena_name_set(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @je_arena_name_set(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 79040
-  %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32) #18
+  %4 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 79071
   store i8 0, ptr %5, align 1, !tbaa !149
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden i64 @je_arena_dirty_decay_ms_default_get() local_unnamed_addr #12 {
+define hidden i64 @je_arena_dirty_decay_ms_default_get() local_unnamed_addr #11 {
 atomic_load_zd.exit:
   %0 = load atomic i64, ptr @dirty_decay_ms_default.0 monotonic, align 8
   ret i64 %0
@@ -5996,7 +5996,7 @@ atomic_load_zd.exit:
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @je_arena_dirty_decay_ms_default_set(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %0) #18
+  %2 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %0) #17
   br i1 %2, label %atomic_store_zd.exit, label %3
 
 atomic_store_zd.exit:                             ; preds = %1
@@ -6011,7 +6011,7 @@ atomic_store_zd.exit:                             ; preds = %1
 declare zeroext i1 @je_decay_ms_valid(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden i64 @je_arena_muzzy_decay_ms_default_get() local_unnamed_addr #12 {
+define hidden i64 @je_arena_muzzy_decay_ms_default_get() local_unnamed_addr #11 {
 atomic_load_zd.exit:
   %0 = load atomic i64, ptr @muzzy_decay_ms_default.0 monotonic, align 8
   ret i64 %0
@@ -6019,7 +6019,7 @@ atomic_load_zd.exit:
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @je_arena_muzzy_decay_ms_default_set(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %0) #18
+  %2 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %0) #17
   br i1 %2, label %atomic_store_zd.exit, label %3
 
 atomic_store_zd.exit:                             ; preds = %1
@@ -6034,7 +6034,7 @@ atomic_store_zd.exit:                             ; preds = %1
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_arena_retain_grow_limit_get_set(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 10688
-  %6 = tail call zeroext i1 @je_pac_retain_grow_limit_get_set(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3) #18
+  %6 = tail call zeroext i1 @je_pac_retain_grow_limit_get_set(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %3) #17
   ret i1 %6
 }
 
@@ -6066,7 +6066,7 @@ define hidden ptr @je_arena_new(ptr noundef %0, i32 noundef %1, ptr noundef read
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
-  %8 = tail call ptr @je_b0get() #18
+  %8 = tail call ptr @je_b0get() #17
   br label %16
 
 9:                                                ; preds = %3
@@ -6074,7 +6074,7 @@ define hidden ptr @je_arena_new(ptr noundef %0, i32 noundef %1, ptr noundef read
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i8, ptr %11, align 8, !tbaa !244, !range !154, !noundef !155
   %13 = trunc nuw i8 %12 to i1
-  %14 = tail call ptr @je_base_new(ptr noundef %0, i32 noundef %1, ptr noundef %10, i1 noundef zeroext %13) #18
+  %14 = tail call ptr @je_base_new(ptr noundef %0, i32 noundef %1, ptr noundef %10, i1 noundef zeroext %13) #17
   %15 = icmp eq ptr %14, null
   br i1 %15, label %post_reentrancy.exit, label %16
 
@@ -6088,7 +6088,7 @@ define hidden ptr @je_arena_new(ptr noundef %0, i32 noundef %1, ptr noundef read
   %22 = zext i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 8
   %24 = add nuw nsw i64 %20, %23
-  %25 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %.067, i64 noundef %24, i64 noundef 64) #18
+  %25 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %.067, i64 noundef %24, i64 noundef 64) #17
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %atomic_store_u.exit83
 
@@ -6101,27 +6101,27 @@ atomic_store_u.exit83:                            ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 10408
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 10424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %31 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull %30, ptr noundef nonnull @.str.3, i32 noundef 15, i32 noundef 0) #18
+  %31 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull %30, ptr noundef nonnull @.str.3, i32 noundef 15, i32 noundef 0) #17
   br i1 %31, label %.loopexit, label %atomic_store_u.exit81
 
 atomic_store_u.exit81:                            ; preds = %atomic_store_u.exit83
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 10536
-  %33 = tail call i32 @je_extent_dss_prec_get() #18
+  %33 = tail call i32 @je_extent_dss_prec_get() #17
   store atomic i32 %33, ptr %32 monotonic, align 4
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 10544
   store ptr null, ptr %34, align 8, !tbaa !162
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 10552
-  %36 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull %35, ptr noundef nonnull @.str.4, i32 noundef 24, i32 noundef 0) #18
+  %36 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull %35, ptr noundef nonnull @.str.4, i32 noundef 24, i32 noundef 0) #17
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %atomic_store_u.exit81
-  call void @je_nstime_init_update(ptr noundef nonnull %4) #18
+  call void @je_nstime_init_update(ptr noundef nonnull %4) #17
   %38 = getelementptr inbounds nuw i8, ptr %25, i64 10664
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %40 = load i64, ptr @je_oversize_threshold, align 8, !tbaa !11
   %41 = load atomic i64, ptr @dirty_decay_ms_default.0 monotonic, align 8
   %42 = load atomic i64, ptr @muzzy_decay_ms_default.0 monotonic, align 8
-  %43 = call zeroext i1 @je_pa_shard_init(ptr noundef %0, ptr noundef nonnull %38, ptr noundef nonnull @arena_pa_central_global, ptr noundef nonnull @je_arena_emap_global, ptr noundef %.067, i32 noundef %1, ptr noundef nonnull %39, ptr noundef null, ptr noundef nonnull %4, i64 noundef %40, i64 noundef %41, i64 noundef %42) #18
+  %43 = call zeroext i1 @je_pa_shard_init(ptr noundef %0, ptr noundef nonnull %38, ptr noundef nonnull @arena_pa_central_global, ptr noundef nonnull @je_arena_emap_global, ptr noundef %.067, i32 noundef %1, ptr noundef nonnull %39, ptr noundef null, ptr noundef nonnull %4, i64 noundef %40, i64 noundef %41, i64 noundef %42) #17
   br i1 %43, label %.loopexit, label %atomic_store_u.exit
 
 atomic_store_u.exit:                              ; preds = %37
@@ -6159,7 +6159,7 @@ atomic_store_u.exit:                              ; preds = %37
   %60 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %56, i64 %indvars.iv
   %61 = getelementptr inbounds nuw %struct.bin_s, ptr %56, i64 %indvars.iv
   %.0.i = select i1 %59, ptr %60, ptr %61
-  %62 = call zeroext i1 @je_bin_init(ptr noundef nonnull %.0.i, i32 noundef %48) #18
+  %62 = call zeroext i1 @je_bin_init(ptr noundef nonnull %.0.i, i32 noundef %48) #17
   br i1 %62, label %.loopexit, label %49
 
 ._crit_edge:                                      ; preds = %49, %.preheader
@@ -6170,24 +6170,24 @@ atomic_store_u.exit:                              ; preds = %37
 .thread88:                                        ; preds = %._crit_edge
   %63 = getelementptr inbounds nuw i8, ptr %25, i64 79024
   store ptr %.067, ptr %63, align 16, !tbaa !13
-  call void @je_arena_set(i32 noundef %1, ptr noundef nonnull %25) #18
+  call void @je_arena_set(i32 noundef %1, ptr noundef nonnull %25) #17
   %64 = getelementptr inbounds nuw i8, ptr %25, i64 79016
   store i32 %1, ptr %64, align 8, !tbaa !144
   %65 = getelementptr inbounds nuw i8, ptr %25, i64 79040
   %66 = load i32, ptr @je_manual_arena_base, align 4, !tbaa !4
   %67 = icmp ult i32 %1, %66
   %68 = select i1 %67, ptr @.str.6, ptr @.str.7
-  %69 = call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef nonnull %65, i64 noundef 32, ptr noundef nonnull @.str.5, ptr noundef nonnull %68, i32 noundef %1) #18
+  %69 = call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef nonnull %65, i64 noundef 32, ptr noundef nonnull @.str.5, ptr noundef nonnull %68, i32 noundef %1) #17
   %70 = getelementptr inbounds nuw i8, ptr %25, i64 79071
   store i8 0, ptr %70, align 1, !tbaa !149
   %71 = getelementptr inbounds nuw i8, ptr %25, i64 79032
-  call void @je_nstime_init_update(ptr noundef nonnull %71) #18
+  call void @je_nstime_init_update(ptr noundef nonnull %71) #17
   %72 = load i8, ptr @je_opt_hpa, align 1, !tbaa !147, !range !154, !noundef !155
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %85
 
 74:                                               ; preds = %.thread88
-  %75 = call ptr @je_base_ehooks_get(ptr noundef %.067) #18
+  %75 = call ptr @je_base_ehooks_get(ptr noundef %.067) #17
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load atomic i64, ptr %76 acquire, align 8
   %78 = icmp eq i64 %77, ptrtoint (ptr @je_ehooks_default_extent_hooks to i64)
@@ -6196,14 +6196,14 @@ atomic_store_u.exit:                              ; preds = %37
   br i1 %or.cond, label %80, label %85
 
 80:                                               ; preds = %74
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #18
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @je_opt_hpa_opts, i64 56, i1 false), !tbaa.struct !248
   %81 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %83 = and i8 %81, 1
   store i8 %83, ptr %82, align 4, !tbaa !249
-  %84 = call zeroext i1 @je_pa_shard_enable_hpa(ptr noundef %0, ptr noundef nonnull %38, ptr noundef nonnull %5, ptr noundef nonnull @je_opt_hpa_sec_opts) #18
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #18
+  %84 = call zeroext i1 @je_pa_shard_enable_hpa(ptr noundef %0, ptr noundef nonnull %38, ptr noundef nonnull %5, ptr noundef nonnull @je_opt_hpa_sec_opts) #17
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #17
   br i1 %84, label %.thread91, label %.thread90
 
 85:                                               ; preds = %74, %.thread88
@@ -6220,7 +6220,7 @@ atomic_store_u.exit:                              ; preds = %37
   br i1 %88, label %92, label %pre_reentrancy.exit
 
 92:                                               ; preds = %.thread90
-  call void @je_tsd_slow_update(ptr noundef nonnull %0) #18
+  call void @je_tsd_slow_update(ptr noundef nonnull %0) #17
   br label %pre_reentrancy.exit
 
 pre_reentrancy.exit:                              ; preds = %.thread90, %92
@@ -6229,7 +6229,7 @@ pre_reentrancy.exit:                              ; preds = %.thread90, %92
   br i1 %.not77, label %95, label %94
 
 94:                                               ; preds = %pre_reentrancy.exit
-  call void %93() #18
+  call void %93() #17
   br label %95
 
 95:                                               ; preds = %94, %pre_reentrancy.exit
@@ -6240,14 +6240,14 @@ pre_reentrancy.exit:                              ; preds = %.thread90, %92
   br i1 %98, label %99, label %post_reentrancy.exit
 
 99:                                               ; preds = %95
-  call void @je_tsd_slow_update(ptr noundef nonnull %0) #18
+  call void @je_tsd_slow_update(ptr noundef nonnull %0) #17
   br label %post_reentrancy.exit
 
 .loopexit:                                        ; preds = %53, %37, %atomic_store_u.exit81, %atomic_store_u.exit83, %16
   br i1 %6, label %post_reentrancy.exit, label %.thread91
 
 .thread91:                                        ; preds = %80, %.loopexit
-  call void @je_base_delete(ptr noundef %0, ptr noundef %.067) #18
+  call void @je_base_delete(ptr noundef %0, ptr noundef %.067) #17
   br label %post_reentrancy.exit
 
 post_reentrancy.exit:                             ; preds = %99, %95, %85, %.thread91, %.loopexit, %9
@@ -6295,7 +6295,7 @@ arena_get.exit.thread:                            ; preds = %1
   br i1 %11, label %12, label %arena_get.exit.i, !prof !150
 
 12:                                               ; preds = %arena_get.exit.thread
-  %13 = tail call ptr @je_arena_init(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @je_arena_config_default) #18
+  %13 = tail call ptr @je_arena_init(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @je_arena_config_default) #17
   br label %arena_get.exit.i
 
 arena_get.exit.i:                                 ; preds = %12, %arena_get.exit.thread
@@ -6305,7 +6305,7 @@ arena_get.exit.i:                                 ; preds = %12, %arena_get.exit
 
 15:                                               ; preds = %arena_get.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 79040
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) @str, i64 noundef 31, i1 false) #18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %16, ptr noundef nonnull align 1 dereferenceable(32) @str, i64 noundef 31, i1 false) #17
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 79071
   store i8 0, ptr %17, align 1, !tbaa !149
   %18 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
@@ -6322,7 +6322,7 @@ arena_get.exit.i:                                 ; preds = %12, %arena_get.exit
   %25 = trunc i8 %24 to i1
   %..i.i.i = select i1 %25, i32 1, i32 2
   %26 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 10664
-  %27 = tail call zeroext i1 @je_pa_decay_ms_set(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1, i64 noundef 0, i32 noundef %..i.i.i) #18
+  %27 = tail call zeroext i1 @je_pa_decay_ms_set(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1, i64 noundef 0, i32 noundef %..i.i.i) #17
   br label %28
 
 28:                                               ; preds = %23, %20, %15
@@ -6340,7 +6340,7 @@ arena_get.exit.i:                                 ; preds = %12, %arena_get.exit
   %36 = trunc i8 %35 to i1
   %..i.i12.i = select i1 %36, i32 1, i32 2
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 10664
-  %38 = tail call zeroext i1 @je_pa_decay_ms_set(ptr noundef %0, ptr noundef nonnull %37, i32 noundef 2, i64 noundef 0, i32 noundef %..i.i12.i) #18
+  %38 = tail call zeroext i1 @je_pa_decay_ms_set(ptr noundef %0, ptr noundef nonnull %37, i32 noundef 2, i64 noundef 0, i32 noundef %..i.i12.i) #17
   br label %arena_create_huge_arena.exit
 
 arena_create_huge_arena.exit:                     ; preds = %1, %34, %31, %28, %arena_get.exit.i
@@ -6361,7 +6361,7 @@ define hidden noundef zeroext i1 @je_arena_init_huge(ptr noundef writeonly captu
   br label %8
 
 atomic_store_zu.exit:                             ; preds = %1
-  %5 = tail call i32 @je_narenas_total_get() #18
+  %5 = tail call i32 @je_narenas_total_get() #17
   store i32 %5, ptr @huge_arena_ind, align 4, !tbaa !4
   %6 = load i64, ptr @je_opt_oversize_threshold, align 8, !tbaa !11
   store i64 %6, ptr @je_oversize_threshold, align 8, !tbaa !11
@@ -6378,7 +6378,7 @@ declare i32 @je_narenas_total_get() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden zeroext i1 @je_arena_boot(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i64, ptr @je_opt_dirty_decay_ms, align 8, !tbaa !11
-  %5 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %4) #18
+  %5 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %4) #17
   br i1 %5, label %atomic_store_zd.exit.i, label %je_arena_dirty_decay_ms_default_set.exit
 
 atomic_store_zd.exit.i:                           ; preds = %3
@@ -6387,7 +6387,7 @@ atomic_store_zd.exit.i:                           ; preds = %3
 
 je_arena_dirty_decay_ms_default_set.exit:         ; preds = %3, %atomic_store_zd.exit.i
   %6 = load i64, ptr @je_opt_muzzy_decay_ms, align 8, !tbaa !11
-  %7 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %6) #18
+  %7 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %6) #17
   br i1 %7, label %atomic_store_zd.exit.i22, label %je_arena_muzzy_decay_ms_default_set.exit
 
 atomic_store_zd.exit.i22:                         ; preds = %je_arena_dirty_decay_ms_default_set.exit
@@ -6417,13 +6417,13 @@ je_arena_muzzy_decay_ms_default_set.exit:         ; preds = %je_arena_dirty_deca
   %21 = shl i32 %18, %20
   %22 = add i32 %21, %16
   %23 = zext i32 %22 to i64
-  tail call void @je_div_init(ptr noundef nonnull %13, i64 noundef %23) #18
+  tail call void @je_div_init(ptr noundef nonnull %13, i64 noundef %23) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
   br i1 %exitcond.not, label %.preheader, label %11, !llvm.loop !254
 
 24:                                               ; preds = %26
-  %25 = tail call zeroext i1 @je_pa_central_init(ptr noundef nonnull @arena_pa_central_global, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull @je_hpa_hooks_default) #18
+  %25 = tail call zeroext i1 @je_pa_central_init(ptr noundef nonnull @arena_pa_central_global, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull @je_hpa_hooks_default) #17
   ret i1 %25
 
 26:                                               ; preds = %.preheader, %26
@@ -6449,7 +6449,7 @@ declare zeroext i1 @je_pa_central_init(ptr noundef, ptr noundef, i1 noundef zero
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_prefork0(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_prefork0(ptr noundef %0, ptr noundef nonnull %3) #18
+  tail call void @je_pa_shard_prefork0(ptr noundef %0, ptr noundef nonnull %3) #17
   ret void
 }
 
@@ -6458,7 +6458,7 @@ declare void @je_pa_shard_prefork0(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_prefork1(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10424
-  tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %3) #18
+  tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %3) #17
   ret void
 }
 
@@ -6467,7 +6467,7 @@ declare void @je_malloc_mutex_prefork(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_prefork2(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_prefork2(ptr noundef %0, ptr noundef nonnull %3) #18
+  tail call void @je_pa_shard_prefork2(ptr noundef %0, ptr noundef nonnull %3) #17
   ret void
 }
 
@@ -6476,7 +6476,7 @@ declare void @je_pa_shard_prefork2(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_prefork3(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_prefork3(ptr noundef %0, ptr noundef nonnull %3) #18
+  tail call void @je_pa_shard_prefork3(ptr noundef %0, ptr noundef nonnull %3) #17
   ret void
 }
 
@@ -6485,7 +6485,7 @@ declare void @je_pa_shard_prefork3(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_prefork4(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_prefork4(ptr noundef %0, ptr noundef nonnull %3) #18
+  tail call void @je_pa_shard_prefork4(ptr noundef %0, ptr noundef nonnull %3) #17
   ret void
 }
 
@@ -6494,7 +6494,7 @@ declare void @je_pa_shard_prefork4(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_prefork5(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_prefork5(ptr noundef %0, ptr noundef nonnull %3) #18
+  tail call void @je_pa_shard_prefork5(ptr noundef %0, ptr noundef nonnull %3) #17
   ret void
 }
 
@@ -6504,7 +6504,7 @@ declare void @je_pa_shard_prefork5(ptr noundef, ptr noundef) local_unnamed_addr 
 define hidden void @je_arena_prefork6(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %4 = load ptr, ptr %3, align 16, !tbaa !13
-  tail call void @je_base_prefork(ptr noundef %0, ptr noundef %4) #18
+  tail call void @je_base_prefork(ptr noundef %0, ptr noundef %4) #17
   ret void
 }
 
@@ -6513,7 +6513,7 @@ declare void @je_base_prefork(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @je_arena_prefork7(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 10552
-  tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %3) #18
+  tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef nonnull %3) #17
   ret void
 }
 
@@ -6551,7 +6551,7 @@ define hidden void @je_arena_prefork8(ptr noundef %0, ptr noundef %1) local_unna
   %14 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %10, i64 %indvars.iv
   %15 = getelementptr inbounds nuw %struct.bin_s, ptr %10, i64 %indvars.iv
   %.0.i = select i1 %13, ptr %14, ptr %15
-  tail call void @je_bin_prefork(ptr noundef %0, ptr noundef %.0.i, i1 noundef zeroext %13) #18
+  tail call void @je_bin_prefork(ptr noundef %0, ptr noundef %.0.i, i1 noundef zeroext %13) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = load i32, ptr %3, align 4, !tbaa !107
   %17 = zext i32 %16 to i64
@@ -6578,14 +6578,14 @@ define hidden void @je_arena_postfork_parent(ptr noundef %0, ptr noundef %1) loc
 
 6:                                                ; preds = %._crit_edge
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 10552
-  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %7) #18
+  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %7) #17
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %9 = load ptr, ptr %8, align 16, !tbaa !13
-  tail call void @je_base_postfork_parent(ptr noundef %0, ptr noundef %9) #18
+  tail call void @je_base_postfork_parent(ptr noundef %0, ptr noundef %9) #17
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_postfork_parent(ptr noundef %0, ptr noundef nonnull %10) #18
+  tail call void @je_pa_shard_postfork_parent(ptr noundef %0, ptr noundef nonnull %10) #17
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 10424
-  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %11) #18
+  tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef nonnull %11) #17
   ret void
 
 ._crit_edge:                                      ; preds = %12, %.preheader
@@ -6604,7 +6604,7 @@ define hidden void @je_arena_postfork_parent(ptr noundef %0, ptr noundef %1) loc
   %19 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %15, i64 %indvars.iv
   %20 = getelementptr inbounds nuw %struct.bin_s, ptr %15, i64 %indvars.iv
   %.0.i = select i1 %18, ptr %19, ptr %20
-  tail call void @je_bin_postfork_parent(ptr noundef %0, ptr noundef %.0.i, i1 noundef zeroext %18) #18
+  tail call void @je_bin_postfork_parent(ptr noundef %0, ptr noundef %.0.i, i1 noundef zeroext %18) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %3, align 4, !tbaa !107
   %22 = zext i32 %21 to i64
@@ -6693,14 +6693,14 @@ atomic_store_u.exit:
 
 35:                                               ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 10552
-  tail call void @je_malloc_mutex_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %36) #18
+  tail call void @je_malloc_mutex_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %36) #17
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 79024
   %38 = load ptr, ptr %37, align 16, !tbaa !13
-  tail call void @je_base_postfork_child(ptr noundef nonnull %0, ptr noundef %38) #18
+  tail call void @je_base_postfork_child(ptr noundef nonnull %0, ptr noundef %38) #17
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  tail call void @je_pa_shard_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %39) #18
+  tail call void @je_pa_shard_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %39) #17
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 10424
-  tail call void @je_malloc_mutex_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %40) #18
+  tail call void @je_malloc_mutex_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %40) #17
   ret void
 
 ._crit_edge:                                      ; preds = %41, %.preheader
@@ -6719,7 +6719,7 @@ atomic_store_u.exit:
   %48 = getelementptr inbounds nuw %struct.bin_with_batch_s, ptr %44, i64 %indvars.iv
   %49 = getelementptr inbounds nuw %struct.bin_s, ptr %44, i64 %indvars.iv
   %.0.i75 = select i1 %47, ptr %48, ptr %49
-  tail call void @je_bin_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %.0.i75, i1 noundef zeroext %47) #18
+  tail call void @je_bin_postfork_child(ptr noundef nonnull %0, ptr noundef nonnull %.0.i75, i1 noundef zeroext %47) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load i32, ptr %32, align 4, !tbaa !107
   %51 = zext i32 %50 to i64
@@ -6738,10 +6738,10 @@ declare void @je_pa_shard_postfork_child(ptr noundef, ptr noundef) local_unnamed
 declare void @je_malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
-declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #13
+declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #12
 
 declare void @je_nstime_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -6756,7 +6756,7 @@ define internal fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.
   %8 = urem i64 %6, %7
   %9 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #18
+  %11 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %10) #17
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %malloc_mutex_trylock.exit
 
@@ -6781,7 +6781,7 @@ define internal fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.
   br label %23
 
 23:                                               ; preds = %12, %19
-  %24 = tail call zeroext i1 @je_background_thread_is_started(ptr noundef nonnull %9) #18
+  %24 = tail call zeroext i1 @je_background_thread_is_started(ptr noundef nonnull %9) #17
   br i1 %24, label %25, label %arena_should_decay_early.exit.thread
 
 25:                                               ; preds = %23
@@ -6791,12 +6791,12 @@ define internal fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %25
-  tail call void @je_background_thread_wakeup_early(ptr noundef nonnull %9, ptr noundef null) #18
+  tail call void @je_background_thread_wakeup_early(ptr noundef nonnull %9, ptr noundef null) #17
   br label %arena_should_decay_early.exit.thread
 
 30:                                               ; preds = %25
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %32 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %31) #18
+  %32 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %31) #17
   %.not1.i = icmp eq i32 %32, 0
   br i1 %.not1.i, label %33, label %arena_should_decay_early.exit.thread
 
@@ -6828,30 +6828,30 @@ define internal fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.
 
 48:                                               ; preds = %44
   store atomic i8 0, ptr %34 monotonic, align 1
-  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #18
+  %49 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #17
   br label %arena_should_decay_early.exit.thread
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 176
-  %52 = tail call i64 @je_nstime_ns(ptr noundef nonnull %51) #18
-  call void @je_nstime_init(ptr noundef nonnull %4, i64 noundef %52) #18
+  %52 = tail call i64 @je_nstime_ns(ptr noundef nonnull %51) #17
+  call void @je_nstime_init(ptr noundef nonnull %4, i64 noundef %52) #17
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %54 = call i32 @je_nstime_compare(ptr noundef nonnull %4, ptr noundef nonnull %53) #18
+  %54 = call i32 @je_nstime_compare(ptr noundef nonnull %4, ptr noundef nonnull %53) #17
   %55 = icmp slt i32 %54, 1
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %50
   store atomic i8 0, ptr %34 monotonic, align 1
-  %57 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #18
+  %57 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #17
   br label %arena_should_decay_early.exit.thread
 
 58:                                               ; preds = %50
-  call void @je_nstime_subtract(ptr noundef nonnull %4, ptr noundef nonnull %53) #18
+  call void @je_nstime_subtract(ptr noundef nonnull %4, ptr noundef nonnull %53) #17
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %arena_should_decay_early.exit, label %59
 
 59:                                               ; preds = %58
-  %60 = call i64 @je_decay_npages_purge_in(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef %2) #18
+  %60 = call i64 @je_decay_npages_purge_in(ptr noundef nonnull %1, ptr noundef nonnull %4, i64 noundef %2) #17
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %62 = load i64, ptr %61, align 8, !tbaa !268
   %63 = add i64 %62, %60
@@ -6860,7 +6860,7 @@ define internal fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.
 
 arena_should_decay_early.exit:                    ; preds = %58, %59
   store atomic i8 0, ptr %34 monotonic, align 1
-  %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #18
+  %64 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %31) #17
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %66 = load i64, ptr %65, align 8, !tbaa !268
   %67 = icmp ugt i64 %66, 1024
@@ -6868,12 +6868,12 @@ arena_should_decay_early.exit:                    ; preds = %58, %59
 
 68:                                               ; preds = %arena_should_decay_early.exit
   store i64 0, ptr %65, align 8, !tbaa !268
-  call void @je_background_thread_wakeup_early(ptr noundef nonnull %9, ptr noundef nonnull %4) #18
+  call void @je_background_thread_wakeup_early(ptr noundef nonnull %9, ptr noundef nonnull %4) #17
   br label %arena_should_decay_early.exit.thread
 
 arena_should_decay_early.exit.thread:             ; preds = %30, %48, %56, %29, %68, %arena_should_decay_early.exit, %23
   store atomic i8 0, ptr %13 monotonic, align 1
-  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #18
+  %69 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #17
   br label %malloc_mutex_trylock.exit
 
 malloc_mutex_trylock.exit:                        ; preds = %3, %arena_should_decay_early.exit.thread
@@ -6891,15 +6891,15 @@ declare i64 @je_decay_npages_purge_in(ptr noundef, ptr noundef, i64 noundef) loc
 declare i64 @je_nstime_ns(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @arena_decay_impl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %8) #18
+  %9 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %8) #17
   %.not.i = icmp eq i32 %9, 0
   br i1 %6, label %10, label %26
 
@@ -6912,7 +6912,7 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %10
   br label %13
 
 12:                                               ; preds = %10
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %2) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %2) #17
   br label %13
 
 13:                                               ; preds = %12, %malloc_mutex_trylock_final.exit.i
@@ -6935,10 +6935,10 @@ malloc_mutex_trylock_final.exit.i:                ; preds = %10
 
 malloc_mutex_lock.exit:                           ; preds = %13, %19
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 10688
-  tail call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true) #18
+  tail call void @je_pac_decay_all(ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true) #17
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store atomic i8 0, ptr %24 monotonic, align 1
-  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #18
+  %25 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #17
   br label %malloc_mutex_trylock.exit
 
 26:                                               ; preds = %7
@@ -6976,7 +6976,7 @@ malloc_mutex_lock.exit:                           ; preds = %13, %19
 arena_decide_unforced_purge_eagerness.exit:       ; preds = %38, %39
   %.0.i = phi i32 [ 0, %38 ], [ %..i, %39 ]
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 10688
-  %43 = tail call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %42, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i32 noundef %.0.i) #18
+  %43 = tail call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %42, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i32 noundef %.0.i) #17
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %arena_decide_unforced_purge_eagerness.exit
@@ -6987,7 +6987,7 @@ arena_decide_unforced_purge_eagerness.exit:       ; preds = %38, %39
 46:                                               ; preds = %44, %arena_decide_unforced_purge_eagerness.exit
   %.0 = phi i64 [ %.val, %44 ], [ undef, %arena_decide_unforced_purge_eagerness.exit ]
   store atomic i8 0, ptr %28 monotonic, align 1
-  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #18
+  %47 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %8) #17
   %48 = load atomic i8, ptr @je_background_thread_enabled_state monotonic, align 1
   %49 = trunc i8 %48 to i1
   %brmerge.demorgan = and i1 %43, %49
@@ -7015,7 +7015,7 @@ declare i64 @je_pac_decay_ms_get(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i64 @je_eset_npages_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #16 {
+define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #15 {
   %5 = lshr i64 %3, 30
   %6 = and i64 %5, 15
   %7 = and i64 %3, -1073741824
@@ -7087,7 +7087,7 @@ define internal fastcc void @rtree_read(ptr dead_on_unwind noalias nonnull writa
   br label %rtree_leaf_elm_lookup.exit
 
 47:                                               ; preds = %32
-  %48 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %1, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %2, i64 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false) #18
+  %48 = tail call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %1, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %2, i64 noundef %3, i1 noundef zeroext true, i1 noundef zeroext false) #17
   br label %rtree_leaf_elm_lookup.exit
 
 rtree_leaf_elm_lookup.exit:                       ; preds = %33, %11, %21, %47
@@ -7131,7 +7131,7 @@ declare ptr @je_edata_heap_remove_first(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @arena_prepare_base_deletion_sync(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %5) #18
+  %6 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %5) #17
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %malloc_mutex_trylock.exit
 
@@ -7157,7 +7157,7 @@ define internal fastcc void @arena_prepare_base_deletion_sync(ptr noundef %0, pt
 
 18:                                               ; preds = %7, %14
   store atomic i8 0, ptr %8 monotonic, align 1
-  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #18
+  %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #17
   br label %45
 
 malloc_mutex_trylock.exit:                        ; preds = %4
@@ -7174,7 +7174,7 @@ malloc_mutex_trylock.exit:                        ; preds = %4
   %25 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8, !tbaa !177
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %27) #18
+  %28 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %27) #17
   %.not.i.i14 = icmp eq i32 %28, 0
   br i1 %.not.i.i14, label %malloc_mutex_trylock_final.exit.i.i, label %30
 
@@ -7184,7 +7184,7 @@ malloc_mutex_trylock_final.exit.i.i:              ; preds = %.lr.ph.i
   br label %31
 
 30:                                               ; preds = %.lr.ph.i
-  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %26) #18
+  tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %26) #17
   br label %31
 
 31:                                               ; preds = %30, %malloc_mutex_trylock_final.exit.i.i
@@ -7210,7 +7210,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %37, %31
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store atomic i8 0, ptr %42 monotonic, align 1
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 72
-  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #18
+  %44 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %43) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
   br i1 %exitcond.not.i, label %arena_prepare_base_deletion_sync_finish.exit, label %.lr.ph.i, !llvm.loop !178
@@ -7231,10 +7231,10 @@ declare i64 @je_batcher_pop_get_pushes(ptr noundef, ptr noundef) local_unnamed_a
 declare void @je_batcher_pop_end(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #15
+declare i64 @llvm.ctpop.i64(i64) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.cttz.i64(i64, i1 immarg) #15
+declare i64 @llvm.cttz.i64(i64, i1 immarg) #14
 
 declare void @je_bitmap_init(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -7242,7 +7242,7 @@ declare void @je_bitmap_init(ptr noundef, ptr noundef, i1 noundef zeroext) local
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) unnamed_addr #16 {
+define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) unnamed_addr #15 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %arena_choose_impl.exit
 
@@ -7259,7 +7259,7 @@ define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone ca
   br i1 %9, label %10, label %arena_choose_impl.exit, !prof !150
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @je_arena_config_default) #18
+  %11 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @je_arena_config_default) #17
   br label %arena_choose_impl.exit
 
 12:                                               ; preds = %3
@@ -7269,7 +7269,7 @@ define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone ca
   br i1 %15, label %16, label %28, !prof !150
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @je_arena_choose_hard(ptr noundef nonnull %0, i1 noundef zeroext false) #18
+  %17 = tail call ptr @je_arena_choose_hard(ptr noundef nonnull %0, i1 noundef zeroext false) #17
   %18 = load i8, ptr %0, align 1, !tbaa !147, !range !154, !noundef !155
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %28
@@ -7287,11 +7287,11 @@ define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone ca
   br i1 %.not43.i, label %28, label %26
 
 26:                                               ; preds = %25
-  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #18
+  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #17
   br label %28
 
 27:                                               ; preds = %20
-  tail call void @je_tcache_arena_associate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #18
+  tail call void @je_tcache_arena_associate(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %17) #17
   br label %28
 
 28:                                               ; preds = %27, %26, %25, %16, %12
@@ -7321,7 +7321,7 @@ percpu_arena_ind_limit.exit.i:                    ; preds = %28
   br i1 %.not44.i, label %arena_choose_impl.exit, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @sched_getcpu() #18
+  %42 = tail call i32 @sched_getcpu() #17
   %43 = load i32, ptr @je_opt_percpu_arena, align 4, !tbaa !4
   %44 = icmp eq i32 %43, 3
   br i1 %44, label %percpu_arena_choose.exit.i, label %45
@@ -7356,12 +7356,12 @@ percpu_arena_choose.exit.i:                       ; preds = %45, %41
   br i1 %57, label %58, label %arena_get.exit.i.i, !prof !150
 
 58:                                               ; preds = %53
-  %59 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef %.0.i46.i, ptr noundef nonnull @je_arena_config_default) #18
+  %59 = tail call ptr @je_arena_init(ptr noundef nonnull %0, i32 noundef %.0.i46.i, ptr noundef nonnull @je_arena_config_default) #17
   br label %arena_get.exit.i.i
 
 arena_get.exit.i.i:                               ; preds = %58, %53
   %.0.i18.i.i = phi ptr [ %59, %58 ], [ %.0.i.i.i.i, %53 ]
-  tail call void @je_arena_migrate(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef %.0.i18.i.i) #18
+  tail call void @je_arena_migrate(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef %.0.i18.i.i) #17
   %60 = load i8, ptr %0, align 1, !tbaa !147, !range !154, !noundef !155
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %percpu_arena_update.exit.i
@@ -7369,7 +7369,7 @@ arena_get.exit.i.i:                               ; preds = %58, %53
 62:                                               ; preds = %arena_get.exit.i.i
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %64, ptr noundef nonnull %63, ptr noundef %.0.i18.i.i) #18
+  tail call void @je_tcache_arena_reassociate(ptr noundef nonnull %0, ptr noundef nonnull %64, ptr noundef nonnull %63, ptr noundef %.0.i18.i.i) #17
   br label %percpu_arena_update.exit.i
 
 percpu_arena_update.exit.i:                       ; preds = %62, %arena_get.exit.i.i, %50
@@ -7394,7 +7394,7 @@ declare void @je_tcache_arena_reassociate(ptr noundef, ptr noundef, ptr noundef,
 declare void @je_tcache_arena_associate(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare i32 @sched_getcpu() local_unnamed_addr #13
+declare i32 @sched_getcpu() local_unnamed_addr #12
 
 declare void @je_arena_migrate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -7457,7 +7457,7 @@ edata_list_active_append.exit.i.i:                ; preds = %20, %14
 
 arena_bin_slabs_full_insert.exit.i:               ; preds = %3, %edata_list_active_append.exit.i.i, %10
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %36 = tail call ptr @je_edata_heap_remove_first(ptr noundef nonnull %35) #18
+  %36 = tail call ptr @je_edata_heap_remove_first(ptr noundef nonnull %35) #17
   %37 = icmp eq ptr %36, null
   br i1 %37, label %arena_bin_refill_slabcur_no_fresh_slab.exit.thread, label %arena_bin_refill_slabcur_no_fresh_slab.exit
 
@@ -7537,7 +7537,7 @@ declare void @je_edata_heap_insert(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @je_edata_heap_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_sdalloc_no_tcache(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #16 {
+define internal fastcc void @arena_sdalloc_no_tcache(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #15 {
   %4 = icmp ult i64 %2, 4097
   br i1 %4, label %5, label %11, !prof !148
 
@@ -7588,14 +7588,14 @@ sz_size2index.exit.thread:                        ; preds = %11, %sz_size2index.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #16 {
+define internal fastcc void @arena_dalloc_large_no_tcache(ptr noundef %0, ptr noundef %1) unnamed_addr #15 {
   %3 = alloca %struct.rtree_ctx_s, align 8
-  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #18
+  call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3) #17
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6, !prof !150
 
 5:                                                ; preds = %2
-  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #18
+  call void @je_rtree_ctx_data_init(ptr noundef nonnull %3) #17
   br label %tsdn_rtree_ctx.exit
 
 6:                                                ; preds = %2
@@ -7676,7 +7676,7 @@ tsdn_rtree_ctx.exit:                              ; preds = %5, %6
   br label %rtree_read.exit
 
 51:                                               ; preds = %36
-  %52 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #18, !noalias !280
+  %52 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i, i64 noundef %8, i1 noundef zeroext true, i1 noundef zeroext false) #17, !noalias !280
   br label %rtree_read.exit
 
 rtree_read.exit:                                  ; preds = %15, %25, %37, %51
@@ -7686,8 +7686,8 @@ rtree_read.exit:                                  ; preds = %15, %25, %37, %51
   %55 = ashr exact i64 %54, 16
   %56 = and i64 %55, -128
   %57 = inttoptr i64 %56 to ptr
-  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #18
-  call void @je_large_dalloc(ptr noundef %0, ptr noundef %57) #18
+  call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #17
+  call void @je_large_dalloc(ptr noundef %0, ptr noundef %57) #17
   ret void
 }
 
@@ -7698,10 +7698,10 @@ declare void @je_tsd_slow_update(ptr noundef) local_unnamed_addr #2
 declare ptr @je_arena_init(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #17
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7712,17 +7712,16 @@ attributes #5 = { mustprogress nofree norecurse noreturn nosync nounwind willret
 attributes #6 = { noreturn nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind willreturn memory(read) }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

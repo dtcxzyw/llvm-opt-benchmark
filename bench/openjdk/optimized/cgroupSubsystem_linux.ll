@@ -134,10 +134,10 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 133
   %21 = load i8, ptr %20, align 1
   %22 = and i8 %21, 1
-  %23 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %17, i8 noundef zeroext 9) #13
-  %24 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %19, i8 noundef zeroext 9) #13
-  %25 = call noundef ptr @_ZN18CgroupV2Controller14construct_pathEPcS0_(ptr noundef %17, ptr noundef %19) #13
-  %26 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #13
+  %23 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %17, i8 noundef zeroext 9) #14
+  %24 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %19, i8 noundef zeroext 9) #14
+  %25 = call noundef ptr @_ZN18CgroupV2Controller14construct_pathEPcS0_(ptr noundef %17, ptr noundef %19) #14
+  %26 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #14
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24CgroupV2MemoryController, i64 16), ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %27, align 8
@@ -149,7 +149,7 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   store i8 %22, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %25, ptr %31, align 8
-  %32 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #13
+  %32 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #14
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -157,9 +157,9 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 53
   %38 = load i8, ptr %37, align 1
   %39 = and i8 %38, 1
-  %40 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %34, i8 noundef zeroext 9) #13
-  %41 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %36, i8 noundef zeroext 9) #13
-  %42 = call noundef ptr @_ZN18CgroupV2Controller14construct_pathEPcS0_(ptr noundef %34, ptr noundef %36) #13
+  %40 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %34, i8 noundef zeroext 9) #14
+  %41 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %36, i8 noundef zeroext 9) #14
+  %42 = call noundef ptr @_ZN18CgroupV2Controller14construct_pathEPcS0_(ptr noundef %34, ptr noundef %36) #14
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21CgroupV2CpuController, i64 16), ptr %32, align 8
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %43, align 8
@@ -186,22 +186,22 @@ define hidden noundef ptr @_ZN22CgroupSubsystemFactory6createEv() local_unnamed_
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %.preheader115 ]
   %51 = getelementptr inbounds nuw %class.CgroupInfo, ptr %1, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %52) #13
+  call void @_ZN2os4freeEPv(ptr noundef %52) #14
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %54 = load ptr, ptr %53, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %54) #13
+  call void @_ZN2os4freeEPv(ptr noundef %54) #14
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %56 = load ptr, ptr %55, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %56) #13
+  call void @_ZN2os4freeEPv(ptr noundef %56) #14
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %58 = load ptr, ptr %57, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %58) #13
+  call void @_ZN2os4freeEPv(ptr noundef %58) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %50, !llvm.loop !6
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
-  %59 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #13
+  %59 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 64, i8 noundef zeroext 9, i32 noundef 0) #14
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17CgroupV2Subsystem, i64 16), ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV2Controller, i64 16), ptr %60, align 8
@@ -214,9 +214,9 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store ptr %25, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %66 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %66 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store ptr %26, ptr %66, align 8
-  %67 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %67 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store volatile i64 -1, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store volatile i64 -9223372036854775808, ptr %68, align 8
@@ -224,9 +224,9 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   store ptr %67, ptr %69, align 8
   store ptr %66, ptr %65, align 8
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 56
-  %71 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %71 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store ptr %32, ptr %71, align 8
-  %72 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %72 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store volatile i64 -1, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store volatile i64 -9223372036854775808, ptr %73, align 8
@@ -258,15 +258,15 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   br i1 %76, label %77, label %140
 
 77:                                               ; preds = %.preheader107
-  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.7) #14
+  %78 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.7) #15
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %80, label %91
 
 80:                                               ; preds = %77
-  %81 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #13
+  %81 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 9, i32 noundef 0) #14
   %82 = and i8 %.sroa.65.0.copyload, 1
-  %83 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
-  %84 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #13
+  %83 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #14
+  %84 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #14
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24CgroupV1MemoryController, i64 16), ptr %81, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %85, align 8
@@ -280,41 +280,41 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   store ptr null, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 48
   store i8 0, ptr %90, align 8
-  call void @_ZN24CgroupV1MemoryController18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef %.sroa.1210.0.copyload) #13
+  call void @_ZN24CgroupV1MemoryController18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef %.sroa.1210.0.copyload) #14
   br label %145
 
 91:                                               ; preds = %77
-  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.8) #14
+  %92 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(7) @.str.8) #15
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %103
 
 94:                                               ; preds = %91
-  %95 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #13
+  %95 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #14
   %96 = and i8 %.sroa.65.0.copyload, 1
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %98 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
+  %98 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #14
   store ptr %98, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  %100 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #13
+  %100 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #14
   store ptr %100, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 24
   store i8 %96, ptr %101, align 8
   %102 = getelementptr inbounds nuw i8, ptr %95, i64 32
   store ptr null, ptr %102, align 8
-  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef %.sroa.1210.0.copyload) #13
+  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %95, ptr noundef %.sroa.1210.0.copyload) #14
   br label %145
 
 103:                                              ; preds = %91
-  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.9) #14
+  %104 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(4) @.str.9) #15
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %116
 
 106:                                              ; preds = %103
-  %107 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #13
+  %107 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #14
   %108 = and i8 %.sroa.65.0.copyload, 1
-  %109 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
-  %110 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #13
+  %109 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #14
+  %110 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #14
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV21CgroupV1CpuController, i64 16), ptr %107, align 8
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %111, align 8
@@ -326,51 +326,51 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   store i8 %108, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store ptr null, ptr %115, align 8
-  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef %.sroa.1210.0.copyload) #13
+  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef %.sroa.1210.0.copyload) #14
   br label %145
 
 116:                                              ; preds = %103
-  %117 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.10) #14
+  %117 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.10) #15
   %118 = icmp eq i32 %117, 0
   br i1 %118, label %119, label %128
 
 119:                                              ; preds = %116
-  %120 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #13
+  %120 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #14
   %121 = and i8 %.sroa.65.0.copyload, 1
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %123 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
+  %123 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #14
   store ptr %123, ptr %122, align 8
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %125 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #13
+  %125 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #14
   store ptr %125, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store i8 %121, ptr %126, align 8
   %127 = getelementptr inbounds nuw i8, ptr %120, i64 32
   store ptr null, ptr %127, align 8
-  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef %.sroa.1210.0.copyload) #13
+  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %120, ptr noundef %.sroa.1210.0.copyload) #14
   br label %145
 
 128:                                              ; preds = %116
-  %129 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.11) #14
+  %129 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(5) @.str.11) #15
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %145
 
 131:                                              ; preds = %128
-  %132 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #13
+  %132 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #14
   %133 = and i8 %.sroa.65.0.copyload, 1
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV18CgroupV1Controller, i64 16), ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %135 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #13
+  %135 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.17.0.copyload, i8 noundef zeroext 9) #14
   store ptr %135, ptr %134, align 8
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %137 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #13
+  %137 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %.sroa.22.0.copyload, i8 noundef zeroext 9) #14
   store ptr %137, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store i8 %133, ptr %138, align 8
   %139 = getelementptr inbounds nuw i8, ptr %132, i64 32
   store ptr null, ptr %139, align 8
-  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %132, ptr noundef %.sroa.1210.0.copyload) #13
+  call void @_ZN18CgroupV1Controller18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(40) %132, ptr noundef %.sroa.1210.0.copyload) #14
   br label %145
 
 140:                                              ; preds = %.preheader107
@@ -398,27 +398,27 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %50
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.preheader ], [ 0, %145 ]
   %146 = getelementptr inbounds nuw %class.CgroupInfo, ptr %1, i64 %indvars.iv.i80
   %147 = load ptr, ptr %146, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %147) #13
+  call void @_ZN2os4freeEPv(ptr noundef %147) #14
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %149 = load ptr, ptr %148, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %149) #13
+  call void @_ZN2os4freeEPv(ptr noundef %149) #14
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %151 = load ptr, ptr %150, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %151) #13
+  call void @_ZN2os4freeEPv(ptr noundef %151) #14
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %153 = load ptr, ptr %152, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %153) #13
+  call void @_ZN2os4freeEPv(ptr noundef %153) #14
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 5
   br i1 %exitcond.not.i82, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit83, label %.preheader, !llvm.loop !6
 
 _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit83: ; preds = %.preheader
-  %154 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #13
+  %154 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 9, i32 noundef 0) #14
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV17CgroupV1Subsystem, i64 16), ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %156 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %156 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store ptr %.1, ptr %156, align 8
-  %157 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %157 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store volatile i64 -1, ptr %157, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store volatile i64 -9223372036854775808, ptr %158, align 8
@@ -428,9 +428,9 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit83: ; preds = %.preheader
   %160 = getelementptr inbounds nuw i8, ptr %154, i64 16
   store ptr %.171, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %162 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %162 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store ptr %.173, ptr %162, align 8
-  %163 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #13
+  %163 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 9, i32 noundef 0) #14
   store volatile i64 -1, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store volatile i64 -9223372036854775808, ptr %164, align 8
@@ -468,7 +468,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   %21 = alloca [4097 x i8], align 16
   %22 = alloca [4097 x i8], align 16
   %23 = alloca ptr, align 8
-  %24 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.15) #13
+  %24 = tail call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %1, ptr noundef nonnull @.str.15) #14
   %25 = icmp eq ptr %24, null
   br i1 %25, label %41, label %.preheader236
 
@@ -501,15 +501,15 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not228, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call ptr @__errno_location() #15
+  %44 = tail call ptr @__errno_location() #16
   %45 = load i32, ptr %44, align 4
-  %46 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %45) #13
+  %46 = tail call noundef ptr @_ZN2os8strerrorEi(i32 noundef %45) #14
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %1, ptr noundef %46)
   br label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit
 
 47:                                               ; preds = %.lr.ph, %.backedge237
   %48 = phi ptr [ %26, %.lr.ph ], [ %91, %.backedge237 ]
-  %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %48, ptr noundef nonnull @.str.17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #13
+  %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %48, ptr noundef nonnull @.str.17, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #14
   %.not151 = icmp eq i32 %49, 3
   br i1 %.not151, label %50, label %.backedge237
 
@@ -519,7 +519,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %50
-  %53 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #13
+  %53 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #14
   store ptr %53, ptr %38, align 8
   %54 = load i32, ptr %15, align 4
   store i32 %54, ptr %39, align 8
@@ -535,7 +535,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %58
-  %61 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #13
+  %61 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #14
   store ptr %61, ptr %0, align 8
   %62 = load i32, ptr %15, align 4
   store i32 %62, ptr %36, align 8
@@ -551,7 +551,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not155, label %67, label %73
 
 67:                                               ; preds = %66
-  %68 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #13
+  %68 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #14
   store ptr %68, ptr %33, align 8
   %69 = load i32, ptr %15, align 4
   store i32 %69, ptr %34, align 8
@@ -567,7 +567,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not158, label %74, label %80
 
 74:                                               ; preds = %73
-  %75 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #13
+  %75 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #14
   store ptr %75, ptr %30, align 8
   %76 = load i32, ptr %15, align 4
   store i32 %76, ptr %31, align 8
@@ -592,7 +592,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br label %85
 
 85:                                               ; preds = %82, %84
-  %86 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #13
+  %86 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef nonnull %14, i8 noundef zeroext 9) #14
   store ptr %86, ptr %27, align 8
   %87 = load i32, ptr %15, align 4
   store i32 %87, ptr %28, align 8
@@ -689,22 +689,22 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %124 ], [ 0, %.preheader303 ]
   %125 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i
   %126 = load ptr, ptr %125, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %126) #13
+  call void @_ZN2os4freeEPv(ptr noundef %126) #14
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %128 = load ptr, ptr %127, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %128) #13
+  call void @_ZN2os4freeEPv(ptr noundef %128) #14
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %130 = load ptr, ptr %129, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %130) #13
+  call void @_ZN2os4freeEPv(ptr noundef %130) #14
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %132 = load ptr, ptr %131, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %132) #13
+  call void @_ZN2os4freeEPv(ptr noundef %132) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %124, !llvm.loop !6
 
 133:                                              ; preds = %119
-  %134 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %2, ptr noundef nonnull @.str.15) #13
+  %134 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %2, ptr noundef nonnull @.str.15) #14
   %135 = icmp eq ptr %134, null
   br i1 %135, label %143, label %.preheader234
 
@@ -729,9 +729,9 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not225, label %.preheader297, label %145
 
 145:                                              ; preds = %143
-  %146 = tail call ptr @__errno_location() #15
+  %146 = tail call ptr @__errno_location() #16
   %147 = load i32, ptr %146, align 4
-  %148 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %147) #13
+  %148 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %147) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %2, ptr noundef %148)
   br label %.preheader297
 
@@ -742,26 +742,26 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   %indvars.iv.i161 = phi i64 [ %indvars.iv.next.i162, %149 ], [ 0, %.preheader297 ]
   %150 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i161
   %151 = load ptr, ptr %150, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %151) #13
+  call void @_ZN2os4freeEPv(ptr noundef %151) #14
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %153 = load ptr, ptr %152, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %153) #13
+  call void @_ZN2os4freeEPv(ptr noundef %153) #14
   %154 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %155 = load ptr, ptr %154, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %155) #13
+  call void @_ZN2os4freeEPv(ptr noundef %155) #14
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 32
   %157 = load ptr, ptr %156, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %157) #13
+  call void @_ZN2os4freeEPv(ptr noundef %157) #14
   %indvars.iv.next.i162 = add nuw nsw i64 %indvars.iv.i161, 1
   %exitcond.not.i163 = icmp eq i64 %indvars.iv.next.i162, 5
   br i1 %exitcond.not.i163, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %149, !llvm.loop !6
 
 158:                                              ; preds = %.lr.ph245, %.backedge235
-  %159 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.21) #13
-  %160 = call i32 @atoi(ptr noundef %159) #14
-  %161 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.21) #13
+  %159 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.21) #14
+  %160 = call i32 @atoi(ptr noundef %159) #15
+  %161 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.21) #14
   store ptr %161, ptr %17, align 8
-  %162 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.22) #13
+  %162 = call ptr @strsep(ptr noundef nonnull %13, ptr noundef nonnull @.str.22) #14
   %163 = load ptr, ptr %17, align 8
   %164 = icmp eq ptr %163, null
   br i1 %164, label %.backedge235, label %.preheader232
@@ -770,63 +770,63 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %137, label %.critedge160, label %.lr.ph242.preheader
 
 .lr.ph242.preheader:                              ; preds = %.preheader232
-  %165 = call ptr @strsep(ptr noundef nonnull %17, ptr noundef nonnull @.str.23) #13
+  %165 = call ptr @strsep(ptr noundef nonnull %17, ptr noundef nonnull @.str.23) #14
   %.not148295 = icmp eq ptr %165, null
   br i1 %.not148295, label %.backedge235, label %.lr.ph296
 
 .lr.ph296:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
   %166 = phi ptr [ %191, %.lr.ph242 ], [ %165, %.lr.ph242.preheader ]
-  %167 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(7) @.str.7) #14
+  %167 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(7) @.str.7) #15
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %.lr.ph296
-  %170 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #13
+  %170 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #14
   store ptr %170, ptr %142, align 8
   br label %.lr.ph242
 
 171:                                              ; preds = %.lr.ph296
-  %172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(7) @.str.8) #14
+  %172 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(7) @.str.8) #15
   %173 = icmp eq i32 %172, 0
   br i1 %173, label %174, label %176
 
 174:                                              ; preds = %171
-  %175 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #13
+  %175 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #14
   store ptr %175, ptr %141, align 8
   br label %.lr.ph242
 
 176:                                              ; preds = %171
-  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(4) @.str.9) #14
+  %177 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(4) @.str.9) #15
   %178 = icmp eq i32 %177, 0
   br i1 %178, label %179, label %181
 
 179:                                              ; preds = %176
-  %180 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #13
+  %180 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #14
   store ptr %180, ptr %140, align 8
   br label %.lr.ph242
 
 181:                                              ; preds = %176
-  %182 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(8) @.str.10) #14
+  %182 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(8) @.str.10) #15
   %183 = icmp eq i32 %182, 0
   br i1 %183, label %184, label %186
 
 184:                                              ; preds = %181
-  %185 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #13
+  %185 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #14
   store ptr %185, ptr %139, align 8
   br label %.lr.ph242
 
 186:                                              ; preds = %181
-  %187 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(5) @.str.11) #14
+  %187 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %166, ptr noundef nonnull dereferenceable(5) @.str.11) #15
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %189, label %.lr.ph242
 
 189:                                              ; preds = %186
-  %190 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #13
+  %190 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #14
   store ptr %190, ptr %138, align 8
   br label %.lr.ph242
 
 .lr.ph242:                                        ; preds = %174, %184, %189, %186, %179, %169
-  %191 = call ptr @strsep(ptr noundef nonnull %17, ptr noundef nonnull @.str.23) #13
+  %191 = call ptr @strsep(ptr noundef nonnull %17, ptr noundef nonnull @.str.23) #14
   %.not148 = icmp eq ptr %191, null
   br i1 %.not148, label %.backedge235, label %.lr.ph296
 
@@ -836,7 +836,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 .preheader231:                                    ; preds = %.critedge160, %.preheader231
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %.preheader231 ], [ 0, %.critedge160 ]
-  %192 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #13
+  %192 = call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %162, i8 noundef zeroext 9) #14
   %193 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv283, i32 5
   store ptr %192, ptr %193, align 8
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
@@ -851,7 +851,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 
 ._crit_edge246:                                   ; preds = %.backedge235, %.preheader234
   %195 = call i32 @fclose(ptr noundef nonnull %134)
-  %196 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %3, ptr noundef nonnull @.str.15) #13
+  %196 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %3, ptr noundef nonnull @.str.15) #14
   %197 = icmp eq ptr %196, null
   br i1 %197, label %206, label %.preheader230
 
@@ -880,9 +880,9 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %.not224, label %.preheader298, label %208
 
 208:                                              ; preds = %206
-  %209 = tail call ptr @__errno_location() #15
+  %209 = tail call ptr @__errno_location() #16
   %210 = load i32, ptr %209, align 4
-  %211 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %210) #13
+  %211 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %210) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16, ptr noundef %3, ptr noundef %211)
   br label %.preheader298
 
@@ -893,16 +893,16 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   %indvars.iv.i165 = phi i64 [ %indvars.iv.next.i166, %212 ], [ 0, %.preheader298 ]
   %213 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i165
   %214 = load ptr, ptr %213, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %214) #13
+  call void @_ZN2os4freeEPv(ptr noundef %214) #14
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %216 = load ptr, ptr %215, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %216) #13
+  call void @_ZN2os4freeEPv(ptr noundef %216) #14
   %217 = getelementptr inbounds nuw i8, ptr %213, i64 24
   %218 = load ptr, ptr %217, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %218) #13
+  call void @_ZN2os4freeEPv(ptr noundef %218) #14
   %219 = getelementptr inbounds nuw i8, ptr %213, i64 32
   %220 = load ptr, ptr %219, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %220) #13
+  call void @_ZN2os4freeEPv(ptr noundef %220) #14
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i165, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, 5
   br i1 %exitcond.not.i167, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %212, !llvm.loop !6
@@ -915,7 +915,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
   br i1 %200, label %223, label %.loopexit229
 
 223:                                              ; preds = %221
-  %224 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %222, ptr noundef nonnull @.str.49, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %18, ptr noundef nonnull %21) #13
+  %224 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %222, ptr noundef nonnull @.str.49, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %18, ptr noundef nonnull %21) #14
   %225 = icmp eq i32 %224, 5
   %rhsv = load i64, ptr %18, align 16
   %.not145 = icmp eq i64 %rhsv, 14197398518785891
@@ -925,7 +925,7 @@ define hidden noundef zeroext i1 @_ZN22CgroupSubsystemFactory14determine_typeEP1
 226:                                              ; preds = %223
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %22, ptr %11, align 8
-  %227 = call ptr @strsep(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #13
+  %227 = call ptr @strsep(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i247.not = icmp eq ptr %227, null
   br i1 %.not.not.not.not.i247.not, label %_ZL11find_ro_optPc.exit, label %sub_0.i
 
@@ -948,7 +948,7 @@ sub_2.i:                                          ; preds = %sub_1.i
   br i1 %234, label %_ZL11find_ro_optPc.exit, label %.backedge.i
 
 .backedge.i:                                      ; preds = %sub_2.i, %sub_1.i, %sub_0.i
-  %235 = call ptr @strsep(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #13
+  %235 = call ptr @strsep(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i.not = icmp eq ptr %235, null
   br i1 %.not.not.not.not.i.not, label %_ZL11find_ro_optPc.exit, label %sub_0.i, !llvm.loop !13
 
@@ -968,7 +968,7 @@ _ZL11find_ro_optPc.exit:                          ; preds = %sub_2.i, %.backedge
   %.1136 = phi i1 [ %.0135276, %223 ], [ %.0135276, %221 ], [ true, %236 ]
   %.1134 = phi i1 [ %.0133277, %223 ], [ %.0133277, %221 ], [ true, %236 ]
   %238 = load ptr, ptr %13, align 8
-  %239 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %238, ptr noundef nonnull @.str.49, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %18, ptr noundef nonnull %21) #13
+  %239 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef readonly %238, ptr noundef nonnull @.str.49, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %18, ptr noundef nonnull %21) #14
   %240 = icmp eq i32 %239, 5
   br i1 %240, label %241, label %.backedge
 
@@ -978,21 +978,21 @@ _ZL11find_ro_optPc.exit:                          ; preds = %sub_2.i, %.backedge
   br i1 %.not146, label %.preheader, label %.backedge
 
 .preheader:                                       ; preds = %241
-  %242 = call ptr @strsep(ptr noundef nonnull %23, ptr noundef nonnull @.str.23) #13
+  %242 = call ptr @strsep(ptr noundef nonnull %23, ptr noundef nonnull @.str.23) #14
   %.not147271 = icmp eq ptr %242, null
   br i1 %.not147271, label %.backedge, label %.lr.ph273
 
 .lr.ph273:                                        ; preds = %.preheader, %308
   %243 = phi ptr [ %309, %308 ], [ %242, %.preheader ]
   %.3272 = phi i1 [ %.4, %308 ], [ %.1134, %.preheader ]
-  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(7) @.str.7) #14
+  %244 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(7) @.str.7) #15
   %245 = icmp eq i32 %244, 0
   br i1 %245, label %246, label %256
 
 246:                                              ; preds = %.lr.ph273
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store ptr %22, ptr %10, align 8
-  %247 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.23) #13
+  %247 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i169267.not = icmp eq ptr %247, null
   br i1 %.not.not.not.not.i169267.not, label %_ZL11find_ro_optPc.exit176, label %sub_0.i170
 
@@ -1015,7 +1015,7 @@ sub_2.i175:                                       ; preds = %sub_1.i173
   br i1 %254, label %_ZL11find_ro_optPc.exit176, label %.backedge.i172
 
 .backedge.i172:                                   ; preds = %sub_2.i175, %sub_1.i173, %sub_0.i170
-  %255 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.23) #13
+  %255 = call ptr @strsep(ptr noundef nonnull %10, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i169.not = icmp eq ptr %255, null
   br i1 %.not.not.not.not.i169.not, label %_ZL11find_ro_optPc.exit176, label %sub_0.i170, !llvm.loop !13
 
@@ -1027,14 +1027,14 @@ _ZL11find_ro_optPc.exit176:                       ; preds = %sub_2.i175, %.backe
   br label %308
 
 256:                                              ; preds = %.lr.ph273
-  %257 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(7) @.str.8) #14
+  %257 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(7) @.str.8) #15
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %259, label %269
 
 259:                                              ; preds = %256
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr %22, ptr %9, align 8
-  %260 = call ptr @strsep(ptr noundef nonnull %9, ptr noundef nonnull @.str.23) #13
+  %260 = call ptr @strsep(ptr noundef nonnull %9, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i177263.not = icmp eq ptr %260, null
   br i1 %.not.not.not.not.i177263.not, label %_ZL11find_ro_optPc.exit184, label %sub_0.i178
 
@@ -1057,7 +1057,7 @@ sub_2.i183:                                       ; preds = %sub_1.i181
   br i1 %267, label %_ZL11find_ro_optPc.exit184, label %.backedge.i180
 
 .backedge.i180:                                   ; preds = %sub_2.i183, %sub_1.i181, %sub_0.i178
-  %268 = call ptr @strsep(ptr noundef nonnull %9, ptr noundef nonnull @.str.23) #13
+  %268 = call ptr @strsep(ptr noundef nonnull %9, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i177.not = icmp eq ptr %268, null
   br i1 %.not.not.not.not.i177.not, label %_ZL11find_ro_optPc.exit184, label %sub_0.i178, !llvm.loop !13
 
@@ -1069,14 +1069,14 @@ _ZL11find_ro_optPc.exit184:                       ; preds = %sub_2.i183, %.backe
   br label %308
 
 269:                                              ; preds = %256
-  %270 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(4) @.str.9) #14
+  %270 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(4) @.str.9) #15
   %271 = icmp eq i32 %270, 0
   br i1 %271, label %272, label %282
 
 272:                                              ; preds = %269
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %22, ptr %8, align 8
-  %273 = call ptr @strsep(ptr noundef nonnull %8, ptr noundef nonnull @.str.23) #13
+  %273 = call ptr @strsep(ptr noundef nonnull %8, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i185259.not = icmp eq ptr %273, null
   br i1 %.not.not.not.not.i185259.not, label %_ZL11find_ro_optPc.exit192, label %sub_0.i186
 
@@ -1099,7 +1099,7 @@ sub_2.i191:                                       ; preds = %sub_1.i189
   br i1 %280, label %_ZL11find_ro_optPc.exit192, label %.backedge.i188
 
 .backedge.i188:                                   ; preds = %sub_2.i191, %sub_1.i189, %sub_0.i186
-  %281 = call ptr @strsep(ptr noundef nonnull %8, ptr noundef nonnull @.str.23) #13
+  %281 = call ptr @strsep(ptr noundef nonnull %8, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i185.not = icmp eq ptr %281, null
   br i1 %.not.not.not.not.i185.not, label %_ZL11find_ro_optPc.exit192, label %sub_0.i186, !llvm.loop !13
 
@@ -1111,14 +1111,14 @@ _ZL11find_ro_optPc.exit192:                       ; preds = %sub_2.i191, %.backe
   br label %308
 
 282:                                              ; preds = %269
-  %283 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(8) @.str.10) #14
+  %283 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(8) @.str.10) #15
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %285, label %295
 
 285:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %22, ptr %7, align 8
-  %286 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #13
+  %286 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i193255.not = icmp eq ptr %286, null
   br i1 %.not.not.not.not.i193255.not, label %_ZL11find_ro_optPc.exit200, label %sub_0.i194
 
@@ -1141,7 +1141,7 @@ sub_2.i199:                                       ; preds = %sub_1.i197
   br i1 %293, label %_ZL11find_ro_optPc.exit200, label %.backedge.i196
 
 .backedge.i196:                                   ; preds = %sub_2.i199, %sub_1.i197, %sub_0.i194
-  %294 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #13
+  %294 = call ptr @strsep(ptr noundef nonnull %7, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i193.not = icmp eq ptr %294, null
   br i1 %.not.not.not.not.i193.not, label %_ZL11find_ro_optPc.exit200, label %sub_0.i194, !llvm.loop !13
 
@@ -1153,14 +1153,14 @@ _ZL11find_ro_optPc.exit200:                       ; preds = %sub_2.i199, %.backe
   br label %308
 
 295:                                              ; preds = %282
-  %296 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(5) @.str.11) #14
+  %296 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %243, ptr noundef nonnull dereferenceable(5) @.str.11) #15
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %308
 
 298:                                              ; preds = %295
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %22, ptr %6, align 8
-  %299 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #13
+  %299 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i201251.not = icmp eq ptr %299, null
   br i1 %.not.not.not.not.i201251.not, label %_ZL11find_ro_optPc.exit208, label %sub_0.i202
 
@@ -1183,7 +1183,7 @@ sub_2.i207:                                       ; preds = %sub_1.i205
   br i1 %306, label %_ZL11find_ro_optPc.exit208, label %.backedge.i204
 
 .backedge.i204:                                   ; preds = %sub_2.i207, %sub_1.i205, %sub_0.i202
-  %307 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #13
+  %307 = call ptr @strsep(ptr noundef nonnull %6, ptr noundef nonnull @.str.23) #14
   %.not.not.not.not.i201.not = icmp eq ptr %307, null
   br i1 %.not.not.not.not.i201.not, label %_ZL11find_ro_optPc.exit208, label %sub_0.i202, !llvm.loop !13
 
@@ -1196,7 +1196,7 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
 
 308:                                              ; preds = %_ZL11find_ro_optPc.exit184, %_ZL11find_ro_optPc.exit200, %_ZL11find_ro_optPc.exit208, %295, %_ZL11find_ro_optPc.exit192, %_ZL11find_ro_optPc.exit176
   %.4 = phi i1 [ true, %_ZL11find_ro_optPc.exit176 ], [ true, %_ZL11find_ro_optPc.exit184 ], [ true, %_ZL11find_ro_optPc.exit192 ], [ true, %_ZL11find_ro_optPc.exit200 ], [ true, %_ZL11find_ro_optPc.exit208 ], [ %.3272, %295 ]
-  %309 = call ptr @strsep(ptr noundef nonnull %23, ptr noundef nonnull @.str.23) #13
+  %309 = call ptr @strsep(ptr noundef nonnull %23, ptr noundef nonnull @.str.23) #14
   %.not147 = icmp eq ptr %309, null
   br i1 %.not147, label %.backedge, label %.lr.ph273, !llvm.loop !15
 
@@ -1227,16 +1227,16 @@ _ZL11find_ro_optPc.exit208:                       ; preds = %sub_2.i207, %.backe
   %indvars.iv.i209 = phi i64 [ %indvars.iv.next.i210, %315 ], [ 0, %.preheader300 ]
   %316 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv.i209
   %317 = load ptr, ptr %316, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %317) #13
+  call void @_ZN2os4freeEPv(ptr noundef %317) #14
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 16
   %319 = load ptr, ptr %318, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %319) #13
+  call void @_ZN2os4freeEPv(ptr noundef %319) #14
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 24
   %321 = load ptr, ptr %320, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %321) #13
+  call void @_ZN2os4freeEPv(ptr noundef %321) #14
   %322 = getelementptr inbounds nuw i8, ptr %316, i64 32
   %323 = load ptr, ptr %322, align 8
-  call void @_ZN2os4freeEPv(ptr noundef %323) #13
+  call void @_ZN2os4freeEPv(ptr noundef %323) #14
   %indvars.iv.next.i210 = add nuw nsw i64 %indvars.iv.i209, 1
   %exitcond.not.i211 = icmp eq i64 %indvars.iv.next.i210, 5
   br i1 %exitcond.not.i211, label %_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit, label %315, !llvm.loop !6
@@ -1375,7 +1375,7 @@ _ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo.exit: ; preds = %124, %315, %2
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #13
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #14
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -1388,16 +1388,16 @@ define hidden void @_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo(ptr nounde
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = getelementptr inbounds nuw %class.CgroupInfo, ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %4) #13
+  tail call void @_ZN2os4freeEPv(ptr noundef %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %6) #13
+  tail call void @_ZN2os4freeEPv(ptr noundef %6) #14
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %8) #13
+  tail call void @_ZN2os4freeEPv(ptr noundef %8) #14
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %10) #13
+  tail call void @_ZN2os4freeEPv(ptr noundef %10) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %11, label %2, !llvm.loop !6
@@ -1406,7 +1406,7 @@ define hidden void @_ZN22CgroupSubsystemFactory7cleanupEP10CgroupInfo(ptr nounde
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @_ZN24CgroupV1MemoryController18set_subsystem_pathEPc(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #2
@@ -1440,13 +1440,13 @@ define hidden void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupI
 
 16:                                               ; preds = %14, %15
   %17 = phi ptr [ %11, %14 ], [ %.pre, %15 ]
-  tail call void @_ZN2os4freeEPv(ptr noundef %17) #13
+  tail call void @_ZN2os4freeEPv(ptr noundef %17) #14
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load ptr, ptr %18, align 8
-  tail call void @_ZN2os4freeEPv(ptr noundef %19) #13
-  %20 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %3, i8 noundef zeroext 9) #13
+  tail call void @_ZN2os4freeEPv(ptr noundef %19) #14
+  %20 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %3, i8 noundef zeroext 9) #14
   store ptr %20, ptr %10, align 8
-  %21 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %4, i8 noundef zeroext 9) #13
+  %21 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %4, i8 noundef zeroext 9) #14
   store ptr %21, ptr %18, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 13
   store i8 %7, ptr %22, align 1
@@ -1460,9 +1460,9 @@ define hidden void @_ZN22CgroupSubsystemFactory20set_controller_pathsEP10CgroupI
   br label %30
 
 25:                                               ; preds = %6
-  %26 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %3, i8 noundef zeroext 9) #13
+  %26 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %3, i8 noundef zeroext 9) #14
   store ptr %26, ptr %10, align 8
-  %27 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %4, i8 noundef zeroext 9) #13
+  %27 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %4, i8 noundef zeroext 9) #14
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %27, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 13
@@ -1496,14 +1496,14 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 ; Function Attrs: nounwind
 declare ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
 declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #0 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2) #13
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 1, ptr noundef %0, ptr noundef nonnull %2) #14
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
@@ -1513,10 +1513,10 @@ define hidden noundef i32 @_ZN15CgroupSubsystem22active_processor_countEv(ptr no
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #13
+  %8 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load volatile i64, ptr %9, align 8
   %11 = icmp sgt i64 %8, %10
@@ -1534,12 +1534,12 @@ define hidden noundef i32 @_ZN15CgroupSubsystem22active_processor_countEv(ptr no
   br label %24
 
 17:                                               ; preds = %1
-  %18 = tail call noundef i32 @_ZN2os5Linux22active_processor_countEv() #13
+  %18 = tail call noundef i32 @_ZN2os5Linux22active_processor_countEv() #14
   %19 = load ptr, ptr %5, align 8
-  %20 = tail call noundef i32 @_ZN10CgroupUtil15processor_countEP19CgroupCpuControlleri(ptr noundef %19, i32 noundef %18) #13
+  %20 = tail call noundef i32 @_ZN10CgroupUtil15processor_countEP19CgroupCpuControlleri(ptr noundef %19, i32 noundef %18) #14
   %21 = sext i32 %20 to i64
   store volatile i64 %21, ptr %7, align 8
-  %22 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #13
+  %22 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
   %23 = add nsw i64 %22, 20000000
   store volatile i64 %23, ptr %9, align 8
   br label %24
@@ -1558,10 +1558,10 @@ define hidden noundef i64 @_ZN15CgroupSubsystem21memory_limit_in_bytesEv(ptr nou
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #13
+  %8 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load volatile i64, ptr %9, align 8
   %11 = icmp sgt i64 %8, %10
@@ -1585,9 +1585,9 @@ define hidden noundef i64 @_ZN15CgroupSubsystem21memory_limit_in_bytesEv(ptr nou
   %19 = load ptr, ptr %5, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %15) #13
+  %22 = tail call noundef i64 %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i64 noundef %15) #14
   store volatile i64 %22, ptr %7, align 8
-  %23 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #13
+  %23 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #14
   %24 = add nsw i64 %23, 20000000
   store volatile i64 %24, ptr %9, align 8
   br label %25
@@ -1602,7 +1602,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
   %5 = alloca %class.stringStream, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %13
 
@@ -1616,11 +1616,11 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
   br label %54
 
 13:                                               ; preds = %4
-  call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #13
-  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %8, i64 noundef %14) #13
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %1, i64 noundef %15) #13
+  call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #14
+  %14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #15
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %8, i64 noundef %14) #14
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %1, i64 noundef %15) #14
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %17 = load i64, ptr %16, align 8
   %18 = icmp ugt i64 %17, 4096
@@ -1649,7 +1649,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
   br label %29
 
 29:                                               ; preds = %24, %28
-  %30 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %26, ptr noundef nonnull @.str.15) #13
+  %30 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %26, ptr noundef nonnull @.str.15) #14
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %38
 
@@ -1659,9 +1659,9 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
   br i1 %.not25, label %53, label %34
 
 34:                                               ; preds = %32
-  %35 = tail call ptr @__errno_location() #15
+  %35 = tail call ptr @__errno_location() #16
   %36 = load i32, ptr %35, align 4
-  %37 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %36) #13
+  %37 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %36) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.40, ptr noundef %26, ptr noundef %37)
   br label %53
 
@@ -1682,7 +1682,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
   br label %53
 
 46:                                               ; preds = %38
-  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #14
+  %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #15
   %48 = getelementptr i8, ptr %40, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -1
   %50 = load i8, ptr %49, align 1
@@ -1695,7 +1695,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
 
 53:                                               ; preds = %46, %52, %45, %43, %34, %32, %21, %19
   %.1 = phi i1 [ false, %19 ], [ false, %21 ], [ false, %32 ], [ false, %34 ], [ false, %43 ], [ false, %45 ], [ true, %52 ], [ true, %46 ]
-  call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #13
+  call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #14
   br label %54
 
 54:                                               ; preds = %12, %10, %53
@@ -1705,7 +1705,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_stringEPKcPcm(ptr 
 
 declare void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129), i64 noundef) unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
@@ -1718,7 +1718,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController11read_numberEPKcPm(ptr n
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.42, ptr noundef %2) #13
+  %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.42, ptr noundef %2) #14
   %8 = icmp eq i32 %7, 1
   br label %9
 
@@ -1745,7 +1745,7 @@ _ZN16CgroupController14limit_from_strEPc.exit.thread8: ; preds = %7
   br label %12
 
 8:                                                ; preds = %7
-  %9 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.42, ptr noundef nonnull %4) #13
+  %9 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.42, ptr noundef nonnull %4) #14
   %.not.i = icmp eq i32 %9, 1
   br i1 %.not.i, label %_ZN16CgroupController14limit_from_strEPc.exit, label %_ZN16CgroupController14limit_from_strEPc.exit.thread
 
@@ -1776,12 +1776,12 @@ define hidden noundef i64 @_ZN16CgroupController14limit_from_strEPc(ptr noundef 
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.47, ptr noundef nonnull dereferenceable(1) %0) #14
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(4) @.str.47, ptr noundef nonnull dereferenceable(1) %0) #15
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull %2) #13
+  %8 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef nonnull %2) #14
   %.not = icmp eq i32 %8, 1
   %9 = load i64, ptr %2, align 8
   %spec.select = select i1 %.not, i64 %9, i64 -2
@@ -1798,7 +1798,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
   %6 = alloca [4097 x i8], align 16
   %7 = load ptr, ptr %0, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %14
 
@@ -1812,11 +1812,11 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
   br label %62
 
 14:                                               ; preds = %4
-  call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #13
-  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %9, i64 noundef %15) #13
-  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %1, i64 noundef %16) #13
+  call void @_ZN12stringStreamC1Em(ptr noundef nonnull align 8 dereferenceable(129) %5, i64 noundef 0) #14
+  %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %9, i64 noundef %15) #14
+  %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %1, i64 noundef %16) #14
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %18 = load i64, ptr %17, align 8
   %19 = icmp ugt i64 %18, 4096
@@ -1845,7 +1845,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
   br label %30
 
 30:                                               ; preds = %25, %29
-  %31 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %27, ptr noundef nonnull @.str.15) #13
+  %31 = call noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef %27, ptr noundef nonnull @.str.15) #14
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %39
 
@@ -1855,29 +1855,29 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
   br i1 %.not41, label %61, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call ptr @__errno_location() #15
+  %36 = tail call ptr @__errno_location() #16
   %37 = load i32, ptr %36, align 4
-  %38 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %37) #13
+  %38 = call noundef ptr @_ZN2os8strerrorEi(i32 noundef %37) #14
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.40, ptr noundef %27, ptr noundef %38)
   br label %61
 
 39:                                               ; preds = %30
   %40 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 4097, ptr noundef nonnull %31)
-  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #14
+  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %.not44 = icmp eq ptr %40, null
   br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %39, %56
   %.03345 = phi ptr [ %57, %56 ], [ %40, %39 ]
   %42 = getelementptr inbounds i8, ptr %.03345, i64 %41
-  %43 = call i32 @strncmp(ptr noundef nonnull %.03345, ptr noundef nonnull %2, i64 noundef %41) #14
+  %43 = call i32 @strncmp(ptr noundef nonnull %.03345, ptr noundef nonnull %2, i64 noundef %41) #15
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %56
 
 45:                                               ; preds = %.lr.ph
   %46 = load i8, ptr %42, align 1
   %47 = zext i8 %46 to i32
-  %48 = call i32 @isspace(i32 noundef %47) #14
+  %48 = call i32 @isspace(i32 noundef %47) #15
   %49 = icmp ne i32 %48, 0
   %50 = icmp ne i8 %46, 10
   %or.cond = and i1 %50, %49
@@ -1885,7 +1885,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
 
 51:                                               ; preds = %45
   %52 = getelementptr inbounds nuw i8, ptr %42, i64 1
-  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %52, ptr noundef nonnull @.str.42, ptr noundef %3) #13
+  %53 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %52, ptr noundef nonnull @.str.42, ptr noundef %3) #14
   %54 = icmp eq i32 %53, 1
   br i1 %54, label %.thread, label %56
 
@@ -1910,7 +1910,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
 
 61:                                               ; preds = %.thread, %60, %._crit_edge, %35, %33, %22, %20
   %.1 = phi i1 [ false, %20 ], [ false, %22 ], [ false, %33 ], [ false, %35 ], [ false, %._crit_edge ], [ false, %60 ], [ true, %.thread ]
-  call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #13
+  call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %5) #14
   br label %62
 
 62:                                               ; preds = %13, %11, %61
@@ -1918,11 +1918,11 @@ define hidden noundef zeroext i1 @_ZN16CgroupController24read_numerical_key_valu
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isspace(i32 noundef) local_unnamed_addr #6
+declare i32 @isspace(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN16CgroupController26read_numerical_tuple_valueEPKcbPl(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 align 2 {
@@ -1934,7 +1934,7 @@ define hidden noundef zeroext i1 @_ZN16CgroupController26read_numerical_tuple_va
 
 9:                                                ; preds = %4
   %.str.45..str.46 = select i1 %2, ptr @.str.45, ptr @.str.46
-  %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull %.str.45..str.46, ptr noundef nonnull %7) #13
+  %10 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull %.str.45..str.46, ptr noundef nonnull %7) #14
   %.not = icmp eq i32 %10, 1
   br i1 %.not, label %11, label %17
 
@@ -1949,7 +1949,7 @@ _ZN16CgroupController14limit_from_strEPc.exit.thread10: ; preds = %11
   br label %16
 
 12:                                               ; preds = %11
-  %13 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.42, ptr noundef nonnull %5) #13
+  %13 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %7, ptr noundef nonnull @.str.42, ptr noundef nonnull %5) #14
   %.not.i = icmp eq i32 %13, 1
   br i1 %.not.i, label %_ZN16CgroupController14limit_from_strEPc.exit, label %_ZN16CgroupController14limit_from_strEPc.exit.thread
 
@@ -1976,16 +1976,16 @@ _ZN16CgroupController14limit_from_strEPc.exit:    ; preds = %12
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15CgroupSubsystem30memory_and_swap_limit_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN2os5Linux16_physical_memoryE, align 8
-  %3 = tail call noundef i64 @_ZN2os5Linux9host_swapEv() #13
+  %3 = tail call noundef i64 @_ZN2os5Linux9host_swapEv() #14
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %2, i64 noundef %3) #13
+  %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %2, i64 noundef %3) #14
   ret i64 %12
 }
 
@@ -1994,16 +1994,16 @@ declare noundef i64 @_ZN2os5Linux9host_swapEv() local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15CgroupSubsystem30memory_and_swap_usage_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load i64, ptr @_ZN2os5Linux16_physical_memoryE, align 8
-  %3 = tail call noundef i64 @_ZN2os5Linux9host_swapEv() #13
+  %3 = tail call noundef i64 @_ZN2os5Linux9host_swapEv() #14
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %2, i64 noundef %3) #13
+  %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %2, i64 noundef %3) #14
   ret i64 %12
 }
 
@@ -2013,12 +2013,12 @@ define hidden noundef i64 @_ZN15CgroupSubsystem26memory_soft_limit_in_bytesEv(pt
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %2) #13
+  %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %2) #14
   ret i64 %11
 }
 
@@ -2027,12 +2027,12 @@ define hidden noundef i64 @_ZN15CgroupSubsystem21memory_usage_in_bytesEv(ptr nou
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   ret i64 %10
 }
 
@@ -2041,12 +2041,12 @@ define hidden noundef i64 @_ZN15CgroupSubsystem25memory_max_usage_in_bytesEv(ptr
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   ret i64 %10
 }
 
@@ -2055,12 +2055,12 @@ define hidden noundef i64 @_ZN15CgroupSubsystem18rss_usage_in_bytesEv(ptr nounde
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   ret i64 %10
 }
 
@@ -2069,12 +2069,12 @@ define hidden noundef i64 @_ZN15CgroupSubsystem20cache_usage_in_bytesEv(ptr noun
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   ret i64 %10
 }
 
@@ -2083,11 +2083,11 @@ define hidden noundef i32 @_ZN15CgroupSubsystem9cpu_quotaEv(ptr noundef nonnull 
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   ret i32 %9
 }
 
@@ -2096,12 +2096,12 @@ define hidden noundef i32 @_ZN15CgroupSubsystem10cpu_periodEv(ptr noundef nonnul
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   ret i32 %10
 }
 
@@ -2110,12 +2110,12 @@ define hidden noundef i32 @_ZN15CgroupSubsystem10cpu_sharesEv(ptr noundef nonnul
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #13
+  %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(8) %6) #14
   ret i32 %10
 }
 
@@ -2125,24 +2125,24 @@ define hidden void @_ZN15CgroupSubsystem27print_version_specific_infoEP12outputS
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i64 noundef %3) #13
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %1, i64 noundef %3) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_var_init.48() #8 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
+define internal void @__cxx_global_var_init.48() #9 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
   %1 = load i8, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 105, i32 noundef 25, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 105, i32 noundef 25, i32 noundef 0, i32 noundef 0, i32 noundef 0) #14
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -2195,41 +2195,42 @@ declare void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 deref
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #9
+declare void @llvm.va_start.p0(ptr) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #10
 
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind willreturn memory(read) }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind willreturn memory(read) }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

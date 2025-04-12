@@ -84,7 +84,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %.095591 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %.095591.be, %.lr.ph.backedge ]
   %.0375590 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %.0375590.be, %.lr.ph.backedge ]
   %15 = zext i8 %14 to i32
-  %16 = tail call i32 @isspace(i32 noundef %15) #3
+  %16 = tail call i32 @isspace(i32 noundef %15) #4
   %.not109 = icmp eq i32 %16, 0
   br i1 %.not109, label %24, label %.preheader429
 
@@ -92,7 +92,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %.1376 = phi ptr [ %20, %.preheader429 ], [ %.0375590, %.lr.ph ]
   %17 = load i8, ptr %.1376, align 1
   %18 = zext i8 %17 to i32
-  %19 = tail call i32 @isspace(i32 noundef %18) #3
+  %19 = tail call i32 @isspace(i32 noundef %18) #4
   %.not160 = icmp eq i32 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %.1376, i64 1
   br i1 %.not160, label %21, label %.preheader429, !llvm.loop !6
@@ -240,7 +240,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %indvars.iv763 = phi i64 [ %indvars.iv.next764, %65 ], [ 0, %53 ]
   %54 = getelementptr inbounds nuw [7 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 56), i64 0, i64 %indvars.iv763
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #4
+  %56 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #5
   %57 = tail call i32 @strncasecmp(ptr noundef nonnull %55, ptr noundef %.0375590, i64 noundef %56)
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %.thread, label %59
@@ -248,7 +248,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 59:                                               ; preds = %.preheader
   %60 = getelementptr inbounds nuw [7 x ptr], ptr @g_defaulttimelocale, i64 0, i64 %indvars.iv763
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #4
+  %62 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %61) #5
   %63 = tail call i32 @strncasecmp(ptr noundef nonnull %61, ptr noundef %.0375590, i64 noundef %62)
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.thread, label %65
@@ -272,7 +272,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %indvars.iv = phi i64 [ %indvars.iv.next, %80 ], [ 0, %68 ]
   %69 = getelementptr inbounds nuw [12 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 208), i64 0, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
-  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #4
+  %71 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %70) #5
   %72 = tail call i32 @strncasecmp(ptr noundef nonnull %70, ptr noundef %.0375590, i64 noundef %71)
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %.thread384, label %74
@@ -280,7 +280,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 74:                                               ; preds = %.preheader426
   %75 = getelementptr inbounds nuw [12 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_defaulttimelocale, i64 112), i64 0, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #4
+  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %76) #5
   %78 = tail call i32 @strncasecmp(ptr noundef nonnull %76, ptr noundef %.0375590, i64 noundef %77)
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.thread384, label %80
@@ -303,7 +303,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
 84:                                               ; preds = %83
   %85 = load i8, ptr %.0375590, align 1
   %86 = zext i8 %85 to i32
-  %87 = tail call i32 @isspace(i32 noundef %86) #3
+  %87 = tail call i32 @isspace(i32 noundef %86) #4
   %.not31.i = icmp eq i32 %87, 0
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -312,7 +312,7 @@ define internal fastcc ptr @_strptime(ptr noundef %0, ptr noundef readonly captu
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 1
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
-  %92 = tail call i32 @isspace(i32 noundef %91) #3
+  %92 = tail call i32 @isspace(i32 noundef %91) #4
   %.not.i = icmp eq i32 %92, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
@@ -361,7 +361,7 @@ _conv_num.exit:                                   ; preds = %.critedge.i
 110:                                              ; preds = %109
   %111 = load i8, ptr %.0375590, align 1
   %112 = zext i8 %111 to i32
-  %113 = tail call i32 @isspace(i32 noundef %112) #3
+  %113 = tail call i32 @isspace(i32 noundef %112) #4
   %.not31.i164 = icmp eq i32 %113, 0
   br i1 %.not31.i164, label %._crit_edge.i167, label %.lr.ph.i165
 
@@ -370,7 +370,7 @@ _conv_num.exit:                                   ; preds = %.critedge.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 1
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
-  %118 = tail call i32 @isspace(i32 noundef %117) #3
+  %118 = tail call i32 @isspace(i32 noundef %117) #4
   %.not.i166 = icmp eq i32 %118, 0
   br i1 %.not.i166, label %._crit_edge.i167, label %.lr.ph.i165, !llvm.loop !11
 
@@ -423,7 +423,7 @@ _conv_num.exit179:                                ; preds = %.critedge.i175
 137:                                              ; preds = %135, %136
   %138 = load i8, ptr %.0375590, align 1
   %139 = zext i8 %138 to i32
-  %140 = tail call i32 @isspace(i32 noundef %139) #3
+  %140 = tail call i32 @isspace(i32 noundef %139) #4
   %.not31.i181 = icmp eq i32 %140, 0
   br i1 %.not31.i181, label %._crit_edge.i184, label %.lr.ph.i182
 
@@ -432,7 +432,7 @@ _conv_num.exit179:                                ; preds = %.critedge.i175
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
   %143 = load i8, ptr %142, align 1
   %144 = zext i8 %143 to i32
-  %145 = tail call i32 @isspace(i32 noundef %144) #3
+  %145 = tail call i32 @isspace(i32 noundef %144) #4
   %.not.i183 = icmp eq i32 %145, 0
   br i1 %.not.i183, label %._crit_edge.i184, label %.lr.ph.i182, !llvm.loop !11
 
@@ -484,7 +484,7 @@ _conv_num.exit196:                                ; preds = %.critedge.i192
 163:                                              ; preds = %161, %162
   %164 = load i8, ptr %.0375590, align 1
   %165 = zext i8 %164 to i32
-  %166 = tail call i32 @isspace(i32 noundef %165) #3
+  %166 = tail call i32 @isspace(i32 noundef %165) #4
   %.not31.i198 = icmp eq i32 %166, 0
   br i1 %.not31.i198, label %._crit_edge.i201, label %.lr.ph.i199
 
@@ -493,7 +493,7 @@ _conv_num.exit196:                                ; preds = %.critedge.i192
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
-  %171 = tail call i32 @isspace(i32 noundef %170) #3
+  %171 = tail call i32 @isspace(i32 noundef %170) #4
   %.not.i200 = icmp eq i32 %171, 0
   br i1 %.not.i200, label %._crit_edge.i201, label %.lr.ph.i199, !llvm.loop !11
 
@@ -542,7 +542,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
 189:                                              ; preds = %188
   %190 = load i8, ptr %.0375590, align 1
   %191 = zext i8 %190 to i32
-  %192 = tail call i32 @isspace(i32 noundef %191) #3
+  %192 = tail call i32 @isspace(i32 noundef %191) #4
   %.not31.i215 = icmp eq i32 %192, 0
   br i1 %.not31.i215, label %._crit_edge.i218, label %.lr.ph.i216
 
@@ -551,7 +551,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 1
   %195 = load i8, ptr %194, align 1
   %196 = zext i8 %195 to i32
-  %197 = tail call i32 @isspace(i32 noundef %196) #3
+  %197 = tail call i32 @isspace(i32 noundef %196) #4
   %.not.i217 = icmp eq i32 %197, 0
   br i1 %.not.i217, label %._crit_edge.i218, label %.lr.ph.i216, !llvm.loop !11
 
@@ -601,7 +601,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
 217:                                              ; preds = %216
   %218 = load i8, ptr %.0375590, align 1
   %219 = zext i8 %218 to i32
-  %220 = tail call i32 @isspace(i32 noundef %219) #3
+  %220 = tail call i32 @isspace(i32 noundef %219) #4
   %.not31.i232 = icmp eq i32 %220, 0
   br i1 %.not31.i232, label %._crit_edge.i235, label %.lr.ph.i233
 
@@ -610,7 +610,7 @@ _conv_num.exit213:                                ; preds = %.critedge.i209
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 1
   %223 = load i8, ptr %222, align 1
   %224 = zext i8 %223 to i32
-  %225 = tail call i32 @isspace(i32 noundef %224) #3
+  %225 = tail call i32 @isspace(i32 noundef %224) #4
   %.not.i234 = icmp eq i32 %225, 0
   br i1 %.not.i234, label %._crit_edge.i235, label %.lr.ph.i233, !llvm.loop !11
 
@@ -658,7 +658,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
 242:                                              ; preds = %241
   %243 = load i8, ptr %.0375590, align 1
   %244 = zext i8 %243 to i32
-  %245 = tail call i32 @isspace(i32 noundef %244) #3
+  %245 = tail call i32 @isspace(i32 noundef %244) #4
   %.not31.i249 = icmp eq i32 %245, 0
   br i1 %.not31.i249, label %._crit_edge.i252, label %.lr.ph.i250
 
@@ -667,7 +667,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 1
   %248 = load i8, ptr %247, align 1
   %249 = zext i8 %248 to i32
-  %250 = tail call i32 @isspace(i32 noundef %249) #3
+  %250 = tail call i32 @isspace(i32 noundef %249) #4
   %.not.i251 = icmp eq i32 %250, 0
   br i1 %.not.i251, label %._crit_edge.i252, label %.lr.ph.i250, !llvm.loop !11
 
@@ -765,7 +765,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
 293:                                              ; preds = %292
   %294 = load i8, ptr %.0375590, align 1
   %295 = zext i8 %294 to i32
-  %296 = tail call i32 @isspace(i32 noundef %295) #3
+  %296 = tail call i32 @isspace(i32 noundef %295) #4
   %.not31.i266 = icmp eq i32 %296, 0
   br i1 %.not31.i266, label %._crit_edge.i269, label %.lr.ph.i267
 
@@ -774,7 +774,7 @@ _conv_num.exit247:                                ; preds = %.critedge.i243
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 1
   %299 = load i8, ptr %298, align 1
   %300 = zext i8 %299 to i32
-  %301 = tail call i32 @isspace(i32 noundef %300) #3
+  %301 = tail call i32 @isspace(i32 noundef %300) #4
   %.not.i268 = icmp eq i32 %301, 0
   br i1 %.not.i268, label %._crit_edge.i269, label %.lr.ph.i267, !llvm.loop !11
 
@@ -822,7 +822,7 @@ _conv_num.exit281:                                ; preds = %.critedge.i277
 318:                                              ; preds = %317
   %319 = load i8, ptr %.0375590, align 1
   %320 = zext i8 %319 to i32
-  %321 = tail call i32 @isspace(i32 noundef %320) #3
+  %321 = tail call i32 @isspace(i32 noundef %320) #4
   %.not31.i283 = icmp eq i32 %321, 0
   br i1 %.not31.i283, label %._crit_edge.i286, label %.lr.ph.i284
 
@@ -831,7 +831,7 @@ _conv_num.exit281:                                ; preds = %.critedge.i277
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 1
   %324 = load i8, ptr %323, align 1
   %325 = zext i8 %324 to i32
-  %326 = tail call i32 @isspace(i32 noundef %325) #3
+  %326 = tail call i32 @isspace(i32 noundef %325) #4
   %.not.i285 = icmp eq i32 %326, 0
   br i1 %.not.i285, label %._crit_edge.i286, label %.lr.ph.i284, !llvm.loop !11
 
@@ -875,7 +875,7 @@ _conv_num.exit281:                                ; preds = %.critedge.i277
 343:                                              ; preds = %342
   %344 = load i8, ptr %.0375590, align 1
   %345 = zext i8 %344 to i32
-  %346 = tail call i32 @isspace(i32 noundef %345) #3
+  %346 = tail call i32 @isspace(i32 noundef %345) #4
   %.not31.i300 = icmp eq i32 %346, 0
   br i1 %.not31.i300, label %._crit_edge.i303, label %.lr.ph.i301
 
@@ -884,7 +884,7 @@ _conv_num.exit281:                                ; preds = %.critedge.i277
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 1
   %349 = load i8, ptr %348, align 1
   %350 = zext i8 %349 to i32
-  %351 = tail call i32 @isspace(i32 noundef %350) #3
+  %351 = tail call i32 @isspace(i32 noundef %350) #4
   %.not.i302 = icmp eq i32 %351, 0
   br i1 %.not.i302, label %._crit_edge.i303, label %.lr.ph.i301, !llvm.loop !11
 
@@ -908,7 +908,7 @@ _conv_num.exit315:                                ; preds = %._crit_edge.i303
 358:                                              ; preds = %357
   %359 = load i8, ptr %.0375590, align 1
   %360 = zext i8 %359 to i32
-  %361 = tail call i32 @isspace(i32 noundef %360) #3
+  %361 = tail call i32 @isspace(i32 noundef %360) #4
   %.not31.i317 = icmp eq i32 %361, 0
   br i1 %.not31.i317, label %._crit_edge.i320, label %.lr.ph.i318
 
@@ -917,7 +917,7 @@ _conv_num.exit315:                                ; preds = %._crit_edge.i303
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 1
   %364 = load i8, ptr %363, align 1
   %365 = zext i8 %364 to i32
-  %366 = tail call i32 @isspace(i32 noundef %365) #3
+  %366 = tail call i32 @isspace(i32 noundef %365) #4
   %.not.i319 = icmp eq i32 %366, 0
   br i1 %.not.i319, label %._crit_edge.i320, label %.lr.ph.i318, !llvm.loop !11
 
@@ -964,7 +964,7 @@ _conv_num.exit332:                                ; preds = %.critedge.i328
 383:                                              ; preds = %.preheader428
   %384 = load i8, ptr %.0375590, align 1
   %385 = zext i8 %384 to i32
-  %386 = tail call i32 @isspace(i32 noundef %385) #3
+  %386 = tail call i32 @isspace(i32 noundef %385) #4
   %.not31.i334 = icmp eq i32 %386, 0
   br i1 %.not31.i334, label %._crit_edge.i337, label %.lr.ph.i335
 
@@ -973,7 +973,7 @@ _conv_num.exit332:                                ; preds = %.critedge.i328
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 1
   %389 = load i8, ptr %388, align 1
   %390 = zext i8 %389 to i32
-  %391 = tail call i32 @isspace(i32 noundef %390) #3
+  %391 = tail call i32 @isspace(i32 noundef %390) #4
   %.not.i336 = icmp eq i32 %391, 0
   br i1 %.not.i336, label %._crit_edge.i337, label %.lr.ph.i335, !llvm.loop !11
 
@@ -1022,7 +1022,7 @@ _conv_num.exit349:                                ; preds = %.critedge.i345
   %.3378 = phi ptr [ %411, %.preheader427 ], [ %.0375590, %407 ]
   %408 = load i8, ptr %.3378, align 1
   %409 = zext i8 %408 to i32
-  %410 = tail call i32 @isspace(i32 noundef %409) #3
+  %410 = tail call i32 @isspace(i32 noundef %409) #4
   %.not112 = icmp eq i32 %410, 0
   %411 = getelementptr inbounds nuw i8, ptr %.3378, i64 1
   br i1 %.not112, label %_conv_num.exit298, label %.preheader427, !llvm.loop !13
@@ -1071,17 +1071,18 @@ _conv_num.exit.thread:                            ; preds = %.critedge.i345, %._
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @isspace(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
-attributes #4 = { nounwind }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(read) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

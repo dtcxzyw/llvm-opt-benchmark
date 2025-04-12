@@ -31,12 +31,12 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @Java_java_net_Inet4AddressImpl_getLocalHostName(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [1026 x i8], align 16
   store i8 0, ptr %3, align 16
-  %4 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 1026) #11
+  %4 = call i32 @gethostname(ptr noundef nonnull %3, i64 noundef 1026) #12
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 10, i1 false) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 10, i1 false) #12
   br label %8
 
 6:                                                ; preds = %2
@@ -48,7 +48,7 @@ define ptr @Java_java_net_Inet4AddressImpl_getLocalHostName(ptr noundef %0, ptr 
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1336
   %11 = load ptr, ptr %10, align 8
-  %12 = call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
+  %12 = call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %3) #12
   ret ptr %12
 }
 
@@ -60,11 +60,11 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %4 = alloca %struct.addrinfo, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
-  tail call void @initInetAddressIDs(ptr noundef %0) #11
+  tail call void @initInetAddressIDs(ptr noundef %0) #12
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #11
+  %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #12
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %10, label %82
 
@@ -73,11 +73,11 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %10
-  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #11
+  tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #12
   br label %82
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @JNU_GetStringPlatformCharsStrict(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #11
+  %14 = tail call ptr @JNU_GetStringPlatformCharsStrict(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef null) #12
   %15 = icmp eq ptr %14, null
   br i1 %15, label %82, label %16
 
@@ -87,7 +87,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   store i32 2, ptr %4, align 8
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 2, ptr %18, align 4
-  %19 = call i32 @getaddrinfo(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  %19 = call i32 @getaddrinfo(ptr noundef nonnull %14, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5) #12
   %.not86 = icmp eq i32 %19, 0
   br i1 %.not86, label %.preheader98, label %20
 
@@ -97,7 +97,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not87104, label %._crit_edge, label %.preheader96
 
 20:                                               ; preds = %16
-  call void @NET_ThrowUnknownHostExceptionWithGaiError(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %19) #11
+  call void @NET_ThrowUnknownHostExceptionWithGaiError(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %19) #12
   br label %.loopexit.thread
 
 .preheader96:                                     ; preds = %.preheader98, %.loopexit97
@@ -131,12 +131,12 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not91, label %.critedge, label %25, !llvm.loop !6
 
 .critedge:                                        ; preds = %31, %.preheader96
-  %34 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #12
+  %34 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #13
   %.not93 = icmp eq ptr %34, null
   br i1 %.not93, label %35, label %36
 
 35:                                               ; preds = %.critedge
-  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #11
+  call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #12
   br label %.loopexit
 
 36:                                               ; preds = %.critedge
@@ -171,7 +171,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1376
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @ia_class, align 8
-  %47 = call ptr %45(ptr noundef nonnull %0, i32 noundef %.071.lcssa, ptr noundef %46, ptr noundef null) #11
+  %47 = call ptr %45(ptr noundef nonnull %0, i32 noundef %.071.lcssa, ptr noundef %46, ptr noundef null) #12
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.loopexit, label %.preheader
 
@@ -187,7 +187,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr @ia4_class, align 8
   %53 = load ptr, ptr @ia4_ctrID, align 8
-  %54 = call ptr (ptr, ptr, ptr, ...) %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %53) #11
+  %54 = call ptr (ptr, ptr, ptr, ...) %51(ptr noundef nonnull %0, ptr noundef %52, ptr noundef %53) #12
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit, label %56
 
@@ -196,21 +196,21 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = call i32 @ntohl(i32 noundef %60) #13
-  call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %61) #11
+  %61 = call i32 @ntohl(i32 noundef %60) #14
+  call void @setInetAddress_addr(ptr noundef nonnull %0, ptr noundef nonnull %54, i32 noundef %61) #12
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1824
   %64 = load ptr, ptr %63, align 8
-  %65 = call zeroext i8 %64(ptr noundef nonnull %0) #11
+  %65 = call zeroext i8 %64(ptr noundef nonnull %0) #12
   %.not89 = icmp eq i8 %65, 0
   br i1 %.not89, label %66, label %.loopexit
 
 66:                                               ; preds = %56
-  call void @setInetAddress_hostName(ptr noundef nonnull %0, ptr noundef nonnull %54, ptr noundef nonnull %2) #11
+  call void @setInetAddress_hostName(ptr noundef nonnull %0, ptr noundef nonnull %54, ptr noundef nonnull %2) #12
   %67 = load ptr, ptr %0, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1824
   %69 = load ptr, ptr %68, align 8
-  %70 = call zeroext i8 %69(ptr noundef nonnull %0) #11
+  %70 = call zeroext i8 %69(ptr noundef nonnull %0) #12
   %.not90 = icmp eq i8 %70, 0
   br i1 %.not90, label %71, label %.loopexit
 
@@ -219,7 +219,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1392
   %74 = load ptr, ptr %73, align 8
   %75 = add nuw nsw i32 %.273112, 1
-  call void %74(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef %.273112, ptr noundef nonnull %54) #11
+  call void %74(ptr noundef nonnull %0, ptr noundef nonnull %47, i32 noundef %.273112, ptr noundef nonnull %54) #12
   %76 = getelementptr inbounds nuw i8, ptr %.175111, i64 40
   %77 = load ptr, ptr %76, align 8
   %.not88 = icmp eq ptr %77, null
@@ -227,13 +227,13 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
 
 .loopexit.thread:                                 ; preds = %20, %.preheader
   %.067.ph = phi ptr [ %47, %.preheader ], [ null, %20 ]
-  call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %14) #11
+  call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %14) #12
   br label %._crit_edge125
 
 .loopexit:                                        ; preds = %56, %66, %71, %.lr.ph113, %._crit_edge, %35
   %.068 = phi ptr [ %.1107, %35 ], [ %.1.lcssa, %._crit_edge ], [ %.1.lcssa, %.lr.ph113 ], [ %.1.lcssa, %71 ], [ %.1.lcssa, %66 ], [ %.1.lcssa, %56 ]
   %.067 = phi ptr [ null, %35 ], [ null, %._crit_edge ], [ %47, %56 ], [ %47, %66 ], [ %47, %71 ], [ null, %.lr.ph113 ]
-  call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %14) #11
+  call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %14) #12
   %.not94121 = icmp eq ptr %.068, null
   br i1 %.not94121, label %._crit_edge125, label %.lr.ph124
 
@@ -241,7 +241,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   %.4122 = phi ptr [ %79, %.lr.ph124 ], [ %.068, %.loopexit ]
   %78 = getelementptr inbounds nuw i8, ptr %.4122, i64 40
   %79 = load ptr, ptr %78, align 8
-  call void @free(ptr noundef nonnull %.4122) #11
+  call void @free(ptr noundef nonnull %.4122) #12
   %.not94 = icmp eq ptr %79, null
   br i1 %.not94, label %._crit_edge125, label %.lr.ph124, !llvm.loop !10
 
@@ -252,7 +252,7 @@ define ptr @Java_java_net_Inet4AddressImpl_lookupAllHostAddr(ptr noundef %0, ptr
   br i1 %.not95, label %82, label %81
 
 81:                                               ; preds = %._crit_edge125
-  call void @freeaddrinfo(ptr noundef nonnull %80) #11
+  call void @freeaddrinfo(ptr noundef nonnull %80) #12
   br label %82
 
 82:                                               ; preds = %._crit_edge125, %81, %13, %3, %12
@@ -283,7 +283,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 declare void @setInetAddress_addr(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #6
 
 declare void @setInetAddress_hostName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -305,7 +305,7 @@ define ptr @Java_java_net_Inet4AddressImpl_getHostByAddr(ptr noundef %0, ptr nou
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1600
   %9 = load ptr, ptr %8, align 8
-  call void %9(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %5) #11
+  call void %9(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %5) #12
   %10 = load i8, ptr %5, align 1
   %11 = sext i8 %10 to i32
   %12 = shl nsw i32 %11, 24
@@ -325,11 +325,11 @@ define ptr @Java_java_net_Inet4AddressImpl_getHostByAddr(ptr noundef %0, ptr nou
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
   %28 = or disjoint i32 %24, %27
-  %29 = call i32 @htonl(i32 noundef %28) #13
+  %29 = call i32 @htonl(i32 noundef %28) #14
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %29, ptr %30, align 4
   store i16 2, ptr %6, align 4
-  %31 = call i32 @getnameinfo(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 1026, ptr noundef null, i32 noundef 0, i32 noundef 8) #11
+  %31 = call i32 @getnameinfo(ptr noundef nonnull %6, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 1026, ptr noundef null, i32 noundef 0, i32 noundef 8) #12
   %.not = icmp eq i32 %31, 0
   br i1 %.not, label %32, label %.sink.split
 
@@ -337,12 +337,12 @@ define ptr @Java_java_net_Inet4AddressImpl_getHostByAddr(ptr noundef %0, ptr nou
   %33 = load ptr, ptr %0, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1336
   %35 = load ptr, ptr %34, align 8
-  %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %4) #11
+  %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %4) #12
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.sink.split, label %38
 
 .sink.split:                                      ; preds = %32, %3
-  call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef null) #11
+  call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef null) #12
   br label %38
 
 38:                                               ; preds = %.sink.split, %32
@@ -350,7 +350,7 @@ define ptr @Java_java_net_Inet4AddressImpl_getHostByAddr(ptr noundef %0, ptr nou
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #6
 
 declare i32 @getnameinfo(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -375,7 +375,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1368
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %2) #11
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %2) #12
   %.not = icmp eq i32 %23, 4
   br i1 %.not, label %24, label %208
 
@@ -384,7 +384,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1600
   %27 = load ptr, ptr %26, align 8
-  call void %27(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %17) #11
+  call void %27(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %17) #12
   %28 = load i8, ptr %17, align 4
   %29 = sext i8 %28 to i32
   %30 = shl nsw i32 %29, 24
@@ -405,7 +405,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %42, %45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
-  %47 = call i32 @htonl(i32 noundef %46) #13
+  %47 = call i32 @htonl(i32 noundef %46) #14
   %48 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %47, ptr %48, align 4
   store i16 2, ptr %18, align 4
@@ -417,7 +417,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %51 = load ptr, ptr %0, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1600
   %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %17) #11
+  call void %53(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 4, ptr noundef nonnull %17) #12
   %54 = load i8, ptr %17, align 4
   %55 = sext i8 %54 to i32
   %56 = shl nsw i32 %55, 24
@@ -435,7 +435,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   %68 = zext i8 %67 to i32
   %69 = or disjoint i32 %66, %68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %19, i8 0, i64 28, i1 false)
-  %70 = call i32 @htonl(i32 noundef %69) #13
+  %70 = call i32 @htonl(i32 noundef %69) #14
   %71 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %70, ptr %71, align 4
   store i16 2, ptr %19, align 4
@@ -443,7 +443,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
 
 72:                                               ; preds = %50, %24
   %.0 = phi ptr [ null, %24 ], [ %19, %50 ]
-  %73 = call i32 @socket(i32 noundef 2, i32 noundef 3, i32 noundef 1) #11
+  %73 = call i32 @socket(i32 noundef 2, i32 noundef 3, i32 noundef 1) #12
   %74 = icmp eq i32 %73, -1
   br i1 %74, label %75, label %129
 
@@ -452,14 +452,14 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store i32 %5, ptr %14, align 4
-  %76 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #11
+  %76 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 0) #12
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %78, label %81
 
 78:                                               ; preds = %75
-  %79 = tail call ptr @__errno_location() #13
+  %79 = tail call ptr @__errno_location() #14
   %80 = load i32, ptr %79, align 4
-  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %80, ptr noundef nonnull @.str.4) #11
+  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %80, ptr noundef nonnull @.str.4) #12
   br label %tcp_ping4.exit
 
 81:                                               ; preds = %75
@@ -467,15 +467,15 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   br i1 %82, label %83, label %90
 
 83:                                               ; preds = %81
-  %84 = call i32 @setsockopt(i32 noundef %76, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %14, i32 noundef 4) #11
+  %84 = call i32 @setsockopt(i32 noundef %76, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %14, i32 noundef 4) #12
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %90
 
 86:                                               ; preds = %83
-  %87 = tail call ptr @__errno_location() #13
+  %87 = tail call ptr @__errno_location() #14
   %88 = load i32, ptr %87, align 4
-  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %88, ptr noundef nonnull @.str.5) #11
-  %89 = call i32 @close(i32 noundef %76) #11
+  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %88, ptr noundef nonnull @.str.5) #12
+  %89 = call i32 @close(i32 noundef %76) #12
   br label %tcp_ping4.exit
 
 90:                                               ; preds = %83, %81
@@ -483,31 +483,31 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   br i1 %.not.i, label %98, label %91
 
 91:                                               ; preds = %90
-  %92 = call i32 @bind(i32 noundef %76, ptr nonnull %.0, i32 noundef 16) #11
+  %92 = call i32 @bind(i32 noundef %76, ptr nonnull %.0, i32 noundef 16) #12
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %91
-  %95 = tail call ptr @__errno_location() #13
+  %95 = tail call ptr @__errno_location() #14
   %96 = load i32, ptr %95, align 4
-  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %96, ptr noundef nonnull @.str.6) #11
-  %97 = call i32 @close(i32 noundef %76) #11
+  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %96, ptr noundef nonnull @.str.6) #12
+  %97 = call i32 @close(i32 noundef %76) #12
   br label %tcp_ping4.exit
 
 98:                                               ; preds = %91, %90
-  %99 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %76, i32 noundef 3) #11
+  %99 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %76, i32 noundef 3) #12
   %100 = or i32 %99, 2048
-  %101 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %76, i32 noundef 4, i32 noundef %100) #11
-  %102 = call zeroext i16 @htons(i16 noundef zeroext 7) #13
+  %101 = call i32 (i32, i32, ...) @fcntl64(i32 noundef %76, i32 noundef 4, i32 noundef %100) #12
+  %102 = call zeroext i16 @htons(i16 noundef zeroext 7) #14
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 2
   store i16 %102, ptr %103, align 2
-  %104 = call i32 @connect(i32 noundef %76, ptr nonnull %18, i32 noundef 16) #11
+  %104 = call i32 @connect(i32 noundef %76, ptr nonnull %18, i32 noundef 16) #12
   store i32 %104, ptr %15, align 4
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %98
-  %107 = tail call ptr @__errno_location() #13
+  %107 = tail call ptr @__errno_location() #14
   %108 = load i32, ptr %107, align 4
   switch i32 %108, label %113 [
     i32 111, label %109
@@ -520,26 +520,26 @@ define zeroext range(i8 0, 2) i8 @Java_java_net_Inet4AddressImpl_isReachable0(pt
   ]
 
 109:                                              ; preds = %106, %98
-  %110 = call i32 @close(i32 noundef %76) #11
+  %110 = call i32 @close(i32 noundef %76) #12
   br label %tcp_ping4.exit
 
 111:                                              ; preds = %106, %106, %106, %106, %106
-  %112 = call i32 @close(i32 noundef %76) #11
+  %112 = call i32 @close(i32 noundef %76) #12
   br label %tcp_ping4.exit
 
 113:                                              ; preds = %106
-  call void @NET_ThrowByNameWithLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
-  %114 = call i32 @close(i32 noundef %76) #11
+  call void @NET_ThrowByNameWithLastError(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #12
+  %114 = call i32 @close(i32 noundef %76) #12
   br label %tcp_ping4.exit
 
 115:                                              ; preds = %106
-  %116 = call i32 @NET_Wait(ptr noundef nonnull %0, i32 noundef %76, i32 noundef 4, i32 noundef %3) #11
+  %116 = call i32 @NET_Wait(ptr noundef nonnull %0, i32 noundef %76, i32 noundef 4, i32 noundef %3) #12
   %117 = icmp sgt i32 %116, -1
   br i1 %117, label %118, label %127
 
 118:                                              ; preds = %115
   store i32 4, ptr %16, align 4
-  %119 = call i32 @getsockopt(i32 noundef %76, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %15, ptr noundef nonnull %16) #11
+  %119 = call i32 @getsockopt(i32 noundef %76, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %15, ptr noundef nonnull %16) #12
   %120 = icmp slt i32 %119, 0
   br i1 %120, label %121, label %thread-pre-split.i
 
@@ -560,11 +560,11 @@ thread-pre-split.i:                               ; preds = %118
   ]
 
 125:                                              ; preds = %123, %123
-  %126 = call i32 @close(i32 noundef %76) #11
+  %126 = call i32 @close(i32 noundef %76) #12
   br label %tcp_ping4.exit
 
 127:                                              ; preds = %123, %115
-  %128 = call i32 @close(i32 noundef %76) #11
+  %128 = call i32 @close(i32 noundef %76) #12
   br label %tcp_ping4.exit
 
 tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109, %111, %113, %125, %127
@@ -585,14 +585,14 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   store i32 %5, ptr %7, align 4
   store i32 61440, ptr %8, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %130 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %73, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %8, i32 noundef 4) #11
+  %130 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %73, i32 noundef 1, i32 noundef 8, ptr noundef nonnull %8, i32 noundef 4) #12
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %129
-  %133 = tail call ptr @__errno_location() #13
+  %133 = tail call ptr @__errno_location() #14
   %134 = load i32, ptr %133, align 4
-  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %134, ptr noundef nonnull @.str.9) #11
+  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %134, ptr noundef nonnull @.str.9) #12
   br label %ping4.exit
 
 135:                                              ; preds = %129
@@ -600,14 +600,14 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   br i1 %136, label %137, label %143
 
 137:                                              ; preds = %135
-  %138 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %73, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 4) #11
+  %138 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %73, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 4) #12
   %139 = icmp slt i32 %138, 0
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %137
-  %141 = tail call ptr @__errno_location() #13
+  %141 = tail call ptr @__errno_location() #14
   %142 = load i32, ptr %141, align 4
-  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %142, ptr noundef nonnull @.str.5) #11
+  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %142, ptr noundef nonnull @.str.5) #12
   br label %ping4.exit
 
 143:                                              ; preds = %137, %135
@@ -615,24 +615,24 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   br i1 %.not.i32, label %150, label %144
 
 144:                                              ; preds = %143
-  %145 = call i32 @bind(i32 noundef range(i32 0, -1) %73, ptr nonnull %.0, i32 noundef 16) #11
+  %145 = call i32 @bind(i32 noundef range(i32 0, -1) %73, ptr nonnull %.0, i32 noundef 16) #12
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %147, label %150
 
 147:                                              ; preds = %144
-  %148 = tail call ptr @__errno_location() #13
+  %148 = tail call ptr @__errno_location() #14
   %149 = load i32, ptr %148, align 4
-  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %149, ptr noundef nonnull @.str.6) #11
+  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %149, ptr noundef nonnull @.str.6) #12
   br label %ping4.exit
 
 150:                                              ; preds = %144, %143
-  %151 = call i32 @getpid() #11
+  %151 = call i32 @getpid() #12
   %152 = trunc i32 %151 to i16
-  %153 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %73, i32 noundef 3) #11
+  %153 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %73, i32 noundef 3) #12
   %154 = or i32 %153, 2048
-  %155 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %73, i32 noundef 4, i32 noundef %154) #11
+  %155 = call i32 (i32, i32, ...) @fcntl64(i32 noundef range(i32 0, -1) %73, i32 noundef 4, i32 noundef %154) #12
   %156 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %157 = call zeroext i16 @htons(i16 noundef zeroext %152) #13
+  %157 = call zeroext i16 @htons(i16 noundef zeroext %152) #14
   %158 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -646,21 +646,21 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   store i8 8, ptr %10, align 16
   store i8 0, ptr %156, align 1
   store i16 %157, ptr %158, align 4
-  %164 = call zeroext i16 @htons(i16 noundef zeroext %.058.i) #13
+  %164 = call zeroext i16 @htons(i16 noundef zeroext %.058.i) #14
   store i16 %164, ptr %159, align 2
   %165 = add i16 %.058.i, 1
-  %166 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #11
+  %166 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   store i16 0, ptr %161, align 2
-  %167 = call zeroext i16 @in_cksum(ptr noundef nonnull %10, i32 noundef 24) #11
+  %167 = call zeroext i16 @in_cksum(ptr noundef nonnull %10, i32 noundef 24) #12
   store i16 %167, ptr %161, align 2
-  %168 = call i64 @sendto(i32 noundef range(i32 0, -1) %73, ptr noundef nonnull %10, i64 noundef 24, i32 noundef 0, ptr nonnull %18, i32 noundef 16) #11
+  %168 = call i64 @sendto(i32 noundef range(i32 0, -1) %73, ptr noundef nonnull %10, i64 noundef 24, i32 noundef 0, ptr nonnull %18, i32 noundef 16) #12
   %169 = and i64 %168, 2147483648
   %.not65.i = icmp eq i64 %169, 0
   br i1 %.not65.i, label %174, label %170
 
 170:                                              ; preds = %163
-  %171 = tail call ptr @__errno_location() #13
+  %171 = tail call ptr @__errno_location() #14
   %172 = load i32, ptr %171, align 4
   switch i32 %172, label %173 [
     i32 115, label %174
@@ -669,7 +669,7 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
   ]
 
 173:                                              ; preds = %170
-  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %172, ptr noundef nonnull @.str.10) #11
+  call void @NET_ThrowNew(ptr noundef nonnull %0, i32 noundef %172, ptr noundef nonnull @.str.10) #12
   br label %ping4.exit
 
 174:                                              ; preds = %170, %163
@@ -678,13 +678,13 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
 
 176:                                              ; preds = %204, %174
   %.057.i = phi i32 [ %175, %174 ], [ %177, %204 ]
-  %177 = call i32 @NET_Wait(ptr noundef nonnull %0, i32 noundef range(i32 0, -1) %73, i32 noundef 1, i32 noundef %.057.i) #11
+  %177 = call i32 @NET_Wait(ptr noundef nonnull %0, i32 noundef range(i32 0, -1) %73, i32 noundef 1, i32 noundef %.057.i) #12
   %178 = icmp sgt i32 %177, -1
   br i1 %178, label %179, label %.thread.i
 
 179:                                              ; preds = %176
   store i32 16, ptr %9, align 4
-  %180 = call i64 @recvfrom(i32 noundef range(i32 0, -1) %73, ptr noundef nonnull %11, i64 noundef 1500, i32 noundef 0, ptr nonnull %12, ptr noundef nonnull %9) #11
+  %180 = call i64 @recvfrom(i32 noundef range(i32 0, -1) %73, ptr noundef nonnull %11, i64 noundef 1500, i32 noundef 0, ptr nonnull %12, ptr noundef nonnull %9) #12
   %181 = trunc i64 %180 to i32
   %182 = icmp slt i32 %181, 20
   br i1 %182, label %204, label %183
@@ -708,7 +708,7 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
 194:                                              ; preds = %189
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 4
   %196 = load i16, ptr %195, align 4
-  %197 = call zeroext i16 @ntohs(i16 noundef zeroext %196) #13
+  %197 = call zeroext i16 @ntohs(i16 noundef zeroext %196) #14
   %198 = icmp eq i16 %197, %152
   br i1 %198, label %199, label %204
 
@@ -731,7 +731,7 @@ tcp_ping4.exit:                                   ; preds = %78, %86, %94, %109,
 
 ping4.exit:                                       ; preds = %170, %170, %.thread.i, %199, %132, %140, %147, %173
   %.0.i33 = phi i8 [ 0, %132 ], [ 0, %140 ], [ 0, %147 ], [ 0, %173 ], [ 1, %199 ], [ 0, %.thread.i ], [ 0, %170 ], [ 0, %170 ]
-  %207 = call i32 @close(i32 noundef range(i32 0, -1) %73) #11
+  %207 = call i32 @close(i32 noundef range(i32 0, -1) %73) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
@@ -752,7 +752,7 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @NET_ThrowNew(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #6
+declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -764,7 +764,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #6
 
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #2
@@ -780,7 +780,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 declare i32 @getpid() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare zeroext i16 @in_cksum(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -788,17 +788,17 @@ declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, i32
 
 declare i64 @recvfrom(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -806,14 +806,15 @@ attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
+attributes #14 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

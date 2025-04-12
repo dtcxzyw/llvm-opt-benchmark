@@ -312,7 +312,7 @@ define void @_lv_svg_parser_init(ptr noundef %0) local_unnamed_addr #0 {
   br label %.preheader
 
 2:                                                ; preds = %1
-  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 40) #14
+  tail call void @lv_memset(ptr noundef nonnull %0, i8 noundef zeroext 0, i64 noundef 40) #15
   store i16 0, ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8, !tbaa !11
@@ -340,7 +340,7 @@ define void @_lv_svg_parser_deinit(ptr noundef captures(address_is_null) %0) loc
   br i1 %.not11, label %7, label %5
 
 5:                                                ; preds = %2
-  tail call void @lv_free(ptr noundef nonnull %4) #14
+  tail call void @lv_free(ptr noundef nonnull %4) #15
   store ptr null, ptr %3, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %6, align 8, !tbaa !12
@@ -353,7 +353,7 @@ define void @_lv_svg_parser_deinit(ptr noundef captures(address_is_null) %0) loc
   br i1 %.not12, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void @lv_svg_node_delete(ptr noundef nonnull %9) #14
+  tail call void @lv_svg_node_delete(ptr noundef nonnull %9) #15
   br label %11
 
 11:                                               ; preds = %10, %7
@@ -431,7 +431,7 @@ define noundef zeroext i1 @_lv_svg_parser_token(ptr noundef captures(address_is_
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr %12, align 16, !tbaa !23
-  %18 = tail call i32 @strncmp(ptr noundef %17, ptr noundef %.val, i64 noundef %10) #15
+  %18 = tail call i32 @strncmp(ptr noundef %17, ptr noundef %.val, i64 noundef %10) #16
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %_get_svg_tag_type.exit, label %20
 
@@ -487,13 +487,13 @@ _get_svg_tag_type.exit.thread:                    ; preds = %20
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !11
-  %51 = tail call i32 @strncmp(ptr noundef %50, ptr noundef %.val, i64 noundef %10) #15
+  %51 = tail call i32 @strncmp(ptr noundef %50, ptr noundef %.val, i64 noundef %10) #16
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %_process_end_tag.exit
 
 53:                                               ; preds = %48
   store i16 0, ptr %0, align 8, !tbaa !3
-  tail call void @lv_free(ptr noundef %50) #14
+  tail call void @lv_free(ptr noundef %50) #15
   store ptr null, ptr %49, align 8, !tbaa !11
   store i32 0, ptr %45, align 8, !tbaa !12
   br label %_process_end_tag.exit
@@ -525,7 +525,7 @@ _get_svg_tag_type.exit.thread:                    ; preds = %20
 65:                                               ; preds = %63
   %66 = add i64 %8, 1
   %67 = and i64 %66, 4294967295
-  %68 = tail call ptr @lv_malloc(i64 noundef %67) #14
+  %68 = tail call ptr @lv_malloc(i64 noundef %67) #15
   %.not43.i = icmp eq ptr %68, null
   br i1 %.not43.i, label %.preheader.i, label %69
 
@@ -534,12 +534,12 @@ _get_svg_tag_type.exit.thread:                    ; preds = %20
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %1, align 8, !tbaa !16
-  %71 = tail call ptr @lv_memcpy(ptr noundef nonnull %68, ptr noundef %70, i64 noundef %10) #14
+  %71 = tail call ptr @lv_memcpy(ptr noundef nonnull %68, ptr noundef %70, i64 noundef %10) #15
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 %10
   store i8 0, ptr %72, align 1, !tbaa !36
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %74 = load ptr, ptr %73, align 8, !tbaa !15
-  %75 = tail call ptr @lv_svg_node_create(ptr noundef %74) #14
+  %75 = tail call ptr @lv_svg_node_create(ptr noundef %74) #15
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   store ptr %68, ptr %76, align 8, !tbaa !37
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 40
@@ -560,7 +560,7 @@ _get_svg_tag_type.exit.thread:                    ; preds = %20
   store i16 1, ptr %0, align 8, !tbaa !3
   %85 = add i64 %8, 1
   %86 = and i64 %85, 4294967295
-  %87 = tail call ptr @lv_malloc(i64 noundef %86) #14
+  %87 = tail call ptr @lv_malloc(i64 noundef %86) #15
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %87, ptr %88, align 8, !tbaa !11
   %.not42.i = icmp eq ptr %87, null
@@ -573,7 +573,7 @@ _get_svg_tag_type.exit.thread:                    ; preds = %20
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %9, ptr %90, align 8, !tbaa !12
   %91 = load ptr, ptr %1, align 8, !tbaa !16
-  %92 = tail call ptr @lv_memcpy(ptr noundef nonnull %87, ptr noundef %91, i64 noundef %10) #14
+  %92 = tail call ptr @lv_memcpy(ptr noundef nonnull %87, ptr noundef %91, i64 noundef %10) #15
   %93 = load ptr, ptr %88, align 8, !tbaa !11
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 %10
   store i8 0, ptr %94, align 1, !tbaa !36
@@ -582,7 +582,7 @@ _get_svg_tag_type.exit.thread:                    ; preds = %20
 95:                                               ; preds = %78
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %97 = load ptr, ptr %96, align 8, !tbaa !15
-  %98 = tail call ptr @lv_svg_node_create(ptr noundef %97) #14
+  %98 = tail call ptr @lv_svg_node_create(ptr noundef %97) #15
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   store i8 %spec.select.i20, ptr %99, align 8, !tbaa !28
   tail call fastcc void @_process_attrs_tag(ptr noundef nonnull %0, ptr noundef %98, ptr noundef nonnull %1)
@@ -617,7 +617,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare void @lv_memset(ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
@@ -695,7 +695,7 @@ define internal fastcc void @_process_attrs_tag(ptr noundef nonnull readonly cap
   %68 = alloca float, align 4
   %69 = alloca ptr, align 8
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %71 = tail call i32 @lv_array_size(ptr noundef nonnull %70) #14
+  %71 = tail call i32 @lv_array_size(ptr noundef nonnull %70) #15
   %.not377 = icmp eq i32 %71, 0
   br i1 %.not377, label %._crit_edge, label %.lr.ph
 
@@ -777,7 +777,7 @@ define internal fastcc void @_process_attrs_tag(ptr noundef nonnull readonly cap
 
 142:                                              ; preds = %.lr.ph, %_process_view_box.exit
   %.0376 = phi i32 [ 0, %.lr.ph ], [ %1955, %_process_view_box.exit ]
-  %143 = call ptr @lv_array_at(ptr noundef nonnull %70, i32 noundef %.0376) #14
+  %143 = call ptr @lv_array_at(ptr noundef nonnull %70, i32 noundef %.0376) #15
   %144 = load ptr, ptr %143, align 8, !tbaa !41
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !43
@@ -798,7 +798,7 @@ define internal fastcc void @_process_attrs_tag(ptr noundef nonnull readonly cap
 
 157:                                              ; preds = %152
   %158 = load ptr, ptr %153, align 16, !tbaa !46
-  %159 = call i32 @strncmp(ptr noundef %158, ptr noundef %144, i64 noundef %151) #15
+  %159 = call i32 @strncmp(ptr noundef %158, ptr noundef %144, i64 noundef %151) #16
   %160 = icmp eq i32 %159, 0
   br i1 %160, label %161, label %164
 
@@ -824,7 +824,7 @@ _get_svg_attr_type.exit:                          ; preds = %164, %161
 
 .lr.ph.i:                                         ; preds = %_get_svg_attr_type.exit
   %171 = ptrtoint ptr %166 to i64
-  %172 = tail call ptr @__ctype_b_loc() #16
+  %172 = tail call ptr @__ctype_b_loc() #17
   %173 = load ptr, ptr %172, align 8, !tbaa !51
   %174 = sub i64 %170, %171
   %scevgep.i = getelementptr i8, ptr %166, i64 %174
@@ -862,7 +862,7 @@ _skip_space.exit:                                 ; preds = %175, %181, %_get_sv
 189:                                              ; preds = %187
   %190 = add i64 %184, 1
   %191 = and i64 %190, 4294967295
-  %192 = call ptr @lv_malloc(i64 noundef %191) #14
+  %192 = call ptr @lv_malloc(i64 noundef %191) #15
   %.not = icmp eq ptr %192, null
   br i1 %.not, label %.preheader, label %193
 
@@ -871,7 +871,7 @@ _skip_space.exit:                                 ; preds = %175, %181, %_get_sv
 
 193:                                              ; preds = %189
   %194 = load ptr, ptr %165, align 8, !tbaa !49
-  %195 = call ptr @lv_memcpy(ptr noundef nonnull %192, ptr noundef %194, i64 noundef %185) #14
+  %195 = call ptr @lv_memcpy(ptr noundef nonnull %192, ptr noundef %194, i64 noundef %185) #15
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 %185
   store i8 0, ptr %196, align 1, !tbaa !36
   store ptr %192, ptr %141, align 8, !tbaa !37
@@ -951,23 +951,23 @@ _skip_space.exit:                                 ; preds = %175, %181, %_get_sv
   ]
 
 198:                                              ; preds = %197, %197
-  %199 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %199 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %200 = add i32 %199, 1
-  %201 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %201 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %202 = icmp ugt i32 %200, %201
   br i1 %202, label %203, label %207
 
 203:                                              ; preds = %198
   %204 = load i32, ptr %73, align 4, !tbaa !55
   %205 = shl i32 %204, 1
-  %206 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %205) #14
+  %206 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %205) #15
   br label %207
 
 207:                                              ; preds = %203, %198
   %208 = load i32, ptr %74, align 8, !tbaa !56
   %209 = add i32 %208, 1
   store i32 %209, ptr %74, align 8, !tbaa !56
-  %210 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %208) #14
+  %210 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %208) #15
   store i8 %spec.select.i, ptr %210, align 8, !tbaa !57
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 1
   store i8 1, ptr %211, align 1, !tbaa !59
@@ -975,7 +975,7 @@ _skip_space.exit:                                 ; preds = %175, %181, %_get_sv
   store i8 1, ptr %212, align 2, !tbaa !60
   %213 = add i64 %184, 1
   %214 = and i64 %213, 4294967295
-  %215 = call ptr @lv_malloc(i64 noundef %214) #14
+  %215 = call ptr @lv_malloc(i64 noundef %214) #15
   %.not.i109 = icmp eq ptr %215, null
   br i1 %.not.i109, label %.preheader.i, label %_process_string.exit
 
@@ -983,7 +983,7 @@ _skip_space.exit:                                 ; preds = %175, %181, %_get_sv
   br label %.preheader.i
 
 _process_string.exit:                             ; preds = %207
-  %216 = call ptr @lv_memcpy(ptr noundef nonnull %215, ptr noundef %.0.lcssa.i, i64 noundef %185) #14
+  %216 = call ptr @lv_memcpy(ptr noundef nonnull %215, ptr noundef %.0.lcssa.i, i64 noundef %185) #15
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 %185
   store i8 0, ptr %217, align 1, !tbaa !36
   %218 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -991,23 +991,23 @@ _process_string.exit:                             ; preds = %207
   br label %_process_view_box.exit
 
 219:                                              ; preds = %197
-  %220 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %220 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %221 = add i32 %220, 1
-  %222 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %222 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %223 = icmp ugt i32 %221, %222
   br i1 %223, label %224, label %228
 
 224:                                              ; preds = %219
   %225 = load i32, ptr %73, align 4, !tbaa !55
   %226 = shl i32 %225, 1
-  %227 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %226) #14
+  %227 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %226) #15
   br label %228
 
 228:                                              ; preds = %224, %219
   %229 = load i32, ptr %74, align 8, !tbaa !56
   %230 = add i32 %229, 1
   store i32 %230, ptr %74, align 8, !tbaa !56
-  %231 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %229) #14
+  %231 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %229) #15
   store i8 5, ptr %231, align 8, !tbaa !57
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 1
   store i8 1, ptr %232, align 1, !tbaa !59
@@ -1018,7 +1018,7 @@ _process_string.exit:                             ; preds = %207
   br i1 %.not.i110, label %239, label %235
 
 235:                                              ; preds = %228
-  %236 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #15
+  %236 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #16
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %239
 
@@ -1028,7 +1028,7 @@ _process_string.exit:                             ; preds = %207
   br label %_process_view_box.exit
 
 239:                                              ; preds = %235, %228
-  %240 = call ptr @lv_malloc_zeroed(i64 noundef 16) #14
+  %240 = call ptr @lv_malloc_zeroed(i64 noundef 16) #15
   %.not35.i = icmp eq ptr %240, null
   br i1 %.not35.i, label %.preheader.i114, label %.preheader39.i
 
@@ -1083,19 +1083,19 @@ _is_number_begin.exit.thread.i.i:                 ; preds = %_is_number_begin.ex
   br i1 %251, label %_parse_number.exit.thread.i, label %_parse_number.exit.i
 
 _parse_number.exit.i:                             ; preds = %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %69) #15
   store ptr null, ptr %69, align 8, !tbaa !63
-  %252 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i, ptr noundef nonnull %69) #14
+  %252 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i, ptr noundef nonnull %69) #15
   store float %252, ptr %242, align 4, !tbaa !64
   %253 = load ptr, ptr %69, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %69) #15
   %.not36.i = icmp eq ptr %253, null
   br i1 %.not36.i, label %_parse_number.exit.thread.i, label %241
 
 _parse_number.exit.thread.i:                      ; preds = %_parse_number.exit.i, %.critedge.i.i, %.preheader39.i
   store i8 0, ptr %232, align 1, !tbaa !59
   store i8 0, ptr %233, align 2, !tbaa !60
-  call void @lv_free(ptr noundef nonnull %240) #14
+  call void @lv_free(ptr noundef nonnull %240) #15
   br label %_process_view_box.exit
 
 .critedge.i:                                      ; preds = %241
@@ -1104,23 +1104,23 @@ _parse_number.exit.thread.i:                      ; preds = %_parse_number.exit.
   br label %_process_view_box.exit
 
 255:                                              ; preds = %197
-  %256 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %256 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %257 = add i32 %256, 1
-  %258 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %258 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %259 = icmp ugt i32 %257, %258
   br i1 %259, label %260, label %264
 
 260:                                              ; preds = %255
   %261 = load i32, ptr %73, align 4, !tbaa !55
   %262 = shl i32 %261, 1
-  %263 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %262) #14
+  %263 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %262) #15
   br label %264
 
 264:                                              ; preds = %260, %255
   %265 = load i32, ptr %74, align 8, !tbaa !56
   %266 = add i32 %265, 1
   store i32 %266, ptr %74, align 8, !tbaa !56
-  %267 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %265) #14
+  %267 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %265) #15
   store i8 6, ptr %267, align 8, !tbaa !57
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 1
   store i8 0, ptr %268, align 1, !tbaa !59
@@ -1137,12 +1137,12 @@ _parse_number.exit.thread.i:                      ; preds = %_parse_number.exit.
   %indvars.iv.i115 = phi i64 [ 0, %264 ], [ %indvars.iv.next.i116, %270 ]
   %272 = getelementptr inbounds nuw [9 x %struct._lv_svg_attr_aspect_ratio_map], ptr @_svg_attr_aspect_ratio_map, i64 0, i64 %indvars.iv.i115
   %273 = load ptr, ptr %272, align 16, !tbaa !67
-  %274 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, i64 noundef 8) #15
+  %274 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %273, ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, i64 noundef 8) #16
   %275 = icmp eq i32 %274, 0
   br i1 %275, label %279, label %276
 
 276:                                              ; preds = %271
-  %277 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.101, ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, i64 noundef 4) #15
+  %277 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.101, ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, i64 noundef 4) #16
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %_process_preserve_aspect_ratio.exit, label %270
 
@@ -1171,7 +1171,7 @@ _parse_number.exit.thread.i:                      ; preds = %_parse_number.exit.
   br i1 %286, label %.lr.ph.i.i119, label %_skip_space.exit.i
 
 .lr.ph.i.i119:                                    ; preds = %285
-  %287 = tail call ptr @__ctype_b_loc() #16
+  %287 = tail call ptr @__ctype_b_loc() #17
   %288 = load ptr, ptr %287, align 8, !tbaa !51
   %scevgep.i.i120 = getelementptr i8, ptr %.03240.i, i64 %.pre-phi402
   br label %289
@@ -1193,12 +1193,12 @@ _parse_number.exit.thread.i:                      ; preds = %_parse_number.exit.
 
 _skip_space.exit.i:                               ; preds = %295, %289, %285
   %.0.lcssa.i.i = phi ptr [ %.03240.i, %285 ], [ %scevgep.i.i120, %295 ], [ %.05.i.i, %289 ]
-  %297 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i, ptr noundef nonnull dereferenceable(5) @.str.103, i64 noundef 4) #15
+  %297 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i, ptr noundef nonnull dereferenceable(5) @.str.103, i64 noundef 4) #16
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %_process_preserve_aspect_ratio.exit, label %299
 
 299:                                              ; preds = %_skip_space.exit.i
-  %300 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i, ptr noundef nonnull dereferenceable(6) @.str.104, i64 noundef 5) #15
+  %300 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i, ptr noundef nonnull dereferenceable(6) @.str.104, i64 noundef 5) #16
   %301 = icmp eq i32 %300, 0
   %302 = zext i1 %301 to i32
   %spec.select.i118 = or i32 %.03141.i, %302
@@ -1212,55 +1212,55 @@ _process_preserve_aspect_ratio.exit:              ; preds = %276, %279, %.thread
 
 304:                                              ; preds = %197, %197, %197, %197, %197, %197, %197, %197, %197, %197, %197, %197, %197, %197
   %305 = load i32, ptr %75, align 4, !tbaa !13
-  %306 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %306 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %307 = add i32 %306, 1
-  %308 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %308 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %309 = icmp ugt i32 %307, %308
   br i1 %309, label %310, label %_process_length_value.exit
 
 310:                                              ; preds = %304
   %311 = load i32, ptr %73, align 4, !tbaa !55
   %312 = shl i32 %311, 1
-  %313 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %312) #14
+  %313 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %312) #15
   br label %_process_length_value.exit
 
 _process_length_value.exit:                       ; preds = %304, %310
   %314 = load i32, ptr %74, align 8, !tbaa !56
   %315 = add i32 %314, 1
   store i32 %315, ptr %74, align 8, !tbaa !56
-  %316 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %314) #14
+  %316 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %314) #15
   store i8 %spec.select.i, ptr %316, align 8, !tbaa !57
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 1
   store i8 0, ptr %317, align 1, !tbaa !59
   %318 = getelementptr inbounds nuw i8, ptr %316, i64 2
   store i8 1, ptr %318, align 2, !tbaa !60
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %68) #15
   store float 0.000000e+00, ptr %68, align 4, !tbaa !64
   call fastcc void @_parse_length(ptr noundef %.0.lcssa.i, ptr noundef %168, i32 noundef %305, ptr noundef nonnull %68)
   %319 = load float, ptr %68, align 4, !tbaa !64
   %320 = getelementptr inbounds nuw i8, ptr %316, i64 8
   store float %319, ptr %320, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %68) #15
   br label %_process_view_box.exit
 
 321:                                              ; preds = %197, %197, %197, %197, %197, %197
-  %322 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %322 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %323 = add i32 %322, 1
-  %324 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %324 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %325 = icmp ugt i32 %323, %324
   br i1 %325, label %326, label %330
 
 326:                                              ; preds = %321
   %327 = load i32, ptr %73, align 4, !tbaa !55
   %328 = shl i32 %327, 1
-  %329 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %328) #14
+  %329 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %328) #15
   br label %330
 
 330:                                              ; preds = %326, %321
   %331 = load i32, ptr %74, align 8, !tbaa !56
   %332 = add i32 %331, 1
   store i32 %332, ptr %74, align 8, !tbaa !56
-  %333 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %331) #14
+  %333 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %331) #15
   store i8 %spec.select.i, ptr %333, align 8, !tbaa !57
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 1
   store i8 0, ptr %334, align 1, !tbaa !59
@@ -1271,7 +1271,7 @@ _process_length_value.exit:                       ; preds = %304, %310
   br i1 %337, label %338, label %342
 
 338:                                              ; preds = %330
-  %339 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #15
+  %339 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #16
   %340 = icmp eq i32 %339, 0
   br i1 %340, label %341, label %.preheader.i.i125
 
@@ -1317,10 +1317,10 @@ _is_number_begin.exit.thread.i.i138:              ; preds = %_is_number_begin.ex
   br i1 %349, label %.thread22.i, label %_parse_number.exit.i128
 
 _parse_number.exit.i128:                          ; preds = %.critedge.i.i126
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %67) #15
   store ptr null, ptr %67, align 8, !tbaa !63
-  %350 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i127, ptr noundef nonnull %67) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #14
+  %350 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i127, ptr noundef nonnull %67) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %67) #15
   %351 = fcmp olt float %350, 0.000000e+00
   br i1 %351, label %.thread22.i, label %352
 
@@ -1338,29 +1338,29 @@ _parse_number.exit.i128:                          ; preds = %.critedge.i.i126
   br label %_process_view_box.exit
 
 356:                                              ; preds = %197
-  %357 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %357 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %358 = add i32 %357, 1
-  %359 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %359 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %360 = icmp ugt i32 %358, %359
   br i1 %360, label %361, label %365
 
 361:                                              ; preds = %356
   %362 = load i32, ptr %73, align 4, !tbaa !55
   %363 = shl i32 %362, 1
-  %364 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %363) #14
+  %364 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %363) #15
   br label %365
 
 365:                                              ; preds = %361, %356
   %366 = load i32, ptr %74, align 8, !tbaa !56
   %367 = add i32 %366, 1
   store i32 %367, ptr %74, align 8, !tbaa !56
-  %368 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %366) #14
+  %368 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %366) #15
   store i8 24, ptr %368, align 8, !tbaa !57
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 1
   store i8 1, ptr %369, align 1, !tbaa !59
   %370 = getelementptr inbounds nuw i8, ptr %368, i64 2
   store i8 1, ptr %370, align 2, !tbaa !60
-  %371 = call ptr @lv_malloc(i64 noundef 36) #14
+  %371 = call ptr @lv_malloc(i64 noundef 36) #15
   %.not.i140 = icmp eq ptr %371, null
   br i1 %.not.i140, label %.preheader.i158, label %.preheader75.i
 
@@ -1384,7 +1384,7 @@ _parse_number.exit.i128:                          ; preds = %.critedge.i.i126
   %377 = zext i32 %376 to i64
   %378 = shl nuw nsw i64 %377, 3
   %379 = or disjoint i64 %378, 4
-  %380 = call ptr @lv_realloc(ptr noundef nonnull %.040.i, i64 noundef %379) #14
+  %380 = call ptr @lv_realloc(ptr noundef nonnull %.040.i, i64 noundef %379) #15
   %.not46.i = icmp eq ptr %380, null
   br i1 %.not46.i, label %.preheader74.i, label %381
 
@@ -1436,11 +1436,11 @@ _parse_number.exit.thread.i157:                   ; preds = %.critedge.i.i154, %
   br label %_parse_number.exit64.thread.i
 
 _parse_number.exit.i156:                          ; preds = %.critedge.i.i154
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #15
   store ptr null, ptr %66, align 8, !tbaa !63
-  %393 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i155, ptr noundef nonnull %66) #14
+  %393 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i155, ptr noundef nonnull %66) #15
   %394 = load ptr, ptr %66, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #15
   store float %393, ptr %384, align 4, !tbaa !70
   %395 = ptrtoint ptr %394 to i64
   %.not.i48.i = icmp eq ptr %394, null
@@ -1486,11 +1486,11 @@ _parse_number.exit64.thread.i:                    ; preds = %.critedge.i50.i, %_
   br label %_process_points_value.exit
 
 _parse_number.exit64.i:                           ; preds = %.critedge.i50.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #15
   store ptr null, ptr %65, align 8, !tbaa !63
-  %405 = call float @strtof(ptr noundef nonnull %.010.lcssa.i51.i, ptr noundef nonnull %65) #14
+  %405 = call float @strtof(ptr noundef nonnull %.010.lcssa.i51.i, ptr noundef nonnull %65) #15
   %406 = load ptr, ptr %65, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #15
   %407 = getelementptr inbounds nuw i8, ptr %384, i64 4
   store float %405, ptr %407, align 4, !tbaa !72
   %.not47.i = icmp eq ptr %406, null
@@ -1505,29 +1505,29 @@ _process_points_value.exit:                       ; preds = %.preheader75.i, %_p
   br label %_process_view_box.exit
 
 410:                                              ; preds = %197, %197
-  %411 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %411 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %412 = add i32 %411, 1
-  %413 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %413 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %414 = icmp ugt i32 %412, %413
   br i1 %414, label %415, label %419
 
 415:                                              ; preds = %410
   %416 = load i32, ptr %73, align 4, !tbaa !55
   %417 = shl i32 %416, 1
-  %418 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %417) #14
+  %418 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %417) #15
   br label %419
 
 419:                                              ; preds = %415, %410
   %420 = load i32, ptr %74, align 8, !tbaa !56
   %421 = add i32 %420, 1
   store i32 %421, ptr %74, align 8, !tbaa !56
-  %422 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %420) #14
+  %422 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %420) #15
   store i8 %spec.select.i, ptr %422, align 8, !tbaa !57
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 1
   store i8 1, ptr %423, align 1, !tbaa !59
   %424 = getelementptr inbounds nuw i8, ptr %422, i64 2
   store i8 1, ptr %424, align 2, !tbaa !60
-  %425 = call ptr @lv_malloc(i64 noundef 52) #14
+  %425 = call ptr @lv_malloc(i64 noundef 52) #15
   %.not.i159 = icmp eq ptr %425, null
   br i1 %.not.i159, label %.preheader.i180, label %.preheader606.i
 
@@ -1536,7 +1536,7 @@ _process_points_value.exit:                       ; preds = %.preheader75.i, %_p
   br i1 %426, label %.lr.ph.i.lr.ph.i, label %_process_path_value.exit
 
 .lr.ph.i.lr.ph.i:                                 ; preds = %.preheader606.i
-  %427 = tail call ptr @__ctype_b_loc() #16
+  %427 = tail call ptr @__ctype_b_loc() #17
   br label %.lr.ph.i.i160
 
 .preheader.i180:                                  ; preds = %419, %.preheader.i180
@@ -1673,7 +1673,7 @@ _get_path_point_count.exit.i:                     ; preds = %453, %452, %451, %4
   %461 = mul i32 %.0216629.i, 24
   %462 = or disjoint i32 %461, 4
   %463 = zext i32 %462 to i64
-  %464 = call ptr @lv_realloc(ptr noundef %.0222626.i, i64 noundef %463) #14
+  %464 = call ptr @lv_realloc(ptr noundef %.0222626.i, i64 noundef %463) #15
   %.not249.i = icmp eq ptr %464, null
   br i1 %.not249.i, label %.preheader605.i, label %_is_relative_cmd.exit.i
 
@@ -1751,11 +1751,11 @@ _is_number_begin.exit.thread.i.i179:              ; preds = %_is_number_begin.ex
   br i1 %478, label %_parse_number.exit276.i, label %_parse_number.exit.i171
 
 _parse_number.exit.i171:                          ; preds = %.critedge.i.i169
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #15
   store ptr null, ptr %64, align 8, !tbaa !63
-  %479 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i170, ptr noundef nonnull %64) #14
+  %479 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i170, ptr noundef nonnull %64) #15
   %480 = load ptr, ptr %64, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #15
   %481 = ptrtoint ptr %480 to i64
   %.not.i260.i = icmp eq ptr %480, null
   br i1 %.not.i260.i, label %_parse_number.exit276.i, label %.preheader.i261.i
@@ -1795,11 +1795,11 @@ _is_number_begin.exit.thread.i274.i:              ; preds = %_is_number_begin.ex
   br i1 %489, label %_parse_number.exit276.i, label %490
 
 490:                                              ; preds = %.critedge.i262.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #15
   store ptr null, ptr %63, align 8, !tbaa !63
-  %491 = call float @strtof(ptr noundef nonnull %.010.lcssa.i263.i, ptr noundef nonnull %63) #14
+  %491 = call float @strtof(ptr noundef nonnull %.010.lcssa.i263.i, ptr noundef nonnull %63) #15
   %492 = load ptr, ptr %63, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #15
   br label %_parse_number.exit276.i
 
 _parse_number.exit276.i:                          ; preds = %490, %.critedge.i262.i, %_parse_number.exit.i171, %.critedge.i.i169
@@ -1853,11 +1853,11 @@ _is_number_begin.exit.thread.i291.i:              ; preds = %_is_number_begin.ex
   br i1 %505, label %_parse_number.exit310.i, label %_parse_number.exit293.i
 
 _parse_number.exit293.i:                          ; preds = %.critedge.i279.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #15
   store ptr null, ptr %62, align 8, !tbaa !63
-  %506 = call float @strtof(ptr noundef nonnull %.010.lcssa.i280.i, ptr noundef nonnull %62) #14
+  %506 = call float @strtof(ptr noundef nonnull %.010.lcssa.i280.i, ptr noundef nonnull %62) #15
   %507 = load ptr, ptr %62, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #15
   %508 = ptrtoint ptr %507 to i64
   %.not.i294.i = icmp eq ptr %507, null
   br i1 %.not.i294.i, label %_parse_number.exit310.i, label %.preheader.i295.i
@@ -1897,11 +1897,11 @@ _is_number_begin.exit.thread.i308.i:              ; preds = %_is_number_begin.ex
   br i1 %516, label %_parse_number.exit310.i, label %517
 
 517:                                              ; preds = %.critedge.i296.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %61) #15
   store ptr null, ptr %61, align 8, !tbaa !63
-  %518 = call float @strtof(ptr noundef nonnull %.010.lcssa.i297.i, ptr noundef nonnull %61) #14
+  %518 = call float @strtof(ptr noundef nonnull %.010.lcssa.i297.i, ptr noundef nonnull %61) #15
   %519 = load ptr, ptr %61, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %61) #15
   br label %_parse_number.exit310.i
 
 _parse_number.exit310.i:                          ; preds = %517, %.critedge.i296.i, %_parse_number.exit293.i, %.critedge.i279.i
@@ -1955,11 +1955,11 @@ _is_number_begin.exit.thread.i325.i:              ; preds = %_is_number_begin.ex
   br i1 %532, label %_parse_number.exit327.i, label %533
 
 533:                                              ; preds = %.critedge.i313.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #15
   store ptr null, ptr %60, align 8, !tbaa !63
-  %534 = call float @strtof(ptr noundef nonnull %.010.lcssa.i314.i, ptr noundef nonnull %60) #14
+  %534 = call float @strtof(ptr noundef nonnull %.010.lcssa.i314.i, ptr noundef nonnull %60) #15
   %535 = load ptr, ptr %60, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #15
   br label %_parse_number.exit327.i
 
 _parse_number.exit327.i:                          ; preds = %533, %.critedge.i313.i
@@ -2010,11 +2010,11 @@ _is_number_begin.exit.thread.i342.i:              ; preds = %_is_number_begin.ex
   br i1 %547, label %_parse_number.exit344.i, label %548
 
 548:                                              ; preds = %.critedge.i330.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #15
   store ptr null, ptr %59, align 8, !tbaa !63
-  %549 = call float @strtof(ptr noundef nonnull %.010.lcssa.i331.i, ptr noundef nonnull %59) #14
+  %549 = call float @strtof(ptr noundef nonnull %.010.lcssa.i331.i, ptr noundef nonnull %59) #15
   %550 = load ptr, ptr %59, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #15
   br label %_parse_number.exit344.i
 
 _parse_number.exit344.i:                          ; preds = %548, %.critedge.i330.i
@@ -2085,11 +2085,11 @@ _is_number_begin.exit.thread.i359.i:              ; preds = %_is_number_begin.ex
   br i1 %573, label %_parse_number.exit378.i, label %_parse_number.exit361.i
 
 _parse_number.exit361.i:                          ; preds = %.critedge.i347.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #15
   store ptr null, ptr %58, align 8, !tbaa !63
-  %574 = call float @strtof(ptr noundef nonnull %.010.lcssa.i348.i, ptr noundef nonnull %58) #14
+  %574 = call float @strtof(ptr noundef nonnull %.010.lcssa.i348.i, ptr noundef nonnull %58) #15
   %575 = load ptr, ptr %58, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #15
   %576 = ptrtoint ptr %575 to i64
   %.not.i362.i = icmp eq ptr %575, null
   br i1 %.not.i362.i, label %_parse_number.exit378.i, label %.preheader.i363.i
@@ -2129,11 +2129,11 @@ _is_number_begin.exit.thread.i376.i:              ; preds = %_is_number_begin.ex
   br i1 %584, label %_parse_number.exit378.i, label %585
 
 585:                                              ; preds = %.critedge.i364.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #15
   store ptr null, ptr %57, align 8, !tbaa !63
-  %586 = call float @strtof(ptr noundef nonnull %.010.lcssa.i365.i, ptr noundef nonnull %57) #14
+  %586 = call float @strtof(ptr noundef nonnull %.010.lcssa.i365.i, ptr noundef nonnull %57) #15
   %587 = load ptr, ptr %57, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #15
   br label %_parse_number.exit378.i
 
 _parse_number.exit378.i:                          ; preds = %585, %.critedge.i364.i, %_parse_number.exit361.i, %.critedge.i347.i, %564
@@ -2228,11 +2228,11 @@ _is_number_begin.exit.thread.i393.i:              ; preds = %_is_number_begin.ex
   br i1 %621, label %_parse_number.exit412.i, label %_parse_number.exit395.i
 
 _parse_number.exit395.i:                          ; preds = %.critedge.i381.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #15
   store ptr null, ptr %56, align 8, !tbaa !63
-  %622 = call float @strtof(ptr noundef nonnull %.010.lcssa.i382.i, ptr noundef nonnull %56) #14
+  %622 = call float @strtof(ptr noundef nonnull %.010.lcssa.i382.i, ptr noundef nonnull %56) #15
   %623 = load ptr, ptr %56, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #15
   %624 = ptrtoint ptr %623 to i64
   %.not.i396.i = icmp eq ptr %623, null
   br i1 %.not.i396.i, label %_parse_number.exit412.i, label %.preheader.i397.i
@@ -2272,11 +2272,11 @@ _is_number_begin.exit.thread.i410.i:              ; preds = %_is_number_begin.ex
   br i1 %632, label %_parse_number.exit412.i, label %633
 
 633:                                              ; preds = %.critedge.i398.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #15
   store ptr null, ptr %55, align 8, !tbaa !63
-  %634 = call float @strtof(ptr noundef nonnull %.010.lcssa.i399.i, ptr noundef nonnull %55) #14
+  %634 = call float @strtof(ptr noundef nonnull %.010.lcssa.i399.i, ptr noundef nonnull %55) #15
   %635 = load ptr, ptr %55, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #15
   br label %_parse_number.exit412.i
 
 _parse_number.exit412.i:                          ; preds = %633, %.critedge.i398.i, %_parse_number.exit395.i, %.critedge.i381.i, %612
@@ -2353,11 +2353,11 @@ _is_number_begin.exit.thread.i427.i:              ; preds = %_is_number_begin.ex
   br i1 %660, label %_parse_number.exit446.i, label %_parse_number.exit429.i
 
 _parse_number.exit429.i:                          ; preds = %.critedge.i415.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #15
   store ptr null, ptr %54, align 8, !tbaa !63
-  %661 = call float @strtof(ptr noundef nonnull %.010.lcssa.i416.i, ptr noundef nonnull %54) #14
+  %661 = call float @strtof(ptr noundef nonnull %.010.lcssa.i416.i, ptr noundef nonnull %54) #15
   %662 = load ptr, ptr %54, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #15
   %663 = ptrtoint ptr %662 to i64
   %.not.i430.i = icmp eq ptr %662, null
   br i1 %.not.i430.i, label %_parse_number.exit446.i, label %.preheader.i431.i
@@ -2397,11 +2397,11 @@ _is_number_begin.exit.thread.i444.i:              ; preds = %_is_number_begin.ex
   br i1 %671, label %_parse_number.exit446.i, label %672
 
 672:                                              ; preds = %.critedge.i432.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #15
   store ptr null, ptr %53, align 8, !tbaa !63
-  %673 = call float @strtof(ptr noundef nonnull %.010.lcssa.i433.i, ptr noundef nonnull %53) #14
+  %673 = call float @strtof(ptr noundef nonnull %.010.lcssa.i433.i, ptr noundef nonnull %53) #15
   %674 = load ptr, ptr %53, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #15
   br label %_parse_number.exit446.i
 
 _parse_number.exit446.i:                          ; preds = %672, %.critedge.i432.i, %_parse_number.exit429.i, %.critedge.i415.i, %650
@@ -2481,11 +2481,11 @@ _is_number_begin.exit.thread.i461.i:              ; preds = %_is_number_begin.ex
   br i1 %698, label %_parse_number.exit480.i, label %_parse_number.exit463.i
 
 _parse_number.exit463.i:                          ; preds = %.critedge.i449.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #15
   store ptr null, ptr %52, align 8, !tbaa !63
-  %699 = call float @strtof(ptr noundef nonnull %.010.lcssa.i450.i, ptr noundef nonnull %52) #14
+  %699 = call float @strtof(ptr noundef nonnull %.010.lcssa.i450.i, ptr noundef nonnull %52) #15
   %700 = load ptr, ptr %52, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #15
   %701 = ptrtoint ptr %700 to i64
   %.not.i464.i = icmp eq ptr %700, null
   br i1 %.not.i464.i, label %_parse_number.exit480.i, label %.preheader.i465.i
@@ -2525,11 +2525,11 @@ _is_number_begin.exit.thread.i478.i:              ; preds = %_is_number_begin.ex
   br i1 %709, label %_parse_number.exit480.i, label %710
 
 710:                                              ; preds = %.critedge.i466.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #15
   store ptr null, ptr %51, align 8, !tbaa !63
-  %711 = call float @strtof(ptr noundef nonnull %.010.lcssa.i467.i, ptr noundef nonnull %51) #14
+  %711 = call float @strtof(ptr noundef nonnull %.010.lcssa.i467.i, ptr noundef nonnull %51) #15
   %712 = load ptr, ptr %51, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #15
   br label %_parse_number.exit480.i
 
 _parse_number.exit480.i:                          ; preds = %710, %.critedge.i466.i, %_parse_number.exit463.i, %.critedge.i449.i
@@ -2583,23 +2583,23 @@ _process_path_value.exit:                         ; preds = %_skip_space_and_sep
   br label %_process_view_box.exit
 
 722:                                              ; preds = %197
-  %723 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %723 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %724 = add i32 %723, 1
-  %725 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %725 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %726 = icmp ugt i32 %724, %725
   br i1 %726, label %727, label %731
 
 727:                                              ; preds = %722
   %728 = load i32, ptr %73, align 4, !tbaa !55
   %729 = shl i32 %728, 1
-  %730 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %729) #14
+  %730 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %729) #15
   br label %731
 
 731:                                              ; preds = %727, %722
   %732 = load i32, ptr %74, align 8, !tbaa !56
   %733 = add i32 %732, 1
   store i32 %733, ptr %74, align 8, !tbaa !56
-  %734 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %732) #14
+  %734 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %732) #15
   store i8 51, ptr %734, align 8, !tbaa !57
   %735 = getelementptr inbounds nuw i8, ptr %734, i64 1
   store i8 1, ptr %735, align 1, !tbaa !59
@@ -2610,7 +2610,7 @@ _process_path_value.exit:                         ; preds = %_skip_space_and_sep
   br i1 %.not.i181, label %742, label %738
 
 738:                                              ; preds = %731
-  %739 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #15
+  %739 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #16
   %740 = icmp eq i32 %739, 0
   br i1 %740, label %741, label %742
 
@@ -2620,7 +2620,7 @@ _process_path_value.exit:                         ; preds = %_skip_space_and_sep
   br label %_process_view_box.exit
 
 742:                                              ; preds = %738, %731
-  %743 = call ptr @lv_malloc_zeroed(i64 noundef 36) #14
+  %743 = call ptr @lv_malloc_zeroed(i64 noundef 36) #15
   %.not65.i = icmp eq ptr %743, null
   br i1 %.not65.i, label %.preheader.i193, label %744
 
@@ -2637,7 +2637,7 @@ _process_path_value.exit:                         ; preds = %_skip_space_and_sep
   br i1 %747, label %.lr.ph.i.lr.ph.i182, label %_skip_space.exit._crit_edge.i
 
 .lr.ph.i.lr.ph.i182:                              ; preds = %744
-  %748 = tail call ptr @__ctype_b_loc() #16
+  %748 = tail call ptr @__ctype_b_loc() #17
   br label %.lr.ph.i.i183
 
 .lr.ph.i.i183:                                    ; preds = %.critedge68.i, %.lr.ph.i.lr.ph.i182
@@ -2676,7 +2676,7 @@ _skip_space.exit.i188:                            ; preds = %758, %752
   br i1 %765, label %766, label %769
 
 766:                                              ; preds = %761
-  %767 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(10) @.str.117, i64 noundef 9) #15
+  %767 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(10) @.str.117, i64 noundef 9) #16
   %768 = icmp eq i32 %767, 0
   br i1 %768, label %.critedge68.sink.split.i, label %.thread.i
 
@@ -2685,12 +2685,12 @@ _skip_space.exit.i188:                            ; preds = %758, %752
   br i1 %770, label %.thread.i, label %.critedge.i190
 
 .thread.i:                                        ; preds = %769, %766
-  %771 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(7) @.str.118, i64 noundef 6) #15
+  %771 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(7) @.str.118, i64 noundef 6) #16
   %772 = icmp eq i32 %771, 0
   br i1 %772, label %.critedge68.sink.split.i, label %773
 
 773:                                              ; preds = %.thread.i
-  %774 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(7) @.str.98, i64 noundef 6) #15
+  %774 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(7) @.str.98, i64 noundef 6) #16
   %775 = icmp eq i32 %774, 0
   br i1 %775, label %.critedge68.sink.split.i, label %.critedge.thread.i
 
@@ -2699,17 +2699,17 @@ _skip_space.exit.i188:                            ; preds = %758, %752
   br i1 %776, label %.critedge.thread.i, label %.critedge68.i
 
 .critedge.thread.i:                               ; preds = %.critedge.i190, %773
-  %777 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(6) @.str.119, i64 noundef 5) #15
+  %777 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(6) @.str.119, i64 noundef 5) #16
   %778 = icmp eq i32 %777, 0
   br i1 %778, label %.critedge68.sink.split.i, label %779
 
 779:                                              ; preds = %.critedge.thread.i
-  %780 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(6) @.str.120, i64 noundef 5) #15
+  %780 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(6) @.str.120, i64 noundef 5) #16
   %781 = icmp eq i32 %780, 0
   br i1 %781, label %.critedge68.sink.split.i, label %.critedge67.i
 
 .critedge67.i:                                    ; preds = %779
-  %782 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(6) @.str.121, i64 noundef 5) #15
+  %782 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i189, ptr noundef nonnull dereferenceable(6) @.str.121, i64 noundef 5) #16
   %783 = icmp eq i32 %782, 0
   br i1 %783, label %.critedge68.sink.split.i, label %.critedge68.i
 
@@ -2750,7 +2750,7 @@ _skip_space.exit.i188:                            ; preds = %758, %752
   ]
 
 790:                                              ; preds = %789
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   br label %792
 
@@ -2802,17 +2802,17 @@ _is_number_begin.exit.thread.i.i349:              ; preds = %_is_number_begin.ex
   br i1 %802, label %.critedge142.i, label %_parse_number.exit.i336
 
 _parse_number.exit.i336:                          ; preds = %.critedge.i.i334
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #15
   store ptr null, ptr %22, align 8, !tbaa !63
-  %803 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i335, ptr noundef nonnull %22) #14
+  %803 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i335, ptr noundef nonnull %22) #15
   store float %803, ptr %793, align 4, !tbaa !64
   %804 = load ptr, ptr %22, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #15
   %.not138.i = icmp eq ptr %804, null
   br i1 %.not138.i, label %.critedge142.i, label %791
 
 .critedge140.i:                                   ; preds = %791
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %24) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %24) #15
   %805 = load float, ptr %23, align 16, !tbaa !64
   store float %805, ptr %24, align 4, !tbaa !64
   %806 = load float, ptr %129, align 8, !tbaa !64
@@ -2828,7 +2828,7 @@ _parse_number.exit.i336:                          ; preds = %.critedge.i.i334
   store float 0.000000e+00, ptr %138, align 4, !tbaa !64
   store float 0.000000e+00, ptr %139, align 4, !tbaa !64
   store float 1.000000e+00, ptr %140, align 4, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %21) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %21) #15
   br label %.preheader.i146.i
 
 .preheader.i146.i:                                ; preds = %817, %.critedge140.i
@@ -2864,10 +2864,10 @@ _parse_number.exit.i336:                          ; preds = %.critedge.i.i334
   br i1 %exitcond.not.i147.i, label %817, label %818, !llvm.loop !82
 
 _multiply_matrix.exit.i:                          ; preds = %817
-  %829 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %21, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %21) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %24) #14
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #14
+  %829 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %21, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %21) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %24) #15
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #15
   br label %.critedge68.i
 
 830:                                              ; preds = %789
@@ -2909,11 +2909,11 @@ _is_number_begin.exit.thread.i162.i:              ; preds = %_is_number_begin.ex
   br i1 %838, label %.critedge68.i, label %_parse_number.exit164.i
 
 _parse_number.exit164.i:                          ; preds = %.critedge.i150.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #15
   store ptr null, ptr %20, align 8, !tbaa !63
-  %839 = call float @strtof(ptr noundef nonnull %.010.lcssa.i151.i, ptr noundef nonnull %20) #14
+  %839 = call float @strtof(ptr noundef nonnull %.010.lcssa.i151.i, ptr noundef nonnull %20) #15
   %840 = load ptr, ptr %20, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #15
   %.not135.not.i = icmp eq ptr %840, null
   br i1 %.not135.not.i, label %.critedge68.i, label %841
 
@@ -2985,11 +2985,11 @@ _is_number_begin.exit.thread.i184.i:              ; preds = %_is_number_begin.ex
   br i1 %863, label %_parse_number.exit186.i, label %864
 
 864:                                              ; preds = %.critedge.i172.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #15
   store ptr null, ptr %19, align 8, !tbaa !63
-  %865 = call float @strtof(ptr noundef nonnull %.010.lcssa.i173.i, ptr noundef nonnull %19) #14
+  %865 = call float @strtof(ptr noundef nonnull %.010.lcssa.i173.i, ptr noundef nonnull %19) #15
   %866 = load ptr, ptr %19, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #15
   br label %_parse_number.exit186.i
 
 _parse_number.exit186.i:                          ; preds = %864, %.critedge.i172.i
@@ -3002,7 +3002,7 @@ _parse_number.exit186.i:                          ; preds = %864, %.critedge.i17
 867:                                              ; preds = %_parse_number.exit186.i, %_skip_space.exit.i327
   %.0406.i = phi float [ 0.000000e+00, %_skip_space.exit.i327 ], [ %.1407.i, %_parse_number.exit186.i ]
   %.4103.i = phi ptr [ %840, %_skip_space.exit.i327 ], [ %spec.select.i329, %_parse_number.exit186.i ]
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %25) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %25) #15
   store float 1.000000e+00, ptr %25, align 4, !tbaa !64
   store float 0.000000e+00, ptr %120, align 4, !tbaa !64
   store float %839, ptr %121, align 4, !tbaa !64
@@ -3012,7 +3012,7 @@ _parse_number.exit186.i:                          ; preds = %864, %.critedge.i17
   store float 0.000000e+00, ptr %125, align 4, !tbaa !64
   store float 0.000000e+00, ptr %126, align 4, !tbaa !64
   store float 1.000000e+00, ptr %127, align 4, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %18) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %18) #15
   br label %.preheader.i187.i
 
 .preheader.i187.i:                                ; preds = %874, %867
@@ -3048,9 +3048,9 @@ _parse_number.exit186.i:                          ; preds = %864, %.critedge.i17
   br i1 %exitcond.not.i191.i, label %874, label %875, !llvm.loop !82
 
 886:                                              ; preds = %874
-  %887 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %18, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %18) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %25) #14
+  %887 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %18, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %18) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %25) #15
   br label %.critedge68.i
 
 888:                                              ; preds = %789
@@ -3092,11 +3092,11 @@ _is_number_begin.exit.thread.i209.i:              ; preds = %_is_number_begin.ex
   br i1 %896, label %.critedge68.i, label %_parse_number.exit211.i
 
 _parse_number.exit211.i:                          ; preds = %.critedge.i197.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
   store ptr null, ptr %17, align 8, !tbaa !63
-  %897 = call float @strtof(ptr noundef nonnull %.010.lcssa.i198.i, ptr noundef nonnull %17) #14
+  %897 = call float @strtof(ptr noundef nonnull %.010.lcssa.i198.i, ptr noundef nonnull %17) #15
   %898 = load ptr, ptr %17, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
   %.not132.not.i = icmp eq ptr %898, null
   br i1 %.not132.not.i, label %.critedge68.i, label %899
 
@@ -3168,11 +3168,11 @@ _is_number_begin.exit.thread.i234.i:              ; preds = %_is_number_begin.ex
   br i1 %921, label %_parse_number.exit253.i, label %_parse_number.exit236.i
 
 _parse_number.exit236.i:                          ; preds = %.critedge.i222.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
   store ptr null, ptr %16, align 8, !tbaa !63
-  %922 = call float @strtof(ptr noundef nonnull %.010.lcssa.i223.i, ptr noundef nonnull %16) #14
+  %922 = call float @strtof(ptr noundef nonnull %.010.lcssa.i223.i, ptr noundef nonnull %16) #15
   %923 = load ptr, ptr %16, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
   %924 = ptrtoint ptr %923 to i64
   %.not.i237.i = icmp eq ptr %923, null
   br i1 %.not.i237.i, label %_parse_number.exit253.i, label %.preheader.i238.i
@@ -3212,11 +3212,11 @@ _is_number_begin.exit.thread.i251.i:              ; preds = %_is_number_begin.ex
   br i1 %932, label %_parse_number.exit253.i, label %933
 
 933:                                              ; preds = %.critedge.i239.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
   store ptr null, ptr %15, align 8, !tbaa !63
-  %934 = call float @strtof(ptr noundef nonnull %.010.lcssa.i240.i, ptr noundef nonnull %15) #14
+  %934 = call float @strtof(ptr noundef nonnull %.010.lcssa.i240.i, ptr noundef nonnull %15) #15
   %935 = load ptr, ptr %15, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
   br label %_parse_number.exit253.i
 
 _parse_number.exit253.i:                          ; preds = %933, %.critedge.i239.i, %_parse_number.exit236.i, %.critedge.i222.i
@@ -3234,9 +3234,9 @@ _parse_number.exit253.i:                          ; preds = %933, %.critedge.i23
   %.6105.i = phi ptr [ %898, %_skip_space.exit219.i ], [ %spec.select144.i, %_parse_number.exit253.i ]
   %937 = fdiv float %897, 1.800000e+02
   %938 = fmul float %937, 0x400921FB60000000
-  %939 = call float @cosf(float noundef %938) #14, !tbaa !83
-  %940 = call float @sinf(float noundef %938) #14, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %26) #14
+  %939 = call float @cosf(float noundef %938) #15, !tbaa !83
+  %940 = call float @sinf(float noundef %938) #15, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %26) #15
   store float %939, ptr %26, align 4, !tbaa !64
   %941 = fneg float %940
   store float %941, ptr %104, align 4, !tbaa !64
@@ -3250,7 +3250,7 @@ _parse_number.exit253.i:                          ; preds = %933, %.critedge.i23
   br i1 %.0116.i, label %962, label %942
 
 942:                                              ; preds = %936
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %14) #15
   br label %.preheader.i254.i
 
 .preheader.i254.i:                                ; preds = %949, %942
@@ -3286,12 +3286,12 @@ _parse_number.exit253.i:                          ; preds = %933, %.critedge.i23
   br i1 %exitcond.not.i258.i, label %949, label %950, !llvm.loop !82
 
 _multiply_matrix.exit261.i:                       ; preds = %949
-  %961 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %14, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %14) #14
+  %961 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %14, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %14) #15
   br label %1022
 
 962:                                              ; preds = %936
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %27) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %27) #15
   store float 1.000000e+00, ptr %27, align 4, !tbaa !64
   store float 0.000000e+00, ptr %112, align 4, !tbaa !64
   store float %.0403.i, ptr %113, align 4, !tbaa !64
@@ -3301,7 +3301,7 @@ _multiply_matrix.exit261.i:                       ; preds = %949
   store float 0.000000e+00, ptr %117, align 4, !tbaa !64
   store float 0.000000e+00, ptr %118, align 4, !tbaa !64
   store float 1.000000e+00, ptr %119, align 4, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %13) #15
   br label %.preheader.i262.i
 
 .preheader.i262.i:                                ; preds = %969, %962
@@ -3337,9 +3337,9 @@ _multiply_matrix.exit261.i:                       ; preds = %949
   br i1 %exitcond.not.i266.i, label %969, label %970, !llvm.loop !82
 
 _multiply_matrix.exit269.i:                       ; preds = %969
-  %981 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %13, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %13) #14
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #14
+  %981 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %13, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %12) #15
   br label %.preheader.i270.i
 
 .preheader.i270.i:                                ; preds = %988, %_multiply_matrix.exit269.i
@@ -3375,13 +3375,13 @@ _multiply_matrix.exit269.i:                       ; preds = %969
   br i1 %exitcond.not.i274.i, label %988, label %989, !llvm.loop !82
 
 _multiply_matrix.exit277.i:                       ; preds = %988
-  %1000 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %12, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #14
+  %1000 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %12, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %12) #15
   %1001 = fneg float %.0403.i
   store float %1001, ptr %113, align 4, !tbaa !64
   %1002 = fneg float %.0401.i
   store float %1002, ptr %116, align 4, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %11) #15
   br label %.preheader.i278.i326
 
 .preheader.i278.i326:                             ; preds = %1009, %_multiply_matrix.exit277.i
@@ -3417,13 +3417,13 @@ _multiply_matrix.exit277.i:                       ; preds = %988
   br i1 %exitcond.not.i282.i, label %1009, label %1010, !llvm.loop !82
 
 _multiply_matrix.exit285.i:                       ; preds = %1009
-  %1021 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %11, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %27) #14
+  %1021 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %11, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %27) #15
   br label %1022
 
 1022:                                             ; preds = %_multiply_matrix.exit285.i, %_multiply_matrix.exit261.i
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %26) #14
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %26) #15
   br label %.critedge68.i
 
 1023:                                             ; preds = %789
@@ -3465,11 +3465,11 @@ _is_number_begin.exit.thread.i300.i:              ; preds = %_is_number_begin.ex
   br i1 %1031, label %.critedge68.i, label %_parse_number.exit302.i
 
 _parse_number.exit302.i:                          ; preds = %.critedge.i288.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
   store ptr null, ptr %10, align 8, !tbaa !63
-  %1032 = call float @strtof(ptr noundef nonnull %.010.lcssa.i289.i, ptr noundef nonnull %10) #14
+  %1032 = call float @strtof(ptr noundef nonnull %.010.lcssa.i289.i, ptr noundef nonnull %10) #15
   %1033 = load ptr, ptr %10, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   %.not129.not.i = icmp eq ptr %1033, null
   br i1 %.not129.not.i, label %.critedge68.i, label %1034
 
@@ -3541,11 +3541,11 @@ _is_number_begin.exit.thread.i325.i323:           ; preds = %_is_number_begin.ex
   br i1 %1056, label %_parse_number.exit327.i311, label %1057
 
 1057:                                             ; preds = %.critedge.i313.i309
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
   store ptr null, ptr %9, align 8, !tbaa !63
-  %1058 = call float @strtof(ptr noundef nonnull %.010.lcssa.i314.i310, ptr noundef nonnull %9) #14
+  %1058 = call float @strtof(ptr noundef nonnull %.010.lcssa.i314.i310, ptr noundef nonnull %9) #15
   %1059 = load ptr, ptr %9, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   br label %_parse_number.exit327.i311
 
 _parse_number.exit327.i311:                       ; preds = %1057, %.critedge.i313.i309
@@ -3558,7 +3558,7 @@ _parse_number.exit327.i311:                       ; preds = %1057, %.critedge.i3
 1060:                                             ; preds = %_parse_number.exit327.i311, %_skip_space.exit310.i
   %.0399.i = phi float [ %1032, %_skip_space.exit310.i ], [ %.1.i312, %_parse_number.exit327.i311 ]
   %.8.i = phi ptr [ %1033, %_skip_space.exit310.i ], [ %spec.select145.i, %_parse_number.exit327.i311 ]
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %28) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %28) #15
   store float %1032, ptr %28, align 4, !tbaa !64
   store float 0.000000e+00, ptr %96, align 4, !tbaa !64
   store float 0.000000e+00, ptr %97, align 4, !tbaa !64
@@ -3568,7 +3568,7 @@ _parse_number.exit327.i311:                       ; preds = %1057, %.critedge.i3
   store float 0.000000e+00, ptr %101, align 4, !tbaa !64
   store float 0.000000e+00, ptr %102, align 4, !tbaa !64
   store float 1.000000e+00, ptr %103, align 4, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8) #15
   br label %.preheader.i328.i
 
 .preheader.i328.i:                                ; preds = %1067, %1060
@@ -3604,9 +3604,9 @@ _parse_number.exit327.i311:                       ; preds = %1057, %.critedge.i3
   br i1 %exitcond.not.i332.i, label %1067, label %1068, !llvm.loop !82
 
 1079:                                             ; preds = %1067
-  %1080 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %8, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %28) #14
+  %1080 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %8, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %28) #15
   br label %.critedge68.i
 
 1081:                                             ; preds = %789
@@ -3648,19 +3648,19 @@ _is_number_begin.exit.thread.i350.i:              ; preds = %_is_number_begin.ex
   br i1 %1089, label %.critedge68.i, label %_parse_number.exit352.i
 
 _parse_number.exit352.i:                          ; preds = %.critedge.i338.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr null, ptr %7, align 8, !tbaa !63
-  %1090 = call float @strtof(ptr noundef nonnull %.010.lcssa.i339.i, ptr noundef nonnull %7) #14
+  %1090 = call float @strtof(ptr noundef nonnull %.010.lcssa.i339.i, ptr noundef nonnull %7) #15
   %1091 = load ptr, ptr %7, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   %.not128.not.i = icmp eq ptr %1091, null
   br i1 %.not128.not.i, label %.critedge68.i, label %1092
 
 1092:                                             ; preds = %_parse_number.exit352.i
   %1093 = fdiv float %1090, 1.800000e+02
   %1094 = fmul float %1093, 0x400921FB60000000
-  %1095 = call float @tanf(float noundef %1094) #14, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %29) #14
+  %1095 = call float @tanf(float noundef %1094) #15, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %29) #15
   store float 1.000000e+00, ptr %29, align 4, !tbaa !64
   store float %1095, ptr %88, align 4, !tbaa !64
   store float 0.000000e+00, ptr %89, align 4, !tbaa !64
@@ -3670,7 +3670,7 @@ _parse_number.exit352.i:                          ; preds = %.critedge.i338.i
   store float 0.000000e+00, ptr %93, align 4, !tbaa !64
   store float 0.000000e+00, ptr %94, align 4, !tbaa !64
   store float 1.000000e+00, ptr %95, align 4, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #15
   br label %.preheader.i353.i
 
 .preheader.i353.i:                                ; preds = %1102, %1092
@@ -3706,9 +3706,9 @@ _parse_number.exit352.i:                          ; preds = %.critedge.i338.i
   br i1 %exitcond.not.i357.i, label %1102, label %1103, !llvm.loop !82
 
 1114:                                             ; preds = %1102
-  %1115 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %6, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %29) #14
+  %1115 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %6, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %29) #15
   br label %.critedge68.i
 
 1116:                                             ; preds = %789
@@ -3750,19 +3750,19 @@ _is_number_begin.exit.thread.i375.i:              ; preds = %_is_number_begin.ex
   br i1 %1124, label %.critedge68.i, label %_parse_number.exit377.i
 
 _parse_number.exit377.i:                          ; preds = %.critedge.i363.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr null, ptr %5, align 8, !tbaa !63
-  %1125 = call float @strtof(ptr noundef nonnull %.010.lcssa.i364.i, ptr noundef nonnull %5) #14
+  %1125 = call float @strtof(ptr noundef nonnull %.010.lcssa.i364.i, ptr noundef nonnull %5) #15
   %1126 = load ptr, ptr %5, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   %.not127.not.i = icmp eq ptr %1126, null
   br i1 %.not127.not.i, label %.critedge68.i, label %1127
 
 1127:                                             ; preds = %_parse_number.exit377.i
   %1128 = fdiv float %1125, 1.800000e+02
   %1129 = fmul float %1128, 0x400921FB60000000
-  %1130 = call float @tanf(float noundef %1129) #14, !tbaa !83
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %30) #14
+  %1130 = call float @tanf(float noundef %1129) #15, !tbaa !83
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %30) #15
   store float 1.000000e+00, ptr %30, align 4, !tbaa !64
   store float 0.000000e+00, ptr %80, align 4, !tbaa !64
   store float 0.000000e+00, ptr %81, align 4, !tbaa !64
@@ -3772,7 +3772,7 @@ _parse_number.exit377.i:                          ; preds = %.critedge.i363.i
   store float 0.000000e+00, ptr %85, align 4, !tbaa !64
   store float 0.000000e+00, ptr %86, align 4, !tbaa !64
   store float 1.000000e+00, ptr %87, align 4, !tbaa !64
-  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #15
   br label %.preheader.i378.i
 
 .preheader.i378.i:                                ; preds = %1137, %1127
@@ -3808,16 +3808,16 @@ _parse_number.exit377.i:                          ; preds = %.critedge.i363.i
   br i1 %exitcond.not.i382.i, label %1137, label %1138, !llvm.loop !82
 
 1149:                                             ; preds = %1137
-  %1150 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %4, i64 noundef 36) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #14
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %30) #14
+  %1150 = call ptr @lv_memcpy(ptr noundef nonnull %743, ptr noundef nonnull %4, i64 noundef 36) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %30) #15
   br label %.critedge68.i
 
 default.unreachable:                              ; preds = %789
   unreachable
 
 .critedge142.i:                                   ; preds = %_parse_number.exit.i336, %.critedge.i.i334, %792
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23) #15
   br label %.critedge68.i
 
 .critedge68.i:                                    ; preds = %.critedge142.i, %1149, %_parse_number.exit377.i, %.critedge.i363.i, %1116, %1114, %_parse_number.exit352.i, %.critedge.i338.i, %1081, %1079, %_parse_number.exit302.i, %.critedge.i288.i, %1023, %1022, %_parse_number.exit211.i, %.critedge.i197.i, %888, %886, %_parse_number.exit164.i, %.critedge.i150.i, %830, %_multiply_matrix.exit.i, %.critedge.i305, %.critedge67.i, %.critedge.i190
@@ -3832,23 +3832,23 @@ _skip_space.exit._crit_edge.i:                    ; preds = %.critedge68.i, %_sk
   br label %_process_view_box.exit
 
 1154:                                             ; preds = %197, %197, %197, %197, %197
-  %1155 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1155 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1156 = add i32 %1155, 1
-  %1157 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1157 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1158 = icmp ugt i32 %1156, %1157
   br i1 %1158, label %1159, label %1163
 
 1159:                                             ; preds = %1154
   %1160 = load i32, ptr %73, align 4, !tbaa !55
   %1161 = shl i32 %1160, 1
-  %1162 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1161) #14
+  %1162 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1161) #15
   br label %1163
 
 1163:                                             ; preds = %1159, %1154
   %1164 = load i32, ptr %74, align 8, !tbaa !56
   %1165 = add i32 %1164, 1
   store i32 %1165, ptr %74, align 8, !tbaa !56
-  %1166 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1164) #14
+  %1166 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1164) #15
   store i8 %spec.select.i, ptr %1166, align 8, !tbaa !57
   %1167 = getelementptr inbounds nuw i8, ptr %1166, i64 1
   store i8 0, ptr %1167, align 1, !tbaa !59
@@ -3859,7 +3859,7 @@ _skip_space.exit._crit_edge.i:                    ; preds = %.critedge68.i, %_sk
   br i1 %1170, label %1171, label %.thread66.i
 
 1171:                                             ; preds = %1163
-  %1172 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #15
+  %1172 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #16
   %1173 = icmp eq i32 %1172, 0
   br i1 %1173, label %1174, label %1175
 
@@ -3872,7 +3872,7 @@ _skip_space.exit._crit_edge.i:                    ; preds = %.critedge68.i, %_sk
   br i1 %1176, label %1177, label %1181
 
 1177:                                             ; preds = %1175
-  %1178 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #15
+  %1178 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #16
   %1179 = icmp eq i32 %1178, 0
   br i1 %1179, label %1180, label %.thread64.i
 
@@ -3885,7 +3885,7 @@ _skip_space.exit._crit_edge.i:                    ; preds = %.critedge68.i, %_sk
   br i1 %.not67.i, label %.thread66.i, label %.thread64.i
 
 .thread64.i:                                      ; preds = %1181, %1177
-  %1182 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.122, i64 noundef 4) #15
+  %1182 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.122, i64 noundef 4) #16
   %1183 = icmp eq i32 %1182, 0
   br i1 %1183, label %1184, label %1228
 
@@ -3896,7 +3896,7 @@ _skip_space.exit._crit_edge.i:                    ; preds = %.critedge68.i, %_sk
 
 .lr.ph.i.i202:                                    ; preds = %1184
   %1187 = ptrtoint ptr %1185 to i64
-  %1188 = tail call ptr @__ctype_b_loc() #16
+  %1188 = tail call ptr @__ctype_b_loc() #17
   %1189 = load ptr, ptr %1188, align 8, !tbaa !51
   %1190 = sub i64 %170, %1187
   %scevgep.i.i203 = getelementptr i8, ptr %1185, i64 %1190
@@ -3935,7 +3935,7 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   br i1 %1204, label %.lr.ph.i198, label %.critedge.i196
 
 .lr.ph.i198:                                      ; preds = %1201
-  %1205 = tail call ptr @__ctype_b_loc() #16
+  %1205 = tail call ptr @__ctype_b_loc() #17
   %1206 = load ptr, ptr %1205, align 8, !tbaa !51
   %1207 = sub i64 %170, %.0.lcssa.i72.i
   %scevgep.i199 = getelementptr i8, ptr %.0.lcssa.i.i195, i64 %1207
@@ -3969,7 +3969,7 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   %1219 = sub i64 %1217, %1218
   %1220 = add i64 %1219, 1
   %1221 = and i64 %1220, 4294967295
-  %1222 = call ptr @lv_malloc(i64 noundef %1221) #14
+  %1222 = call ptr @lv_malloc(i64 noundef %1221) #15
   %.not63.i = icmp eq ptr %1222, null
   br i1 %.not63.i, label %.preheader.i197, label %1223
 
@@ -3978,7 +3978,7 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
 
 1223:                                             ; preds = %1216
   %1224 = and i64 %1219, 4294967295
-  %1225 = call ptr @lv_memcpy(ptr noundef nonnull %1222, ptr noundef nonnull %1203, i64 noundef %1224) #14
+  %1225 = call ptr @lv_memcpy(ptr noundef nonnull %1222, ptr noundef nonnull %1203, i64 noundef %1224) #15
   %1226 = getelementptr inbounds nuw i8, ptr %1222, i64 %1224
   store i8 0, ptr %1226, align 1, !tbaa !36
   %1227 = getelementptr inbounds nuw i8, ptr %1166, i64 8
@@ -3990,7 +3990,7 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   br i1 %1229, label %1230, label %.thread66.i
 
 1230:                                             ; preds = %1228
-  %1231 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.123, i64 noundef 6) #15
+  %1231 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.123, i64 noundef 6) #16
   %1232 = icmp eq i32 %1231, 0
   br i1 %1232, label %1233, label %1235
 
@@ -4000,7 +4000,7 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   br label %_process_view_box.exit
 
 1235:                                             ; preds = %1230
-  %1236 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.124, i64 noundef 6) #15
+  %1236 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.124, i64 noundef 6) #16
   %1237 = icmp eq i32 %1236, 0
   br i1 %1237, label %1238, label %.thread66.i
 
@@ -4010,33 +4010,33 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   br label %_process_view_box.exit
 
 .thread66.i:                                      ; preds = %1235, %1228, %1181, %1163
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %50) #15
   store i32 0, ptr %50, align 4, !tbaa !83
   call fastcc void @_parse_color(ptr noundef %.0.lcssa.i, ptr noundef %168, ptr noundef nonnull %50)
   %1240 = load i32, ptr %50, align 4, !tbaa !83
   %1241 = getelementptr inbounds nuw i8, ptr %1166, i64 8
   store i32 %1240, ptr %1241, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %50) #15
   br label %_process_view_box.exit
 
 1242:                                             ; preds = %197, %197, %197, %197, %197, %197, %197
-  %1243 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1243 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1244 = add i32 %1243, 1
-  %1245 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1245 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1246 = icmp ugt i32 %1244, %1245
   br i1 %1246, label %1247, label %1251
 
 1247:                                             ; preds = %1242
   %1248 = load i32, ptr %73, align 4, !tbaa !55
   %1249 = shl i32 %1248, 1
-  %1250 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1249) #14
+  %1250 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1249) #15
   br label %1251
 
 1251:                                             ; preds = %1247, %1242
   %1252 = load i32, ptr %74, align 8, !tbaa !56
   %1253 = add i32 %1252, 1
   store i32 %1253, ptr %74, align 8, !tbaa !56
-  %1254 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1252) #14
+  %1254 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1252) #15
   store i8 %spec.select.i, ptr %1254, align 8, !tbaa !57
   %1255 = getelementptr inbounds nuw i8, ptr %1254, i64 1
   store i8 0, ptr %1255, align 1, !tbaa !59
@@ -4047,7 +4047,7 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   br i1 %1258, label %1259, label %1263
 
 1259:                                             ; preds = %1251
-  %1260 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #15
+  %1260 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #16
   %1261 = icmp eq i32 %1260, 0
   br i1 %1261, label %1262, label %1263
 
@@ -4067,7 +4067,7 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   ]
 
 1264:                                             ; preds = %1263
-  %1265 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.274, i64 noundef 7) #15
+  %1265 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.274, i64 noundef 7) #16
   %1266 = icmp eq i32 %1265, 0
   %..i = zext i1 %1266 to i32
   %1267 = getelementptr inbounds nuw i8, ptr %1254, i64 8
@@ -4075,12 +4075,12 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   br label %_process_view_box.exit
 
 1268:                                             ; preds = %1263
-  %1269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.275, i64 noundef 5) #15
+  %1269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.275, i64 noundef 5) #16
   %1270 = icmp eq i32 %1269, 0
   br i1 %1270, label %1274, label %1271
 
 1271:                                             ; preds = %1268
-  %1272 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.276, i64 noundef 6) #15
+  %1272 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.276, i64 noundef 6) #16
   %1273 = icmp eq i32 %1272, 0
   %.48.i = zext i1 %1273 to i32
   br label %1274
@@ -4092,12 +4092,12 @@ _skip_space.exit.i194:                            ; preds = %1197, %1191, %1184
   br label %_process_view_box.exit
 
 1276:                                             ; preds = %1263
-  %1277 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.275, i64 noundef 5) #15
+  %1277 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.275, i64 noundef 5) #16
   %1278 = icmp eq i32 %1277, 0
   br i1 %1278, label %1282, label %1279
 
 1279:                                             ; preds = %1276
-  %1280 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.277, i64 noundef 5) #15
+  %1280 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.277, i64 noundef 5) #16
   %1281 = icmp eq i32 %1280, 0
   %.49.i = zext i1 %1281 to i32
   br label %1282
@@ -4146,10 +4146,10 @@ _is_number_begin.exit.thread.i.i222:              ; preds = %_is_number_begin.ex
   br i1 %1291, label %_parse_number.exit.thread.i212, label %_parse_number.exit.i211
 
 _parse_number.exit.i211:                          ; preds = %.critedge.i.i209
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #15
   store ptr null, ptr %49, align 8, !tbaa !63
-  %1292 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i210, ptr noundef nonnull %49) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #14
+  %1292 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i210, ptr noundef nonnull %49) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #15
   %1293 = fcmp olt float %1292, 0.000000e+00
   br i1 %1293, label %1294, label %_parse_number.exit.thread.i212
 
@@ -4200,10 +4200,10 @@ _is_number_begin.exit.thread.i64.i:               ; preds = %_is_number_begin.ex
   br i1 %1303, label %_parse_number.exit66.thread.i, label %_parse_number.exit66.i
 
 _parse_number.exit66.i:                           ; preds = %.critedge.i52.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #15
   store ptr null, ptr %48, align 8, !tbaa !63
-  %1304 = call float @strtof(ptr noundef nonnull %.010.lcssa.i53.i, ptr noundef nonnull %48) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #14
+  %1304 = call float @strtof(ptr noundef nonnull %.010.lcssa.i53.i, ptr noundef nonnull %48) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #15
   %1305 = fcmp olt float %1304, 1.000000e+00
   br i1 %1305, label %1306, label %_parse_number.exit66.thread.i
 
@@ -4255,10 +4255,10 @@ _is_number_begin.exit.thread.i81.i:               ; preds = %_is_number_begin.ex
   br i1 %1316, label %_parse_number.exit83.i, label %1317
 
 1317:                                             ; preds = %.critedge.i69.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #15
   store ptr null, ptr %47, align 8, !tbaa !63
-  %1318 = call float @strtof(ptr noundef nonnull %.010.lcssa.i70.i, ptr noundef nonnull %47) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #14
+  %1318 = call float @strtof(ptr noundef nonnull %.010.lcssa.i70.i, ptr noundef nonnull %47) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #15
   br label %_parse_number.exit83.i
 
 _parse_number.exit83.i:                           ; preds = %1317, %.critedge.i69.i, %1309
@@ -4305,10 +4305,10 @@ _is_number_begin.exit.thread.i98.i:               ; preds = %_is_number_begin.ex
   br i1 %1327, label %_parse_number.exit100.i, label %1328
 
 1328:                                             ; preds = %.critedge.i86.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #15
   store ptr null, ptr %46, align 8, !tbaa !63
-  %1329 = call float @strtof(ptr noundef nonnull %.010.lcssa.i87.i, ptr noundef nonnull %46) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #14
+  %1329 = call float @strtof(ptr noundef nonnull %.010.lcssa.i87.i, ptr noundef nonnull %46) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #15
   br label %_parse_number.exit100.i
 
 _parse_number.exit100.i:                          ; preds = %1328, %.critedge.i86.i, %1320
@@ -4318,23 +4318,23 @@ _parse_number.exit100.i:                          ; preds = %1328, %.critedge.i8
   br label %_process_view_box.exit
 
 1331:                                             ; preds = %197
-  %1332 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1332 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1333 = add i32 %1332, 1
-  %1334 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1334 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1335 = icmp ugt i32 %1333, %1334
   br i1 %1335, label %1336, label %1340
 
 1336:                                             ; preds = %1331
   %1337 = load i32, ptr %73, align 4, !tbaa !55
   %1338 = shl i32 %1337, 1
-  %1339 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1338) #14
+  %1339 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1338) #15
   br label %1340
 
 1340:                                             ; preds = %1336, %1331
   %1341 = load i32, ptr %74, align 8, !tbaa !56
   %1342 = add i32 %1341, 1
   store i32 %1342, ptr %74, align 8, !tbaa !56
-  %1343 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1341) #14
+  %1343 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1341) #15
   store i8 36, ptr %1343, align 8, !tbaa !57
   %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 1
   store i8 0, ptr %1344, align 1, !tbaa !59
@@ -4345,7 +4345,7 @@ _parse_number.exit100.i:                          ; preds = %1328, %.critedge.i8
   br i1 %1347, label %1348, label %.thread.i225
 
 1348:                                             ; preds = %1340
-  %1349 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #15
+  %1349 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #16
   %1350 = icmp eq i32 %1349, 0
   br i1 %1350, label %1351, label %1352
 
@@ -4358,7 +4358,7 @@ _parse_number.exit100.i:                          ; preds = %1328, %.critedge.i8
   br i1 %1353, label %1354, label %.thread.i225
 
 1354:                                             ; preds = %1352
-  %1355 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #15
+  %1355 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #16
   %1356 = icmp eq i32 %1355, 0
   br i1 %1356, label %1357, label %.thread.i225
 
@@ -4368,7 +4368,7 @@ _parse_number.exit100.i:                          ; preds = %1328, %.critedge.i8
 
 .thread.i225:                                     ; preds = %1354, %1352, %1340
   store i8 1, ptr %1344, align 1, !tbaa !59
-  %1358 = call ptr @lv_malloc(i64 noundef 20) #14
+  %1358 = call ptr @lv_malloc(i64 noundef 20) #15
   %.not.i226 = icmp eq ptr %1358, null
   br i1 %.not.i226, label %.preheader.i243, label %.preheader58.i
 
@@ -4392,7 +4392,7 @@ _parse_number.exit100.i:                          ; preds = %1328, %.critedge.i8
   %1364 = zext i32 %1363 to i64
   %1365 = shl nuw nsw i64 %1364, 2
   %1366 = or disjoint i64 %1365, 4
-  %1367 = call ptr @lv_realloc(ptr noundef nonnull %.044.i, i64 noundef %1366) #14
+  %1367 = call ptr @lv_realloc(ptr noundef nonnull %.044.i, i64 noundef %1366) #15
   %.not52.i = icmp eq ptr %1367, null
   br i1 %.not52.i, label %.preheader57.i, label %1368
 
@@ -4440,12 +4440,12 @@ _is_number_begin.exit.thread.i.i238:              ; preds = %_is_number_begin.ex
   br i1 %1379, label %_parse_number.exit.thread.i227, label %_parse_number.exit.i242
 
 _parse_number.exit.i242:                          ; preds = %.critedge.i.i240
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #15
   store ptr null, ptr %45, align 8, !tbaa !63
-  %1380 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i241, ptr noundef nonnull %45) #14
+  %1380 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i241, ptr noundef nonnull %45) #15
   store float %1380, ptr %1371, align 4, !tbaa !64
   %1381 = load ptr, ptr %45, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #15
   %.not53.i = icmp eq ptr %1381, null
   %1382 = add i32 %.043.i, 1
   br i1 %.not53.i, label %_parse_number.exit.thread.i227, label %.preheader58.i
@@ -4458,23 +4458,23 @@ _parse_number.exit.thread.i227:                   ; preds = %_parse_number.exit.
   br label %_process_view_box.exit
 
 1384:                                             ; preds = %197
-  %1385 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1385 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1386 = add i32 %1385, 1
-  %1387 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1387 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1388 = icmp ugt i32 %1386, %1387
   br i1 %1388, label %1389, label %1393
 
 1389:                                             ; preds = %1384
   %1390 = load i32, ptr %73, align 4, !tbaa !55
   %1391 = shl i32 %1390, 1
-  %1392 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1391) #14
+  %1392 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1391) #15
   br label %1393
 
 1393:                                             ; preds = %1389, %1384
   %1394 = load i32, ptr %74, align 8, !tbaa !56
   %1395 = add i32 %1394, 1
   store i32 %1395, ptr %74, align 8, !tbaa !56
-  %1396 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1394) #14
+  %1396 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1394) #15
   store i8 42, ptr %1396, align 8, !tbaa !57
   %1397 = getelementptr inbounds nuw i8, ptr %1396, i64 1
   store i8 0, ptr %1397, align 1, !tbaa !59
@@ -4484,7 +4484,7 @@ _parse_number.exit.thread.i227:                   ; preds = %_parse_number.exit.
   br i1 %1399, label %1400, label %1403
 
 1400:                                             ; preds = %1393
-  %1401 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(15) @.str.278, i64 noundef 14) #15
+  %1401 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(15) @.str.278, i64 noundef 14) #16
   %1402 = icmp eq i32 %1401, 0
   br i1 %1402, label %_process_gradient_units.exit, label %1403
 
@@ -4499,23 +4499,23 @@ _process_gradient_units.exit:                     ; preds = %1400, %1403
 
 1405:                                             ; preds = %197, %197, %197, %197, %197
   %1406 = load i32, ptr %75, align 4, !tbaa !13
-  %1407 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1407 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1408 = add i32 %1407, 1
-  %1409 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1409 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1410 = icmp ugt i32 %1408, %1409
   br i1 %1410, label %1411, label %1415
 
 1411:                                             ; preds = %1405
   %1412 = load i32, ptr %73, align 4, !tbaa !55
   %1413 = shl i32 %1412, 1
-  %1414 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1413) #14
+  %1414 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1413) #15
   br label %1415
 
 1415:                                             ; preds = %1411, %1405
   %1416 = load i32, ptr %74, align 8, !tbaa !56
   %1417 = add i32 %1416, 1
   store i32 %1417, ptr %74, align 8, !tbaa !56
-  %1418 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1416) #14
+  %1418 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1416) #15
   store i8 %spec.select.i, ptr %1418, align 8, !tbaa !57
   %1419 = getelementptr inbounds nuw i8, ptr %1418, i64 1
   store i8 0, ptr %1419, align 1, !tbaa !59
@@ -4526,7 +4526,7 @@ _process_gradient_units.exit:                     ; preds = %1400, %1403
   br i1 %1422, label %1423, label %1427
 
 1423:                                             ; preds = %1415
-  %1424 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #15
+  %1424 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.115, i64 noundef 7) #16
   %1425 = icmp eq i32 %1424, 0
   br i1 %1425, label %1426, label %1427
 
@@ -4553,20 +4553,20 @@ _is_number_begin.exit.i248:                       ; preds = %1429
   br i1 %memchr2.i.i251, label %1434, label %_is_number_begin.exit.thread.i
 
 1434:                                             ; preds = %_is_number_begin.exit.i248
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %44) #15
   store float 0.000000e+00, ptr %44, align 4, !tbaa !64
   call fastcc void @_parse_length(ptr noundef nonnull %.0.lcssa.i, ptr noundef %168, i32 noundef %1406, ptr noundef nonnull %44)
   %1435 = load float, ptr %44, align 4, !tbaa !64
   %1436 = getelementptr inbounds nuw i8, ptr %1418, i64 8
   store float %1435, ptr %1436, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #15
   br label %_process_view_box.exit
 
 _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.exit.i248, %1429, %1427
   store i8 1, ptr %1419, align 1, !tbaa !59
   %1437 = add i64 %184, 1
   %1438 = and i64 %1437, 4294967295
-  %1439 = call ptr @lv_malloc(i64 noundef %1438) #14
+  %1439 = call ptr @lv_malloc(i64 noundef %1438) #15
   %.not.i245 = icmp eq ptr %1439, null
   br i1 %.not.i245, label %.preheader.i246, label %1440
 
@@ -4574,7 +4574,7 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
   br label %.preheader.i246
 
 1440:                                             ; preds = %_is_number_begin.exit.thread.i
-  %1441 = call ptr @lv_memcpy(ptr noundef nonnull %1439, ptr noundef %.0.lcssa.i, i64 noundef %185) #14
+  %1441 = call ptr @lv_memcpy(ptr noundef nonnull %1439, ptr noundef %.0.lcssa.i, i64 noundef %185) #15
   %1442 = getelementptr inbounds nuw i8, ptr %1439, i64 %185
   store i8 0, ptr %1442, align 1, !tbaa !36
   %1443 = getelementptr inbounds nuw i8, ptr %1418, i64 8
@@ -4582,23 +4582,23 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
   br label %_process_view_box.exit
 
 1444:                                             ; preds = %197
-  %1445 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1445 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1446 = add i32 %1445, 1
-  %1447 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1447 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1448 = icmp ugt i32 %1446, %1447
   br i1 %1448, label %1449, label %1453
 
 1449:                                             ; preds = %1444
   %1450 = load i32, ptr %73, align 4, !tbaa !55
   %1451 = shl i32 %1450, 1
-  %1452 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1451) #14
+  %1452 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1451) #15
   br label %1453
 
 1453:                                             ; preds = %1449, %1444
   %1454 = load i32, ptr %74, align 8, !tbaa !56
   %1455 = add i32 %1454, 1
   store i32 %1455, ptr %74, align 8, !tbaa !56
-  %1456 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1454) #14
+  %1456 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1454) #15
   store i8 27, ptr %1456, align 8, !tbaa !57
   %1457 = getelementptr inbounds nuw i8, ptr %1456, i64 1
   store i8 1, ptr %1457, align 1, !tbaa !59
@@ -4612,7 +4612,7 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
   %1462 = sub i64 %170, %1461
   %1463 = add i64 %1462, 1
   %1464 = and i64 %1463, 4294967295
-  %1465 = call ptr @lv_malloc(i64 noundef %1464) #14
+  %1465 = call ptr @lv_malloc(i64 noundef %1464) #15
   %.not.i253 = icmp eq ptr %1465, null
   br i1 %.not.i253, label %.preheader.i254, label %_process_xlink.exit
 
@@ -4621,7 +4621,7 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
 
 _process_xlink.exit:                              ; preds = %1453
   %1466 = and i64 %1462, 4294967295
-  %1467 = call ptr @lv_memcpy(ptr noundef nonnull %1465, ptr noundef nonnull %spec.select.i252, i64 noundef %1466) #14
+  %1467 = call ptr @lv_memcpy(ptr noundef nonnull %1465, ptr noundef nonnull %spec.select.i252, i64 noundef %1466) #15
   %1468 = getelementptr inbounds nuw i8, ptr %1465, i64 %1466
   store i8 0, ptr %1468, align 1, !tbaa !36
   %1469 = getelementptr inbounds nuw i8, ptr %1456, i64 8
@@ -4629,23 +4629,23 @@ _process_xlink.exit:                              ; preds = %1453
   br label %_process_view_box.exit
 
 1470:                                             ; preds = %197, %197, %197, %197
-  %1471 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1471 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1472 = add i32 %1471, 1
-  %1473 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1473 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1474 = icmp ugt i32 %1472, %1473
   br i1 %1474, label %1475, label %1479
 
 1475:                                             ; preds = %1470
   %1476 = load i32, ptr %73, align 4, !tbaa !55
   %1477 = shl i32 %1476, 1
-  %1478 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1477) #14
+  %1478 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1477) #15
   br label %1479
 
 1479:                                             ; preds = %1475, %1470
   %1480 = load i32, ptr %74, align 8, !tbaa !56
   %1481 = add i32 %1480, 1
   store i32 %1481, ptr %74, align 8, !tbaa !56
-  %1482 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1480) #14
+  %1482 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1480) #15
   store i8 %spec.select.i, ptr %1482, align 8, !tbaa !57
   %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 1
   store i8 0, ptr %1483, align 1, !tbaa !59
@@ -4655,7 +4655,7 @@ _process_xlink.exit:                              ; preds = %1453
   br i1 %1485, label %1486, label %1489
 
 1486:                                             ; preds = %1479
-  %1487 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(11) @.str.279, i64 noundef 10) #15
+  %1487 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(11) @.str.279, i64 noundef 10) #16
   %1488 = icmp eq i32 %1487, 0
   br i1 %1488, label %_process_clock_time.exit, label %.preheader.i.i.i
 
@@ -4697,11 +4697,11 @@ _is_number_begin.exit.thread.i.i.i:               ; preds = %_is_number_begin.ex
   br i1 %1496, label %_parse_number.exit.thread.i.i, label %_parse_number.exit.i.i
 
 _parse_number.exit.i.i:                           ; preds = %.critedge.i.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #15
   store ptr null, ptr %43, align 8, !tbaa !63
-  %1497 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i.i, ptr noundef nonnull %43) #14
+  %1497 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i.i, ptr noundef nonnull %43) #15
   %1498 = load ptr, ptr %43, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #15
   %.not.i.i256 = icmp eq ptr %1498, null
   br i1 %.not.i.i256, label %_parse_number.exit.thread.i.i, label %1499
 
@@ -4750,23 +4750,23 @@ _process_clock_time.exit:                         ; preds = %1486, %_parse_clock
   br label %_process_view_box.exit
 
 1517:                                             ; preds = %197
-  %1518 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1518 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1519 = add i32 %1518, 1
-  %1520 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1520 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1521 = icmp ugt i32 %1519, %1520
   br i1 %1521, label %1522, label %1526
 
 1522:                                             ; preds = %1517
   %1523 = load i32, ptr %73, align 4, !tbaa !55
   %1524 = shl i32 %1523, 1
-  %1525 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1524) #14
+  %1525 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1524) #15
   br label %1526
 
 1526:                                             ; preds = %1522, %1517
   %1527 = load i32, ptr %74, align 8, !tbaa !56
   %1528 = add i32 %1527, 1
   store i32 %1528, ptr %74, align 8, !tbaa !56
-  %1529 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1527) #14
+  %1529 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1527) #15
   store i8 53, ptr %1529, align 8, !tbaa !57
   %1530 = getelementptr inbounds nuw i8, ptr %1529, i64 1
   store i8 0, ptr %1530, align 1, !tbaa !59
@@ -4785,7 +4785,7 @@ _process_clock_time.exit:                         ; preds = %1486, %_parse_clock
 
 1538:                                             ; preds = %1533
   %1539 = load ptr, ptr %1534, align 16, !tbaa !46
-  %1540 = call i32 @strncmp(ptr noundef %1539, ptr noundef %.0.lcssa.i, i64 noundef %185) #15
+  %1540 = call i32 @strncmp(ptr noundef %1539, ptr noundef %.0.lcssa.i, i64 noundef %185) #16
   %1541 = icmp eq i32 %1540, 0
   br i1 %1541, label %1542, label %1546
 
@@ -4808,23 +4808,23 @@ _process_anim_attr_names.exit:                    ; preds = %1546, %1542
 
 1548:                                             ; preds = %197, %197, %197, %197, %197, %197, %197, %197, %197
   %1549 = load i32, ptr %75, align 4, !tbaa !13
-  %1550 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1550 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1551 = add i32 %1550, 1
-  %1552 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1552 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1553 = icmp ugt i32 %1551, %1552
   br i1 %1553, label %1554, label %1558
 
 1554:                                             ; preds = %1548
   %1555 = load i32, ptr %73, align 4, !tbaa !55
   %1556 = shl i32 %1555, 1
-  %1557 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1556) #14
+  %1557 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1556) #15
   br label %1558
 
 1558:                                             ; preds = %1554, %1548
   %1559 = load i32, ptr %74, align 8, !tbaa !56
   %1560 = add i32 %1559, 1
   store i32 %1560, ptr %74, align 8, !tbaa !56
-  %1561 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1559) #14
+  %1561 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1559) #15
   store i8 %spec.select.i, ptr %1561, align 8, !tbaa !57
   %1562 = getelementptr inbounds nuw i8, ptr %1561, i64 1
   store i8 0, ptr %1562, align 1, !tbaa !59
@@ -4835,13 +4835,13 @@ _process_anim_attr_names.exit:                    ; preds = %1546, %1542
 
 1565:                                             ; preds = %1558
   store i8 1, ptr %1562, align 1, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %1566 = icmp ult ptr %.0.lcssa.i, %168
   br i1 %1566, label %.lr.ph.i.i.i280, label %_skip_space.exit.i.i
 
 .lr.ph.i.i.i280:                                  ; preds = %1565
-  %1567 = tail call ptr @__ctype_b_loc() #16
+  %1567 = tail call ptr @__ctype_b_loc() #17
   %1568 = load ptr, ptr %1567, align 8, !tbaa !51
   %scevgep.i.i.i281 = getelementptr i8, ptr %.0.lcssa.i, i64 %184
   br label %1569
@@ -4874,14 +4874,14 @@ _skip_space.exit.i.i:                             ; preds = %1575, %1569, %1565
   br i1 %1578, label %1579, label %1594
 
 1579:                                             ; preds = %.lr.ph.i.i277
-  call fastcc void @_anim_values_cb(ptr noundef %1, ptr noundef %.03042.i.i, ptr noundef nonnull %.044.i.i, i32 noundef %1549, ptr noundef nonnull %40) #14
+  call fastcc void @_anim_values_cb(ptr noundef %1, ptr noundef %.03042.i.i, ptr noundef nonnull %.044.i.i, i32 noundef %1549, ptr noundef nonnull %40) #15
   %1580 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 1
   %1581 = icmp ult ptr %1580, %168
   br i1 %1581, label %.lr.ph.i35.i.i, label %_skip_space.exit40.i.i
 
 .lr.ph.i35.i.i:                                   ; preds = %1579
   %1582 = ptrtoint ptr %1580 to i64
-  %1583 = tail call ptr @__ctype_b_loc() #16
+  %1583 = tail call ptr @__ctype_b_loc() #17
   %1584 = load ptr, ptr %1583, align 8, !tbaa !51
   %1585 = sub i64 %170, %1582
   %scevgep.i36.i.i = getelementptr i8, ptr %1580, i64 %1585
@@ -4919,14 +4919,14 @@ _skip_space.exit40.i.i:                           ; preds = %1592, %1586, %1594,
   br i1 %1596, label %1597, label %_parse_anim_value_list.exit.i
 
 1597:                                             ; preds = %._crit_edge.i.i
-  call fastcc void @_anim_values_cb(ptr noundef %1, ptr noundef %.030.lcssa.i.i, ptr noundef %.0.lcssa.i.i279, i32 noundef %1549, ptr noundef nonnull %40) #14
+  call fastcc void @_anim_values_cb(ptr noundef %1, ptr noundef %.030.lcssa.i.i, ptr noundef %.0.lcssa.i.i279, i32 noundef %1549, ptr noundef nonnull %40) #15
   br label %_parse_anim_value_list.exit.i
 
 _parse_anim_value_list.exit.i:                    ; preds = %1597, %._crit_edge.i.i
   %1598 = load ptr, ptr %79, align 8, !tbaa !87
   %1599 = getelementptr inbounds nuw i8, ptr %1561, i64 8
   store ptr %1598, ptr %1599, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #15
   br label %_process_view_box.exit
 
 1600:                                             ; preds = %1558
@@ -4940,7 +4940,7 @@ _parse_anim_value_list.exit.i:                    ; preds = %1597, %._crit_edge.
   br i1 %1603, label %.lr.ph.i.i77.i, label %_skip_space.exit.i54.i
 
 .lr.ph.i.i77.i:                                   ; preds = %1602
-  %1604 = tail call ptr @__ctype_b_loc() #16
+  %1604 = tail call ptr @__ctype_b_loc() #17
   %1605 = load ptr, ptr %1604, align 8, !tbaa !51
   %scevgep.i.i78.i = getelementptr i8, ptr %.0.lcssa.i, i64 %184
   br label %1606
@@ -4980,7 +4980,7 @@ _skip_space.exit.i54.i:                           ; preds = %1612, %1606, %1602
   br i1 %.not.i164.i, label %1617, label %1621
 
 1617:                                             ; preds = %1616
-  %1618 = call ptr @lv_malloc_zeroed(i64 noundef 20) #14
+  %1618 = call ptr @lv_malloc_zeroed(i64 noundef 20) #15
   %.not26.i189.i = icmp eq ptr %1618, null
   br i1 %.not26.i189.i, label %.preheader.i190.i, label %1619
 
@@ -5001,7 +5001,7 @@ _skip_space.exit.i54.i:                           ; preds = %1612, %1606, %1602
   %1626 = shl i32 %.sroa.9.0.i, 3
   %1627 = or disjoint i32 %1626, 4
   %1628 = zext i32 %1627 to i64
-  %1629 = call ptr @lv_realloc(ptr noundef nonnull %.sroa.19.0.i, i64 noundef %1628) #14
+  %1629 = call ptr @lv_realloc(ptr noundef nonnull %.sroa.19.0.i, i64 noundef %1628) #15
   %.not27.i185.i = icmp eq ptr %1629, null
   br i1 %.not27.i185.i, label %.preheader28.i188.i, label %._crit_edge.i186.i
 
@@ -5062,11 +5062,11 @@ _is_number_begin.exit.thread.i.i183.i:            ; preds = %_is_number_begin.ex
   br i1 %1644, label %_anim_keys_cb.exit191.i, label %1645
 
 1645:                                             ; preds = %.critedge.i.i168.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #15
   store ptr null, ptr %33, align 8, !tbaa !63
-  %1646 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i169.i, ptr noundef nonnull %33) #14
+  %1646 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i169.i, ptr noundef nonnull %33) #15
   store float %1646, ptr %.0.i165.i, align 4, !tbaa !64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #15
   br label %_anim_keys_cb.exit191.i
 
 _anim_keys_cb.exit191.i:                          ; preds = %1645, %.critedge.i.i168.i, %1634
@@ -5077,7 +5077,7 @@ _anim_keys_cb.exit191.i:                          ; preds = %1645, %.critedge.i.
 
 .lr.ph.i35.i72.i:                                 ; preds = %_anim_keys_cb.exit191.i
   %1649 = ptrtoint ptr %1647 to i64
-  %1650 = tail call ptr @__ctype_b_loc() #16
+  %1650 = tail call ptr @__ctype_b_loc() #17
   %1651 = load ptr, ptr %1650, align 8, !tbaa !51
   %1652 = sub i64 %170, %1649
   %scevgep.i36.i73.i = getelementptr i8, ptr %1647, i64 %1652
@@ -5120,7 +5120,7 @@ _skip_space.exit40.i70.i:                         ; preds = %1659, %1653, %1661,
   br i1 %.not.i146.i, label %1665, label %1669
 
 1665:                                             ; preds = %1664
-  %1666 = call ptr @lv_malloc_zeroed(i64 noundef 20) #14
+  %1666 = call ptr @lv_malloc_zeroed(i64 noundef 20) #15
   %.not26.i.i = icmp eq ptr %1666, null
   br i1 %.not26.i.i, label %.preheader.i163.i, label %1667
 
@@ -5141,7 +5141,7 @@ _skip_space.exit40.i70.i:                         ; preds = %1659, %1653, %1661,
   %1674 = shl i32 %.sroa.9.1.i, 3
   %1675 = or disjoint i32 %1674, 4
   %1676 = zext i32 %1675 to i64
-  %1677 = call ptr @lv_realloc(ptr noundef nonnull %.sroa.19.1.i, i64 noundef %1676) #14
+  %1677 = call ptr @lv_realloc(ptr noundef nonnull %.sroa.19.1.i, i64 noundef %1676) #15
   %.not27.i.i = icmp eq ptr %1677, null
   br i1 %.not27.i.i, label %.preheader28.i.i, label %._crit_edge.i162.i
 
@@ -5195,11 +5195,11 @@ _is_number_begin.exit.thread.i.i160.i:            ; preds = %_is_number_begin.ex
   br i1 %1690, label %_anim_keys_cb.exit.i, label %1691
 
 1691:                                             ; preds = %.critedge.i.i148.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #15
   store ptr null, ptr %34, align 8, !tbaa !63
-  %1692 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i149.ph.i, ptr noundef nonnull %34) #14
+  %1692 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i149.ph.i, ptr noundef nonnull %34) #15
   store float %1692, ptr %.0.i.i276, align 4, !tbaa !64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #15
   br label %_anim_keys_cb.exit.i
 
 _anim_keys_cb.exit.i:                             ; preds = %1691, %.critedge.i.i148.i, %1682
@@ -5218,13 +5218,13 @@ _parse_anim_value_list.exit82.i:                  ; preds = %_anim_keys_cb.exit.
 
 1696:                                             ; preds = %1694
   store i8 1, ptr %1562, align 1, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   %1697 = icmp ult ptr %.0.lcssa.i, %168
   br i1 %1697, label %.lr.ph.i.i106.i, label %_skip_space.exit.i83.i
 
 .lr.ph.i.i106.i:                                  ; preds = %1696
-  %1698 = tail call ptr @__ctype_b_loc() #16
+  %1698 = tail call ptr @__ctype_b_loc() #17
   %1699 = load ptr, ptr %1698, align 8, !tbaa !51
   %scevgep.i.i107.i = getelementptr i8, ptr %.0.lcssa.i, i64 %184
   br label %1700
@@ -5257,14 +5257,14 @@ _skip_space.exit.i83.i:                           ; preds = %1706, %1700, %1696
   br i1 %1709, label %1710, label %1725
 
 1710:                                             ; preds = %.lr.ph.i86.i
-  call fastcc void @_anim_key_splines_cb(ptr noundef %.03042.i89.i, ptr noundef nonnull %.044.i87.i, ptr noundef nonnull %41) #14
+  call fastcc void @_anim_key_splines_cb(ptr noundef %.03042.i89.i, ptr noundef nonnull %.044.i87.i, ptr noundef nonnull %41) #15
   %1711 = getelementptr inbounds nuw i8, ptr %.044.i87.i, i64 1
   %1712 = icmp ult ptr %1711, %168
   br i1 %1712, label %.lr.ph.i35.i101.i, label %_skip_space.exit40.i99.i
 
 .lr.ph.i35.i101.i:                                ; preds = %1710
   %1713 = ptrtoint ptr %1711 to i64
-  %1714 = tail call ptr @__ctype_b_loc() #16
+  %1714 = tail call ptr @__ctype_b_loc() #17
   %1715 = load ptr, ptr %1714, align 8, !tbaa !51
   %1716 = sub i64 %170, %1713
   %scevgep.i36.i102.i = getelementptr i8, ptr %1711, i64 %1716
@@ -5302,14 +5302,14 @@ _skip_space.exit40.i99.i:                         ; preds = %1723, %1717, %1725,
   br i1 %1727, label %1728, label %_parse_anim_value_list.exit111.i
 
 1728:                                             ; preds = %._crit_edge.i94.i
-  call fastcc void @_anim_key_splines_cb(ptr noundef %.030.lcssa.i95.i, ptr noundef %.0.lcssa.i97.i, ptr noundef nonnull %41) #14
+  call fastcc void @_anim_key_splines_cb(ptr noundef %.030.lcssa.i95.i, ptr noundef %.0.lcssa.i97.i, ptr noundef nonnull %41) #15
   br label %_parse_anim_value_list.exit111.i
 
 _parse_anim_value_list.exit111.i:                 ; preds = %1728, %._crit_edge.i94.i
   %1729 = load ptr, ptr %78, align 8, !tbaa !87
   %1730 = getelementptr inbounds nuw i8, ptr %1561, i64 8
   store ptr %1729, ptr %1730, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %41) #15
   br label %_process_view_box.exit
 
 1731:                                             ; preds = %1694
@@ -5319,13 +5319,13 @@ _parse_anim_value_list.exit111.i:                 ; preds = %1728, %._crit_edge.
 
 1733:                                             ; preds = %1731
   store i8 1, ptr %1562, align 1, !tbaa !59
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %42) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %1734 = icmp ult ptr %.0.lcssa.i, %168
   br i1 %1734, label %.lr.ph.i.i135.i, label %_skip_space.exit.i112.i
 
 .lr.ph.i.i135.i:                                  ; preds = %1733
-  %1735 = tail call ptr @__ctype_b_loc() #16
+  %1735 = tail call ptr @__ctype_b_loc() #17
   %1736 = load ptr, ptr %1735, align 8, !tbaa !51
   %scevgep.i.i136.i = getelementptr i8, ptr %.0.lcssa.i, i64 %184
   br label %1737
@@ -5358,14 +5358,14 @@ _skip_space.exit.i112.i:                          ; preds = %1743, %1737, %1733
   br i1 %1746, label %1747, label %1762
 
 1747:                                             ; preds = %.lr.ph.i115.i
-  call fastcc void @_anim_begin_end_cb(ptr noundef %.03042.i118.i, ptr noundef nonnull %.044.i116.i, ptr noundef nonnull %42) #14
+  call fastcc void @_anim_begin_end_cb(ptr noundef %.03042.i118.i, ptr noundef nonnull %.044.i116.i, ptr noundef nonnull %42) #15
   %1748 = getelementptr inbounds nuw i8, ptr %.044.i116.i, i64 1
   %1749 = icmp ult ptr %1748, %168
   br i1 %1749, label %.lr.ph.i35.i130.i, label %_skip_space.exit40.i128.i
 
 .lr.ph.i35.i130.i:                                ; preds = %1747
   %1750 = ptrtoint ptr %1748 to i64
-  %1751 = tail call ptr @__ctype_b_loc() #16
+  %1751 = tail call ptr @__ctype_b_loc() #17
   %1752 = load ptr, ptr %1751, align 8, !tbaa !51
   %1753 = sub i64 %170, %1750
   %scevgep.i36.i131.i = getelementptr i8, ptr %1748, i64 %1753
@@ -5403,14 +5403,14 @@ _skip_space.exit40.i128.i:                        ; preds = %1760, %1754, %1762,
   br i1 %1764, label %1765, label %_parse_anim_value_list.exit140.i
 
 1765:                                             ; preds = %._crit_edge.i123.i
-  call fastcc void @_anim_begin_end_cb(ptr noundef %.030.lcssa.i124.i, ptr noundef %.0.lcssa.i126.i, ptr noundef nonnull %42) #14
+  call fastcc void @_anim_begin_end_cb(ptr noundef %.030.lcssa.i124.i, ptr noundef %.0.lcssa.i126.i, ptr noundef nonnull %42) #15
   br label %_parse_anim_value_list.exit140.i
 
 _parse_anim_value_list.exit140.i:                 ; preds = %1765, %._crit_edge.i123.i
   %1766 = load ptr, ptr %77, align 8, !tbaa !87
   %1767 = getelementptr inbounds nuw i8, ptr %1561, i64 8
   store ptr %1766, ptr %1767, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %42) #15
   br label %_process_view_box.exit
 
 1768:                                             ; preds = %1731
@@ -5424,28 +5424,28 @@ _parse_anim_value_list.exit140.i:                 ; preds = %1765, %._crit_edge.
   ]
 
 1769:                                             ; preds = %1768, %1768
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %38) #15
   store float 0.000000e+00, ptr %38, align 4, !tbaa !64
   call fastcc void @_parse_length(ptr noundef %.0.lcssa.i, ptr noundef %168, i32 noundef %1549, ptr noundef nonnull %38)
   %1770 = load float, ptr %38, align 4, !tbaa !64
   %1771 = getelementptr inbounds nuw i8, ptr %1561, i64 8
   store float %1770, ptr %1771, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38) #15
   br label %_process_view_box.exit
 
 1772:                                             ; preds = %1768
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %39) #15
   store i32 0, ptr %39, align 4, !tbaa !83
   call fastcc void @_parse_color(ptr noundef %.0.lcssa.i, ptr noundef %168, ptr noundef nonnull %39)
   %1773 = load i32, ptr %39, align 4, !tbaa !83
   %1774 = getelementptr inbounds nuw i8, ptr %1561, i64 8
   store i32 %1773, ptr %1774, align 8, !tbaa !36
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %39) #15
   br label %_process_view_box.exit
 
 1775:                                             ; preds = %1768
   store i8 1, ptr %1562, align 1, !tbaa !59
-  %1776 = call ptr @lv_malloc(i64 noundef 20) #14
+  %1776 = call ptr @lv_malloc(i64 noundef 20) #15
   %.not47.i.i = icmp eq ptr %1776, null
   br i1 %.not47.i.i, label %.preheader.i.i274, label %.preheader13.i.i
 
@@ -5505,11 +5505,11 @@ _parse_number.exit.thread.i.i273:                 ; preds = %.critedge.i.i.i269,
   br label %.loopexit.i.i
 
 _parse_number.exit.i.i271:                        ; preds = %.critedge.i.i.i269
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #15
   store ptr null, ptr %37, align 8, !tbaa !63
-  %1792 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i.i270, ptr noundef nonnull %37) #14
+  %1792 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i.i270, ptr noundef nonnull %37) #15
   %1793 = load ptr, ptr %37, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #15
   store float %1792, ptr %1783, align 4, !tbaa !64
   %.not48.i.i = icmp eq ptr %1793, null
   %indvars.iv.next.i.i272 = add nuw nsw i64 %indvars.iv.i.i260, 1
@@ -5524,7 +5524,7 @@ _parse_number.exit.i.i271:                        ; preds = %.critedge.i.i.i269
 
 1796:                                             ; preds = %1768
   store i8 1, ptr %1562, align 1, !tbaa !59
-  %1797 = call ptr @lv_malloc(i64 noundef 12) #14
+  %1797 = call ptr @lv_malloc(i64 noundef 12) #15
   %.not.i141.i = icmp eq ptr %1797, null
   br i1 %.not.i141.i, label %.preheader14.i.i, label %1798
 
@@ -5574,11 +5574,11 @@ _parse_number.exit65.thread.i.i:                  ; preds = %.critedge.i51.i.i, 
   br label %_parse_number.exit82.i.i
 
 _parse_number.exit65.i.i:                         ; preds = %.critedge.i51.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #15
   store ptr null, ptr %36, align 8, !tbaa !63
-  %1807 = call float @strtof(ptr noundef nonnull %.010.lcssa.i52.i.i, ptr noundef nonnull %36) #14
+  %1807 = call float @strtof(ptr noundef nonnull %.010.lcssa.i52.i.i, ptr noundef nonnull %36) #15
   %1808 = load ptr, ptr %36, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #15
   store float %1807, ptr %1799, align 4, !tbaa !70
   %1809 = ptrtoint ptr %1808 to i64
   %.not.i66.i.i = icmp eq ptr %1808, null
@@ -5619,10 +5619,10 @@ _is_number_begin.exit.thread.i80.i.i:             ; preds = %_is_number_begin.ex
   br i1 %1817, label %_parse_number.exit82.i.i, label %1818
 
 1818:                                             ; preds = %.critedge.i68.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #15
   store ptr null, ptr %35, align 8, !tbaa !63
-  %1819 = call float @strtof(ptr noundef nonnull %.010.lcssa.i69.i.i, ptr noundef nonnull %35) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
+  %1819 = call float @strtof(ptr noundef nonnull %.010.lcssa.i69.i.i, ptr noundef nonnull %35) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #15
   br label %_parse_number.exit82.i.i
 
 _parse_number.exit82.i.i:                         ; preds = %1818, %.critedge.i68.i.i, %_parse_number.exit65.i.i, %_parse_number.exit65.thread.i.i
@@ -5635,23 +5635,23 @@ _parse_number.exit82.i.i:                         ; preds = %1818, %.critedge.i6
   br label %_process_view_box.exit
 
 1822:                                             ; preds = %197, %197
-  %1823 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1823 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1824 = add i32 %1823, 1
-  %1825 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1825 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1826 = icmp ugt i32 %1824, %1825
   br i1 %1826, label %1827, label %1831
 
 1827:                                             ; preds = %1822
   %1828 = load i32, ptr %73, align 4, !tbaa !55
   %1829 = shl i32 %1828, 1
-  %1830 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1829) #14
+  %1830 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1829) #15
   br label %1831
 
 1831:                                             ; preds = %1827, %1822
   %1832 = load i32, ptr %74, align 8, !tbaa !56
   %1833 = add i32 %1832, 1
   store i32 %1833, ptr %74, align 8, !tbaa !56
-  %1834 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1832) #14
+  %1834 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1832) #15
   store i8 %spec.select.i, ptr %1834, align 8, !tbaa !57
   %1835 = getelementptr inbounds nuw i8, ptr %1834, i64 1
   store i8 0, ptr %1835, align 1, !tbaa !59
@@ -5665,7 +5665,7 @@ _parse_number.exit82.i.i:                         ; preds = %1818, %.critedge.i6
   br i1 %1839, label %1840, label %1844
 
 1840:                                             ; preds = %1838
-  %1841 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(11) @.str.279, i64 noundef 10) #15
+  %1841 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(11) @.str.279, i64 noundef 10) #16
   %1842 = icmp eq i32 %1841, 0
   br i1 %1842, label %.critedge.i301, label %.preheader.i.i286
 
@@ -5712,10 +5712,10 @@ _is_number_begin.exit.thread.i.i299:              ; preds = %_is_number_begin.ex
   br i1 %1851, label %_parse_number.exit.i289, label %1852
 
 1852:                                             ; preds = %.critedge.i.i287
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #15
   store ptr null, ptr %32, align 8, !tbaa !63
-  %1853 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i288, ptr noundef nonnull %32) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #14
+  %1853 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i288, ptr noundef nonnull %32) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #15
   %1854 = fptoui float %1853 to i32
   br label %_parse_number.exit.i289
 
@@ -5733,7 +5733,7 @@ _parse_number.exit.i289:                          ; preds = %1852, %.critedge.i.
   ]
 
 1858:                                             ; preds = %1856
-  %1859 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.280, i64 noundef 4) #15
+  %1859 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.280, i64 noundef 4) #16
   %1860 = icmp eq i32 %1859, 0
   br i1 %1860, label %1861, label %.preheader.i38.i
 
@@ -5744,7 +5744,7 @@ _parse_number.exit.i289:                          ; preds = %1852, %.critedge.i.
   br label %_process_view_box.exit
 
 1863:                                             ; preds = %1856
-  %1864 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(13) @.str.281, i64 noundef 12) #15
+  %1864 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(13) @.str.281, i64 noundef 12) #16
   %1865 = icmp eq i32 %1864, 0
   br i1 %1865, label %1866, label %.preheader.i38.i
 
@@ -5792,10 +5792,10 @@ _is_number_begin.exit.thread.i51.i:               ; preds = %_is_number_begin.ex
   br i1 %1875, label %_parse_number.exit53.i, label %1876
 
 1876:                                             ; preds = %.critedge.i39.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #15
   store ptr null, ptr %31, align 8, !tbaa !63
-  %1877 = call float @strtof(ptr noundef nonnull %.010.lcssa.i40.i, ptr noundef nonnull %31) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #14
+  %1877 = call float @strtof(ptr noundef nonnull %.010.lcssa.i40.i, ptr noundef nonnull %31) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #15
   br label %_parse_number.exit53.i
 
 _parse_number.exit53.i:                           ; preds = %1876, %.critedge.i39.i, %1868
@@ -5805,23 +5805,23 @@ _parse_number.exit53.i:                           ; preds = %1876, %.critedge.i3
   br label %_process_view_box.exit
 
 1879:                                             ; preds = %197, %197, %197, %197, %197
-  %1880 = call i32 @lv_array_size(ptr noundef nonnull %72) #14
+  %1880 = call i32 @lv_array_size(ptr noundef nonnull %72) #15
   %1881 = add i32 %1880, 1
-  %1882 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #14
+  %1882 = call i32 @lv_array_capacity(ptr noundef nonnull %72) #15
   %1883 = icmp ugt i32 %1881, %1882
   br i1 %1883, label %1884, label %1888
 
 1884:                                             ; preds = %1879
   %1885 = load i32, ptr %73, align 4, !tbaa !55
   %1886 = shl i32 %1885, 1
-  %1887 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1886) #14
+  %1887 = call zeroext i1 @lv_array_resize(ptr noundef nonnull %72, i32 noundef %1886) #15
   br label %1888
 
 1888:                                             ; preds = %1884, %1879
   %1889 = load i32, ptr %74, align 8, !tbaa !56
   %1890 = add i32 %1889, 1
   store i32 %1890, ptr %74, align 8, !tbaa !56
-  %1891 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1889) #14
+  %1891 = call ptr @lv_array_at(ptr noundef nonnull %72, i32 noundef %1889) #15
   store i8 %spec.select.i, ptr %1891, align 8, !tbaa !57
   %1892 = getelementptr inbounds nuw i8, ptr %1891, i64 1
   store i8 0, ptr %1892, align 1, !tbaa !59
@@ -5844,17 +5844,17 @@ _parse_number.exit53.i:                           ; preds = %1876, %.critedge.i3
   ]
 
 1896:                                             ; preds = %1895
-  %1897 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.282, i64 noundef 6) #15
+  %1897 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.282, i64 noundef 6) #16
   %1898 = icmp eq i32 %1897, 0
   br i1 %1898, label %_process_anim_attr_options.exit, label %.critedge.i302
 
 1899:                                             ; preds = %1895
-  %1900 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(14) @.str.283, i64 noundef 13) #15
+  %1900 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(14) @.str.283, i64 noundef 13) #16
   %1901 = icmp eq i32 %1900, 0
   br i1 %1901, label %_process_anim_attr_options.exit, label %.critedge.i302
 
 1902:                                             ; preds = %1895
-  %1903 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.284, i64 noundef 5) #15
+  %1903 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.284, i64 noundef 5) #16
   %1904 = icmp eq i32 %1903, 0
   br i1 %1904, label %_process_anim_attr_options.exit, label %.critedge.i302
 
@@ -5866,22 +5866,22 @@ _parse_number.exit53.i:                           ; preds = %1876, %.critedge.i3
   ]
 
 1906:                                             ; preds = %1905
-  %1907 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.285, i64 noundef 6) #15
+  %1907 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.285, i64 noundef 6) #16
   %1908 = icmp eq i32 %1907, 0
   br i1 %1908, label %_process_anim_attr_options.exit, label %1912
 
 1909:                                             ; preds = %1905
-  %1910 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.286, i64 noundef 5) #15
+  %1910 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.286, i64 noundef 5) #16
   %1911 = icmp eq i32 %1910, 0
   br i1 %1911, label %_process_anim_attr_options.exit, label %.critedge.i302
 
 1912:                                             ; preds = %1906
-  %1913 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.287, i64 noundef 6) #15
+  %1913 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.287, i64 noundef 6) #16
   %1914 = icmp eq i32 %1913, 0
   br i1 %1914, label %_process_anim_attr_options.exit, label %.critedge.i302
 
 1915:                                             ; preds = %1905
-  %1916 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(9) @.str.288, i64 noundef 8) #15
+  %1916 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(9) @.str.288, i64 noundef 8) #16
   %1917 = icmp eq i32 %1916, 0
   br i1 %1917, label %_process_anim_attr_options.exit, label %.critedge.i302
 
@@ -5892,7 +5892,7 @@ _parse_number.exit53.i:                           ; preds = %1876, %.critedge.i3
   ]
 
 1919:                                             ; preds = %1918
-  %1920 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.289, i64 noundef 7) #15
+  %1920 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(8) @.str.289, i64 noundef 7) #16
   %1921 = icmp eq i32 %1920, 0
   br i1 %1921, label %_process_anim_attr_options.exit, label %.critedge.i302
 
@@ -5920,7 +5920,7 @@ sub_1.i:                                          ; preds = %sub_0.i
   ]
 
 1929:                                             ; preds = %1928
-  %1930 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #15
+  %1930 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(5) @.str.101, i64 noundef 4) #16
   %1931 = icmp eq i32 %1930, 0
   br i1 %1931, label %_process_anim_attr_options.exit, label %.critedge.i302
 
@@ -5949,27 +5949,27 @@ sub_174.i:                                        ; preds = %sub_073.i
   ]
 
 1939:                                             ; preds = %1938
-  %1940 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(10) @.str.117, i64 noundef 9) #15
+  %1940 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(10) @.str.117, i64 noundef 9) #16
   %1941 = icmp eq i32 %1940, 0
   br i1 %1941, label %_process_anim_attr_options.exit, label %.critedge.i302
 
 1942:                                             ; preds = %1938
-  %1943 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.119, i64 noundef 5) #15
+  %1943 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.119, i64 noundef 5) #16
   %1944 = icmp eq i32 %1943, 0
   br i1 %1944, label %_process_anim_attr_options.exit, label %1948
 
 1945:                                             ; preds = %1938
-  %1946 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.98, i64 noundef 6) #15
+  %1946 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(7) @.str.98, i64 noundef 6) #16
   %1947 = icmp eq i32 %1946, 0
   br i1 %1947, label %_process_anim_attr_options.exit, label %.critedge.i302
 
 1948:                                             ; preds = %1942
-  %1949 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.120, i64 noundef 5) #15
+  %1949 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.120, i64 noundef 5) #16
   %1950 = icmp eq i32 %1949, 0
   br i1 %1950, label %_process_anim_attr_options.exit, label %1951
 
 1951:                                             ; preds = %1948
-  %1952 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.121, i64 noundef 5) #15
+  %1952 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i, ptr noundef nonnull dereferenceable(6) @.str.121, i64 noundef 5) #16
   %1953 = icmp eq i32 %1952, 0
   br i1 %1953, label %_process_anim_attr_options.exit, label %.critedge.i302
 
@@ -6001,10 +6001,10 @@ declare zeroext i1 @lv_array_resize(ptr noundef, i32 noundef) local_unnamed_addr
 
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare float @strtof(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree norecurse nounwind uwtable
 define internal fastcc void @_parse_length(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #7 {
   %5 = alloca ptr, align 8
   %6 = ptrtoint ptr %0 to i64
@@ -6047,12 +6047,12 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
   br i1 %15, label %_parse_number.exit.thread, label %_parse_number.exit
 
 _parse_number.exit:                               ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr null, ptr %5, align 8, !tbaa !63
-  %16 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %5) #14
+  %16 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %5) #15
   store float %16, ptr %3, align 4, !tbaa !64
   %17 = load ptr, ptr %5, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %_parse_number.exit.thread, label %18
 
@@ -6173,17 +6173,17 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @cosf(float noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @sinf(float noundef) local_unnamed_addr #10
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare float @tanf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #7 {
+define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #11 {
   %4 = ptrtoint ptr %0 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = alloca ptr, align 8
@@ -6237,7 +6237,7 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone c
   ]
 
 23:                                               ; preds = %22
-  %24 = tail call ptr @__ctype_b_loc() #16
+  %24 = tail call ptr @__ctype_b_loc() #17
   %25 = load ptr, ptr %24, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %27 = load i8, ptr %26, align 1, !tbaa !36
@@ -6269,29 +6269,29 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone c
   br i1 %.not117, label %114, label %46
 
 46:                                               ; preds = %39
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %9) #15
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 0, ptr %47, align 1
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %27, ptr %48, align 1, !tbaa !36
   store i8 %27, ptr %9, align 1, !tbaa !36
-  %49 = call i64 @strtol(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 16) #14
+  %49 = call i64 @strtol(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 16) #15
   %50 = trunc i64 %49 to i32
   %51 = load i8, ptr %33, align 1, !tbaa !36
   store i8 %51, ptr %48, align 1, !tbaa !36
   store i8 %51, ptr %9, align 1, !tbaa !36
-  %52 = call i64 @strtol(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 16) #14
+  %52 = call i64 @strtol(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 16) #15
   %53 = trunc i64 %52 to i32
   %54 = load i8, ptr %40, align 1, !tbaa !36
   store i8 %54, ptr %48, align 1, !tbaa !36
   store i8 %54, ptr %9, align 1, !tbaa !36
-  %55 = call i64 @strtol(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 16) #14
+  %55 = call i64 @strtol(ptr noundef nonnull captures(none) %9, ptr noundef null, i32 noundef 16) #15
   %56 = trunc i64 %55 to i32
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %9) #15
   br label %114
 
 57:                                               ; preds = %22
-  %58 = tail call ptr @__ctype_b_loc() #16
+  %58 = tail call ptr @__ctype_b_loc() #17
   %59 = load ptr, ptr %58, align 8, !tbaa !51
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %61 = load i8, ptr %60, align 1, !tbaa !36
@@ -6353,27 +6353,27 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone c
   br i1 %.not114, label %114, label %101
 
 101:                                              ; preds = %94
-  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %10) #15
   %102 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i8 0, ptr %102, align 1
   store i8 %61, ptr %10, align 1, !tbaa !36
   %103 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 %68, ptr %103, align 1, !tbaa !36
-  %104 = call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #14
+  %104 = call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #15
   %105 = trunc i64 %104 to i32
   %106 = load i8, ptr %74, align 1, !tbaa !36
   store i8 %106, ptr %10, align 1, !tbaa !36
   %107 = load i8, ptr %81, align 1, !tbaa !36
   store i8 %107, ptr %103, align 1, !tbaa !36
-  %108 = call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #14
+  %108 = call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #15
   %109 = trunc i64 %108 to i32
   %110 = load i8, ptr %88, align 1, !tbaa !36
   store i8 %110, ptr %10, align 1, !tbaa !36
   %111 = load i8, ptr %95, align 1, !tbaa !36
   store i8 %111, ptr %103, align 1, !tbaa !36
-  %112 = call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #14
+  %112 = call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 16) #15
   %113 = trunc i64 %112 to i32
-  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %10) #15
   br label %114
 
 114:                                              ; preds = %22, %101, %94, %87, %80, %73, %66, %57, %23, %32, %39, %46
@@ -6395,13 +6395,13 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone c
   br i1 %123, label %124, label %189
 
 124:                                              ; preds = %122
-  %125 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.125, i64 noundef 5) #15
+  %125 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.125, i64 noundef 5) #16
   %126 = icmp eq i32 %125, 0
   br i1 %126, label %127, label %.thread
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %11) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false)
   br label %.preheader.i120
 
@@ -6441,11 +6441,11 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
   br i1 %137, label %_parse_number.exit.thread, label %_parse_number.exit
 
 _parse_number.exit:                               ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   store ptr null, ptr %8, align 8, !tbaa !63
-  %138 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %8) #14
+  %138 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %8) #15
   %139 = load ptr, ptr %8, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   %.not107 = icmp eq ptr %139, null
   br i1 %.not107, label %_parse_number.exit.thread, label %157
 
@@ -6487,12 +6487,12 @@ _is_number_begin.exit.thread.i133:                ; preds = %_is_number_begin.ex
   %.010.lcssa.i122 = phi ptr [ %.097166, %.preheader.i120 ], [ %.01012.i127, %_is_number_begin.exit.i129 ], [ %scevgep.i125, %_is_number_begin.exit.thread.i133 ]
   %149 = icmp ne ptr %.010.lcssa.i122, %.099.lcssa
   tail call void @llvm.assume(i1 %149)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr null, ptr %7, align 8, !tbaa !63
-  %150 = call float @strtof(ptr noundef nonnull %.010.lcssa.i122, ptr noundef nonnull %7) #14
+  %150 = call float @strtof(ptr noundef nonnull %.010.lcssa.i122, ptr noundef nonnull %7) #15
   store float %150, ptr %140, align 4, !tbaa !64
   %151 = load ptr, ptr %7, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   %.not108 = icmp ne ptr %151, null
   %spec.select = select i1 %.not108, i1 %.087167, i1 false
   %152 = load i8, ptr %151, align 1, !tbaa !36
@@ -6563,7 +6563,7 @@ _parse_number.exit.thread:                        ; preds = %.critedge.i, %167, 
   %187 = add nuw nsw i32 %186, %.192
   %188 = or disjoint i32 %187, %.190
   store i32 %188, ptr %2, align 4, !tbaa !83
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #15
   br label %.loopexit
 
 189:                                              ; preds = %122
@@ -6571,13 +6571,13 @@ _parse_number.exit.thread:                        ; preds = %.critedge.i, %167, 
   br i1 %190, label %.thread, label %231
 
 .thread:                                          ; preds = %124, %189
-  %191 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.126, i64 noundef 4) #15
+  %191 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(5) @.str.126, i64 noundef 4) #16
   %192 = icmp eq i32 %191, 0
   br i1 %192, label %193, label %231
 
 193:                                              ; preds = %.thread
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %12) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, i8 0, i64 12, i1 false)
   br label %.preheader.i137
 
@@ -6622,12 +6622,12 @@ _is_number_begin.exit.thread.i150:                ; preds = %_is_number_begin.ex
   %.010.lcssa.i139 = phi ptr [ %.198163, %.preheader.i137 ], [ %.01012.i144, %_is_number_begin.exit.i146 ], [ %scevgep.i142, %_is_number_begin.exit.thread.i150 ]
   %205 = icmp ne ptr %.010.lcssa.i139, %.099.lcssa
   tail call void @llvm.assume(i1 %205)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   store ptr null, ptr %6, align 8, !tbaa !63
-  %206 = call float @strtof(ptr noundef nonnull %.010.lcssa.i139, ptr noundef nonnull %6) #14
+  %206 = call float @strtof(ptr noundef nonnull %.010.lcssa.i139, ptr noundef nonnull %6) #15
   store float %206, ptr %196, align 4, !tbaa !64
   %207 = load ptr, ptr %6, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   %.not106 = icmp ne ptr %207, null
   %spec.select118 = select i1 %.not106, i1 %.084164, i1 false
   %208 = load i8, ptr %207, align 1, !tbaa !36
@@ -6665,7 +6665,7 @@ _is_number_begin.exit.thread.i150:                ; preds = %_is_number_begin.ex
 229:                                              ; preds = %213, %195
   %230 = phi i32 [ %228, %213 ], [ 0, %195 ]
   store i32 %230, ptr %2, align 4, !tbaa !83
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %12) #15
   br label %.loopexit
 
 231:                                              ; preds = %.thread, %189
@@ -6682,7 +6682,7 @@ _is_number_begin.exit.thread.i150:                ; preds = %_is_number_begin.ex
 
 238:                                              ; preds = %233
   %239 = load ptr, ptr %234, align 16, !tbaa !95
-  %240 = tail call i32 @strncmp(ptr noundef %239, ptr noundef nonnull %0, i64 noundef %232) #15
+  %240 = tail call i32 @strncmp(ptr noundef %239, ptr noundef nonnull %0, i64 noundef %232) #16
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %242, label %245
 
@@ -6701,7 +6701,7 @@ _is_number_begin.exit.thread.i150:                ; preds = %_is_number_begin.ex
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -6730,7 +6730,7 @@ define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none)
 
 14:                                               ; preds = %11
   store i32 20, ptr %4, align 8, !tbaa !98
-  %15 = tail call ptr @lv_malloc_zeroed(i64 noundef 20) #14
+  %15 = tail call ptr @lv_malloc_zeroed(i64 noundef 20) #15
   store ptr %15, ptr %12, align 8, !tbaa !87
   %.not136 = icmp eq ptr %15, null
   br i1 %.not136, label %.preheader, label %16
@@ -6758,7 +6758,7 @@ define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none)
   %28 = or disjoint i32 %27, 4
   store i32 %28, ptr %4, align 8, !tbaa !98
   %29 = zext i32 %28 to i64
-  %30 = tail call ptr @lv_realloc(ptr noundef nonnull %13, i64 noundef %29) #14
+  %30 = tail call ptr @lv_realloc(ptr noundef nonnull %13, i64 noundef %29) #15
   store ptr %30, ptr %12, align 8, !tbaa !87
   %.not137 = icmp eq ptr %30, null
   br i1 %.not137, label %.preheader177, label %._crit_edge189
@@ -6793,7 +6793,7 @@ define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none)
 
 42:                                               ; preds = %39
   store i32 20, ptr %4, align 8, !tbaa !98
-  %43 = tail call ptr @lv_malloc_zeroed(i64 noundef 20) #14
+  %43 = tail call ptr @lv_malloc_zeroed(i64 noundef 20) #15
   store ptr %43, ptr %40, align 8, !tbaa !87
   %.not133 = icmp eq ptr %43, null
   br i1 %.not133, label %.preheader178, label %44
@@ -6821,7 +6821,7 @@ define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none)
   %56 = or disjoint i32 %55, 4
   store i32 %56, ptr %4, align 8, !tbaa !98
   %57 = zext i32 %56 to i64
-  %58 = tail call ptr @lv_realloc(ptr noundef nonnull %41, i64 noundef %57) #14
+  %58 = tail call ptr @lv_realloc(ptr noundef nonnull %41, i64 noundef %57) #15
   store ptr %58, ptr %40, align 8, !tbaa !87
   %.not134 = icmp eq ptr %58, null
   br i1 %.not134, label %.preheader179, label %._crit_edge187
@@ -6856,7 +6856,7 @@ define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none)
 
 70:                                               ; preds = %67
   store i32 84, ptr %4, align 8, !tbaa !98
-  %71 = tail call ptr @lv_malloc_zeroed(i64 noundef 84) #14
+  %71 = tail call ptr @lv_malloc_zeroed(i64 noundef 84) #15
   store ptr %71, ptr %68, align 8, !tbaa !87
   %.not129 = icmp eq ptr %71, null
   br i1 %.not129, label %.preheader180, label %72
@@ -6884,7 +6884,7 @@ define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none)
   %84 = or disjoint i32 %83, 4
   store i32 %84, ptr %4, align 8, !tbaa !98
   %85 = zext i32 %84 to i64
-  %86 = tail call ptr @lv_realloc(ptr noundef nonnull %69, i64 noundef %85) #14
+  %86 = tail call ptr @lv_realloc(ptr noundef nonnull %69, i64 noundef %85) #15
   store ptr %86, ptr %68, align 8, !tbaa !87
   %.not130 = icmp eq ptr %86, null
   br i1 %.not130, label %.preheader181, label %._crit_edge185
@@ -6957,12 +6957,12 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
   br i1 %110, label %_parse_number.exit.thread, label %_parse_number.exit
 
 _parse_number.exit:                               ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   store ptr null, ptr %8, align 8, !tbaa !63
-  %111 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %8) #14
+  %111 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %8) #15
   store float %111, ptr %102, align 4, !tbaa !64
   %112 = load ptr, ptr %8, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   %.not131 = icmp eq ptr %112, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %.not131, label %_parse_number.exit.thread, label %97
@@ -6980,7 +6980,7 @@ _parse_number.exit.thread:                        ; preds = %.critedge.i, %101, 
 
 117:                                              ; preds = %114
   store i32 36, ptr %4, align 8, !tbaa !98
-  %118 = tail call ptr @lv_malloc_zeroed(i64 noundef 36) #14
+  %118 = tail call ptr @lv_malloc_zeroed(i64 noundef 36) #15
   store ptr %118, ptr %115, align 8, !tbaa !87
   %.not126 = icmp eq ptr %118, null
   br i1 %.not126, label %.preheader182, label %119
@@ -7008,7 +7008,7 @@ _parse_number.exit.thread:                        ; preds = %.critedge.i, %101, 
   %131 = or disjoint i32 %130, 4
   store i32 %131, ptr %4, align 8, !tbaa !98
   %132 = zext i32 %131 to i64
-  %133 = tail call ptr @lv_realloc(ptr noundef nonnull %116, i64 noundef %132) #14
+  %133 = tail call ptr @lv_realloc(ptr noundef nonnull %116, i64 noundef %132) #15
   store ptr %133, ptr %115, align 8, !tbaa !87
   %.not127 = icmp eq ptr %133, null
   br i1 %.not127, label %.preheader183, label %._crit_edge
@@ -7072,12 +7072,12 @@ _is_number_begin.exit.thread.i152:                ; preds = %_is_number_begin.ex
   br i1 %151, label %_parse_number.exit171, label %_parse_number.exit154
 
 _parse_number.exit154:                            ; preds = %.critedge.i140
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr null, ptr %7, align 8, !tbaa !63
-  %152 = call float @strtof(ptr noundef nonnull %.010.lcssa.i141, ptr noundef nonnull %7) #14
+  %152 = call float @strtof(ptr noundef nonnull %.010.lcssa.i141, ptr noundef nonnull %7) #15
   store float %152, ptr %.0114, align 4, !tbaa !64
   %153 = load ptr, ptr %7, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   %154 = getelementptr inbounds nuw i8, ptr %.0114, i64 4
   %155 = ptrtoint ptr %153 to i64
   %.not.i155 = icmp eq ptr %153, null
@@ -7118,11 +7118,11 @@ _is_number_begin.exit.thread.i169:                ; preds = %_is_number_begin.ex
   br i1 %163, label %_parse_number.exit171, label %164
 
 164:                                              ; preds = %.critedge.i157
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   store ptr null, ptr %6, align 8, !tbaa !63
-  %165 = call float @strtof(ptr noundef nonnull %.010.lcssa.i158, ptr noundef nonnull %6) #14
+  %165 = call float @strtof(ptr noundef nonnull %.010.lcssa.i158, ptr noundef nonnull %6) #15
   store float %165, ptr %154, align 4, !tbaa !64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   br label %_parse_number.exit171
 
 _parse_number.exit171:                            ; preds = %.critedge.i140, %141, %164, %.critedge.i157, %_parse_number.exit154, %5, %66, %_parse_number.exit.thread, %38
@@ -7147,7 +7147,7 @@ define internal fastcc void @_anim_key_splines_cb(ptr noundef %0, ptr noundef %1
 
 10:                                               ; preds = %3
   store i32 36, ptr %2, align 8, !tbaa !98
-  %11 = tail call ptr @lv_malloc_zeroed(i64 noundef 36) #14
+  %11 = tail call ptr @lv_malloc_zeroed(i64 noundef 36) #15
   store ptr %11, ptr %8, align 8, !tbaa !87
   %.not56 = icmp eq ptr %11, null
   br i1 %.not56, label %.preheader, label %12
@@ -7175,7 +7175,7 @@ define internal fastcc void @_anim_key_splines_cb(ptr noundef %0, ptr noundef %1
   %24 = or disjoint i32 %23, 4
   store i32 %24, ptr %2, align 8, !tbaa !98
   %25 = zext i32 %24 to i64
-  %26 = tail call ptr @lv_realloc(ptr noundef nonnull %9, i64 noundef %25) #14
+  %26 = tail call ptr @lv_realloc(ptr noundef nonnull %9, i64 noundef %25) #15
   store ptr %26, ptr %8, align 8, !tbaa !87
   %.not57 = icmp eq ptr %26, null
   br i1 %.not57, label %.preheader118, label %._crit_edge
@@ -7239,12 +7239,12 @@ _is_number_begin.exit.thread.i:                   ; preds = %_is_number_begin.ex
   br i1 %44, label %_parse_number.exit77, label %_parse_number.exit
 
 _parse_number.exit:                               ; preds = %.critedge.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store ptr null, ptr %7, align 8, !tbaa !63
-  %45 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %7) #14
+  %45 = call float @strtof(ptr noundef nonnull %.010.lcssa.i, ptr noundef nonnull %7) #15
   store float %45, ptr %.0, align 4, !tbaa !64
   %46 = load ptr, ptr %7, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
   %47 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %48 = ptrtoint ptr %46 to i64
   %.not.i61 = icmp eq ptr %46, null
@@ -7285,12 +7285,12 @@ _is_number_begin.exit.thread.i75:                 ; preds = %_is_number_begin.ex
   br i1 %56, label %_parse_number.exit77, label %57
 
 57:                                               ; preds = %.critedge.i63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   store ptr null, ptr %6, align 8, !tbaa !63
-  %58 = call float @strtof(ptr noundef nonnull %.010.lcssa.i64, ptr noundef nonnull %6) #14
+  %58 = call float @strtof(ptr noundef nonnull %.010.lcssa.i64, ptr noundef nonnull %6) #15
   store float %58, ptr %47, align 4, !tbaa !64
   %59 = load ptr, ptr %6, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   br label %_parse_number.exit77
 
 _parse_number.exit77:                             ; preds = %.critedge.i, %34, %_parse_number.exit, %.critedge.i63, %57
@@ -7301,7 +7301,7 @@ _parse_number.exit77:                             ; preds = %.critedge.i, %34, %
 
 61:                                               ; preds = %_parse_number.exit77
   store i32 36, ptr %2, align 8, !tbaa !98
-  %62 = tail call ptr @lv_malloc_zeroed(i64 noundef 36) #14
+  %62 = tail call ptr @lv_malloc_zeroed(i64 noundef 36) #15
   store ptr %62, ptr %8, align 8, !tbaa !87
   %.not59 = icmp eq ptr %62, null
   br i1 %.not59, label %.preheader116, label %63
@@ -7329,7 +7329,7 @@ _parse_number.exit77:                             ; preds = %.critedge.i, %34, %
   %75 = or disjoint i32 %74, 4
   store i32 %75, ptr %2, align 8, !tbaa !98
   %76 = zext i32 %75 to i64
-  %77 = tail call ptr @lv_realloc(ptr noundef nonnull %60, i64 noundef %76) #14
+  %77 = tail call ptr @lv_realloc(ptr noundef nonnull %60, i64 noundef %76) #15
   store ptr %77, ptr %8, align 8, !tbaa !87
   %.not60 = icmp eq ptr %77, null
   br i1 %.not60, label %.preheader117, label %._crit_edge119
@@ -7392,12 +7392,12 @@ _is_number_begin.exit.thread.i92:                 ; preds = %_is_number_begin.ex
   br i1 %94, label %_parse_number.exit111, label %_parse_number.exit94
 
 _parse_number.exit94:                             ; preds = %.critedge.i80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   store ptr null, ptr %5, align 8, !tbaa !63
-  %95 = call float @strtof(ptr noundef nonnull %.010.lcssa.i81, ptr noundef nonnull %5) #14
+  %95 = call float @strtof(ptr noundef nonnull %.010.lcssa.i81, ptr noundef nonnull %5) #15
   store float %95, ptr %.1, align 4, !tbaa !64
   %96 = load ptr, ptr %5, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   %97 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %98 = ptrtoint ptr %96 to i64
   %.not.i95 = icmp eq ptr %96, null
@@ -7438,11 +7438,11 @@ _is_number_begin.exit.thread.i109:                ; preds = %_is_number_begin.ex
   br i1 %106, label %_parse_number.exit111, label %107
 
 107:                                              ; preds = %.critedge.i97
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store ptr null, ptr %4, align 8, !tbaa !63
-  %108 = call float @strtof(ptr noundef nonnull %.010.lcssa.i98, ptr noundef nonnull %4) #14
+  %108 = call float @strtof(ptr noundef nonnull %.010.lcssa.i98, ptr noundef nonnull %4) #15
   store float %108, ptr %97, align 4, !tbaa !64
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   br label %_parse_number.exit111
 
 _parse_number.exit111:                            ; preds = %.critedge.i80, %85, %_parse_number.exit94, %.critedge.i97, %107
@@ -7463,7 +7463,7 @@ define internal fastcc void @_anim_begin_end_cb(ptr noundef %0, ptr noundef %1, 
 
 7:                                                ; preds = %3
   store i32 20, ptr %2, align 8, !tbaa !98
-  %8 = tail call ptr @lv_malloc_zeroed(i64 noundef 20) #14
+  %8 = tail call ptr @lv_malloc_zeroed(i64 noundef 20) #15
   store ptr %8, ptr %5, align 8, !tbaa !87
   %.not26 = icmp eq ptr %8, null
   br i1 %.not26, label %.preheader, label %9
@@ -7491,7 +7491,7 @@ define internal fastcc void @_anim_begin_end_cb(ptr noundef %0, ptr noundef %1, 
   %21 = or disjoint i32 %20, 4
   store i32 %21, ptr %2, align 8, !tbaa !98
   %22 = zext i32 %21 to i64
-  %23 = tail call ptr @lv_realloc(ptr noundef nonnull %6, i64 noundef %22) #14
+  %23 = tail call ptr @lv_realloc(ptr noundef nonnull %6, i64 noundef %22) #15
   store ptr %23, ptr %5, align 8, !tbaa !87
   %.not27 = icmp eq ptr %23, null
   br i1 %.not27, label %.preheader28, label %._crit_edge
@@ -7555,12 +7555,12 @@ _is_number_begin.exit.thread.i.i:                 ; preds = %_is_number_begin.ex
   br i1 %41, label %_parse_number.exit.thread.i, label %_parse_number.exit.i
 
 _parse_number.exit.i:                             ; preds = %.critedge.i.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   store ptr null, ptr %4, align 8, !tbaa !63
-  %42 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i, ptr noundef nonnull %4) #14
+  %42 = call float @strtof(ptr noundef nonnull %.010.lcssa.i.i, ptr noundef nonnull %4) #15
   store float %42, ptr %.0, align 4, !tbaa !64
   %43 = load ptr, ptr %4, align 8, !tbaa !63
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %_parse_number.exit.thread.i, label %44
 
@@ -7609,31 +7609,32 @@ _parse_clock_time.exit:                           ; preds = %51, %55, %57, %_par
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.fshl.i8(i8, i8, i8) #11
+declare i8 @llvm.fshl.i8(i8, i8, i8) #12
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #12
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #13
+declare void @llvm.assume(i1 noundef) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
-attributes #16 = { nounwind willreturn memory(none) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: read) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(read) }
+attributes #17 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

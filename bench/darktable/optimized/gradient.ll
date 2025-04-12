@@ -45,31 +45,31 @@ define internal void @_gradient_sanitize_config(i32 noundef %0) #0 {
   %2 = and i32 %0, 136
   %.not = icmp eq i32 %2, 0
   %3 = select i1 %.not, ptr @.str.1, ptr @.str
-  tail call void @dt_conf_set_float(ptr noundef nonnull %3, float noundef 0.000000e+00) #13
+  tail call void @dt_conf_set_float(ptr noundef nonnull %3, float noundef 0.000000e+00) #14
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @_gradient_setup_mouse_actions(ptr readnone captures(none) %0) #0 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #13
-  %3 = tail call ptr @dt_mouse_action_create_simple(ptr noundef null, i32 noundef 7, i32 noundef 0, ptr noundef %2) #13
-  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #13
-  %5 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %3, i32 noundef 7, i32 noundef 0, ptr noundef %4) #13
-  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #13
-  %7 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %5, i32 noundef 3, i32 noundef 0, ptr noundef %6) #13
-  %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #13
-  %9 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %7, i32 noundef 3, i32 noundef 1, ptr noundef %8) #13
-  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #13
-  %11 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %9, i32 noundef 3, i32 noundef 4, ptr noundef %10) #13
+  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #14
+  %3 = tail call ptr @dt_mouse_action_create_simple(ptr noundef null, i32 noundef 7, i32 noundef 0, ptr noundef %2) #14
+  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #14
+  %5 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %3, i32 noundef 7, i32 noundef 0, ptr noundef %4) #14
+  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #14
+  %7 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %5, i32 noundef 3, i32 noundef 0, ptr noundef %6) #14
+  %8 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #14
+  %9 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %7, i32 noundef 3, i32 noundef 1, ptr noundef %8) #14
+  %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #14
+  %11 = tail call ptr @dt_mouse_action_create_simple(ptr noundef %9, i32 noundef 3, i32 noundef 4, ptr noundef %10) #14
   ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @_gradient_set_form_name(ptr noundef writeonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #13
+  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #14
   %5 = trunc i64 %1 to i32
-  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef %4, i32 noundef %5) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef %4, i32 noundef %5) #14
   ret void
 }
 
@@ -81,8 +81,8 @@ define internal void @_gradient_set_hint_message(ptr noundef readonly captures(n
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #13
-  %10 = tail call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef %3, i64 noundef %4, ptr noundef %9, i32 noundef %2) #13
+  %9 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #14
+  %10 = tail call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef %3, i64 noundef %4, ptr noundef %9, i32 noundef %2) #14
   br label %23
 
 11:                                               ; preds = %5
@@ -92,8 +92,8 @@ define internal void @_gradient_set_hint_message(ptr noundef readonly captures(n
   br i1 %.not10, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #13
-  %16 = tail call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef %3, i64 noundef %4, ptr noundef %15, i32 noundef %2) #13
+  %15 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #14
+  %16 = tail call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef %3, i64 noundef %4, ptr noundef %15, i32 noundef %2) #14
   br label %23
 
 17:                                               ; preds = %11
@@ -103,8 +103,8 @@ define internal void @_gradient_set_hint_message(ptr noundef readonly captures(n
   br i1 %.not11, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #13
-  %22 = tail call i64 @g_strlcat(ptr noundef %3, ptr noundef %21, i64 noundef %4) #13
+  %21 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #14
+  %22 = tail call i64 @g_strlcat(ptr noundef %3, ptr noundef %21, i64 noundef %4) #14
   br label %23
 
 23:                                               ; preds = %14, %20, %17, %8
@@ -144,7 +144,7 @@ define internal void @_gradient_modify_property(ptr noundef readonly captures(no
   %21 = and i32 %20, 136
   %.not80 = icmp eq i32 %21, 0
   %22 = select i1 %.not80, ptr @.str.1, ptr @.str
-  %23 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %22) #13
+  %23 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %22) #14
   br label %24
 
 24:                                               ; preds = %18, %15
@@ -176,7 +176,7 @@ define internal void @_gradient_modify_property(ptr noundef readonly captures(no
   %39 = and i32 %38, 136
   %.not81 = icmp eq i32 %39, 0
   %40 = select i1 %.not81, ptr @.str.1, ptr @.str
-  tail call void @dt_conf_set_float(ptr noundef nonnull %40, float noundef %33) #13
+  tail call void @dt_conf_set_float(ptr noundef nonnull %40, float noundef %33) #14
   %41 = fpext reassoc nsz arcp contract afn float %33 to double
   %42 = fmul reassoc nsz arcp contract afn double %41, 5.000000e-01
   %43 = load float, ptr %4, align 4, !tbaa !27
@@ -211,7 +211,7 @@ define internal void @_gradient_modify_property(ptr noundef readonly captures(no
   %62 = and i32 %61, 136
   %.not77 = icmp eq i32 %62, 0
   %63 = select i1 %.not77, ptr @.str.12, ptr @.str.11
-  %64 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %63) #13
+  %64 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %63) #14
   %65 = fmul reassoc nsz arcp contract afn float %64, %59
   %66 = fcmp reassoc nsz arcp contract afn ogt float %65, 1.000000e+00
   %67 = fcmp reassoc nsz arcp contract afn olt float %65, 0x3F50624DE0000000
@@ -237,7 +237,7 @@ define internal void @_gradient_modify_property(ptr noundef readonly captures(no
   %82 = and i32 %81, 136
   %.not78 = icmp eq i32 %82, 0
   %83 = select i1 %.not78, ptr @.str.12, ptr @.str.11
-  tail call void @dt_conf_set_float(ptr noundef nonnull %83, float noundef %79) #13
+  tail call void @dt_conf_set_float(ptr noundef nonnull %83, float noundef %79) #14
   %84 = load float, ptr %4, align 4, !tbaa !27
   %85 = fadd reassoc nsz arcp contract afn float %84, %79
   store float %85, ptr %4, align 4, !tbaa !27
@@ -261,7 +261,7 @@ define internal void @_gradient_modify_property(ptr noundef readonly captures(no
   %95 = and i32 %94, 136
   %.not74 = icmp eq i32 %95, 0
   %96 = select i1 %.not74, ptr @.str.14, ptr @.str.13
-  %97 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %96) #13
+  %97 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %96) #14
   %98 = fadd reassoc nsz arcp contract afn float %2, 3.600000e+02
   %99 = fsub reassoc nsz arcp contract afn float %98, %3
   %100 = fadd reassoc nsz arcp contract afn float %99, %97
@@ -285,7 +285,7 @@ define internal void @_gradient_modify_property(ptr noundef readonly captures(no
   %113 = and i32 %112, 136
   %.not75 = icmp eq i32 %113, 0
   %114 = select i1 %.not75, ptr @.str.14, ptr @.str.13
-  tail call void @dt_conf_set_float(ptr noundef nonnull %114, float noundef %110) #13
+  tail call void @dt_conf_set_float(ptr noundef nonnull %114, float noundef %110) #14
   %115 = fsub reassoc nsz arcp contract afn float 3.600000e+02, %110
   %116 = load float, ptr %4, align 4, !tbaa !27
   %117 = fadd reassoc nsz arcp contract afn float %115, %116
@@ -319,9 +319,9 @@ define internal void @_gradient_duplicate_points(ptr readnone captures(none) %0,
   %4 = phi ptr [ %7, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
   %.012 = phi ptr [ %.0, %.lr.ph ], [ %.010, %.lr.ph.preheader ]
   %5 = load ptr, ptr %.012, align 8, !tbaa !22
-  %6 = tail call noalias dereferenceable_or_null(28) ptr @malloc(i64 noundef 28) #14
+  %6 = tail call noalias dereferenceable_or_null(28) ptr @malloc(i64 noundef 28) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, ptr noundef nonnull align 4 dereferenceable(28) %5, i64 28, i1 false)
-  %7 = tail call ptr @g_list_append(ptr noundef %4, ptr noundef nonnull %6) #13
+  %7 = tail call ptr @g_list_append(ptr noundef %4, ptr noundef nonnull %6) #14
   store ptr %7, ptr %2, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %.0 = load ptr, ptr %8, align 8, !tbaa !31
@@ -341,7 +341,7 @@ define internal void @_gradient_get_distance(float noundef %0, float noundef %1,
   store i32 -1, ptr %8, align 4, !tbaa !30
   store float 0x47EFFFFFE0000000, ptr %10, align 4, !tbaa !27
   %13 = load ptr, ptr %3, align 8, !tbaa !32
-  %14 = tail call ptr @g_list_nth_data(ptr noundef %13, i32 noundef %4) #13
+  %14 = tail call ptr @g_list_nth_data(ptr noundef %13, i32 noundef %4) #14
   %.not68 = icmp eq ptr %14, null
   br i1 %.not68, label %.loopexit, label %15
 
@@ -499,8 +499,8 @@ define internal range(i32 0, 2) i32 @_gradient_get_mask(ptr noundef readonly cap
   br i1 %.not.i, label %dt_get_debug_wtime.exit, label %16
 
 16:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #13
-  %17 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
+  %17 = call i32 @gettimeofday(ptr noundef nonnull %14, ptr noundef null) #14
   %18 = load i64, ptr %14, align 8, !tbaa !75
   %19 = add nsw i64 %18, -1290608000
   %20 = sitofp i64 %19 to double
@@ -509,7 +509,7 @@ define internal range(i32 0, 2) i32 @_gradient_get_mask(ptr noundef readonly cap
   %23 = sitofp i64 %22 to double
   %24 = fmul reassoc nsz arcp contract afn double %23, 0x3EB0C6F7A0B5ED8D
   %25 = fadd reassoc nsz arcp contract afn double %24, %20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
   br label %dt_get_debug_wtime.exit
 
 dt_get_debug_wtime.exit:                          ; preds = %8, %16
@@ -522,7 +522,7 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %16
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 148
   %33 = load i32, ptr %32, align 4, !tbaa !102
   %34 = sitofp i32 %33 to float
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #14
   store float 0.000000e+00, ptr %13, align 16, !tbaa !27
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store float 0.000000e+00, ptr %35, align 4, !tbaa !27
@@ -543,12 +543,12 @@ dt_get_debug_wtime.exit:                          ; preds = %8, %16
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %45 = load i32, ptr %44, align 16, !tbaa !113
   %46 = sitofp i32 %45 to double
-  %47 = call i32 @dt_dev_distort_transform_plus(ptr noundef %43, ptr noundef %28, double noundef %46, i32 noundef 3, ptr noundef nonnull %13, i64 noundef 4) #13
+  %47 = call i32 @dt_dev_distort_transform_plus(ptr noundef %43, ptr noundef %28, double noundef %46, i32 noundef 3, ptr noundef nonnull %13, i64 noundef 4) #14
   %.not.i215 = icmp eq i32 %47, 0
   br i1 %.not.i215, label %_gradient_get_area.exit.thread, label %.preheader.i
 
 _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.exit
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #14
   br label %321
 
 .preheader.i:                                     ; preds = %dt_get_debug_wtime.exit, %.preheader.i
@@ -582,7 +582,7 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %63 = fsub reassoc nsz arcp contract afn float %57, %56
   %64 = fptosi float %63 to i32
   store i32 %64, ptr %5, align 4, !tbaa !30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #14
   %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !39
   %66 = and i32 %65, 4112
   %or.cond.not = icmp eq i32 %66, 4112
@@ -590,8 +590,8 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
 
 67:                                               ; preds = %58
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #13
-  %69 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
+  %69 = call i32 @gettimeofday(ptr noundef nonnull %12, ptr noundef null) #14
   %70 = load i64, ptr %12, align 8, !tbaa !75
   %71 = add nsw i64 %70, -1290608000
   %72 = sitofp i64 %71 to double
@@ -600,9 +600,9 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %75 = sitofp i64 %74 to double
   %76 = fmul reassoc nsz arcp contract afn double %75, 0x3EB0C6F7A0B5ED8D
   %77 = fadd reassoc nsz arcp contract afn double %76, %72
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
   %78 = fsub reassoc nsz arcp contract afn double %77, %26
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.15, ptr noundef nonnull %68, double noundef %78) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.15, ptr noundef nonnull %68, double noundef %78) #14
   %.pre = load i32, ptr %5, align 4, !tbaa !30
   br label %79
 
@@ -624,7 +624,7 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %93 = sext i32 %91 to i64
   %94 = shl nsw i64 %92, 3
   %95 = mul nsw i64 %94, %93
-  %96 = call ptr @dt_alloc_aligned(i64 noundef %95) #13
+  %96 = call ptr @dt_alloc_aligned(i64 noundef %95) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %96, i64 64) ]
   %97 = icmp eq ptr %96, null
   br i1 %97, label %321, label %.preheader237
@@ -683,8 +683,8 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
 
 115:                                              ; preds = %._crit_edge245
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #13
-  %117 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #14
+  %117 = call i32 @gettimeofday(ptr noundef nonnull %11, ptr noundef null) #14
   %118 = load i64, ptr %11, align 8, !tbaa !75
   %119 = add nsw i64 %118, -1290608000
   %120 = sitofp i64 %119 to double
@@ -693,9 +693,9 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %123 = sitofp i64 %122 to double
   %124 = fmul reassoc nsz arcp contract afn double %123, 0x3EB0C6F7A0B5ED8D
   %125 = fadd reassoc nsz arcp contract afn double %124, %120
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #14
   %126 = fsub reassoc nsz arcp contract afn double %125, %.0219
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.16, ptr noundef nonnull %116, double noundef %126) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.16, ptr noundef nonnull %116, double noundef %126) #14
   br label %127
 
 127:                                              ; preds = %115, %._crit_edge245
@@ -705,12 +705,12 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %130 = load i32, ptr %44, align 16, !tbaa !113
   %131 = sitofp i32 %130 to double
   %132 = mul nsw i64 %93, %92
-  %133 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %128, ptr noundef %129, double noundef %131, i32 noundef 3, ptr noundef nonnull %96, i64 noundef %132) #13
+  %133 = call i32 @dt_dev_distort_backtransform_plus(ptr noundef %128, ptr noundef %129, double noundef %131, i32 noundef 3, ptr noundef nonnull %96, i64 noundef %132) #14
   %.not201 = icmp eq i32 %133, 0
   br i1 %.not201, label %134, label %135
 
 134:                                              ; preds = %127
-  call void @free(ptr noundef nonnull %96) #13
+  call void @free(ptr noundef nonnull %96) #14
   br label %321
 
 135:                                              ; preds = %127
@@ -721,8 +721,8 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #13
-  %140 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
+  %140 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #14
   %141 = load i64, ptr %10, align 8, !tbaa !75
   %142 = add nsw i64 %141, -1290608000
   %143 = sitofp i64 %142 to double
@@ -731,9 +731,9 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %146 = sitofp i64 %145 to double
   %147 = fmul reassoc nsz arcp contract afn double %146, 0x3EB0C6F7A0B5ED8D
   %148 = fadd reassoc nsz arcp contract afn double %147, %143
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
   %149 = fsub reassoc nsz arcp contract afn double %148, %.1
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef nonnull %139, double noundef %149) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef nonnull %139, double noundef %149) #14
   br label %150
 
 150:                                              ; preds = %138, %135
@@ -777,7 +777,7 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %187 = add nsw i32 %186, 2
   %188 = sext i32 %187 to i64
   %189 = shl nsw i64 %188, 2
-  %190 = call ptr @dt_alloc_aligned(i64 noundef %189) #13
+  %190 = call ptr @dt_alloc_aligned(i64 noundef %189) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %190, i64 64) ]
   %191 = icmp eq ptr %190, null
   br i1 %191, label %211, label %.preheader235
@@ -828,7 +828,7 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   br i1 %exitcond305.not, label %._crit_edge247, label %199
 
 211:                                              ; preds = %150
-  call void @free(ptr noundef nonnull %96) #13
+  call void @free(ptr noundef nonnull %96) #14
   br label %321
 
 ._crit_edge247:                                   ; preds = %.lr.ph.split, %199, %.preheader235.._crit_edge247_crit_edge
@@ -860,7 +860,7 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %219 = sitofp i32 %218 to float
   %220 = fmul reassoc nsz arcp contract afn float %162, %219
   %221 = fmul reassoc nsz arcp contract afn float %220, %195
-  %222 = call reassoc nsz arcp contract afn float @erff(float noundef %221) #15
+  %222 = call reassoc nsz arcp contract afn float @erff(float noundef %221) #16
   %223 = fmul reassoc nsz arcp contract afn float %222, 5.000000e-01
   %224 = fadd reassoc nsz arcp contract afn float %223, 5.000000e-01
   %225 = fcmp reassoc nsz arcp contract afn olt float %224, 0.000000e+00
@@ -879,12 +879,12 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   br label %272
 
 ._crit_edge269:                                   ; preds = %._crit_edge263, %.preheader234.lr.ph, %._crit_edge247
-  call void @free(ptr noundef %190) #13
+  call void @free(ptr noundef %190) #14
   %231 = sext i32 %83 to i64
   %232 = sext i32 %80 to i64
   %233 = shl nsw i64 %231, 2
   %234 = mul i64 %233, %232
-  %235 = call ptr @dt_alloc_aligned(i64 noundef %234) #13
+  %235 = call ptr @dt_alloc_aligned(i64 noundef %234) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %235, i64 64) ]
   store ptr %235, ptr %3, align 8, !tbaa !115
   %236 = icmp eq ptr %235, null
@@ -1016,11 +1016,11 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   br i1 %exitcond311.not, label %._crit_edge263, label %272
 
 306:                                              ; preds = %._crit_edge269
-  call void @free(ptr noundef nonnull %96) #13
+  call void @free(ptr noundef nonnull %96) #14
   br label %321
 
 ._crit_edge279:                                   ; preds = %._crit_edge273.us, %.preheader
-  call void @free(ptr noundef nonnull %96) #13
+  call void @free(ptr noundef nonnull %96) #14
   %307 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !39
   %308 = and i32 %307, 4112
   %or.cond214.not = icmp eq i32 %308, 4112
@@ -1028,8 +1028,8 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
 
 309:                                              ; preds = %._crit_edge279
   %310 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
-  %311 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
+  %311 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
   %312 = load i64, ptr %9, align 8, !tbaa !75
   %313 = add nsw i64 %312, -1290608000
   %314 = sitofp i64 %313 to double
@@ -1037,10 +1037,10 @@ _gradient_get_area.exit.thread:                   ; preds = %dt_get_debug_wtime.
   %316 = load i64, ptr %315, align 8, !tbaa !77
   %317 = sitofp i64 %316 to double
   %318 = fmul reassoc nsz arcp contract afn double %317, 0x3EB0C6F7A0B5ED8D
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
   %319 = fsub reassoc nsz arcp contract afn double %314, %.2
   %320 = fadd reassoc nsz arcp contract afn double %319, %318
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull %310, double noundef %320) #13
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull %310, double noundef %320) #14
   br label %321
 
 321:                                              ; preds = %_gradient_get_area.exit.thread, %134, %79, %306, %309, %._crit_edge279, %211
@@ -1059,8 +1059,8 @@ define internal range(i32 0, 2) i32 @_gradient_get_mask_roi(ptr noundef readonly
   br i1 %.not.i, label %dt_get_debug_wtime.exit, label %11
 
 11:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
-  %12 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
+  %12 = call i32 @gettimeofday(ptr noundef nonnull %9, ptr noundef null) #14
   %13 = load i64, ptr %9, align 8, !tbaa !75
   %14 = add nsw i64 %13, -1290608000
   %15 = sitofp i64 %14 to double
@@ -1069,7 +1069,7 @@ define internal range(i32 0, 2) i32 @_gradient_get_mask_roi(ptr noundef readonly
   %18 = sitofp i64 %17 to double
   %19 = fmul reassoc nsz arcp contract afn double %18, 0x3EB0C6F7A0B5ED8D
   %20 = fadd reassoc nsz arcp contract afn double %19, %15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
   br label %dt_get_debug_wtime.exit
 
 dt_get_debug_wtime.exit:                          ; preds = %5, %11
@@ -1113,7 +1113,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %52 = sext i32 %50 to i64
   %53 = shl nsw i64 %51, 3
   %54 = mul i64 %53, %52
-  %55 = tail call ptr @dt_alloc_aligned(i64 noundef %54) #13
+  %55 = tail call ptr @dt_alloc_aligned(i64 noundef %54) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %55, i64 64) ]
   %56 = icmp eq ptr %55, null
   br i1 %56, label %282, label %.preheader229
@@ -1170,8 +1170,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
 
 77:                                               ; preds = %._crit_edge234
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
-  %79 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #14
+  %79 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #14
   %80 = load i64, ptr %8, align 8, !tbaa !75
   %81 = add nsw i64 %80, -1290608000
   %82 = sitofp i64 %81 to double
@@ -1180,9 +1180,9 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %85 = sitofp i64 %84 to double
   %86 = fmul reassoc nsz arcp contract afn double %85, 0x3EB0C6F7A0B5ED8D
   %87 = fadd reassoc nsz arcp contract afn double %86, %82
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   %88 = fsub reassoc nsz arcp contract afn double %87, %21
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.16, ptr noundef nonnull %78, double noundef %88) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.16, ptr noundef nonnull %78, double noundef %88) #14
   br label %89
 
 89:                                               ; preds = %77, %._crit_edge234
@@ -1195,12 +1195,12 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %95 = load i32, ptr %94, align 16, !tbaa !113
   %96 = sitofp i32 %95 to double
   %97 = mul nsw i64 %52, %51
-  %98 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %91, ptr noundef %93, double noundef %96, i32 noundef 3, ptr noundef nonnull %55, i64 noundef %97) #13
+  %98 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %91, ptr noundef %93, double noundef %96, i32 noundef 3, ptr noundef nonnull %55, i64 noundef %97) #14
   %.not199 = icmp eq i32 %98, 0
   br i1 %.not199, label %99, label %100
 
 99:                                               ; preds = %89
-  tail call void @free(ptr noundef nonnull %55) #13
+  tail call void @free(ptr noundef nonnull %55) #14
   br label %282
 
 100:                                              ; preds = %89
@@ -1211,8 +1211,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  %105 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
+  %105 = call i32 @gettimeofday(ptr noundef nonnull %7, ptr noundef null) #14
   %106 = load i64, ptr %7, align 8, !tbaa !75
   %107 = add nsw i64 %106, -1290608000
   %108 = sitofp i64 %107 to double
@@ -1221,9 +1221,9 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %111 = sitofp i64 %110 to double
   %112 = fmul reassoc nsz arcp contract afn double %111, 0x3EB0C6F7A0B5ED8D
   %113 = fadd reassoc nsz arcp contract afn double %112, %108
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
   %114 = fsub reassoc nsz arcp contract afn double %113, %.0214
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef nonnull %104, double noundef %114) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.17, ptr noundef nonnull %104, double noundef %114) #14
   br label %115
 
 115:                                              ; preds = %103, %100
@@ -1267,7 +1267,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %152 = add nsw i32 %151, 2
   %153 = sext i32 %152 to i64
   %154 = shl nsw i64 %153, 2
-  %155 = tail call ptr @dt_alloc_aligned(i64 noundef %154) #13
+  %155 = tail call ptr @dt_alloc_aligned(i64 noundef %154) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %155, i64 64) ]
   %156 = icmp eq ptr %155, null
   br i1 %156, label %176, label %.preheader227
@@ -1318,7 +1318,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br i1 %exitcond292.not, label %._crit_edge236, label %164
 
 176:                                              ; preds = %115
-  tail call void @free(ptr noundef nonnull %55) #13
+  tail call void @free(ptr noundef nonnull %55) #14
   br label %282
 
 ._crit_edge236:                                   ; preds = %.lr.ph.split, %164, %.preheader227.._crit_edge236_crit_edge
@@ -1346,7 +1346,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %182 = sitofp i32 %181 to float
   %183 = fmul reassoc nsz arcp contract afn float %127, %182
   %184 = fmul reassoc nsz arcp contract afn float %183, %160
-  %185 = tail call reassoc nsz arcp contract afn float @erff(float noundef %184) #15
+  %185 = tail call reassoc nsz arcp contract afn float @erff(float noundef %184) #16
   %186 = fmul reassoc nsz arcp contract afn float %185, 5.000000e-01
   %187 = fadd reassoc nsz arcp contract afn float %186, 5.000000e-01
   %188 = fcmp reassoc nsz arcp contract afn olt float %187, 0.000000e+00
@@ -1365,7 +1365,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br label %234
 
 ._crit_edge258:                                   ; preds = %._crit_edge252, %.preheader.lr.ph, %._crit_edge236
-  tail call void @free(ptr noundef %155) #13
+  tail call void @free(ptr noundef %155) #14
   %194 = icmp sgt i32 %27, 0
   br i1 %194, label %.lr.ph267, label %._crit_edge268
 
@@ -1499,7 +1499,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   br i1 %exitcond297.not, label %._crit_edge252, label %234
 
 ._crit_edge268:                                   ; preds = %._crit_edge262.us, %.lr.ph267, %._crit_edge258
-  tail call void @free(ptr noundef nonnull %55) #13
+  tail call void @free(ptr noundef nonnull %55) #14
   %268 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !39
   %269 = and i32 %268, 4112
   %or.cond211.not = icmp eq i32 %269, 4112
@@ -1507,8 +1507,8 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
 
 270:                                              ; preds = %._crit_edge268
   %271 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
-  %272 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  %272 = call i32 @gettimeofday(ptr noundef nonnull %6, ptr noundef null) #14
   %273 = load i64, ptr %6, align 8, !tbaa !75
   %274 = add nsw i64 %273, -1290608000
   %275 = sitofp i64 %274 to double
@@ -1516,10 +1516,10 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %277 = load i64, ptr %276, align 8, !tbaa !77
   %278 = sitofp i64 %277 to double
   %279 = fmul reassoc nsz arcp contract afn double %278, 0x3EB0C6F7A0B5ED8D
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
   %280 = fsub reassoc nsz arcp contract afn double %275, %.1
   %281 = fadd reassoc nsz arcp contract afn double %280, %279
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull %271, double noundef %281) #13
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.18, ptr noundef nonnull %271, double noundef %281) #14
   br label %282
 
 282:                                              ; preds = %176, %270, %._crit_edge268, %41, %99
@@ -1538,7 +1538,7 @@ define internal range(i32 0, 2) i32 @_gradient_get_area(ptr noundef readonly cap
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 148
   %15 = load i32, ptr %14, align 4, !tbaa !102
   %16 = sitofp i32 %15 to float
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #14
   store float 0.000000e+00, ptr %8, align 16, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float 0.000000e+00, ptr %17, align 4, !tbaa !27
@@ -1559,7 +1559,7 @@ define internal range(i32 0, 2) i32 @_gradient_get_area(ptr noundef readonly cap
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %27 = load i32, ptr %26, align 16, !tbaa !113
   %28 = sitofp i32 %27 to double
-  %29 = call i32 @dt_dev_distort_transform_plus(ptr noundef %25, ptr noundef %10, double noundef %28, i32 noundef 3, ptr noundef nonnull %8, i64 noundef 4) #13
+  %29 = call i32 @dt_dev_distort_transform_plus(ptr noundef %25, ptr noundef %10, double noundef %28, i32 noundef 3, ptr noundef nonnull %8, i64 noundef 4) #14
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %47, label %.preheader
 
@@ -1598,7 +1598,7 @@ define internal range(i32 0, 2) i32 @_gradient_get_area(ptr noundef readonly cap
 
 47:                                               ; preds = %7, %30
   %.033 = phi i32 [ 1, %30 ], [ 0, %7 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14
   ret i32 %.033
 }
 
@@ -1623,7 +1623,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   br i1 %20, label %.thread120, label %22
 
 22:                                               ; preds = %21
-  tail call void (...) @dt_control_queue_redraw_center() #13
+  tail call void (...) @dt_control_queue_redraw_center() #14
   br label %209
 
 23:                                               ; preds = %10
@@ -1647,7 +1647,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 148
   %40 = load i32, ptr %39, align 4, !tbaa !102
   %41 = sitofp i32 %40 to float
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
   %42 = fmul reassoc nsz arcp contract afn float %1, %32
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %44 = load float, ptr %43, align 4, !tbaa !142
@@ -1659,7 +1659,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %49 = load float, ptr %48, align 8, !tbaa !143
   %50 = fadd reassoc nsz arcp contract afn float %49, %47
   store float %50, ptr %46, align 4, !tbaa !27
-  %51 = call i32 @dt_dev_distort_backtransform(ptr noundef %27, ptr noundef nonnull %11, i64 noundef 1) #13
+  %51 = call i32 @dt_dev_distort_backtransform(ptr noundef %27, ptr noundef nonnull %11, i64 noundef 1) #14
   %52 = load float, ptr %11, align 4, !tbaa !27
   %53 = fdiv reassoc nsz arcp contract afn float %52, %38
   store float %53, ptr %26, align 4, !tbaa !27
@@ -1667,9 +1667,9 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %55 = fdiv reassoc nsz arcp contract afn float %54, %41
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 4
   store float %55, ptr %56, align 4, !tbaa !27
-  call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #13
-  call void (...) @dt_control_queue_redraw_center() #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
+  call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #14
+  call void (...) @dt_control_queue_redraw_center() #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
   br label %209
 
 57:                                               ; preds = %23
@@ -1695,7 +1695,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 372
   %71 = load i32, ptr %70, align 4, !tbaa !141
   %72 = load ptr, ptr %8, align 8, !tbaa !32
-  %73 = tail call ptr @g_list_nth_data(ptr noundef %72, i32 noundef %9) #13
+  %73 = tail call ptr @g_list_nth_data(ptr noundef %72, i32 noundef %9) #14
   %.not110 = icmp eq ptr %73, null
   br i1 %.not110, label %209, label %74
 
@@ -1727,7 +1727,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %97 = fneg reassoc nsz arcp contract afn float %84
   %98 = tail call reassoc nsz arcp contract afn float @llvm.atan2.f32(float %96, float %97)
   %99 = fsub reassoc nsz arcp contract afn float %95, %98
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #14
   store float %80, ptr %12, align 16, !tbaa !27
   %100 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %82, ptr %100, align 4, !tbaa !27
@@ -1746,7 +1746,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %108 = fadd reassoc nsz arcp contract afn float %82, 1.000000e+01
   store float %108, ptr %107, align 4, !tbaa !27
   %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  %110 = call i32 @dt_dev_distort_backtransform(ptr noundef %109, ptr noundef nonnull %12, i64 noundef 4) #13
+  %110 = call i32 @dt_dev_distort_backtransform(ptr noundef %109, ptr noundef nonnull %12, i64 noundef 4) #14
   %111 = load float, ptr %107, align 4, !tbaa !27
   %112 = load float, ptr %100, align 4, !tbaa !27
   %113 = fsub reassoc nsz arcp contract afn float %111, %112
@@ -1774,9 +1774,9 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %.sink123 = fadd reassoc nsz arcp contract afn double %.sink123.p, %132
   %134 = fptrunc reassoc nsz arcp contract afn double %.sink123 to float
   store float %134, ptr %130, align 4, !tbaa !29
-  call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #13
-  call void (...) @dt_control_queue_redraw_center() #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #14
+  call void (...) @dt_control_queue_redraw_center() #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #14
   br label %209
 
 135:                                              ; preds = %57
@@ -1799,14 +1799,14 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   %152 = fmul reassoc nsz arcp contract afn float %151, %151
   %153 = fmul reassoc nsz arcp contract afn float %1, %141
   %154 = fmul reassoc nsz arcp contract afn float %2, %144
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
   call void @_gradient_get_distance(float noundef %153, float noundef %154, float noundef %151, ptr noundef nonnull %8, i32 noundef %9, i32 poison, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17)
   %155 = load ptr, ptr %8, align 8, !tbaa !32
-  %156 = tail call ptr @g_list_nth_data(ptr noundef %155, i32 noundef %9) #13
+  %156 = tail call ptr @g_list_nth_data(ptr noundef %155, i32 noundef %9) #14
   %.not104 = icmp eq ptr %156, null
   br i1 %.not104, label %.thread, label %157
 
@@ -1883,7 +1883,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
   br label %198
 
 198:                                              ; preds = %187, %197, %196, %181
-  tail call void (...) @dt_control_queue_redraw_center() #13
+  tail call void (...) @dt_control_queue_redraw_center() #14
   %199 = getelementptr inbounds nuw i8, ptr %8, i64 60
   %200 = load i32, ptr %199, align 4, !tbaa !17
   %.not107 = icmp eq i32 %200, 0
@@ -1904,15 +1904,15 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_moved(ptr noundef %0
 
 207:                                              ; preds = %204, %201
   %.2 = phi i32 [ 0, %201 ], [ %., %204 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   br label %209
 
 208:                                              ; preds = %.thread120
-  tail call void (...) @dt_control_queue_redraw_center() #13
+  tail call void (...) @dt_control_queue_redraw_center() #14
   br label %209
 
 209:                                              ; preds = %74, %62, %208, %207, %24, %22
@@ -1928,7 +1928,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   br i1 %.not, label %69, label %12
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @gtk_accelerator_get_default_mod_mask() #13
+  %13 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
   %14 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !30
   %15 = or i32 %14, %4
   %16 = and i32 %15, %13
@@ -1941,7 +1941,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %20 = and i32 %19, 136
   %.not71 = icmp eq i32 %20, 0
   %21 = select i1 %.not71, ptr @.str.12, ptr @.str.11
-  %22 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %21) #13
+  %22 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %21) #14
   %23 = fcmp reassoc nsz arcp contract afn ogt float %22, 1.000000e+00
   br i1 %23, label %29, label %24
 
@@ -1950,7 +1950,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %26 = and i32 %25, 136
   %.not72 = icmp eq i32 %26, 0
   %27 = select i1 %.not72, ptr @.str.12, ptr @.str.11
-  %28 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %27) #13
+  %28 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %27) #14
   br label %29
 
 29:                                               ; preds = %17, %24
@@ -1974,13 +1974,13 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %39 = and i32 %38, 136
   %.not74 = icmp eq i32 %39, 0
   %40 = select i1 %.not74, ptr @.str.12, ptr @.str.11
-  tail call void @dt_conf_set_float(ptr noundef nonnull %40, float noundef %.057) #13
-  %41 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #13
+  tail call void @dt_conf_set_float(ptr noundef nonnull %40, float noundef %.057) #14
+  %41 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #14
   %42 = fmul reassoc nsz arcp contract afn float %.057, 1.000000e+02
   br label %.sink.split
 
 43:                                               ; preds = %12
-  %44 = tail call i32 @gtk_accelerator_get_default_mod_mask() #13
+  %44 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
   %45 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !30
   %46 = or i32 %45, %4
   %47 = and i32 %46, %44
@@ -1993,7 +1993,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %51 = and i32 %50, 136
   %.not68 = icmp eq i32 %51, 0
   %52 = select i1 %.not68, ptr @.str.1, ptr @.str
-  %53 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %52) #13
+  %53 = tail call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull %52) #14
   %.not69 = icmp eq i32 %3, 0
   br i1 %.not69, label %57, label %54
 
@@ -2013,8 +2013,8 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %62 = and i32 %61, 136
   %.not70 = icmp eq i32 %62, 0
   %63 = select i1 %.not70, ptr @.str.1, ptr @.str
-  tail call void @dt_conf_set_float(ptr noundef nonnull %63, float noundef %.058) #13
-  %64 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #13
+  tail call void @dt_conf_set_float(ptr noundef nonnull %63, float noundef %.058) #14
+  %64 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #14
   %65 = fmul reassoc nsz arcp contract afn float %.058, 5.000000e+01
   br label %.sink.split
 
@@ -2022,12 +2022,12 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %.sink80 = phi float [ %65, %60 ], [ %42, %37 ]
   %.sink = phi ptr [ %64, %60 ], [ %41, %37 ]
   %66 = fpext reassoc nsz arcp contract afn float %.sink80 to double
-  tail call void (ptr, ...) @dt_toast_log(ptr noundef %.sink, double noundef %66) #13
+  tail call void (ptr, ...) @dt_toast_log(ptr noundef %.sink, double noundef %66) #14
   br label %67
 
 67:                                               ; preds = %.sink.split, %43
   %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  tail call void @dt_dev_masks_list_change(ptr noundef %68) #13
+  tail call void @dt_dev_masks_list_change(ptr noundef %68) #14
   br label %139
 
 69:                                               ; preds = %9
@@ -2054,7 +2054,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   br label %81
 
 81:                                               ; preds = %80, %76, %72
-  %82 = tail call i32 @gtk_accelerator_get_default_mod_mask() #13
+  %82 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
   %83 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !30
   %84 = or i32 %83, %4
   %85 = and i32 %84, %82
@@ -2064,11 +2064,11 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
 86:                                               ; preds = %81
   %.not65 = icmp eq i32 %3, 0
   %87 = select reassoc nsz arcp contract afn i1 %.not65, float 0xBFA99999A0000000, float 0x3FA99999A0000000
-  %88 = tail call reassoc nsz arcp contract afn float @dt_masks_form_change_opacity(ptr noundef %5, i32 noundef %6, float noundef %87) #13
+  %88 = tail call reassoc nsz arcp contract afn float @dt_masks_form_change_opacity(ptr noundef %5, i32 noundef %6, float noundef %87) #14
   br label %139
 
 89:                                               ; preds = %81
-  %90 = tail call i32 @gtk_accelerator_get_default_mod_mask() #13
+  %90 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
   %91 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !30
   %92 = or i32 %91, %4
   %93 = and i32 %92, %90
@@ -2097,8 +2097,8 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %.sink81 = phi float [ %104, %103 ], [ %102, %100 ]
   store float %.sink81, ptr %97, align 4, !tbaa !28
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  tail call void @dt_dev_add_masks_history_item(ptr noundef %106, ptr noundef %0, i32 noundef 1) #13
-  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #13
+  tail call void @dt_dev_add_masks_history_item(ptr noundef %106, ptr noundef %0, i32 noundef 1) #14
+  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #14
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %108 = load i32, ptr %107, align 8, !tbaa !26
   %109 = and i32 %108, 136
@@ -2106,12 +2106,12 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
   %110 = select i1 %.not64, ptr @.str.12, ptr @.str.11
   %111 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %112 = load float, ptr %111, align 4, !tbaa !28
-  tail call void @dt_conf_set_float(ptr noundef nonnull %110, float noundef %112) #13
-  %113 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #13
+  tail call void @dt_conf_set_float(ptr noundef nonnull %110, float noundef %112) #14
+  %113 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef 5) #14
   %114 = load float, ptr %111, align 4, !tbaa !28
   %115 = fmul reassoc nsz arcp contract afn float %114, 1.000000e+02
   %116 = fpext reassoc nsz arcp contract afn float %115 to double
-  tail call void (ptr, ...) @dt_toast_log(ptr noundef %113, double noundef %116) #13
+  tail call void (ptr, ...) @dt_toast_log(ptr noundef %113, double noundef %116) #14
   br label %139
 
 117:                                              ; preds = %89
@@ -2141,15 +2141,15 @@ define internal range(i32 0, 2) i32 @_gradient_events_mouse_scrolled(ptr noundef
 132:                                              ; preds = %129, %126
   %.sink82 = phi float [ %131, %129 ], [ %128, %126 ]
   store float %.sink82, ptr %124, align 4, !tbaa !24
-  %133 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #13
+  %133 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 5) #14
   %134 = getelementptr inbounds nuw i8, ptr %123, i64 20
   %135 = load float, ptr %134, align 4, !tbaa !24
   %136 = fmul reassoc nsz arcp contract afn float %135, 5.000000e+01
   %137 = fpext reassoc nsz arcp contract afn float %136 to double
-  tail call void (ptr, ...) @dt_toast_log(ptr noundef %133, double noundef %137) #13
+  tail call void (ptr, ...) @dt_toast_log(ptr noundef %133, double noundef %137) #14
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  tail call void @dt_dev_add_masks_history_item(ptr noundef %138, ptr noundef %0, i32 noundef 1) #13
-  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #13
+  tail call void @dt_dev_add_masks_history_item(ptr noundef %138, ptr noundef %0, i32 noundef 1) #14
+  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #14
   br label %139
 
 139:                                              ; preds = %69, %86, %117, %132, %105, %67
@@ -2174,8 +2174,8 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_pressed(ptr noundef
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store float 0.000000e+00, ptr %18, align 4, !tbaa !24
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  tail call void @dt_dev_add_masks_history_item(ptr noundef %19, ptr noundef %0, i32 noundef 1) #13
-  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %10, ptr noundef %0) #13
+  tail call void @dt_dev_add_masks_history_item(ptr noundef %19, ptr noundef %0, i32 noundef 1) #14
+  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %7, ptr noundef nonnull %9, i32 noundef %10, ptr noundef %0) #14
   br label %.thread52
 
 20:                                               ; preds = %12
@@ -2185,7 +2185,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_pressed(ptr noundef
   br i1 %.not45, label %23, label %.thread
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @gtk_accelerator_get_default_mod_mask() #13
+  %24 = tail call i32 @gtk_accelerator_get_default_mod_mask() #14
   %25 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !30
   %26 = or i32 %25, %6
   %27 = and i32 %26, %24
@@ -2194,7 +2194,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_pressed(ptr noundef
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %9, align 8, !tbaa !32
-  %30 = tail call ptr @g_list_nth_data(ptr noundef %29, i32 noundef %10) #13
+  %30 = tail call ptr @g_list_nth_data(ptr noundef %29, i32 noundef %10) #14
   %.not47 = icmp eq ptr %30, null
   br i1 %.not47, label %.thread52, label %31
 
@@ -2216,7 +2216,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_pressed(ptr noundef
 
 38:                                               ; preds = %34
   %39 = load ptr, ptr %9, align 8, !tbaa !32
-  %40 = tail call ptr @g_list_nth_data(ptr noundef %39, i32 noundef %10) #13
+  %40 = tail call ptr @g_list_nth_data(ptr noundef %39, i32 noundef %10) #14
   %.not49 = icmp eq ptr %40, null
   br i1 %.not49, label %.thread52, label %41
 
@@ -2248,9 +2248,9 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_pressed(ptr noundef
   br i1 %57, label %58, label %59
 
 58:                                               ; preds = %.thread
-  tail call void @dt_masks_set_edit_mode(ptr noundef %0, i32 noundef 1) #13
-  tail call void @dt_masks_iop_update(ptr noundef %0) #13
-  tail call void (...) @dt_control_queue_redraw_center() #13
+  tail call void @dt_masks_set_edit_mode(ptr noundef %0, i32 noundef 1) #14
+  tail call void @dt_masks_iop_update(ptr noundef %0) #14
+  tail call void (...) @dt_control_queue_redraw_center() #14
   br label %.thread52
 
 59:                                               ; preds = %.thread
@@ -2311,7 +2311,7 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_released(ptr nounde
   br i1 %.not148, label %39, label %.preheader
 
 39:                                               ; preds = %33
-  tail call void @dt_masks_change_form_gui(ptr noundef null) #13
+  tail call void @dt_masks_change_form_gui(ptr noundef null) #14
   br label %59
 
 .preheader:                                       ; preds = %33, %41
@@ -2328,11 +2328,11 @@ define internal range(i32 0, 2) i32 @_gradient_events_button_released(ptr nounde
   br i1 %.not.i, label %44, label %.preheader
 
 g_list_shorter_than.exit:                         ; preds = %.preheader
-  tail call void @dt_masks_change_form_gui(ptr noundef null) #13
+  tail call void @dt_masks_change_form_gui(ptr noundef null) #14
   br label %59
 
 44:                                               ; preds = %41
-  tail call void @dt_masks_clear_form_gui(ptr noundef %12) #13
+  tail call void @dt_masks_clear_form_gui(ptr noundef %12) #14
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 2128
   %47 = load ptr, ptr %46, align 16, !tbaa !160
@@ -2359,12 +2359,12 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   br i1 %.not151, label %54, label %50
 
 54:                                               ; preds = %.critedge
-  %55 = tail call ptr @g_list_remove(ptr noundef nonnull %.0131162, ptr noundef nonnull %52) #13
+  %55 = tail call ptr @g_list_remove(ptr noundef nonnull %.0131162, ptr noundef nonnull %52) #14
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2128
   %58 = load ptr, ptr %57, align 16, !tbaa !160
   store ptr %55, ptr %58, align 8, !tbaa !19
-  tail call void @free(ptr noundef nonnull %52) #13
+  tail call void @free(ptr noundef nonnull %52) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %50, %44, %54
@@ -2373,8 +2373,8 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
 
 59:                                               ; preds = %g_list_shorter_than.exit, %.loopexit, %39
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  %61 = tail call ptr @dt_masks_get_from_id(ptr noundef %60, i32 noundef %6) #13
-  tail call void @dt_masks_form_remove(ptr noundef %0, ptr noundef %61, ptr noundef %5) #13
+  %61 = tail call ptr @dt_masks_get_from_id(ptr noundef %60, i32 noundef %6) #14
+  tail call void @dt_masks_form_remove(ptr noundef %0, ptr noundef %61, ptr noundef %5) #14
   br label %239
 
 62:                                               ; preds = %29, %9
@@ -2397,7 +2397,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
 71:                                               ; preds = %67
   %72 = load ptr, ptr %66, align 8, !tbaa !22
   store i32 0, ptr %63, align 4, !tbaa !121
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
   %73 = fmul reassoc nsz arcp contract afn float %1, %17
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %75 = load float, ptr %74, align 4, !tbaa !142
@@ -2409,7 +2409,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %80 = load float, ptr %79, align 8, !tbaa !143
   %81 = fadd reassoc nsz arcp contract afn float %80, %78
   store float %81, ptr %77, align 4, !tbaa !27
-  %82 = call i32 @dt_dev_distort_backtransform(ptr noundef nonnull %12, ptr noundef nonnull %10, i64 noundef 1) #13
+  %82 = call i32 @dt_dev_distort_backtransform(ptr noundef nonnull %12, ptr noundef nonnull %10, i64 noundef 1) #14
   %83 = load float, ptr %10, align 4, !tbaa !27
   %84 = fdiv reassoc nsz arcp contract afn float %83, %23
   store float %84, ptr %72, align 4, !tbaa !27
@@ -2418,9 +2418,9 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %87 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store float %86, ptr %87, align 4, !tbaa !27
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  call void @dt_dev_add_masks_history_item(ptr noundef %88, ptr noundef %0, i32 noundef 1) #13
-  call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
+  call void @dt_dev_add_masks_history_item(ptr noundef %88, ptr noundef %0, i32 noundef 1) #14
+  call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   br label %239
 
 89:                                               ; preds = %67, %65, %62
@@ -2444,7 +2444,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %99 = load ptr, ptr %93, align 8, !tbaa !22
   store i32 0, ptr %90, align 4, !tbaa !144
   %100 = load ptr, ptr %7, align 8, !tbaa !32
-  %101 = tail call ptr @g_list_nth_data(ptr noundef %100, i32 noundef %8) #13
+  %101 = tail call ptr @g_list_nth_data(ptr noundef %100, i32 noundef %8) #14
   %.not147 = icmp eq ptr %101, null
   br i1 %.not147, label %239, label %102
 
@@ -2466,7 +2466,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %117 = fneg reassoc nsz arcp contract afn float %110
   %118 = tail call reassoc nsz arcp contract afn float @llvm.atan2.f32(float %116, float %117)
   %119 = fsub reassoc nsz arcp contract afn float %115, %118
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #14
   store float %106, ptr %11, align 16, !tbaa !27
   %120 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store float %108, ptr %120, align 4, !tbaa !27
@@ -2485,7 +2485,7 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %128 = fadd reassoc nsz arcp contract afn float %108, 1.000000e+01
   store float %128, ptr %127, align 4, !tbaa !27
   %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  %130 = call i32 @dt_dev_distort_backtransform(ptr noundef %129, ptr noundef nonnull %11, i64 noundef 4) #13
+  %130 = call i32 @dt_dev_distort_backtransform(ptr noundef %129, ptr noundef nonnull %11, i64 noundef 4) #14
   %131 = load float, ptr %127, align 4, !tbaa !27
   %132 = load float, ptr %120, align 4, !tbaa !27
   %133 = fsub reassoc nsz arcp contract afn float %131, %132
@@ -2514,9 +2514,9 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %154 = fptrunc reassoc nsz arcp contract afn double %.sink168 to float
   store float %154, ptr %150, align 4, !tbaa !29
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  call void @dt_dev_add_masks_history_item(ptr noundef %155, ptr noundef %0, i32 noundef 1) #13
-  call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #13
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #13
+  call void @dt_dev_add_masks_history_item(ptr noundef %155, ptr noundef %0, i32 noundef 1) #14
+  call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #14
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #14
   br label %239
 
 156:                                              ; preds = %94, %92, %89
@@ -2534,8 +2534,8 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   %164 = icmp eq i32 %163, 1
   %. = select i1 %164, i32 2, i32 1
   store i32 %., ptr %162, align 4, !tbaa !114
-  tail call void @dt_dev_add_masks_history_item(ptr noundef nonnull %12, ptr noundef %0, i32 noundef 1) #13
-  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #13
+  tail call void @dt_dev_add_masks_history_item(ptr noundef nonnull %12, ptr noundef %0, i32 noundef 1) #14
+  tail call void @dt_masks_gui_form_create(ptr noundef nonnull %5, ptr noundef nonnull %7, i32 noundef %8, ptr noundef %0) #14
   br label %239
 
 165:                                              ; preds = %156
@@ -2545,8 +2545,8 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   br i1 %.not144, label %239, label %168
 
 168:                                              ; preds = %165
-  %169 = tail call reassoc nsz arcp contract afn float @dt_dev_get_zoom_scale_full() #13
-  %170 = tail call noalias dereferenceable_or_null(28) ptr @malloc(i64 noundef 28) #14
+  %169 = tail call reassoc nsz arcp contract afn float @dt_dev_get_zoom_scale_full() #14
+  %170 = tail call noalias dereferenceable_or_null(28) ptr @malloc(i64 noundef 28) #15
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %172 = load float, ptr %171, align 4, !tbaa !145
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -2568,27 +2568,27 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
   store float 0.000000e+00, ptr %184, align 4, !tbaa !27
   store float 0.000000e+00, ptr %183, align 8, !tbaa !27
   %185 = load ptr, ptr %5, align 8, !tbaa !19
-  %186 = tail call ptr @g_list_append(ptr noundef %185, ptr noundef %170) #13
+  %186 = tail call ptr @g_list_append(ptr noundef %185, ptr noundef %170) #14
   store ptr %186, ptr %5, align 8, !tbaa !19
   %187 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %188 = load ptr, ptr %187, align 8, !tbaa !165
   %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  tail call void @dt_masks_gui_form_save_creation(ptr noundef %189, ptr noundef %188, ptr noundef nonnull %5, ptr noundef nonnull %7) #13
+  tail call void @dt_masks_gui_form_save_creation(ptr noundef %189, ptr noundef %188, ptr noundef nonnull %5, ptr noundef nonnull %7) #14
   %.not145 = icmp eq ptr %188, null
   br i1 %.not145, label %192, label %190
 
 190:                                              ; preds = %168
   %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
-  tail call void @dt_dev_add_history_item(ptr noundef %191, ptr noundef nonnull %188, i32 noundef 1) #13
-  tail call void @dt_masks_set_edit_mode(ptr noundef nonnull %188, i32 noundef 1) #13
-  tail call void @dt_masks_iop_update(ptr noundef nonnull %188) #13
+  tail call void @dt_dev_add_history_item(ptr noundef %191, ptr noundef nonnull %188, i32 noundef 1) #14
+  tail call void @dt_masks_set_edit_mode(ptr noundef nonnull %188, i32 noundef 1) #14
+  tail call void @dt_masks_iop_update(ptr noundef nonnull %188) #14
   br label %192
 
 192:                                              ; preds = %190, %168
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
   %194 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %195 = load i32, ptr %194, align 8, !tbaa !161
-  tail call void @dt_dev_masks_selection_change(ptr noundef %193, ptr noundef %188, i32 noundef %195) #13
+  tail call void @dt_dev_masks_selection_change(ptr noundef %193, ptr noundef %188, i32 noundef %195) #14
   store ptr null, ptr %187, align 8, !tbaa !165
   %196 = getelementptr inbounds nuw i8, ptr %7, i64 172
   %197 = load i32, ptr %196, align 4, !tbaa !166
@@ -2609,12 +2609,12 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
 205:                                              ; preds = %228
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 576
   %207 = load ptr, ptr %206, align 8, !tbaa !168
-  %208 = tail call i64 @gtk_toggle_button_get_type() #15
-  %209 = tail call ptr @g_type_check_instance_cast(ptr noundef %207, i64 noundef %208) #13
-  tail call void @gtk_toggle_button_set_active(ptr noundef %209, i32 noundef 0) #13
+  %208 = tail call i64 @gtk_toggle_button_get_type() #16
+  %209 = tail call ptr @g_type_check_instance_cast(ptr noundef %207, i64 noundef %208) #14
+  tail call void @gtk_toggle_button_set_active(ptr noundef %209, i32 noundef 0) #14
   %210 = load i32, ptr %203, align 8, !tbaa !26
-  %211 = tail call ptr @dt_masks_create(i32 noundef %210) #13
-  tail call void @dt_masks_change_form_gui(ptr noundef %211) #13
+  %211 = tail call ptr @dt_masks_create(i32 noundef %210) #14
+  tail call void @dt_masks_change_form_gui(ptr noundef %211) #14
   %212 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 2136
   %214 = load ptr, ptr %213, align 8, !tbaa !173
@@ -2637,9 +2637,9 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
 223:                                              ; preds = %218
   %224 = getelementptr inbounds nuw [5 x ptr], ptr %204, i64 0, i64 %indvars.iv
   %225 = load ptr, ptr %224, align 8, !tbaa !175
-  %226 = tail call i64 @gtk_toggle_button_get_type() #15
-  %227 = tail call ptr @g_type_check_instance_cast(ptr noundef %225, i64 noundef %226) #13
-  tail call void @gtk_toggle_button_set_active(ptr noundef %227, i32 noundef 1) #13
+  %226 = tail call i64 @gtk_toggle_button_get_type() #16
+  %227 = tail call ptr @g_type_check_instance_cast(ptr noundef %225, i64 noundef %226) #14
+  tail call void @gtk_toggle_button_set_active(ptr noundef %227, i32 noundef 1) #14
   br label %228
 
 228:                                              ; preds = %218, %223
@@ -2650,8 +2650,8 @@ g_list_shorter_than.exit:                         ; preds = %.preheader
 229:                                              ; preds = %198
   %230 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %231 = load i32, ptr %230, align 8, !tbaa !26
-  %232 = tail call ptr @dt_masks_create(i32 noundef %231) #13
-  tail call void @dt_masks_change_form_gui(ptr noundef %232) #13
+  %232 = tail call ptr @dt_masks_create(i32 noundef %231) #14
+  tail call void @dt_masks_change_form_gui(ptr noundef %232) #14
   %233 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %234 = load ptr, ptr %233, align 8, !tbaa !174
   %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
@@ -2683,20 +2683,20 @@ define internal void @_gradient_events_post_expose(ptr noundef %0, float noundef
   br i1 %.not, label %41, label %17
 
 17:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %19 = load float, ptr %18, align 4, !tbaa !145
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %21 = load float, ptr %20, align 8, !tbaa !146
   call fastcc void @_gradient_init_values(float noundef %1, ptr noundef nonnull %2, float noundef %19, float noundef %21, float noundef %19, float noundef %21, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
   %23 = load float, ptr %6, align 4, !tbaa !27
   %24 = load float, ptr %7, align 4, !tbaa !27
@@ -2721,36 +2721,36 @@ define internal void @_gradient_events_post_expose(ptr noundef %0, float noundef
 34:                                               ; preds = %31, %28, %17
   %35 = phi i32 [ %.pre57, %31 ], [ 0, %28 ], [ 0, %17 ]
   %36 = phi ptr [ %.pre, %31 ], [ null, %28 ], [ null, %17 ]
-  tail call void @cairo_save(ptr noundef %0) #13
+  tail call void @cairo_save(ptr noundef %0) #14
   %37 = load ptr, ptr %11, align 8, !tbaa !115
   %38 = load i32, ptr %12, align 4, !tbaa !30
   tail call fastcc void @_gradient_draw_lines(i32 noundef 0, ptr noundef %0, i32 noundef 0, float noundef %1, ptr noundef nonnull %37, i32 noundef %38)
   tail call fastcc void @_gradient_draw_lines(i32 noundef 1, ptr noundef %0, i32 noundef 0, float noundef %1, ptr noundef %36, i32 noundef %35)
   tail call fastcc void @_gradient_draw_arrow(ptr noundef %0, i32 noundef 0, float noundef %1, ptr noundef nonnull %37, i32 noundef %38)
-  tail call void @cairo_restore(ptr noundef %0) #13
-  tail call void @free(ptr noundef %37) #13
+  tail call void @cairo_restore(ptr noundef %0) #14
+  tail call void @free(ptr noundef %37) #14
   %.not56 = icmp eq ptr %36, null
   br i1 %.not56, label %40, label %39
 
 39:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %36) #13
+  tail call void @free(ptr noundef nonnull %36) #14
   br label %40
 
 40:                                               ; preds = %39, %34
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   br label %76
 
 41:                                               ; preds = %5
   %42 = load ptr, ptr %2, align 8, !tbaa !32
-  %43 = tail call ptr @g_list_nth_data(ptr noundef %42, i32 noundef %3) #13
+  %43 = tail call ptr @g_list_nth_data(ptr noundef %42, i32 noundef %3) #14
   %.not51 = icmp eq ptr %43, null
   br i1 %.not51, label %76, label %44
 
@@ -2874,7 +2874,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_points(ptr noundef %0,
   %28 = fptosi float %27 to i32
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
-  %31 = tail call ptr @dt_alloc_aligned(i64 noundef %30) #13
+  %31 = tail call ptr @dt_alloc_aligned(i64 noundef %30) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 64) ]
   store ptr %31, ptr %5, align 8, !tbaa !115
   %32 = icmp eq ptr %31, null
@@ -2917,10 +2917,10 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_points(ptr noundef %0,
   store float %58, ptr %62, align 16, !tbaa !27
   %63 = getelementptr inbounds nuw i8, ptr %31, i64 20
   store float %61, ptr %63, align 4, !tbaa !27
-  %64 = tail call ptr @dt_alloc_aligned(i64 noundef 64) #13
+  %64 = tail call ptr @dt_alloc_aligned(i64 noundef 64) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 64) ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %64, i8 0, i64 64, i1 false)
-  %65 = tail call ptr @dt_alloc_aligned(i64 noundef %30) #13
+  %65 = tail call ptr @dt_alloc_aligned(i64 noundef %30) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %65, i64 64) ]
   %66 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %4)
   %67 = fcmp reassoc nsz arcp contract afn ogt float %66, 1.000000e+00
@@ -3010,12 +3010,12 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_points(ptr noundef %0,
   br label %113
 
 113:                                              ; preds = %._crit_edge, %.critedge
-  tail call void @free(ptr noundef nonnull %64) #13
-  tail call void @free(ptr noundef %65) #13
+  tail call void @free(ptr noundef nonnull %64) #14
+  tail call void @free(ptr noundef %65) #14
   %114 = load ptr, ptr %5, align 8, !tbaa !115
   %115 = load i32, ptr %6, align 4, !tbaa !30
   %116 = sext i32 %115 to i64
-  %117 = tail call i32 @dt_dev_distort_transform(ptr noundef %0, ptr noundef %114, i64 noundef %116) #13
+  %117 = tail call i32 @dt_dev_distort_transform(ptr noundef %0, ptr noundef %114, i64 noundef %116) #14
   %.not = icmp eq i32 %117, 0
   br i1 %.not, label %129, label %131
 
@@ -3041,7 +3041,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_points(ptr noundef %0,
 
 129:                                              ; preds = %113
   %130 = load ptr, ptr %5, align 8, !tbaa !115
-  tail call void @free(ptr noundef %130) #13
+  tail call void @free(ptr noundef %130) #14
   store ptr null, ptr %5, align 8, !tbaa !115
   store i32 0, ptr %6, align 4, !tbaa !30
   br label %131
@@ -3059,10 +3059,10 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   %12 = alloca i32, align 4
   store ptr null, ptr %6, align 8, !tbaa !115
   store i32 0, ptr %7, align 4, !tbaa !30
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #13
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !122
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 16, !tbaa !123
@@ -3122,7 +3122,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   %64 = add nuw i32 %63, %60
   %65 = zext nneg i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 3
-  %67 = tail call ptr @dt_alloc_aligned(i64 noundef %66) #13
+  %67 = tail call ptr @dt_alloc_aligned(i64 noundef %66) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %67, i64 64) ]
   store ptr %67, ptr %6, align 8, !tbaa !115
   %68 = icmp eq ptr %67, null
@@ -3197,7 +3197,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   %103 = add nsw i32 %58, -3
   %104 = zext nneg i32 %103 to i64
   %105 = shl nuw nsw i64 %104, 3
-  %106 = tail call ptr @dt_alloc_aligned(i64 noundef %105) #13
+  %106 = tail call ptr @dt_alloc_aligned(i64 noundef %105) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %106, i64 64) ]
   store ptr %106, ptr %6, align 8, !tbaa !115
   %107 = icmp eq ptr %106, null
@@ -3236,7 +3236,7 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
   %122 = add nsw i32 %60, -3
   %123 = zext nneg i32 %122 to i64
   %124 = shl nuw nsw i64 %123, 3
-  %125 = tail call ptr @dt_alloc_aligned(i64 noundef %124) #13
+  %125 = tail call ptr @dt_alloc_aligned(i64 noundef %124) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %125, i64 64) ]
   store ptr %125, ptr %6, align 8, !tbaa !115
   %126 = icmp eq ptr %125, null
@@ -3270,13 +3270,13 @@ define internal fastcc range(i32 0, 2) i32 @_gradient_get_pts_border(ptr noundef
 .loopexit:                                        ; preds = %128, %109, %90, %121, %102, %62, %120
   %.1108 = phi i32 [ 0, %120 ], [ 0, %62 ], [ 0, %102 ], [ 0, %121 ], [ 1, %90 ], [ 1, %109 ], [ 1, %128 ]
   %139 = load ptr, ptr %9, align 8, !tbaa !115
-  tail call void @free(ptr noundef %139) #13
+  tail call void @free(ptr noundef %139) #14
   %140 = load ptr, ptr %10, align 8, !tbaa !115
-  tail call void @free(ptr noundef %140) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
+  tail call void @free(ptr noundef %140) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
   ret i32 %.1108
 }
 
@@ -3312,7 +3312,7 @@ declare i32 @dt_dev_distort_backtransform_plus(ptr noundef, ptr noundef, double 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare float @erff(float noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
@@ -3400,7 +3400,7 @@ define internal fastcc void @_gradient_init_values(float noundef %0, ptr noundef
   %.045 = phi nsz float [ %39, %38 ], [ %4, %34 ], [ %4, %25 ]
   %.042 = phi nsz float [ %5, %38 ], [ %33, %34 ], [ %33, %25 ]
   %.0 = phi nsz float [ %4, %38 ], [ %27, %34 ], [ %27, %25 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #14
   store float %.0, ptr %12, align 16, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store float %.042, ptr %40, align 4, !tbaa !27
@@ -3418,7 +3418,7 @@ define internal fastcc void @_gradient_init_values(float noundef %0, ptr noundef
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %48 = fadd reassoc nsz arcp contract afn float %.042, 1.000000e+01
   store float %48, ptr %47, align 4, !tbaa !27
-  %49 = call i32 @dt_dev_distort_backtransform(ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef 4) #13
+  %49 = call i32 @dt_dev_distort_backtransform(ptr noundef nonnull %13, ptr noundef nonnull %12, i64 noundef 4) #14
   %50 = load float, ptr %12, align 16, !tbaa !27
   %51 = fdiv reassoc nsz arcp contract afn float %50, %18
   store float %51, ptr %6, align 4, !tbaa !27
@@ -3449,12 +3449,12 @@ define internal fastcc void @_gradient_init_values(float noundef %0, ptr noundef
   %75 = fadd reassoc nsz arcp contract afn double %74, 0xC00921FB54442D18
   %76 = fptrunc reassoc nsz arcp contract afn double %75 to float
   %.043 = select nsz i1 %73, float %76, float %58
-  %77 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.12) #13
+  %77 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.12) #14
   %78 = fcmp reassoc nsz arcp contract afn ogt float %77, 1.000000e+00
   br i1 %78, label %81, label %79
 
 79:                                               ; preds = %._crit_edge
-  %80 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.12) #13
+  %80 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.12) #14
   br label %81
 
 81:                                               ; preds = %._crit_edge, %79
@@ -3467,28 +3467,28 @@ define internal fastcc void @_gradient_init_values(float noundef %0, ptr noundef
   %87 = fcmp reassoc nsz arcp contract afn olt float %82, 0.000000e+00
   %88 = select reassoc nsz arcp contract afn i1 %87, float 0.000000e+00, float %82
   store float %88, ptr %9, align 4, !tbaa !27
-  %89 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #13
+  %89 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #14
   %90 = fcmp reassoc nsz arcp contract afn ogt float %89, 2.000000e+00
   br i1 %90, label %.critedge, label %91
 
 91:                                               ; preds = %81
-  %92 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #13
+  %92 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #14
   %93 = fcmp reassoc nsz arcp contract afn olt float %92, -2.000000e+00
   br i1 %93, label %98, label %.critedge
 
 .critedge:                                        ; preds = %81, %91
-  %94 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #13
+  %94 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #14
   %95 = fcmp reassoc nsz arcp contract afn ogt float %94, 2.000000e+00
   br i1 %95, label %98, label %96
 
 96:                                               ; preds = %.critedge
-  %97 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #13
+  %97 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.1) #14
   br label %98
 
 98:                                               ; preds = %96, %.critedge, %91
   %99 = phi reassoc nsz arcp contract afn float [ -2.000000e+00, %91 ], [ %97, %96 ], [ 2.000000e+00, %.critedge ]
   store float %99, ptr %10, align 4, !tbaa !27
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #14
   ret void
 }
 
@@ -3503,7 +3503,7 @@ declare void @gtk_toggle_button_set_active(ptr noundef, i32 noundef) local_unnam
 declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #11
+declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #12
 
 declare ptr @dt_masks_create(i32 noundef) local_unnamed_addr #1
 
@@ -3583,7 +3583,7 @@ _gradient_is_canonical.exit.thread:               ; preds = %35
 46:                                               ; preds = %35
   %47 = fpext reassoc nsz arcp contract afn float %30 to double
   %48 = fpext reassoc nsz arcp contract afn float %39 to double
-  tail call void @cairo_move_to(ptr noundef %1, double noundef %47, double noundef %48) #13
+  tail call void @cairo_move_to(ptr noundef %1, double noundef %47, double noundef %48) #14
   %.159 = add nsw i32 %.065, 1
   %49 = icmp slt i32 %.159, %15
   br i1 %49, label %.lr.ph.preheader, label %.critedge
@@ -3618,7 +3618,7 @@ _gradient_is_canonical.exit.thread:               ; preds = %35
 64:                                               ; preds = %55
   %65 = fpext reassoc nsz arcp contract afn float %53 to double
   %66 = fpext reassoc nsz arcp contract afn float %58 to double
-  tail call void @cairo_line_to(ptr noundef %1, double noundef %65, double noundef %66) #13
+  tail call void @cairo_line_to(ptr noundef %1, double noundef %65, double noundef %66) #14
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
   br i1 %exitcond.not, label %.critedge, label %.lr.ph
@@ -3633,7 +3633,7 @@ _gradient_is_canonical.exit.thread:               ; preds = %35
 
 .critedge:                                        ; preds = %64, %.critedge.loopexit.split.loop.exit, %.critedge.loopexit.split.loop.exit70, %46
   %.1.lcssa = phi i32 [ %.159, %46 ], [ %67, %.critedge.loopexit.split.loop.exit ], [ %68, %.critedge.loopexit.split.loop.exit70 ], [ %15, %64 ]
-  tail call void @dt_masks_line_stroke(ptr noundef %1, i32 noundef %0, i32 noundef 0, i32 noundef %2, float noundef %3) #13
+  tail call void @dt_masks_line_stroke(ptr noundef %1, i32 noundef %0, i32 noundef 0, i32 noundef %2, float noundef %3) #14
   br label %.backedge
 
 .loopexit:                                        ; preds = %.backedge, %12, %9, %6
@@ -3657,16 +3657,16 @@ define internal fastcc void @_gradient_draw_arrow(ptr noundef %0, i32 noundef ra
   %16 = load float, ptr %15, align 4, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %18 = load float, ptr %17, align 4, !tbaa !27
-  tail call void @dt_masks_draw_arrow(ptr noundef %0, float noundef %16, float noundef %18, float noundef %12, float noundef %14, float noundef %2, i32 noundef 1) #13
-  tail call void @dt_masks_line_stroke(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %1, float noundef %2) #13
-  tail call void @dt_masks_draw_anchor(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %8, float noundef %10) #13
+  tail call void @dt_masks_draw_arrow(ptr noundef %0, float noundef %16, float noundef %18, float noundef %12, float noundef %14, float noundef %2, i32 noundef 1) #14
+  tail call void @dt_masks_line_stroke(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %1, float noundef %2) #14
+  tail call void @dt_masks_draw_anchor(ptr noundef %0, i32 noundef %1, float noundef %2, float noundef %8, float noundef %10) #14
   %19 = fpext reassoc nsz arcp contract afn float %16 to double
   %20 = fpext reassoc nsz arcp contract afn float %18 to double
   %21 = fdiv reassoc nsz arcp contract afn float 3.000000e+00, %2
   %22 = fpext reassoc nsz arcp contract afn float %21 to double
-  tail call void @cairo_arc(ptr noundef %0, double noundef %19, double noundef %20, double noundef %22, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #13
-  tail call void @cairo_fill_preserve(ptr noundef %0) #13
-  tail call void @dt_masks_line_stroke(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %1, float noundef %2) #13
+  tail call void @cairo_arc(ptr noundef %0, double noundef %19, double noundef %20, double noundef %22, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #14
+  tail call void @cairo_fill_preserve(ptr noundef %0) #14
+  tail call void @dt_masks_line_stroke(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %1, float noundef %2) #14
   br label %23
 
 23:                                               ; preds = %5, %7
@@ -3693,7 +3693,7 @@ declare void @cairo_arc(ptr noundef, double noundef, double noundef, double noun
 declare void @cairo_fill_preserve(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 attributes #0 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -3706,11 +3706,12 @@ attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #12 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nounwind }
-attributes #14 = { nounwind allocsize(0) }
-attributes #15 = { nounwind willreturn memory(none) }
+attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

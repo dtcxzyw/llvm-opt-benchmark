@@ -242,16 +242,8 @@ $_ZTVN8QuantLib10Instrument7resultsE = comdat any
 @_ZTIN8QuantLib14OneAssetOption7resultsE = linkonce_odr constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN8QuantLib14OneAssetOption7resultsE, i32 2, i32 3, ptr @_ZTIN8QuantLib10Instrument7resultsE, i64 2, ptr @_ZTIN8QuantLib6GreeksE, i64 20482, ptr @_ZTIN8QuantLib10MoreGreeksE, i64 34818 }, comdat, align 8
 @_ZTVN8QuantLib10Instrument7resultsE = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN8QuantLib10Instrument7resultsE, ptr @_ZN8QuantLib10Instrument7resultsD1Ev, ptr @_ZN8QuantLib10Instrument7resultsD0Ev, ptr @_ZN8QuantLib10Instrument7results5resetEv] }, comdat, align 8
 @_ZTTN8QuantLib13BarrierOption9argumentsE = external unnamed_addr constant [4 x ptr], align 8
-@_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I = internal unnamed_addr global i32 0, align 4
-@_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2IS = internal unnamed_addr global i32 0, align 4
-@_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2LG = internal unnamed_addr global i32 0, align 4
-@_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2NG = internal unnamed_addr global i32 0, align 4
 @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL = internal unnamed_addr global [11 x [4 x double]] zeroinitializer, align 16
 @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL = internal unnamed_addr global [11 x [4 x double]] zeroinitializer, align 16
-@_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1H = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R12 = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R13 = internal unnamed_addr global double 0.000000e+00, align 8
 @_ZN8QuantLib12_GLOBAL__N_12H1E = internal unnamed_addr global double 0.000000e+00, align 8
 @_ZN8QuantLib12_GLOBAL__N_12H2E = internal unnamed_addr global double 0.000000e+00, align 8
 @_ZN8QuantLib12_GLOBAL__N_12H3E = internal unnamed_addr global double 0.000000e+00, align 8
@@ -265,23 +257,11 @@ $_ZTVN8QuantLib10Instrument7resultsE = comdat any
 @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2BI = internal unnamed_addr global [101 x double] zeroinitializer, align 16
 @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2FI = internal unnamed_addr global [101 x double] zeroinitializer, align 16
 @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE3FIN = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE1T = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3CEN = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WID = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK = internal unnamed_addr global double 0.000000e+00, align 8
 @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG = internal unnamed_addr global [7 x double] zeroinitializer, align 16
 @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK = internal unnamed_addr global [13 x double] zeroinitializer, align 16
 @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK = internal unnamed_addr global [13 x double] zeroinitializer, align 16
-@_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R12 = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R13 = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3RR3 = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux = internal unnamed_addr global double 0.000000e+00, align 8
 @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho = internal global [4 x double] zeroinitializer, align 16
 @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit = internal global [4 x double] zeroinitializer, align 16
-@_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE2aa = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE4caux = internal unnamed_addr global double 0.000000e+00, align 8
-@_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE5caux1 = internal unnamed_addr global double 0.000000e+00, align 8
 @.str.12 = private unnamed_addr constant [36 x i8] c"empty Handle cannot be dereferenced\00", align 1
 @.str.13 = private unnamed_addr constant [109 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/quantlib/QuantLib/ql/handle.hpp\00", align 1
 @__PRETTY_FUNCTION__._ZNK8QuantLib6HandleINS_18YieldTermStructureEEdeEv = private unnamed_addr constant [127 x i8] c"const ext::shared_ptr<T> &QuantLib::Handle<QuantLib::YieldTermStructure>::operator*() const [T = QuantLib::YieldTermStructure]\00", align 1
@@ -5702,16 +5682,16 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #20
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14PHIDEd(double noundef %Z) unnamed_addr #21 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %Z)
@@ -5766,13 +5746,13 @@ if.end29:                                         ; preds = %entry, %if.then2, %
   ret double %P.1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_11vEddddd(double noundef %p, double noundef %tt, double noundef %a, double noundef %b, double noundef %gm) unnamed_addr #21 {
 entry:
   %sub = fsub double %a, %b
@@ -5850,7 +5830,7 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %entry, %if.then2.i,
   ret double %div19
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_12ffEddddd(double noundef %p, double noundef %tt, double noundef %a, double noundef %b, double noundef %gm) unnamed_addr #21 {
 entry:
   %0 = fneg double %tt
@@ -5927,7 +5907,7 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %entry, %if.then2.i,
   ret double %mul19
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13dvvEdddddd(double noundef %s, double noundef %p, double noundef %tt, double noundef %a, double noundef %b, double noundef %gm) unnamed_addr #22 {
 entry:
   %sub = fsub double %tt, %p
@@ -6048,7 +6028,7 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %entry, %if.then2.i,
   ret double %div95
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13dffEdddddd(double noundef %s, double noundef %p, double noundef %tt, double noundef %a, double noundef %b, double noundef %gm) unnamed_addr #22 {
 entry:
   %sub = fsub double %tt, %p
@@ -6151,7 +6131,7 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %entry, %if.then2.i,
   ret double %mul65
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14ddllEddddddd(double noundef %s, double noundef %p, double noundef %tt, double noundef %ax, double noundef %bx, double noundef %c, double noundef %gm) unnamed_addr #22 {
 entry:
   %sub = fsub double %tt, %p
@@ -6184,7 +6164,6 @@ entry:
   %mul22 = fmul double %bx, 5.000000e-01
   %call23 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_d(ptr noundef nonnull @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, ptr noundef nonnull @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE8sigmarho)
   %mul24 = fmul double %mul22, %call23
-  store double %mul24, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
   %3 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 8), align 8, !tbaa !107
   %square2.i = fmul double %3, %3
   %mul2.i = fmul double %square2.i, -5.000000e-01
@@ -6220,7 +6199,6 @@ entry:
   %call28 = tail call double @pow(double noundef %mul, double noundef 5.000000e-01) #31, !tbaa !108
   %div29 = fdiv double %div88.i, %call28
   %add30 = fadd double %mul24, %div29
-  store double %add30, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
   %16 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 16), align 16, !tbaa !107
   %mul44.i = fmul double %16, -5.000000e-01
   %mul46.i = fmul double %16, %mul44.i
@@ -6256,7 +6234,6 @@ entry:
   %call34 = tail call double @pow(double noundef %mul5, double noundef 5.000000e-01) #31, !tbaa !108
   %div35 = fdiv double %div88.i77, %call34
   %add36 = fadd double %add30, %div35
-  store double %add36, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
   %29 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE5limit, i64 24), align 8, !tbaa !107
   %mul91.i = fmul double %29, -5.000000e-01
   %mul93.i = fmul double %29, %mul91.i
@@ -6296,7 +6273,6 @@ entry:
   %mul43 = fmul double %mul42, %bx
   %call44 = tail call double @exp(double noundef %mul43) #31, !tbaa !108
   %mul45 = fmul double %call44, %add41
-  store double %mul45, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
   %neg = fneg double %bx
   %42 = tail call double @llvm.fmuladd.f64(double %neg, double %sub, double %ax)
   %call50 = tail call double @pow(double noundef %mul, double noundef 5.000000e-01) #31, !tbaa !108
@@ -6438,13 +6414,12 @@ entry:
   %mul106 = fmul double %sub2, %85
   %div107 = fmul double %mul106, 2.500000e-01
   %call108 = tail call double @exp(double noundef %div107) #31, !tbaa !108
-  %86 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddllEdddddddE4caux, align 8, !tbaa !107
-  %add109 = fadd double %mul99, %86
+  %add109 = fadd double %mul99, %mul45
   %mul110 = fmul double %call108, %add109
   ret double %mul110
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14ddvvEdddddd(double noundef %s, double noundef %p, double noundef %tt, double noundef %a, double noundef %b, double noundef %gm) unnamed_addr #22 {
 entry:
   %sub = fsub double %tt, %p
@@ -6501,21 +6476,12 @@ if.else18.i:                                      ; preds = %if.else.i
 
 _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %entry, %if.then2.i, %if.else18.i
   %P.0.i = phi double [ %div17.i, %if.then2.i ], [ %div28.i, %if.else18.i ], [ 0.000000e+00, %entry ]
-  %cmp30.i = fcmp ogt double %div, 0.000000e+00
-  %sub.i = fsub double 1.000000e+00, %P.0.i
-  %P.1.i = select i1 %cmp30.i, double %sub.i, double %P.0.i
   %sub6 = fsub double %a, %b
   %fneg = fneg double %sub6
   %mul8 = fmul double %sub6, %fneg
   %mul9 = fmul double %tt, 4.000000e+00
   %div10 = fdiv double %mul8, %mul9
   %call11 = tail call double @exp(double noundef %div10) #31, !tbaa !108
-  %div12 = fdiv double %call11, %tt
-  store double %div12, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE2aa, align 8, !tbaa !107
-  %mul13 = fmul double %div12, 5.000000e-01
-  %mul14 = fmul double %P.1.i, %mul13
-  %mul16 = fmul double %sub6, %mul14
-  store double %mul16, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE4caux, align 8, !tbaa !107
   %mul20 = fmul double %tt, 2.000000e+00
   %mul21 = fmul double %p, %mul20
   %mul23 = fmul double %sub, %mul21
@@ -6535,31 +6501,23 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %entry, %if.then2.i,
   %17 = fneg double %15
   %fneg42 = fdiv double %17, %call33
   %call43 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %fneg41, double noundef %fneg42, double noundef %call40)
-  %18 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE2aa, align 8, !tbaa !107
-  %mul44 = fmul double %18, -5.000000e-01
-  %mul45 = fmul double %call43, %mul44
-  %mul47 = fmul double %sub6, %mul45
-  store double %mul47, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE5caux1, align 8, !tbaa !107
   %add = fadd double %a, %b
   %fneg48 = fneg double %add
   %mul50 = fmul double %add, %fneg48
   %div52 = fdiv double %mul50, %mul9
   %call53 = tail call double @exp(double noundef %div52) #31, !tbaa !108
-  %div54 = fdiv double %call53, %tt
-  store double %div54, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE2aa, align 8, !tbaa !107
   %neg = fneg double %mul1
-  %19 = tail call double @llvm.fmuladd.f64(double %a, double %p, double %neg)
+  %18 = tail call double @llvm.fmuladd.f64(double %a, double %p, double %neg)
   %call62 = tail call double @pow(double noundef %mul23, double noundef 5.000000e-01) #31, !tbaa !108
   %neg67 = fneg double %mul28
-  %20 = tail call double @llvm.fmuladd.f64(double %a, double %s, double %neg67)
+  %19 = tail call double @llvm.fmuladd.f64(double %a, double %s, double %neg67)
   %call72 = tail call double @pow(double noundef %mul32, double noundef 5.000000e-01) #31, !tbaa !108
   %call79 = tail call double @pow(double noundef %div39, double noundef 5.000000e-01) #31, !tbaa !108
+  %20 = fneg double %18
+  %fneg80 = fdiv double %20, %call62
   %21 = fneg double %19
-  %fneg80 = fdiv double %21, %call62
-  %22 = fneg double %20
-  %fneg81 = fdiv double %22, %call72
+  %fneg81 = fdiv double %21, %call72
   %call82 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %fneg80, double noundef %fneg81, double noundef %call79)
-  %23 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE2aa, align 8, !tbaa !107
   %fneg87 = fneg double %b
   %sub88 = fsub double %p, %s
   %mul90 = fmul double %s, %mul
@@ -6571,46 +6529,46 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %entry, %if.then2.i,
   %mul97 = fmul double %mul95, %sub
   %div98 = fdiv double %p, %mul97
   %call99 = tail call double @pow(double noundef %div98, double noundef 5.000000e-01) #31, !tbaa !108
-  %24 = tail call double @llvm.fabs.f64(double %mul94)
-  %cmp.i150 = fcmp ogt double %24, 3.700000e+01
+  %22 = tail call double @llvm.fabs.f64(double %mul94)
+  %cmp.i150 = fcmp ogt double %22, 3.700000e+01
   br i1 %cmp.i150, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176, label %if.else.i151
 
 if.else.i151:                                     ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit
-  %fneg.i152 = fneg double %24
-  %mul.i153 = fmul double %24, %fneg.i152
+  %fneg.i152 = fneg double %22
+  %mul.i153 = fmul double %22, %fneg.i152
   %div.i154 = fmul double %mul.i153, 5.000000e-01
   %call.i155 = tail call double @exp(double noundef %div.i154) #31, !tbaa !108
-  %cmp1.i156 = fcmp olt double %24, 0x401C48C6001F0ABF
+  %cmp1.i156 = fcmp olt double %22, 0x401C48C6001F0ABF
   br i1 %cmp1.i156, label %if.then2.i173, label %if.else18.i157
 
 if.then2.i173:                                    ; preds = %if.else.i151
-  %25 = tail call double @llvm.fmuladd.f64(double %24, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %26 = tail call double @llvm.fmuladd.f64(double %25, double %24, double 0x40197EEFF2A86F23)
-  %27 = tail call double @llvm.fmuladd.f64(double %26, double %24, double 0x4040F4D8CBB02431)
-  %28 = tail call double @llvm.fmuladd.f64(double %27, double %24, double 0x405C05131CA58D35)
-  %29 = tail call double @llvm.fmuladd.f64(double %28, double %24, double 0x406BA6D5C7A28CF5)
-  %30 = tail call double @llvm.fmuladd.f64(double %29, double %24, double 0x406B869EA974C7E9)
-  %mul9.i174 = fmul double %30, %call.i155
-  %31 = tail call double @llvm.fmuladd.f64(double %24, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %32 = tail call double @llvm.fmuladd.f64(double %31, double %24, double 0x4030106DF11BD48F)
-  %33 = tail call double @llvm.fmuladd.f64(double %32, double %24, double 0x4055B1F78433A599)
-  %34 = tail call double @llvm.fmuladd.f64(double %33, double %24, double 0x4072890729BA781A)
-  %35 = tail call double @llvm.fmuladd.f64(double %34, double %24, double 0x4083EAAB47FA1778)
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double %24, double 0x4088CE9CB298974E)
-  %37 = tail call double @llvm.fmuladd.f64(double %36, double %24, double 0x407B869EA974C7E9)
-  %div17.i175 = fdiv double %mul9.i174, %37
+  %23 = tail call double @llvm.fmuladd.f64(double %22, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %24 = tail call double @llvm.fmuladd.f64(double %23, double %22, double 0x40197EEFF2A86F23)
+  %25 = tail call double @llvm.fmuladd.f64(double %24, double %22, double 0x4040F4D8CBB02431)
+  %26 = tail call double @llvm.fmuladd.f64(double %25, double %22, double 0x405C05131CA58D35)
+  %27 = tail call double @llvm.fmuladd.f64(double %26, double %22, double 0x406BA6D5C7A28CF5)
+  %28 = tail call double @llvm.fmuladd.f64(double %27, double %22, double 0x406B869EA974C7E9)
+  %mul9.i174 = fmul double %28, %call.i155
+  %29 = tail call double @llvm.fmuladd.f64(double %22, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %30 = tail call double @llvm.fmuladd.f64(double %29, double %22, double 0x4030106DF11BD48F)
+  %31 = tail call double @llvm.fmuladd.f64(double %30, double %22, double 0x4055B1F78433A599)
+  %32 = tail call double @llvm.fmuladd.f64(double %31, double %22, double 0x4072890729BA781A)
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double %22, double 0x4083EAAB47FA1778)
+  %34 = tail call double @llvm.fmuladd.f64(double %33, double %22, double 0x4088CE9CB298974E)
+  %35 = tail call double @llvm.fmuladd.f64(double %34, double %22, double 0x407B869EA974C7E9)
+  %div17.i175 = fdiv double %mul9.i174, %35
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176
 
 if.else18.i157:                                   ; preds = %if.else.i151
-  %add.i158 = fadd double %24, 6.500000e-01
+  %add.i158 = fadd double %22, 6.500000e-01
   %div19.i159 = fdiv double 4.000000e+00, %add.i158
-  %add20.i160 = fadd double %24, %div19.i159
+  %add20.i160 = fadd double %22, %div19.i159
   %div21.i161 = fdiv double 3.000000e+00, %add20.i160
-  %add22.i162 = fadd double %24, %div21.i161
+  %add22.i162 = fadd double %22, %div21.i161
   %div23.i163 = fdiv double 2.000000e+00, %add22.i162
-  %add24.i164 = fadd double %24, %div23.i163
+  %add24.i164 = fadd double %22, %div23.i163
   %div25.i165 = fdiv double 1.000000e+00, %add24.i164
-  %add26.i166 = fadd double %24, %div25.i165
+  %add26.i166 = fadd double %22, %div25.i165
   %div27.i167 = fdiv double %call.i155, %add26.i166
   %div28.i168 = fdiv double %div27.i167, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176
@@ -6620,21 +6578,21 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176:        ; preds = %_ZN8QuantLib12_GLOB
   %mul112 = fmul double %p, 4.000000e+00
   %mul113 = fmul double %mul112, %tt
   %mul115 = fmul double %mul113, %sub
-  %38 = fneg double %add
-  %39 = fmul double %add, %38
-  %fneg117 = fdiv double %39, %mul9
+  %36 = fneg double %add
+  %37 = fmul double %add, %36
+  %fneg117 = fdiv double %37, %mul9
   %call118 = tail call double @exp(double noundef %fneg117) #31, !tbaa !108
-  %40 = fneg double %19
-  %41 = fmul double %19, %40
-  %fneg120 = fdiv double %41, %mul115
+  %38 = fneg double %18
+  %39 = fmul double %18, %38
+  %fneg120 = fdiv double %39, %mul115
   %call121 = tail call double @exp(double noundef %fneg120) #31, !tbaa !108
-  %42 = fneg double %sub6
-  %43 = fmul double %sub6, %42
-  %fneg138 = fdiv double %43, %mul9
+  %40 = fneg double %sub6
+  %41 = fmul double %sub6, %40
+  %fneg138 = fdiv double %41, %mul9
   %call139 = tail call double @exp(double noundef %fneg138) #31, !tbaa !108
-  %44 = fneg double %0
-  %45 = fmul double %0, %44
-  %fneg141 = fdiv double %45, %mul115
+  %42 = fneg double %0
+  %43 = fmul double %0, %42
+  %fneg141 = fdiv double %43, %mul115
   %call142 = tail call double @exp(double noundef %fneg141) #31, !tbaa !108
   %mul147 = fmul double %sub, 2.000000e+00
   %mul149 = fmul double %sub27, %mul147
@@ -6642,56 +6600,66 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176:        ; preds = %_ZN8QuantLib12_GLOB
   %div151 = fdiv double %sub88, %call150
   %call152 = tail call double @pow(double noundef %div151, double noundef 5.000000e-01) #31, !tbaa !108
   %mul153 = fmul double %a, %call152
-  store double %mul153, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE2aa, align 8, !tbaa !107
   %mul156 = fmul double %mul95, %sub27
   %div157 = fdiv double %s, %mul156
   %call158 = tail call double @pow(double noundef %div157, double noundef 5.000000e-01) #31, !tbaa !108
-  %46 = tail call double @llvm.fabs.f64(double %mul153)
-  %cmp.i179 = fcmp ogt double %46, 3.700000e+01
+  %44 = tail call double @llvm.fabs.f64(double %mul153)
+  %cmp.i179 = fcmp ogt double %44, 3.700000e+01
   br i1 %cmp.i179, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205, label %if.else.i180
 
 if.else.i180:                                     ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176
-  %fneg.i181 = fneg double %46
-  %mul.i182 = fmul double %46, %fneg.i181
+  %fneg.i181 = fneg double %44
+  %mul.i182 = fmul double %44, %fneg.i181
   %div.i183 = fmul double %mul.i182, 5.000000e-01
   %call.i184 = tail call double @exp(double noundef %div.i183) #31, !tbaa !108
-  %cmp1.i185 = fcmp olt double %46, 0x401C48C6001F0ABF
+  %cmp1.i185 = fcmp olt double %44, 0x401C48C6001F0ABF
   br i1 %cmp1.i185, label %if.then2.i202, label %if.else18.i186
 
 if.then2.i202:                                    ; preds = %if.else.i180
-  %47 = tail call double @llvm.fmuladd.f64(double %46, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %48 = tail call double @llvm.fmuladd.f64(double %47, double %46, double 0x40197EEFF2A86F23)
-  %49 = tail call double @llvm.fmuladd.f64(double %48, double %46, double 0x4040F4D8CBB02431)
-  %50 = tail call double @llvm.fmuladd.f64(double %49, double %46, double 0x405C05131CA58D35)
-  %51 = tail call double @llvm.fmuladd.f64(double %50, double %46, double 0x406BA6D5C7A28CF5)
-  %52 = tail call double @llvm.fmuladd.f64(double %51, double %46, double 0x406B869EA974C7E9)
-  %mul9.i203 = fmul double %52, %call.i184
-  %53 = tail call double @llvm.fmuladd.f64(double %46, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %54 = tail call double @llvm.fmuladd.f64(double %53, double %46, double 0x4030106DF11BD48F)
-  %55 = tail call double @llvm.fmuladd.f64(double %54, double %46, double 0x4055B1F78433A599)
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double %46, double 0x4072890729BA781A)
-  %57 = tail call double @llvm.fmuladd.f64(double %56, double %46, double 0x4083EAAB47FA1778)
-  %58 = tail call double @llvm.fmuladd.f64(double %57, double %46, double 0x4088CE9CB298974E)
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double %46, double 0x407B869EA974C7E9)
-  %div17.i204 = fdiv double %mul9.i203, %59
+  %45 = tail call double @llvm.fmuladd.f64(double %44, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %46 = tail call double @llvm.fmuladd.f64(double %45, double %44, double 0x40197EEFF2A86F23)
+  %47 = tail call double @llvm.fmuladd.f64(double %46, double %44, double 0x4040F4D8CBB02431)
+  %48 = tail call double @llvm.fmuladd.f64(double %47, double %44, double 0x405C05131CA58D35)
+  %49 = tail call double @llvm.fmuladd.f64(double %48, double %44, double 0x406BA6D5C7A28CF5)
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double %44, double 0x406B869EA974C7E9)
+  %mul9.i203 = fmul double %50, %call.i184
+  %51 = tail call double @llvm.fmuladd.f64(double %44, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %52 = tail call double @llvm.fmuladd.f64(double %51, double %44, double 0x4030106DF11BD48F)
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double %44, double 0x4055B1F78433A599)
+  %54 = tail call double @llvm.fmuladd.f64(double %53, double %44, double 0x4072890729BA781A)
+  %55 = tail call double @llvm.fmuladd.f64(double %54, double %44, double 0x4083EAAB47FA1778)
+  %56 = tail call double @llvm.fmuladd.f64(double %55, double %44, double 0x4088CE9CB298974E)
+  %57 = tail call double @llvm.fmuladd.f64(double %56, double %44, double 0x407B869EA974C7E9)
+  %div17.i204 = fdiv double %mul9.i203, %57
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205
 
 if.else18.i186:                                   ; preds = %if.else.i180
-  %add.i187 = fadd double %46, 6.500000e-01
+  %add.i187 = fadd double %44, 6.500000e-01
   %div19.i188 = fdiv double 4.000000e+00, %add.i187
-  %add20.i189 = fadd double %46, %div19.i188
+  %add20.i189 = fadd double %44, %div19.i188
   %div21.i190 = fdiv double 3.000000e+00, %add20.i189
-  %add22.i191 = fadd double %46, %div21.i190
+  %add22.i191 = fadd double %44, %div21.i190
   %div23.i192 = fdiv double 2.000000e+00, %add22.i191
-  %add24.i193 = fadd double %46, %div23.i192
+  %add24.i193 = fadd double %44, %div23.i192
   %div25.i194 = fdiv double 1.000000e+00, %add24.i193
-  %add26.i195 = fadd double %46, %div25.i194
+  %add26.i195 = fadd double %44, %div25.i194
   %div27.i196 = fdiv double %call.i184, %add26.i195
   %div28.i197 = fdiv double %div27.i196, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205
 
 _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205:        ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176, %if.then2.i202, %if.else18.i186
   %P.0.i198 = phi double [ %div17.i204, %if.then2.i202 ], [ %div28.i197, %if.else18.i186 ], [ 0.000000e+00, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit176 ]
+  %div54 = fdiv double %call53, %tt
+  %div12 = fdiv double %call11, %tt
+  %mul44 = fmul double %div12, -5.000000e-01
+  %mul45 = fmul double %call43, %mul44
+  %mul47 = fmul double %sub6, %mul45
+  %cmp30.i = fcmp ogt double %div, 0.000000e+00
+  %sub.i = fsub double 1.000000e+00, %P.0.i
+  %P.1.i = select i1 %cmp30.i, double %sub.i, double %P.0.i
+  %mul13 = fmul double %div12, 5.000000e-01
+  %mul14 = fmul double %P.1.i, %mul13
+  %mul16 = fmul double %sub6, %mul14
   %cmp30.i170 = fcmp ogt double %mul94, 0.000000e+00
   %sub.i171 = fsub double 1.000000e+00, %P.0.i169
   %P.1.i172 = select i1 %cmp30.i170, double %sub.i171, double %P.0.i169
@@ -6702,7 +6670,7 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205:        ; preds = %_ZN8QuantLib12_GLOB
   %mul119 = fmul double %mul101, %call118
   %mul122 = fmul double %mul119, %call121
   %div123 = fmul double %mul122, 5.000000e-01
-  %mul83 = fmul double %23, -5.000000e-01
+  %mul83 = fmul double %div54, -5.000000e-01
   %mul84 = fmul double %call82, %mul83
   %mul86 = fmul double %add, %mul84
   %cmp30.i199 = fcmp ogt double %mul153, 0.000000e+00
@@ -6714,17 +6682,17 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205:        ; preds = %_ZN8QuantLib12_GLOB
   %mul174 = fmul double %mul172, %sub27
   %call177 = tail call double @exp(double noundef %fneg117) #31, !tbaa !108
   %mul178 = fmul double %mul160, %call177
-  %60 = fneg double %20
-  %61 = fmul double %20, %60
-  %fneg179 = fdiv double %61, %mul174
+  %58 = fneg double %19
+  %59 = fmul double %19, %58
+  %fneg179 = fdiv double %59, %mul174
   %call180 = tail call double @exp(double noundef %fneg179) #31, !tbaa !108
   %mul181 = fmul double %mul178, %call180
   %div182 = fmul double %mul181, 5.000000e-01
   %call198 = tail call double @exp(double noundef %fneg138) #31, !tbaa !108
   %mul199 = fmul double %mul160, %call198
-  %62 = fneg double %15
-  %63 = fmul double %15, %62
-  %fneg200 = fdiv double %63, %mul174
+  %60 = fneg double %15
+  %61 = fmul double %15, %60
+  %fneg200 = fdiv double %61, %mul174
   %call201 = tail call double @exp(double noundef %fneg200) #31, !tbaa !108
   %mul202 = fmul double %mul199, %call201
   %div203 = fmul double %mul202, 5.000000e-01
@@ -6735,9 +6703,7 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205:        ; preds = %_ZN8QuantLib12_GLOB
   %call209 = tail call double @exp(double noundef %div208) #31, !tbaa !108
   %call210 = tail call double @pow(double noundef %tt, double noundef 5.000000e-01) #31, !tbaa !108
   %mul211 = fmul double %call209, %call210
-  %64 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE4caux, align 8, !tbaa !107
-  %65 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14ddvvEddddddE5caux1, align 8, !tbaa !107
-  %add212 = fadd double %64, %65
+  %add212 = fadd double %mul16, %mul47
   %add213 = fadd double %mul86, %add212
   %add214 = fadd double %div123, %add213
   %add215 = fadd double %div144, %add214
@@ -6749,7 +6715,7 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit205:        ; preds = %_ZN8QuantLib12_GLOB
   ret double %div221
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14ddffEdddddd(double noundef %s, double noundef %p, double noundef %tt, double noundef %a, double noundef %b, double noundef %gm) unnamed_addr #22 {
 entry:
   %sub = fsub double %tt, %p
@@ -7123,7 +7089,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #23
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #20
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %a, double noundef %b, double noundef %rho) unnamed_addr #24 {
 entry:
   store double 0x3FC5EDF601E2DBFD, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 40), align 8, !tbaa !107
@@ -7171,11 +7137,7 @@ entry:
   %.173 = select i1 %cmp1, i32 6, i32 10
   %.sink172 = select i1 %cmp, i32 1, i32 %.
   %.sink = select i1 %cmp, i32 3, i32 %.173
-  store i32 %.sink172, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2NG, align 4, !tbaa !108
-  store i32 %.sink, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2LG, align 4, !tbaa !108
-  store double %a, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1H, align 8, !tbaa !107
   %mul = fmul double %a, %b
-  store double 0.000000e+00, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8, !tbaa !107
   %cmp5 = fcmp olt double %0, 9.250000e-01
   br i1 %cmp5, label %if.then6, label %if.else41
 
@@ -7185,111 +7147,94 @@ if.then6:                                         ; preds = %entry
 
 if.then8:                                         ; preds = %if.then6
   %call = tail call double @asin(double noundef %rho) #31, !tbaa !108
-  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted156 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8
-  store i32 1, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %1 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2LG, align 4, !tbaa !108
-  %cmp11.not158 = icmp slt i32 %1, 1
-  br i1 %cmp11.not158, label %for.end32, label %for.cond12.preheader.lr.ph
-
-for.cond12.preheader.lr.ph:                       ; preds = %if.then8
   %mul10 = fmul double %b, %b
-  %2 = tail call double @llvm.fmuladd.f64(double %a, double %a, double %mul10)
-  %neg = fmul double %2, -5.000000e-01
+  %1 = tail call double @llvm.fmuladd.f64(double %a, double %a, double %mul10)
+  %neg = fmul double %1, -5.000000e-01
+  %idxprom15 = zext nneg i32 %.sink172 to i64
+  %idxprom23 = zext nneg i32 %.sink172 to i64
   br label %for.cond12.preheader
 
-for.cond12.preheader:                             ; preds = %for.cond12.preheader.lr.ph, %for.inc31
-  %.lcssa157159 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted156, %for.cond12.preheader.lr.ph ], [ %13, %for.inc31 ]
-  store i32 -1, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2IS, align 4, !tbaa !108
+for.cond12.preheader:                             ; preds = %if.then8, %for.inc31
+  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 = phi i32 [ 1, %if.then8 ], [ %inc, %for.inc31 ]
+  %.lcssa157159 = phi double [ 0.000000e+00, %if.then8 ], [ %8, %for.inc31 ]
+  %idxprom = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 to i64
+  %arrayidx16 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom, i64 %idxprom15
+  %2 = load double, ptr %arrayidx16, align 8, !tbaa !107
+  %idxprom21 = zext nneg i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0 to i64
+  %arrayidx24 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom21, i64 %idxprom23
+  %3 = load double, ptr %arrayidx24, align 8, !tbaa !107
   br label %for.body14
 
 for.body14:                                       ; preds = %for.cond12.preheader, %for.body14
   %storemerge7155 = phi i32 [ -1, %for.cond12.preheader ], [ %add, %for.body14 ]
-  %3 = phi double [ %.lcssa157159, %for.cond12.preheader ], [ %13, %for.body14 ]
+  %4 = phi double [ %.lcssa157159, %for.cond12.preheader ], [ %8, %for.body14 ]
   %conv = sitofp i32 %storemerge7155 to double
-  %4 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %idxprom = sext i32 %4 to i64
-  %5 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2NG, align 4, !tbaa !108
-  %idxprom15 = zext nneg i32 %5 to i64
-  %arrayidx16 = getelementptr inbounds [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom, i64 %idxprom15
-  %6 = load double, ptr %arrayidx16, align 8, !tbaa !107
-  %7 = tail call double @llvm.fmuladd.f64(double %conv, double %6, double 1.000000e+00)
-  %mul18 = fmul double %call, %7
+  %5 = tail call double @llvm.fmuladd.f64(double %conv, double %2, double 1.000000e+00)
+  %mul18 = fmul double %call, %5
   %div19 = fmul double %mul18, 5.000000e-01
   %call20 = tail call double @sin(double noundef %div19) #31, !tbaa !108
-  %8 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %idxprom21 = sext i32 %8 to i64
-  %9 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2NG, align 4, !tbaa !108
-  %idxprom23 = zext nneg i32 %9 to i64
-  %arrayidx24 = getelementptr inbounds [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom21, i64 %idxprom23
-  %10 = load double, ptr %arrayidx24, align 8, !tbaa !107
-  %11 = tail call double @llvm.fmuladd.f64(double %call20, double %mul, double %neg)
+  %6 = tail call double @llvm.fmuladd.f64(double %call20, double %mul, double %neg)
   %neg27 = fneg double %call20
-  %12 = tail call double @llvm.fmuladd.f64(double %neg27, double %call20, double 1.000000e+00)
-  %div28 = fdiv double %11, %12
+  %7 = tail call double @llvm.fmuladd.f64(double %neg27, double %call20, double 1.000000e+00)
+  %div28 = fdiv double %6, %7
   %call29 = tail call double @exp(double noundef %div28) #31, !tbaa !108
-  %13 = tail call double @llvm.fmuladd.f64(double %10, double %call29, double %3)
-  %14 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2IS, align 4, !tbaa !108
-  %add = add nsw i32 %14, 2
-  store i32 %add, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2IS, align 4, !tbaa !108
-  %cmp13 = icmp slt i32 %14, 0
+  %8 = tail call double @llvm.fmuladd.f64(double %3, double %call29, double %4)
+  %add = add nsw i32 %storemerge7155, 2
+  %cmp13 = icmp slt i32 %storemerge7155, 0
   br i1 %cmp13, label %for.body14, label %for.inc31, !llvm.loop !136
 
 for.inc31:                                        ; preds = %for.body14
-  %15 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %inc = add nsw i32 %15, 1
-  store i32 %inc, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %16 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2LG, align 4, !tbaa !108
-  %cmp11.not.not = icmp slt i32 %15, %16
+  %inc = add nuw nsw i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0, 1
+  %cmp11.not.not = icmp samesign ult i32 %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I.0, %.sink
   br i1 %cmp11.not.not, label %for.cond12.preheader, label %for.end32, !llvm.loop !137
 
-for.end32:                                        ; preds = %for.inc31, %if.then8
-  %17 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted156, %if.then8 ], [ %13, %for.inc31 ]
-  %mul33 = fmul double %call, %17
+for.end32:                                        ; preds = %for.inc31
+  %mul33 = fmul double %call, %8
   %div35 = fdiv double %mul33, 0x402921FB54442D18
   br label %if.end36
 
 if.end36:                                         ; preds = %for.end32, %if.then6
-  %18 = phi double [ %div35, %for.end32 ], [ 0.000000e+00, %if.then6 ]
-  %19 = tail call double @llvm.fabs.f64(double %a)
-  %cmp.i = fcmp ogt double %19, 3.700000e+01
+  %9 = phi double [ %div35, %for.end32 ], [ 0.000000e+00, %if.then6 ]
+  %10 = tail call double @llvm.fabs.f64(double %a)
+  %cmp.i = fcmp ogt double %10, 3.700000e+01
   br i1 %cmp.i, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end36
-  %fneg.i = fneg double %19
-  %mul.i = fmul double %19, %fneg.i
+  %fneg.i = fneg double %10
+  %mul.i = fmul double %10, %fneg.i
   %div.i = fmul double %mul.i, 5.000000e-01
   %call.i = tail call double @exp(double noundef %div.i) #31, !tbaa !108
-  %cmp1.i = fcmp olt double %19, 0x401C48C6001F0ABF
+  %cmp1.i = fcmp olt double %10, 0x401C48C6001F0ABF
   br i1 %cmp1.i, label %if.then2.i, label %if.else18.i
 
 if.then2.i:                                       ; preds = %if.else.i
-  %20 = tail call double @llvm.fmuladd.f64(double %19, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %21 = tail call double @llvm.fmuladd.f64(double %20, double %19, double 0x40197EEFF2A86F23)
-  %22 = tail call double @llvm.fmuladd.f64(double %21, double %19, double 0x4040F4D8CBB02431)
-  %23 = tail call double @llvm.fmuladd.f64(double %22, double %19, double 0x405C05131CA58D35)
-  %24 = tail call double @llvm.fmuladd.f64(double %23, double %19, double 0x406BA6D5C7A28CF5)
-  %25 = tail call double @llvm.fmuladd.f64(double %24, double %19, double 0x406B869EA974C7E9)
-  %mul9.i = fmul double %25, %call.i
-  %26 = tail call double @llvm.fmuladd.f64(double %19, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %27 = tail call double @llvm.fmuladd.f64(double %26, double %19, double 0x4030106DF11BD48F)
-  %28 = tail call double @llvm.fmuladd.f64(double %27, double %19, double 0x4055B1F78433A599)
-  %29 = tail call double @llvm.fmuladd.f64(double %28, double %19, double 0x4072890729BA781A)
-  %30 = tail call double @llvm.fmuladd.f64(double %29, double %19, double 0x4083EAAB47FA1778)
-  %31 = tail call double @llvm.fmuladd.f64(double %30, double %19, double 0x4088CE9CB298974E)
-  %32 = tail call double @llvm.fmuladd.f64(double %31, double %19, double 0x407B869EA974C7E9)
-  %div17.i = fdiv double %mul9.i, %32
+  %11 = tail call double @llvm.fmuladd.f64(double %10, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %12 = tail call double @llvm.fmuladd.f64(double %11, double %10, double 0x40197EEFF2A86F23)
+  %13 = tail call double @llvm.fmuladd.f64(double %12, double %10, double 0x4040F4D8CBB02431)
+  %14 = tail call double @llvm.fmuladd.f64(double %13, double %10, double 0x405C05131CA58D35)
+  %15 = tail call double @llvm.fmuladd.f64(double %14, double %10, double 0x406BA6D5C7A28CF5)
+  %16 = tail call double @llvm.fmuladd.f64(double %15, double %10, double 0x406B869EA974C7E9)
+  %mul9.i = fmul double %16, %call.i
+  %17 = tail call double @llvm.fmuladd.f64(double %10, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %18 = tail call double @llvm.fmuladd.f64(double %17, double %10, double 0x4030106DF11BD48F)
+  %19 = tail call double @llvm.fmuladd.f64(double %18, double %10, double 0x4055B1F78433A599)
+  %20 = tail call double @llvm.fmuladd.f64(double %19, double %10, double 0x4072890729BA781A)
+  %21 = tail call double @llvm.fmuladd.f64(double %20, double %10, double 0x4083EAAB47FA1778)
+  %22 = tail call double @llvm.fmuladd.f64(double %21, double %10, double 0x4088CE9CB298974E)
+  %23 = tail call double @llvm.fmuladd.f64(double %22, double %10, double 0x407B869EA974C7E9)
+  %div17.i = fdiv double %mul9.i, %23
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit
 
 if.else18.i:                                      ; preds = %if.else.i
-  %add.i = fadd double %19, 6.500000e-01
+  %add.i = fadd double %10, 6.500000e-01
   %div19.i = fdiv double 4.000000e+00, %add.i
-  %add20.i = fadd double %19, %div19.i
+  %add20.i = fadd double %10, %div19.i
   %div21.i = fdiv double 3.000000e+00, %add20.i
-  %add22.i = fadd double %19, %div21.i
+  %add22.i = fadd double %10, %div21.i
   %div23.i = fdiv double 2.000000e+00, %add22.i
-  %add24.i = fadd double %19, %div23.i
+  %add24.i = fadd double %10, %div23.i
   %div25.i = fdiv double 1.000000e+00, %add24.i
-  %add26.i = fadd double %19, %div25.i
+  %add26.i = fadd double %10, %div25.i
   %div27.i = fdiv double %call.i, %add26.i
   %div28.i = fdiv double %div27.i, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit
@@ -7299,46 +7244,46 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit:           ; preds = %if.end36, %if.then2
   %cmp30.i = fcmp olt double %a, 0.000000e+00
   %sub.i = fsub double 1.000000e+00, %P.0.i
   %P.1.i = select i1 %cmp30.i, double %sub.i, double %P.0.i
-  %33 = tail call double @llvm.fabs.f64(double %b)
-  %cmp.i8 = fcmp ogt double %33, 3.700000e+01
+  %24 = tail call double @llvm.fabs.f64(double %b)
+  %cmp.i8 = fcmp ogt double %24, 3.700000e+01
   br i1 %cmp.i8, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34, label %if.else.i9
 
 if.else.i9:                                       ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit
-  %fneg.i10 = fneg double %33
-  %mul.i11 = fmul double %33, %fneg.i10
+  %fneg.i10 = fneg double %24
+  %mul.i11 = fmul double %24, %fneg.i10
   %div.i12 = fmul double %mul.i11, 5.000000e-01
   %call.i13 = tail call double @exp(double noundef %div.i12) #31, !tbaa !108
-  %cmp1.i14 = fcmp olt double %33, 0x401C48C6001F0ABF
+  %cmp1.i14 = fcmp olt double %24, 0x401C48C6001F0ABF
   br i1 %cmp1.i14, label %if.then2.i31, label %if.else18.i15
 
 if.then2.i31:                                     ; preds = %if.else.i9
-  %34 = tail call double @llvm.fmuladd.f64(double %33, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %35 = tail call double @llvm.fmuladd.f64(double %34, double %33, double 0x40197EEFF2A86F23)
-  %36 = tail call double @llvm.fmuladd.f64(double %35, double %33, double 0x4040F4D8CBB02431)
-  %37 = tail call double @llvm.fmuladd.f64(double %36, double %33, double 0x405C05131CA58D35)
-  %38 = tail call double @llvm.fmuladd.f64(double %37, double %33, double 0x406BA6D5C7A28CF5)
-  %39 = tail call double @llvm.fmuladd.f64(double %38, double %33, double 0x406B869EA974C7E9)
-  %mul9.i32 = fmul double %39, %call.i13
-  %40 = tail call double @llvm.fmuladd.f64(double %33, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %41 = tail call double @llvm.fmuladd.f64(double %40, double %33, double 0x4030106DF11BD48F)
-  %42 = tail call double @llvm.fmuladd.f64(double %41, double %33, double 0x4055B1F78433A599)
-  %43 = tail call double @llvm.fmuladd.f64(double %42, double %33, double 0x4072890729BA781A)
-  %44 = tail call double @llvm.fmuladd.f64(double %43, double %33, double 0x4083EAAB47FA1778)
-  %45 = tail call double @llvm.fmuladd.f64(double %44, double %33, double 0x4088CE9CB298974E)
-  %46 = tail call double @llvm.fmuladd.f64(double %45, double %33, double 0x407B869EA974C7E9)
-  %div17.i33 = fdiv double %mul9.i32, %46
+  %25 = tail call double @llvm.fmuladd.f64(double %24, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %26 = tail call double @llvm.fmuladd.f64(double %25, double %24, double 0x40197EEFF2A86F23)
+  %27 = tail call double @llvm.fmuladd.f64(double %26, double %24, double 0x4040F4D8CBB02431)
+  %28 = tail call double @llvm.fmuladd.f64(double %27, double %24, double 0x405C05131CA58D35)
+  %29 = tail call double @llvm.fmuladd.f64(double %28, double %24, double 0x406BA6D5C7A28CF5)
+  %30 = tail call double @llvm.fmuladd.f64(double %29, double %24, double 0x406B869EA974C7E9)
+  %mul9.i32 = fmul double %30, %call.i13
+  %31 = tail call double @llvm.fmuladd.f64(double %24, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %32 = tail call double @llvm.fmuladd.f64(double %31, double %24, double 0x4030106DF11BD48F)
+  %33 = tail call double @llvm.fmuladd.f64(double %32, double %24, double 0x4055B1F78433A599)
+  %34 = tail call double @llvm.fmuladd.f64(double %33, double %24, double 0x4072890729BA781A)
+  %35 = tail call double @llvm.fmuladd.f64(double %34, double %24, double 0x4083EAAB47FA1778)
+  %36 = tail call double @llvm.fmuladd.f64(double %35, double %24, double 0x4088CE9CB298974E)
+  %37 = tail call double @llvm.fmuladd.f64(double %36, double %24, double 0x407B869EA974C7E9)
+  %div17.i33 = fdiv double %mul9.i32, %37
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34
 
 if.else18.i15:                                    ; preds = %if.else.i9
-  %add.i16 = fadd double %33, 6.500000e-01
+  %add.i16 = fadd double %24, 6.500000e-01
   %div19.i17 = fdiv double 4.000000e+00, %add.i16
-  %add20.i18 = fadd double %33, %div19.i17
+  %add20.i18 = fadd double %24, %div19.i17
   %div21.i19 = fdiv double 3.000000e+00, %add20.i18
-  %add22.i20 = fadd double %33, %div21.i19
+  %add22.i20 = fadd double %24, %div21.i19
   %div23.i21 = fdiv double 2.000000e+00, %add22.i20
-  %add24.i22 = fadd double %33, %div23.i21
+  %add24.i22 = fadd double %24, %div23.i21
   %div25.i23 = fdiv double 1.000000e+00, %add24.i22
-  %add26.i24 = fadd double %33, %div25.i23
+  %add26.i24 = fadd double %24, %div25.i23
   %div27.i25 = fdiv double %call.i13, %add26.i24
   %div28.i26 = fdiv double %div27.i25, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34
@@ -7348,15 +7293,15 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34:         ; preds = %_ZN8QuantLib12_GLOB
   %cmp30.i28 = fcmp olt double %b, 0.000000e+00
   %sub.i29 = fsub double 1.000000e+00, %P.0.i27
   %P.1.i30 = select i1 %cmp30.i28, double %sub.i29, double %P.0.i27
-  %47 = tail call double @llvm.fmuladd.f64(double %P.1.i, double %P.1.i30, double %18)
-  br label %if.end174.sink.split
+  %38 = tail call double @llvm.fmuladd.f64(double %P.1.i, double %P.1.i30, double %9)
+  br label %if.end174
 
 if.else41:                                        ; preds = %entry
   %cmp42 = fcmp olt double %rho, 0.000000e+00
   %fneg44 = fneg double %b
   %fneg45 = fneg double %mul
-  %48 = select i1 %cmp42, double %fneg45, double %mul
-  %49 = select i1 %cmp42, double %fneg44, double %b
+  %39 = select i1 %cmp42, double %fneg45, double %mul
+  %40 = select i1 %cmp42, double %fneg44, double %b
   %cmp47 = fcmp olt double %0, 1.000000e+00
   br i1 %cmp47, label %if.then48, label %if.end157
 
@@ -7365,14 +7310,14 @@ if.then48:                                        ; preds = %if.else41
   %add49 = fadd double %rho, 1.000000e+00
   %mul50 = fmul double %sub, %add49
   %call51 = tail call double @pow(double noundef %mul50, double noundef 5.000000e-01) #31, !tbaa !108
-  %sub52 = fsub double %a, %49
+  %sub52 = fsub double %a, %40
   %square = fmul double %sub52, %sub52
-  %sub54 = fsub double 4.000000e+00, %48
+  %sub54 = fsub double 4.000000e+00, %39
   %div55 = fmul double %sub54, 1.250000e-01
-  %sub56 = fsub double 1.200000e+01, %48
+  %sub56 = fsub double 1.200000e+01, %39
   %div57 = fmul double %sub56, 6.250000e-02
   %div58 = fdiv double %square, %mul50
-  %add59 = fadd double %48, %div58
+  %add59 = fadd double %39, %div58
   %div61 = fmul double %add59, -5.000000e-01
   %cmp62 = fcmp ogt double %div61, -1.000000e+02
   br i1 %cmp62, label %if.then63, label %if.end80
@@ -7394,61 +7339,60 @@ if.then63:                                        ; preds = %if.then48
   %div77 = fdiv double %mul76, 5.000000e+00
   %add78 = fadd double %div77, %sub73
   %mul79 = fmul double %add78, %mul65
-  store double %mul79, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8, !tbaa !107
   br label %if.end80
 
 if.end80:                                         ; preds = %if.then63, %if.then48
-  %50 = phi double [ %mul79, %if.then63 ], [ 0.000000e+00, %if.then48 ]
-  %cmp82 = fcmp ogt double %48, -1.000000e+02
+  %41 = phi double [ %mul79, %if.then63 ], [ 0.000000e+00, %if.then48 ]
+  %cmp82 = fcmp ogt double %39, -1.000000e+02
   br i1 %cmp82, label %if.then83, label %if.end104
 
 if.then83:                                        ; preds = %if.end80
   %call84 = tail call double @pow(double noundef %square, double noundef 5.000000e-01) #31, !tbaa !108
-  %div86 = fmul double %48, -5.000000e-01
+  %div86 = fmul double %39, -5.000000e-01
   %call87 = tail call double @exp(double noundef %div86) #31, !tbaa !108
   %mul89 = fmul double %call87, 0x40040D931FF62705
   %fneg90 = fneg double %call84
   %div91 = fdiv double %fneg90, %call51
-  %51 = tail call double @llvm.fabs.f64(double %div91)
-  %cmp.i36 = fcmp ogt double %51, 3.700000e+01
+  %42 = tail call double @llvm.fabs.f64(double %div91)
+  %cmp.i36 = fcmp ogt double %42, 3.700000e+01
   br i1 %cmp.i36, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit62, label %if.else.i37
 
 if.else.i37:                                      ; preds = %if.then83
-  %fneg.i38 = fneg double %51
-  %mul.i39 = fmul double %51, %fneg.i38
+  %fneg.i38 = fneg double %42
+  %mul.i39 = fmul double %42, %fneg.i38
   %div.i40 = fmul double %mul.i39, 5.000000e-01
   %call.i41 = tail call double @exp(double noundef %div.i40) #31, !tbaa !108
-  %cmp1.i42 = fcmp olt double %51, 0x401C48C6001F0ABF
+  %cmp1.i42 = fcmp olt double %42, 0x401C48C6001F0ABF
   br i1 %cmp1.i42, label %if.then2.i59, label %if.else18.i43
 
 if.then2.i59:                                     ; preds = %if.else.i37
-  %52 = tail call double @llvm.fmuladd.f64(double %51, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %53 = tail call double @llvm.fmuladd.f64(double %52, double %51, double 0x40197EEFF2A86F23)
-  %54 = tail call double @llvm.fmuladd.f64(double %53, double %51, double 0x4040F4D8CBB02431)
-  %55 = tail call double @llvm.fmuladd.f64(double %54, double %51, double 0x405C05131CA58D35)
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double %51, double 0x406BA6D5C7A28CF5)
-  %57 = tail call double @llvm.fmuladd.f64(double %56, double %51, double 0x406B869EA974C7E9)
-  %mul9.i60 = fmul double %57, %call.i41
-  %58 = tail call double @llvm.fmuladd.f64(double %51, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %59 = tail call double @llvm.fmuladd.f64(double %58, double %51, double 0x4030106DF11BD48F)
-  %60 = tail call double @llvm.fmuladd.f64(double %59, double %51, double 0x4055B1F78433A599)
-  %61 = tail call double @llvm.fmuladd.f64(double %60, double %51, double 0x4072890729BA781A)
-  %62 = tail call double @llvm.fmuladd.f64(double %61, double %51, double 0x4083EAAB47FA1778)
-  %63 = tail call double @llvm.fmuladd.f64(double %62, double %51, double 0x4088CE9CB298974E)
-  %64 = tail call double @llvm.fmuladd.f64(double %63, double %51, double 0x407B869EA974C7E9)
-  %div17.i61 = fdiv double %mul9.i60, %64
+  %43 = tail call double @llvm.fmuladd.f64(double %42, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %44 = tail call double @llvm.fmuladd.f64(double %43, double %42, double 0x40197EEFF2A86F23)
+  %45 = tail call double @llvm.fmuladd.f64(double %44, double %42, double 0x4040F4D8CBB02431)
+  %46 = tail call double @llvm.fmuladd.f64(double %45, double %42, double 0x405C05131CA58D35)
+  %47 = tail call double @llvm.fmuladd.f64(double %46, double %42, double 0x406BA6D5C7A28CF5)
+  %48 = tail call double @llvm.fmuladd.f64(double %47, double %42, double 0x406B869EA974C7E9)
+  %mul9.i60 = fmul double %48, %call.i41
+  %49 = tail call double @llvm.fmuladd.f64(double %42, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double %42, double 0x4030106DF11BD48F)
+  %51 = tail call double @llvm.fmuladd.f64(double %50, double %42, double 0x4055B1F78433A599)
+  %52 = tail call double @llvm.fmuladd.f64(double %51, double %42, double 0x4072890729BA781A)
+  %53 = tail call double @llvm.fmuladd.f64(double %52, double %42, double 0x4083EAAB47FA1778)
+  %54 = tail call double @llvm.fmuladd.f64(double %53, double %42, double 0x4088CE9CB298974E)
+  %55 = tail call double @llvm.fmuladd.f64(double %54, double %42, double 0x407B869EA974C7E9)
+  %div17.i61 = fdiv double %mul9.i60, %55
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit62
 
 if.else18.i43:                                    ; preds = %if.else.i37
-  %add.i44 = fadd double %51, 6.500000e-01
+  %add.i44 = fadd double %42, 6.500000e-01
   %div19.i45 = fdiv double 4.000000e+00, %add.i44
-  %add20.i46 = fadd double %51, %div19.i45
+  %add20.i46 = fadd double %42, %div19.i45
   %div21.i47 = fdiv double 3.000000e+00, %add20.i46
-  %add22.i48 = fadd double %51, %div21.i47
+  %add22.i48 = fadd double %42, %div21.i47
   %div23.i49 = fdiv double 2.000000e+00, %add22.i48
-  %add24.i50 = fadd double %51, %div23.i49
+  %add24.i50 = fadd double %42, %div23.i49
   %div25.i51 = fdiv double 1.000000e+00, %add24.i50
-  %add26.i52 = fadd double %51, %div25.i51
+  %add26.i52 = fadd double %42, %div25.i51
   %div27.i53 = fdiv double %call.i41, %add26.i52
   %div28.i54 = fdiv double %div27.i53, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit62
@@ -7467,48 +7411,35 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit62:         ; preds = %if.then83, %if.then
   %div100 = fdiv double %mul99, 3.000000e+00
   %sub101 = fsub double 1.000000e+00, %div100
   %neg103 = fmul double %mul93, %fneg90
-  %65 = tail call double @llvm.fmuladd.f64(double %neg103, double %sub101, double %50)
-  store double %65, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8, !tbaa !107
+  %56 = tail call double @llvm.fmuladd.f64(double %neg103, double %sub101, double %41)
   br label %if.end104
 
 if.end104:                                        ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit62, %if.end80
-  %66 = phi double [ %65, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit62 ], [ %50, %if.end80 ]
+  %57 = phi double [ %56, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit62 ], [ %41, %if.end80 ]
   %div105 = fmul double %call51, 5.000000e-01
-  store i32 1, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %67 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2LG, align 4, !tbaa !108
-  %cmp107.not153 = icmp slt i32 %67, 1
-  br i1 %cmp107.not153, label %for.end154, label %for.cond109.preheader.lr.ph
-
-for.cond109.preheader.lr.ph:                      ; preds = %if.end104
-  %fneg135 = fneg double %48
-  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted.pre = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8
-  %.pre165.pre = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2NG, align 4, !tbaa !108
+  %fneg135 = fneg double %39
+  %idxprom115 = zext nneg i32 %.sink172 to i64
   br label %for.cond109.preheader
 
-for.cond109.preheader:                            ; preds = %for.cond109.preheader.lr.ph, %for.inc152
-  %.pre165 = phi i32 [ %.pre165.pre, %for.cond109.preheader.lr.ph ], [ %.pre165168, %for.inc152 ]
-  %.pre163 = phi i32 [ 1, %for.cond109.preheader.lr.ph ], [ %inc153, %for.inc152 ]
-  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted.pre, %for.cond109.preheader.lr.ph ], [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160, %for.inc152 ]
-  store i32 -1, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2IS, align 4, !tbaa !108
+for.cond109.preheader:                            ; preds = %if.end104, %for.inc152
+  %.pre163 = phi i32 [ 1, %if.end104 ], [ %inc153, %for.inc152 ]
+  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted = phi double [ %57, %if.end104 ], [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160, %for.inc152 ]
+  %idxprom113 = zext nneg i32 %.pre163 to i64
+  %arrayidx116 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom113, i64 %idxprom115
+  %58 = load double, ptr %arrayidx116, align 8, !tbaa !107
+  %arrayidx131 = getelementptr inbounds nuw [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom113, i64 %idxprom115
   br label %for.body111
 
 for.body111:                                      ; preds = %for.cond109.preheader, %for.inc149
-  %.pre165169 = phi i32 [ %.pre165, %for.cond109.preheader ], [ %.pre165168, %for.inc149 ]
-  %68 = phi i32 [ %.pre165, %for.cond109.preheader ], [ %78, %for.inc149 ]
-  %69 = phi i32 [ %.pre163, %for.cond109.preheader ], [ %79, %for.inc149 ]
   %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted161 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted, %for.cond109.preheader ], [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160, %for.inc149 ]
   %storemerge5152 = phi i32 [ -1, %for.cond109.preheader ], [ %add150, %for.inc149 ]
-  %70 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted, %for.cond109.preheader ], [ %80, %for.inc149 ]
+  %59 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted, %for.cond109.preheader ], [ %65, %for.inc149 ]
   %conv112 = sitofp i32 %storemerge5152 to double
-  %idxprom113 = sext i32 %69 to i64
-  %idxprom115 = zext nneg i32 %68 to i64
-  %arrayidx116 = getelementptr inbounds [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2XL, i64 0, i64 %idxprom113, i64 %idxprom115
-  %71 = load double, ptr %arrayidx116, align 8, !tbaa !107
-  %72 = tail call double @llvm.fmuladd.f64(double %conv112, double %71, double 1.000000e+00)
-  %mul118 = fmul double %div105, %72
+  %60 = tail call double @llvm.fmuladd.f64(double %conv112, double %58, double 1.000000e+00)
+  %mul118 = fmul double %div105, %60
   %square147 = fmul double %mul118, %mul118
   %div122 = fdiv double %square, %square147
-  %add123 = fadd double %48, %div122
+  %add123 = fadd double %39, %div122
   %div125 = fmul double %add123, -5.000000e-01
   %cmp126 = fcmp ogt double %div125, -1.000000e+02
   br i1 %cmp126, label %if.then127, label %for.inc149
@@ -7516,9 +7447,8 @@ for.body111:                                      ; preds = %for.cond109.prehead
 if.then127:                                       ; preds = %for.body111
   %sub120 = fsub double 1.000000e+00, %square147
   %square148 = fmul double %sub120, %sub120
-  %arrayidx131 = getelementptr inbounds [11 x [4 x double]], ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2WL, i64 0, i64 %idxprom113, i64 %idxprom115
-  %73 = load double, ptr %arrayidx131, align 8, !tbaa !107
-  %mul132 = fmul double %div105, %73
+  %61 = load double, ptr %arrayidx131, align 8, !tbaa !107
+  %mul132 = fmul double %div105, %61
   %call133 = tail call double @exp(double noundef %div125) #31, !tbaa !108
   %mul134 = fmul double %mul132, %call133
   %sub136 = fsub double 1.000000e+00, %square148
@@ -7529,198 +7459,184 @@ if.then127:                                       ; preds = %for.body111
   %call141 = tail call double @exp(double noundef %div140) #31, !tbaa !108
   %div142 = fdiv double %call141, %square148
   %mul143 = fmul double %div55, %square147
-  %74 = tail call double @llvm.fmuladd.f64(double %div57, double %square147, double 1.000000e+00)
-  %75 = tail call double @llvm.fmuladd.f64(double %mul143, double %74, double 1.000000e+00)
-  %sub146 = fsub double %div142, %75
-  %76 = tail call double @llvm.fmuladd.f64(double %mul134, double %sub146, double %70)
-  store double %76, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8, !tbaa !107
-  %.pre = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %.pre164 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2NG, align 4, !tbaa !108
-  %.pre166 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2IS, align 4, !tbaa !108
+  %62 = tail call double @llvm.fmuladd.f64(double %div57, double %square147, double 1.000000e+00)
+  %63 = tail call double @llvm.fmuladd.f64(double %mul143, double %62, double 1.000000e+00)
+  %sub146 = fsub double %div142, %63
+  %64 = tail call double @llvm.fmuladd.f64(double %mul134, double %sub146, double %59)
   br label %for.inc149
 
 for.inc149:                                       ; preds = %for.body111, %if.then127
-  %.pre165168 = phi i32 [ %.pre165169, %for.body111 ], [ %.pre164, %if.then127 ]
-  %77 = phi i32 [ %storemerge5152, %for.body111 ], [ %.pre166, %if.then127 ]
-  %78 = phi i32 [ %68, %for.body111 ], [ %.pre164, %if.then127 ]
-  %79 = phi i32 [ %69, %for.body111 ], [ %.pre, %if.then127 ]
-  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted161, %for.body111 ], [ %76, %if.then127 ]
-  %80 = phi double [ %70, %for.body111 ], [ %76, %if.then127 ]
-  %add150 = add nsw i32 %77, 2
-  store i32 %add150, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2IS, align 4, !tbaa !108
-  %cmp110 = icmp slt i32 %77, 0
+  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160 = phi double [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted161, %for.body111 ], [ %64, %if.then127 ]
+  %65 = phi double [ %59, %for.body111 ], [ %64, %if.then127 ]
+  %add150 = add nsw i32 %storemerge5152, 2
+  %cmp110 = icmp slt i32 %storemerge5152, 0
   br i1 %cmp110, label %for.body111, label %for.inc152, !llvm.loop !138
 
 for.inc152:                                       ; preds = %for.inc149
-  %inc153 = add nsw i32 %79, 1
-  store i32 %inc153, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1I, align 4, !tbaa !108
-  %81 = load i32, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE2LG, align 4, !tbaa !108
-  %cmp107.not.not = icmp slt i32 %79, %81
+  %inc153 = add nuw nsw i32 %.pre163, 1
+  %cmp107.not.not = icmp samesign ult i32 %.pre163, %.sink
   br i1 %cmp107.not.not, label %for.cond109.preheader, label %for.end154, !llvm.loop !139
 
-for.end154:                                       ; preds = %for.inc152, %if.end104
-  %82 = phi double [ %66, %if.end104 ], [ %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160, %for.inc152 ]
-  %div156 = fdiv double %82, 0xC01921FB54442D18
+for.end154:                                       ; preds = %for.inc152
+  %div156 = fdiv double %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN.promoted160, 0xC01921FB54442D18
   br label %if.end157
 
 if.end157:                                        ; preds = %for.end154, %if.else41
-  %83 = phi double [ %div156, %for.end154 ], [ 0.000000e+00, %if.else41 ]
+  %66 = phi double [ %div156, %for.end154 ], [ 0.000000e+00, %if.else41 ]
   %cmp158 = fcmp ogt double %rho, 0.000000e+00
   br i1 %cmp158, label %if.then159, label %if.else164
 
 if.then159:                                       ; preds = %if.end157
-  %cmp.i65 = fcmp olt double %a, %49
-  %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1H.val = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1H, align 8
-  %84 = select i1 %cmp.i65, double %49, double %_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE1H.val
-  %85 = tail call double @llvm.fabs.f64(double %84)
-  %cmp.i66 = fcmp ogt double %85, 3.700000e+01
+  %cmp.i65 = fcmp olt double %a, %40
+  %67 = select i1 %cmp.i65, double %40, double %a
+  %68 = tail call double @llvm.fabs.f64(double %67)
+  %cmp.i66 = fcmp ogt double %68, 3.700000e+01
   br i1 %cmp.i66, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92, label %if.else.i67
 
 if.else.i67:                                      ; preds = %if.then159
-  %fneg.i68 = fneg double %85
-  %mul.i69 = fmul double %85, %fneg.i68
+  %fneg.i68 = fneg double %68
+  %mul.i69 = fmul double %68, %fneg.i68
   %div.i70 = fmul double %mul.i69, 5.000000e-01
   %call.i71 = tail call double @exp(double noundef %div.i70) #31, !tbaa !108
-  %cmp1.i72 = fcmp olt double %85, 0x401C48C6001F0ABF
+  %cmp1.i72 = fcmp olt double %68, 0x401C48C6001F0ABF
   br i1 %cmp1.i72, label %if.then2.i89, label %if.else18.i73
 
 if.then2.i89:                                     ; preds = %if.else.i67
-  %86 = tail call double @llvm.fmuladd.f64(double %85, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %87 = tail call double @llvm.fmuladd.f64(double %86, double %85, double 0x40197EEFF2A86F23)
-  %88 = tail call double @llvm.fmuladd.f64(double %87, double %85, double 0x4040F4D8CBB02431)
-  %89 = tail call double @llvm.fmuladd.f64(double %88, double %85, double 0x405C05131CA58D35)
-  %90 = tail call double @llvm.fmuladd.f64(double %89, double %85, double 0x406BA6D5C7A28CF5)
-  %91 = tail call double @llvm.fmuladd.f64(double %90, double %85, double 0x406B869EA974C7E9)
-  %mul9.i90 = fmul double %91, %call.i71
-  %92 = tail call double @llvm.fmuladd.f64(double %85, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %93 = tail call double @llvm.fmuladd.f64(double %92, double %85, double 0x4030106DF11BD48F)
-  %94 = tail call double @llvm.fmuladd.f64(double %93, double %85, double 0x4055B1F78433A599)
-  %95 = tail call double @llvm.fmuladd.f64(double %94, double %85, double 0x4072890729BA781A)
-  %96 = tail call double @llvm.fmuladd.f64(double %95, double %85, double 0x4083EAAB47FA1778)
-  %97 = tail call double @llvm.fmuladd.f64(double %96, double %85, double 0x4088CE9CB298974E)
-  %98 = tail call double @llvm.fmuladd.f64(double %97, double %85, double 0x407B869EA974C7E9)
-  %div17.i91 = fdiv double %mul9.i90, %98
+  %69 = tail call double @llvm.fmuladd.f64(double %68, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %70 = tail call double @llvm.fmuladd.f64(double %69, double %68, double 0x40197EEFF2A86F23)
+  %71 = tail call double @llvm.fmuladd.f64(double %70, double %68, double 0x4040F4D8CBB02431)
+  %72 = tail call double @llvm.fmuladd.f64(double %71, double %68, double 0x405C05131CA58D35)
+  %73 = tail call double @llvm.fmuladd.f64(double %72, double %68, double 0x406BA6D5C7A28CF5)
+  %74 = tail call double @llvm.fmuladd.f64(double %73, double %68, double 0x406B869EA974C7E9)
+  %mul9.i90 = fmul double %74, %call.i71
+  %75 = tail call double @llvm.fmuladd.f64(double %68, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %76 = tail call double @llvm.fmuladd.f64(double %75, double %68, double 0x4030106DF11BD48F)
+  %77 = tail call double @llvm.fmuladd.f64(double %76, double %68, double 0x4055B1F78433A599)
+  %78 = tail call double @llvm.fmuladd.f64(double %77, double %68, double 0x4072890729BA781A)
+  %79 = tail call double @llvm.fmuladd.f64(double %78, double %68, double 0x4083EAAB47FA1778)
+  %80 = tail call double @llvm.fmuladd.f64(double %79, double %68, double 0x4088CE9CB298974E)
+  %81 = tail call double @llvm.fmuladd.f64(double %80, double %68, double 0x407B869EA974C7E9)
+  %div17.i91 = fdiv double %mul9.i90, %81
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92
 
 if.else18.i73:                                    ; preds = %if.else.i67
-  %add.i74 = fadd double %85, 6.500000e-01
+  %add.i74 = fadd double %68, 6.500000e-01
   %div19.i75 = fdiv double 4.000000e+00, %add.i74
-  %add20.i76 = fadd double %85, %div19.i75
+  %add20.i76 = fadd double %68, %div19.i75
   %div21.i77 = fdiv double 3.000000e+00, %add20.i76
-  %add22.i78 = fadd double %85, %div21.i77
+  %add22.i78 = fadd double %68, %div21.i77
   %div23.i79 = fdiv double 2.000000e+00, %add22.i78
-  %add24.i80 = fadd double %85, %div23.i79
+  %add24.i80 = fadd double %68, %div23.i79
   %div25.i81 = fdiv double 1.000000e+00, %add24.i80
-  %add26.i82 = fadd double %85, %div25.i81
+  %add26.i82 = fadd double %68, %div25.i81
   %div27.i83 = fdiv double %call.i71, %add26.i82
   %div28.i84 = fdiv double %div27.i83, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92
 
 _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92:         ; preds = %if.then159, %if.then2.i89, %if.else18.i73
   %P.0.i85 = phi double [ %div17.i91, %if.then2.i89 ], [ %div28.i84, %if.else18.i73 ], [ 0.000000e+00, %if.then159 ]
-  %cmp30.i86 = fcmp olt double %84, 0.000000e+00
+  %cmp30.i86 = fcmp olt double %67, 0.000000e+00
   %sub.i87 = fsub double 1.000000e+00, %P.0.i85
   %P.1.i88 = select i1 %cmp30.i86, double %sub.i87, double %P.0.i85
-  %add163 = fadd double %83, %P.1.i88
-  br label %if.end174.sink.split
+  %add163 = fadd double %66, %P.1.i88
+  br label %if.end174
 
 if.else164:                                       ; preds = %if.end157
-  %fneg165 = fneg double %83
-  store double %fneg165, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8, !tbaa !107
-  %cmp166 = fcmp ogt double %49, %a
+  %fneg165 = fneg double %66
+  %cmp166 = fcmp ogt double %40, %a
   br i1 %cmp166, label %if.then167, label %if.end174
 
 if.then167:                                       ; preds = %if.else164
-  %99 = tail call double @llvm.fabs.f64(double %b)
-  %cmp.i93 = fcmp ogt double %99, 3.700000e+01
+  %82 = tail call double @llvm.fabs.f64(double %b)
+  %cmp.i93 = fcmp ogt double %82, 3.700000e+01
   br i1 %cmp.i93, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit119, label %if.else.i94
 
 if.else.i94:                                      ; preds = %if.then167
-  %fneg.i95 = fneg double %99
-  %mul.i96 = fmul double %99, %fneg.i95
+  %fneg.i95 = fneg double %82
+  %mul.i96 = fmul double %82, %fneg.i95
   %div.i97 = fmul double %mul.i96, 5.000000e-01
   %call.i98 = tail call double @exp(double noundef %div.i97) #31, !tbaa !108
-  %cmp1.i99 = fcmp olt double %99, 0x401C48C6001F0ABF
+  %cmp1.i99 = fcmp olt double %82, 0x401C48C6001F0ABF
   br i1 %cmp1.i99, label %if.then2.i116, label %if.else18.i100
 
 if.then2.i116:                                    ; preds = %if.else.i94
-  %100 = tail call double @llvm.fmuladd.f64(double %99, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %101 = tail call double @llvm.fmuladd.f64(double %100, double %99, double 0x40197EEFF2A86F23)
-  %102 = tail call double @llvm.fmuladd.f64(double %101, double %99, double 0x4040F4D8CBB02431)
-  %103 = tail call double @llvm.fmuladd.f64(double %102, double %99, double 0x405C05131CA58D35)
-  %104 = tail call double @llvm.fmuladd.f64(double %103, double %99, double 0x406BA6D5C7A28CF5)
-  %105 = tail call double @llvm.fmuladd.f64(double %104, double %99, double 0x406B869EA974C7E9)
-  %mul9.i117 = fmul double %105, %call.i98
-  %106 = tail call double @llvm.fmuladd.f64(double %99, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %107 = tail call double @llvm.fmuladd.f64(double %106, double %99, double 0x4030106DF11BD48F)
-  %108 = tail call double @llvm.fmuladd.f64(double %107, double %99, double 0x4055B1F78433A599)
-  %109 = tail call double @llvm.fmuladd.f64(double %108, double %99, double 0x4072890729BA781A)
-  %110 = tail call double @llvm.fmuladd.f64(double %109, double %99, double 0x4083EAAB47FA1778)
-  %111 = tail call double @llvm.fmuladd.f64(double %110, double %99, double 0x4088CE9CB298974E)
-  %112 = tail call double @llvm.fmuladd.f64(double %111, double %99, double 0x407B869EA974C7E9)
-  %div17.i118 = fdiv double %mul9.i117, %112
+  %83 = tail call double @llvm.fmuladd.f64(double %82, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %84 = tail call double @llvm.fmuladd.f64(double %83, double %82, double 0x40197EEFF2A86F23)
+  %85 = tail call double @llvm.fmuladd.f64(double %84, double %82, double 0x4040F4D8CBB02431)
+  %86 = tail call double @llvm.fmuladd.f64(double %85, double %82, double 0x405C05131CA58D35)
+  %87 = tail call double @llvm.fmuladd.f64(double %86, double %82, double 0x406BA6D5C7A28CF5)
+  %88 = tail call double @llvm.fmuladd.f64(double %87, double %82, double 0x406B869EA974C7E9)
+  %mul9.i117 = fmul double %88, %call.i98
+  %89 = tail call double @llvm.fmuladd.f64(double %82, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %90 = tail call double @llvm.fmuladd.f64(double %89, double %82, double 0x4030106DF11BD48F)
+  %91 = tail call double @llvm.fmuladd.f64(double %90, double %82, double 0x4055B1F78433A599)
+  %92 = tail call double @llvm.fmuladd.f64(double %91, double %82, double 0x4072890729BA781A)
+  %93 = tail call double @llvm.fmuladd.f64(double %92, double %82, double 0x4083EAAB47FA1778)
+  %94 = tail call double @llvm.fmuladd.f64(double %93, double %82, double 0x4088CE9CB298974E)
+  %95 = tail call double @llvm.fmuladd.f64(double %94, double %82, double 0x407B869EA974C7E9)
+  %div17.i118 = fdiv double %mul9.i117, %95
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit119
 
 if.else18.i100:                                   ; preds = %if.else.i94
-  %add.i101 = fadd double %99, 6.500000e-01
+  %add.i101 = fadd double %82, 6.500000e-01
   %div19.i102 = fdiv double 4.000000e+00, %add.i101
-  %add20.i103 = fadd double %99, %div19.i102
+  %add20.i103 = fadd double %82, %div19.i102
   %div21.i104 = fdiv double 3.000000e+00, %add20.i103
-  %add22.i105 = fadd double %99, %div21.i104
+  %add22.i105 = fadd double %82, %div21.i104
   %div23.i106 = fdiv double 2.000000e+00, %add22.i105
-  %add24.i107 = fadd double %99, %div23.i106
+  %add24.i107 = fadd double %82, %div23.i106
   %div25.i108 = fdiv double 1.000000e+00, %add24.i107
-  %add26.i109 = fadd double %99, %div25.i108
+  %add26.i109 = fadd double %82, %div25.i108
   %div27.i110 = fdiv double %call.i98, %add26.i109
   %div28.i111 = fdiv double %div27.i110, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit119
 
 _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit119:        ; preds = %if.then167, %if.then2.i116, %if.else18.i100
   %P.0.i112 = phi double [ %div17.i118, %if.then2.i116 ], [ %div28.i111, %if.else18.i100 ], [ 0.000000e+00, %if.then167 ]
-  %cmp30.i113 = fcmp ogt double %49, 0.000000e+00
+  %cmp30.i113 = fcmp ogt double %40, 0.000000e+00
   %sub.i114 = fsub double 1.000000e+00, %P.0.i112
   %P.1.i115 = select i1 %cmp30.i113, double %sub.i114, double %P.0.i112
-  %add169 = fsub double %P.1.i115, %83
-  %113 = tail call double @llvm.fabs.f64(double %a)
-  %cmp.i120 = fcmp ogt double %113, 3.700000e+01
+  %add169 = fsub double %P.1.i115, %66
+  %96 = tail call double @llvm.fabs.f64(double %a)
+  %cmp.i120 = fcmp ogt double %96, 3.700000e+01
   br i1 %cmp.i120, label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146, label %if.else.i121
 
 if.else.i121:                                     ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit119
-  %fneg.i122 = fneg double %113
-  %mul.i123 = fmul double %113, %fneg.i122
+  %fneg.i122 = fneg double %96
+  %mul.i123 = fmul double %96, %fneg.i122
   %div.i124 = fmul double %mul.i123, 5.000000e-01
   %call.i125 = tail call double @exp(double noundef %div.i124) #31, !tbaa !108
-  %cmp1.i126 = fcmp olt double %113, 0x401C48C6001F0ABF
+  %cmp1.i126 = fcmp olt double %96, 0x401C48C6001F0ABF
   br i1 %cmp1.i126, label %if.then2.i143, label %if.else18.i127
 
 if.then2.i143:                                    ; preds = %if.else.i121
-  %114 = tail call double @llvm.fmuladd.f64(double %113, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
-  %115 = tail call double @llvm.fmuladd.f64(double %114, double %113, double 0x40197EEFF2A86F23)
-  %116 = tail call double @llvm.fmuladd.f64(double %115, double %113, double 0x4040F4D8CBB02431)
-  %117 = tail call double @llvm.fmuladd.f64(double %116, double %113, double 0x405C05131CA58D35)
-  %118 = tail call double @llvm.fmuladd.f64(double %117, double %113, double 0x406BA6D5C7A28CF5)
-  %119 = tail call double @llvm.fmuladd.f64(double %118, double %113, double 0x406B869EA974C7E9)
-  %mul9.i144 = fmul double %119, %call.i125
-  %120 = tail call double @llvm.fmuladd.f64(double %113, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
-  %121 = tail call double @llvm.fmuladd.f64(double %120, double %113, double 0x4030106DF11BD48F)
-  %122 = tail call double @llvm.fmuladd.f64(double %121, double %113, double 0x4055B1F78433A599)
-  %123 = tail call double @llvm.fmuladd.f64(double %122, double %113, double 0x4072890729BA781A)
-  %124 = tail call double @llvm.fmuladd.f64(double %123, double %113, double 0x4083EAAB47FA1778)
-  %125 = tail call double @llvm.fmuladd.f64(double %124, double %113, double 0x4088CE9CB298974E)
-  %126 = tail call double @llvm.fmuladd.f64(double %125, double %113, double 0x407B869EA974C7E9)
-  %div17.i145 = fdiv double %mul9.i144, %126
+  %97 = tail call double @llvm.fmuladd.f64(double %96, double 0x3FA20DED0B57FBDD, double 0x3FE66989BE8EA720)
+  %98 = tail call double @llvm.fmuladd.f64(double %97, double %96, double 0x40197EEFF2A86F23)
+  %99 = tail call double @llvm.fmuladd.f64(double %98, double %96, double 0x4040F4D8CBB02431)
+  %100 = tail call double @llvm.fmuladd.f64(double %99, double %96, double 0x405C05131CA58D35)
+  %101 = tail call double @llvm.fmuladd.f64(double %100, double %96, double 0x406BA6D5C7A28CF5)
+  %102 = tail call double @llvm.fmuladd.f64(double %101, double %96, double 0x406B869EA974C7E9)
+  %mul9.i144 = fmul double %102, %call.i125
+  %103 = tail call double @llvm.fmuladd.f64(double %96, double 0x3FB6A09E667F3BCD, double 0x3FFC173673887D1A)
+  %104 = tail call double @llvm.fmuladd.f64(double %103, double %96, double 0x4030106DF11BD48F)
+  %105 = tail call double @llvm.fmuladd.f64(double %104, double %96, double 0x4055B1F78433A599)
+  %106 = tail call double @llvm.fmuladd.f64(double %105, double %96, double 0x4072890729BA781A)
+  %107 = tail call double @llvm.fmuladd.f64(double %106, double %96, double 0x4083EAAB47FA1778)
+  %108 = tail call double @llvm.fmuladd.f64(double %107, double %96, double 0x4088CE9CB298974E)
+  %109 = tail call double @llvm.fmuladd.f64(double %108, double %96, double 0x407B869EA974C7E9)
+  %div17.i145 = fdiv double %mul9.i144, %109
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146
 
 if.else18.i127:                                   ; preds = %if.else.i121
-  %add.i128 = fadd double %113, 6.500000e-01
+  %add.i128 = fadd double %96, 6.500000e-01
   %div19.i129 = fdiv double 4.000000e+00, %add.i128
-  %add20.i130 = fadd double %113, %div19.i129
+  %add20.i130 = fadd double %96, %div19.i129
   %div21.i131 = fdiv double 3.000000e+00, %add20.i130
-  %add22.i132 = fadd double %113, %div21.i131
+  %add22.i132 = fadd double %96, %div21.i131
   %div23.i133 = fdiv double 2.000000e+00, %add22.i132
-  %add24.i134 = fadd double %113, %div23.i133
+  %add24.i134 = fadd double %96, %div23.i133
   %div25.i135 = fdiv double 1.000000e+00, %add24.i134
-  %add26.i136 = fadd double %113, %div25.i135
+  %add26.i136 = fadd double %96, %div25.i135
   %div27.i137 = fdiv double %call.i125, %add26.i136
   %div28.i138 = fdiv double %div27.i137, 0x40040D931FF62707
   br label %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146
@@ -7731,25 +7647,20 @@ _ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146:        ; preds = %_ZN8QuantLib12_GLOB
   %sub.i141 = fsub double 1.000000e+00, %P.0.i139
   %P.1.i142 = select i1 %cmp30.i140, double %sub.i141, double %P.0.i139
   %sub171 = fsub double %add169, %P.1.i142
-  br label %if.end174.sink.split
-
-if.end174.sink.split:                             ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92
-  %add163.sink = phi double [ %add163, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92 ], [ %sub171, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146 ], [ %47, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34 ]
-  store double %add163.sink, ptr @_ZZN8QuantLib12_GLOBAL__N_13ND2EdddE3BVN, align 8, !tbaa !107
   br label %if.end174
 
-if.end174:                                        ; preds = %if.end174.sink.split, %if.else164
-  %127 = phi double [ %fneg165, %if.else164 ], [ %add163.sink, %if.end174.sink.split ]
-  ret double %127
+if.end174:                                        ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34, %if.else164
+  %110 = phi double [ %fneg165, %if.else164 ], [ %add163, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit92 ], [ %sub171, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit146 ], [ %38, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit34 ]
+  ret double %110
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @asin(double noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_d(ptr noundef readonly captures(none) %limit, ptr noundef readonly captures(none) %sigmarho) unnamed_addr #22 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %limit, i64 8
@@ -7763,10 +7674,8 @@ entry:
   store double %2, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %sigmarho, i64 8
   %3 = load double, ptr %arrayidx3, align 8, !tbaa !107
-  store double %3, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R12, align 8, !tbaa !107
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %sigmarho, i64 16
   %4 = load double, ptr %arrayidx4, align 8, !tbaa !107
-  store double %4, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R13, align 8, !tbaa !107
   %arrayidx5 = getelementptr inbounds nuw i8, ptr %sigmarho, i64 24
   %5 = load double, ptr %arrayidx5, align 8, !tbaa !107
   store double %5, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
@@ -7778,8 +7687,6 @@ entry:
 if.then:                                          ; preds = %entry
   store double %2, ptr @_ZN8QuantLib12_GLOBAL__N_12H2E, align 8, !tbaa !107
   store double %1, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
-  store double %4, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R12, align 8, !tbaa !107
-  store double %3, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R13, align 8, !tbaa !107
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -7796,7 +7703,6 @@ if.then9:                                         ; preds = %if.end
   store double %9, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
   store double %0, ptr @_ZN8QuantLib12_GLOBAL__N_12H2E, align 8, !tbaa !107
   store double %10, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
-  store double %5, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R13, align 8, !tbaa !107
   br label %if.end12
 
 if.end12:                                         ; preds = %if.then9, %if.end
@@ -8035,9 +7941,8 @@ if.then58:                                        ; preds = %if.then56
   %call.i96 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %fneg.i94, double noundef %fneg1.i95, double noundef %8)
   %61 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
   %62 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
-  %63 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R12, align 8, !tbaa !107
   %fneg.i97 = fneg double %61
-  %call.i99 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %fneg.i97, double noundef %62, double noundef %63)
+  %call.i99 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %fneg.i97, double noundef %62, double noundef %8)
   %sub62 = fsub double %call.i96, %call.i99
   br label %if.end100
 
@@ -8045,17 +7950,15 @@ if.then66:                                        ; preds = %if.else53
   %fneg.i100 = fneg double %_ZN8QuantLib12_GLOBAL__N_12H2E.val
   %fneg1.i101 = fneg double %_ZN8QuantLib12_GLOBAL__N_12H3E.val
   %call.i102 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_13ND2Eddd(double noundef %fneg.i100, double noundef %fneg1.i101, double noundef %12)
-  %64 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
-  %call68 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14PHIDEd(double noundef %64)
+  %63 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
+  %call68 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_14PHIDEd(double noundef %63)
   %mul69 = fmul double %call.i102, %call68
-  %65 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R12, align 8, !tbaa !107
-  %call86 = tail call double @asin(double noundef %65) #31, !tbaa !108
+  %call86 = tail call double @asin(double noundef %8) #31, !tbaa !108
   store double %call86, ptr @_ZN8QuantLib12_GLOBAL__N_13RUAE, align 8, !tbaa !107
-  %66 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_14tvtlEiPKdS2_dE3R13, align 8, !tbaa !107
-  %call87 = tail call double @asin(double noundef %66) #31, !tbaa !108
+  %call87 = tail call double @asin(double noundef %13) #31, !tbaa !108
   store double %call87, ptr @_ZN8QuantLib12_GLOBAL__N_13RUBE, align 8, !tbaa !107
-  %67 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
-  %call88 = tail call double @asin(double noundef %67) #31, !tbaa !108
+  %64 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
+  %call88 = tail call double @asin(double noundef %64) #31, !tbaa !108
   store double %call88, ptr @_ZN8QuantLib12_GLOBAL__N_12ARE, align 8, !tbaa !107
   %cmp.i103 = fcmp ogt double %call88, 0.000000e+00
   %retval.0.i = select i1 %cmp.i103, double 0x3FF921FB54442D18, double 0xBFF921FB54442D18
@@ -8067,15 +7970,15 @@ if.then66:                                        ; preds = %if.else53
   br label %if.end100
 
 if.end100:                                        ; preds = %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit85, %if.then66, %if.then58, %if.then50, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit55, %if.then15, %if.then56
-  %68 = phi double [ 0.000000e+00, %if.then56 ], [ %mul, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit ], [ %mul47, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit85 ], [ %add94, %if.then66 ], [ %sub62, %if.then58 ], [ %call.i93, %if.then50 ], [ %mul38, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit55 ], [ %div23, %if.then15 ]
-  %cmp.i105 = fcmp ogt double %68, 1.000000e+00
-  %69 = select i1 %cmp.i105, double 1.000000e+00, double %68
-  %cmp.i107 = fcmp ogt double %69, 0.000000e+00
-  %70 = select i1 %cmp.i107, double %69, double 0.000000e+00
-  ret double %70
+  %65 = phi double [ 0.000000e+00, %if.then56 ], [ %mul, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit ], [ %mul47, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit85 ], [ %add94, %if.then66 ], [ %sub62, %if.then58 ], [ %call.i93, %if.then50 ], [ %mul38, %_ZN8QuantLib12_GLOBAL__N_14PHIDEd.exit55 ], [ %div23, %if.then15 ]
+  %cmp.i105 = fcmp ogt double %65, 1.000000e+00
+  %66 = select i1 %cmp.i105, double 1.000000e+00, double %65
+  %cmp.i107 = fcmp ogt double %66, 0.000000e+00
+  %67 = select i1 %cmp.i107, double %66, double 0.000000e+00
+  ret double %67
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiE(double noundef %A, double noundef %B, double noundef %TOL) unnamed_addr #22 {
 entry:
   store double %A, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16ADONETEdddPFddddddddddiEE2AI, i64 8), align 8, !tbaa !107
@@ -8153,7 +8056,7 @@ while.end:                                        ; preds = %for.end, %entry.whi
   ret double %12
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %X, double noundef %H1, double noundef %H2, double noundef %H3, double noundef %R23, double noundef %RUA, double noundef %RUB, double noundef %AR, double noundef %RUC, i32 noundef %NUC) unnamed_addr #25 {
 entry:
   %mul = fmul double %X, %RUA
@@ -8191,7 +8094,6 @@ if.else.i:                                        ; preds = %entry
 _ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit:     ; preds = %if.then.i, %if.else.i
   %call12.sink.i = phi double [ %retval.0.i.i, %if.then.i ], [ %call12.i, %if.else.i ]
   %storemerge.i = phi double [ %mul11.i, %if.then.i ], [ %2, %if.else.i ]
-  store double %call12.sink.i, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R12, align 8, !tbaa !107
   %mul1 = fmul double %X, %RUB
   %3 = tail call double @llvm.fabs.f64(double %mul1)
   %sub.i21 = fsub double 0x3FF921FB54442D18, %3
@@ -8227,8 +8129,6 @@ if.else.i24:                                      ; preds = %_ZN8QuantLib12_GLOB
 _ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit45:   ; preds = %if.then.i29, %if.else.i24
   %call12.sink.i27 = phi double [ %retval.0.i.i37, %if.then.i29 ], [ %call12.i25, %if.else.i24 ]
   %storemerge.i28 = phi double [ %mul11.i44, %if.then.i29 ], [ %5, %if.else.i24 ]
-  store double %call12.sink.i27, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R13, align 8, !tbaa !107
-  store double %storemerge.i28, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3RR3, align 8, !tbaa !107
   %cmp = fcmp ueq double %RUA, 0.000000e+00
   br i1 %cmp, label %if.end, label %if.then
 
@@ -8243,22 +8143,19 @@ if.end:                                           ; preds = %if.then, %_ZN8Quant
   br i1 %cmp3, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %7 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R12, align 8, !tbaa !107
-  %8 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3R13, align 8, !tbaa !107
-  %9 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddiE3RR3, align 8, !tbaa !107
-  %call5 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16PNTGNDEiddddddd(i32 noundef %NUC, double noundef %H1, double noundef %H3, double noundef %H2, double noundef %7, double noundef %R23, double noundef %8, double noundef %9)
-  %10 = tail call double @llvm.fmuladd.f64(double %RUB, double %call5, double %result.0)
+  %call5 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16PNTGNDEiddddddd(i32 noundef %NUC, double noundef %H1, double noundef %H3, double noundef %H2, double noundef %call12.sink.i, double noundef %R23, double noundef %call12.sink.i27, double noundef %storemerge.i28)
+  %7 = tail call double @llvm.fmuladd.f64(double %RUB, double %call5, double %result.0)
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %if.end
-  %result.1 = phi double [ %10, %if.then4 ], [ %result.0, %if.end ]
+  %result.1 = phi double [ %7, %if.then4 ], [ %result.0, %if.end ]
   %cmp8 = icmp sgt i32 %NUC, 0
   br i1 %cmp8, label %if.then9, label %if.end13
 
 if.then9:                                         ; preds = %if.end7
-  %11 = tail call double @llvm.fmuladd.f64(double %RUC, double %X, double %AR)
-  %12 = tail call double @llvm.fabs.f64(double %11)
-  %sub.i46 = fsub double 0x3FF921FB54442D18, %12
+  %8 = tail call double @llvm.fmuladd.f64(double %RUC, double %X, double %AR)
+  %9 = tail call double @llvm.fabs.f64(double %8)
+  %sub.i46 = fsub double 0x3FF921FB54442D18, %9
   %square.i47 = fmul double %sub.i46, %sub.i46
   %cmp.i48 = fcmp olt double %square.i47, 5.000000e-05
   br i1 %cmp.i48, label %if.then.i54, label %if.else.i49
@@ -8269,10 +8166,10 @@ if.then.i54:                                      ; preds = %if.then9
   %mul.i57 = fmul double %square.i47, %sub1.i56
   %div2.i58 = fmul double %mul.i57, 5.000000e-01
   %sub3.i59 = fsub double 1.000000e+00, %div2.i58
-  %cmp.i.i60 = fcmp ogt double %11, 0.000000e+00
-  %13 = tail call double @llvm.fabs.f64(double %sub3.i59)
-  %fneg.i.i61 = fneg double %13
-  %retval.0.i.i62 = select i1 %cmp.i.i60, double %13, double %fneg.i.i61
+  %cmp.i.i60 = fcmp ogt double %8, 0.000000e+00
+  %10 = tail call double @llvm.fabs.f64(double %sub3.i59)
+  %fneg.i.i61 = fneg double %10
+  %retval.0.i.i62 = select i1 %cmp.i.i60, double %10, double %fneg.i.i61
   %mul5.i63 = fmul double %square.i47, 2.000000e+00
   %div6.i64 = fdiv double %mul5.i63, 1.500000e+01
   %sub7.i65 = fsub double 1.000000e+00, %div6.i64
@@ -8283,25 +8180,25 @@ if.then.i54:                                      ; preds = %if.then9
   br label %_ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit70
 
 if.else.i49:                                      ; preds = %if.then9
-  %call12.i50 = tail call double @sin(double noundef %11) #31, !tbaa !108
+  %call12.i50 = tail call double @sin(double noundef %8) #31, !tbaa !108
   %neg.i51 = fneg double %call12.i50
-  %14 = tail call double @llvm.fmuladd.f64(double %neg.i51, double %call12.i50, double 1.000000e+00)
+  %11 = tail call double @llvm.fmuladd.f64(double %neg.i51, double %call12.i50, double 1.000000e+00)
   br label %_ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit70
 
 _ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit70:   ; preds = %if.then.i54, %if.else.i49
   %call12.sink.i52 = phi double [ %retval.0.i.i62, %if.then.i54 ], [ %call12.i50, %if.else.i49 ]
-  %storemerge.i53 = phi double [ %mul11.i69, %if.then.i54 ], [ %14, %if.else.i49 ]
+  %storemerge.i53 = phi double [ %mul11.i69, %if.then.i54 ], [ %11, %if.else.i49 ]
   %call11 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16PNTGNDEiddddddd(i32 noundef %NUC, double noundef %H2, double noundef %H3, double noundef %H1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %call12.sink.i52, double noundef %storemerge.i53)
   %neg = fneg double %RUC
-  %15 = tail call double @llvm.fmuladd.f64(double %neg, double %call11, double %result.1)
+  %12 = tail call double @llvm.fmuladd.f64(double %neg, double %call11, double %result.1)
   br label %if.end13
 
 if.end13:                                         ; preds = %_ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit70, %if.end7
-  %result.2 = phi double [ %15, %_ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit70 ], [ %result.1, %if.end7 ]
+  %result.2 = phi double [ %12, %_ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit70 ], [ %result.1, %if.end7 ]
   ret double %result.2
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERd(double noundef %A, double noundef %B, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %ERR) unnamed_addr #22 {
 entry:
   store double 0x3FD1779AC87E04D8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 8), align 8, !tbaa !107
@@ -8336,10 +8233,8 @@ entry:
   store double 0x3FC14E05E2E706EF, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 96), align 16, !tbaa !107
   %sub = fsub double %B, %A
   %div = fmul double %sub, 5.000000e-01
-  store double %div, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WID, align 8, !tbaa !107
   %add = fadd double %A, %B
   %div1 = fmul double %add, 5.000000e-01
-  store double %div1, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3CEN, align 8, !tbaa !107
   %0 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
   %1 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H2E, align 8, !tbaa !107
   %2 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
@@ -8351,81 +8246,71 @@ entry:
   %call = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %div1, double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, i32 noundef 0)
   %8 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 8), align 8, !tbaa !107
   %mul = fmul double %call, %8
-  store double %mul, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG, align 8, !tbaa !107
   %9 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 8), align 8, !tbaa !107
   %mul2 = fmul double %call, %9
-  store double %mul2, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK, align 8, !tbaa !107
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
+  %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK.0 = phi double [ %mul2, %entry ], [ %28, %for.inc ]
+  %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.0 = phi double [ %mul, %entry ], [ %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.1, %for.inc ]
   %indvars.iv = phi i64 [ 1, %entry ], [ %indvars.iv.next, %for.inc ]
-  %10 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WID, align 8, !tbaa !107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds nuw [13 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3XGK, i64 0, i64 %indvars.iv.next
-  %11 = load double, ptr %arrayidx, align 8, !tbaa !107
-  %mul4 = fmul double %10, %11
-  store double %mul4, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE1T, align 8, !tbaa !107
-  %12 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3CEN, align 8, !tbaa !107
-  %sub5 = fsub double %12, %mul4
-  %13 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
-  %14 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H2E, align 8, !tbaa !107
-  %15 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
-  %16 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
-  %17 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUAE, align 8, !tbaa !107
-  %18 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUBE, align 8, !tbaa !107
-  %19 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12ARE, align 8, !tbaa !107
-  %20 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUCE, align 8, !tbaa !107
-  %call6 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %sub5, double noundef %13, double noundef %14, double noundef %15, double noundef %16, double noundef %17, double noundef %18, double noundef %19, double noundef %20, i32 noundef 0)
-  %21 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3CEN, align 8, !tbaa !107
-  %22 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE1T, align 8, !tbaa !107
-  %add7 = fadd double %21, %22
-  %23 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
-  %24 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H2E, align 8, !tbaa !107
-  %25 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
-  %26 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
-  %27 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUAE, align 8, !tbaa !107
-  %28 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUBE, align 8, !tbaa !107
-  %29 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12ARE, align 8, !tbaa !107
-  %30 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUCE, align 8, !tbaa !107
-  %call8 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %add7, double noundef %23, double noundef %24, double noundef %25, double noundef %26, double noundef %27, double noundef %28, double noundef %29, double noundef %30, i32 noundef 0)
+  %10 = load double, ptr %arrayidx, align 8, !tbaa !107
+  %mul4 = fmul double %div, %10
+  %sub5 = fsub double %div1, %mul4
+  %11 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
+  %12 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H2E, align 8, !tbaa !107
+  %13 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
+  %14 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
+  %15 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUAE, align 8, !tbaa !107
+  %16 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUBE, align 8, !tbaa !107
+  %17 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12ARE, align 8, !tbaa !107
+  %18 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUCE, align 8, !tbaa !107
+  %call6 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %sub5, double noundef %11, double noundef %12, double noundef %13, double noundef %14, double noundef %15, double noundef %16, double noundef %17, double noundef %18, i32 noundef 0)
+  %add7 = fadd double %div1, %mul4
+  %19 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H1E, align 8, !tbaa !107
+  %20 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H2E, align 8, !tbaa !107
+  %21 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12H3E, align 8, !tbaa !107
+  %22 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13R23E, align 8, !tbaa !107
+  %23 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUAE, align 8, !tbaa !107
+  %24 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUBE, align 8, !tbaa !107
+  %25 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_12ARE, align 8, !tbaa !107
+  %26 = load double, ptr @_ZN8QuantLib12_GLOBAL__N_13RUCE, align 8, !tbaa !107
+  %call8 = tail call fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16TVTMFNEdddddddddi(double noundef %add7, double noundef %19, double noundef %20, double noundef %21, double noundef %22, double noundef %23, double noundef %24, double noundef %25, double noundef %26, i32 noundef 0)
   %add9 = fadd double %call6, %call8
-  %31 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK, align 8, !tbaa !107
   %arrayidx12 = getelementptr inbounds nuw [13 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WGK, i64 0, i64 %indvars.iv.next
-  %32 = load double, ptr %arrayidx12, align 8, !tbaa !107
-  %33 = tail call double @llvm.fmuladd.f64(double %32, double %add9, double %31)
-  store double %33, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK, align 8, !tbaa !107
-  %34 = trunc nuw nsw i64 %indvars.iv to i32
-  %sub16 = and i32 %34, 1
+  %27 = load double, ptr %arrayidx12, align 8, !tbaa !107
+  %28 = tail call double @llvm.fmuladd.f64(double %27, double %add9, double %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESK.0)
+  %29 = trunc nuw nsw i64 %indvars.iv to i32
+  %sub16 = and i32 %29, 1
   %cmp17 = icmp eq i32 %sub16, 0
   br i1 %cmp17, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %div1411 = lshr exact i32 %34, 1
-  %35 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG, align 8, !tbaa !107
+  %div1411 = lshr exact i32 %29, 1
   %add19 = add nuw nsw i32 %div1411, 1
   %idxprom20 = zext nneg i32 %add19 to i64
   %arrayidx21 = getelementptr inbounds nuw [7 x double], ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE2WG, i64 0, i64 %idxprom20
-  %36 = load double, ptr %arrayidx21, align 8, !tbaa !107
-  %37 = tail call double @llvm.fmuladd.f64(double %36, double %add9, double %35)
-  store double %37, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG, align 8, !tbaa !107
+  %30 = load double, ptr %arrayidx21, align 8, !tbaa !107
+  %31 = tail call double @llvm.fmuladd.f64(double %30, double %add9, double %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.0)
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
+  %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.1 = phi double [ %31, %if.then ], [ %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.0, %for.body ]
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !142
 
 for.end:                                          ; preds = %for.inc
-  %38 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE3WID, align 8, !tbaa !107
-  %mul23 = fmul double %38, %33
-  %39 = load double, ptr @_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG, align 8, !tbaa !107
-  %sub24 = fsub double %33, %39
-  %mul25 = fmul double %38, %sub24
-  %40 = tail call double @llvm.fabs.f64(double %mul25)
-  store double %40, ptr %ERR, align 8, !tbaa !107
+  %mul23 = fmul double %div, %28
+  %sub24 = fsub double %28, %_ZZN8QuantLib12_GLOBAL__N_16KRNRDTEddPFddddddddddiERdE4RESG.1
+  %mul25 = fmul double %div, %sub24
+  %32 = tail call double @llvm.fabs.f64(double %mul25)
+  store double %32, ptr %ERR, align 8, !tbaa !107
   ret double %mul23
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc noundef double @_ZN8QuantLib12_GLOBAL__N_16PNTGNDEiddddddd(i32 noundef %NUC, double noundef %BA, double noundef %BB, double noundef %BC, double noundef %RA, double noundef %RB, double noundef %R, double noundef %RR) unnamed_addr #26 {
 entry:
   %sub = fsub double %RA, %RB
@@ -9067,7 +8952,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #27
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
@@ -10130,15 +10015,15 @@ attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nobuiltin allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #22 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #22 = { mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #23 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #24 = { mustprogress nofree nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #25 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #24 = { mustprogress nofree norecurse nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #25 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #26 = { mustprogress nofree norecurse nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #28 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #30 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

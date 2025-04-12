@@ -157,26 +157,26 @@ define noalias noundef ptr @get_font_mapping(ptr noundef %0) local_unnamed_addr 
   %12 = alloca %struct.agxbuf, align 8
   %13 = alloca %struct.agxbuf, align 8
   %14 = alloca %struct.availfonts_t, align 8
-  %15 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 35, i64 noundef 16) #19
+  %15 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 35, i64 noundef 16) #20
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %gv_calloc.exit
 
 17:                                               ; preds = %1
   %18 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i64 noundef 560) #20
-  tail call fastcc void @graphviz_exit() #21
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i64 noundef 560) #21
+  tail call fastcc void @graphviz_exit() #22
   unreachable
 
 gv_calloc.exit:                                   ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #22
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #22
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %14) #22
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %14) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #22, !noalias !8
-  call void @pango_font_map_list_families(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %11) #22, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #23, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #23, !noalias !8
+  call void @pango_font_map_list_families(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %11) #23, !noalias !8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %14, i8 0, i64 240, i1 false), !alias.scope !8
   %20 = load i32, ptr %11, align 4, !tbaa !11, !noalias !8
   %21 = icmp sgt i32 %20, 0
@@ -225,25 +225,25 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8, !tbaa !26, !noalias !8
-  %38 = call ptr @pango_font_family_get_name(ptr noundef %37) #23, !noalias !8
-  %39 = call i32 @strcasecmp(ptr noundef %31, ptr noundef %38) #23, !noalias !8
+  %38 = call ptr @pango_font_family_get_name(ptr noundef %37) #24, !noalias !8
+  %39 = call i32 @strcasecmp(ptr noundef %31, ptr noundef %38) #24, !noalias !8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %34
 
 41:                                               ; preds = %35
   %strlen.i.i = call i64 @strlen(ptr nonnull dereferenceable(1) %38), !noalias !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #22, !noalias !8
-  call void @pango_font_family_list_faces(ptr noundef %37, ptr noundef nonnull %8, ptr noundef nonnull %9) #22, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #23, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #23, !noalias !8
+  call void @pango_font_family_list_faces(ptr noundef %37, ptr noundef nonnull %8, ptr noundef nonnull %9) #23, !noalias !8
   %42 = load i32, ptr %9, align 4, !tbaa !11, !noalias !8
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph.i.i, label %.thread89.i
 
 .thread89.i:                                      ; preds = %41
   %44 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !8
-  call void @g_free(ptr noundef %44) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22, !noalias !8
+  call void @g_free(ptr noundef %44) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23, !noalias !8
   br label %strview_str.exit.i
 
 .lr.ph.i.i:                                       ; preds = %41, %.loopexit.i.i
@@ -252,7 +252,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %45 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !8
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i.i
   %47 = load ptr, ptr %46, align 8, !tbaa !30, !noalias !8
-  %48 = call ptr @pango_font_face_get_face_name(ptr noundef %47) #23, !noalias !8
+  %48 = call ptr @pango_font_face_get_face_name(ptr noundef %47) #24, !noalias !8
   br label %51
 
 49:                                               ; preds = %51
@@ -265,7 +265,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %52 = getelementptr inbounds nuw [11 x %struct.face_t], ptr @facelist, i64 0, i64 %.013.i.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !33, !noalias !8
-  %55 = call ptr @strcasestr(ptr noundef %48, ptr noundef %54) #22, !noalias !8
+  %55 = call ptr @strcasestr(ptr noundef %48, ptr noundef %54) #23, !noalias !8
   %.not.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i, label %49, label %56
 
@@ -284,9 +284,9 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 62:                                               ; preds = %.loopexit.i.i
   %63 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !8
-  call void @g_free(ptr noundef %63) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22, !noalias !8
+  call void @g_free(ptr noundef %63) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #23, !noalias !8
   br label %.thread101.i
 
 .thread.i:                                        ; preds = %34
@@ -316,8 +316,8 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %indvars.iv155.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next156.i, %71 ]
   %73 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv155.i
   %74 = load ptr, ptr %73, align 8, !tbaa !26, !noalias !8
-  %75 = call ptr @pango_font_family_get_name(ptr noundef %74) #23, !noalias !8
-  %76 = call i32 @strcasecmp(ptr noundef %70, ptr noundef %75) #23, !noalias !8
+  %75 = call ptr @pango_font_family_get_name(ptr noundef %74) #24, !noalias !8
+  %76 = call i32 @strcasecmp(ptr noundef %70, ptr noundef %75) #24, !noalias !8
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %.split.us.i, label %71
 
@@ -328,9 +328,9 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 .split.us.i:                                      ; preds = %72
   %strlen.i56.i = call i64 @strlen(ptr nonnull dereferenceable(1) %75), !noalias !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #22, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #22, !noalias !8
-  call void @pango_font_family_list_faces(ptr noundef %74, ptr noundef nonnull %6, ptr noundef nonnull %7) #22, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #23, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #23, !noalias !8
+  call void @pango_font_family_list_faces(ptr noundef %74, ptr noundef nonnull %6, ptr noundef nonnull %7) #23, !noalias !8
   %78 = load i32, ptr %7, align 4, !tbaa !11, !noalias !8
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %.lr.ph.i60.i, label %.thread98.i
@@ -341,9 +341,9 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 .thread98.i:                                      ; preds = %.split.us.i
   %81 = load ptr, ptr %6, align 8, !tbaa !28, !noalias !8
-  call void @g_free(ptr noundef %81) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22, !noalias !8
+  call void @g_free(ptr noundef %81) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23, !noalias !8
   br label %strview_str.exit.i
 
 .lr.ph.i60.i:                                     ; preds = %.split.us.i, %.loopexit.i65.i
@@ -352,7 +352,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %82 = load ptr, ptr %6, align 8, !tbaa !28, !noalias !8
   %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.i61.i
   %84 = load ptr, ptr %83, align 8, !tbaa !30, !noalias !8
-  %85 = call ptr @pango_font_face_get_face_name(ptr noundef %84) #23, !noalias !8
+  %85 = call ptr @pango_font_face_get_face_name(ptr noundef %84) #24, !noalias !8
   br label %88
 
 86:                                               ; preds = %88
@@ -365,7 +365,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %89 = getelementptr inbounds nuw [11 x %struct.face_t], ptr @facelist, i64 0, i64 %.013.i63.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !33, !noalias !8
-  %92 = call ptr @strcasestr(ptr noundef %85, ptr noundef %91) #22, !noalias !8
+  %92 = call ptr @strcasestr(ptr noundef %85, ptr noundef %91) #23, !noalias !8
   %.not.i64.i = icmp eq ptr %92, null
   br i1 %.not.i64.i, label %86, label %93
 
@@ -384,9 +384,9 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 99:                                               ; preds = %.loopexit.i65.i
   %100 = load ptr, ptr %6, align 8, !tbaa !28, !noalias !8
-  call void @g_free(ptr noundef %100) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22, !noalias !8
+  call void @g_free(ptr noundef %100) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #23, !noalias !8
   br label %.thread101.i
 
 101:                                              ; preds = %102
@@ -398,16 +398,16 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %indvars.iv165.i = phi i64 [ 0, %.preheader116.i ], [ %indvars.iv.next166.i, %101 ]
   %103 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv165.i
   %104 = load ptr, ptr %103, align 8, !tbaa !26, !noalias !8
-  %105 = call ptr @pango_font_family_get_name(ptr noundef %104) #23, !noalias !8
-  %106 = call i32 @strcasecmp(ptr noundef %80, ptr noundef %105) #23, !noalias !8
+  %105 = call ptr @pango_font_family_get_name(ptr noundef %104) #24, !noalias !8
+  %106 = call i32 @strcasecmp(ptr noundef %80, ptr noundef %105) #24, !noalias !8
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %101
 
 108:                                              ; preds = %102
   %strlen.i70.i = call i64 @strlen(ptr nonnull dereferenceable(1) %105), !noalias !8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22, !noalias !8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #22, !noalias !8
-  call void @pango_font_family_list_faces(ptr noundef %104, ptr noundef nonnull %4, ptr noundef nonnull %5) #22, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #23, !noalias !8
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #23, !noalias !8
+  call void @pango_font_family_list_faces(ptr noundef %104, ptr noundef nonnull %4, ptr noundef nonnull %5) #23, !noalias !8
   %109 = load i32, ptr %5, align 4, !tbaa !11, !noalias !8
   %110 = icmp sgt i32 %109, 0
   br i1 %110, label %.lr.ph.i74.i, label %get_faces.exit83.i
@@ -418,7 +418,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %111 = load ptr, ptr %4, align 8, !tbaa !28, !noalias !8
   %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv.i75.i
   %113 = load ptr, ptr %112, align 8, !tbaa !30, !noalias !8
-  %114 = call ptr @pango_font_face_get_face_name(ptr noundef %113) #23, !noalias !8
+  %114 = call ptr @pango_font_face_get_face_name(ptr noundef %113) #24, !noalias !8
   br label %117
 
 115:                                              ; preds = %117
@@ -431,7 +431,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %118 = getelementptr inbounds nuw [11 x %struct.face_t], ptr @facelist, i64 0, i64 %.013.i77.i
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !33, !noalias !8
-  %121 = call ptr @strcasestr(ptr noundef %114, ptr noundef %120) #22, !noalias !8
+  %121 = call ptr @strcasestr(ptr noundef %114, ptr noundef %120) #23, !noalias !8
   %.not.i78.i = icmp eq ptr %121, null
   br i1 %.not.i78.i, label %115, label %122
 
@@ -451,9 +451,9 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 get_faces.exit83.i:                               ; preds = %.loopexit.i79.i, %108
   %.011.lcssa.i73.i = phi i32 [ 0, %108 ], [ %.1.i80.i, %.loopexit.i79.i ]
   %128 = load ptr, ptr %4, align 8, !tbaa !28, !noalias !8
-  call void @g_free(ptr noundef %128) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22, !noalias !8
+  call void @g_free(ptr noundef %128) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23, !noalias !8
   br label %.thread101.i
 
 .thread101.i:                                     ; preds = %get_faces.exit83.i, %99, %62
@@ -464,15 +464,15 @@ get_faces.exit83.i:                               ; preds = %.loopexit.i79.i, %1
   br i1 %.not.i, label %strview_str.exit.i, label %129
 
 129:                                              ; preds = %.thread101.i
-  %130 = call noalias ptr @strndup(ptr noundef nonnull readonly %.sroa.06.5.i, i64 noundef %.sroa.11.5.i) #22, !noalias !8
+  %130 = call noalias ptr @strndup(ptr noundef nonnull readonly %.sroa.06.5.i, i64 noundef %.sroa.11.5.i) #23, !noalias !8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %strview_str.exit.i
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr @stderr, align 8, !tbaa !3, !noalias !8
   %134 = add i64 %.sroa.11.5.i, 1
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.2, i64 noundef %134) #20, !noalias !8
-  call fastcc void @graphviz_exit() #21
+  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.2, i64 noundef %134) #21, !noalias !8
+  call fastcc void @graphviz_exit() #22
   unreachable
 
 strview_str.exit.i:                               ; preds = %101, %129, %.thread101.i, %.thread98.i, %.thread89.i, %gv_calloc.exit.split
@@ -488,9 +488,9 @@ strview_str.exit.i:                               ; preds = %101, %129, %.thread
 
 gv_get_ps_fontlist.exit:                          ; preds = %strview_str.exit.i.us, %strview_str.exit.i
   %139 = load ptr, ptr %10, align 8, !tbaa !23, !noalias !8
-  call void @g_free(ptr noundef %139) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #22, !noalias !8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22, !noalias !8
+  call void @g_free(ptr noundef %139) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #23, !noalias !8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #23, !noalias !8
   %140 = getelementptr inbounds nuw i8, ptr %12, i64 31
   %141 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %142 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -508,7 +508,7 @@ gv_get_ps_fontlist.exit:                          ; preds = %strview_str.exit.i.
   %.03.i = phi i64 [ 0, %146 ], [ %150, %147 ]
   %148 = getelementptr inbounds nuw [10 x %struct.availfont_t], ptr %3, i64 0, i64 %.03.i, i32 1
   %149 = load ptr, ptr %148, align 8, !tbaa !19
-  call void @free(ptr noundef %149) #22
+  call void @free(ptr noundef %149) #23
   %150 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i15 = icmp eq i64 %150, 10
   br i1 %exitcond.not.i15, label %gv_flist_free_af.exit, label %147, !llvm.loop !46
@@ -521,7 +521,7 @@ gv_flist_free_af.exit:                            ; preds = %147
 
 152:                                              ; preds = %gv_flist_free_af.exit
   %.val = load ptr, ptr %12, align 8
-  call void @free(ptr noundef %.val) #22
+  call void @free(ptr noundef %.val) #23
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %gv_flist_free_af.exit, %152
@@ -531,7 +531,7 @@ agxbfree.exit:                                    ; preds = %gv_flist_free_af.ex
 
 154:                                              ; preds = %agxbfree.exit
   %.val13 = load ptr, ptr %13, align 8
-  call void @free(ptr noundef %.val13) #22
+  call void @free(ptr noundef %.val13) #23
   br label %agxbfree.exit16
 
 agxbfree.exit16:                                  ; preds = %agxbfree.exit, %154
@@ -562,7 +562,7 @@ agxbfree.exit16:                                  ; preds = %agxbfree.exit, %154
 
 168:                                              ; preds = %164
   %169 = load ptr, ptr %165, align 8, !tbaa !17
-  %170 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %159, ptr noundef nonnull dereferenceable(1) %169) #23
+  %170 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %159, ptr noundef nonnull dereferenceable(1) %169) #24
   %.not44.i = icmp eq ptr %170, null
   br i1 %.not44.i, label %439, label %171
 
@@ -665,7 +665,7 @@ get_avail_faces.exit.i:                           ; preds = %192, %agxbclear.exi
   br i1 %.not45.i, label %249, label %206
 
 206:                                              ; preds = %get_avail_faces.exit.i
-  %207 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull %205) #22
+  %207 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull %205) #23
   %.not48.i = icmp eq ptr %207, null
   br i1 %.not48.i, label %copyUpper.exit.i, label %agxbsizeof.exit.i.i
 
@@ -769,7 +769,7 @@ agxbputc.exit.i.i:                                ; preds = %242, %237
   br i1 %.not.i60.i, label %copyUpper.exit.i, label %agxbsizeof.exit.i.i.i, !llvm.loop !55
 
 249:                                              ; preds = %get_avail_faces.exit.i
-  %250 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull @.str.64) #22
+  %250 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull @.str.64) #23
   %.not46.i = icmp eq ptr %250, null
   br i1 %.not46.i, label %269, label %agxblen.exit.i.i64.i
 
@@ -815,7 +815,7 @@ agxblen.exit.i.i64.i:                             ; preds = %249
   br label %copyUpper.exit.i
 
 269:                                              ; preds = %249
-  %270 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %203, ptr noundef nonnull dereferenceable(1) @.str.65) #23
+  %270 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %203, ptr noundef nonnull dereferenceable(1) @.str.65) #24
   %.not47.i = icmp eq ptr %270, null
   br i1 %.not47.i, label %copyUpper.exit.i, label %agxblen.exit.i.i68.i
 
@@ -867,7 +867,7 @@ copyUpper.exit.i:                                 ; preds = %agxbputc.exit.i.i, 
   br i1 %.not49.i, label %copyUpper.exit102.i, label %291
 
 291:                                              ; preds = %copyUpper.exit.i
-  %292 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull %290) #22
+  %292 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull %290) #23
   %.not50.i = icmp eq ptr %292, null
   br i1 %.not50.i, label %copyUpper.exit102.i, label %agxbsizeof.exit.i78.i
 
@@ -977,7 +977,7 @@ copyUpper.exit102.i:                              ; preds = %agxbputc.exit.i100.
   br i1 %.not51.i, label %copyUpper.exit130.ithread-pre-split, label %336
 
 336:                                              ; preds = %copyUpper.exit102.i
-  %337 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull %335) #22
+  %337 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull %335) #23
   %.not52.i = icmp eq ptr %337, null
   br i1 %.not52.i, label %379, label %agxbsizeof.exit.i106.i
 
@@ -1082,12 +1082,12 @@ agxbputc.exit.i128.i:                             ; preds = %372, %367
 
 379:                                              ; preds = %336
   %380 = load ptr, ptr %334, align 8, !tbaa !57
-  %381 = call i32 @strcasecmp(ptr noundef %380, ptr noundef nonnull @.str.60) #23
+  %381 = call i32 @strcasecmp(ptr noundef %380, ptr noundef nonnull @.str.60) #24
   %.not53.i = icmp eq i32 %381, 0
   br i1 %.not53.i, label %382, label %400
 
 382:                                              ; preds = %379
-  %383 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull @.str.63) #22
+  %383 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull @.str.63) #23
   %.not54.i = icmp eq ptr %383, null
   br i1 %.not54.i, label %copyUpper.exit130.ithread-pre-split, label %agxblen.exit.i.i134.i
 
@@ -1130,12 +1130,12 @@ agxblen.exit.i.i134.i:                            ; preds = %382
   br label %copyUpper.exit130.ithread-pre-split.sink.split
 
 400:                                              ; preds = %379
-  %401 = call i32 @strcasecmp(ptr noundef %380, ptr noundef nonnull @.str.63) #23
+  %401 = call i32 @strcasecmp(ptr noundef %380, ptr noundef nonnull @.str.63) #24
   %.not55.i = icmp eq i32 %401, 0
   br i1 %.not55.i, label %402, label %copyUpper.exit130.ithread-pre-split
 
 402:                                              ; preds = %400
-  %403 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull @.str.60) #22
+  %403 = call ptr @strcasestr(ptr noundef %203, ptr noundef nonnull @.str.60) #23
   %.not56.i = icmp eq ptr %403, null
   br i1 %.not56.i, label %copyUpper.exit130.ithread-pre-split, label %agxblen.exit.i.i24
 
@@ -1195,15 +1195,15 @@ copyUpper.exit130.i:                              ; preds = %copyUpper.exit130.i
 
 agxblen.exit.i142.i:                              ; preds = %copyUpper.exit130.i
   %422 = zext i8 %.val.i.i to i64
-  %423 = call noalias ptr @strndup(ptr noundef nonnull readonly %13, i64 noundef %422) #22
+  %423 = call noalias ptr @strndup(ptr noundef nonnull readonly %13, i64 noundef %422) #23
   %424 = icmp eq ptr %423, null
   br i1 %424, label %425, label %agxbdisown.exit.i
 
 425:                                              ; preds = %agxblen.exit.i142.i
   %426 = load ptr, ptr @stderr, align 8, !tbaa !3
   %427 = add nuw nsw i64 %422, 1
-  %428 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %426, ptr noundef nonnull @.str.2, i64 noundef %427) #20
-  call fastcc void @graphviz_exit() #21
+  %428 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %426, ptr noundef nonnull @.str.2, i64 noundef %427) #21
+  call fastcc void @graphviz_exit() #22
   unreachable
 
 agxbsizeof.exit.i.i143.i:                         ; preds = %copyUpper.exit130.i
@@ -1264,14 +1264,14 @@ gv_get_font.exit:                                 ; preds = %439, %agxbdisown.ex
 443:                                              ; preds = %agxbfree.exit16
   %444 = zext i8 %155 to i32
   %445 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %446 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef nonnull @.str, i32 noundef %444) #20
+  %446 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef nonnull @.str, i32 noundef %444) #21
   call fastcc void @printFontMap(ptr noundef nonnull %15)
   br label %447
 
 447:                                              ; preds = %443, %agxbfree.exit16
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %14) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #22
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %14) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #23
   ret ptr %15
 }
 
@@ -1305,11 +1305,11 @@ define internal fastcc void @printFontMap(ptr noundef readonly captures(none) %0
   br i1 %.not, label %9, label %11
 
 9:                                                ; preds = %3
-  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.116, i64 noundef %.013, ptr noundef %8) #20
+  %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.116, i64 noundef %.013, ptr noundef %8) #21
   br label %13
 
 11:                                               ; preds = %3
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.117, i64 noundef %.013, ptr noundef %8, ptr noundef nonnull %6) #20
+  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.117, i64 noundef %.013, ptr noundef %8, ptr noundef nonnull %6) #21
   br label %13
 
 13:                                               ; preds = %9, %11
@@ -1320,7 +1320,7 @@ define internal fastcc void @printFontMap(ptr noundef readonly captures(none) %0
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #5 {
-  tail call void @exit(i32 noundef 1) #24
+  tail call void @exit(i32 noundef 1) #25
   unreachable
 }
 
@@ -1335,16 +1335,16 @@ declare void @pango_font_map_list_families(ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @pango_font_family_get_name(ptr noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @g_free(ptr noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @pango_font_family_list_faces(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -1354,34 +1354,34 @@ declare ptr @pango_font_face_get_face_name(ptr noundef) local_unnamed_addr #9
 declare ptr @strcasestr(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
+declare noalias ptr @strndup(ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #13
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @agxbprint(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #13 {
+define internal void @agxbprint(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #14 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [32 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #23
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %5)
-  %6 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #22
+  %6 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef readonly %1, ptr noundef nonnull %3) #23
   call void @llvm.va_end.p0(ptr nonnull %3)
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #23
   br label %vagxbprint.exit
 
 9:                                                ; preds = %2
   %narrow.i = add nuw i32 %6, 1
   %10 = zext i32 %narrow.i to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #23
   %11 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %11, align 1, !tbaa !47
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -1418,13 +1418,13 @@ agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exi
   br label %26
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %agxbnext.exit.i
 
 26:                                               ; preds = %24, %agxblen.exit.i
   %.val.i.i.i = phi i8 [ %.val.i.i, %agxblen.exit.i ], [ %.val.i.i.pre.i, %24 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   br i1 %.not.i.i.i, label %30, label %27
@@ -1444,7 +1444,7 @@ agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exi
 agxbnext.exit.i:                                  ; preds = %30, %27, %25
   %.03655.i = phi i1 [ true, %25 ], [ false, %27 ], [ false, %30 ]
   %35 = phi ptr [ %4, %25 ], [ %29, %27 ], [ %34, %30 ]
-  %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %10, ptr noundef readonly %1, ptr noundef nonnull %5) #22
+  %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %10, ptr noundef readonly %1, ptr noundef nonnull %5) #23
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %52
 
@@ -1480,29 +1480,29 @@ agxbnext.exit46.i:                                ; preds = %39
   br label %52
 
 52:                                               ; preds = %47, %43, %agxbnext.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   br label %vagxbprint.exit
 
 vagxbprint.exit:                                  ; preds = %8, %52
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #14
+declare void @llvm.va_start.p0(ptr) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #14
+declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy.p0(ptr, ptr) #14
+declare void @llvm.va_copy.p0(ptr, ptr) #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @agxbmore(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #13 {
+define internal fastcc void @agxbmore(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #14 {
   %3 = getelementptr i8, ptr %0, i64 31
   %.val.i = load i8, ptr %3, align 1, !tbaa !47
   %.not.i = icmp eq i8 %.val.i, -1
@@ -1522,18 +1522,18 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %agxbsizeof.exit
-  tail call void @free(ptr noundef %9) #22
+  tail call void @free(ptr noundef %9) #23
   br label %gv_recalloc.exit
 
 12:                                               ; preds = %agxbsizeof.exit
-  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #25
+  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #26
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.2, i64 noundef %spec.select34) #20
-  tail call fastcc void @graphviz_exit() #21
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.2, i64 noundef %spec.select34) #21
+  tail call fastcc void @graphviz_exit() #22
   unreachable
 
 18:                                               ; preds = %12
@@ -1549,14 +1549,14 @@ agxbsizeof.exit:                                  ; preds = %2
 23:                                               ; preds = %2
   %24 = add i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
-  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #19
+  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #20
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, i64 noundef %spec.select) #20
-  tail call fastcc void @graphviz_exit() #21
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.2, i64 noundef %spec.select) #21
+  tail call fastcc void @graphviz_exit() #22
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -1577,16 +1577,16 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
+declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1598,22 +1598,23 @@ attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #7 = { nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #19 = { nounwind allocsize(0,1) }
-attributes #20 = { cold nounwind }
-attributes #21 = { noreturn }
-attributes #22 = { nounwind }
-attributes #23 = { nounwind willreturn memory(read) }
-attributes #24 = { cold noreturn nounwind }
-attributes #25 = { nounwind allocsize(1) }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nounwind allocsize(0,1) }
+attributes #21 = { cold nounwind }
+attributes #22 = { noreturn }
+attributes #23 = { nounwind }
+attributes #24 = { nounwind willreturn memory(read) }
+attributes #25 = { cold noreturn nounwind }
+attributes #26 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

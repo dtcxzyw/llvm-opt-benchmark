@@ -172,7 +172,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @name() local_unnamed_addr #1 {
-  %1 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #30
+  %1 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #29
   ret ptr %1
 }
 
@@ -181,12 +181,12 @@ declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define ptr @description(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 5) #30
-  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #30
-  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #30
-  %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #30
-  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #30
-  %7 = tail call ptr @dt_iop_set_description(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #30
+  %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 5) #29
+  %3 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef 5) #29
+  %4 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 5) #29
+  %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #29
+  %6 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef 5) #29
+  %7 = tail call ptr @dt_iop_set_description(ptr noundef %0, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #29
   ret ptr %7
 }
 
@@ -217,7 +217,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   ]
 
 7:                                                ; preds = %6
-  %8 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #31
+  %8 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #30
   %9 = load i32, ptr %1, align 4, !tbaa !6
   store i32 %9, ptr %8, align 4, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -342,7 +342,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %exitcond270.not, label %59, label %61
 
 64:                                               ; preds = %6
-  %65 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #31
+  %65 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #30
   %66 = load i32, ptr %1, align 4, !tbaa !20
   store i32 %66, ptr %65, align 4, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -394,7 +394,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %exitcond250.not, label %80, label %82
 
 85:                                               ; preds = %6
-  %86 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #31
+  %86 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #30
   %87 = load i32, ptr %1, align 4, !tbaa !22
   store i32 %87, ptr %86, align 4, !tbaa !11
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -448,7 +448,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %exitcond238.not, label %101, label %105
 
 108:                                              ; preds = %6
-  %109 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #31
+  %109 = tail call noalias dereferenceable_or_null(520) ptr @malloc(i64 noundef 520) #30
   %110 = load i32, ptr %1, align 4, !tbaa !25
   store i32 %110, ptr %109, align 4, !tbaa !11
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -538,7 +538,7 @@ define hidden void @process_display(ptr noundef readonly captures(none) %0, ptr 
   %21 = sext i32 %12 to i64
   %22 = mul nsw i64 %17, %21
   %23 = mul i64 %22, %20
-  tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %23) #30
+  tail call void @dt_iop_image_copy(ptr noundef %3, ptr noundef %2, i64 noundef %23) #29
   %24 = load i32, ptr %15, align 4, !tbaa !67
   %25 = sext i32 %24 to i64
   %26 = load i32, ptr %18, align 4, !tbaa !68
@@ -600,7 +600,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %47, %49
   br label %59
 
 56:                                               ; preds = %dt_Lab_2_LCH.exit
-  %57 = tail call reassoc nsz arcp contract afn float @hypotf(float noundef %44, float noundef %42) #32
+  %57 = tail call reassoc nsz arcp contract afn float @hypotf(float noundef %44, float noundef %42) #31
   %58 = fmul reassoc nsz arcp contract afn float %57, 0x3F76A09E60000000
   br label %59
 
@@ -657,7 +657,7 @@ declare float @llvm.sqrt.f32(float) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #7
 
-; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @process_v1(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #8 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !67
@@ -711,7 +711,7 @@ define hidden void @process_v1(ptr readnone captures(none) %0, ptr noundef reado
 dt_Lab_2_LCH.exit:                                ; preds = %34, %36
   %.0.i = phi nsz float [ %35, %34 ], [ %39, %36 ]
   %40 = load float, ptr %26, align 4, !tbaa !14
-  %41 = tail call reassoc nsz arcp contract afn float @hypotf(float noundef %31, float noundef %29) #32
+  %41 = tail call reassoc nsz arcp contract afn float @hypotf(float noundef %31, float noundef %29) #31
   switch i32 %20, label %46 [
     i32 0, label %42
     i32 1, label %44
@@ -792,7 +792,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %34, %36
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @process_v3(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #9 {
+define hidden void @process_v3(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #8 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !67
   %9 = sext i32 %8 to i64
@@ -963,7 +963,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %.not, label %31, label %21
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @dt_iop_has_focus(ptr noundef nonnull %0) #30
+  %22 = tail call i32 @dt_iop_has_focus(ptr noundef nonnull %0) #29
   %.not28 = icmp eq i32 %22, 0
   br i1 %.not28, label %31, label %23
 
@@ -1003,13 +1003,13 @@ declare i32 @dt_iop_has_focus(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.dt_iop_colorzones_params_t, align 4
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %2) #30
+  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %2) #29
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 516
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(512) %4, i8 0, i64 512, i1 false)
   store i32 1, ptr %3, align 4, !tbaa !109
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !111
-  tail call void @dt_database_start_transaction(ptr noundef %5) #30
+  tail call void @dt_database_start_transaction(ptr noundef %5) #29
   store i32 2, ptr %2, align 4, !tbaa !142
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 164
@@ -1055,9 +1055,9 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %exitcond.not, label %9, label %18
 
 28:                                               ; preds = %31
-  %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #30
+  %29 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #29
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  call void @dt_gui_presets_add_generic(ptr noundef %29, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #30
+  call void @dt_gui_presets_add_generic(ptr noundef %29, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #29
   store i32 2, ptr %2, align 4, !tbaa !142
   br label %37
 
@@ -1102,8 +1102,8 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %exitcond140.not, label %34, label %37
 
 47:                                               ; preds = %49
-  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #30
-  call void @dt_gui_presets_add_generic(ptr noundef %48, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #30
+  %48 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #29
+  call void @dt_gui_presets_add_generic(ptr noundef %48, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #29
   store i32 1, ptr %2, align 4, !tbaa !142
   br label %52
 
@@ -1171,8 +1171,8 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %exitcond156.not, label %.preheader115, label %.preheader116
 
 78:                                               ; preds = %.preheader115
-  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #30
-  call void @dt_gui_presets_add_generic(ptr noundef %79, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #30
+  %79 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #29
+  call void @dt_gui_presets_add_generic(ptr noundef %79, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #29
   store i32 2, ptr %2, align 4, !tbaa !142
   br label %84
 
@@ -1214,8 +1214,8 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %exitcond164.not, label %82, label %84
 
 94:                                               ; preds = %96
-  %95 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #30
-  call void @dt_gui_presets_add_generic(ptr noundef %95, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #30
+  %95 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef 5) #29
+  call void @dt_gui_presets_add_generic(ptr noundef %95, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #29
   store i32 2, ptr %2, align 4, !tbaa !142
   br label %113
 
@@ -1277,8 +1277,8 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %exitcond172.not, label %99, label %113
 
 121:                                              ; preds = %123
-  %122 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #30
-  call void @dt_gui_presets_add_generic(ptr noundef %122, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #30
+  %122 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #29
+  call void @dt_gui_presets_add_generic(ptr noundef %122, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #29
   store i32 2, ptr %2, align 4, !tbaa !142
   br label %126
 
@@ -1314,11 +1314,11 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %exitcond180.not, label %.preheader, label %126
 
 136:                                              ; preds = %.preheader
-  %137 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #30
-  call void @dt_gui_presets_add_generic(ptr noundef %137, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #30
+  %137 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef 5) #29
+  call void @dt_gui_presets_add_generic(ptr noundef %137, ptr noundef nonnull %30, i32 noundef 5, ptr noundef nonnull %2, i32 noundef 520, i32 noundef 1, i32 noundef 3) #29
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !111
-  call void @dt_database_release_transaction(ptr noundef %138) #30
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %2) #30
+  call void @dt_database_release_transaction(ptr noundef %138) #29
+  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %2) #29
   ret void
 
 .preheader:                                       ; preds = %126, %.preheader
@@ -1333,7 +1333,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @dt_database_start_transaction(ptr noundef) local_unnamed_addr #3
 
@@ -1440,13 +1440,13 @@ _reset_parameters.exit:                           ; preds = %_reset_nodes.exit.i
 40:                                               ; preds = %39, %_reset_parameters.exit
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !147
-  %43 = tail call i64 @gtk_widget_get_type() #32
-  %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %43) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %44) #30
+  %43 = tail call i64 @gtk_widget_get_type() #31
+  %44 = tail call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %43) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %44) #29
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %46 = load ptr, ptr %45, align 8, !tbaa !148
-  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %43) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %47) #30
+  %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %43) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %47) #29
   br label %48
 
 48:                                               ; preds = %40, %3
@@ -1468,15 +1468,15 @@ define internal fastcc void @_reset_display_selection(ptr noundef %0) unnamed_ad
 
 7:                                                ; preds = %4
   store i32 0, ptr %5, align 4, !tbaa !89
-  tail call void @dt_iop_refresh_center(ptr noundef nonnull %0) #30
+  tail call void @dt_iop_refresh_center(ptr noundef nonnull %0) #29
   br label %8
 
 8:                                                ; preds = %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %10 = load ptr, ptr %9, align 8, !tbaa !149
-  %11 = tail call i64 @gtk_toggle_button_get_type() #32
-  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #30
-  %13 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %12) #30
+  %11 = tail call i64 @gtk_toggle_button_get_type() #31
+  %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %10, i64 noundef %11) #29
+  %13 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %12) #29
   %.not8 = icmp eq i32 %13, 0
   br i1 %.not8, label %25, label %14
 
@@ -1487,8 +1487,8 @@ define internal fastcc void @_reset_display_selection(ptr noundef %0) unnamed_ad
   %18 = add nsw i32 %17, 1
   store i32 %18, ptr %16, align 8, !tbaa !151
   %19 = load ptr, ptr %9, align 8, !tbaa !149
-  %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %11) #30
-  tail call void @gtk_toggle_button_set_active(ptr noundef %20, i32 noundef 0) #30
+  %20 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %11) #29
+  tail call void @gtk_toggle_button_set_active(ptr noundef %20, i32 noundef 0) #29
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 96
   %23 = load i32, ptr %22, align 8, !tbaa !151
@@ -1505,7 +1505,7 @@ declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #3
 declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_widget_get_type() local_unnamed_addr #11
+declare i64 @gtk_widget_get_type() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
@@ -1543,8 +1543,8 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   br label %37
 
 31:                                               ; preds = %37
-  %32 = tail call i32 (...) @dt_key_modifier_state() #30
-  %33 = tail call i32 @gtk_accelerator_get_default_mod_mask() #30
+  %32 = tail call i32 (...) @dt_key_modifier_state() #29
+  %33 = tail call i32 @gtk_accelerator_get_default_mod_mask() #29
   %34 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !19
   %35 = or i32 %34, %32
   %36 = and i32 %35, %33
@@ -1566,7 +1566,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   br i1 %exitcond.not, label %31, label %37
 
 44:                                               ; preds = %31
-  %45 = tail call i32 @gtk_accelerator_get_default_mod_mask() #30
+  %45 = tail call i32 @gtk_accelerator_get_default_mod_mask() #29
   %46 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !19
   %47 = or i32 %46, %32
   %48 = and i32 %47, %45
@@ -2279,20 +2279,20 @@ _add_node.exit183:                                ; preds = %.thread259, %._crit
 
 _add_node.exit206:                                ; preds = %.thread265, %._crit_edge.i189, %.thread63.i187, %318, %.thread.thread.i191, %.thread214, %296
   %342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
-  tail call void @dt_dev_add_history_item(ptr noundef %342, ptr noundef %0, i32 noundef 1) #30
+  tail call void @dt_dev_add_history_item(ptr noundef %342, ptr noundef %0, i32 noundef 1) #29
   br label %343
 
 343:                                              ; preds = %_add_node.exit206, %3
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %345 = load ptr, ptr %344, align 16, !tbaa !159
-  tail call void @dt_control_queue_redraw_widget(ptr noundef %345) #30
+  tail call void @dt_control_queue_redraw_widget(ptr noundef %345) #29
   ret void
 }
 
 declare i32 @dt_key_modifier_state(...) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3) unnamed_addr #12 {
+define internal fastcc i32 @_add_node(ptr noundef captures(none) %0, ptr noundef captures(none) %1, float noundef %2, float noundef %3) unnamed_addr #11 {
   %5 = load float, ptr %0, align 4, !tbaa !15
   %6 = fcmp reassoc nsz arcp contract afn ogt float %5, %2
   %.pre = load i32, ptr %1, align 4, !tbaa !19
@@ -2403,8 +2403,8 @@ declare void @dt_control_queue_redraw_widget(ptr noundef) local_unnamed_addr #3
 define internal float @_action_process_zones(ptr noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3) #1 {
   %5 = alloca [20 x float], align 16
   %6 = alloca [20 x float], align 16
-  %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #30
-  %8 = tail call ptr @g_object_get_data(ptr noundef %7, ptr noundef nonnull @.str.47) #30
+  %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef 80) #29
+  %8 = tail call ptr @g_object_get_data(ptr noundef %7, ptr noundef nonnull @.str.47) #29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 704
   %10 = load ptr, ptr %9, align 16, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 680
@@ -2451,8 +2451,8 @@ define internal float @_action_process_zones(ptr noundef %0, i32 noundef %1, i32
   %.055.lcssa = phi i32 [ 0, %4 ], [ %18, %28 ]
   %33 = getelementptr inbounds [3 x ptr], ptr %10, i64 0, i64 %16
   %34 = load ptr, ptr %33, align 8, !tbaa !160
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #30
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %36 = load i8, ptr %35, align 4, !tbaa !162
   %37 = zext i8 %36 to i32
@@ -2466,7 +2466,7 @@ define internal float @_action_process_zones(ptr noundef %0, i32 noundef %1, i32
 
 ._crit_edge.i:                                    ; preds = %41, %._crit_edge
   %39 = load i32, ptr %34, align 8, !tbaa !167
-  %40 = call ptr @interpolate_set(i32 noundef %37, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %39) #30
+  %40 = call ptr @interpolate_set(i32 noundef %37, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %39) #29
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %dt_draw_curve_calc_value.exit, label %48
 
@@ -2488,8 +2488,8 @@ define internal float @_action_process_zones(ptr noundef %0, i32 noundef %1, i32
   %49 = load i8, ptr %35, align 4, !tbaa !162
   %50 = zext i8 %49 to i32
   %51 = load i32, ptr %34, align 8, !tbaa !167
-  %52 = call reassoc nsz arcp contract afn float @interpolate_val(i32 noundef %50, ptr noundef nonnull %5, float noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %40, i32 noundef %51) #30
-  call void @free(ptr noundef nonnull %40) #30
+  %52 = call reassoc nsz arcp contract afn float @interpolate_val(i32 noundef %50, ptr noundef nonnull %5, float noundef %22, ptr noundef nonnull %6, ptr noundef nonnull %40, i32 noundef %51) #29
+  call void @free(ptr noundef nonnull %40) #29
   br label %dt_draw_curve_calc_value.exit
 
 dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %48
@@ -2502,8 +2502,8 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %48
   %57 = load float, ptr %56, align 8, !tbaa !172
   %58 = fcmp reassoc nsz arcp contract afn olt float %.026..i, %57
   %59 = select reassoc nsz arcp contract afn i1 %58, float %.026..i, float %57
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #29
   br label %60
 
 60:                                               ; preds = %dt_draw_curve_calc_value.exit, %.critedge
@@ -2577,14 +2577,14 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %48
   br label %_delete_node.exit
 
 _delete_node.exit:                                ; preds = %._crit_edge.i60, %82
-  call void @dt_iop_color_picker_reset(ptr noundef nonnull %8, i32 noundef 1) #30
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %8, i32 noundef 1) #29
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %85 = load ptr, ptr %84, align 8, !tbaa !147
-  %86 = tail call i64 @gtk_widget_get_type() #32
-  %87 = call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef %86) #30
-  call void @gtk_widget_queue_draw(ptr noundef %87) #30
+  %86 = tail call i64 @gtk_widget_get_type() #31
+  %87 = call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef %86) #29
+  call void @gtk_widget_queue_draw(ptr noundef %87) #29
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
-  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef nonnull %8, i32 noundef 1) #30
+  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef nonnull %8, i32 noundef 1) #29
   br label %142
 
 89:                                               ; preds = %63
@@ -2720,7 +2720,7 @@ _add_node.exit:                                   ; preds = %.thread85, %._crit_
   br label %142
 
 141:                                              ; preds = %63
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.83, i32 noundef %2) #30
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.83, i32 noundef %2) #29
   br label %142
 
 142:                                              ; preds = %141, %64, %_delete_node.exit, %_add_node.exit
@@ -2731,9 +2731,9 @@ _add_node.exit:                                   ; preds = %.thread85, %._crit_
   %146 = fpext reassoc nsz arcp contract afn float %.154 to double
   %147 = fmul reassoc nsz arcp contract afn double %146, 2.000000e+00
   %148 = fadd reassoc nsz arcp contract afn double %147, -1.000000e+00
-  %149 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.84, ptr noundef %145, double noundef %148) #30
-  call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef %8, ptr noundef %0, ptr noundef %149) #30
-  call void @g_free(ptr noundef %149) #30
+  %149 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.84, ptr noundef %145, double noundef %148) #29
+  call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef %8, ptr noundef %0, ptr noundef %149) #29
+  call void @g_free(ptr noundef %149) #29
   br label %150
 
 150:                                              ; preds = %142, %60
@@ -2746,7 +2746,7 @@ _add_node.exit:                                   ; preds = %.thread85, %._crit_
 define void @gui_reset(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !48
-  tail call void @dt_iop_color_picker_reset(ptr noundef %0, i32 noundef 0) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef %0, i32 noundef 0) #29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 5300
   store float 1.000000e+00, ptr %4, align 4, !tbaa !176
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 5308
@@ -2776,7 +2776,7 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
 
 3:                                                ; preds = %2
   tail call fastcc void @_reset_display_selection(ptr noundef %0)
-  tail call void @dt_iop_color_picker_reset(ptr noundef %0, i32 noundef 0) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef %0, i32 noundef 0) #29
   br label %4
 
 4:                                                ; preds = %3, %2
@@ -2790,7 +2790,7 @@ define void @gui_init(ptr noundef initializes((656, 660), (704, 712)) %0) local_
   %4 = alloca [5 x ptr], align 8
   %5 = alloca [3 x ptr], align 8
   %6 = alloca [2 x ptr], align 8
-  %7 = tail call ptr @dt_alloc_aligned(i64 noundef 5320) #30
+  %7 = tail call ptr @dt_alloc_aligned(i64 noundef 5320) #29
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %_iop_gui_alloc.exit, label %8
 
@@ -2805,7 +2805,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %8
   %11 = load ptr, ptr %10, align 16, !tbaa !157
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i32 3, ptr %12, align 16, !tbaa !183
-  %13 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.20) #30
+  %13 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.20) #29
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 176
   store i32 %13, ptr %14, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 496
@@ -2838,122 +2838,122 @@ _iop_gui_alloc.exit:                              ; preds = %1, %8
   store i32 0, ptr %30, align 8, !tbaa !181
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 5316
   store i32 0, ptr %31, align 4, !tbaa !89
-  %32 = tail call ptr @dt_ui_notebook_new(ptr noundef nonnull @gui_init.notebook_def) #30
+  %32 = tail call ptr @dt_ui_notebook_new(ptr noundef nonnull @gui_init.notebook_def) #29
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %32, ptr %33, align 8, !tbaa !187
-  %34 = tail call i64 @gtk_widget_get_type() #32
-  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %34) #30
-  %36 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef %35, ptr noundef nonnull @gui_init.notebook_def) #30
+  %34 = tail call i64 @gtk_widget_get_type() #31
+  %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %32, i64 noundef %34) #29
+  %36 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef %35, ptr noundef nonnull @gui_init.notebook_def) #29
   %37 = load ptr, ptr %33, align 8, !tbaa !187
-  %38 = tail call ptr @dt_ui_notebook_page(ptr noundef %37, ptr noundef nonnull @.str.22, ptr noundef null) #30
+  %38 = tail call ptr @dt_ui_notebook_page(ptr noundef %37, ptr noundef nonnull @.str.22, ptr noundef null) #29
   %39 = load ptr, ptr %33, align 8, !tbaa !187
-  %40 = tail call ptr @dt_ui_notebook_page(ptr noundef %39, ptr noundef nonnull @.str.23, ptr noundef null) #30
+  %40 = tail call ptr @dt_ui_notebook_page(ptr noundef %39, ptr noundef nonnull @.str.23, ptr noundef null) #29
   %41 = load ptr, ptr %33, align 8, !tbaa !187
-  %42 = tail call ptr @dt_ui_notebook_page(ptr noundef %41, ptr noundef nonnull @.str.24, ptr noundef null) #30
+  %42 = tail call ptr @dt_ui_notebook_page(ptr noundef %41, ptr noundef nonnull @.str.24, ptr noundef null) #29
   %43 = load ptr, ptr %33, align 8, !tbaa !187
   %44 = load i32, ptr %14, align 8, !tbaa !61
-  %45 = tail call ptr @gtk_notebook_get_nth_page(ptr noundef %43, i32 noundef %44) #30
-  tail call void @gtk_widget_show(ptr noundef %45) #30
+  %45 = tail call ptr @gtk_notebook_get_nth_page(ptr noundef %43, i32 noundef %44) #29
+  tail call void @gtk_widget_show(ptr noundef %45) #29
   %46 = load ptr, ptr %33, align 8, !tbaa !187
   %47 = load i32, ptr %14, align 8, !tbaa !61
-  tail call void @gtk_notebook_set_current_page(ptr noundef %46, i32 noundef %47) #30
+  tail call void @gtk_notebook_set_current_page(ptr noundef %46, i32 noundef %47) #29
   %48 = load ptr, ptr %33, align 8, !tbaa !187
-  %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef 80) #30
-  %50 = tail call i64 @g_signal_connect_data(ptr noundef %49, ptr noundef nonnull @.str.25, ptr noundef nonnull @_channel_tabs_switch_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
-  %51 = tail call ptr @dt_color_picker_new_with_cst(ptr noundef %0, i32 noundef 3, ptr noundef null, i32 noundef 3) #30
+  %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef 80) #29
+  %50 = tail call i64 @g_signal_connect_data(ptr noundef %49, ptr noundef nonnull @.str.25, ptr noundef nonnull @_channel_tabs_switch_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %51 = tail call ptr @dt_color_picker_new_with_cst(ptr noundef %0, i32 noundef 3, ptr noundef null, i32 noundef 3) #29
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr %51, ptr %52, align 8, !tbaa !188
-  %53 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #30
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %51, ptr noundef %53) #30
+  %53 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef 5) #29
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %51, ptr noundef %53) #29
   %54 = load ptr, ptr %52, align 8, !tbaa !188
-  tail call void @gtk_widget_set_name(ptr noundef %54, ptr noundef nonnull @.str.27) #30
+  tail call void @gtk_widget_set_name(ptr noundef %54, ptr noundef nonnull @.str.27) #29
   %55 = load ptr, ptr %52, align 8, !tbaa !188
-  %56 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef %55, ptr noundef nonnull @dt_action_def_toggle) #30
-  %57 = tail call ptr @dt_color_picker_new_with_cst(ptr noundef %0, i32 noundef 2, ptr noundef null, i32 noundef 3) #30
+  %56 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, ptr noundef %55, ptr noundef nonnull @dt_action_def_toggle) #29
+  %57 = tail call ptr @dt_color_picker_new_with_cst(ptr noundef %0, i32 noundef 2, ptr noundef null, i32 noundef 3) #29
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 160
   store ptr %57, ptr %58, align 8, !tbaa !156
-  %59 = tail call i64 @dtgtk_togglebutton_get_type() #30
-  %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %59) #30
-  tail call void @dtgtk_togglebutton_set_paint(ptr noundef %60, ptr noundef nonnull @dtgtk_cairo_paint_colorpicker_set_values, i32 noundef 0, ptr noundef null) #30
+  %59 = tail call i64 @dtgtk_togglebutton_get_type() #29
+  %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef %59) #29
+  tail call void @dtgtk_togglebutton_set_paint(ptr noundef %60, ptr noundef nonnull @dtgtk_cairo_paint_colorpicker_set_values, i32 noundef 0, ptr noundef null) #29
   %61 = load ptr, ptr %58, align 8, !tbaa !156
-  tail call void @dt_gui_add_class(ptr noundef %61, ptr noundef nonnull @.str.30) #30
+  tail call void @dt_gui_add_class(ptr noundef %61, ptr noundef nonnull @.str.30) #29
   %62 = load ptr, ptr %58, align 8, !tbaa !156
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1424
   %65 = load double, ptr %64, align 8, !tbaa !189
   %66 = fmul reassoc nsz arcp contract afn double %65, 1.400000e+01
   %67 = fptosi double %66 to i32
-  tail call void @gtk_widget_set_size_request(ptr noundef %62, i32 noundef %67, i32 noundef %67) #30
+  tail call void @gtk_widget_set_size_request(ptr noundef %62, i32 noundef %67, i32 noundef %67) #29
   %68 = load ptr, ptr %58, align 8, !tbaa !156
-  %69 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #30
-  tail call void @gtk_widget_set_tooltip_text(ptr noundef %68, ptr noundef %69) #30
+  %69 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.31, i32 noundef 5) #29
+  tail call void @gtk_widget_set_tooltip_text(ptr noundef %68, ptr noundef %69) #29
   %70 = load ptr, ptr %58, align 8, !tbaa !156
-  %71 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.32, ptr noundef %70, ptr noundef nonnull @dt_action_def_toggle) #30
-  %72 = tail call ptr @dt_ui_resize_wrap(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.33) #30
-  %73 = tail call i64 @gtk_drawing_area_get_type() #32
-  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %73) #30
+  %71 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.32, ptr noundef %70, ptr noundef nonnull @dt_action_def_toggle) #29
+  %72 = tail call ptr @dt_ui_resize_wrap(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.33) #29
+  %73 = tail call i64 @gtk_drawing_area_get_type() #31
+  %74 = tail call ptr @g_type_check_instance_cast(ptr noundef %72, i64 noundef %73) #29
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %74, ptr %75, align 8, !tbaa !147
-  %76 = tail call ptr @gtk_drawing_area_new() #30
+  %76 = tail call ptr @gtk_drawing_area_new() #29
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr %76, ptr %77, align 8, !tbaa !148
-  tail call void @gtk_widget_set_vexpand(ptr noundef %76, i32 noundef 1) #30
-  %78 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #30
-  %79 = tail call i64 @gtk_box_get_type() #32
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #30
+  tail call void @gtk_widget_set_vexpand(ptr noundef %76, i32 noundef 1) #29
+  %78 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #29
+  %79 = tail call i64 @gtk_box_get_type() #31
+  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #29
   %81 = load ptr, ptr %77, align 8, !tbaa !148
   store ptr %81, ptr %2, align 8, !tbaa !31
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %82, align 8, !tbaa !31
-  %83 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2668, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %80, ptr noundef nonnull %2) #30
-  %84 = call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef %34) #30
-  call void @gtk_widget_set_name(ptr noundef %84, ptr noundef nonnull @.str.35) #30
-  %85 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #30
-  %86 = call ptr @gtk_check_button_new_with_label(ptr noundef %85) #30
+  %83 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2668, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %80, ptr noundef nonnull %2) #29
+  %84 = call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef %34) #29
+  call void @gtk_widget_set_name(ptr noundef %84, ptr noundef nonnull @.str.35) #29
+  %85 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #29
+  %86 = call ptr @gtk_check_button_new_with_label(ptr noundef %85) #29
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store ptr %86, ptr %87, align 8, !tbaa !190
-  %88 = call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef %86, ptr noundef nonnull @dt_action_def_toggle) #30
+  %88 = call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef %86, ptr noundef nonnull @dt_action_def_toggle) #29
   %89 = load ptr, ptr %87, align 8, !tbaa !190
-  %90 = tail call i64 @gtk_bin_get_type() #32
-  %91 = call ptr @g_type_check_instance_cast(ptr noundef %89, i64 noundef %90) #30
-  %92 = call ptr @gtk_bin_get_child(ptr noundef %91) #30
-  %93 = tail call i64 @gtk_label_get_type() #32
-  %94 = call ptr @g_type_check_instance_cast(ptr noundef %92, i64 noundef %93) #30
-  call void @gtk_label_set_ellipsize(ptr noundef %94, i32 noundef 1) #30
+  %90 = tail call i64 @gtk_bin_get_type() #31
+  %91 = call ptr @g_type_check_instance_cast(ptr noundef %89, i64 noundef %90) #29
+  %92 = call ptr @gtk_bin_get_child(ptr noundef %91) #29
+  %93 = tail call i64 @gtk_label_get_type() #31
+  %94 = call ptr @g_type_check_instance_cast(ptr noundef %92, i64 noundef %93) #29
+  call void @gtk_label_set_ellipsize(ptr noundef %94, i32 noundef 1) #29
   %95 = load ptr, ptr %87, align 8, !tbaa !190
-  %96 = tail call i64 @gtk_toggle_button_get_type() #32
-  %97 = call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %96) #30
+  %96 = tail call i64 @gtk_toggle_button_get_type() #31
+  %97 = call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef %96) #29
   %98 = load i32, ptr %30, align 8, !tbaa !181
-  call void @gtk_toggle_button_set_active(ptr noundef %97, i32 noundef %98) #30
+  call void @gtk_toggle_button_set_active(ptr noundef %97, i32 noundef %98) #29
   %99 = load ptr, ptr %87, align 8, !tbaa !190
-  %100 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #30
-  call void @gtk_widget_set_tooltip_text(ptr noundef %99, ptr noundef %100) #30
+  %100 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #29
+  call void @gtk_widget_set_tooltip_text(ptr noundef %99, ptr noundef %100) #29
   %101 = load ptr, ptr %87, align 8, !tbaa !190
-  %102 = call ptr @g_type_check_instance_cast(ptr noundef %101, i64 noundef 80) #30
-  %103 = call i64 @g_signal_connect_data(ptr noundef %102, ptr noundef nonnull @.str.38, ptr noundef nonnull @_edit_by_area_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
-  %104 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_showmask, i32 noundef 0, ptr noundef null) #30
+  %102 = call ptr @g_type_check_instance_cast(ptr noundef %101, i64 noundef 80) #29
+  %103 = call i64 @g_signal_connect_data(ptr noundef %102, ptr noundef nonnull @.str.38, ptr noundef nonnull @_edit_by_area_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %104 = call ptr @dtgtk_togglebutton_new(ptr noundef nonnull @dtgtk_cairo_paint_showmask, i32 noundef 0, ptr noundef null) #29
   %105 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store ptr %104, ptr %105, align 8, !tbaa !149
-  call void @dt_gui_add_class(ptr noundef %104, ptr noundef nonnull @.str.30) #30
+  call void @dt_gui_add_class(ptr noundef %104, ptr noundef nonnull @.str.30) #29
   %106 = load ptr, ptr %105, align 8, !tbaa !149
-  %107 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #30
-  call void @gtk_widget_set_tooltip_text(ptr noundef %106, ptr noundef %107) #30
+  %107 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.39, i32 noundef 5) #29
+  call void @gtk_widget_set_tooltip_text(ptr noundef %106, ptr noundef %107) #29
   %108 = load ptr, ptr %105, align 8, !tbaa !149
-  %109 = call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef 80) #30
-  %110 = call i64 @g_signal_connect_data(ptr noundef %109, ptr noundef nonnull @.str.38, ptr noundef nonnull @_display_mask_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %109 = call ptr @g_type_check_instance_cast(ptr noundef %108, i64 noundef 80) #29
+  %110 = call i64 @g_signal_connect_data(ptr noundef %109, ptr noundef nonnull @.str.38, ptr noundef nonnull @_display_mask_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %111 = load ptr, ptr %105, align 8, !tbaa !149
-  %112 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %96) #30
-  call void @gtk_toggle_button_set_active(ptr noundef %112, i32 noundef 0) #30
-  %113 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #30
-  %114 = call ptr @g_type_check_instance_cast(ptr noundef %113, i64 noundef %79) #30
-  %115 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #30
-  %116 = call ptr @g_type_check_instance_cast(ptr noundef %115, i64 noundef %79) #30
+  %112 = call ptr @g_type_check_instance_cast(ptr noundef %111, i64 noundef %96) #29
+  call void @gtk_toggle_button_set_active(ptr noundef %112, i32 noundef 0) #29
+  %113 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #29
+  %114 = call ptr @g_type_check_instance_cast(ptr noundef %113, i64 noundef %79) #29
+  %115 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #29
+  %116 = call ptr @g_type_check_instance_cast(ptr noundef %115, i64 noundef %79) #29
   %117 = load ptr, ptr %33, align 8, !tbaa !187
-  %118 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %34) #30
-  call void @gtk_widget_set_hexpand(ptr noundef %118, i32 noundef 1) #30
+  %118 = call ptr @g_type_check_instance_cast(ptr noundef %117, i64 noundef %34) #29
+  call void @gtk_widget_set_hexpand(ptr noundef %118, i32 noundef 1) #29
   store ptr %118, ptr %4, align 8, !tbaa !31
   %119 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %120 = call ptr @gtk_label_new(ptr noundef nonnull @.str.40) #30
+  %120 = call ptr @gtk_label_new(ptr noundef nonnull @.str.40) #29
   store ptr %120, ptr %119, align 8, !tbaa !31
   %121 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %122 = load ptr, ptr %52, align 8, !tbaa !188
@@ -2963,7 +2963,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %8
   store ptr %124, ptr %123, align 8, !tbaa !31
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr inttoptr (i64 -1 to ptr), ptr %125, align 8, !tbaa !31
-  %126 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2692, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %116, ptr noundef nonnull %4) #30
+  %126 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2692, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %116, ptr noundef nonnull %4) #29
   store ptr %126, ptr %3, align 8, !tbaa !31
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %128 = load ptr, ptr %75, align 8, !tbaa !147
@@ -2971,118 +2971,118 @@ _iop_gui_alloc.exit:                              ; preds = %1, %8
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %83, ptr %129, align 8, !tbaa !31
   %130 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %131 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #30
-  %132 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %79) #30
+  %131 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #29
+  %132 = call ptr @g_type_check_instance_cast(ptr noundef %131, i64 noundef %79) #29
   %133 = load ptr, ptr %87, align 8, !tbaa !190
-  %134 = call ptr @g_type_check_instance_cast(ptr noundef %133, i64 noundef %34) #30
-  call void @gtk_widget_set_hexpand(ptr noundef %134, i32 noundef 1) #30
+  %134 = call ptr @g_type_check_instance_cast(ptr noundef %133, i64 noundef %34) #29
+  call void @gtk_widget_set_hexpand(ptr noundef %134, i32 noundef 1) #29
   store ptr %134, ptr %5, align 8, !tbaa !31
   %135 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %136 = load ptr, ptr %105, align 8, !tbaa !149
   store ptr %136, ptr %135, align 8, !tbaa !31
   %137 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr inttoptr (i64 -1 to ptr), ptr %137, align 8, !tbaa !31
-  %138 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2694, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %132, ptr noundef nonnull %5) #30
+  %138 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2694, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %132, ptr noundef nonnull %5) #29
   store ptr %138, ptr %130, align 8, !tbaa !31
   %139 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr inttoptr (i64 -1 to ptr), ptr %139, align 8, !tbaa !31
-  %140 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2694, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %114, ptr noundef nonnull %3) #30
+  %140 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2694, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %114, ptr noundef nonnull %3) #29
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store ptr %140, ptr %141, align 16, !tbaa !159
-  %142 = call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.21) #30
+  %142 = call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.21) #29
   %143 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store ptr %142, ptr %143, align 8, !tbaa !143
-  %144 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 5) #30
-  call void @gtk_widget_set_tooltip_text(ptr noundef %142, ptr noundef %144) #30
-  %145 = call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.42) #30
+  %144 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.41, i32 noundef 5) #29
+  call void @gtk_widget_set_tooltip_text(ptr noundef %142, ptr noundef %144) #29
+  %145 = call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.42) #29
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr %145, ptr %146, align 8, !tbaa !191
-  %147 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #30
-  call void @gtk_widget_set_tooltip_text(ptr noundef %145, ptr noundef %147) #30
-  %148 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.44) #30
+  %147 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.43, i32 noundef 5) #29
+  call void @gtk_widget_set_tooltip_text(ptr noundef %145, ptr noundef %147) #29
+  %148 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.44) #29
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %148, ptr %149, align 8, !tbaa !192
-  call void @dt_bauhaus_slider_set_format(ptr noundef %148, ptr noundef nonnull @.str.45) #30
+  call void @dt_bauhaus_slider_set_format(ptr noundef %148, ptr noundef nonnull @.str.45) #29
   %150 = load ptr, ptr %149, align 8, !tbaa !192
-  %151 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #30
-  call void @gtk_widget_set_tooltip_text(ptr noundef %150, ptr noundef %151) #30
+  %151 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.46, i32 noundef 5) #29
+  call void @gtk_widget_set_tooltip_text(ptr noundef %150, ptr noundef %151) #29
   %152 = load ptr, ptr %75, align 8, !tbaa !147
-  %153 = call ptr @g_type_check_instance_cast(ptr noundef %152, i64 noundef 80) #30
-  call void @g_object_set_data(ptr noundef %153, ptr noundef nonnull @.str.47, ptr noundef %0) #30
+  %153 = call ptr @g_type_check_instance_cast(ptr noundef %152, i64 noundef 80) #29
+  call void @g_object_set_data(ptr noundef %153, ptr noundef nonnull @.str.47, ptr noundef %0) #29
   %154 = load ptr, ptr %75, align 8, !tbaa !147
-  %155 = call ptr @g_type_check_instance_cast(ptr noundef %154, i64 noundef %34) #30
-  %156 = call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef %155, ptr noundef nonnull @_action_def_zones) #30
+  %155 = call ptr @g_type_check_instance_cast(ptr noundef %154, i64 noundef %34) #29
+  %156 = call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef %155, ptr noundef nonnull @_action_def_zones) #29
   %157 = load ptr, ptr %75, align 8, !tbaa !147
-  %158 = call ptr @g_type_check_instance_cast(ptr noundef %157, i64 noundef %34) #30
-  call void @gtk_widget_set_can_focus(ptr noundef %158, i32 noundef 1) #30
+  %158 = call ptr @g_type_check_instance_cast(ptr noundef %157, i64 noundef %34) #29
+  call void @gtk_widget_set_can_focus(ptr noundef %158, i32 noundef 1) #29
   %159 = load ptr, ptr %75, align 8, !tbaa !147
-  %160 = call ptr @g_type_check_instance_cast(ptr noundef %159, i64 noundef 80) #30
-  %161 = call i64 @g_signal_connect_data(ptr noundef %160, ptr noundef nonnull @.str.49, ptr noundef nonnull @_area_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %160 = call ptr @g_type_check_instance_cast(ptr noundef %159, i64 noundef 80) #29
+  %161 = call i64 @g_signal_connect_data(ptr noundef %160, ptr noundef nonnull @.str.49, ptr noundef nonnull @_area_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %162 = load ptr, ptr %75, align 8, !tbaa !147
-  %163 = call ptr @g_type_check_instance_cast(ptr noundef %162, i64 noundef 80) #30
-  %164 = call i64 @g_signal_connect_data(ptr noundef %163, ptr noundef nonnull @.str.50, ptr noundef nonnull @_area_button_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %163 = call ptr @g_type_check_instance_cast(ptr noundef %162, i64 noundef 80) #29
+  %164 = call i64 @g_signal_connect_data(ptr noundef %163, ptr noundef nonnull @.str.50, ptr noundef nonnull @_area_button_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %165 = load ptr, ptr %75, align 8, !tbaa !147
-  %166 = call ptr @g_type_check_instance_cast(ptr noundef %165, i64 noundef 80) #30
-  %167 = call i64 @g_signal_connect_data(ptr noundef %166, ptr noundef nonnull @.str.51, ptr noundef nonnull @_area_button_release_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %166 = call ptr @g_type_check_instance_cast(ptr noundef %165, i64 noundef 80) #29
+  %167 = call i64 @g_signal_connect_data(ptr noundef %166, ptr noundef nonnull @.str.51, ptr noundef nonnull @_area_button_release_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %168 = load ptr, ptr %75, align 8, !tbaa !147
-  %169 = call ptr @g_type_check_instance_cast(ptr noundef %168, i64 noundef 80) #30
-  %170 = call i64 @g_signal_connect_data(ptr noundef %169, ptr noundef nonnull @.str.52, ptr noundef nonnull @_area_motion_notify_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %169 = call ptr @g_type_check_instance_cast(ptr noundef %168, i64 noundef 80) #29
+  %170 = call i64 @g_signal_connect_data(ptr noundef %169, ptr noundef nonnull @.str.52, ptr noundef nonnull @_area_motion_notify_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %171 = load ptr, ptr %75, align 8, !tbaa !147
-  %172 = call ptr @g_type_check_instance_cast(ptr noundef %171, i64 noundef 80) #30
-  %173 = call i64 @g_signal_connect_data(ptr noundef %172, ptr noundef nonnull @.str.53, ptr noundef nonnull @_area_leave_notify_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %172 = call ptr @g_type_check_instance_cast(ptr noundef %171, i64 noundef 80) #29
+  %173 = call i64 @g_signal_connect_data(ptr noundef %172, ptr noundef nonnull @.str.53, ptr noundef nonnull @_area_leave_notify_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %174 = load ptr, ptr %75, align 8, !tbaa !147
-  %175 = call ptr @g_type_check_instance_cast(ptr noundef %174, i64 noundef 80) #30
-  %176 = call i64 @g_signal_connect_data(ptr noundef %175, ptr noundef nonnull @.str.54, ptr noundef nonnull @_area_scrolled_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %175 = call ptr @g_type_check_instance_cast(ptr noundef %174, i64 noundef 80) #29
+  %176 = call i64 @g_signal_connect_data(ptr noundef %175, ptr noundef nonnull @.str.54, ptr noundef nonnull @_area_scrolled_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %177 = load ptr, ptr %75, align 8, !tbaa !147
-  %178 = call ptr @g_type_check_instance_cast(ptr noundef %177, i64 noundef 80) #30
-  %179 = call i64 @g_signal_connect_data(ptr noundef %178, ptr noundef nonnull @.str.55, ptr noundef nonnull @_area_key_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %178 = call ptr @g_type_check_instance_cast(ptr noundef %177, i64 noundef 80) #29
+  %179 = call i64 @g_signal_connect_data(ptr noundef %178, ptr noundef nonnull @.str.55, ptr noundef nonnull @_area_key_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %180 = load ptr, ptr %77, align 8, !tbaa !148
-  %181 = call ptr @g_type_check_instance_cast(ptr noundef %180, i64 noundef %34) #30
-  call void @gtk_widget_add_events(ptr noundef %181, i32 noundef 256) #30
+  %181 = call ptr @g_type_check_instance_cast(ptr noundef %180, i64 noundef %34) #29
+  call void @gtk_widget_add_events(ptr noundef %181, i32 noundef 256) #29
   %182 = load ptr, ptr %77, align 8, !tbaa !148
-  %183 = call ptr @g_type_check_instance_cast(ptr noundef %182, i64 noundef 80) #30
-  %184 = call i64 @g_signal_connect_data(ptr noundef %183, ptr noundef nonnull @.str.49, ptr noundef nonnull @_bottom_area_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %183 = call ptr @g_type_check_instance_cast(ptr noundef %182, i64 noundef 80) #29
+  %184 = call i64 @g_signal_connect_data(ptr noundef %183, ptr noundef nonnull @.str.49, ptr noundef nonnull @_bottom_area_draw_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   %185 = load ptr, ptr %77, align 8, !tbaa !148
-  %186 = call ptr @g_type_check_instance_cast(ptr noundef %185, i64 noundef 80) #30
-  %187 = call i64 @g_signal_connect_data(ptr noundef %186, ptr noundef nonnull @.str.50, ptr noundef nonnull @_bottom_area_button_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
-  %188 = call ptr @dt_bauhaus_combobox_new(ptr noundef %0) #30
+  %186 = call ptr @g_type_check_instance_cast(ptr noundef %185, i64 noundef 80) #29
+  %187 = call i64 @g_signal_connect_data(ptr noundef %186, ptr noundef nonnull @.str.50, ptr noundef nonnull @_bottom_area_button_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %188 = call ptr @dt_bauhaus_combobox_new(ptr noundef %0) #29
   %189 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %188, ptr %189, align 8, !tbaa !193
-  %190 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %188, ptr noundef null, ptr noundef nonnull @.str.56) #30
+  %190 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %188, ptr noundef null, ptr noundef nonnull @.str.56) #29
   %191 = load ptr, ptr %189, align 8, !tbaa !193
-  %192 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #30
-  call void @dt_bauhaus_combobox_add(ptr noundef %191, ptr noundef %192) #30
+  %192 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.57, i32 noundef 5) #29
+  call void @dt_bauhaus_combobox_add(ptr noundef %191, ptr noundef %192) #29
   %193 = load ptr, ptr %189, align 8, !tbaa !193
-  %194 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #30
-  call void @dt_bauhaus_combobox_add(ptr noundef %193, ptr noundef %194) #30
+  %194 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.58, i32 noundef 5) #29
+  call void @dt_bauhaus_combobox_add(ptr noundef %193, ptr noundef %194) #29
   %195 = load ptr, ptr %189, align 8, !tbaa !193
-  %196 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #30
-  call void @dt_bauhaus_combobox_add(ptr noundef %195, ptr noundef %196) #30
+  %196 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.59, i32 noundef 5) #29
+  call void @dt_bauhaus_combobox_add(ptr noundef %195, ptr noundef %196) #29
   %197 = load ptr, ptr %141, align 16, !tbaa !159
-  %198 = call ptr @g_type_check_instance_cast(ptr noundef %197, i64 noundef %79) #30
+  %198 = call ptr @g_type_check_instance_cast(ptr noundef %197, i64 noundef %79) #29
   %199 = load ptr, ptr %189, align 8, !tbaa !193
   store ptr %199, ptr %6, align 8, !tbaa !31
   %200 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %200, align 8, !tbaa !31
-  %201 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2744, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %198, ptr noundef nonnull %6) #30
+  %201 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.34, i32 noundef 2744, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %198, ptr noundef nonnull %6) #29
   %202 = load ptr, ptr %189, align 8, !tbaa !193
-  %203 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #30
-  call void @gtk_widget_set_tooltip_text(ptr noundef %202, ptr noundef %203) #30
+  %203 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.60, i32 noundef 5) #29
+  call void @gtk_widget_set_tooltip_text(ptr noundef %202, ptr noundef %203) #29
   %204 = load ptr, ptr %189, align 8, !tbaa !193
-  %205 = call ptr @g_type_check_instance_cast(ptr noundef %204, i64 noundef 80) #30
-  %206 = call i64 @g_signal_connect_data(ptr noundef %205, ptr noundef nonnull @.str.61, ptr noundef nonnull @_interpolator_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #30
+  %205 = call ptr @g_type_check_instance_cast(ptr noundef %204, i64 noundef 80) #29
+  %206 = call i64 @g_signal_connect_data(ptr noundef %205, ptr noundef nonnull @.str.61, ptr noundef nonnull @_interpolator_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
   ret void
 
 207:                                              ; preds = %_iop_gui_alloc.exit, %229
   %indvars.iv144 = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next145, %229 ]
   %208 = getelementptr inbounds nuw [3 x i32], ptr %15, i64 0, i64 %indvars.iv144
   %209 = load i32, ptr %208, align 4, !tbaa !19
-  %210 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #31
+  %210 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #30
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 184
   store i32 65536, ptr %211, align 8, !tbaa !194
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 188
   store i32 65536, ptr %212, align 4, !tbaa !195
-  %213 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #31
+  %213 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #30
   %214 = getelementptr inbounds nuw i8, ptr %210, i64 192
   store ptr %213, ptr %214, align 8, !tbaa !196
   store i32 %209, ptr %210, align 8, !tbaa !167
@@ -3181,28 +3181,28 @@ define internal void @_channel_tabs_switch_callback(ptr readnone captures(none) 
   %17 = zext i32 %2 to i64
   %18 = getelementptr inbounds nuw [3 x i32], ptr %16, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !19
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %15, i32 noundef %19) #30
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %15, i32 noundef %19) #29
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load i32, ptr %21, align 8, !tbaa !151
   %23 = add nsw i32 %22, -1
   store i32 %23, ptr %21, align 8, !tbaa !151
-  tail call void @dt_iop_color_picker_reset(ptr noundef %3, i32 noundef 1) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef %3, i32 noundef 1) #29
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 5316
   %25 = load i32, ptr %24, align 4, !tbaa !89
   %.not10 = icmp eq i32 %25, 0
   br i1 %.not10, label %27, label %26
 
 26:                                               ; preds = %8
-  tail call void @dt_iop_refresh_center(ptr noundef nonnull %3) #30
+  tail call void @dt_iop_refresh_center(ptr noundef nonnull %3) #29
   br label %27
 
 27:                                               ; preds = %26, %8
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !147
-  %30 = tail call i64 @gtk_widget_get_type() #32
-  %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %30) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %31) #30
+  %30 = tail call i64 @gtk_widget_get_type() #31
+  %31 = tail call ptr @g_type_check_instance_cast(ptr noundef %29, i64 noundef %30) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %31) #29
   br label %32
 
 32:                                               ; preds = %4, %27
@@ -3226,7 +3226,7 @@ declare void @gtk_widget_set_size_request(ptr noundef, i32 noundef, i32 noundef)
 declare ptr @dt_ui_resize_wrap(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_drawing_area_get_type() local_unnamed_addr #11
+declare i64 @gtk_drawing_area_get_type() local_unnamed_addr #10
 
 declare ptr @gtk_drawing_area_new() local_unnamed_addr #3
 
@@ -3237,7 +3237,7 @@ declare ptr @dt_gui_box_add(ptr noundef, i32 noundef, ptr noundef, ptr noundef, 
 declare ptr @gtk_box_new(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_box_get_type() local_unnamed_addr #11
+declare i64 @gtk_box_get_type() local_unnamed_addr #10
 
 declare ptr @gtk_check_button_new_with_label(ptr noundef) local_unnamed_addr #3
 
@@ -3246,15 +3246,15 @@ declare void @gtk_label_set_ellipsize(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @gtk_bin_get_child(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_bin_get_type() local_unnamed_addr #11
+declare i64 @gtk_bin_get_type() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_label_get_type() local_unnamed_addr #11
+declare i64 @gtk_label_get_type() local_unnamed_addr #10
 
 declare void @gtk_toggle_button_set_active(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #11
+declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal void @_edit_by_area_callback(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 {
@@ -3267,16 +3267,16 @@ define internal void @_edit_by_area_callback(ptr noundef %0, ptr noundef readonl
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %8 = load ptr, ptr %7, align 16, !tbaa !48
-  %9 = tail call i64 @gtk_toggle_button_get_type() #32
-  %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %9) #30
-  %11 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %10) #30
+  %9 = tail call i64 @gtk_toggle_button_get_type() #31
+  %10 = tail call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %9) #29
+  %11 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %10) #29
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 5312
   store i32 %11, ptr %12, align 8, !tbaa !181
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !147
-  %15 = tail call i64 @gtk_widget_get_type() #32
-  %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %16) #30
+  %15 = tail call i64 @gtk_widget_get_type() #31
+  %16 = tail call ptr @g_type_check_instance_cast(ptr noundef %14, i64 noundef %15) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %16) #29
   br label %17
 
 17:                                               ; preds = %2, %6
@@ -3310,14 +3310,14 @@ define internal void @_display_mask_callback(ptr noundef %0, ptr noundef %1) #1 
   br i1 %.not11, label %14, label %24
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.85, i32 noundef 5) #30
-  tail call void (ptr, ...) @dt_control_log(ptr noundef %15) #30
+  %15 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.85, i32 noundef 5) #29
+  tail call void (ptr, ...) @dt_control_log(ptr noundef %15) #29
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8, !tbaa !151
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %17, align 8, !tbaa !151
-  tail call void @gtk_toggle_button_set_active(ptr noundef %0, i32 noundef 0) #30
+  tail call void @gtk_toggle_button_set_active(ptr noundef %0, i32 noundef 0) #29
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load i32, ptr %21, align 8, !tbaa !151
@@ -3326,7 +3326,7 @@ define internal void @_display_mask_callback(ptr noundef %0, ptr noundef %1) #1 
   br label %33
 
 24:                                               ; preds = %11, %6
-  %25 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #30
+  %25 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %0) #29
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 5316
   store i32 %25, ptr %26, align 4, !tbaa !89
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 824
@@ -3335,14 +3335,14 @@ define internal void @_display_mask_callback(ptr noundef %0, ptr noundef %1) #1 
   br i1 %.not12, label %32, label %29
 
 29:                                               ; preds = %24
-  %30 = tail call i64 @gtk_toggle_button_get_type() #32
-  %31 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %28, i64 noundef %30) #30
-  tail call void @gtk_toggle_button_set_active(ptr noundef %31, i32 noundef 1) #30
+  %30 = tail call i64 @gtk_toggle_button_get_type() #31
+  %31 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %28, i64 noundef %30) #29
+  tail call void @gtk_toggle_button_set_active(ptr noundef %31, i32 noundef 1) #29
   br label %32
 
 32:                                               ; preds = %29, %24
-  tail call void @dt_iop_request_focus(ptr noundef nonnull %1) #30
-  tail call void @dt_iop_refresh_center(ptr noundef nonnull %1) #30
+  tail call void @dt_iop_request_focus(ptr noundef nonnull %1) #29
+  tail call void @dt_iop_refresh_center(ptr noundef nonnull %1) #29
   br label %33
 
 33:                                               ; preds = %14, %32, %2
@@ -3362,7 +3362,7 @@ declare void @g_object_set_data(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @gtk_widget_set_can_focus(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13 {
+define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2) #12 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
@@ -3392,7 +3392,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %30 = alloca %struct._PangoRectangle, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 704
   %32 = load ptr, ptr %31, align 16, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %23) #30
+  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %23) #29
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 680
   %34 = load ptr, ptr %33, align 8, !tbaa !144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(520) %23, ptr noundef nonnull align 4 dereferenceable(520) %34, i64 520, i1 false), !tbaa.struct !201
@@ -3439,14 +3439,14 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   %58 = load ptr, ptr %57, align 8, !tbaa !160
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 192
   %60 = load ptr, ptr %59, align 8, !tbaa !196
-  tail call void @free(ptr noundef %60) #30
-  tail call void @free(ptr noundef %58) #30
-  %61 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #31
+  tail call void @free(ptr noundef %60) #29
+  tail call void @free(ptr noundef %58) #29
+  %61 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #30
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 184
   store i32 65536, ptr %62, align 8, !tbaa !194
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 188
   store i32 65536, ptr %63, align 4, !tbaa !195
-  %64 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #31
+  %64 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #30
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 192
   store ptr %64, ptr %65, align 8, !tbaa !196
   store i32 %49, ptr %61, align 8, !tbaa !167
@@ -3642,7 +3642,7 @@ define internal noundef i32 @_area_draw_callback(ptr noundef %0, ptr noundef %1,
   store i32 256, ptr %167, align 8, !tbaa !194
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 188
   store i32 65536, ptr %168, align 4, !tbaa !195
-  %169 = tail call i32 @CurveDataSample(ptr noundef nonnull %165, ptr noundef nonnull %167) #30
+  %169 = tail call i32 @CurveDataSample(ptr noundef nonnull %165, ptr noundef nonnull %167) #29
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 192
   %171 = load ptr, ptr %170, align 8, !tbaa !196
   br label %172
@@ -3710,14 +3710,14 @@ dt_draw_curve_calc_values.exit:                   ; preds = %172
   %197 = load ptr, ptr %196, align 8, !tbaa !160
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 192
   %199 = load ptr, ptr %198, align 8, !tbaa !196
-  tail call void @free(ptr noundef %199) #30
-  tail call void @free(ptr noundef %197) #30
-  %200 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #31
+  tail call void @free(ptr noundef %199) #29
+  tail call void @free(ptr noundef %197) #29
+  %200 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #30
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 184
   store i32 65536, ptr %201, align 8, !tbaa !194
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 188
   store i32 65536, ptr %202, align 4, !tbaa !195
-  %203 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #31
+  %203 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #30
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 192
   store ptr %203, ptr %204, align 8, !tbaa !196
   store i32 %181, ptr %200, align 8, !tbaa !167
@@ -3796,7 +3796,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %172
   br i1 %.not619, label %239, label %248
 
 239:                                              ; preds = %.loopexit638
-  %240 = tail call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %233, ptr noundef nonnull %236) #30
+  %240 = tail call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %233, ptr noundef nonnull %236) #29
   %241 = load ptr, ptr %238, align 8, !tbaa !196
   br label %242
 
@@ -3813,7 +3813,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %172
   br i1 %exitcond.not.i.i.i, label %dt_draw_curve_calc_values_V2.exit, label %242
 
 248:                                              ; preds = %.loopexit638
-  %249 = tail call i32 @CurveDataSampleV2(ptr noundef nonnull %233, ptr noundef nonnull %236) #30
+  %249 = tail call i32 @CurveDataSampleV2(ptr noundef nonnull %233, ptr noundef nonnull %236) #29
   %250 = load ptr, ptr %238, align 8, !tbaa !196
   br label %251
 
@@ -3837,8 +3837,8 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %251, %242
 .loopexit635:                                     ; preds = %dt_draw_curve_calc_values_V2.exit, %dt_draw_curve_calc_values.exit
   %257 = getelementptr inbounds nuw i8, ptr %32, i64 176
   %258 = load i32, ptr %257, align 8, !tbaa !61
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #30
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %24) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #29
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %24) #29
   %259 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 1424
   %261 = load double, ptr %260, align 8, !tbaa !189
@@ -3856,15 +3856,15 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %251, %242
   %273 = sitofp i32 %267 to double
   %274 = fmul reassoc nsz arcp contract afn double %270, %273
   %275 = fptosi double %274 to i32
-  %276 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %272, i32 noundef %275) #30
+  %276 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %272, i32 noundef %275) #29
   %277 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 1432
   %279 = load double, ptr %278, align 8, !tbaa !207
-  call void @cairo_surface_set_device_scale(ptr noundef %276, double noundef %279, double noundef %279) #30
-  %280 = call ptr @cairo_create(ptr noundef %276) #30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #30
-  %281 = call ptr @gtk_widget_get_style_context(ptr noundef %0) #30
-  %282 = call i32 @gtk_style_context_lookup_color(ptr noundef %281, ptr noundef nonnull @.str.86, ptr noundef nonnull %25) #30
+  call void @cairo_surface_set_device_scale(ptr noundef %276, double noundef %279, double noundef %279) #29
+  %280 = call ptr @cairo_create(ptr noundef %276) #29
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #29
+  %281 = call ptr @gtk_widget_get_style_context(ptr noundef %0) #29
+  %282 = call i32 @gtk_style_context_lookup_color(ptr noundef %281, ptr noundef nonnull @.str.86, ptr noundef nonnull %25) #29
   %.not523 = icmp eq i32 %282, 0
   br i1 %.not523, label %283, label %286
 
@@ -3877,35 +3877,35 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %251, %242
   br label %286
 
 286:                                              ; preds = %283, %.loopexit635
-  call void @gdk_cairo_set_source_rgba(ptr noundef %280, ptr noundef nonnull %25) #30
-  call void @cairo_paint(ptr noundef %280) #30
+  call void @gdk_cairo_set_source_rgba(ptr noundef %280, ptr noundef nonnull %25) #29
+  call void @cairo_paint(ptr noundef %280) #29
   %287 = sitofp i32 %263 to double
-  call void @cairo_translate(ptr noundef %280, double noundef %287, double noundef %287) #30
+  call void @cairo_translate(ptr noundef %280, double noundef %287, double noundef %287) #29
   %288 = shl nsw i32 %263, 1
   %289 = sub nsw i32 %265, %288
   %290 = sub nsw i32 %267, %288
   %291 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 1424
   %293 = load double, ptr %292, align 8, !tbaa !189
-  call void @cairo_set_line_width(ptr noundef %280, double noundef %293) #30
-  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #30
+  call void @cairo_set_line_width(ptr noundef %280, double noundef %293) #29
+  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #29
   %294 = sitofp i32 %289 to double
   %295 = sitofp i32 %290 to double
-  call void @cairo_rectangle(ptr noundef %280, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %294, double noundef %295) #30
-  call void @cairo_stroke(ptr noundef %280) #30
-  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01) #30
-  call void @cairo_rectangle(ptr noundef %280, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %294, double noundef %295) #30
-  call void @cairo_fill(ptr noundef %280) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #30
+  call void @cairo_rectangle(ptr noundef %280, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %294, double noundef %295) #29
+  call void @cairo_stroke(ptr noundef %280) #29
+  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01) #29
+  call void @cairo_rectangle(ptr noundef %280, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %294, double noundef %295) #29
+  call void @cairo_fill(ptr noundef %280) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28) #29
   call fastcc void @_select_base_display_color(ptr noundef %2, ptr noundef %26, ptr noundef %27, ptr noundef %28)
-  call void @cairo_set_antialias(ptr noundef %280, i32 noundef 1) #30
+  call void @cairo_set_antialias(ptr noundef %280, i32 noundef 1) #29
   %296 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.val = load float, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.val575 = load float, ptr %297, align 8
-  %298 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.89) #30
+  %298 = call reassoc nsz arcp contract afn float @dt_conf_get_float(ptr noundef nonnull @.str.89) #29
   %299 = getelementptr inbounds nuw i8, ptr %32, i64 5300
   %300 = getelementptr inbounds nuw i8, ptr %32, i64 5308
   %301 = getelementptr inbounds nuw i8, ptr %32, i64 5304
@@ -4041,18 +4041,18 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %251, %242
   %387 = fdiv reassoc nsz arcp contract afn float %386, %.sroa.05.3.i
   %388 = fmul reassoc nsz arcp contract afn float %385, %373
   %389 = fdiv reassoc nsz arcp contract afn float %388, %.sroa.05.3.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #29
   store float %387, ptr %18, align 16, !tbaa !14
   store float %.sroa.05.3.i, ptr %302, align 4, !tbaa !14
   store float %389, ptr %303, align 8, !tbaa !14
   store float 0.000000e+00, ptr %304, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #29
   br label %392
 
 390:                                              ; preds = %392
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #29
   %391 = load float, ptr %305, align 4, !tbaa !14
   br label %403
 
@@ -4106,10 +4106,10 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %251, %242
   br i1 %exitcond26.not.i.i, label %dt_Lab_to_XYZ.exit.i, label %.preheader.i.i
 
 dt_Lab_to_XYZ.exit.i:                             ; preds = %.preheader.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #29
   %425 = load float, ptr %21, align 16, !tbaa !14
   %426 = load float, ptr %306, align 4, !tbaa !14
   %427 = load float, ptr %307, align 8, !tbaa !14
@@ -4135,14 +4135,14 @@ dt_Lab_to_XYZ.exit.i:                             ; preds = %.preheader.i.i
   br i1 %exitcond.not.i.i.i.i, label %dt_XYZ_to_Rec709_D50.exit.i.i, label %428
 
 dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %428
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #29
   br label %539
 
 442:                                              ; preds = %539
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #29
   %443 = load float, ptr %15, align 16, !tbaa !14
   store float %443, ptr %11, align 4, !tbaa !14
   %444 = load float, ptr %309, align 4, !tbaa !14
@@ -4151,11 +4151,11 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %428
   store float %445, ptr %310, align 4, !tbaa !14
   %446 = load float, ptr %313, align 4, !tbaa !14
   store float %446, ptr %312, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #29
   br label %448
 
 447:                                              ; preds = %448
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #29
   br label %460
 
 448:                                              ; preds = %448, %442
@@ -4212,28 +4212,28 @@ dt_XYZ_to_Rec709_D50.exit.i.i:                    ; preds = %428
   br i1 %exitcond29.not.i.i.i, label %dt_vector_log2.exit.i.i, label %.preheader.i.i.i
 
 dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
   br label %534
 
 484:                                              ; preds = %534
   %.val.i.i = load <4 x float>, ptr %14, align 16, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
   %485 = call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.val.i.i, <4 x float> splat (float 1.290000e+02))
   %486 = call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %485, <4 x float> splat (float 0xC05FBFFFE0000000))
   store <4 x float> %486, ptr %4, align 16, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
   br label %490
 
 487:                                              ; preds = %490
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
   %.val32.i.i.i = load <4 x float>, ptr %5, align 16, !tbaa !202
   %488 = call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %.val32.i.i.i)
   %489 = sitofp <4 x i32> %488 to <4 x float>
   store <4 x float> %489, ptr %6, align 16, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #29
   br label %497
 
 490:                                              ; preds = %490, %484
@@ -4248,7 +4248,7 @@ dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
   br i1 %exitcond.not.i6.i.i, label %487, label %490
 
 496:                                              ; preds = %497
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #29
   br label %506
 
 497:                                              ; preds = %497, %487
@@ -4265,7 +4265,7 @@ dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
   br i1 %exitcond6.not.i.i.i, label %496, label %497
 
 505:                                              ; preds = %506
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
   br label %514
 
 506:                                              ; preds = %506, %496
@@ -4323,13 +4323,13 @@ dt_vector_log2.exit.i.i:                          ; preds = %.preheader.i.i.i
   br i1 %exitcond.not.i52.i, label %484, label %534
 
 dt_vector_powf.exit.i:                            ; preds = %.preheader.i7.i.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #29
   br label %545
 
 539:                                              ; preds = %539, %dt_XYZ_to_Rec709_D50.exit.i.i
@@ -4371,30 +4371,30 @@ dt_vector_powf.exit.i:                            ; preds = %.preheader.i7.i.i
   br i1 %exitcond14.not.i.i, label %dt_XYZ_to_sRGB.exit.i, label %545
 
 dt_XYZ_to_sRGB.exit.i:                            ; preds = %557
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #29
   %561 = load float, ptr %22, align 16, !tbaa !14
   %562 = fpext reassoc nsz arcp contract afn float %561 to double
   %563 = load float, ptr %314, align 4, !tbaa !14
   %564 = fpext reassoc nsz arcp contract afn float %563 to double
   %565 = load float, ptr %315, align 8, !tbaa !14
   %566 = fpext reassoc nsz arcp contract afn float %565 to double
-  call void @cairo_set_source_rgb(ptr noundef %280, double noundef %562, double noundef %564, double noundef %566) #30
+  call void @cairo_set_source_rgb(ptr noundef %280, double noundef %562, double noundef %564, double noundef %566) #29
   %567 = mul nsw i32 %.05012.i, %289
   %568 = sitofp i32 %567 to float
   %569 = fmul reassoc nsz arcp contract afn float %568, 1.562500e-02
   %570 = fpext reassoc nsz arcp contract afn float %569 to double
-  call void @cairo_rectangle(ptr noundef %280, double noundef %570, double noundef %330, double noundef %319, double noundef %322) #30
-  call void @cairo_fill(ptr noundef %280) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #30
+  call void @cairo_rectangle(ptr noundef %280, double noundef %570, double noundef %330, double noundef %319, double noundef %322) #29
+  call void @cairo_fill(ptr noundef %280) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #29
   %571 = add nuw nsw i32 %.05012.i, 1
   %exitcond.not.i = icmp eq i32 %571, 64
   br i1 %exitcond.not.i, label %331, label %333
 
 _draw_background.exit:                            ; preds = %331
-  call void @cairo_set_antialias(ptr noundef %280, i32 noundef 0) #30
+  call void @cairo_set_antialias(ptr noundef %280, i32 noundef 0) #29
   %572 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %573 = load i32, ptr %572, align 16, !tbaa !211
   %.not524 = icmp eq i32 %573, 0
@@ -4434,8 +4434,8 @@ _draw_background.exit:                            ; preds = %331
   br i1 %or.cond, label %596, label %645
 
 596:                                              ; preds = %592
-  call void @cairo_save(ptr noundef %280) #30
-  call void @cairo_translate(ptr noundef %280, double noundef 0.000000e+00, double noundef %295) #30
+  call void @cairo_save(ptr noundef %280) #29
+  call void @cairo_translate(ptr noundef %280, double noundef 0.000000e+00, double noundef %295) #29
   %597 = fmul reassoc nsz arcp contract afn double %294, 0x3F70101010101010
   %598 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 1424
@@ -4444,8 +4444,8 @@ _draw_background.exit:                            ; preds = %331
   %602 = fsub reassoc nsz arcp contract afn double %601, %295
   %603 = fpext reassoc nsz arcp contract afn float %593 to double
   %604 = fdiv reassoc nsz arcp contract afn double %602, %603
-  call void @cairo_scale(ptr noundef %280, double noundef %597, double noundef %604) #30
-  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 5.000000e-01) #30
+  call void @cairo_scale(ptr noundef %280, double noundef %597, double noundef %604) #29
+  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 2.000000e-01, double noundef 5.000000e-01) #29
   %605 = load float, ptr %299, align 4, !tbaa !176
   %606 = load float, ptr %301, align 8, !tbaa !178
   %607 = fmul reassoc nsz arcp contract afn float %606, 2.550000e+02
@@ -4455,7 +4455,7 @@ _draw_background.exit:                            ; preds = %331
   %611 = fpext reassoc nsz arcp contract afn float %610 to double
   %612 = fneg reassoc nsz arcp contract afn float %609
   %613 = fpext reassoc nsz arcp contract afn float %612 to double
-  call void @cairo_move_to(ptr noundef %280, double noundef %611, double noundef %613) #30
+  call void @cairo_move_to(ptr noundef %280, double noundef %611, double noundef %613) #29
   %614 = sext i32 %578 to i64
   %invariant.gep36.i = getelementptr i32, ptr %580, i64 %614
   br i1 %.not526, label %.split.us.i, label %.split.i
@@ -4478,7 +4478,7 @@ _draw_background.exit:                            ; preds = %331
   %626 = fadd reassoc nsz arcp contract afn float %620, 1.000000e+00
   %627 = call reassoc nsz arcp contract afn float @llvm.log.f32(float %626)
   %628 = fpext reassoc nsz arcp contract afn float %627 to double
-  call void @cairo_line_to(ptr noundef %280, double noundef %625, double noundef %628) #30
+  call void @cairo_line_to(ptr noundef %280, double noundef %625, double noundef %628) #29
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond33.not.i = icmp eq i64 %indvars.iv.next31.i, 256
   br i1 %exitcond33.not.i, label %dt_draw_histogram_8_zoomed.exit, label %.split.us.i
@@ -4499,7 +4499,7 @@ _draw_background.exit:                            ; preds = %331
   %638 = fmul reassoc nsz arcp contract afn float %637, %605
   %639 = fpext reassoc nsz arcp contract afn float %638 to double
   %640 = fpext reassoc nsz arcp contract afn float %634 to double
-  call void @cairo_line_to(ptr noundef %280, double noundef %639, double noundef %640) #30
+  call void @cairo_line_to(ptr noundef %280, double noundef %639, double noundef %640) #29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i590 = icmp eq i64 %indvars.iv.next.i, 256
   br i1 %exitcond.not.i590, label %dt_draw_histogram_8_zoomed.exit, label %.split.i
@@ -4509,10 +4509,10 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %642 = fpext reassoc nsz arcp contract afn float %641 to double
   %643 = fmul reassoc nsz arcp contract afn float %605, %612
   %644 = fpext reassoc nsz arcp contract afn float %643 to double
-  call void @cairo_line_to(ptr noundef %280, double noundef %642, double noundef %644) #30
-  call void @cairo_close_path(ptr noundef %280) #30
-  call void @cairo_fill(ptr noundef %280) #30
-  call void @cairo_restore(ptr noundef %280) #30
+  call void @cairo_line_to(ptr noundef %280, double noundef %642, double noundef %644) #29
+  call void @cairo_close_path(ptr noundef %280) #29
+  call void @cairo_fill(ptr noundef %280) #29
+  call void @cairo_restore(ptr noundef %280) #29
   br label %645
 
 645:                                              ; preds = %592, %dt_draw_histogram_8_zoomed.exit, %574
@@ -4526,11 +4526,11 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   br i1 %.not527, label %.loopexit, label %649
 
 649:                                              ; preds = %646
-  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 6.000000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #30
+  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 6.000000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #29
   %650 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 1424
   %652 = load double, ptr %651, align 8, !tbaa !189
-  call void @cairo_set_line_width(ptr noundef %280, double noundef %652) #30
+  call void @cairo_set_line_width(ptr noundef %280, double noundef %652) #29
   %653 = getelementptr inbounds nuw i8, ptr %23, i64 484
   %654 = sext i32 %258 to i64
   %655 = getelementptr inbounds [3 x i32], ptr %653, i64 0, i64 %654
@@ -4571,22 +4571,22 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 1424
   %685 = load double, ptr %684, align 8, !tbaa !189
   %686 = fsub reassoc nsz arcp contract afn double %665, %685
-  call void @cairo_move_to(ptr noundef %280, double noundef %682, double noundef %686) #30
-  call void @cairo_rel_line_to(ptr noundef %280, double noundef %668, double noundef 0.000000e+00) #30
-  call void @cairo_rel_line_to(ptr noundef %280, double noundef %670, double noundef %671) #30
-  call void @cairo_rel_line_to(ptr noundef %280, double noundef %670, double noundef %672) #30
-  call void @cairo_close_path(ptr noundef %280) #30
+  call void @cairo_move_to(ptr noundef %280, double noundef %682, double noundef %686) #29
+  call void @cairo_rel_line_to(ptr noundef %280, double noundef %668, double noundef 0.000000e+00) #29
+  call void @cairo_rel_line_to(ptr noundef %280, double noundef %670, double noundef %671) #29
+  call void @cairo_rel_line_to(ptr noundef %280, double noundef %670, double noundef %672) #29
+  call void @cairo_close_path(ptr noundef %280) #29
   %687 = load i32, ptr %673, align 4, !tbaa !186
   %688 = zext i32 %687 to i64
   %689 = icmp eq i64 %indvars.iv716, %688
   br i1 %689, label %690, label %691
 
 690:                                              ; preds = %674
-  call void @cairo_fill(ptr noundef %280) #30
+  call void @cairo_fill(ptr noundef %280) #29
   br label %692
 
 691:                                              ; preds = %674
-  call void @cairo_stroke(ptr noundef %280) #30
+  call void @cairo_stroke(ptr noundef %280) #29
   br label %692
 
 692:                                              ; preds = %691, %690
@@ -4597,7 +4597,7 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   br i1 %695, label %674, label %.loopexit
 
 .loopexit:                                        ; preds = %692, %649, %646
-  call void @cairo_translate(ptr noundef %280, double noundef 0.000000e+00, double noundef %295) #30
+  call void @cairo_translate(ptr noundef %280, double noundef 0.000000e+00, double noundef %295) #29
   %696 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %697 = getelementptr inbounds nuw i8, ptr %696, i64 2804
   %698 = load i32, ptr %697, align 4, !tbaa !223
@@ -4605,26 +4605,26 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   br i1 %.not528, label %738, label %699
 
 699:                                              ; preds = %.loopexit
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %29) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #30
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %29) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #29
   %700 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !224
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 336
   %702 = load ptr, ptr %701, align 8, !tbaa !225
-  %703 = call ptr @pango_font_description_copy_static(ptr noundef %702) #30
-  call void @pango_font_description_set_weight(ptr noundef %703, i32 noundef 700) #30
-  call void @pango_font_description_set_absolute_size(ptr noundef %703, double noundef 1.024000e+03) #30
-  %704 = call ptr @pango_cairo_create_layout(ptr noundef %280) #30
-  call void @pango_layout_set_font_description(ptr noundef %704, ptr noundef %703) #30
+  %703 = call ptr @pango_font_description_copy_static(ptr noundef %702) #29
+  call void @pango_font_description_set_weight(ptr noundef %703, i32 noundef 700) #29
+  call void @pango_font_description_set_absolute_size(ptr noundef %703, double noundef 1.024000e+03) #29
+  %704 = call ptr @pango_cairo_create_layout(ptr noundef %280) #29
+  call void @pango_layout_set_font_description(ptr noundef %704, ptr noundef %703) #29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %29, ptr noundef nonnull align 1 dereferenceable(24) @.str.87, i64 24, i1 false)
-  call void @pango_layout_set_text(ptr noundef %704, ptr noundef nonnull %29, i32 noundef -1) #30
-  call void @pango_layout_get_pixel_extents(ptr noundef %704, ptr noundef nonnull %30, ptr noundef null) #30
+  call void @pango_layout_set_text(ptr noundef %704, ptr noundef nonnull %29, i32 noundef -1) #29
+  call void @pango_layout_get_pixel_extents(ptr noundef %704, ptr noundef nonnull %30, ptr noundef null) #29
   %705 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %706 = load i32, ptr %705, align 4, !tbaa !231
   %707 = sitofp i32 %706 to double
   %708 = fmul reassoc nsz arcp contract afn double %294, 1.024000e+03
   %709 = fdiv reassoc nsz arcp contract afn double %708, %707
-  call void @pango_font_description_set_absolute_size(ptr noundef %703, double noundef %709) #30
-  call void @pango_layout_set_font_description(ptr noundef %704, ptr noundef %703) #30
+  call void @pango_font_description_set_absolute_size(ptr noundef %703, double noundef %709) #29
+  call void @pango_layout_set_font_description(ptr noundef %704, ptr noundef %703) #29
   %710 = load float, ptr %299, align 4, !tbaa !176
   %711 = fmul reassoc nsz arcp contract afn float %710, 1.000000e+02
   %712 = fadd reassoc nsz arcp contract afn float %711, -1.000000e+02
@@ -4635,10 +4635,10 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %717 = load float, ptr %300, align 4, !tbaa !177
   %718 = fmul reassoc nsz arcp contract afn float %717, 1.000000e+02
   %719 = fptosi float %718 to i32
-  %720 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %29, i64 noundef 256, ptr noundef nonnull @.str.88, i32 noundef %713, i32 noundef %716, i32 noundef %719) #30
-  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 5.000000e-01) #30
-  call void @pango_layout_set_text(ptr noundef %704, ptr noundef nonnull %29, i32 noundef -1) #30
-  call void @pango_layout_get_pixel_extents(ptr noundef %704, ptr noundef nonnull %30, ptr noundef null) #30
+  %720 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %29, i64 noundef 256, ptr noundef nonnull @.str.88, i32 noundef %713, i32 noundef %716, i32 noundef %719) #29
+  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 5.000000e-01) #29
+  call void @pango_layout_set_text(ptr noundef %704, ptr noundef nonnull %29, i32 noundef -1) #29
+  call void @pango_layout_get_pixel_extents(ptr noundef %704, ptr noundef nonnull %30, ptr noundef null) #29
   %721 = fmul reassoc nsz arcp contract afn float %317, 0x3FEF5C2900000000
   %722 = load i32, ptr %705, align 4, !tbaa !231
   %723 = sitofp i32 %722 to float
@@ -4656,22 +4656,22 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %735 = sitofp i32 %734 to double
   %736 = fadd reassoc nsz arcp contract afn double %732, %735
   %737 = fsub reassoc nsz arcp contract afn double %729, %736
-  call void @cairo_move_to(ptr noundef %280, double noundef %728, double noundef %737) #30
-  call void @pango_cairo_show_layout(ptr noundef %280, ptr noundef %704) #30
-  call void @cairo_stroke(ptr noundef %280) #30
-  call void @pango_font_description_free(ptr noundef %703) #30
-  call void @g_object_unref(ptr noundef %704) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #30
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %29) #30
+  call void @cairo_move_to(ptr noundef %280, double noundef %728, double noundef %737) #29
+  call void @pango_cairo_show_layout(ptr noundef %280, ptr noundef %704) #29
+  call void @cairo_stroke(ptr noundef %280) #29
+  call void @pango_font_description_free(ptr noundef %703) #29
+  call void @g_object_unref(ptr noundef %704) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #29
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %29) #29
   br label %738
 
 738:                                              ; preds = %699, %.loopexit
-  call void @cairo_set_operator(ptr noundef %280, i32 noundef 2) #30
+  call void @cairo_set_operator(ptr noundef %280, i32 noundef 2) #29
   %739 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 1424
   %741 = load double, ptr %740, align 8, !tbaa !189
   %742 = fmul reassoc nsz arcp contract afn double %741, 2.000000e+00
-  call void @cairo_set_line_width(ptr noundef %280, double noundef %742) #30
+  call void @cairo_set_line_width(ptr noundef %280, double noundef %742) #29
   %743 = sub nsw i32 0, %290
   %744 = sitofp i32 %743 to float
   %745 = getelementptr inbounds nuw i8, ptr %32, i64 180
@@ -4681,12 +4681,12 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 1424
   %749 = load double, ptr %748, align 8, !tbaa !189
-  call void @cairo_set_line_width(ptr noundef %280, double noundef %749) #30
-  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 6.000000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #30
+  call void @cairo_set_line_width(ptr noundef %280, double noundef %749) #29
+  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 6.000000e-01, double noundef 6.000000e-01, double noundef 6.000000e-01) #29
   %750 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %751 = getelementptr inbounds nuw i8, ptr %750, i64 1424
   %752 = load double, ptr %751, align 8, !tbaa !189
-  call void @cairo_set_line_width(ptr noundef %280, double noundef %752) #30
+  call void @cairo_set_line_width(ptr noundef %280, double noundef %752) #29
   %753 = getelementptr inbounds nuw i8, ptr %23, i64 484
   %754 = sext i32 %258 to i64
   %755 = getelementptr inbounds [3 x i32], ptr %753, i64 0, i64 %754
@@ -4706,7 +4706,7 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %763 = srem i32 %762, 3
   %764 = icmp eq i32 %.0506662, 2
   %. = select i1 %764, double 1.000000e+00, double 3.000000e-01
-  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef %.) #30
+  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef %.) #29
   %765 = sext i32 %763 to i64
   %766 = getelementptr inbounds [3 x [256 x float]], ptr %745, i64 0, i64 %765
   %767 = load float, ptr %766, align 4, !tbaa !14
@@ -4716,11 +4716,11 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %771 = fmul reassoc nsz arcp contract afn float %768, %744
   %772 = fmul reassoc nsz arcp contract afn float %771, %770
   %773 = fpext reassoc nsz arcp contract afn float %772 to double
-  call void @cairo_move_to(ptr noundef %280, double noundef 0.000000e+00, double noundef %773) #30
+  call void @cairo_move_to(ptr noundef %280, double noundef 0.000000e+00, double noundef %773) #29
   br label %775
 
 774:                                              ; preds = %775
-  call void @cairo_stroke(ptr noundef %280) #30
+  call void @cairo_stroke(ptr noundef %280) #29
   %exitcond723.not = icmp eq i32 %761, 3
   br i1 %exitcond723.not, label %746, label %759
 
@@ -4742,7 +4742,7 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %789 = fmul reassoc nsz arcp contract afn float %781, %744
   %790 = fmul reassoc nsz arcp contract afn float %789, %785
   %791 = fpext reassoc nsz arcp contract afn float %790 to double
-  call void @cairo_line_to(ptr noundef %280, double noundef %788, double noundef %791) #30
+  call void @cairo_line_to(ptr noundef %280, double noundef %788, double noundef %791) #29
   %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
   %exitcond722.not = icmp eq i64 %indvars.iv.next720, 256
   br i1 %exitcond722.not, label %774, label %775
@@ -4774,8 +4774,8 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 1424
   %811 = load double, ptr %810, align 8, !tbaa !189
   %812 = fmul reassoc nsz arcp contract afn double %811, 3.000000e+00
-  call void @cairo_arc(ptr noundef %280, double noundef %805, double noundef %808, double noundef %812, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #30
-  call void @cairo_stroke(ptr noundef %280) #30
+  call void @cairo_arc(ptr noundef %280, double noundef %805, double noundef %808, double noundef %812, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  call void @cairo_stroke(ptr noundef %280) #29
   %indvars.iv.next725 = add nuw nsw i64 %indvars.iv724, 1
   %813 = load i32, ptr %755, align 4, !tbaa !19
   %814 = sext i32 %813 to i64
@@ -4904,7 +4904,7 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   store i32 256, ptr %879, align 8, !tbaa !194
   %880 = getelementptr inbounds nuw i8, ptr %841, i64 188
   store i32 65536, ptr %880, align 4, !tbaa !195
-  %881 = call i32 @CurveDataSample(ptr noundef nonnull %841, ptr noundef nonnull %879) #30
+  %881 = call i32 @CurveDataSample(ptr noundef nonnull %841, ptr noundef nonnull %879) #29
   %882 = getelementptr inbounds nuw i8, ptr %841, i64 192
   %883 = load ptr, ptr %882, align 8, !tbaa !196
   br label %884
@@ -4933,7 +4933,7 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   br i1 %.not620, label %895, label %904
 
 895:                                              ; preds = %._crit_edge670
-  %896 = call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %834, ptr noundef nonnull %892) #30
+  %896 = call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %834, ptr noundef nonnull %892) #29
   %897 = load ptr, ptr %894, align 8, !tbaa !196
   br label %898
 
@@ -4950,7 +4950,7 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   br i1 %exitcond.not.i.i.i600, label %dt_draw_curve_calc_values.exit595, label %898
 
 904:                                              ; preds = %._crit_edge670
-  %905 = call i32 @CurveDataSampleV2(ptr noundef nonnull %834, ptr noundef nonnull %892) #30
+  %905 = call i32 @CurveDataSampleV2(ptr noundef nonnull %834, ptr noundef nonnull %892) #29
   %906 = load ptr, ptr %894, align 8, !tbaa !196
   br label %907
 
@@ -5088,7 +5088,7 @@ dt_draw_curve_calc_values.exit595:                ; preds = %907, %898, %884
   store i32 256, ptr %973, align 8, !tbaa !194
   %974 = getelementptr inbounds nuw i8, ptr %935, i64 188
   store i32 65536, ptr %974, align 4, !tbaa !195
-  %975 = call i32 @CurveDataSample(ptr noundef nonnull %935, ptr noundef nonnull %973) #30
+  %975 = call i32 @CurveDataSample(ptr noundef nonnull %935, ptr noundef nonnull %973) #29
   %976 = getelementptr inbounds nuw i8, ptr %935, i64 192
   %977 = load ptr, ptr %976, align 8, !tbaa !196
   br label %978
@@ -5117,7 +5117,7 @@ dt_draw_curve_calc_values.exit595:                ; preds = %907, %898, %884
   br i1 %.not621, label %989, label %998
 
 989:                                              ; preds = %._crit_edge677
-  %990 = call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %928, ptr noundef nonnull %986) #30
+  %990 = call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %928, ptr noundef nonnull %986) #29
   %991 = load ptr, ptr %988, align 8, !tbaa !196
   br label %992
 
@@ -5134,7 +5134,7 @@ dt_draw_curve_calc_values.exit595:                ; preds = %907, %898, %884
   br i1 %exitcond.not.i.i.i614, label %dt_draw_curve_calc_values.exit609, label %992
 
 998:                                              ; preds = %._crit_edge677
-  %999 = call i32 @CurveDataSampleV2(ptr noundef nonnull %928, ptr noundef nonnull %986) #30
+  %999 = call i32 @CurveDataSampleV2(ptr noundef nonnull %928, ptr noundef nonnull %986) #29
   %1000 = load ptr, ptr %988, align 8, !tbaa !196
   br label %1001
 
@@ -5167,7 +5167,7 @@ dt_draw_curve_calc_values.exit595:                ; preds = %907, %898, %884
 dt_draw_curve_calc_values.exit609:                ; preds = %1001, %992, %978
   %1014 = load ptr, ptr %33, align 8, !tbaa !144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(520) %23, ptr noundef nonnull align 4 dereferenceable(520) %1014, i64 520, i1 false), !tbaa.struct !201
-  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 6.000000e-01) #30
+  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 0x3FE6666666666666, double noundef 6.000000e-01) #29
   %1015 = getelementptr inbounds nuw i8, ptr %32, i64 3252
   %1016 = load float, ptr %1015, align 4, !tbaa !14
   %1017 = load float, ptr %299, align 4, !tbaa !176
@@ -5176,7 +5176,7 @@ dt_draw_curve_calc_values.exit609:                ; preds = %1001, %992, %978
   %1020 = fmul reassoc nsz arcp contract afn float %1017, %744
   %1021 = fmul reassoc nsz arcp contract afn float %1020, %1019
   %1022 = fpext reassoc nsz arcp contract afn float %1021 to double
-  call void @cairo_move_to(ptr noundef %280, double noundef 0.000000e+00, double noundef %1022) #30
+  call void @cairo_move_to(ptr noundef %280, double noundef 0.000000e+00, double noundef %1022) #29
   br label %1024
 
 .preheader:                                       ; preds = %1024
@@ -5201,15 +5201,15 @@ dt_draw_curve_calc_values.exit609:                ; preds = %1001, %992, %978
   %1038 = fmul reassoc nsz arcp contract afn float %1030, %744
   %1039 = fmul reassoc nsz arcp contract afn float %1038, %1034
   %1040 = fpext reassoc nsz arcp contract afn float %1039 to double
-  call void @cairo_line_to(ptr noundef %280, double noundef %1037, double noundef %1040) #30
+  call void @cairo_line_to(ptr noundef %280, double noundef %1037, double noundef %1040) #29
   %indvars.iv.next748 = add nuw nsw i64 %indvars.iv747, 1
   %exitcond750.not = icmp eq i64 %indvars.iv.next748, 256
   br i1 %exitcond750.not, label %.preheader, label %1024
 
 1041:                                             ; preds = %1063
-  call void @cairo_close_path(ptr noundef %280) #30
-  call void @cairo_fill(ptr noundef %280) #30
-  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 5.000000e-01) #30
+  call void @cairo_close_path(ptr noundef %280) #29
+  call void @cairo_fill(ptr noundef %280) #29
+  call void @cairo_set_source_rgba(ptr noundef %280, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 5.000000e-01) #29
   %1042 = load double, ptr %826, align 8, !tbaa !185
   %1043 = fptrunc reassoc nsz arcp contract afn double %1042 to float
   %1044 = load float, ptr %299, align 4, !tbaa !176
@@ -5231,7 +5231,7 @@ dt_draw_curve_calc_values.exit609:                ; preds = %1001, %992, %978
   %1060 = load float, ptr %828, align 8, !tbaa !182
   %1061 = fmul reassoc nsz arcp contract afn float %1060, %317
   %1062 = fpext reassoc nsz arcp contract afn float %1061 to double
-  call void @cairo_arc(ptr noundef %280, double noundef %1056, double noundef %1059, double noundef %1062, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #30
+  call void @cairo_arc(ptr noundef %280, double noundef %1056, double noundef %1059, double noundef %1062, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   br label %.sink.split
 
 1063:                                             ; preds = %.preheader, %1063
@@ -5252,7 +5252,7 @@ dt_draw_curve_calc_values.exit609:                ; preds = %1001, %992, %978
   %1077 = fmul reassoc nsz arcp contract afn float %1069, %744
   %1078 = fmul reassoc nsz arcp contract afn float %1077, %1073
   %1079 = fpext reassoc nsz arcp contract afn float %1078 to double
-  call void @cairo_line_to(ptr noundef %280, double noundef %1076, double noundef %1079) #30
+  call void @cairo_line_to(ptr noundef %280, double noundef %1076, double noundef %1079) #29
   %indvars.iv.next752 = add nsw i64 %indvars.iv751, -1
   %.not763 = icmp eq i64 %indvars.iv751, 0
   br i1 %.not763, label %1041, label %1063
@@ -5261,14 +5261,14 @@ dt_draw_curve_calc_values.exit609:                ; preds = %1001, %992, %978
   %1081 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 1424
   %1083 = load double, ptr %1082, align 8, !tbaa !189
-  call void @cairo_set_line_width(ptr noundef %280, double noundef %1083) #30
+  call void @cairo_set_line_width(ptr noundef %280, double noundef %1083) #29
   %1084 = getelementptr inbounds nuw i8, ptr %32, i64 140
   %1085 = load i32, ptr %1084, align 4, !tbaa !179
   %1086 = icmp sgt i32 %1085, -1
   br i1 %1086, label %1087, label %1113
 
 1087:                                             ; preds = %1080
-  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #30
+  call void @cairo_set_source_rgb(ptr noundef %280, double noundef 9.000000e-01, double noundef 9.000000e-01, double noundef 9.000000e-01) #29
   %1088 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %1089 = load i32, ptr %257, align 8, !tbaa !61
   %1090 = zext i32 %1089 to i64
@@ -5298,25 +5298,25 @@ dt_draw_curve_calc_values.exit609:                ; preds = %1001, %992, %978
   %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 1424
   %1111 = load double, ptr %1110, align 8, !tbaa !189
   %1112 = fmul reassoc nsz arcp contract afn double %1111, 4.000000e+00
-  call void @cairo_arc(ptr noundef %280, double noundef %1104, double noundef %1108, double noundef %1112, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #30
+  call void @cairo_arc(ptr noundef %280, double noundef %1104, double noundef %1108, double noundef %1112, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1041, %1087
-  call void @cairo_stroke(ptr noundef %280) #30
+  call void @cairo_stroke(ptr noundef %280) #29
   br label %1113
 
 1113:                                             ; preds = %.sink.split, %1080
-  call void @cairo_set_operator(ptr noundef %280, i32 noundef 1) #30
-  call void @cairo_destroy(ptr noundef %280) #30
-  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %276, double noundef 0.000000e+00, double noundef 0.000000e+00) #30
-  call void @cairo_paint(ptr noundef %1) #30
-  call void @cairo_surface_destroy(ptr noundef %276) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #30
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %23) #30
+  call void @cairo_set_operator(ptr noundef %280, i32 noundef 1) #29
+  call void @cairo_destroy(ptr noundef %280) #29
+  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %276, double noundef 0.000000e+00, double noundef 0.000000e+00) #29
+  call void @cairo_paint(ptr noundef %1) #29
+  call void @cairo_surface_destroy(ptr noundef %276) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #29
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %25) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24) #29
+  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %23) #29
   ret i32 0
 }
 
@@ -5367,7 +5367,7 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i32, ptr %33, align 8, !tbaa !242
-  %35 = tail call i32 @gtk_accelerator_get_default_mod_mask() #30
+  %35 = tail call i32 @gtk_accelerator_get_default_mod_mask() #29
   %36 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !19
   %37 = or i32 %36, %34
   %38 = and i32 %37, %35
@@ -5387,7 +5387,7 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %45 = load i32, ptr %44, align 8, !tbaa !242
-  %46 = tail call i32 @gtk_accelerator_get_default_mod_mask() #30
+  %46 = tail call i32 @gtk_accelerator_get_default_mod_mask() #29
   %47 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !19
   %48 = or i32 %47, %45
   %49 = and i32 %48, %46
@@ -5413,8 +5413,8 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
   %61 = load double, ptr %60, align 8, !tbaa !189
   %62 = fmul reassoc nsz arcp contract afn double %61, 5.000000e+00
   %63 = fptosi double %62 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %6) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %6) #29
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %65 = load i32, ptr %64, align 4, !tbaa !206
   %66 = shl nsw i32 %63, 1
@@ -5475,8 +5475,8 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
   %106 = fadd reassoc nsz arcp contract afn float %105, %104
   %107 = getelementptr inbounds [3 x ptr], ptr %8, i64 0, i64 %20
   %108 = load ptr, ptr %107, align 8, !tbaa !160
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #30
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #30
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #29
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #29
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %110 = load i8, ptr %109, align 4, !tbaa !162
   %111 = zext i8 %110 to i32
@@ -5490,7 +5490,7 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
 
 ._crit_edge.i:                                    ; preds = %115, %.critedge
   %113 = load i32, ptr %108, align 8, !tbaa !167
-  %114 = call ptr @interpolate_set(i32 noundef %111, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %113) #30
+  %114 = call ptr @interpolate_set(i32 noundef %111, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %113) #29
   %.not.i = icmp eq ptr %114, null
   br i1 %.not.i, label %dt_draw_curve_calc_value.exit, label %122
 
@@ -5512,8 +5512,8 @@ define internal range(i32 0, 2) i32 @_area_button_press_callback(ptr noundef %0,
   %123 = load i8, ptr %109, align 4, !tbaa !162
   %124 = zext i8 %123 to i32
   %125 = load i32, ptr %108, align 8, !tbaa !167
-  %126 = call reassoc nsz arcp contract afn float @interpolate_val(i32 noundef %124, ptr noundef nonnull %4, float noundef %106, ptr noundef nonnull %5, ptr noundef nonnull %114, i32 noundef %125) #30
-  call void @free(ptr noundef nonnull %114) #30
+  %126 = call reassoc nsz arcp contract afn float @interpolate_val(i32 noundef %124, ptr noundef nonnull %4, float noundef %106, ptr noundef nonnull %5, ptr noundef nonnull %114, i32 noundef %125) #29
+  call void @free(ptr noundef nonnull %114) #29
   br label %dt_draw_curve_calc_value.exit
 
 dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %122
@@ -5526,8 +5526,8 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %122
   %131 = load float, ptr %130, align 8, !tbaa !172
   %132 = fcmp reassoc nsz arcp contract afn olt float %.026..i, %131
   %133 = select reassoc nsz arcp contract afn i1 %132, float %.026..i, float %131
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #30
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #29
   %134 = fcmp reassoc nsz arcp contract afn oge float %133, 0.000000e+00
   %135 = fcmp reassoc nsz arcp contract afn ole float %133, 1.000000e+00
   %or.cond3 = and i1 %134, %135
@@ -5546,15 +5546,15 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %122
   br label %148
 
 ._crit_edge:                                      ; preds = %157, %136
-  call void @dt_iop_color_picker_reset(ptr noundef %2, i32 noundef 1) #30
+  call void @dt_iop_color_picker_reset(ptr noundef %2, i32 noundef 1) #29
   %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %143 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %20
-  call void @dt_dev_add_history_item_target(ptr noundef %142, ptr noundef %2, i32 noundef 1, ptr noundef %143) #30
+  call void @dt_dev_add_history_item_target(ptr noundef %142, ptr noundef %2, i32 noundef 1, ptr noundef %143) #29
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %145 = load ptr, ptr %144, align 8, !tbaa !147
-  %146 = tail call i64 @gtk_widget_get_type() #32
-  %147 = call ptr @g_type_check_instance_cast(ptr noundef %145, i64 noundef %146) #30
-  call void @gtk_widget_queue_draw(ptr noundef %147) #30
+  %146 = tail call i64 @gtk_widget_get_type() #31
+  %147 = call ptr @g_type_check_instance_cast(ptr noundef %145, i64 noundef %146) #29
+  call void @gtk_widget_queue_draw(ptr noundef %147) #29
   br label %158
 
 148:                                              ; preds = %.lr.ph181, %157
@@ -5578,7 +5578,7 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %122
   br i1 %exitcond.not, label %._crit_edge, label %148
 
 158:                                              ; preds = %._crit_edge, %dt_draw_curve_calc_value.exit
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
   br label %253
 
 thread-pre-split166:                              ; preds = %43, %56
@@ -5681,16 +5681,16 @@ _reset_nodes.exit:                                ; preds = %.lr.ph.split.i, %.l
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %203 = load ptr, ptr %202, align 8, !tbaa !193
   %204 = load i32, ptr %169, align 4, !tbaa !19
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %203, i32 noundef %204) #30
-  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %203, i32 noundef %204) #29
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %206 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %20
-  tail call void @dt_dev_add_history_item_target(ptr noundef %205, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %206) #30
+  tail call void @dt_dev_add_history_item_target(ptr noundef %205, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %206) #29
   %207 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %208 = load ptr, ptr %207, align 8, !tbaa !147
-  %209 = tail call i64 @gtk_widget_get_type() #32
-  %210 = tail call ptr @g_type_check_instance_cast(ptr noundef %208, i64 noundef %209) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %210) #30
+  %209 = tail call i64 @gtk_widget_get_type() #31
+  %210 = tail call ptr @g_type_check_instance_cast(ptr noundef %208, i64 noundef %209) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %210) #29
   br label %253
 
 211:                                              ; preds = %16
@@ -5739,21 +5739,21 @@ _reset_nodes.exit:                                ; preds = %.lr.ph.split.i, %.l
   br label %237
 
 237:                                              ; preds = %232, %226
-  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %238 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %239 = load ptr, ptr %238, align 8, !tbaa !147
-  %240 = tail call i64 @gtk_widget_get_type() #32
-  %241 = tail call ptr @g_type_check_instance_cast(ptr noundef %239, i64 noundef %240) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %241) #30
+  %240 = tail call i64 @gtk_widget_get_type() #31
+  %241 = tail call ptr @g_type_check_instance_cast(ptr noundef %239, i64 noundef %240) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %241) #29
   %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %243 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %20
-  tail call void @dt_dev_add_history_item_target(ptr noundef %242, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %243) #30
+  tail call void @dt_dev_add_history_item_target(ptr noundef %242, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %243) #29
   br label %253
 
 244:                                              ; preds = %215, %219
   %245 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %246 = load i32, ptr %245, align 8, !tbaa !242
-  %247 = tail call i32 @gtk_accelerator_get_default_mod_mask() #30
+  %247 = tail call i32 @gtk_accelerator_get_default_mod_mask() #29
   %248 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !19
   %249 = or i32 %248, %246
   %250 = and i32 %249, %247
@@ -5769,7 +5769,7 @@ _reset_nodes.exit:                                ; preds = %.lr.ph.split.i, %.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_area_button_release_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #14 {
+define internal range(i32 0, 2) i32 @_area_button_release_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #13 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2804
   %6 = load i32, ptr %5, align 4, !tbaa !223
@@ -5806,8 +5806,8 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %11 = load double, ptr %10, align 8, !tbaa !189
   %12 = fmul reassoc nsz arcp contract afn double %11, 5.000000e+00
   %13 = fptosi double %12 to i32
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %4) #29
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !206
   %16 = shl nsw i32 %13, 1
@@ -5926,9 +5926,9 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   store float %95, ptr %77, align 4, !tbaa !177
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %97 = load ptr, ptr %96, align 8, !tbaa !147
-  %98 = tail call i64 @gtk_widget_get_type() #32
-  %99 = call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef %98) #30
-  call void @gtk_widget_queue_draw(ptr noundef %99) #30
+  %98 = tail call i64 @gtk_widget_get_type() #31
+  %99 = call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef %98) #29
+  call void @gtk_widget_queue_draw(ptr noundef %99) #29
   br label %283
 
 100:                                              ; preds = %3
@@ -6073,7 +6073,7 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %205 = fptrunc reassoc nsz arcp contract afn double %204 to float
   %206 = fsub reassoc nsz arcp contract afn float %203, %205
   %207 = fdiv reassoc nsz arcp contract afn float %206, %144
-  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %208 = load i32, ptr %175, align 4, !tbaa !179
   %209 = load i32, ptr %156, align 8, !tbaa !248
   call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %208, float noundef %200, float noundef %207, i32 noundef %209)
@@ -6103,10 +6103,10 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %221 = load float, ptr %220, align 8, !tbaa !182
   call fastcc void @dt_iop_colorzones_get_params(ptr noundef nonnull %8, ptr noundef nonnull %6, i32 noundef %102, double noundef %127, double noundef %141, float noundef %221)
-  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %222 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %223 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %104
-  call void @dt_dev_add_history_item_target(ptr noundef %222, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %223) #30
+  call void @dt_dev_add_history_item_target(ptr noundef %222, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %223) #29
   br label %.loopexit
 
 224:                                              ; preds = %212
@@ -6169,10 +6169,10 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   %253 = fadd reassoc nsz arcp contract afn float %251, %252
   %254 = call fastcc i32 @_add_node(ptr noundef nonnull %108, ptr noundef nonnull %105, float noundef %148, float noundef %253)
   store i32 %254, ptr %172, align 4, !tbaa !179
-  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %256 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %104
-  call void @dt_dev_add_history_item_target(ptr noundef %255, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %256) #30
+  call void @dt_dev_add_history_item_target(ptr noundef %255, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %256) #29
   %.pre261 = load i32, ptr %172, align 4, !tbaa !179
   br label %279
 
@@ -6224,15 +6224,15 @@ define internal noundef i32 @_area_motion_notify_callback(ptr noundef %0, ptr no
   br i1 %281, label %282, label %.loopexit
 
 282:                                              ; preds = %279
-  call void @gtk_widget_grab_focus(ptr noundef %0) #30
+  call void @gtk_widget_grab_focus(ptr noundef %0) #29
   br label %.loopexit
 
 .loopexit:                                        ; preds = %243, %245, %227, %279, %282, %219, %215, %244
-  call void @gtk_widget_queue_draw(ptr noundef %0) #30
+  call void @gtk_widget_queue_draw(ptr noundef %0) #29
   br label %283
 
 283:                                              ; preds = %174, %.loopexit, %53, %94
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
   ret i32 1
 }
 
@@ -6264,7 +6264,7 @@ define internal noundef i32 @_area_leave_notify_callback(ptr noundef %0, ptr nou
   br label %19
 
 19:                                               ; preds = %17, %7
-  tail call void @gtk_widget_queue_draw(ptr noundef %0) #30
+  tail call void @gtk_widget_queue_draw(ptr noundef %0) #29
   br label %20
 
 20:                                               ; preds = %3, %19
@@ -6279,14 +6279,14 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   %7 = load ptr, ptr %6, align 16, !tbaa !48
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 680
   %9 = load ptr, ptr %8, align 8, !tbaa !144
-  %10 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #30
+  %10 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #29
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %121
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !263
-  %14 = tail call i32 @gtk_accelerator_get_default_mod_mask() #30
+  %14 = tail call i32 @gtk_accelerator_get_default_mod_mask() #29
   %15 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !19
   %16 = or i32 %15, %13
   %17 = and i32 %16, %14
@@ -6296,13 +6296,13 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %20 = load ptr, ptr %19, align 8, !tbaa !187
-  %21 = tail call i64 @gtk_widget_get_type() #32
-  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #30
-  %23 = tail call i32 @gtk_widget_event(ptr noundef %22, ptr noundef nonnull %1) #30
+  %21 = tail call i64 @gtk_widget_get_type() #31
+  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #29
+  %23 = tail call i32 @gtk_widget_event(ptr noundef %22, ptr noundef nonnull %1) #29
   br label %121
 
 24:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #29
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 2804
   %27 = load i32, ptr %26, align 4, !tbaa !223
@@ -6310,13 +6310,13 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not69, label %77, label %28
 
 28:                                               ; preds = %24
-  %29 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef nonnull %1, ptr noundef nonnull %4) #30
+  %29 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef nonnull %1, ptr noundef nonnull %4) #29
   %.not73 = icmp eq i32 %29, 0
   br i1 %.not73, label %120, label %30
 
 30:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %5) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %5) #29
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %32 = load double, ptr %31, align 8, !tbaa !185
   %33 = fptrunc reassoc nsz arcp contract afn double %32 to float
@@ -6377,10 +6377,10 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   store float %72, ptr %43, align 4, !tbaa !177
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %74 = load ptr, ptr %73, align 8, !tbaa !147
-  %75 = tail call i64 @gtk_widget_get_type() #32
-  %76 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #30
-  call void @gtk_widget_queue_draw(ptr noundef %76) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
+  %75 = tail call i64 @gtk_widget_get_type() #31
+  %76 = call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef %75) #29
+  call void @gtk_widget_queue_draw(ptr noundef %76) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
   br label %120
 
 77:                                               ; preds = %24
@@ -6396,12 +6396,12 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not70, label %120, label %84
 
 84:                                               ; preds = %81, %77
-  %85 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef nonnull %1, ptr noundef nonnull %4) #30
+  %85 = call i32 @dt_gui_get_scroll_unit_delta(ptr noundef nonnull %1, ptr noundef nonnull %4) #29
   %.not71 = icmp eq i32 %85, 0
   br i1 %.not71, label %120, label %86
 
 86:                                               ; preds = %84
-  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 5312
   %88 = load i32, ptr %87, align 8, !tbaa !181
   %.not72 = icmp eq i32 %88, 0
@@ -6436,7 +6436,7 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
 110:                                              ; preds = %99, %89
   %111 = phi float [ 1.000000e+00, %89 ], [ %109, %99 ]
   store float %111, ptr %90, align 8, !tbaa !182
-  call void @gtk_widget_queue_draw(ptr noundef %0) #30
+  call void @gtk_widget_queue_draw(ptr noundef %0) #29
   br label %120
 
 112:                                              ; preds = %86
@@ -6452,7 +6452,7 @@ define internal i32 @_area_scrolled_callback(ptr noundef %0, ptr noundef %1, ptr
   br label %120
 
 120:                                              ; preds = %84, %110, %81, %28, %71, %112
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #29
   br label %121
 
 121:                                              ; preds = %3, %120, %18
@@ -6502,7 +6502,7 @@ define internal range(i32 0, 2) i32 @_area_key_press_callback(ptr noundef %0, pt
 19:                                               ; preds = %16, %17, %18, %13, %13
   %.018.ph = phi float [ 0.000000e+00, %13 ], [ 0.000000e+00, %13 ], [ 0xBF50624DE0000000, %18 ], [ 0x3F50624DE0000000, %17 ], [ 0.000000e+00, %16 ]
   %.0.ph = phi float [ 0x3F50624DE0000000, %13 ], [ 0x3F50624DE0000000, %13 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %17 ], [ 0xBF50624DE0000000, %16 ]
-  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #29
   %20 = load i32, ptr %10, align 4, !tbaa !179
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !267
@@ -6534,12 +6534,12 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   %17 = alloca [4 x float], align 16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 704
   %19 = load ptr, ptr %18, align 16, !tbaa !48
-  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %10) #30
+  call void @llvm.lifetime.start.p0(i64 520, ptr nonnull %10) #29
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 680
   %21 = load ptr, ptr %20, align 8, !tbaa !144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(520) %10, ptr noundef nonnull align 4 dereferenceable(520) %21, i64 520, i1 false), !tbaa.struct !201
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #30
-  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %11) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #29
+  call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %11) #29
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1424
   %24 = load double, ptr %23, align 8, !tbaa !189
@@ -6557,15 +6557,15 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   %36 = sitofp i32 %30 to double
   %37 = fmul reassoc nsz arcp contract afn double %33, %36
   %38 = fptosi double %37 to i32
-  %39 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %35, i32 noundef %38) #30
+  %39 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %35, i32 noundef %38) #29
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1432
   %42 = load double, ptr %41, align 8, !tbaa !207
-  call void @cairo_surface_set_device_scale(ptr noundef %39, double noundef %42, double noundef %42) #30
-  %43 = call ptr @cairo_create(ptr noundef %39) #30
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #30
-  %44 = call ptr @gtk_widget_get_style_context(ptr noundef %0) #30
-  %45 = call i32 @gtk_style_context_lookup_color(ptr noundef %44, ptr noundef nonnull @.str.86, ptr noundef nonnull %12) #30
+  call void @cairo_surface_set_device_scale(ptr noundef %39, double noundef %42, double noundef %42) #29
+  %43 = call ptr @cairo_create(ptr noundef %39) #29
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #29
+  %44 = call ptr @gtk_widget_get_style_context(ptr noundef %0) #29
+  %45 = call i32 @gtk_style_context_lookup_color(ptr noundef %44, ptr noundef nonnull @.str.86, ptr noundef nonnull %12) #29
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %46, label %49
 
@@ -6578,30 +6578,30 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   br label %49
 
 49:                                               ; preds = %46, %3
-  call void @gdk_cairo_set_source_rgba(ptr noundef %43, ptr noundef nonnull %12) #30
-  call void @cairo_paint(ptr noundef %43) #30
+  call void @gdk_cairo_set_source_rgba(ptr noundef %43, ptr noundef nonnull %12) #29
+  call void @cairo_paint(ptr noundef %43) #29
   %50 = sitofp i32 %26 to double
-  call void @cairo_translate(ptr noundef %43, double noundef %50, double noundef %50) #30
+  call void @cairo_translate(ptr noundef %43, double noundef %50, double noundef %50) #29
   %51 = shl nsw i32 %26, 1
   %52 = sub nsw i32 %28, %51
   %53 = sub nsw i32 %30, %51
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 1424
   %56 = load double, ptr %55, align 8, !tbaa !189
-  call void @cairo_set_line_width(ptr noundef %43, double noundef %56) #30
-  call void @cairo_set_source_rgb(ptr noundef %43, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #30
+  call void @cairo_set_line_width(ptr noundef %43, double noundef %56) #29
+  call void @cairo_set_source_rgb(ptr noundef %43, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #29
   %57 = sitofp i32 %52 to double
   %58 = sitofp i32 %53 to double
-  call void @cairo_rectangle(ptr noundef %43, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %57, double noundef %58) #30
-  call void @cairo_stroke(ptr noundef %43) #30
-  call void @cairo_set_source_rgb(ptr noundef %43, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01) #30
-  call void @cairo_rectangle(ptr noundef %43, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %57, double noundef %58) #30
-  call void @cairo_fill(ptr noundef %43) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #30
+  call void @cairo_rectangle(ptr noundef %43, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %57, double noundef %58) #29
+  call void @cairo_stroke(ptr noundef %43) #29
+  call void @cairo_set_source_rgb(ptr noundef %43, double noundef 3.000000e-01, double noundef 3.000000e-01, double noundef 3.000000e-01) #29
+  call void @cairo_rectangle(ptr noundef %43, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %57, double noundef %58) #29
+  call void @cairo_fill(ptr noundef %43) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #29
   call fastcc void @_select_base_display_color(ptr noundef nonnull %2, ptr noundef %13, ptr noundef %14, ptr noundef %15)
-  call void @cairo_set_antialias(ptr noundef %43, i32 noundef 1) #30
+  call void @cairo_set_antialias(ptr noundef %43, i32 noundef 1) #29
   %59 = getelementptr inbounds nuw i8, ptr %19, i64 5300
   %60 = getelementptr inbounds nuw i8, ptr %19, i64 5304
   %61 = load i32, ptr %10, align 4, !tbaa !142
@@ -6624,7 +6624,7 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   br label %80
 
 77:                                               ; preds = %dt_XYZ_to_sRGB.exit
-  call void @cairo_set_antialias(ptr noundef %43, i32 noundef 0) #30
+  call void @cairo_set_antialias(ptr noundef %43, i32 noundef 0) #29
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 672
   %79 = load i32, ptr %78, align 16, !tbaa !211
   %.not72 = icmp eq i32 %79, 0
@@ -6677,18 +6677,18 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   %110 = fdiv reassoc nsz arcp contract afn float %109, %.sroa.078.0
   %111 = fmul reassoc nsz arcp contract afn float %108, %96
   %112 = fdiv reassoc nsz arcp contract afn float %111, %.sroa.078.0
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #29
   store float %110, ptr %7, align 16, !tbaa !14
   store float %.sroa.078.0, ptr %62, align 4, !tbaa !14
   store float %112, ptr %63, align 8, !tbaa !14
   store float 0.000000e+00, ptr %64, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #29
   br label %115
 
 113:                                              ; preds = %115
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
   %114 = load float, ptr %65, align 4, !tbaa !14
   br label %126
 
@@ -6742,10 +6742,10 @@ define internal noundef i32 @_bottom_area_draw_callback(ptr noundef %0, ptr noun
   br i1 %exitcond26.not.i, label %dt_Lab_to_XYZ.exit, label %.preheader.i
 
 dt_Lab_to_XYZ.exit:                               ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
   %148 = load float, ptr %16, align 16, !tbaa !14
   %149 = load float, ptr %66, align 4, !tbaa !14
   %150 = load float, ptr %67, align 8, !tbaa !14
@@ -6771,8 +6771,8 @@ dt_Lab_to_XYZ.exit:                               ; preds = %.preheader.i
   br i1 %exitcond.not.i.i.i, label %dt_XYZ_to_Rec709_D50.exit.i, label %151
 
 dt_XYZ_to_Rec709_D50.exit.i:                      ; preds = %151
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
   br label %166
 
 165:                                              ; preds = %166
@@ -6818,24 +6818,24 @@ dt_XYZ_to_Rec709_D50.exit.i:                      ; preds = %151
   br i1 %exitcond14.not.i, label %dt_XYZ_to_sRGB.exit, label %172
 
 dt_XYZ_to_sRGB.exit:                              ; preds = %184
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
   %188 = load float, ptr %17, align 16, !tbaa !14
   %189 = fpext reassoc nsz arcp contract afn float %188 to double
   %190 = load float, ptr %72, align 4, !tbaa !14
   %191 = fpext reassoc nsz arcp contract afn float %190 to double
   %192 = load float, ptr %73, align 8, !tbaa !14
   %193 = fpext reassoc nsz arcp contract afn float %192 to double
-  call void @cairo_set_source_rgb(ptr noundef %43, double noundef %189, double noundef %191, double noundef %193) #30
+  call void @cairo_set_source_rgb(ptr noundef %43, double noundef %189, double noundef %191, double noundef %193) #29
   %194 = mul nsw i32 %.082, %52
   %195 = sitofp i32 %194 to float
   %196 = fmul reassoc nsz arcp contract afn float %195, 1.562500e-02
   %197 = fpext reassoc nsz arcp contract afn float %196 to double
-  call void @cairo_rectangle(ptr noundef %43, double noundef %197, double noundef 0.000000e+00, double noundef %76, double noundef %58) #30
-  call void @cairo_fill(ptr noundef %43) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #30
+  call void @cairo_rectangle(ptr noundef %43, double noundef %197, double noundef 0.000000e+00, double noundef %76, double noundef %58) #29
+  call void @cairo_fill(ptr noundef %43) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #29
   %198 = add nuw nsw i32 %.082, 1
   %exitcond.not = icmp eq i32 %198, 64
   br i1 %exitcond.not, label %77, label %80
@@ -6845,17 +6845,17 @@ dt_XYZ_to_sRGB.exit:                              ; preds = %184
   br label %200
 
 200:                                              ; preds = %199, %77
-  call void @cairo_set_operator(ptr noundef %43, i32 noundef 1) #30
-  call void @cairo_destroy(ptr noundef %43) #30
-  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %39, double noundef 0.000000e+00, double noundef 0.000000e+00) #30
-  call void @cairo_paint(ptr noundef %1) #30
-  call void @cairo_surface_destroy(ptr noundef %39) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #30
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #30
-  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %10) #30
+  call void @cairo_set_operator(ptr noundef %43, i32 noundef 1) #29
+  call void @cairo_destroy(ptr noundef %43) #29
+  call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %39, double noundef 0.000000e+00, double noundef 0.000000e+00) #29
+  call void @cairo_paint(ptr noundef %1) #29
+  call void @cairo_surface_destroy(ptr noundef %39) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #29
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #29
+  call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %10) #29
   ret i32 1
 }
 
@@ -6882,9 +6882,9 @@ define internal range(i32 0, 2) i32 @_bottom_area_button_press_callback(ptr read
   store float 0.000000e+00, ptr %15, align 8, !tbaa !178
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !147
-  %18 = tail call i64 @gtk_widget_get_type() #32
-  %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %19) #30
+  %18 = tail call i64 @gtk_widget_get_type() #31
+  %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %18) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %19) #29
   br label %20
 
 20:                                               ; preds = %3, %9, %12
@@ -6911,7 +6911,7 @@ define internal void @_interpolator_callback(ptr noundef %0, ptr noundef %1) #1 
   %8 = load ptr, ptr %7, align 8, !tbaa !144
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 704
   %10 = load ptr, ptr %9, align 16, !tbaa !48
-  %11 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #30
+  %11 = tail call i32 @dt_bauhaus_combobox_get(ptr noundef %0) #29
   %switch = icmp ult i32 %11, 3
   br i1 %switch, label %.sink.split, label %17
 
@@ -6925,14 +6925,14 @@ define internal void @_interpolator_callback(ptr noundef %0, ptr noundef %1) #1 
   br label %17
 
 17:                                               ; preds = %6, %.sink.split
-  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %1, i32 noundef 1) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %1, i32 noundef 1) #29
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
-  tail call void @dt_dev_add_history_item_target(ptr noundef %18, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %0) #30
+  tail call void @dt_dev_add_history_item_target(ptr noundef %18, ptr noundef nonnull %1, i32 noundef 1, ptr noundef %0) #29
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !147
-  %21 = tail call i64 @gtk_widget_get_type() #32
-  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %22) #30
+  %21 = tail call i64 @gtk_widget_get_type() #31
+  %22 = tail call ptr @g_type_check_instance_cast(ptr noundef %20, i64 noundef %21) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %22) #29
   br label %23
 
 23:                                               ; preds = %2, %17
@@ -6953,12 +6953,12 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !19
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %7, i32 noundef %13) #30
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %7, i32 noundef %13) #29
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !147
-  %16 = tail call i64 @gtk_widget_get_type() #32
-  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %17) #30
+  %16 = tail call i64 @gtk_widget_get_type() #31
+  %17 = tail call ptr @g_type_check_instance_cast(ptr noundef %15, i64 noundef %16) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %17) #29
   ret void
 }
 
@@ -6970,7 +6970,7 @@ define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_a
   %3 = load ptr, ptr %2, align 16, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %5 = load i32, ptr %4, align 8, !tbaa !61
-  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.20, i32 noundef %5) #30
+  tail call void @dt_conf_set_int(ptr noundef nonnull @.str.20, i32 noundef %5) #29
   br label %7
 
 6:                                                ; preds = %7
@@ -6982,8 +6982,8 @@ define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_a
   %9 = load ptr, ptr %8, align 8, !tbaa !160
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %11 = load ptr, ptr %10, align 8, !tbaa !196
-  tail call void @free(ptr noundef %11) #30
-  tail call void @free(ptr noundef %9) #30
+  tail call void @free(ptr noundef %11) #29
+  tail call void @free(ptr noundef %9) #29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %6, label %7
@@ -6992,8 +6992,8 @@ define void @gui_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_a
 declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr noundef writeonly captures(none) initializes((520, 528)) %0) local_unnamed_addr #15 {
-  %2 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #31
+define void @init_global(ptr noundef writeonly captures(none) initializes((520, 528)) %0) local_unnamed_addr #14 {
+  %2 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #30
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr %2, ptr %3, align 8, !tbaa !268
   store i32 -1, ptr %2, align 4, !tbaa !270
@@ -7003,16 +7003,16 @@ define void @init_global(ptr noundef writeonly captures(none) initializes((520, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @cleanup_global(ptr noundef captures(none) %0) local_unnamed_addr #16 {
+define void @cleanup_global(ptr noundef captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load ptr, ptr %2, align 8, !tbaa !268
-  tail call void @free(ptr noundef %3) #30
+  tail call void @free(ptr noundef %3) #29
   store ptr null, ptr %2, align 8, !tbaa !268
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) initializes((216, 220)) %3) local_unnamed_addr #1 {
@@ -7088,15 +7088,15 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   %50 = load ptr, ptr %49, align 8, !tbaa !160
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 192
   %52 = load ptr, ptr %51, align 8, !tbaa !196
-  tail call void @free(ptr noundef %52) #30
-  tail call void @free(ptr noundef %50) #30
+  tail call void @free(ptr noundef %52) #29
+  tail call void @free(ptr noundef %50) #29
   %53 = load i32, ptr %41, align 4, !tbaa !19
-  %54 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #31
+  %54 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #30
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 184
   store i32 65536, ptr %55, align 8, !tbaa !194
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 188
   store i32 65536, ptr %56, align 4, !tbaa !195
-  %57 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #31
+  %57 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #30
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 192
   store ptr %57, ptr %58, align 8, !tbaa !196
   store i32 %53, ptr %54, align 8, !tbaa !167
@@ -7327,7 +7327,7 @@ define void @commit_params(ptr noundef readonly captures(none) %0, ptr noundef r
   store i32 65536, ptr %195, align 8, !tbaa !194
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 188
   store i32 65536, ptr %196, align 4, !tbaa !195
-  %197 = tail call i32 @CurveDataSample(ptr noundef nonnull %193, ptr noundef nonnull %195) #30
+  %197 = tail call i32 @CurveDataSample(ptr noundef nonnull %193, ptr noundef nonnull %195) #29
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 192
   %199 = load ptr, ptr %198, align 8, !tbaa !196
   br label %200
@@ -7391,15 +7391,15 @@ dt_draw_curve_calc_values.exit:                   ; preds = %200
   %226 = load ptr, ptr %225, align 8, !tbaa !160
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 192
   %228 = load ptr, ptr %227, align 8, !tbaa !196
-  tail call void @free(ptr noundef %228) #30
-  tail call void @free(ptr noundef %226) #30
+  tail call void @free(ptr noundef %228) #29
+  tail call void @free(ptr noundef %226) #29
   %229 = load i32, ptr %208, align 4, !tbaa !19
-  %230 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #31
+  %230 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #30
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 184
   store i32 65536, ptr %231, align 8, !tbaa !194
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 188
   store i32 65536, ptr %232, align 4, !tbaa !195
-  %233 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #31
+  %233 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #30
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 192
   store ptr %233, ptr %234, align 8, !tbaa !196
   store i32 %229, ptr %230, align 8, !tbaa !167
@@ -7487,7 +7487,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %200
   br i1 %.not252, label %278, label %287
 
 278:                                              ; preds = %.loopexit255
-  %279 = tail call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %272, ptr noundef nonnull %275) #30
+  %279 = tail call i32 @CurveDataSampleV2Periodic(ptr noundef nonnull %272, ptr noundef nonnull %275) #29
   %280 = load ptr, ptr %277, align 8, !tbaa !196
   br label %281
 
@@ -7504,7 +7504,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %200
   br i1 %exitcond.not.i.i.i, label %dt_draw_curve_calc_values_V2.exit, label %281
 
 287:                                              ; preds = %.loopexit255
-  %288 = tail call i32 @CurveDataSampleV2(ptr noundef nonnull %272, ptr noundef nonnull %275) #30
+  %288 = tail call i32 @CurveDataSampleV2(ptr noundef nonnull %272, ptr noundef nonnull %275) #29
   %289 = load ptr, ptr %277, align 8, !tbaa !196
   br label %290
 
@@ -7531,7 +7531,7 @@ dt_draw_curve_calc_values_V2.exit:                ; preds = %290, %281
 
 ; Function Attrs: nofree nounwind uwtable
 define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef writeonly captures(none) initializes((16, 24)) %2) local_unnamed_addr #4 {
-  %4 = tail call noalias dereferenceable_or_null(786488) ptr @malloc(i64 noundef 786488) #31
+  %4 = tail call noalias dereferenceable_or_null(786488) ptr @malloc(i64 noundef 786488) #30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %6 = load ptr, ptr %5, align 16, !tbaa !157
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7557,12 +7557,12 @@ define void @init_pipe(ptr noundef readonly captures(none) %0, ptr noundef readn
   %indvars.iv35 = phi i64 [ 0, %3 ], [ %indvars.iv.next36, %39 ]
   %20 = getelementptr inbounds nuw [3 x i32], ptr %8, i64 0, i64 %indvars.iv35
   %21 = load i32, ptr %20, align 4, !tbaa !19
-  %22 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #31
+  %22 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #30
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 184
   store i32 65536, ptr %23, align 8, !tbaa !194
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 188
   store i32 65536, ptr %24, align 4, !tbaa !195
-  %25 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #31
+  %25 = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #30
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 192
   store ptr %25, ptr %26, align 8, !tbaa !196
   store i32 %21, ptr %22, align 8, !tbaa !167
@@ -7629,7 +7629,7 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 
 6:                                                ; preds = %8
   %7 = load ptr, ptr %4, align 16, !tbaa !33
-  tail call void @free(ptr noundef %7) #30
+  tail call void @free(ptr noundef %7) #29
   store ptr null, ptr %4, align 16, !tbaa !33
   ret void
 
@@ -7639,19 +7639,19 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
   %10 = load ptr, ptr %9, align 8, !tbaa !160
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %12 = load ptr, ptr %11, align 8, !tbaa !196
-  tail call void @free(ptr noundef %12) #30
-  tail call void @free(ptr noundef %10) #30
+  tail call void @free(ptr noundef %12) #29
+  tail call void @free(ptr noundef %10) #29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %6, label %8
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @init(ptr noundef captures(none) initializes((676, 700), (704, 712)) %0) local_unnamed_addr #18 {
-  %2 = tail call noalias dereferenceable_or_null(520) ptr @calloc(i64 noundef 1, i64 noundef 520) #33
+define void @init(ptr noundef captures(none) initializes((676, 700), (704, 712)) %0) local_unnamed_addr #17 {
+  %2 = tail call noalias dereferenceable_or_null(520) ptr @calloc(i64 noundef 1, i64 noundef 520) #32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %2, ptr %3, align 8, !tbaa !144
-  %4 = tail call noalias dereferenceable_or_null(520) ptr @calloc(i64 noundef 1, i64 noundef 520) #33
+  %4 = tail call noalias dereferenceable_or_null(520) ptr @calloc(i64 noundef 1, i64 noundef 520) #32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr %4, ptr %5, align 16, !tbaa !157
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 676
@@ -7710,7 +7710,7 @@ _reset_parameters.exit:                           ; preds = %_reset_nodes.exit.u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #19
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @get_introspection_linear() local_unnamed_addr #0 {
@@ -7723,7 +7723,7 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #19 {
   %3 = load i32, ptr @introspection, align 8, !tbaa !278
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
@@ -7750,14 +7750,14 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
   ret i32 %.06
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #21 {
-  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.21) #34
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
+define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
+  %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.21) #33
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %51, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.73) #34
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.73) #33
   %.not28 = icmp eq i32 %5, 0
   br i1 %.not28, label %6, label %8
 
@@ -7766,7 +7766,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 8:                                                ; preds = %4
-  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.74) #34
+  %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.74) #33
   %.not29 = icmp eq i32 %9, 0
   br i1 %.not29, label %10, label %12
 
@@ -7775,7 +7775,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 12:                                               ; preds = %8
-  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.75) #34
+  %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.75) #33
   %.not30 = icmp eq i32 %13, 0
   br i1 %.not30, label %14, label %16
 
@@ -7784,7 +7784,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 16:                                               ; preds = %12
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.76) #34
+  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.76) #33
   %.not31 = icmp eq i32 %17, 0
   br i1 %.not31, label %18, label %20
 
@@ -7793,7 +7793,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 20:                                               ; preds = %16
-  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.77) #34
+  %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(6) @.str.77) #33
   %.not32 = icmp eq i32 %21, 0
   br i1 %.not32, label %22, label %24
 
@@ -7802,7 +7802,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(19) @.str.78) #34
+  %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(19) @.str.78) #33
   %.not33 = icmp eq i32 %25, 0
   br i1 %.not33, label %26, label %28
 
@@ -7811,7 +7811,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.79) #34
+  %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.79) #33
   %.not34 = icmp eq i32 %29, 0
   br i1 %.not34, label %30, label %32
 
@@ -7820,7 +7820,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 32:                                               ; preds = %28
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.80) #34
+  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.80) #33
   %.not35 = icmp eq i32 %33, 0
   br i1 %.not35, label %34, label %36
 
@@ -7829,7 +7829,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 36:                                               ; preds = %32
-  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.81) #34
+  %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.81) #33
   %.not36 = icmp eq i32 %37, 0
   br i1 %.not36, label %38, label %40
 
@@ -7838,7 +7838,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 40:                                               ; preds = %36
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.44) #34
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.44) #33
   %.not37 = icmp eq i32 %41, 0
   br i1 %.not37, label %42, label %44
 
@@ -7847,7 +7847,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 44:                                               ; preds = %40
-  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.42) #34
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.42) #33
   %.not38 = icmp eq i32 %45, 0
   br i1 %.not38, label %46, label %48
 
@@ -7856,7 +7856,7 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   br label %51
 
 48:                                               ; preds = %44
-  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.82) #34
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.82) #33
   %.not39 = icmp eq i32 %49, 0
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %spec.select = select i1 %.not39, ptr %50, ptr null
@@ -7867,72 +7867,72 @@ define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, pt
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
 define ptr @get_f(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.21) #30
+  %2 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.21) #29
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %27, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.73) #30
+  %4 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.73) #29
   %.not14 = icmp eq i32 %4, 0
   br i1 %.not14, label %27, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.74) #30
+  %6 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.74) #29
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %27, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.75) #30
+  %8 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.75) #29
   %.not16 = icmp eq i32 %8, 0
   br i1 %.not16, label %27, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.76) #30
+  %10 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.76) #29
   %.not17 = icmp eq i32 %10, 0
   br i1 %.not17, label %27, label %11
 
 11:                                               ; preds = %9
-  %12 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.77) #30
+  %12 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.77) #29
   %.not18 = icmp eq i32 %12, 0
   br i1 %.not18, label %27, label %13
 
 13:                                               ; preds = %11
-  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.78) #30
+  %14 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.78) #29
   %.not19 = icmp eq i32 %14, 0
   br i1 %.not19, label %27, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.79) #30
+  %16 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.79) #29
   %.not20 = icmp eq i32 %16, 0
   br i1 %.not20, label %27, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.80) #30
+  %18 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.80) #29
   %.not21 = icmp eq i32 %18, 0
   br i1 %.not21, label %27, label %19
 
 19:                                               ; preds = %17
-  %20 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.81) #30
+  %20 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.81) #29
   %.not22 = icmp eq i32 %20, 0
   br i1 %.not22, label %27, label %21
 
 21:                                               ; preds = %19
-  %22 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.44) #30
+  %22 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.44) #29
   %.not23 = icmp eq i32 %22, 0
   br i1 %.not23, label %27, label %23
 
 23:                                               ; preds = %21
-  %24 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.42) #30
+  %24 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.42) #29
   %.not24 = icmp eq i32 %24, 0
   br i1 %.not24, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.82) #30
+  %26 = tail call i32 @g_ascii_strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.82) #29
   %.not25 = icmp eq i32 %26, 0
   %. = select i1 %.not25, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 1056), ptr null
   br label %27
@@ -7946,8 +7946,8 @@ declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @dt_iop_image_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #11
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #22
 
 declare void @dt_iop_refresh_center(ptr noundef) local_unnamed_addr #3
 
@@ -8021,14 +8021,14 @@ define internal fastcc void @_delete_node(ptr noundef %0, ptr noundef captures(n
   br label %29
 
 29:                                               ; preds = %._crit_edge, %27, %8
-  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %0, i32 noundef 1) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %0, i32 noundef 1) #29
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !147
-  %32 = tail call i64 @gtk_widget_get_type() #32
-  %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #30
-  tail call void @gtk_widget_queue_draw(ptr noundef %33) #30
+  %32 = tail call i64 @gtk_widget_get_type() #31
+  %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #29
+  tail call void @gtk_widget_queue_draw(ptr noundef %33) #29
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
-  tail call void @dt_dev_add_history_item(ptr noundef %34, ptr noundef nonnull %0, i32 noundef 1) #30
+  tail call void @dt_dev_add_history_item(ptr noundef %34, ptr noundef nonnull %0, i32 noundef 1) #29
   ret void
 }
 
@@ -8043,7 +8043,7 @@ define internal fastcc void @_move_point_internal(ptr noundef %0, ptr noundef %1
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds [3 x [20 x %struct.dt_iop_colorzones_node_t]], ptr %13, i64 0, i64 %14
-  %16 = tail call reassoc nsz arcp contract afn float @dt_accel_get_speed_multiplier(ptr noundef %1, i32 noundef %5) #30
+  %16 = tail call reassoc nsz arcp contract afn float @dt_accel_get_speed_multiplier(ptr noundef %1, i32 noundef %5) #29
   %17 = fmul reassoc nsz arcp contract afn float %16, %3
   %18 = fmul reassoc nsz arcp contract afn float %16, %4
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 516
@@ -8238,11 +8238,11 @@ _sanity_check.exit:                               ; preds = %78
 125:                                              ; preds = %86, %91, %98, %.critedge, %124
   %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %127 = getelementptr inbounds %struct._GtkWidget, ptr %1, i64 %14
-  tail call void @dt_dev_add_history_item_target(ptr noundef %126, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %127) #30
+  tail call void @dt_dev_add_history_item_target(ptr noundef %126, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %127) #29
   br label %_sanity_check.exit.thread
 
 _sanity_check.exit.thread:                        ; preds = %81, %72, %125, %_sanity_check.exit
-  tail call void @gtk_widget_queue_draw(ptr noundef %1) #30
+  tail call void @gtk_widget_queue_draw(ptr noundef %1) #29
   ret void
 }
 
@@ -8299,7 +8299,7 @@ declare void @cairo_stroke(ptr noundef) local_unnamed_addr #3
 
 declare void @cairo_fill(ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_select_base_display_color(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #24 {
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
@@ -8332,16 +8332,16 @@ define internal fastcc void @_select_base_display_color(ptr noundef readonly cap
   br label %135
 
 .thread:                                          ; preds = %4, %16, %20
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
   br label %26
 
 25:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #29
   call fastcc void @dt_vector_powf(ptr noundef %9, ptr noundef nonnull @dt_sRGB_to_linear_sRGB.two_point_four, ptr noundef %10)
   br label %35
 
@@ -8375,9 +8375,9 @@ define internal fastcc void @_select_base_display_color(ptr noundef readonly cap
   br i1 %exitcond20.not.i.i, label %dt_sRGB_to_linear_sRGB.exit.i, label %35
 
 dt_sRGB_to_linear_sRGB.exit.i:                    ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #29
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %44 = load float, ptr %11, align 16, !tbaa !14
@@ -8405,12 +8405,12 @@ dt_sRGB_to_linear_sRGB.exit.i:                    ; preds = %35
   br i1 %exitcond.not.i.i.i, label %dt_sRGB_to_XYZ.exit, label %47
 
 dt_sRGB_to_XYZ.exit:                              ; preds = %47
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
   br label %75
 
 61:                                               ; preds = %lab_f.exit.i
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %63 = load float, ptr %62, align 4, !tbaa !14
   store float %63, ptr %6, align 16, !tbaa !14
@@ -8425,7 +8425,7 @@ dt_sRGB_to_XYZ.exit:                              ; preds = %47
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %71 = load float, ptr %70, align 4, !tbaa !14
   store float %71, ptr %69, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #29
   store float 0.000000e+00, ptr %7, align 16, !tbaa !14
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store float %63, ptr %72, align 4, !tbaa !14
@@ -8493,9 +8493,9 @@ lab_f.exit.i:                                     ; preds = %93, %82
   br i1 %exitcond16.not.i, label %dt_XYZ_to_Lab.exit, label %99
 
 dt_XYZ_to_Lab.exit:                               ; preds = %99
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %114 = load float, ptr %113, align 8, !tbaa !14
   %115 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -8518,7 +8518,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %119, %121
   %.0.i = phi nsz float [ %120, %119 ], [ %124, %121 ]
   %125 = load float, ptr %13, align 16, !tbaa !14
   store float %125, ptr %1, align 4, !tbaa !14
-  %126 = tail call reassoc nsz arcp contract afn float @hypotf(float noundef %116, float noundef %114) #32
+  %126 = tail call reassoc nsz arcp contract afn float @hypotf(float noundef %116, float noundef %114) #31
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %126, ptr %127, align 4, !tbaa !14
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8535,8 +8535,8 @@ dt_Lab_2_LCH.exit:                                ; preds = %119, %121
   store float %132, ptr %133, align 4, !tbaa !14
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %132, ptr %134, align 4, !tbaa !14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #29
   br label %.loopexit
 
 135:                                              ; preds = %.preheader, %135
@@ -8588,17 +8588,17 @@ define internal fastcc void @_draw_color_picker(ptr noundef %0, ptr noundef %1, 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %19 = load ptr, ptr %18, align 8, !tbaa !188
-  %20 = tail call i64 @gtk_toggle_button_get_type() #32
-  %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #30
-  %22 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %21) #30
+  %20 = tail call i64 @gtk_toggle_button_get_type() #31
+  %21 = tail call ptr @g_type_check_instance_cast(ptr noundef %19, i64 noundef %20) #29
+  %22 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %21) #29
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %28
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %25 = load ptr, ptr %24, align 8, !tbaa !156
-  %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef %20) #30
-  %27 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %26) #30
+  %26 = tail call ptr @g_type_check_instance_cast(ptr noundef %25, i64 noundef %20) #29
+  %27 = tail call i32 @gtk_toggle_button_get_active(ptr noundef %26) #29
   %.not118 = icmp eq i32 %27, 0
   br i1 %.not118, label %136, label %28
 
@@ -8612,15 +8612,15 @@ define internal fastcc void @_draw_color_picker(ptr noundef %0, ptr noundef %1, 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %34 = load ptr, ptr %33, align 8, !tbaa !90
-  %35 = tail call ptr @dt_ioppr_get_histogram_profile_info(ptr noundef %34) #30
+  %35 = tail call ptr @dt_ioppr_get_histogram_profile_info(ptr noundef %34) #29
   %36 = load ptr, ptr %33, align 8, !tbaa !90
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 2056
   %38 = load ptr, ptr %37, align 8, !tbaa !282
-  %39 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef nonnull %0, ptr noundef %38) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #30
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #30
+  %39 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef nonnull %0, ptr noundef %38) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #29
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #29
   %40 = icmp ne ptr %39, null
   %41 = icmp ne ptr %35, null
   %or.cond = select i1 %40, i1 %41, i1 false
@@ -8655,12 +8655,12 @@ define internal fastcc void @_draw_color_picker(ptr noundef %0, ptr noundef %1, 
   store float 1.000000e+00, ptr %42, align 4, !tbaa !14
   store float 1.000000e+00, ptr %43, align 4, !tbaa !14
   store float 1.000000e+00, ptr %44, align 4, !tbaa !14
-  call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef nonnull %10, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %35, ptr noundef nonnull %39, ptr noundef nonnull @.str) #30
-  call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef nonnull %11, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %35, ptr noundef nonnull %39, ptr noundef nonnull @.str) #30
-  call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef nonnull %12, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %35, ptr noundef nonnull %39, ptr noundef nonnull @.str) #30
-  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %39) #30
-  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %39) #30
-  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %39) #30
+  call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef nonnull %10, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %35, ptr noundef nonnull %39, ptr noundef nonnull @.str) #29
+  call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef nonnull %11, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %35, ptr noundef nonnull %39, ptr noundef nonnull @.str) #29
+  call void @dt_ioppr_transform_image_colorspace_rgb(ptr noundef nonnull %12, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1, ptr noundef nonnull %35, ptr noundef nonnull %39, ptr noundef nonnull @.str) #29
+  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %10, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %39) #29
+  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %11, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %39) #29
+  call void @dt_ioppr_transform_image_colorspace(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %12, i32 noundef 1, i32 noundef 1, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %13, ptr noundef nonnull %39) #29
   %62 = load float, ptr %45, align 8, !tbaa !14
   %63 = load float, ptr %46, align 4, !tbaa !14
   %64 = call reassoc nsz arcp contract afn float @llvm.atan2.f32(float %62, float %63)
@@ -8680,7 +8680,7 @@ define internal fastcc void @_draw_color_picker(ptr noundef %0, ptr noundef %1, 
 dt_Lab_2_LCH.exit:                                ; preds = %66, %68
   %.0.i = phi nsz float [ %67, %66 ], [ %71, %68 ]
   %72 = load float, ptr %10, align 16, !tbaa !14
-  %73 = call reassoc nsz arcp contract afn float @hypotf(float noundef %63, float noundef %62) #32
+  %73 = call reassoc nsz arcp contract afn float @hypotf(float noundef %63, float noundef %62) #31
   store float %73, ptr %46, align 4, !tbaa !14
   store float %.0.i, ptr %45, align 8, !tbaa !14
   %74 = load float, ptr %47, align 8, !tbaa !14
@@ -8702,7 +8702,7 @@ dt_Lab_2_LCH.exit:                                ; preds = %66, %68
 dt_Lab_2_LCH.exit124:                             ; preds = %78, %80
   %.0.i123 = phi nsz float [ %79, %78 ], [ %83, %80 ]
   %84 = load float, ptr %11, align 16, !tbaa !14
-  %85 = call reassoc nsz arcp contract afn float @hypotf(float noundef %75, float noundef %74) #32
+  %85 = call reassoc nsz arcp contract afn float @hypotf(float noundef %75, float noundef %74) #31
   store float %85, ptr %48, align 4, !tbaa !14
   store float %.0.i123, ptr %47, align 8, !tbaa !14
   %86 = load float, ptr %49, align 8, !tbaa !14
@@ -8724,7 +8724,7 @@ dt_Lab_2_LCH.exit124:                             ; preds = %78, %80
 dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   %.0.i125 = phi nsz float [ %91, %90 ], [ %95, %92 ]
   %96 = load float, ptr %12, align 16, !tbaa !14
-  %97 = call reassoc nsz arcp contract afn float @hypotf(float noundef %87, float noundef %86) #32
+  %97 = call reassoc nsz arcp contract afn float @hypotf(float noundef %87, float noundef %86) #31
   store float %97, ptr %50, align 4, !tbaa !14
   store float %.0.i125, ptr %49, align 8, !tbaa !14
   %98 = load i32, ptr %2, align 4, !tbaa !142
@@ -8774,32 +8774,32 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   %122 = fmul reassoc nsz arcp contract afn float %121, %118
   %123 = fsub reassoc nsz arcp contract afn float %.0111, %119
   %124 = fmul reassoc nsz arcp contract afn float %123, %118
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef 5.000000e-01, double noundef 0x3FE6666666666666, double noundef 5.000000e-01, double noundef 1.500000e-01) #30
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef 5.000000e-01, double noundef 0x3FE6666666666666, double noundef 5.000000e-01, double noundef 1.500000e-01) #29
   %125 = fmul reassoc nsz arcp contract afn float %122, %53
   %126 = fpext reassoc nsz arcp contract afn float %125 to double
   %127 = fsub reassoc nsz arcp contract afn float %124, %122
   %128 = fpext reassoc nsz arcp contract afn float %127 to double
   %129 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %128, double 0.000000e+00)
   %130 = fmul reassoc nsz arcp contract afn double %129, %54
-  call void @cairo_rectangle(ptr noundef %1, double noundef %126, double noundef 0.000000e+00, double noundef %130, double noundef %55) #30
-  call void @cairo_fill(ptr noundef %1) #30
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef 5.000000e-01, double noundef 0x3FE6666666666666, double noundef 5.000000e-01, double noundef 5.000000e-01) #30
+  call void @cairo_rectangle(ptr noundef %1, double noundef %126, double noundef 0.000000e+00, double noundef %130, double noundef %55) #29
+  call void @cairo_fill(ptr noundef %1) #29
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef 5.000000e-01, double noundef 0x3FE6666666666666, double noundef 5.000000e-01, double noundef 5.000000e-01) #29
   %131 = fmul reassoc nsz arcp contract afn float %118, %53
   %132 = fmul reassoc nsz arcp contract afn float %131, %120
   %133 = fpext reassoc nsz arcp contract afn float %132 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %133, double noundef 0.000000e+00) #30
-  call void @cairo_line_to(ptr noundef %1, double noundef %133, double noundef %55) #30
-  call void @cairo_stroke(ptr noundef %1) #30
+  call void @cairo_move_to(ptr noundef %1, double noundef %133, double noundef 0.000000e+00) #29
+  call void @cairo_line_to(ptr noundef %1, double noundef %133, double noundef %55) #29
+  call void @cairo_stroke(ptr noundef %1) #29
   %134 = getelementptr inbounds nuw i8, ptr %.0114128, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !285
   %.not120 = icmp eq ptr %135, null
   br i1 %.not120, label %.loopexit, label %56
 
 .loopexit:                                        ; preds = %117, %32
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #30
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
   br label %136
 
 136:                                              ; preds = %28, %.loopexit, %23
@@ -8809,16 +8809,16 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
 
 138:                                              ; preds = %136
   %139 = load ptr, ptr %18, align 8, !tbaa !188
-  %140 = call ptr @g_type_check_instance_cast(ptr noundef %139, i64 noundef %20) #30
-  %141 = call i32 @gtk_toggle_button_get_active(ptr noundef %140) #30
+  %140 = call ptr @g_type_check_instance_cast(ptr noundef %139, i64 noundef %20) #29
+  %141 = call i32 @gtk_toggle_button_get_active(ptr noundef %140) #29
   %.not121 = icmp eq i32 %141, 0
   br i1 %.not121, label %142, label %147
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %144 = load ptr, ptr %143, align 8, !tbaa !156
-  %145 = call ptr @g_type_check_instance_cast(ptr noundef %144, i64 noundef %20) #30
-  %146 = call i32 @gtk_toggle_button_get_active(ptr noundef %145) #30
+  %145 = call ptr @g_type_check_instance_cast(ptr noundef %144, i64 noundef %20) #29
+  %146 = call i32 @gtk_toggle_button_get_active(ptr noundef %145) #29
   %.not122 = icmp eq i32 %146, 0
   br i1 %.not122, label %.thread, label %147
 
@@ -8872,8 +8872,8 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   %180 = fmul reassoc nsz arcp contract afn float %179, %175
   %181 = fsub reassoc nsz arcp contract afn float %.0, %177
   %182 = fmul reassoc nsz arcp contract afn float %181, %175
-  call void @cairo_save(ptr noundef %1) #30
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 2.500000e-01) #30
+  call void @cairo_save(ptr noundef %1) #29
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 2.500000e-01) #29
   %183 = sitofp i32 %4 to float
   %184 = fmul reassoc nsz arcp contract afn float %180, %183
   %185 = fpext reassoc nsz arcp contract afn float %184 to double
@@ -8883,22 +8883,22 @@ dt_Lab_2_LCH.exit126:                             ; preds = %90, %92
   %189 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %188, double 0.000000e+00)
   %190 = fmul reassoc nsz arcp contract afn double %189, %186
   %191 = sitofp i32 %5 to double
-  call void @cairo_rectangle(ptr noundef %1, double noundef %185, double noundef 0.000000e+00, double noundef %190, double noundef %191) #30
-  call void @cairo_fill(ptr noundef %1) #30
-  call void @cairo_set_source_rgb(ptr noundef %1, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00) #30
-  call void @cairo_set_operator(ptr noundef %1, i32 noundef 11) #30
+  call void @cairo_rectangle(ptr noundef %1, double noundef %185, double noundef 0.000000e+00, double noundef %190, double noundef %191) #29
+  call void @cairo_fill(ptr noundef %1) #29
+  call void @cairo_set_source_rgb(ptr noundef %1, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00) #29
+  call void @cairo_set_operator(ptr noundef %1, i32 noundef 11) #29
   %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !150
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 1424
   %194 = load double, ptr %193, align 8, !tbaa !189
   %195 = fmul reassoc nsz arcp contract afn double %194, 2.000000e+00
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %195) #30
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %195) #29
   %196 = fmul reassoc nsz arcp contract afn float %175, %183
   %197 = fmul reassoc nsz arcp contract afn float %196, %178
   %198 = fpext reassoc nsz arcp contract afn float %197 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %198, double noundef 0.000000e+00) #30
-  call void @cairo_line_to(ptr noundef %1, double noundef %198, double noundef %191) #30
-  call void @cairo_stroke(ptr noundef %1) #30
-  call void @cairo_restore(ptr noundef %1) #30
+  call void @cairo_move_to(ptr noundef %1, double noundef %198, double noundef 0.000000e+00) #29
+  call void @cairo_line_to(ptr noundef %1, double noundef %198, double noundef %191) #29
+  call void @cairo_stroke(ptr noundef %1) #29
+  call void @cairo_restore(ptr noundef %1) #29
   br label %.thread
 
 .thread:                                          ; preds = %9, %173, %142, %136
@@ -8941,7 +8941,7 @@ declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_u
 declare void @cairo_arc(ptr noundef, double noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dt_iop_colorzones_get_params(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, double noundef %3, double noundef %4, float noundef %5) unnamed_addr #26 {
+define internal fastcc void @dt_iop_colorzones_get_params(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, double noundef %3, double noundef %4, float noundef %5) unnamed_addr #24 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %8 = sext i32 %2 to i64
   %9 = getelementptr inbounds [3 x i32], ptr %7, i64 0, i64 %8
@@ -9079,7 +9079,7 @@ declare ptr @cairo_image_surface_create(i32 noundef, i32 noundef, i32 noundef) l
 declare void @cairo_surface_set_device_scale(ptr noundef, double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @dt_vector_powf(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #27 {
+define internal fastcc void @dt_vector_powf(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #26 {
   %4 = alloca [4 x float], align 16
   %5 = alloca [4 x float], align 16
   %6 = alloca [4 x float], align 16
@@ -9091,9 +9091,9 @@ define internal fastcc void @dt_vector_powf(ptr noundef nonnull readonly capture
   %12 = alloca [4 x float], align 16
   %13 = alloca [4 x float], align 16
   %14 = alloca [4 x float], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #30
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #29
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #29
   %15 = load float, ptr %0, align 4, !tbaa !14
   store float %15, ptr %11, align 4, !tbaa !14
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -9108,11 +9108,11 @@ define internal fastcc void @dt_vector_powf(ptr noundef nonnull readonly capture
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load float, ptr %23, align 4, !tbaa !14
   store float %24, ptr %22, align 4, !tbaa !14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #29
   br label %26
 
 25:                                               ; preds = %26
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #29
   br label %38
 
 26:                                               ; preds = %26, %3
@@ -9169,28 +9169,28 @@ define internal fastcc void @dt_vector_powf(ptr noundef nonnull readonly capture
   br i1 %exitcond29.not.i, label %dt_vector_log2.exit, label %.preheader.i
 
 dt_vector_log2.exit:                              ; preds = %.preheader.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #29
   br label %112
 
 62:                                               ; preds = %112
   %.val = load <4 x float>, ptr %14, align 16, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
   %63 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %.val, <4 x float> splat (float 1.290000e+02))
   %64 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %63, <4 x float> splat (float 0xC05FBFFFE0000000))
   store <4 x float> %64, ptr %4, align 16, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #29
   br label %68
 
 65:                                               ; preds = %68
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #29
   %.val32.i = load <4 x float>, ptr %5, align 16, !tbaa !202
   %66 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %.val32.i)
   %67 = sitofp <4 x i32> %66 to <4 x float>
   store <4 x float> %67, ptr %6, align 16, !tbaa !202
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #29
   br label %75
 
 68:                                               ; preds = %68, %62
@@ -9205,7 +9205,7 @@ dt_vector_log2.exit:                              ; preds = %.preheader.i
   br i1 %exitcond.not.i6, label %65, label %68
 
 74:                                               ; preds = %75
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #29
   br label %84
 
 75:                                               ; preds = %75, %65
@@ -9222,7 +9222,7 @@ dt_vector_log2.exit:                              ; preds = %.preheader.i
   br i1 %exitcond6.not.i, label %74, label %75
 
 83:                                               ; preds = %84
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #30
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #29
   br label %92
 
 84:                                               ; preds = %84, %74
@@ -9270,13 +9270,13 @@ dt_vector_log2.exit:                              ; preds = %.preheader.i
   br i1 %exitcond9.not.i, label %dt_vector_exp2.exit, label %.preheader.i7
 
 dt_vector_exp2.exit:                              ; preds = %.preheader.i7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #29
   ret void
 
 112:                                              ; preds = %dt_vector_log2.exit, %112
@@ -9293,13 +9293,13 @@ dt_vector_exp2.exit:                              ; preds = %.preheader.i7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #28
+declare <4 x float> @llvm.x86.sse.min.ps(<4 x float>, <4 x float>) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #28
+declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
-declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #28
+declare <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float>) #27
 
 declare float @dt_conf_get_float(ptr noundef) local_unnamed_addr #3
 
@@ -9340,13 +9340,13 @@ declare i32 @CurveDataSampleV2Periodic(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @CurveDataSampleV2(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #29
+declare i32 @llvm.smax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.exp2.f32(float) #29
+declare float @llvm.exp2.f32(float) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #29
+declare i32 @llvm.umin.i32(i32, i32) #28
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -9356,33 +9356,32 @@ attributes #4 = { nofree nounwind uwtable "approx-func-fp-math"="true" "min-lega
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #9 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #12 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #13 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #16 = { mustprogress nounwind willreturn uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #17 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #18 = { nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #20 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #21 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #22 = { mustprogress nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #11 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #12 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #13 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #15 = { mustprogress nounwind willreturn uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #17 = { nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #18 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #19 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #20 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #21 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #22 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #23 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #24 = { nofree nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #24 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #25 = { nofree nounwind "approx-func-fp-math"="true" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #26 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #27 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
-attributes #28 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
-attributes #29 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #30 = { nounwind }
-attributes #31 = { nounwind allocsize(0) }
-attributes #32 = { nounwind willreturn memory(none) }
-attributes #33 = { nounwind allocsize(0,1) }
-attributes #34 = { nounwind willreturn memory(read) }
+attributes #26 = { inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="128" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
+attributes #27 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) }
+attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nounwind }
+attributes #30 = { nounwind allocsize(0) }
+attributes #31 = { nounwind willreturn memory(none) }
+attributes #32 = { nounwind allocsize(0,1) }
+attributes #33 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

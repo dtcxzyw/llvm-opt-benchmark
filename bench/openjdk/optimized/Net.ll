@@ -66,9 +66,9 @@ define hidden range(i32 -5, 1) i32 @handleSocketError(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %6, %5, %4, %3, %2
   %.0.i = phi ptr [ @.str.3, %6 ], [ @.str.17, %5 ], [ @.str.16, %4 ], [ @.str.15, %3 ], [ @.str.14, %2 ]
-  %8 = tail call ptr @__errno_location() #6
+  %8 = tail call ptr @__errno_location() #7
   store i32 %1, ptr %8, align 4
-  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.18) #7
+  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketErrorWithMessage.exit
 
 handleSocketErrorWithMessage.exit:                ; preds = %2, %7
@@ -81,7 +81,7 @@ define void @Java_sun_nio_ch_Net_initIDs(ptr noundef %0, ptr noundef readnone ca
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
+  %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %22, label %8
 
@@ -89,26 +89,26 @@ define void @Java_sun_nio_ch_Net_initIDs(ptr noundef %0, ptr noundef readnone ca
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
-  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
+  %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #8
   store ptr %12, ptr @isa_class, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %8
-  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #7
+  tail call void @JNU_ThrowOutOfMemoryError(ptr noundef nonnull %0, ptr noundef null) #8
   br label %22
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
+  %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #8
   store ptr %19, ptr @isa_ctorID, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %15
-  tail call void @initInetAddressIDs(ptr noundef nonnull %0) #7
+  tail call void @initInetAddressIDs(ptr noundef nonnull %0) #8
   br label %22
 
 22:                                               ; preds = %15, %2, %21, %14
@@ -121,7 +121,7 @@ declare void @initInetAddressIDs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isIPv6Available0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 (...) @ipv6_available() #7
+  %3 = tail call i32 (...) @ipv6_available() #8
   %.not = icmp ne i32 %3, 0
   %4 = zext i1 %.not to i8
   ret i8 %4
@@ -131,7 +131,7 @@ declare i32 @ipv6_available(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_isReusePortAvailable0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 (...) @reuseport_available() #7
+  %3 = tail call i32 (...) @reuseport_available() #8
   %.not = icmp ne i32 %3, 0
   %4 = zext i1 %.not to i8
   ret i8 %4
@@ -172,17 +172,17 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %
   %10 = alloca i32, align 4
   %.not = icmp eq i8 %3, 0
   %11 = select i1 %.not, i32 2, i32 1
-  %12 = tail call i32 (...) @ipv6_available() #7
+  %12 = tail call i32 (...) @ipv6_available() #8
   %13 = icmp ne i32 %12, 0
   %14 = icmp ne i8 %2, 0
   %15 = and i1 %14, %13
   %16 = select i1 %15, i32 10, i32 2
-  %17 = tail call i32 @socket(i32 noundef %16, i32 noundef %11, i32 noundef 0) #7
+  %17 = tail call i32 @socket(i32 noundef %16, i32 noundef %11, i32 noundef 0) #8
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %6
-  %20 = tail call ptr @__errno_location() #6
+  %20 = tail call ptr @__errno_location() #7
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %25 [
     i32 115, label %handleSocketError.exit
@@ -210,26 +210,26 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %
 
 26:                                               ; preds = %25, %24, %23, %22, %19
   %.0.i.i = phi ptr [ @.str.3, %25 ], [ @.str.17, %24 ], [ @.str.16, %23 ], [ @.str.15, %22 ], [ @.str.14, %19 ]
-  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 27:                                               ; preds = %6
   br i1 %15, label %28, label %35
 
 28:                                               ; preds = %27
-  %29 = tail call i32 (...) @ipv4_available() #7
+  %29 = tail call i32 (...) @ipv4_available() #8
   %.not31 = icmp eq i32 %29, 0
   br i1 %.not31, label %35, label %30
 
 30:                                               ; preds = %28
   store i32 0, ptr %7, align 4
-  %31 = call i32 @setsockopt(i32 noundef %17, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %7, i32 noundef 4) #7
+  %31 = call i32 @setsockopt(i32 noundef %17, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %7, i32 noundef 4) #8
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %30
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #7
-  %34 = call i32 @close(i32 noundef %17) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #8
+  %34 = call i32 @close(i32 noundef %17) #8
   br label %handleSocketError.exit
 
 35:                                               ; preds = %30, %28, %27
@@ -238,13 +238,13 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %
 
 36:                                               ; preds = %35
   store i32 1, ptr %8, align 4
-  %37 = call i32 @setsockopt(i32 noundef %17, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 4) #7
+  %37 = call i32 @setsockopt(i32 noundef %17, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 4) #8
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5) #7
-  %40 = call i32 @close(i32 noundef %17) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.5) #8
+  %40 = call i32 @close(i32 noundef %17) #8
   br label %handleSocketError.exit
 
 41:                                               ; preds = %36, %35
@@ -253,19 +253,19 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %
 42:                                               ; preds = %41
   store i32 0, ptr %9, align 4
   %43 = select i1 %15, i32 41, i32 0
-  %44 = call i32 @setsockopt(i32 noundef %17, i32 noundef %43, i32 noundef 49, ptr noundef nonnull %9, i32 noundef 4) #7
+  %44 = call i32 @setsockopt(i32 noundef %17, i32 noundef %43, i32 noundef 49, ptr noundef nonnull %9, i32 noundef 4) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %51
 
 46:                                               ; preds = %42
-  %47 = tail call ptr @__errno_location() #6
+  %47 = tail call ptr @__errno_location() #7
   %48 = load i32, ptr %47, align 4
   %.not33 = icmp eq i32 %48, 92
   br i1 %.not33, label %51, label %49
 
 49:                                               ; preds = %46
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6) #7
-  %50 = call i32 @close(i32 noundef %17) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.6) #8
+  %50 = call i32 @close(i32 noundef %17) #8
   br label %handleSocketError.exit
 
 51:                                               ; preds = %42, %46
@@ -273,30 +273,30 @@ define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_Net_socket0(ptr noundef %
 
 52:                                               ; preds = %51
   store i32 1, ptr %10, align 4
-  %53 = call i32 @setsockopt(i32 noundef %17, i32 noundef 41, i32 noundef 18, ptr noundef nonnull %10, i32 noundef 4) #7
+  %53 = call i32 @setsockopt(i32 noundef %17, i32 noundef 41, i32 noundef 18, ptr noundef nonnull %10, i32 noundef 4) #8
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %55, label %57
 
 55:                                               ; preds = %52
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.7) #7
-  %56 = call i32 @close(i32 noundef %17) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.7) #8
+  %56 = call i32 @close(i32 noundef %17) #8
   br label %handleSocketError.exit
 
 57:                                               ; preds = %52
   store i32 0, ptr %10, align 4
-  %58 = call i32 @setsockopt(i32 noundef %17, i32 noundef 41, i32 noundef 29, ptr noundef nonnull %10, i32 noundef 4) #7
+  %58 = call i32 @setsockopt(i32 noundef %17, i32 noundef 41, i32 noundef 29, ptr noundef nonnull %10, i32 noundef 4) #8
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %handleSocketError.exit
 
 60:                                               ; preds = %57
-  %61 = tail call ptr @__errno_location() #6
+  %61 = tail call ptr @__errno_location() #7
   %62 = load i32, ptr %61, align 4
   %.not34 = icmp eq i32 %62, 92
   br i1 %.not34, label %handleSocketError.exit, label %63
 
 63:                                               ; preds = %60
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8) #7
-  %64 = call i32 @close(i32 noundef %17) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.8) #8
+  %64 = call i32 @close(i32 noundef %17) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %41, %26, %19, %51, %60, %57, %63, %55, %49, %39, %33
@@ -324,19 +324,19 @@ define void @Java_sun_nio_ch_Net_bind0(ptr noundef %0, ptr noundef readnone capt
   %8 = alloca %union.SOCKETADDRESS, align 4
   %9 = alloca i32, align 4
   store i32 0, ptr %9, align 4
-  %10 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %9, i8 noundef zeroext %3) #7
+  %10 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %8, ptr noundef nonnull %9, i8 noundef zeroext %3) #8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %handleSocketError.exit
 
 11:                                               ; preds = %7
-  %12 = call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
+  %12 = call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
   %13 = load i32, ptr %9, align 4
-  %14 = call i32 @NET_Bind(i32 noundef %12, ptr noundef nonnull %8, i32 noundef %13) #7
+  %14 = call i32 @NET_Bind(i32 noundef %12, ptr noundef nonnull %8, i32 noundef %13) #8
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %handleSocketError.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @__errno_location() #6
+  %16 = tail call ptr @__errno_location() #7
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %21 [
     i32 115, label %handleSocketError.exit
@@ -364,7 +364,7 @@ define void @Java_sun_nio_ch_Net_bind0(ptr noundef %0, ptr noundef readnone capt
 
 22:                                               ; preds = %21, %20, %19, %18, %15
   %.0.i.i = phi ptr [ @.str.3, %21 ], [ @.str.17, %20 ], [ @.str.16, %19 ], [ @.str.15, %18 ], [ @.str.14, %15 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %22, %15, %7, %11
@@ -379,13 +379,13 @@ declare i32 @fdval(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_Net_listen(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %6 = tail call i32 @listen(i32 noundef %5, i32 noundef %3) #7
+  %5 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %6 = tail call i32 @listen(i32 noundef %5, i32 noundef %3) #8
   %7 = icmp slt i32 %6, 0
   br i1 %7, label %8, label %handleSocketError.exit
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @__errno_location() #6
+  %9 = tail call ptr @__errno_location() #7
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %14 [
     i32 115, label %handleSocketError.exit
@@ -413,7 +413,7 @@ define void @Java_sun_nio_ch_Net_listen(ptr noundef %0, ptr noundef readnone cap
 
 15:                                               ; preds = %14, %13, %12, %11, %8
   %.0.i.i = phi ptr [ @.str.3, %14 ], [ @.str.17, %13 ], [ @.str.16, %12 ], [ @.str.15, %11 ], [ @.str.14, %8 ]
-  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %15, %8, %4
@@ -428,19 +428,19 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_connect0(ptr noundef %0, ptr no
   %7 = alloca %union.SOCKETADDRESS, align 4
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
-  %9 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %8, i8 noundef zeroext %2) #7
+  %9 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %8, i8 noundef zeroext %2) #8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %handleSocketError.exit
 
 10:                                               ; preds = %6
-  %11 = call i32 @fdval(ptr noundef %0, ptr noundef %3) #7
+  %11 = call i32 @fdval(ptr noundef %0, ptr noundef %3) #8
   %12 = load i32, ptr %8, align 4
-  %13 = call i32 @connect(i32 noundef %11, ptr nonnull %7, i32 noundef %12) #7
+  %13 = call i32 @connect(i32 noundef %11, ptr nonnull %7, i32 noundef %12) #8
   %.not9 = icmp eq i32 %13, 0
   br i1 %.not9, label %handleSocketError.exit, label %14
 
 14:                                               ; preds = %10
-  %15 = tail call ptr @__errno_location() #6
+  %15 = tail call ptr @__errno_location() #7
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %21 [
     i32 115, label %handleSocketError.exit
@@ -472,7 +472,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_connect0(ptr noundef %0, ptr no
 
 22:                                               ; preds = %14, %21, %20, %19, %18
   %.0.i.i = phi ptr [ @.str.3, %21 ], [ @.str.17, %20 ], [ @.str.16, %19 ], [ @.str.15, %18 ], [ @.str.14, %14 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %14, %22, %10, %6, %17
@@ -487,18 +487,18 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noun
   %6 = alloca %union.SOCKETADDRESS, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
+  %9 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
   store i32 28, ptr %7, align 4
   store i32 0, ptr %8, align 4
   br label %10
 
 10:                                               ; preds = %13, %5
-  %11 = call i32 @accept(i32 noundef %9, ptr nonnull %6, ptr noundef nonnull %7) #7
+  %11 = call i32 @accept(i32 noundef %9, ptr nonnull %6, ptr noundef nonnull %7) #8
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call ptr @__errno_location() #6
+  %14 = tail call ptr @__errno_location() #7
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %16 [
     i32 103, label %10
@@ -507,12 +507,12 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noun
   ]
 
 16:                                               ; preds = %13
-  call void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef nonnull @.str.9) #7
+  call void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef nonnull @.str.9) #8
   br label %33
 
 17:                                               ; preds = %10
-  call void @setfdval(ptr noundef %0, ptr noundef %3, i32 noundef %11) #7
-  %18 = call ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8) #7
+  call void @setfdval(ptr noundef %0, ptr noundef %3, i32 noundef %11) #8
+  %18 = call ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %8) #8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %33, label %20
 
@@ -523,7 +523,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noun
   %24 = load ptr, ptr @isa_class, align 8
   %25 = load ptr, ptr @isa_ctorID, align 8
   %26 = load i32, ptr %8, align 4
-  %27 = call ptr (ptr, ptr, ptr, ...) %23(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %18, i32 noundef %26) #7
+  %27 = call ptr (ptr, ptr, ptr, ...) %23(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %25, ptr noundef nonnull %18, i32 noundef %26) #8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
 
@@ -531,7 +531,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noun
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1392
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, ptr noundef nonnull %27) #7
+  call void %32(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, ptr noundef nonnull %27) #8
   br label %33
 
 .loopexit:                                        ; preds = %13
@@ -555,13 +555,13 @@ define i32 @Java_sun_nio_ch_Net_localPort(ptr noundef %0, ptr noundef readnone c
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   store i32 28, ptr %5, align 4
-  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %7 = call i32 @getsockname(i32 noundef %6, ptr nonnull %4, ptr noundef nonnull %5) #7
+  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %7 = call i32 @getsockname(i32 noundef %6, ptr nonnull %4, ptr noundef nonnull %5) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @__errno_location() #6
+  %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %15 [
     i32 115, label %handleSocketError.exit
@@ -589,11 +589,11 @@ define i32 @Java_sun_nio_ch_Net_localPort(ptr noundef %0, ptr noundef readnone c
 
 16:                                               ; preds = %15, %14, %13, %12, %9
   %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.16, %13 ], [ @.str.15, %12 ], [ @.str.14, %9 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 17:                                               ; preds = %3
-  %18 = call i32 @NET_GetPortFromSockaddr(ptr noundef nonnull %4) #7
+  %18 = call i32 @NET_GetPortFromSockaddr(ptr noundef nonnull %4) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %16, %9, %17
@@ -612,13 +612,13 @@ define ptr @Java_sun_nio_ch_Net_localInetAddress(ptr noundef %0, ptr noundef rea
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 28, ptr %5, align 4
-  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %8 = call i32 @getsockname(i32 noundef %7, ptr nonnull %4, ptr noundef nonnull %5) #7
+  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %8 = call i32 @getsockname(i32 noundef %7, ptr nonnull %4, ptr noundef nonnull %5) #8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %3
-  %11 = tail call ptr @__errno_location() #6
+  %11 = tail call ptr @__errno_location() #7
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %16 [
     i32 115, label %handleSocketError.exit
@@ -646,11 +646,11 @@ define ptr @Java_sun_nio_ch_Net_localInetAddress(ptr noundef %0, ptr noundef rea
 
 17:                                               ; preds = %16, %15, %14, %13, %10
   %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.16, %14 ], [ @.str.15, %13 ], [ @.str.14, %10 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 18:                                               ; preds = %3
-  %19 = call ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %6) #7
+  %19 = call ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %6) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %17, %10, %18
@@ -663,13 +663,13 @@ define i32 @Java_sun_nio_ch_Net_remotePort(ptr noundef %0, ptr noundef readnone 
   %4 = alloca %union.SOCKETADDRESS, align 4
   %5 = alloca i32, align 4
   store i32 28, ptr %5, align 4
-  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %7 = call i32 @getpeername(i32 noundef %6, ptr nonnull %4, ptr noundef nonnull %5) #7
+  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %7 = call i32 @getpeername(i32 noundef %6, ptr nonnull %4, ptr noundef nonnull %5) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @__errno_location() #6
+  %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %15 [
     i32 115, label %handleSocketError.exit
@@ -697,11 +697,11 @@ define i32 @Java_sun_nio_ch_Net_remotePort(ptr noundef %0, ptr noundef readnone 
 
 16:                                               ; preds = %15, %14, %13, %12, %9
   %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.16, %13 ], [ @.str.15, %12 ], [ @.str.14, %9 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 17:                                               ; preds = %3
-  %18 = call i32 @NET_GetPortFromSockaddr(ptr noundef nonnull %4) #7
+  %18 = call i32 @NET_GetPortFromSockaddr(ptr noundef nonnull %4) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %16, %9, %17
@@ -718,13 +718,13 @@ define ptr @Java_sun_nio_ch_Net_remoteInetAddress(ptr noundef %0, ptr noundef re
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 28, ptr %5, align 4
-  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %8 = call i32 @getpeername(i32 noundef %7, ptr nonnull %4, ptr noundef nonnull %5) #7
+  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %8 = call i32 @getpeername(i32 noundef %7, ptr nonnull %4, ptr noundef nonnull %5) #8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %3
-  %11 = tail call ptr @__errno_location() #6
+  %11 = tail call ptr @__errno_location() #7
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %16 [
     i32 115, label %handleSocketError.exit
@@ -752,11 +752,11 @@ define ptr @Java_sun_nio_ch_Net_remoteInetAddress(ptr noundef %0, ptr noundef re
 
 17:                                               ; preds = %16, %15, %14, %13, %10
   %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.16, %14 ], [ @.str.15, %13 ], [ @.str.14, %10 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 18:                                               ; preds = %3
-  %19 = call ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %6) #7
+  %19 = call ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %6) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %17, %10, %18
@@ -783,15 +783,15 @@ define i32 @Java_sun_nio_ch_Net_getIntOption0(ptr noundef %0, ptr noundef readno
   %spec.select = select i1 %or.cond3, i32 8, i32 %simplifycfg.merge
   store i32 %spec.select, ptr %10, align 4
   %.not = icmp eq i8 %3, 0
-  %15 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
+  %15 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %6
-  %17 = call i32 @NET_GetSockOpt(i32 noundef %15, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.1, ptr noundef nonnull %10) #7
+  %17 = call i32 @NET_GetSockOpt(i32 noundef %15, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.1, ptr noundef nonnull %10) #8
   br label %20
 
 18:                                               ; preds = %6
-  %19 = call i32 @getsockopt(i32 noundef %15, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.1, ptr noundef nonnull %10) #7
+  %19 = call i32 @getsockopt(i32 noundef %15, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.1, ptr noundef nonnull %10) #8
   br label %20
 
 20:                                               ; preds = %18, %16
@@ -800,7 +800,7 @@ define i32 @Java_sun_nio_ch_Net_getIntOption0(ptr noundef %0, ptr noundef readno
   br i1 %21, label %22, label %23
 
 22:                                               ; preds = %20
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.10) #8
   br label %35
 
 23:                                               ; preds = %20
@@ -878,15 +878,15 @@ define void @Java_sun_nio_ch_Net_setIntOption0(ptr noundef %0, ptr noundef readn
   %.124 = phi ptr [ %10, %21 ], [ %10, %22 ], [ %9, %15 ], [ %11, %.thread ]
   %.1 = phi i32 [ 8, %21 ], [ 8, %22 ], [ 4, %15 ], [ 1, %.thread ]
   %.not = icmp eq i8 %3, 0
-  %24 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
+  %24 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
   br i1 %.not, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = call i32 @NET_SetSockOpt(i32 noundef %24, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.124, i32 noundef %.1) #7
+  %26 = call i32 @NET_SetSockOpt(i32 noundef %24, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.124, i32 noundef %.1) #8
   br label %29
 
 27:                                               ; preds = %23
-  %28 = call i32 @setsockopt(i32 noundef %24, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.124, i32 noundef %.1) #7
+  %28 = call i32 @setsockopt(i32 noundef %24, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %.124, i32 noundef %.1) #8
   br label %29
 
 29:                                               ; preds = %27, %25
@@ -895,7 +895,7 @@ define void @Java_sun_nio_ch_Net_setIntOption0(ptr noundef %0, ptr noundef readn
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %29
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.11) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.11) #8
   br label %32
 
 32:                                               ; preds = %31, %29
@@ -909,12 +909,12 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr
   %8 = alloca %struct.ip_mreq, align 4
   %9 = alloca %struct.ip_mreq_source, align 4
   %10 = icmp eq i32 %6, 0
-  %11 = tail call i32 @htonl(i32 noundef %4) #6
+  %11 = tail call i32 @htonl(i32 noundef %4) #7
   br i1 %10, label %12, label %16
 
 12:                                               ; preds = %7
   store i32 %11, ptr %8, align 4
-  %13 = tail call i32 @htonl(i32 noundef %5) #6
+  %13 = tail call i32 @htonl(i32 noundef %5) #7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
   %.not21 = icmp eq i8 %2, 0
@@ -923,10 +923,10 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr
 
 16:                                               ; preds = %7
   store i32 %11, ptr %9, align 4
-  %17 = tail call i32 @htonl(i32 noundef %6) #6
+  %17 = tail call i32 @htonl(i32 noundef %6) #7
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %17, ptr %18, align 4
-  %19 = tail call i32 @htonl(i32 noundef %5) #6
+  %19 = tail call i32 @htonl(i32 noundef %5) #7
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %19, ptr %20, align 4
   %.not = icmp eq i8 %2, 0
@@ -937,14 +937,14 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr
   %.018 = phi i32 [ %15, %12 ], [ %21, %16 ]
   %.016 = phi i32 [ 8, %12 ], [ 12, %16 ]
   %.0 = phi ptr [ %8, %12 ], [ %9, %16 ]
-  %23 = tail call i32 @fdval(ptr noundef %0, ptr noundef %3) #7
-  %24 = call i32 @setsockopt(i32 noundef %23, i32 noundef 0, i32 noundef %.018, ptr noundef nonnull %.0, i32 noundef %.016) #7
+  %23 = tail call i32 @fdval(ptr noundef %0, ptr noundef %3) #8
+  %24 = call i32 @setsockopt(i32 noundef %23, i32 noundef 0, i32 noundef %.018, ptr noundef nonnull %.0, i32 noundef %.016) #8
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %handleSocketErrorWithMessage.exit
 
 26:                                               ; preds = %22
   %.not22 = icmp eq i8 %2, 0
-  %.pre = tail call ptr @__errno_location() #6
+  %.pre = tail call ptr @__errno_location() #7
   %.pr = load i32, ptr %.pre, align 4
   br i1 %.not22, label %._crit_edge, label %27
 
@@ -990,7 +990,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr
 
 32:                                               ; preds = %27, %31, %30, %29, %28, %._crit_edge
   %.0.i = phi ptr [ @.str.3, %31 ], [ @.str.17, %30 ], [ @.str.16, %29 ], [ @.str.15, %28 ], [ @.str.14, %._crit_edge ], [ @.str.14, %27 ]
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.12) #7
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.12) #8
   br label %handleSocketErrorWithMessage.exit
 
 handleSocketErrorWithMessage.exit.fold.split:     ; preds = %27, %._crit_edge
@@ -1001,29 +1001,29 @@ handleSocketErrorWithMessage.exit:                ; preds = %27, %27, %handleSoc
   ret i32 %.017
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock4(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ip_mreq_source, align 4
   %.not = icmp eq i8 %2, 0
   %9 = select i1 %.not, i32 37, i32 38
-  %10 = tail call i32 @htonl(i32 noundef %4) #6
+  %10 = tail call i32 @htonl(i32 noundef %4) #7
   store i32 %10, ptr %8, align 4
-  %11 = tail call i32 @htonl(i32 noundef %6) #6
+  %11 = tail call i32 @htonl(i32 noundef %6) #7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %11, ptr %12, align 4
-  %13 = tail call i32 @htonl(i32 noundef %5) #6
+  %13 = tail call i32 @htonl(i32 noundef %5) #7
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
-  %15 = tail call i32 @fdval(ptr noundef %0, ptr noundef %3) #7
-  %16 = call i32 @setsockopt(i32 noundef %15, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %8, i32 noundef 12) #7
+  %15 = tail call i32 @fdval(ptr noundef %0, ptr noundef %3) #8
+  %16 = call i32 @setsockopt(i32 noundef %15, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %8, i32 noundef 12) #8
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %18, label %handleSocketError.exit
 
 18:                                               ; preds = %7
-  %.pre = tail call ptr @__errno_location() #6
+  %.pre = tail call ptr @__errno_location() #7
   %.pr = load i32, ptr %.pre, align 4
   br i1 %.not, label %._crit_edge, label %19
 
@@ -1069,7 +1069,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock4(ptr noundef %0,
 
 24:                                               ; preds = %19, %23, %22, %21, %20, %._crit_edge
   %.0.i.i = phi ptr [ @.str.3, %23 ], [ @.str.17, %22 ], [ @.str.16, %21 ], [ @.str.15, %20 ], [ @.str.14, %._crit_edge ], [ @.str.14, %19 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit.fold.split:                ; preds = %19, %._crit_edge
@@ -1091,7 +1091,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1600
   %14 = load ptr, ptr %13, align 8
-  call void %14(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %8) #7
+  call void %14(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %8) #8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %5, ptr %15, align 4
   %.not24 = icmp eq i8 %2, 0
@@ -1106,14 +1106,14 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 1600
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  call void %21(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %22) #7
+  call void %21(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %22) #8
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store i16 10, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1600
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  call void %26(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %27) #7
+  call void %26(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %27) #8
   %.not = icmp eq i8 %2, 0
   %28 = select i1 %.not, i32 47, i32 46
   br label %29
@@ -1122,14 +1122,14 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr
   %.021 = phi i32 [ %16, %11 ], [ %28, %17 ]
   %.019 = phi i32 [ 20, %11 ], [ 264, %17 ]
   %.0 = phi ptr [ %8, %11 ], [ %9, %17 ]
-  %30 = call i32 @fdval(ptr noundef nonnull %0, ptr noundef %3) #7
-  %31 = call i32 @setsockopt(i32 noundef %30, i32 noundef 41, i32 noundef %.021, ptr noundef nonnull %.0, i32 noundef %.019) #7
+  %30 = call i32 @fdval(ptr noundef nonnull %0, ptr noundef %3) #8
+  %31 = call i32 @setsockopt(i32 noundef %30, i32 noundef 41, i32 noundef %.021, ptr noundef nonnull %.0, i32 noundef %.019) #8
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %33, label %handleSocketErrorWithMessage.exit
 
 33:                                               ; preds = %29
   %.not25 = icmp eq i8 %2, 0
-  %.pre = tail call ptr @__errno_location() #6
+  %.pre = tail call ptr @__errno_location() #7
   %.pr = load i32, ptr %.pre, align 4
   br i1 %.not25, label %._crit_edge, label %34
 
@@ -1175,7 +1175,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr
 
 39:                                               ; preds = %34, %38, %37, %36, %35, %._crit_edge
   %.0.i = phi ptr [ @.str.3, %38 ], [ @.str.17, %37 ], [ @.str.16, %36 ], [ @.str.15, %35 ], [ @.str.14, %._crit_edge ], [ @.str.14, %34 ]
-  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.12) #7
+  call void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.12) #8
   br label %handleSocketErrorWithMessage.exit
 
 handleSocketErrorWithMessage.exit.fold.split:     ; preds = %34, %._crit_edge
@@ -1198,21 +1198,21 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock6(ptr noundef %0,
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1600
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void %13(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %14) #7
+  call void %13(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %14) #8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store i16 10, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 1600
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  call void %18(ptr noundef nonnull %0, ptr noundef %6, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %19) #7
-  %20 = call i32 @fdval(ptr noundef nonnull %0, ptr noundef %3) #7
-  %21 = call i32 @setsockopt(i32 noundef %20, i32 noundef 41, i32 noundef %9, ptr noundef nonnull %8, i32 noundef 264) #7
+  call void %18(ptr noundef nonnull %0, ptr noundef %6, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %19) #8
+  %20 = call i32 @fdval(ptr noundef nonnull %0, ptr noundef %3) #8
+  %21 = call i32 @setsockopt(i32 noundef %20, i32 noundef 41, i32 noundef %9, ptr noundef nonnull %8, i32 noundef 264) #8
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %23, label %handleSocketError.exit
 
 23:                                               ; preds = %7
-  %.pre = tail call ptr @__errno_location() #6
+  %.pre = tail call ptr @__errno_location() #7
   %.pr = load i32, ptr %.pre, align 4
   br i1 %.not, label %._crit_edge, label %24
 
@@ -1258,7 +1258,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock6(ptr noundef %0,
 
 29:                                               ; preds = %24, %28, %27, %26, %25, %._crit_edge
   %.0.i.i = phi ptr [ @.str.3, %28 ], [ @.str.17, %27 ], [ @.str.16, %26 ], [ @.str.15, %25 ], [ @.str.14, %._crit_edge ], [ @.str.14, %24 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit.fold.split:                ; preds = %24, %._crit_edge
@@ -1272,15 +1272,15 @@ handleSocketError.exit:                           ; preds = %24, %24, %handleSoc
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_Net_setInterface4(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.in_addr, align 4
-  %6 = tail call i32 @htonl(i32 noundef %3) #6
+  %6 = tail call i32 @htonl(i32 noundef %3) #7
   store i32 %6, ptr %5, align 4
-  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %8 = call i32 @setsockopt(i32 noundef %7, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %5, i32 noundef 4) #7
+  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %8 = call i32 @setsockopt(i32 noundef %7, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %5, i32 noundef 4) #8
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %handleSocketError.exit
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__errno_location() #6
+  %11 = tail call ptr @__errno_location() #7
   %12 = load i32, ptr %11, align 4
   switch i32 %12, label %16 [
     i32 115, label %handleSocketError.exit
@@ -1308,7 +1308,7 @@ define void @Java_sun_nio_ch_Net_setInterface4(ptr noundef %0, ptr noundef readn
 
 17:                                               ; preds = %16, %15, %14, %13, %10
   %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.16, %14 ], [ @.str.15, %13 ], [ @.str.14, %10 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %17, %10, %4
@@ -1320,13 +1320,13 @@ define i32 @Java_sun_nio_ch_Net_getInterface4(ptr noundef %0, ptr noundef readno
   %4 = alloca %struct.in_addr, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
-  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %7 = call i32 @getsockopt(i32 noundef %6, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
+  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %7 = call i32 @getsockopt(i32 noundef %6, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @__errno_location() #6
+  %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %15 [
     i32 115, label %handleSocketError.exit
@@ -1354,12 +1354,12 @@ define i32 @Java_sun_nio_ch_Net_getInterface4(ptr noundef %0, ptr noundef readno
 
 16:                                               ; preds = %15, %14, %13, %12, %9
   %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.16, %13 ], [ @.str.15, %12 ], [ @.str.14, %9 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 17:                                               ; preds = %3
   %18 = load i32, ptr %4, align 4
-  %19 = call i32 @ntohl(i32 noundef %18) #6
+  %19 = call i32 @ntohl(i32 noundef %18) #7
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %16, %9, %17
@@ -1367,20 +1367,20 @@ handleSocketError.exit:                           ; preds = %16, %9, %17
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @ntohl(i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @ntohl(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_Net_setInterface6(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %5, align 4
-  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %7 = call i32 @setsockopt(i32 noundef %6, i32 noundef 41, i32 noundef 17, ptr noundef nonnull %5, i32 noundef 4) #7
+  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %7 = call i32 @setsockopt(i32 noundef %6, i32 noundef 41, i32 noundef 17, ptr noundef nonnull %5, i32 noundef 4) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %handleSocketError.exit
 
 9:                                                ; preds = %4
-  %10 = tail call ptr @__errno_location() #6
+  %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %15 [
     i32 115, label %handleSocketError.exit
@@ -1408,7 +1408,7 @@ define void @Java_sun_nio_ch_Net_setInterface6(ptr noundef %0, ptr noundef readn
 
 16:                                               ; preds = %15, %14, %13, %12, %9
   %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.16, %13 ], [ @.str.15, %12 ], [ @.str.14, %9 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %16, %9, %4
@@ -1420,13 +1420,13 @@ define i32 @Java_sun_nio_ch_Net_getInterface6(ptr noundef %0, ptr noundef readno
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 4, ptr %5, align 4
-  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %7 = call i32 @getsockopt(i32 noundef %6, i32 noundef 41, i32 noundef 17, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
+  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %7 = call i32 @getsockopt(i32 noundef %6, i32 noundef 41, i32 noundef 17, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %3
-  %10 = tail call ptr @__errno_location() #6
+  %10 = tail call ptr @__errno_location() #7
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %15 [
     i32 115, label %handleSocketError.exit
@@ -1454,7 +1454,7 @@ define i32 @Java_sun_nio_ch_Net_getInterface6(ptr noundef %0, ptr noundef readno
 
 16:                                               ; preds = %15, %14, %13, %12, %9
   %.0.i.i = phi ptr [ @.str.3, %15 ], [ @.str.17, %14 ], [ @.str.16, %13 ], [ @.str.15, %12 ], [ @.str.14, %9 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 17:                                               ; preds = %3
@@ -1472,13 +1472,13 @@ define void @Java_sun_nio_ch_Net_shutdown(ptr noundef %0, ptr noundef readnone c
   %6 = icmp eq i32 %3, 1
   %7 = select i1 %6, i32 1, i32 2
   %8 = select i1 %5, i32 0, i32 %7
-  %9 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %10 = tail call i32 @shutdown(i32 noundef %9, i32 noundef %8) #7
+  %9 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %10 = tail call i32 @shutdown(i32 noundef %9, i32 noundef %8) #8
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %handleSocketError.exit
 
 12:                                               ; preds = %4
-  %13 = tail call ptr @__errno_location() #6
+  %13 = tail call ptr @__errno_location() #7
   %14 = load i32, ptr %13, align 4
   switch i32 %14, label %18 [
     i32 107, label %handleSocketError.exit
@@ -1506,7 +1506,7 @@ define void @Java_sun_nio_ch_Net_shutdown(ptr noundef %0, ptr noundef readnone c
 
 19:                                               ; preds = %12, %18, %17, %16, %15
   %.0.i.i = phi ptr [ @.str.3, %18 ], [ @.str.17, %17 ], [ @.str.16, %16 ], [ @.str.15, %15 ], [ @.str.14, %12 ]
-  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  tail call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %12, %12, %19, %4
@@ -1523,20 +1523,20 @@ define i32 @Java_sun_nio_ch_Net_available(ptr noundef %0, ptr noundef readnone c
   br label %5
 
 5:                                                ; preds = %8, %3
-  %6 = call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %7 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef 21531, ptr noundef nonnull %4) #7
+  %6 = call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %7 = call i32 (i32, i64, ...) @ioctl(i32 noundef %6, i64 noundef 21531, ptr noundef nonnull %4) #8
   switch i32 %7, label %..critedge_crit_edge [
     i32 -1, label %8
     i32 0, label %18
   ]
 
 ..critedge_crit_edge:                             ; preds = %5
-  %.pre = tail call ptr @__errno_location() #6
+  %.pre = tail call ptr @__errno_location() #7
   %.pr = load i32, ptr %.pre, align 4
   br label %.critedge
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @__errno_location() #6
+  %9 = tail call ptr @__errno_location() #7
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %5, label %.critedge, !llvm.loop !6
@@ -1569,7 +1569,7 @@ define i32 @Java_sun_nio_ch_Net_available(ptr noundef %0, ptr noundef readnone c
 
 17:                                               ; preds = %16, %15, %14, %13, %.critedge
   %.0.i.i = phi ptr [ @.str.3, %16 ], [ @.str.17, %15 ], [ @.str.16, %14 ], [ @.str.15, %13 ], [ @.str.14, %.critedge ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 18:                                               ; preds = %5
@@ -1587,7 +1587,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.pollfd, align 4
-  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
+  %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
   store i32 %7, ptr %6, align 4
   %8 = trunc i32 %3 to i16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -1595,7 +1595,7 @@ define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, pt
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %4, i64 2147483647)
   %.0811 = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 -1)
   %.08 = trunc nsw i64 %.0811 to i32
-  %10 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef %.08) #7
+  %10 = call i32 @poll(ptr noundef nonnull %6, i64 noundef 1, i32 noundef %.08) #8
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %16
 
@@ -1606,7 +1606,7 @@ define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, pt
   br label %handleSocketError.exit
 
 16:                                               ; preds = %5
-  %17 = tail call ptr @__errno_location() #6
+  %17 = tail call ptr @__errno_location() #7
   %18 = load i32, ptr %17, align 4
   switch i32 %18, label %22 [
     i32 4, label %handleSocketError.exit
@@ -1635,7 +1635,7 @@ define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, pt
 
 23:                                               ; preds = %16, %22, %21, %20, %19
   %.0.i.i = phi ptr [ @.str.3, %22 ], [ @.str.17, %21 ], [ @.str.16, %20 ], [ @.str.15, %19 ], [ @.str.14, %16 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit.fold.split:                ; preds = %16
@@ -1653,7 +1653,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   %5 = alloca %struct.pollfd, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
+  %8 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
   store i32 %8, ptr %5, align 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 4, ptr %9, align 4
@@ -1662,16 +1662,16 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %3, i64 2147483647)
   %.01424 = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 -1)
   %.014 = trunc nsw i64 %.01424 to i32
-  %11 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %.014) #7
+  %11 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %.014) #8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %35
 
 13:                                               ; preds = %4
   store i32 0, ptr %6, align 4
   store i32 4, ptr %7, align 4
-  %14 = tail call ptr @__errno_location() #6
+  %14 = tail call ptr @__errno_location() #7
   store i32 0, ptr %14, align 4
-  %15 = call i32 @getsockopt(i32 noundef %8, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
+  %15 = call i32 @getsockopt(i32 noundef %8, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %24
 
@@ -1703,7 +1703,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
 
 23:                                               ; preds = %22, %21, %20, %19, %17
   %.0.i.i = phi ptr [ @.str.3, %22 ], [ @.str.17, %21 ], [ @.str.16, %20 ], [ @.str.15, %19 ], [ @.str.14, %17 ]
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 24:                                               ; preds = %13
@@ -1736,7 +1736,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
 30:                                               ; preds = %24, %29, %28, %27, %26
   %.0.i.i19 = phi ptr [ @.str.3, %29 ], [ @.str.17, %28 ], [ @.str.16, %27 ], [ @.str.15, %26 ], [ @.str.14, %24 ]
   store i32 %25, ptr %14, align 4
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i19, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull %.0.i.i19, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 31:                                               ; preds = %24
@@ -1747,7 +1747,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
 
 34:                                               ; preds = %31
   store i32 107, ptr %14, align 4
-  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.18) #7
+  call void @JNU_ThrowByNameWithLastError(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.18) #8
   br label %handleSocketError.exit
 
 35:                                               ; preds = %4
@@ -1755,13 +1755,13 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   br i1 %36, label %handleSocketError.exit, label %37
 
 37:                                               ; preds = %35
-  %38 = tail call ptr @__errno_location() #6
+  %38 = tail call ptr @__errno_location() #7
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 4
   br i1 %40, label %handleSocketError.exit, label %41
 
 41:                                               ; preds = %37
-  call void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef nonnull @.str.13) #7
+  call void @JNU_ThrowIOExceptionWithLastError(ptr noundef %0, ptr noundef nonnull @.str.13) #8
   br label %handleSocketError.exit
 
 handleSocketError.exit:                           ; preds = %24, %30, %23, %17, %35, %37, %31, %41, %34
@@ -1803,10 +1803,10 @@ define noundef signext i16 @Java_sun_nio_ch_Net_pollconnValue(ptr noundef readno
 define i32 @Java_sun_nio_ch_Net_sendOOB(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i8 noundef signext %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   store i8 %3, ptr %5, align 1
-  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
-  %7 = call i64 @send(i32 noundef %6, ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1) #7
+  %6 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #8
+  %7 = call i64 @send(i32 noundef %6, ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1) #8
   %8 = trunc i64 %7 to i32
-  %9 = call i32 @convertReturnVal(ptr noundef %0, i32 noundef %8, i8 noundef zeroext 0) #7
+  %9 = call i32 @convertReturnVal(ptr noundef %0, i32 noundef %8, i8 noundef zeroext 0) #8
   ret i32 %9
 }
 
@@ -1817,19 +1817,20 @@ declare i32 @convertReturnVal(ptr noundef, i32 noundef, i8 noundef zeroext) loca
 declare void @JNU_ThrowByNameWithMessageAndLastError(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #5
+declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #5
+declare i64 @llvm.smax.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

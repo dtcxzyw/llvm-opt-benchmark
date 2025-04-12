@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysListen(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @listen(i32 noundef %0, i32 noundef %1) #11
+  %3 = tail call i32 @listen(i32 noundef %0, i32 noundef %1) #12
   ret i32 %3
 }
 
@@ -20,12 +20,12 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysConnect(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @connect(i32 noundef %0, ptr %1, i32 noundef %2) #11
+  %4 = tail call i32 @connect(i32 noundef %0, ptr %1, i32 noundef %2) #12
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @__errno_location() #12
+  %7 = tail call ptr @__errno_location() #13
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %9 [
     i32 115, label %10
@@ -54,7 +54,7 @@ define hidden range(i32 -2147483648, 1) i32 @dbgsysFinishConnect(i32 noundef %0,
   store i16 4, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i16 0, ptr %5, align 2
-  %6 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef %1) #11
+  %6 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef %1) #12
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %8, label %dbgsysPoll.exit
 
@@ -90,7 +90,7 @@ define hidden range(i32 -2147483648, 4) i32 @dbgsysPoll(i32 noundef %0, i8 nound
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 0, ptr %8, align 2
   %9 = trunc i64 %3 to i32
-  %10 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %9) #11
+  %10 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 1, i32 noundef %9) #12
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %17
 
@@ -110,12 +110,12 @@ define hidden range(i32 -2147483648, 4) i32 @dbgsysPoll(i32 noundef %0, i8 nound
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysAccept(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @accept(i32 noundef %0, ptr %1, ptr noundef %2) #11
+  %4 = tail call i32 @accept(i32 noundef %0, ptr %1, ptr noundef %2) #12
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = tail call ptr @__errno_location() #12
+  %6 = tail call ptr @__errno_location() #13
   br label %7
 
 7:                                                ; preds = %.lr.ph, %10
@@ -127,7 +127,7 @@ define hidden i32 @dbgsysAccept(i32 noundef %0, ptr noundef %1, ptr noundef %2) 
   ]
 
 10:                                               ; preds = %7, %7
-  %11 = tail call i32 @accept(i32 noundef %0, ptr %1, ptr noundef %2) #11
+  %11 = tail call i32 @accept(i32 noundef %0, ptr %1, ptr noundef %2) #12
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %._crit_edge, label %7
 
@@ -143,13 +143,13 @@ define hidden i32 @dbgsysRecvFrom(i32 noundef %0, ptr noundef %1, i64 noundef %2
   br label %7
 
 7:                                                ; preds = %11, %6
-  %8 = tail call i64 @recvfrom(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr %4, ptr noundef %5) #11
+  %8 = tail call i64 @recvfrom(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr %4, ptr noundef %5) #12
   %9 = trunc i64 %8 to i32
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @__errno_location() #12
+  %12 = tail call ptr @__errno_location() #13
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
   br i1 %14, label %7, label %.critedge, !llvm.loop !6
@@ -165,13 +165,13 @@ define hidden i32 @dbgsysSendTo(i32 noundef %0, ptr noundef %1, i64 noundef %2, 
   br label %7
 
 7:                                                ; preds = %11, %6
-  %8 = tail call i64 @sendto(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr %4, i32 noundef %5) #11
+  %8 = tail call i64 @sendto(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr %4, i32 noundef %5) #12
   %9 = trunc i64 %8 to i32
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @__errno_location() #12
+  %12 = tail call ptr @__errno_location() #13
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 4
   br i1 %14, label %7, label %.critedge, !llvm.loop !8
@@ -187,13 +187,13 @@ define hidden i32 @dbgsysRecv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = tail call i64 @recv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #11
+  %6 = tail call i64 @recv(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #12
   %7 = trunc i64 %6 to i32
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @__errno_location() #12
+  %10 = tail call ptr @__errno_location() #13
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
   br i1 %12, label %5, label %.critedge, !llvm.loop !9
@@ -209,13 +209,13 @@ define hidden i32 @dbgsysSend(i32 noundef %0, ptr noundef %1, i64 noundef %2, i3
   br label %5
 
 5:                                                ; preds = %9, %4
-  %6 = tail call i64 @send(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #11
+  %6 = tail call i64 @send(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #12
   %7 = trunc i64 %6 to i32
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @__errno_location() #12
+  %10 = tail call ptr @__errno_location() #13
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
   br i1 %12, label %5, label %.critedge, !llvm.loop !10
@@ -228,7 +228,7 @@ declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysGetAddrInfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #11
+  %5 = tail call i32 @getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #12
   ret i32 %5
 }
 
@@ -236,25 +236,25 @@ declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dbgsysFreeAddrInfo(ptr noundef %0) local_unnamed_addr #0 {
-  tail call void @freeaddrinfo(ptr noundef %0) #11
+  tail call void @freeaddrinfo(ptr noundef %0) #12
   ret void
 }
 
 ; Function Attrs: nounwind
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden zeroext i16 @dbgsysHostToNetworkShort(i16 noundef zeroext %0) local_unnamed_addr #4 {
-  %2 = tail call zeroext i16 @htons(i16 noundef zeroext %0) #12
+  %2 = tail call zeroext i16 @htons(i16 noundef zeroext %0) #13
   ret i16 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysSocket(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @socket(i32 noundef %0, i32 noundef %1, i32 noundef %2) #11
+  %4 = tail call i32 @socket(i32 noundef %0, i32 noundef %1, i32 noundef %2) #12
   ret i32 %4
 }
 
@@ -263,7 +263,7 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysSocketClose(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @close(i32 noundef %0) #11
+  %2 = tail call i32 @close(i32 noundef %0) #12
   ret i32 %2
 }
 
@@ -271,48 +271,48 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysBind(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @bind(i32 noundef %0, ptr %1, i32 noundef %2) #11
+  %4 = tail call i32 @bind(i32 noundef %0, ptr %1, i32 noundef %2) #12
   ret i32 %4
 }
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @dbgsysHostToNetworkLong(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = tail call i32 @htonl(i32 noundef %0) #12
+  %2 = tail call i32 @htonl(i32 noundef %0) #13
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden zeroext i16 @dbgsysNetworkToHostShort(i16 noundef zeroext %0) local_unnamed_addr #4 {
-  %2 = tail call zeroext i16 @ntohs(i16 noundef zeroext %0) #12
+  %2 = tail call zeroext i16 @ntohs(i16 noundef zeroext %0) #13
   ret i16 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysGetSocketName(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @getsockname(i32 noundef %0, ptr %1, ptr noundef %2) #11
+  %4 = tail call i32 @getsockname(i32 noundef %0, ptr %1, ptr noundef %2) #12
   ret i32 %4
 }
 
 ; Function Attrs: nounwind
 declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden i32 @dbgsysNetworkToHostLong(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = tail call i32 @ntohl(i32 noundef %0) #12
+  %2 = tail call i32 @ntohl(i32 noundef %0) #13
   ret i32 %2
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @ntohl(i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @ntohl(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @dbgsysSetSocketOption(i32 noundef %0, i32 noundef %1, i8 noundef zeroext %2, i64 %3) local_unnamed_addr #0 {
@@ -331,7 +331,7 @@ define hidden range(i32 -1, 1) i32 @dbgsysSetSocketOption(i32 noundef %0, i32 no
 9:                                                ; preds = %4
   %10 = zext i8 %2 to i32
   store i32 %10, ptr %5, align 4
-  %11 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 4) #11
+  %11 = call i32 @setsockopt(i32 noundef %0, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %5, i32 noundef 4) #12
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %28, label %27
 
@@ -343,20 +343,20 @@ define hidden range(i32 -1, 1) i32 @dbgsysSetSocketOption(i32 noundef %0, i32 no
   %16 = select i1 %.not, i32 0, i32 %15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %16, ptr %17, align 4
-  %18 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %6, i32 noundef 8) #11
+  %18 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 13, ptr noundef nonnull %6, i32 noundef 8) #12
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %28, label %27
 
 20:                                               ; preds = %4
   store i32 %.sroa.0.0.extract.trunc, ptr %7, align 4
-  %21 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %7, i32 noundef 4) #11
+  %21 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %7, i32 noundef 4) #12
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %28, label %27
 
 23:                                               ; preds = %4
   %24 = zext i8 %2 to i32
   store i32 %24, ptr %8, align 4
-  %25 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 4) #11
+  %25 = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %8, i32 noundef 4) #12
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %28, label %27
 
@@ -373,7 +373,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysConfigureBlocking(i32 noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 3) #11
+  %3 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 3) #12
   %4 = icmp eq i8 %1, 0
   %5 = and i32 %3, 2048
   %.not = icmp eq i32 %5, 0
@@ -395,7 +395,7 @@ define hidden i32 @dbgsysConfigureBlocking(i32 noundef %0, i8 noundef zeroext %1
 
 .sink.split:                                      ; preds = %6, %10
   %.sink = phi i32 [ %11, %10 ], [ %7, %6 ]
-  %12 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 4, i32 noundef %.sink) #11
+  %12 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %0, i32 noundef 4, i32 noundef %.sink) #12
   br label %13
 
 13:                                               ; preds = %.sink.split, %8
@@ -409,12 +409,12 @@ declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @dbgsysGetLastIOError(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @__errno_location() #12
+  %3 = tail call ptr @__errno_location() #13
   %4 = load i32, ptr %3, align 4
-  %5 = tail call ptr @strerror(i32 noundef %4) #11
+  %5 = tail call ptr @strerror(i32 noundef %4) #12
   %6 = add nsw i32 %1, -1
   %7 = sext i32 %6 to i64
-  %8 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %5, i64 noundef %7) #11
+  %8 = tail call ptr @strncpy(ptr noundef %0, ptr noundef %5, i64 noundef %7) #12
   %9 = getelementptr inbounds i8, ptr %0, i64 %7
   store i8 0, ptr %9, align 1
   ret i32 0
@@ -423,19 +423,19 @@ define hidden noundef i32 @dbgsysGetLastIOError(ptr noundef %0, i32 noundef %1) 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @dbgsysTlsAlloc() local_unnamed_addr #0 {
   %1 = alloca i32, align 4
-  %2 = call i32 @pthread_key_create(ptr noundef nonnull %1, ptr noundef null) #11
+  %2 = call i32 @pthread_key_create(ptr noundef nonnull %1, ptr noundef null) #12
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %0
-  call void @perror(ptr noundef nonnull @.str) #13
-  call void @exit(i32 noundef -1) #14
+  call void @perror(ptr noundef nonnull @.str) #14
+  call void @exit(i32 noundef -1) #15
   unreachable
 
 4:                                                ; preds = %0
@@ -447,14 +447,14 @@ define hidden i32 @dbgsysTlsAlloc() local_unnamed_addr #0 {
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #6
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree noreturn nounwind
-declare void @exit(i32 noundef) local_unnamed_addr #7
+declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dbgsysTlsFree(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_key_delete(i32 noundef %0) #11
+  %2 = tail call i32 @pthread_key_delete(i32 noundef %0) #12
   ret void
 }
 
@@ -463,7 +463,7 @@ declare i32 @pthread_key_delete(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dbgsysTlsPut(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @pthread_setspecific(i32 noundef %0, ptr noundef %1) #11
+  %3 = tail call i32 @pthread_setspecific(i32 noundef %0, ptr noundef %1) #12
   ret void
 }
 
@@ -472,7 +472,7 @@ declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dbgsysTlsGet(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @pthread_getspecific(i32 noundef %0) #11
+  %2 = tail call ptr @pthread_getspecific(i32 noundef %0) #12
   ret ptr %2
 }
 
@@ -480,9 +480,9 @@ define hidden ptr @dbgsysTlsGet(i32 noundef %0) local_unnamed_addr #0 {
 declare ptr @pthread_getspecific(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i64 @dbgsysCurrentTimeMillis() local_unnamed_addr #8 {
+define hidden i64 @dbgsysCurrentTimeMillis() local_unnamed_addr #9 {
   %1 = alloca %struct.timeval, align 8
-  %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #11
+  %2 = call i32 @gettimeofday(ptr noundef nonnull %1, ptr noundef null) #12
   %3 = load i64, ptr %1, align 8
   %4 = mul nsw i64 %3, 1000
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -493,32 +493,33 @@ define hidden i64 @dbgsysCurrentTimeMillis() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { cold }
-attributes #14 = { cold noreturn nounwind }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(none) }
+attributes #14 = { cold }
+attributes #15 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

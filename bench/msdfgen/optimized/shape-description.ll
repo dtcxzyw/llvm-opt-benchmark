@@ -85,13 +85,13 @@ entry:
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr noundef captures(none) %input, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %coord) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree norecurse nounwind uwtable
+define dso_local noundef range(i32 0, 3) i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr noundef captures(none) %input, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %coord) local_unnamed_addr #5 {
 entry:
   %end = alloca ptr, align 8
   store ptr null, ptr %end, align 8
   %0 = load ptr, ptr %input, align 8
-  %call = call double @strtod(ptr noundef %0, ptr noundef nonnull %end) #12
+  %call = call double @strtod(ptr noundef %0, ptr noundef nonnull %end) #13
   store double %call, ptr %coord, align 8
   %1 = load ptr, ptr %end, align 8
   %2 = load ptr, ptr %input, align 8
@@ -117,7 +117,7 @@ while.body:                                       ; preds = %while.cond, %while.
 if.end12:                                         ; preds = %while.cond
   %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   store ptr %incdec.ptr13, ptr %input, align 8
-  %call14 = call double @strtod(ptr noundef nonnull %incdec.ptr13, ptr noundef nonnull %end) #12
+  %call14 = call double @strtod(ptr noundef nonnull %incdec.ptr13, ptr noundef nonnull %end) #13
   %y = getelementptr inbounds nuw i8, ptr %coord, i64 8
   store double %call14, ptr %y, align 8
   %4 = load ptr, ptr %end, align 8
@@ -134,8 +134,8 @@ return:                                           ; preds = %while.cond, %if.end
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #5
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN7msdfgen20readShapeDescriptionEP8_IO_FILERNS_5ShapeEPb(ptr noundef %input, ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef writeonly captures(address_is_null) %colorsSpecified) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -160,7 +160,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
-  tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #12
+  tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #13
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
@@ -175,7 +175,7 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #14
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
@@ -223,7 +223,7 @@ if.then8:                                         ; preds = %do.body.i
   br i1 %cmp10.not, label %if.end, label %if.then11
 
 if.then11:                                        ; preds = %if.then8
-  %call12 = call i32 @feof(ptr noundef %input) #12
+  %call12 = call i32 @feof(ptr noundef %input) #13
   %cmp13 = icmp ne i32 %call12, 0
   br label %return
 
@@ -292,7 +292,7 @@ if.end33:                                         ; preds = %if.then31, %for.end
   br i1 %cmp34, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.end33
-  %call35 = call i32 @feof(ptr noundef %input) #12
+  %call35 = call i32 @feof(ptr noundef %input) #13
   %tobool36 = icmp ne i32 %call35, 0
   br label %return
 
@@ -390,7 +390,7 @@ if.then17:                                        ; preds = %if.end12
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then17
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14, i64 16, i1 false)
   br label %do.body.i35.backedge
 
@@ -434,7 +434,7 @@ sw.bb:                                            ; preds = %do.body.i42
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %sw.bb
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28) #13
   store double %start.sroa.0.0.copyload, ptr %p, align 16
   store double %start.sroa.5.0.copyload, ptr %start.sroa.5.0.p.sroa_idx, align 8
   br label %do.body.i35.backedge
@@ -595,7 +595,7 @@ sw.bb72:                                          ; preds = %if.end71
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %sw.bb72
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14, i64 16, i1 false)
   br label %do.body.i35.backedge
 
@@ -613,7 +613,7 @@ sw.bb82:                                          ; preds = %if.end71
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %sw.bb82
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, i64 16, i1 false)
   br label %do.body.i35.backedge
 
@@ -633,7 +633,7 @@ sw.bb94:                                          ; preds = %if.end71
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %sw.bb94
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx103, i64 16, i1 false)
   br label %do.body.i35.backedge
 
@@ -649,7 +649,7 @@ return:                                           ; preds = %sw.epilog.i, %READ_
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad
   %ref.tmp95.sink = phi ptr [ %ref.tmp95, %lpad104 ], [ %ref.tmp83, %lpad90 ], [ %ref.tmp73, %lpad78 ], [ %ref.tmp28, %lpad32 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %4, %lpad104 ], [ %3, %lpad90 ], [ %2, %lpad78 ], [ %1, %lpad32 ], [ %0, %lpad ]
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95.sink) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95.sink) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -682,7 +682,7 @@ for.body.i.i.i.i.i:                               ; preds = %entry, %_ZSt8_Destr
 
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %2, %for.body.i.i.i.i.i ]
-  tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #12
+  tail call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i) #13
   %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i.i.i, %3
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i, label %invoke.contthread-pre-split.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !7
@@ -697,7 +697,7 @@ invoke.cont.i.i.i.i.i.i.i.i:                      ; preds = %invoke.contthread-p
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %invoke.cont.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #13
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #14
   br label %_ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyIN7msdfgen7ContourEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i
@@ -717,7 +717,7 @@ _ZNSt6vectorIN7msdfgen7ContourESaIS1_EE5clearEv.exit: ; preds = %entry, %invoke.
   store i64 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   store ptr null, ptr %end.i, align 8
-  %call.i = call double @strtod(ptr noundef %input, ptr noundef nonnull %end.i) #12
+  %call.i = call double @strtod(ptr noundef %input, ptr noundef nonnull %end.i) #13
   store double %call.i, ptr %p, align 8
   %6 = load ptr, ptr %end.i, align 8
   %cmp.not.i = icmp ugt ptr %6, %input
@@ -741,7 +741,7 @@ while.body.i:                                     ; preds = %while.cond.i, %whil
 if.end12.i:                                       ; preds = %while.cond.i
   %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
   store ptr %incdec.ptr13.i, ptr %input.addr, align 8
-  %call14.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i, ptr noundef nonnull %end.i) #12
+  %call14.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i, ptr noundef nonnull %end.i) #13
   store double %call14.i, ptr %y.i, align 8
   %8 = load ptr, ptr %end.i, align 8
   %cmp15.not.i = icmp ugt ptr %8, %incdec.ptr13.i
@@ -905,7 +905,7 @@ if.else:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i)
   store ptr null, ptr %end.i, align 8
   %0 = load ptr, ptr %input, align 8
-  %call.i = call double @strtod(ptr noundef %0, ptr noundef nonnull %end.i) #12
+  %call.i = call double @strtod(ptr noundef %0, ptr noundef nonnull %end.i) #13
   store double %call.i, ptr %p, align 16
   %1 = load ptr, ptr %end.i, align 8
   %2 = load ptr, ptr %input, align 8
@@ -931,7 +931,7 @@ while.body.i:                                     ; preds = %while.cond.i, %whil
 if.end12.i:                                       ; preds = %while.cond.i
   %incdec.ptr13.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 1
   store ptr %incdec.ptr13.i, ptr %input, align 8
-  %call14.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i, ptr noundef nonnull %end.i) #12
+  %call14.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i, ptr noundef nonnull %end.i) #13
   %y.i33 = getelementptr inbounds nuw i8, ptr %p, i64 8
   store double %call14.i, ptr %y.i33, align 8
   %4 = load ptr, ptr %end.i, align 8
@@ -1023,7 +1023,7 @@ _ZN7msdfgen9readCharSEPPKc.exit44.thread:         ; preds = %do.body.i37
 if.end12:                                         ; preds = %_ZN7msdfgen9readCharSEPPKc.exit44
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i45)
   store ptr null, ptr %end.i45, align 8
-  %call.i46 = call double @strtod(ptr noundef nonnull %incdec.ptr.i39, ptr noundef nonnull %end.i45) #12
+  %call.i46 = call double @strtod(ptr noundef nonnull %incdec.ptr.i39, ptr noundef nonnull %end.i45) #13
   store double %call.i46, ptr %arrayidx14, align 16
   %8 = load ptr, ptr %end.i45, align 8
   %9 = load ptr, ptr %input, align 8
@@ -1049,7 +1049,7 @@ while.body.i57:                                   ; preds = %while.cond.i49, %wh
 if.end12.i51:                                     ; preds = %while.cond.i49
   %incdec.ptr13.i52 = getelementptr inbounds nuw i8, ptr %storemerge.i50, i64 1
   store ptr %incdec.ptr13.i52, ptr %input, align 8
-  %call14.i53 = call double @strtod(ptr noundef nonnull %incdec.ptr13.i52, ptr noundef nonnull %end.i45) #12
+  %call14.i53 = call double @strtod(ptr noundef nonnull %incdec.ptr13.i52, ptr noundef nonnull %end.i45) #13
   store double %call14.i53, ptr %y.i.i, align 8
   %11 = load ptr, ptr %end.i45, align 8
   %12 = load ptr, ptr %input, align 8
@@ -1071,7 +1071,7 @@ if.then17:                                        ; preds = %if.end12.i51
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then17
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14, i64 16, i1 false)
   br label %while.cond.backedge
 
@@ -1126,7 +1126,7 @@ sw.bb:                                            ; preds = %do.body.i62
           to label %invoke.cont33 unwind label %lpad32
 
 invoke.cont33:                                    ; preds = %sw.bb
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28) #13
   store double %start.sroa.0.0.copyload, ptr %p, align 16
   store double %start.sroa.5.0.copyload, ptr %start.sroa.5.0.p.sroa_idx, align 8
   br label %while.cond.backedge
@@ -1182,7 +1182,7 @@ READ_CONTROL_POINTS:                              ; preds = %do.body.i62, %do.bo
   %color.1 = phi i32 [ %color.2, %do.body.i72 ], [ 7, %do.body.i62 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i.i)
   store ptr null, ptr %end.i.i, align 8
-  %call.i.i = call double @strtod(ptr noundef nonnull %17, ptr noundef nonnull %end.i.i) #12
+  %call.i.i = call double @strtod(ptr noundef nonnull %17, ptr noundef nonnull %end.i.i) #13
   store double %call.i.i, ptr %arrayidx14, align 16
   %18 = load ptr, ptr %end.i.i, align 8
   %19 = load ptr, ptr %input, align 8
@@ -1208,7 +1208,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %wh
 if.end12.i.i:                                     ; preds = %while.cond.i.i
   %incdec.ptr13.i.i = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 1
   store ptr %incdec.ptr13.i.i, ptr %input, align 8
-  %call14.i.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i.i, ptr noundef nonnull %end.i.i) #12
+  %call14.i.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i.i, ptr noundef nonnull %end.i.i) #13
   store double %call14.i.i, ptr %y.i.i, align 8
   %21 = load ptr, ptr %end.i.i, align 8
   %22 = load ptr, ptr %input, align 8
@@ -1243,7 +1243,7 @@ do.body.i.i.backedge:                             ; preds = %do.body.i.i, %do.bo
 sw.epilog.i:                                      ; preds = %do.body.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i10.i)
   store ptr null, ptr %end.i10.i, align 8
-  %call.i11.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i8.i, ptr noundef nonnull %end.i10.i) #12
+  %call.i11.i = call double @strtod(ptr noundef nonnull %incdec.ptr.i8.i, ptr noundef nonnull %end.i10.i) #13
   store double %call.i11.i, ptr %arrayidx3.i, align 16
   %24 = load ptr, ptr %end.i10.i, align 8
   %25 = load ptr, ptr %input, align 8
@@ -1269,7 +1269,7 @@ while.body.i22.i:                                 ; preds = %while.cond.i14.i, %
 if.end12.i16.i:                                   ; preds = %while.cond.i14.i
   %incdec.ptr13.i17.i = getelementptr inbounds nuw i8, ptr %storemerge.i15.i, i64 1
   store ptr %incdec.ptr13.i17.i, ptr %input, align 8
-  %call14.i18.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i17.i, ptr noundef nonnull %end.i10.i) #12
+  %call14.i18.i = call double @strtod(ptr noundef nonnull %incdec.ptr13.i17.i, ptr noundef nonnull %end.i10.i) #13
   store double %call14.i18.i, ptr %y.i19.i, align 8
   %27 = load ptr, ptr %end.i10.i, align 8
   %28 = load ptr, ptr %input, align 8
@@ -1350,7 +1350,7 @@ FINISH_EDGE:                                      ; preds = %do.body.i62, %do.bo
   %arrayidx55 = getelementptr inbounds nuw [4 x %"struct.msdfgen::Vector2"], ptr %p, i64 0, i64 %idxprom
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %end.i90)
   store ptr null, ptr %end.i90, align 8
-  %call.i91 = call double @strtod(ptr noundef nonnull %32, ptr noundef nonnull %end.i90) #12
+  %call.i91 = call double @strtod(ptr noundef nonnull %32, ptr noundef nonnull %end.i90) #13
   store double %call.i91, ptr %arrayidx55, align 16
   %33 = load ptr, ptr %end.i90, align 8
   %34 = load ptr, ptr %input, align 8
@@ -1376,7 +1376,7 @@ while.body.i102:                                  ; preds = %while.cond.i94, %wh
 if.end12.i96:                                     ; preds = %while.cond.i94
   %incdec.ptr13.i97 = getelementptr inbounds nuw i8, ptr %storemerge.i95, i64 1
   store ptr %incdec.ptr13.i97, ptr %input, align 8
-  %call14.i98 = call double @strtod(ptr noundef nonnull %incdec.ptr13.i97, ptr noundef nonnull %end.i90) #12
+  %call14.i98 = call double @strtod(ptr noundef nonnull %incdec.ptr13.i97, ptr noundef nonnull %end.i90) #13
   %y.i99 = getelementptr inbounds nuw i8, ptr %arrayidx55, i64 8
   store double %call14.i98, ptr %y.i99, align 8
   %36 = load ptr, ptr %end.i90, align 8
@@ -1437,7 +1437,7 @@ sw.bb72:                                          ; preds = %if.end71
           to label %invoke.cont79 unwind label %lpad78
 
 invoke.cont79:                                    ; preds = %sw.bb72
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp73) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx14, i64 16, i1 false)
   br label %while.cond.backedge
 
@@ -1455,7 +1455,7 @@ sw.bb82:                                          ; preds = %if.end71
           to label %invoke.cont91 unwind label %lpad90
 
 invoke.cont91:                                    ; preds = %sw.bb82
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp83) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx3.i, i64 16, i1 false)
   br label %while.cond.backedge
 
@@ -1475,7 +1475,7 @@ sw.bb94:                                          ; preds = %if.end71
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %sw.bb94
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %p, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx103, i64 16, i1 false)
   br label %while.cond.backedge
 
@@ -1491,7 +1491,7 @@ return:                                           ; preds = %_ZN7msdfgen9readCha
 eh.resume:                                        ; preds = %lpad104, %lpad90, %lpad78, %lpad32, %lpad
   %ref.tmp95.sink = phi ptr [ %ref.tmp95, %lpad104 ], [ %ref.tmp83, %lpad90 ], [ %ref.tmp73, %lpad78 ], [ %ref.tmp28, %lpad32 ], [ %ref.tmp, %lpad ]
   %.pn = phi { ptr, i32 } [ %41, %lpad104 ], [ %40, %lpad90 ], [ %39, %lpad78 ], [ %15, %lpad32 ], [ %13, %lpad ]
-  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95.sink) #12
+  call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp95.sink) #13
   resume { ptr, i32 } %.pn
 }
 
@@ -1707,15 +1707,15 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nounwind
-declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
+declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 declare void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
@@ -1726,34 +1726,35 @@ declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeC
 declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double, double, double, double, double, double, double, double, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
+attributes #5 = { mustprogress nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

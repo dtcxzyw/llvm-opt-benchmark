@@ -736,7 +736,7 @@ declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #3
 
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
@@ -919,7 +919,7 @@ define internal fastcc void @ssl_test_extra_conf_free_data(ptr noundef nonnull r
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_client_verify_callback(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -947,7 +947,7 @@ parse_enum.exit.thread:                           ; preds = %3, %10
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_servername(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -998,7 +998,7 @@ define internal i32 @parse_client_alpn_protocols(ptr noundef captures(none) %0, 
   ret i32 %6
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_ct_validation(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1060,7 +1060,7 @@ define internal i32 @parse_client_srp_password(ptr noundef captures(none) %0, pt
   ret i32 %6
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_max_fragment_len_mode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1153,7 +1153,7 @@ declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @test_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_servername_callback(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1232,7 +1232,7 @@ parse_boolean.exit:                               ; preds = %6, %10, %11
   ret i32 %.0.i
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_certstatus(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1323,7 +1323,7 @@ define internal i32 @parse_server_session_ticket_app_data(ptr noundef captures(n
   ret i32 %6
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_expected_result(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1352,7 +1352,7 @@ parse_enum.exit.thread:                           ; preds = %3, %10
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_client_alert(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 428
   br label %6
@@ -1381,7 +1381,7 @@ parse_alert.exit:                                 ; preds = %4, %11
   ret i32 %.09.i.i
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_server_alert(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %6
@@ -1410,7 +1410,7 @@ parse_alert.exit:                                 ; preds = %4, %11
   ret i32 %.09.i.i
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_protocol(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 436
   br label %6
@@ -1439,7 +1439,7 @@ parse_enum.exit:                                  ; preds = %4, %11
   ret i32 %.09.i
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_expected_servername(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1468,7 +1468,7 @@ parse_enum.exit.thread:                           ; preds = %3, %10
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_session_ticket(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1526,7 +1526,7 @@ parse_boolean.exit:                               ; preds = %6, %10, %11
   ret i32 %.0.i
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_session_id(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1555,7 +1555,7 @@ parse_enum.exit.thread:                           ; preds = %3, %10
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_test_method(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1605,7 +1605,7 @@ define internal i32 @parse_test_expected_alpn_protocol(ptr noundef captures(none
   ret i32 %6
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_handshake_mode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1634,7 +1634,7 @@ parse_enum.exit.thread:                           ; preds = %3, %10
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @parse_key_update_type(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %5
 
@@ -1692,7 +1692,7 @@ parse_boolean.exit:                               ; preds = %6, %10, %11
   ret i32 %.0.i
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define internal noundef i32 @parse_test_app_data_size(ptr noundef writeonly captures(none) initializes((8, 12)) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #8
   %4 = trunc i64 %3 to i32
@@ -1701,7 +1701,7 @@ define internal noundef i32 @parse_test_app_data_size(ptr noundef writeonly capt
   ret i32 1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
 define internal noundef i32 @parse_test_max_fragment_size(ptr noundef writeonly captures(none) initializes((12, 16)) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #8
   %4 = trunc i64 %3 to i32
@@ -2012,7 +2012,7 @@ define internal i32 @parse_test_fips_version(ptr noundef captures(none) %0, ptr 
   ret i32 %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
@@ -2099,10 +2099,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind }
 attributes #9 = { nounwind willreturn memory(read) }
 

@@ -28,7 +28,7 @@ entry:
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  tail call void @uv__io_close(ptr noundef %0, ptr noundef nonnull %io_watcher) #10
+  tail call void @uv__io_close(ptr noundef %0, ptr noundef nonnull %io_watcher) #11
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 4
@@ -57,7 +57,7 @@ do.end10:                                         ; preds = %if.end, %do.body7, 
   br i1 %cmp12.not, label %if.end18, label %if.then13
 
 if.then13:                                        ; preds = %do.end10
-  %call = tail call i32 @uv__close(i32 noundef %4) #10
+  %call = tail call i32 @uv__close(i32 noundef %4) #11
   store i32 -1, ptr %fd, align 8
   br label %if.end18
 
@@ -146,7 +146,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %8 = load ptr, ptr %bufs, align 8
   %nbufs = getelementptr inbounds nuw i8, ptr %2, i64 144
   %9 = load i32, ptr %nbufs, align 8
-  %call3 = tail call i64 @uv__count_bufs(ptr noundef %8, i32 noundef %9) #10
+  %call3 = tail call i64 @uv__count_bufs(ptr noundef %8, i32 noundef %9) #11
   %10 = load i64, ptr %send_queue_size, align 8
   %sub = sub i64 %10, %call3
   store i64 %sub, ptr %send_queue_size, align 8
@@ -159,7 +159,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %while.body
-  tail call void @uv__free(ptr noundef %12) #10
+  tail call void @uv__free(ptr noundef %12) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
@@ -175,7 +175,7 @@ if.end10:                                         ; preds = %if.end
   %cmp11 = icmp sgt i64 %14, -1
   %conv = trunc i64 %14 to i32
   %.sink = select i1 %cmp11, i32 0, i32 %conv
-  tail call void %13(ptr noundef nonnull %add.ptr, i32 noundef %.sink) #10
+  tail call void %13(ptr noundef nonnull %add.ptr, i32 noundef %.sink) #11
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end10, %if.end
@@ -193,8 +193,8 @@ if.then19:                                        ; preds = %while.end
   %loop20 = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %17 = load ptr, ptr %loop20, align 8
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  tail call void @uv__io_stop(ptr noundef %17, ptr noundef nonnull %io_watcher, i32 noundef 4) #10
-  %call22 = tail call i32 @uv__io_active(ptr noundef nonnull %io_watcher, i32 noundef 1) #10
+  tail call void @uv__io_stop(ptr noundef %17, ptr noundef nonnull %io_watcher, i32 noundef 4) #11
+  %call22 = tail call i32 @uv__io_active(ptr noundef nonnull %io_watcher, i32 noundef 1) #11
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %do.body25, label %if.end45
 
@@ -255,7 +255,7 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
 if.then9:                                         ; preds = %if.end5
   %2 = load i16, ptr %addr, align 2
   %conv11 = zext i16 %2 to i32
-  %call = tail call i32 @uv__socket(i32 noundef %conv11, i32 noundef 2, i32 noundef 0) #10
+  %call = tail call i32 @uv__socket(i32 noundef %conv11, i32 noundef 2, i32 noundef 0) #11
   %cmp12 = icmp slt i32 %call, 0
   br i1 %cmp12, label %return, label %if.end15
 
@@ -278,12 +278,12 @@ if.then21:                                        ; preds = %if.end18
   ]
 
 if.then.i:                                        ; preds = %if.then21
-  %call.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %fd.0, i32 noundef 0, i32 noundef 11, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %fd.0, i32 noundef 0, i32 noundef 11, ptr noundef nonnull %yes.i, i32 noundef 4) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
 if.then7.i:                                       ; preds = %if.then21
-  %call8.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %fd.0, i32 noundef 41, i32 noundef 25, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call8.i = call i32 @setsockopt(i32 noundef range(i32 0, -1) %fd.0, i32 noundef 41, i32 noundef 25, ptr noundef nonnull %yes.i, i32 noundef 4) #11
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i, label %uv__set_recverr.exit.thread, label %uv__set_recverr.exit
 
@@ -292,7 +292,7 @@ uv__set_recverr.exit.thread:                      ; preds = %if.then21, %if.then
   br label %if.end27
 
 uv__set_recverr.exit:                             ; preds = %if.then.i, %if.then7.i
-  %call11.i = tail call ptr @__errno_location() #11
+  %call11.i = tail call ptr @__errno_location() #12
   %4 = load i32, ptr %call11.i, align 4
   %sub12.i = sub nsw i32 0, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i)
@@ -307,7 +307,7 @@ if.end27:                                         ; preds = %uv__set_recverr.exi
 if.then30:                                        ; preds = %if.end27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i25)
   store i32 1, ptr %yes.i25, align 4
-  %call.i26 = call i32 @setsockopt(i32 noundef %fd.0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i25, i32 noundef 4) #10
+  %call.i26 = call i32 @setsockopt(i32 noundef %fd.0, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i25, i32 noundef 4) #11
   %tobool.not.i27 = icmp eq i32 %call.i26, 0
   br i1 %tobool.not.i27, label %uv__set_reuse.exit.thread, label %uv__set_reuse.exit
 
@@ -316,7 +316,7 @@ uv__set_reuse.exit.thread:                        ; preds = %if.then30
   br label %if.end35
 
 uv__set_reuse.exit:                               ; preds = %if.then30
-  %call1.i = tail call ptr @__errno_location() #11
+  %call1.i = tail call ptr @__errno_location() #12
   %5 = load i32, ptr %call1.i, align 4
   %sub.i = sub nsw i32 0, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i25)
@@ -328,23 +328,23 @@ if.end35:                                         ; preds = %uv__set_reuse.exit.
 
 if.then38:                                        ; preds = %if.end35
   store i32 1, ptr %yes, align 4
-  %call39 = call i32 @setsockopt(i32 noundef %fd.0, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %yes, i32 noundef 4) #10
+  %call39 = call i32 @setsockopt(i32 noundef %fd.0, i32 noundef 41, i32 noundef 26, ptr noundef nonnull %yes, i32 noundef 4) #11
   %cmp40 = icmp eq i32 %call39, -1
   br i1 %cmp40, label %if.then42, label %if.end45
 
 if.then42:                                        ; preds = %if.then38
-  %call43 = tail call ptr @__errno_location() #11
+  %call43 = tail call ptr @__errno_location() #12
   %6 = load i32, ptr %call43, align 4
   %sub = sub nsw i32 0, %6
   br label %return
 
 if.end45:                                         ; preds = %if.then38, %if.end35
-  %call46 = call i32 @bind(i32 noundef %fd.0, ptr %addr, i32 noundef %addrlen) #10
+  %call46 = call i32 @bind(i32 noundef %fd.0, ptr %addr, i32 noundef %addrlen) #11
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %if.end56, label %if.then48
 
 if.then48:                                        ; preds = %if.end45
-  %call49 = tail call ptr @__errno_location() #11
+  %call49 = tail call ptr @__errno_location() #12
   %7 = load i32, ptr %call49, align 4
   %sub50 = sub nsw i32 0, %7
   %cmp52 = icmp eq i32 %7, 97
@@ -409,24 +409,24 @@ sw.bb1.i:                                         ; preds = %if.end.i
   br label %if.then9.i
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 if.then9.i:                                       ; preds = %sw.bb.i, %sw.bb1.i
   %.sink.i = phi i32 [ 16, %sw.bb.i ], [ 28, %sw.bb1.i ]
   %conv11.i = zext nneg i16 %0 to i32
-  %call.i = tail call i32 @uv__socket(i32 noundef %conv11.i, i32 noundef 2, i32 noundef 0) #10
+  %call.i = tail call i32 @uv__socket(i32 noundef %conv11.i, i32 noundef 2, i32 noundef 0) #11
   %cmp12.i = icmp slt i32 %call.i, 0
   br i1 %cmp12.i, label %uv__udp_maybe_deferred_bind.exit.thread, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then9.i
   store i32 %call.i, ptr %fd.i, align 8
-  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef %.sink.i) #10
+  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef %.sink.i) #11
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %if.end56.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.end18.i
-  %call49.i = tail call ptr @__errno_location() #11
+  %call49.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call49.i, align 4
   %cmp52.i = icmp eq i32 %2, 97
   br i1 %cmp52.i, label %uv__udp_maybe_deferred_bind.exit.thread, label %uv__udp_maybe_deferred_bind.exit
@@ -458,13 +458,13 @@ uv__udp_maybe_deferred_bind.exit:                 ; preds = %if.then48.i
   br i1 %tobool.not, label %do.body.preheader, label %return
 
 do.body.preheader:                                ; preds = %uv__udp_maybe_deferred_bind.exit.thread12, %uv__udp_maybe_deferred_bind.exit
-  %call1 = tail call ptr @__errno_location() #11
+  %call1 = tail call ptr @__errno_location() #12
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs
   store i32 0, ptr %call1, align 4
   %6 = load i32, ptr %fd.i, align 8
-  %call2 = call i32 @connect(i32 noundef %6, ptr nonnull %addr, i32 noundef %addrlen) #10
+  %call2 = call i32 @connect(i32 noundef %6, ptr nonnull %addr, i32 noundef %addrlen) #11
   switch i32 %call2, label %do.body.if.then8_crit_edge [
     i32 -1, label %land.rhs
     i32 0, label %if.end10
@@ -502,7 +502,7 @@ declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #1
 define hidden range(i32 -2147483647, -2147483648) i32 @uv__udp_disconnect(ptr noundef captures(none) %handle) local_unnamed_addr #0 {
 entry:
   %addr = alloca %struct.sockaddr, align 2
-  %call = tail call ptr @__errno_location() #11
+  %call = tail call ptr @__errno_location() #12
   %fd = getelementptr inbounds nuw i8, ptr %handle, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   br label %do.body
@@ -510,7 +510,7 @@ entry:
 do.body:                                          ; preds = %land.rhs, %entry
   store i32 0, ptr %call, align 4
   %0 = load i32, ptr %fd, align 8
-  %call1 = call i32 @connect(i32 noundef %0, ptr nonnull %addr, i32 noundef 16) #10
+  %call1 = call i32 @connect(i32 noundef %0, ptr nonnull %addr, i32 noundef 16) #11
   %cmp = icmp eq i32 %call1, -1
   br i1 %cmp, label %land.rhs, label %if.end
 
@@ -572,24 +572,24 @@ sw.bb1.i:                                         ; preds = %if.end.i
   br label %if.then9.i
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 if.then9.i:                                       ; preds = %sw.bb.i, %sw.bb1.i
   %.sink.i = phi i32 [ 16, %sw.bb.i ], [ 28, %sw.bb1.i ]
   %conv11.i = zext nneg i16 %0 to i32
-  %call.i = tail call i32 @uv__socket(i32 noundef %conv11.i, i32 noundef 2, i32 noundef 0) #10
+  %call.i = tail call i32 @uv__socket(i32 noundef %conv11.i, i32 noundef 2, i32 noundef 0) #11
   %cmp12.i = icmp slt i32 %call.i, 0
   br i1 %cmp12.i, label %uv__udp_maybe_deferred_bind.exit.thread44, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then9.i
   store i32 %call.i, ptr %fd.i, align 8
-  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef %.sink.i) #10
+  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef %.sink.i) #11
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %if.end56.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.end18.i
-  %call49.i = tail call ptr @__errno_location() #11
+  %call49.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call49.i, align 4
   %cmp52.i = icmp eq i32 %2, 97
   br i1 %cmp52.i, label %uv__udp_maybe_deferred_bind.exit.thread44, label %uv__udp_maybe_deferred_bind.exit
@@ -660,7 +660,7 @@ if.end15:                                         ; preds = %if.else, %if.then11
   br i1 %cmp21, label %if.end27, label %if.end36
 
 if.end27:                                         ; preds = %if.end15
-  %call25 = call ptr @uv__malloc(i64 noundef %mul) #10
+  %call25 = call ptr @uv__malloc(i64 noundef %mul) #11
   store ptr %call25, ptr %bufs19, align 8
   %cmp29 = icmp eq ptr %call25, null
   br i1 %cmp29, label %do.body32, label %if.end36
@@ -678,7 +678,7 @@ if.end36:                                         ; preds = %if.end15, %if.end27
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %11, ptr align 8 %bufs, i64 %mul, i1 false)
   %12 = load ptr, ptr %bufs19, align 8
   %13 = load i32, ptr %nbufs18, align 8
-  %call42 = call i64 @uv__count_bufs(ptr noundef %12, i32 noundef %13) #10
+  %call42 = call i64 @uv__count_bufs(ptr noundef %12, i32 noundef %13) #11
   %send_queue_size = getelementptr inbounds nuw i8, ptr %handle, i64 96
   %14 = load i64, ptr %send_queue_size, align 8
   %add = add i64 %14, %call42
@@ -734,13 +734,13 @@ if.then66:                                        ; preds = %land.lhs.true
 if.then70:                                        ; preds = %if.then66
   %22 = load ptr, ptr %loop, align 8
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  call void @uv__io_start(ptr noundef %22, ptr noundef nonnull %io_watcher, i32 noundef 4) #10
+  call void @uv__io_start(ptr noundef %22, ptr noundef nonnull %io_watcher, i32 noundef 4) #11
   br label %return
 
 if.else73:                                        ; preds = %land.lhs.true, %do.end61
   %23 = load ptr, ptr %loop, align 8
   %io_watcher75 = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  call void @uv__io_start(ptr noundef %23, ptr noundef nonnull %io_watcher75, i32 noundef 4) #10
+  call void @uv__io_start(ptr noundef %23, ptr noundef nonnull %io_watcher75, i32 noundef 4) #11
   br label %return
 
 return:                                           ; preds = %uv__udp_maybe_deferred_bind.exit.thread44, %if.else73, %if.then70, %if.then66, %uv__udp_maybe_deferred_bind.exit, %do.body32
@@ -806,7 +806,7 @@ if.then35:                                        ; preds = %if.else
   br label %if.end42.sink.split
 
 if.else38:                                        ; preds = %if.else
-  call void @abort() #12
+  call void @abort() #13
   unreachable
 
 if.end42.sink.split:                              ; preds = %if.else, %if.then26, %if.then35
@@ -834,12 +834,12 @@ if.end42:                                         ; preds = %if.end42.sink.split
 
 do.body:                                          ; preds = %do.body.preheader, %land.rhs54
   %6 = load i32, ptr %fd, align 8
-  %call50 = call i32 @sendmmsg(i32 noundef %6, ptr noundef nonnull %h, i32 noundef %conv49, i32 noundef 0) #10
+  %call50 = call i32 @sendmmsg(i32 noundef %6, ptr noundef nonnull %h, i32 noundef %conv49, i32 noundef 0) #11
   %cmp52 = icmp eq i32 %call50, -1
   br i1 %cmp52, label %land.rhs54, label %do.end
 
 land.rhs54:                                       ; preds = %do.body
-  %call55 = tail call ptr @__errno_location() #11
+  %call55 = tail call ptr @__errno_location() #12
   %7 = load i32, ptr %call55, align 4
   %cmp56 = icmp eq i32 %7, 4
   br i1 %cmp56, label %do.body, label %if.then61
@@ -855,7 +855,7 @@ for.cond98.preheader:                             ; preds = %do.end
   br i1 %cmp10383.not, label %for.end118, label %for.body106
 
 if.then61.loopexit65:                             ; preds = %do.end
-  %.pre = tail call ptr @__errno_location() #11
+  %.pre = tail call ptr @__errno_location() #12
   %.pr = load i32, ptr %.pre, align 4
   br label %if.then61
 
@@ -938,7 +938,7 @@ return.sink.split:                                ; preds = %for.end118, %for.bo
   %io_watcher.le80.le86.sink = getelementptr inbounds nuw i8, ptr %handle, i64 128
   %loop124 = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %24 = load ptr, ptr %loop124, align 8
-  call void @uv__io_feed(ptr noundef %24, ptr noundef nonnull %io_watcher.le80.le86.sink) #10
+  call void @uv__io_feed(ptr noundef %24, ptr noundef nonnull %io_watcher.le80.le86.sink) #11
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then61, %if.then61, %entry
@@ -988,24 +988,24 @@ sw.bb1.i:                                         ; preds = %if.end.i
   br label %if.then9.i
 
 sw.default.i:                                     ; preds = %if.end.i
-  tail call void @abort() #12
+  tail call void @abort() #13
   unreachable
 
 if.then9.i:                                       ; preds = %sw.bb.i, %sw.bb1.i
   %.sink.i = phi i32 [ 16, %sw.bb.i ], [ 28, %sw.bb1.i ]
   %conv11.i = zext nneg i16 %1 to i32
-  %call.i = tail call i32 @uv__socket(i32 noundef %conv11.i, i32 noundef 2, i32 noundef 0) #10
+  %call.i = tail call i32 @uv__socket(i32 noundef %conv11.i, i32 noundef 2, i32 noundef 0) #11
   %cmp12.i = icmp slt i32 %call.i, 0
   br i1 %cmp12.i, label %uv__udp_maybe_deferred_bind.exit.thread13, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then9.i
   store i32 %call.i, ptr %fd.i, align 8
-  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef %.sink.i) #10
+  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef %.sink.i) #11
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %if.end56.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.end18.i
-  %call49.i = tail call ptr @__errno_location() #11
+  %call49.i = tail call ptr @__errno_location() #12
   %3 = load i32, ptr %call49.i, align 4
   %cmp52.i = icmp eq i32 %3, 97
   br i1 %cmp52.i, label %uv__udp_maybe_deferred_bind.exit.thread13, label %uv__udp_maybe_deferred_bind.exit
@@ -1052,12 +1052,12 @@ if.end5:                                          ; preds = %uv__udp_maybe_defer
 
 do.body:                                          ; preds = %land.rhs, %if.end5
   %8 = load i32, ptr %fd, align 8
-  %call7 = call i64 @sendmsg(i32 noundef %8, ptr noundef nonnull %h, i32 noundef 0) #10
+  %call7 = call i64 @sendmsg(i32 noundef %8, ptr noundef nonnull %h, i32 noundef 0) #11
   %cmp8 = icmp eq i64 %call7, -1
   br i1 %cmp8, label %land.rhs, label %if.end29
 
 land.rhs:                                         ; preds = %do.body
-  %call10 = tail call ptr @__errno_location() #11
+  %call10 = tail call ptr @__errno_location() #12
   %9 = load i32, ptr %call10, align 4
   switch i32 %9, label %if.else27 [
     i32 4, label %do.body
@@ -1087,7 +1087,7 @@ entry:
   br i1 %cmp.not, label %do.body, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call = tail call i32 @uv__socket(i32 noundef %domain, i32 noundef 2, i32 noundef 0) #10
+  %call = tail call i32 @uv__socket(i32 noundef %domain, i32 noundef 2, i32 noundef 0) #11
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %return, label %do.body
 
@@ -1113,7 +1113,7 @@ do.body:                                          ; preds = %entry, %if.then
   %send_queue_size = getelementptr inbounds nuw i8, ptr %handle, i64 96
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %send_queue_size, i8 0, i64 32, i1 false)
-  tail call void @uv__io_init(ptr noundef nonnull %io_watcher, ptr noundef nonnull @uv__udp_io, i32 noundef %fd.0) #10
+  tail call void @uv__io_init(ptr noundef nonnull %io_watcher, ptr noundef nonnull @uv__udp_io, i32 noundef %fd.0) #11
   %write_queue = getelementptr inbounds nuw i8, ptr %handle, i64 184
   store ptr %write_queue, ptr %write_queue, align 8
   %prev.i16 = getelementptr inbounds nuw i8, ptr %handle, i64 192
@@ -1164,13 +1164,13 @@ if.then:                                          ; preds = %entry
 
 do.body.i:                                        ; preds = %land.rhs52.i, %if.then
   %count.0.i = phi i32 [ 32, %if.then ], [ %count.1.i, %land.rhs52.i ]
-  %call.i = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #10
+  %call.i = call { ptr, i64 } @uv_buf_init(ptr noundef null, i32 noundef 0) #11
   %0 = extractvalue { ptr, i64 } %call.i, 0
   %1 = extractvalue { ptr, i64 } %call.i, 1
   store ptr %0, ptr %buf.i, align 8
   store i64 %1, ptr %tmp.sroa.2.0.buf.sroa_idx.i, align 8
   %2 = load ptr, ptr %alloc_cb.i, align 8
-  call void %2(ptr noundef nonnull %add.ptr, i64 noundef 65536, ptr noundef nonnull %buf.i) #10
+  call void %2(ptr noundef nonnull %add.ptr, i64 noundef 65536, ptr noundef nonnull %buf.i) #11
   %3 = load ptr, ptr %buf.i, align 8
   %cmp.i = icmp eq ptr %3, null
   %4 = load i64, ptr %tmp.sroa.2.0.buf.sroa_idx.i, align 8
@@ -1180,7 +1180,7 @@ do.body.i:                                        ; preds = %land.rhs52.i, %if.t
 
 if.then.i:                                        ; preds = %do.body.i
   %5 = load ptr, ptr %recv_cb50.i.i, align 8
-  call void %5(ptr noundef nonnull %add.ptr, i64 noundef -105, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #10
+  call void %5(ptr noundef nonnull %add.ptr, i64 noundef -105, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #11
   br label %uv__udp_recvmsg.exit
 
 if.end.i:                                         ; preds = %do.body.i
@@ -1229,12 +1229,12 @@ for.body.i.i:                                     ; preds = %if.then3.i, %for.bo
 
 do.body.i.i:                                      ; preds = %land.rhs.i.i, %do.body.preheader.i.i
   %8 = load i32, ptr %fd.i.i, align 8
-  %call.i.i = call i32 @recvmmsg(i32 noundef %8, ptr noundef nonnull %msgs.i.i, i32 noundef %conv.i.i, i32 noundef 0, ptr noundef null) #10
+  %call.i.i = call i32 @recvmmsg(i32 noundef %8, ptr noundef nonnull %msgs.i.i, i32 noundef %conv.i.i, i32 noundef 0, ptr noundef null) #11
   %cmp23.i.i = icmp eq i32 %call.i.i, -1
   br i1 %cmp23.i.i, label %land.rhs.i.i, label %do.end.i.i
 
 land.rhs.i.i:                                     ; preds = %do.body.i.i
-  %call25.i.i = tail call ptr @__errno_location() #11
+  %call25.i.i = tail call ptr @__errno_location() #12
   %9 = load i32, ptr %call25.i.i, align 4
   %cmp26.i.i = icmp eq i32 %9, 4
   br i1 %cmp26.i.i, label %do.body.i.i, label %lor.lhs.false.i.i
@@ -1249,7 +1249,7 @@ if.then30.i.i:                                    ; preds = %do.end.i.i
   br i1 %cmp31.i.i, label %if.then40.i.i, label %if.then30.lor.lhs.false_crit_edge.i.i
 
 if.then30.lor.lhs.false_crit_edge.i.i:            ; preds = %if.then30.i.i
-  %.pre.i.i = tail call ptr @__errno_location() #11
+  %.pre.i.i = tail call ptr @__errno_location() #12
   %.pr.i.i = load i32, ptr %.pre.i.i, align 4
   br label %lor.lhs.false.i.i
 
@@ -1260,14 +1260,14 @@ lor.lhs.false.i.i:                                ; preds = %land.rhs.i.i, %if.t
 
 if.then40.i.i:                                    ; preds = %lor.lhs.false.i.i, %if.then30.i.i
   %11 = load ptr, ptr %recv_cb50.i.i, align 8
-  call void %11(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #10
+  call void %11(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #11
   br label %uv__udp_recvmmsg.exit.i
 
 if.else.i.i:                                      ; preds = %lor.lhs.false.i.i
   %12 = load ptr, ptr %recv_cb50.i.i, align 8
   %sub.i.i = sub nsw i32 0, %10
   %conv43.i.i = sext i32 %sub.i.i to i64
-  call void %12(ptr noundef nonnull %add.ptr, i64 noundef %conv43.i.i, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #10
+  call void %12(ptr noundef nonnull %add.ptr, i64 noundef %conv43.i.i, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #11
   br label %uv__udp_recvmmsg.exit.i
 
 land.rhs49.i.i:                                   ; preds = %do.end.i.i, %for.body54.i.i
@@ -1288,7 +1288,7 @@ for.body54.i.i:                                   ; preds = %land.rhs49.i.i
   %iov_len63.i.i = getelementptr inbounds nuw i8, ptr %arrayidx60.i.i, i64 8
   %16 = load i64, ptr %iov_len63.i.i, align 8
   %conv64.i.i = trunc i64 %16 to i32
-  %call65.i.i = call { ptr, i64 } @uv_buf_init(ptr noundef %15, i32 noundef %conv64.i.i) #10
+  %call65.i.i = call { ptr, i64 } @uv_buf_init(ptr noundef %15, i32 noundef %conv64.i.i) #11
   %17 = extractvalue { ptr, i64 } %call65.i.i, 0
   %18 = extractvalue { ptr, i64 } %call65.i.i, 1
   store ptr %17, ptr %chunk_buf.i.i, align 8
@@ -1298,7 +1298,7 @@ for.body54.i.i:                                   ; preds = %land.rhs49.i.i
   %20 = load i32, ptr %msg_len.i.i, align 8
   %conv68.i.i = zext i32 %20 to i64
   %21 = load ptr, ptr %arrayidx55.i.i, align 16
-  call void %19(ptr noundef nonnull %add.ptr, i64 noundef %conv68.i.i, ptr noundef nonnull %chunk_buf.i.i, ptr noundef %21, i32 noundef %spec.select.i.i) #10
+  call void %19(ptr noundef nonnull %add.ptr, i64 noundef %conv68.i.i, ptr noundef nonnull %chunk_buf.i.i, ptr noundef %21, i32 noundef %spec.select.i.i) #11
   %inc73.i.i = add nuw nsw i64 %k.156.i.i, 1
   %exitcond61.not.i.i = icmp eq i64 %inc73.i.i, %conv22.le.i.i
   br i1 %exitcond61.not.i.i, label %for.end74.i.i, label %land.rhs49.i.i
@@ -1309,7 +1309,7 @@ for.end74.i.i:                                    ; preds = %for.body54.i.i
   br i1 %cmp76.not.i.i, label %uv__udp_recvmmsg.exit.i, label %if.then78.i.i
 
 if.then78.i.i:                                    ; preds = %for.end74.i.i
-  call void %.pr62.i.i(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 16) #10
+  call void %.pr62.i.i(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 16) #11
   br label %uv__udp_recvmmsg.exit.i
 
 uv__udp_recvmmsg.exit.i:                          ; preds = %land.rhs49.i.i, %if.then78.i.i, %for.end74.i.i, %if.else.i.i, %if.then40.i.i
@@ -1333,12 +1333,12 @@ if.end11.i:                                       ; preds = %if.end.i
 
 do.body12.i:                                      ; preds = %land.rhs.i, %if.end11.i
   %22 = load i32, ptr %fd.i.i, align 8
-  %call13.i = call i64 @recvmsg(i32 noundef %22, ptr noundef nonnull %h.i, i32 noundef 0) #10
+  %call13.i = call i64 @recvmsg(i32 noundef %22, ptr noundef nonnull %h.i, i32 noundef 0) #11
   %cmp14.i = icmp eq i64 %call13.i, -1
   br i1 %cmp14.i, label %land.rhs.i, label %if.else36.i
 
 land.rhs.i:                                       ; preds = %do.body12.i
-  %call16.i = tail call ptr @__errno_location() #11
+  %call16.i = tail call ptr @__errno_location() #12
   %23 = load i32, ptr %call16.i, align 4
   switch i32 %23, label %if.else.i [
     i32 4, label %do.body12.i
@@ -1347,14 +1347,14 @@ land.rhs.i:                                       ; preds = %do.body12.i
 
 if.then29.i:                                      ; preds = %land.rhs.i
   %24 = load ptr, ptr %recv_cb50.i.i, align 8
-  call void %24(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #10
+  call void %24(ptr noundef nonnull %add.ptr, i64 noundef 0, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #11
   br label %if.end41.i
 
 if.else.i:                                        ; preds = %land.rhs.i
   %25 = load ptr, ptr %recv_cb50.i.i, align 8
   %sub33.i = sub nsw i32 0, %23
   %conv34.i = sext i32 %sub33.i to i64
-  call void %25(ptr noundef nonnull %add.ptr, i64 noundef %conv34.i, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #10
+  call void %25(ptr noundef nonnull %add.ptr, i64 noundef %conv34.i, ptr noundef nonnull %buf.i, ptr noundef null, i32 noundef 0) #11
   br label %if.end41.i
 
 if.else36.i:                                      ; preds = %do.body12.i
@@ -1362,7 +1362,7 @@ if.else36.i:                                      ; preds = %do.body12.i
   %and.i = lshr i32 %26, 4
   %spec.select24.i = and i32 %and.i, 2
   %27 = load ptr, ptr %recv_cb50.i.i, align 8
-  call void %27(ptr noundef nonnull %add.ptr, i64 noundef %call13.i, ptr noundef nonnull %buf.i, ptr noundef nonnull %peer.i, i32 noundef %spec.select24.i) #10
+  call void %27(ptr noundef nonnull %add.ptr, i64 noundef %call13.i, ptr noundef nonnull %buf.i, ptr noundef nonnull %peer.i, i32 noundef %spec.select24.i) #11
   br label %if.end41.i
 
 if.end41.i:                                       ; preds = %if.else36.i, %if.else.i, %if.then29.i
@@ -1429,19 +1429,19 @@ entry:
 if.end:                                           ; preds = %entry
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %1 = load ptr, ptr %loop, align 8
-  %call = tail call i32 @uv__fd_exists(ptr noundef %1, i32 noundef %sock) #10
+  %call = tail call i32 @uv__fd_exists(ptr noundef %1, i32 noundef %sock) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end2, label %return
 
 if.end2:                                          ; preds = %if.end
-  %call3 = tail call i32 @uv__nonblock_ioctl(i32 noundef %sock, i32 noundef 1) #10
+  %call3 = tail call i32 @uv__nonblock_ioctl(i32 noundef %sock, i32 noundef 1) #11
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %if.end2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %yes.i)
   store i32 1, ptr %yes.i, align 4
-  %call.i = call i32 @setsockopt(i32 noundef %sock, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i, i32 noundef 4) #10
+  %call.i = call i32 @setsockopt(i32 noundef %sock, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %yes.i, i32 noundef 4) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %uv__set_reuse.exit.thread, label %uv__set_reuse.exit
 
@@ -1450,7 +1450,7 @@ uv__set_reuse.exit.thread:                        ; preds = %if.end6
   br label %if.end10
 
 uv__set_reuse.exit:                               ; preds = %if.end6
-  %call1.i = tail call ptr @__errno_location() #11
+  %call1.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call1.i, align 4
   %sub.i = sub nsw i32 0, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %yes.i)
@@ -1459,7 +1459,7 @@ uv__set_reuse.exit:                               ; preds = %if.end6
 
 if.end10:                                         ; preds = %uv__set_reuse.exit.thread, %uv__set_reuse.exit
   store i32 %sock, ptr %fd, align 8
-  %call13 = call i32 @uv__udp_is_connected(ptr noundef nonnull %handle) #10
+  %call13 = call i32 @uv__udp_is_connected(ptr noundef nonnull %handle) #11
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %return, label %if.then15
 
@@ -1491,7 +1491,7 @@ entry:
   %taddr.i = alloca %union.uv__sockaddr, align 4
   %addr4 = alloca %struct.sockaddr_in, align 4
   %addr6 = alloca %struct.sockaddr_in6, align 4
-  %call = call i32 @uv_ip4_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %addr4) #10
+  %call = call i32 @uv_ip4_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %addr4) #11
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else
 
@@ -1522,12 +1522,12 @@ if.end:                                           ; preds = %uv__udp_maybe_defer
 
 if.then.i:                                        ; preds = %if.end
   %imr_interface.i = getelementptr inbounds nuw i8, ptr %mreq.i, i64 4
-  %call.i = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef nonnull %interface_addr, ptr noundef nonnull %imr_interface.i) #10
+  %call.i = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef nonnull %interface_addr, ptr noundef nonnull %imr_interface.i) #11
   %tobool1.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool1.not.i, label %if.end6.i, label %uv__udp_set_membership4.exit
 
 if.else.i:                                        ; preds = %if.end
-  %call3.i = call i32 @htonl(i32 noundef 0) #11
+  %call3.i = call i32 @htonl(i32 noundef 0) #12
   %imr_interface4.i = getelementptr inbounds nuw i8, ptr %mreq.i, i64 4
   store i32 %call3.i, ptr %imr_interface4.i, align 4
   br label %if.end6.i
@@ -1547,12 +1547,12 @@ sw.bb9.i:                                         ; preds = %if.end6.i
 sw.epilog.i:                                      ; preds = %sw.bb9.i, %if.end6.i
   %optname.0.i = phi i32 [ 36, %sw.bb9.i ], [ 35, %if.end6.i ]
   %2 = load i32, ptr %fd.i, align 8
-  %call10.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 0, i32 noundef %optname.0.i, ptr noundef nonnull %mreq.i, i32 noundef 8) #10
+  %call10.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 0, i32 noundef %optname.0.i, ptr noundef nonnull %mreq.i, i32 noundef 8) #11
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %uv__udp_set_membership4.exit, label %if.then12.i
 
 if.then12.i:                                      ; preds = %sw.epilog.i
-  %call13.i = tail call ptr @__errno_location() #11
+  %call13.i = tail call ptr @__errno_location() #12
   %3 = load i32, ptr %call13.i, align 4
   %sub.i = sub nsw i32 0, %3
   br label %uv__udp_set_membership4.exit
@@ -1563,7 +1563,7 @@ uv__udp_set_membership4.exit:                     ; preds = %if.then.i, %if.end6
   br label %return
 
 if.else:                                          ; preds = %entry
-  %call4 = call i32 @uv_ip6_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %addr6) #10
+  %call4 = call i32 @uv_ip6_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %addr6) #11
   %cmp5 = icmp eq i32 %call4, 0
   br i1 %cmp5, label %if.then6, label %return
 
@@ -1597,7 +1597,7 @@ if.end10:                                         ; preds = %uv__udp_maybe_defer
   br i1 %tobool.not.i20, label %if.end4.i, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.end10
-  %call.i22 = call i32 @uv_ip6_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr6.i) #10
+  %call.i22 = call i32 @uv_ip6_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr6.i) #11
   %tobool1.not.i23 = icmp eq i32 %call.i22, 0
   br i1 %tobool1.not.i23, label %if.end.i25, label %uv__udp_set_membership6.exit
 
@@ -1621,12 +1621,12 @@ sw.bb5.i:                                         ; preds = %if.end4.i
 sw.epilog.i27:                                    ; preds = %sw.bb5.i, %if.end4.i
   %optname.0.i28 = phi i32 [ 21, %sw.bb5.i ], [ 20, %if.end4.i ]
   %7 = load i32, ptr %fd.i13, align 8
-  %call6.i = call i32 @setsockopt(i32 noundef %7, i32 noundef 41, i32 noundef %optname.0.i28, ptr noundef nonnull %mreq.i19, i32 noundef 20) #10
+  %call6.i = call i32 @setsockopt(i32 noundef %7, i32 noundef 41, i32 noundef %optname.0.i28, ptr noundef nonnull %mreq.i19, i32 noundef 20) #11
   %tobool7.not.i = icmp eq i32 %call6.i, 0
   br i1 %tobool7.not.i, label %uv__udp_set_membership6.exit, label %if.then8.i
 
 if.then8.i:                                       ; preds = %sw.epilog.i27
-  %call9.i = tail call ptr @__errno_location() #11
+  %call9.i = tail call ptr @__errno_location() #12
   %8 = load i32, ptr %call9.i, align 4
   %sub.i30 = sub nsw i32 0, %8
   br label %uv__udp_set_membership6.exit
@@ -1656,17 +1656,17 @@ entry:
   %addr6.i = alloca %struct.sockaddr_in6, align 4
   %mcast_addr = alloca %union.uv__sockaddr, align 4
   %src_addr = alloca %union.uv__sockaddr, align 4
-  %call = call i32 @uv_ip4_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %mcast_addr) #10
+  %call = call i32 @uv_ip4_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %mcast_addr) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end9, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = call i32 @uv_ip6_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %mcast_addr) #10
+  %call1 = call i32 @uv_ip6_addr(ptr noundef %multicast_addr, i32 noundef 0, ptr noundef nonnull %mcast_addr) #11
   %tobool2.not = icmp eq i32 %call1, 0
   br i1 %tobool2.not, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  %call4 = call i32 @uv_ip6_addr(ptr noundef %source_addr, i32 noundef 0, ptr noundef nonnull %src_addr) #10
+  %call4 = call i32 @uv_ip6_addr(ptr noundef %source_addr, i32 noundef 0, ptr noundef nonnull %src_addr) #11
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.end7, label %return
 
@@ -1699,7 +1699,7 @@ if.end.i:                                         ; preds = %uv__udp_maybe_defer
   br i1 %cmp.not.i, label %if.end7.i, label %if.then1.i
 
 if.then1.i:                                       ; preds = %if.end.i
-  %call2.i = call i32 @uv_ip6_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr6.i) #10
+  %call2.i = call i32 @uv_ip6_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr6.i) #11
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %if.end5.i, label %uv__udp_set_source_membership6.exit
 
@@ -1726,12 +1726,12 @@ if.then12.i:                                      ; preds = %if.end7.i
 if.end15.i:                                       ; preds = %if.then12.i, %if.end7.i
   %optname.0.i = phi i32 [ 47, %if.then12.i ], [ 46, %if.end7.i ]
   %2 = load i32, ptr %fd.i.i, align 8
-  %call16.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef %optname.0.i, ptr noundef nonnull %mreq.i, i32 noundef 264) #10
+  %call16.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef %optname.0.i, ptr noundef nonnull %mreq.i, i32 noundef 264) #11
   %tobool17.not.i = icmp eq i32 %call16.i, 0
   br i1 %tobool17.not.i, label %uv__udp_set_source_membership6.exit, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end15.i
-  %call19.i = tail call ptr @__errno_location() #11
+  %call19.i = tail call ptr @__errno_location() #12
   %3 = load i32, ptr %call19.i, align 4
   %sub.i = sub nsw i32 0, %3
   br label %uv__udp_set_source_membership6.exit
@@ -1743,7 +1743,7 @@ uv__udp_set_source_membership6.exit:              ; preds = %uv__udp_maybe_defer
   br label %return
 
 if.end9:                                          ; preds = %entry
-  %call10 = call i32 @uv_ip4_addr(ptr noundef %source_addr, i32 noundef 0, ptr noundef nonnull %src_addr) #10
+  %call10 = call i32 @uv_ip4_addr(ptr noundef %source_addr, i32 noundef 0, ptr noundef nonnull %src_addr) #11
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.end13, label %return
 
@@ -1774,12 +1774,12 @@ if.end.i17:                                       ; preds = %uv__udp_maybe_defer
 
 if.then1.i19:                                     ; preds = %if.end.i17
   %imr_interface.i = getelementptr inbounds nuw i8, ptr %mreq.i13, i64 4
-  %call2.i20 = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef nonnull %interface_addr, ptr noundef nonnull %imr_interface.i) #10
+  %call2.i20 = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef nonnull %interface_addr, ptr noundef nonnull %imr_interface.i) #11
   %tobool3.not.i21 = icmp eq i32 %call2.i20, 0
   br i1 %tobool3.not.i21, label %if.end9.i, label %uv__udp_set_source_membership4.exit
 
 if.else.i:                                        ; preds = %if.end.i17
-  %call6.i = call i32 @htonl(i32 noundef 0) #11
+  %call6.i = call i32 @htonl(i32 noundef 0) #12
   %imr_interface7.i = getelementptr inbounds nuw i8, ptr %mreq.i13, i64 4
   store i32 %call6.i, ptr %imr_interface7.i, align 4
   br label %if.end9.i
@@ -1803,12 +1803,12 @@ if.then19.i:                                      ; preds = %if.end9.i
 if.end22.i:                                       ; preds = %if.then19.i, %if.end9.i
   %optname.0.i23 = phi i32 [ 40, %if.then19.i ], [ 39, %if.end9.i ]
   %7 = load i32, ptr %fd.i.i14, align 8
-  %call23.i = call i32 @setsockopt(i32 noundef %7, i32 noundef 0, i32 noundef %optname.0.i23, ptr noundef nonnull %mreq.i13, i32 noundef 12) #10
+  %call23.i = call i32 @setsockopt(i32 noundef %7, i32 noundef 0, i32 noundef %optname.0.i23, ptr noundef nonnull %mreq.i13, i32 noundef 12) #11
   %tobool24.not.i = icmp eq i32 %call23.i, 0
   br i1 %tobool24.not.i, label %uv__udp_set_source_membership4.exit, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.end22.i
-  %call26.i = tail call ptr @__errno_location() #11
+  %call26.i = tail call ptr @__errno_location() #12
   %8 = load i32, ptr %call26.i, align 4
   %sub.i24 = sub nsw i32 0, %8
   br label %uv__udp_set_source_membership4.exit
@@ -1830,12 +1830,12 @@ entry:
   store i32 %on, ptr %on.addr, align 4
   %fd = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %0 = load i32, ptr %fd, align 8
-  %call = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %on.addr, i32 noundef 4) #10
+  %call = call i32 @setsockopt(i32 noundef %0, i32 noundef 1, i32 noundef 6, ptr noundef nonnull %on.addr, i32 noundef 4) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call ptr @__errno_location() #11
+  %call1 = tail call ptr @__errno_location() #12
   %1 = load i32, ptr %call1, align 4
   %sub = sub nsw i32 0, %1
   br label %return
@@ -1865,11 +1865,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef range(i32 16, 20) 16, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef range(i32 16, 20) 16, ptr noundef nonnull %arg.i, i32 noundef 4) #11
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call3.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 0, i32 noundef range(i32 2, 35) 2, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call3.i.i = call i32 @setsockopt(i32 noundef %2, i32 noundef 0, i32 noundef range(i32 2, 35) 2, ptr noundef nonnull %arg.i, i32 noundef 4) #11
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -1878,7 +1878,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %tobool4.not.i.i, label %uv__setsockopt_maybe_char.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call6.i.i = tail call ptr @__errno_location() #11
+  %call6.i.i = tail call ptr @__errno_location() #12
   %3 = load i32, ptr %call6.i.i, align 4
   %sub.i.i = sub nsw i32 0, %3
   br label %uv__setsockopt_maybe_char.exit
@@ -1912,11 +1912,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef range(i32 16, 20) 18, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef range(i32 16, 20) 18, ptr noundef nonnull %arg.i, i32 noundef 4) #11
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef range(i32 2, 35) 33, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef range(i32 2, 35) 33, ptr noundef nonnull %arg.i, i32 noundef 4) #11
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -1925,7 +1925,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %tobool4.not.i.i, label %uv__setsockopt_maybe_char.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call6.i.i = tail call ptr @__errno_location() #11
+  %call6.i.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call6.i.i, align 4
   %sub.i.i = sub nsw i32 0, %2
   br label %uv__setsockopt_maybe_char.exit
@@ -1955,11 +1955,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %if.else.i.i, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef range(i32 16, 20) 19, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 41, i32 noundef range(i32 16, 20) 19, ptr noundef nonnull %arg.i, i32 noundef 4) #11
   br label %if.end.i.i
 
 if.else.i.i:                                      ; preds = %if.end.i
-  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef range(i32 2, 35) 34, ptr noundef nonnull %arg.i, i32 noundef 4) #10
+  %call3.i.i = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef range(i32 2, 35) 34, ptr noundef nonnull %arg.i, i32 noundef 4) #11
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
@@ -1968,7 +1968,7 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   br i1 %tobool4.not.i.i, label %uv__setsockopt_maybe_char.exit, label %if.then5.i.i
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
-  %call6.i.i = tail call ptr @__errno_location() #11
+  %call6.i.i = tail call ptr @__errno_location() #12
   %2 = load i32, ptr %call6.i.i, align 4
   %sub.i.i = sub nsw i32 0, %2
   br label %uv__setsockopt_maybe_char.exit
@@ -2000,18 +2000,18 @@ if.end14.thread9:                                 ; preds = %if.then
 
 if.end14.thread:                                  ; preds = %if.then
   store i16 2, ptr %addr_st, align 8
-  %call = tail call i32 @htonl(i32 noundef 0) #11
+  %call = tail call i32 @htonl(i32 noundef 0) #12
   %sin_addr = getelementptr inbounds nuw i8, ptr %addr_st, i64 4
   store i32 %call, ptr %sin_addr, align 4
   br label %if.then18
 
 if.else4:                                         ; preds = %entry
-  %call5 = call i32 @uv_ip4_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr_st) #10
+  %call5 = call i32 @uv_ip4_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr_st) #11
   %cmp = icmp eq i32 %call5, 0
   br i1 %cmp, label %if.end14, label %if.else7
 
 if.else7:                                         ; preds = %if.else4
-  %call8 = call i32 @uv_ip6_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr_st) #10
+  %call8 = call i32 @uv_ip6_addr(ptr noundef nonnull %interface_addr, i32 noundef 0, ptr noundef nonnull %addr_st) #11
   %cmp9 = icmp eq i32 %call8, 0
   br i1 %cmp9, label %if.end14, label %return
 
@@ -2026,7 +2026,7 @@ if.then18:                                        ; preds = %if.end14.thread, %i
   %fd = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %1 = load i32, ptr %fd, align 8
   %sin_addr19 = getelementptr inbounds nuw i8, ptr %addr_st, i64 4
-  %call20 = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %sin_addr19, i32 noundef 4) #10
+  %call20 = call i32 @setsockopt(i32 noundef %1, i32 noundef 0, i32 noundef 32, ptr noundef nonnull %sin_addr19, i32 noundef 4) #11
   %cmp21 = icmp eq i32 %call20, -1
   br i1 %cmp21, label %return.sink.split, label %return
 
@@ -2034,16 +2034,16 @@ if.then31:                                        ; preds = %if.end14.thread9, %
   %fd33 = getelementptr inbounds nuw i8, ptr %handle, i64 176
   %2 = load i32, ptr %fd33, align 8
   %sin6_scope_id34 = getelementptr inbounds nuw i8, ptr %addr_st, i64 24
-  %call35 = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef 17, ptr noundef nonnull %sin6_scope_id34, i32 noundef 4) #10
+  %call35 = call i32 @setsockopt(i32 noundef %2, i32 noundef 41, i32 noundef 17, ptr noundef nonnull %sin6_scope_id34, i32 noundef 4) #11
   %cmp36 = icmp eq i32 %call35, -1
   br i1 %cmp36, label %return.sink.split, label %return
 
 if.else42:                                        ; preds = %if.end14
-  call void @abort() #12
+  call void @abort() #13
   unreachable
 
 return.sink.split:                                ; preds = %if.then31, %if.then18
-  %call39 = tail call ptr @__errno_location() #11
+  %call39 = tail call ptr @__errno_location() #12
   %3 = load i32, ptr %call39, align 4
   %sub40 = sub nsw i32 0, %3
   br label %return
@@ -2053,16 +2053,16 @@ return:                                           ; preds = %return.sink.split, 
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @htonl(i32 noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare i32 @htonl(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #7
+declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_getpeername(ptr noundef %handle, ptr noundef %name, ptr noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uv__getsockpeername(ptr noundef %handle, ptr noundef nonnull @getpeername, ptr noundef %name, ptr noundef %namelen) #10
+  %call = tail call i32 @uv__getsockpeername(ptr noundef %handle, ptr noundef nonnull @getpeername, ptr noundef %name, ptr noundef %namelen) #11
   ret i32 %call
 }
 
@@ -2074,7 +2074,7 @@ declare i32 @getpeername(i32 noundef, ptr, ptr noundef) #2
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @uv_udp_getsockname(ptr noundef %handle, ptr noundef %name, ptr noundef %namelen) local_unnamed_addr #0 {
 entry:
-  %call = tail call i32 @uv__getsockpeername(ptr noundef %handle, ptr noundef nonnull @getsockname, ptr noundef %name, ptr noundef %namelen) #10
+  %call = tail call i32 @uv__getsockpeername(ptr noundef %handle, ptr noundef nonnull @getsockname, ptr noundef %name, ptr noundef %namelen) #11
   ret i32 %call
 }
 
@@ -2092,7 +2092,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  %call = tail call i32 @uv__io_active(ptr noundef nonnull %io_watcher, i32 noundef 1) #10
+  %call = tail call i32 @uv__io_active(ptr noundef nonnull %io_watcher, i32 noundef 1) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %if.end3, label %return
 
@@ -2106,18 +2106,18 @@ if.end3:                                          ; preds = %if.end
 if.then9.i:                                       ; preds = %if.end3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %taddr.i, i8 0, i64 16, i1 false)
   store i16 2, ptr %taddr.i, align 4
-  %call.i = tail call i32 @uv__socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #10
+  %call.i = tail call i32 @uv__socket(i32 noundef 2, i32 noundef 2, i32 noundef 0) #11
   %cmp12.i = icmp slt i32 %call.i, 0
   br i1 %cmp12.i, label %uv__udp_maybe_deferred_bind.exit.thread18, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then9.i
   store i32 %call.i, ptr %fd.i, align 8
-  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef 16) #10
+  %call46.i = call i32 @bind(i32 noundef %call.i, ptr nonnull %taddr.i, i32 noundef 16) #11
   %tobool47.not.i = icmp eq i32 %call46.i, 0
   br i1 %tobool47.not.i, label %if.end56.i, label %if.then48.i
 
 if.then48.i:                                      ; preds = %if.end18.i
-  %call49.i = tail call ptr @__errno_location() #11
+  %call49.i = tail call ptr @__errno_location() #12
   %1 = load i32, ptr %call49.i, align 4
   %cmp52.i = icmp eq i32 %1, 97
   br i1 %cmp52.i, label %uv__udp_maybe_deferred_bind.exit.thread18, label %uv__udp_maybe_deferred_bind.exit
@@ -2155,7 +2155,7 @@ if.end7:                                          ; preds = %uv__udp_maybe_defer
   store ptr %recv_cb, ptr %recv_cb9, align 8
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %5 = load ptr, ptr %loop, align 8
-  call void @uv__io_start(ptr noundef %5, ptr noundef nonnull %io_watcher, i32 noundef 1) #10
+  call void @uv__io_start(ptr noundef %5, ptr noundef nonnull %io_watcher, i32 noundef 1) #11
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %6 = load i32, ptr %flags, align 8
   %and = and i32 %6, 4
@@ -2190,8 +2190,8 @@ entry:
   %loop = getelementptr inbounds nuw i8, ptr %handle, i64 8
   %0 = load ptr, ptr %loop, align 8
   %io_watcher = getelementptr inbounds nuw i8, ptr %handle, i64 128
-  tail call void @uv__io_stop(ptr noundef %0, ptr noundef nonnull %io_watcher, i32 noundef 1) #10
-  %call = tail call i32 @uv__io_active(ptr noundef nonnull %io_watcher, i32 noundef 4) #10
+  tail call void @uv__io_stop(ptr noundef %0, ptr noundef nonnull %io_watcher, i32 noundef 1) #11
+  %call = tail call i32 @uv__io_active(ptr noundef nonnull %io_watcher, i32 noundef 4) #11
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %do.body, label %if.end13
 
@@ -2240,16 +2240,16 @@ declare i32 @recvmmsg(i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr no
 declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2258,12 +2258,13 @@ attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "f
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
-attributes #12 = { noreturn nounwind }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(none) }
+attributes #13 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

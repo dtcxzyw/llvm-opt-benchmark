@@ -29,9 +29,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @zm_info_ctype(ptr readnone captures(none) %0) #0 {
-  tail call void @php_info_print_table_start() #5
-  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #5
-  tail call void @php_info_print_table_end() #5
+  tail call void @php_info_print_table_start() #6
+  tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #6
+  tail call void @php_info_print_table_end() #6
   ret void
 }
 
@@ -43,8 +43,8 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -74,7 +74,7 @@ define hidden void @zif_ctype_alnum(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -112,8 +112,8 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #2
 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc void @ctype_fallback(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #3 {
-  %6 = tail call ptr @zend_zval_type_name(ptr noundef %0) #5
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.18, ptr noundef %6) #5
+  %6 = tail call ptr @zend_zval_type_name(ptr noundef %0) #6
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.18, ptr noundef %6) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i8, ptr %7, align 8, !tbaa !4
   %9 = icmp eq i8 %8, 4
@@ -127,7 +127,7 @@ define internal fastcc void @ctype_fallback(ptr noundef %0, ptr noundef writeonl
 
 13:                                               ; preds = %10
   %14 = trunc nuw nsw i64 %11 to i32
-  %15 = tail call i32 %2(i32 noundef %14) #5
+  %15 = tail call i32 %2(i32 noundef %14) #6
   %.not18 = icmp eq i32 %15, 0
   %16 = select i1 %.not18, i32 2, i32 3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -141,7 +141,7 @@ define internal fastcc void @ctype_fallback(ptr noundef %0, ptr noundef writeonl
 19:                                               ; preds = %18
   %20 = trunc nsw i64 %11 to i32
   %21 = add nsw i32 %20, 256
-  %22 = tail call i32 %2(i32 noundef %21) #5
+  %22 = tail call i32 %2(i32 noundef %21) #6
   %.not = icmp eq i32 %22, 0
   %23 = select i1 %.not, i32 2, i32 3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -182,8 +182,8 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -213,7 +213,7 @@ define hidden void @zif_ctype_alpha(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -253,8 +253,8 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -284,7 +284,7 @@ define hidden void @zif_ctype_cntrl(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -324,8 +324,8 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -355,7 +355,7 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -384,8 +384,8 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captur
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @isdigit(i32 noundef) #4
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(read)
+declare i32 @isdigit(i32 noundef) #5
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
@@ -395,8 +395,8 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -426,7 +426,7 @@ define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -466,8 +466,8 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %33
 
 .critedge:                                        ; preds = %2
@@ -497,7 +497,7 @@ define hidden void @zif_ctype_graph(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %30
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -536,8 +536,8 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -567,7 +567,7 @@ define hidden void @zif_ctype_print(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -607,8 +607,8 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -638,7 +638,7 @@ define hidden void @zif_ctype_punct(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -678,8 +678,8 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -709,7 +709,7 @@ define hidden void @zif_ctype_space(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -749,8 +749,8 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr noundef writeonly captur
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -780,7 +780,7 @@ define hidden void @zif_ctype_upper(ptr noundef %0, ptr noundef writeonly captur
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -820,8 +820,8 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr noundef writeonly captu
   br i1 %cond, label %.critedge, label %5, !prof !7
 
 5:                                                ; preds = %2
-  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #5
-  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #5
+  tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #6
+  tail call void @zend_wrong_parameter_error(i32 noundef 1, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null) #6
   br label %34
 
 .critedge:                                        ; preds = %2
@@ -851,7 +851,7 @@ define hidden void @zif_ctype_xdigit(ptr noundef %0, ptr noundef writeonly captu
   br i1 %19, label %20, label %31
 
 20:                                               ; preds = %.preheader
-  %21 = tail call ptr @__ctype_b_loc() #6
+  %21 = tail call ptr @__ctype_b_loc() #7
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   %24 = load i8, ptr %.041, align 1, !tbaa !4
@@ -898,8 +898,9 @@ attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind willreturn memory(none) }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

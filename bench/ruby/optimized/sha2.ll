@@ -18,7 +18,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
   ret i64 0
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @rb_Digest_SHA256_Init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
@@ -198,7 +198,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define void @rb_Digest_SHA256_Update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %40, label %5
@@ -284,7 +284,7 @@ define void @rb_Digest_SHA256_Update(ptr noundef %0, ptr noundef readonly captur
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define noundef i32 @rb_Digest_SHA256_Finish(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
@@ -365,7 +365,7 @@ define noundef i32 @rb_Digest_SHA256_Finish(ptr noundef %0, ptr noundef writeonl
   ret i32 1
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA256_End(ptr noundef %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
@@ -411,7 +411,7 @@ define ptr @rb_Digest_SHA256_End(ptr noundef %0, ptr noundef writeonly captures(
   ret ptr %.1
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA256_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca %struct._SHA256_CTX, align 8
@@ -460,7 +460,7 @@ rb_Digest_SHA256_End.exit:                        ; preds = %3, %21
   ret ptr %.1.i
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @rb_Digest_SHA512_Init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
@@ -634,7 +634,7 @@ define void @rb_Digest_SHA512_Transform(ptr noundef captures(none) %0, ptr nound
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define void @rb_Digest_SHA512_Update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %57, label %5
@@ -748,7 +748,7 @@ define void @rb_Digest_SHA512_Update(ptr noundef %0, ptr noundef readonly captur
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define void @rb_Digest_SHA512_Last(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8, !tbaa !20
@@ -815,7 +815,7 @@ define void @rb_Digest_SHA512_Last(ptr noundef %0) local_unnamed_addr #1 {
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define noundef i32 @rb_Digest_SHA512_Finish(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
@@ -842,7 +842,7 @@ define noundef i32 @rb_Digest_SHA512_Finish(ptr noundef %0, ptr noundef writeonl
   ret i32 1
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA512_End(ptr noundef %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
@@ -905,7 +905,7 @@ rb_Digest_SHA512_Finish.exit:                     ; preds = %5
   ret ptr %.1
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA512_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca %struct._SHA512_CTX, align 8
@@ -967,7 +967,7 @@ rb_Digest_SHA512_End.exit:                        ; preds = %3, %24
   ret ptr %.1.i
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @rb_Digest_SHA384_Init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
@@ -985,13 +985,13 @@ define range(i32 0, 2) i32 @rb_Digest_SHA384_Init(ptr noundef %0) local_unnamed_
   ret i32 %.0
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define void @rb_Digest_SHA384_Update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   tail call void @rb_Digest_SHA512_Update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define noundef i32 @rb_Digest_SHA384_Finish(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
@@ -1018,7 +1018,7 @@ define noundef i32 @rb_Digest_SHA384_Finish(ptr noundef %0, ptr noundef writeonl
   ret i32 1
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA384_End(ptr noundef %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #1 {
   %3 = alloca [48 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #7
@@ -1081,7 +1081,7 @@ rb_Digest_SHA384_Finish.exit:                     ; preds = %5
   ret ptr %.1
 }
 
-; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
 define ptr @rb_Digest_SHA384_Data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #1 {
   %4 = alloca [48 x i8], align 16
   %5 = alloca %struct._SHA512_CTX, align 8
@@ -1162,7 +1162,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

@@ -146,7 +146,7 @@ define void @_ZN8WasmEdge4Host4WASI8FdHolder5resetEv(ptr noundef nonnull align 4
   %10 = landingpad { ptr, i32 }
           catch ptr null
   %11 = extractvalue { ptr, i32 } %10, 0
-  tail call void @__clang_call_terminate(ptr %11) #23
+  tail call void @__clang_call_terminate(ptr %11) #24
   unreachable
 }
 
@@ -156,8 +156,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
-  tail call void @_ZSt9terminatev() #23
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #25
+  tail call void @_ZSt9terminatev() #24
   unreachable
 }
 
@@ -175,7 +175,7 @@ define void @_ZN8WasmEdge4Host4WASI11TimerHolder5resetEv(ptr noundef nonnull ali
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call i32 @timer_delete(ptr noundef %6) #24
+  %7 = tail call i32 @timer_delete(ptr noundef %6) #25
   %8 = load i8, ptr %2, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %_ZNSt8optionalIPvE5resetEv.exit
@@ -306,7 +306,7 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_19openFlagsE15__wasi_oflags_t16__wasi_fdflags
   %31 = and i16 %3, 24
   %32 = icmp eq i16 %31, 0
   %.8.i = select i1 %32, i32 %.6.i, i32 %30
-  %33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
+  %33 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %34 = invoke i32 (ptr, i32, ...) @open(ptr noundef %33, i32 noundef %.8.i, i32 noundef 420)
           to label %35 unwind label %52
 
@@ -316,9 +316,9 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_19openFlagsE15__wasi_oflags_t16__wasi_fdflags
   br i1 %36, label %38, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 38:                                               ; preds = %35
-  %39 = tail call ptr @__errno_location() #25
+  %39 = tail call ptr @__errno_location() #26
   %40 = load i32, ptr %39, align 4
-  %41 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %40) #24
+  %41 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %40) #25
   store i16 %41, ptr %37, align 8
   br label %51
 
@@ -348,7 +348,7 @@ _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %35
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  tail call void @__clang_call_terminate(ptr %54) #23
+  tail call void @__clang_call_terminate(ptr %54) #24
   unreachable
 }
 
@@ -377,14 +377,14 @@ switch.lookup:
   %5 = sext i8 %3 to i64
   %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8fdAdviseEmm15__wasi_advice_t, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
-  %6 = tail call i32 @posix_fadvise(i32 noundef %4, i64 noundef %1, i64 noundef %2, i32 noundef %switch.load) #24
+  %6 = tail call i32 @posix_fadvise(i32 noundef %4, i64 noundef %1, i64 noundef %2, i32 noundef %switch.load) #25
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
 
 7:                                                ; preds = %switch.lookup
-  %8 = tail call ptr @__errno_location() #25
+  %8 = tail call ptr @__errno_location() #26
   %9 = load i32, ptr %8, align 4
-  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #24
+  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #25
   %11 = zext i16 %10 to i32
   %12 = shl nuw i32 %11, 16
   br label %13
@@ -411,7 +411,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10fdAllocateEmm(pt
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %6
-  %8 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %5) #24
+  %8 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %5) #25
   %9 = zext i16 %8 to i32
   %10 = shl nuw i32 %9, 16
   br label %11
@@ -424,7 +424,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10fdAllocateEmm(pt
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 }
 
@@ -441,9 +441,9 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10fdDatasyncEv(ptr
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @__errno_location() #25
+  %6 = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %6, align 4
-  %8 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %7) #24
+  %8 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %7) #25
   %9 = zext i16 %8 to i32
   %10 = shl nuw i32 %9, 16
   br label %11
@@ -456,7 +456,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10fdDatasyncEv(ptr
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 }
 
@@ -469,14 +469,14 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode11fdFdstatGetER15_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 144, i1 false)
   store i8 1, ptr %4, align 8
   %5 = load i32, ptr %0, align 8
-  %6 = tail call i32 @fstat(i32 noundef %5, ptr noundef nonnull %3) #24
+  %6 = tail call i32 @fstat(i32 noundef %5, ptr noundef nonnull %3) #25
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit: ; preds = %2
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %.sroa.517.sroa.5.0.extract.shift = and i16 %9, -256
   br label %40
 
@@ -490,9 +490,9 @@ _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread: ; preds = %2
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = tail call ptr @__errno_location() #25
+  %15 = tail call ptr @__errno_location() #26
   %16 = load i32, ptr %15, align 4
-  %17 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %16) #24
+  %17 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %16) #25
   %.sroa.517.sroa.5.0.extract.shift19 = and i16 %17, -256
   br label %40
 
@@ -555,7 +555,7 @@ _ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit: ; preds = %18, %switch.loo
   %42 = landingpad { ptr, i32 }
           catch ptr null
   %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #23
+  tail call void @__clang_call_terminate(ptr %43) #24
   unreachable
 }
 
@@ -566,14 +566,14 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10updateStatEv(ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %2, i8 0, i64 144, i1 false)
   store i8 1, ptr %3, align 8
   %4 = load i32, ptr %0, align 8
-  %5 = tail call i32 @fstat(i32 noundef %4, ptr noundef nonnull %2) #24
+  %5 = tail call i32 @fstat(i32 noundef %4, ptr noundef nonnull %2) #25
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %10 = zext i16 %9 to i32
   %11 = shl nuw i32 %10, 16
   br label %12
@@ -628,9 +628,9 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode16fdFdstatSetFlags
   br i1 %.not, label %19, label %13
 
 13:                                               ; preds = %12
-  %14 = tail call ptr @__errno_location() #25
+  %14 = tail call ptr @__errno_location() #26
   %15 = load i32, ptr %14, align 4
-  %16 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %15) #24
+  %16 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %15) #25
   %17 = zext i16 %16 to i32
   %18 = shl nuw i32 %17, 16
   br label %27
@@ -654,7 +654,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode16fdFdstatSetFlags
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #23
+  tail call void @__clang_call_terminate(ptr %30) #24
   unreachable
 }
 
@@ -665,14 +665,14 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode13fdFilestatGetER1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %3, i8 0, i64 144, i1 false)
   store i8 1, ptr %4, align 8
   %5 = load i32, ptr %0, align 8
-  %6 = tail call i32 @fstat(i32 noundef %5, ptr noundef nonnull %3) #24
+  %6 = tail call i32 @fstat(i32 noundef %5, ptr noundef nonnull %3) #25
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit: ; preds = %2
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %10 = zext i16 %9 to i32
   %11 = shl nuw i32 %10, 16
   br label %70
@@ -784,14 +784,14 @@ _ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit: ; preds = %_ZNK8WasmEdge4H
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode17fdFilestatSetSizeEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
-  %4 = tail call i32 @ftruncate(i32 noundef %3, i64 noundef %1) #24
+  %4 = tail call i32 @ftruncate(i32 noundef %3, i64 noundef %1) #25
   %5 = icmp eq i32 %4, -1
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %10 = zext i16 %9 to i32
   %11 = shl nuw i32 %10, 16
   br label %12
@@ -865,14 +865,14 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode18fdFilestatSetTim
 
 26:                                               ; preds = %24, %25, %17
   %27 = load i32, ptr %0, align 8
-  %28 = call i32 @futimens(i32 noundef %27, ptr noundef nonnull %5) #24
+  %28 = call i32 @futimens(i32 noundef %27, ptr noundef nonnull %5) #25
   %.not17 = icmp eq i32 %28, 0
   br i1 %.not17, label %35, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call ptr @__errno_location() #25
+  %30 = tail call ptr @__errno_location() #26
   %31 = load i32, ptr %30, align 4
-  %32 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %31) #24
+  %32 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %31) #25
   %33 = zext i16 %32 to i32
   %34 = shl nuw i32 %33, 16
   br label %35
@@ -925,9 +925,9 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdPreadEN5cxx204s
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @__errno_location() #25
+  %21 = tail call ptr @__errno_location() #26
   %22 = load i32, ptr %21, align 4
-  %23 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %22) #24
+  %23 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %22) #25
   %24 = zext i16 %23 to i32
   %25 = shl nuw i32 %24, 16
   br label %28
@@ -945,7 +945,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdPreadEN5cxx204s
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #23
+  call void @__clang_call_terminate(ptr %31) #24
   unreachable
 }
 
@@ -988,9 +988,9 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8fdPwriteEN5cxx204
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @__errno_location() #25
+  %21 = tail call ptr @__errno_location() #26
   %22 = load i32, ptr %21, align 4
-  %23 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %22) #24
+  %23 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %22) #25
   %24 = zext i16 %23 to i32
   %25 = shl nuw i32 %24, 16
   br label %28
@@ -1008,7 +1008,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8fdPwriteEN5cxx204
   %30 = landingpad { ptr, i32 }
           catch ptr null
   %31 = extractvalue { ptr, i32 } %30, 0
-  call void @__clang_call_terminate(ptr %31) #23
+  call void @__clang_call_terminate(ptr %31) #24
   unreachable
 }
 
@@ -1051,9 +1051,9 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdReadEN5cxx204sp
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %17
-  %20 = tail call ptr @__errno_location() #25
+  %20 = tail call ptr @__errno_location() #26
   %21 = load i32, ptr %20, align 4
-  %22 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %21) #24
+  %22 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %21) #25
   %23 = zext i16 %22 to i32
   %24 = shl nuw i32 %23, 16
   br label %27
@@ -1071,7 +1071,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdReadEN5cxx204sp
   %29 = landingpad { ptr, i32 }
           catch ptr null
   %30 = extractvalue { ptr, i32 } %29, 0
-  call void @__clang_call_terminate(ptr %30) #23
+  call void @__clang_call_terminate(ptr %30) #24
   unreachable
 }
 
@@ -1086,7 +1086,7 @@ define range(i32 0, -65534) i32 @_ZN8WasmEdge4Host4WASI5INode9fdReaddirEN5cxx204
 
 8:                                                ; preds = %5
   %9 = load i32, ptr %0, align 8
-  %10 = tail call i32 @dup(i32 noundef %9) #24
+  %10 = tail call i32 @dup(i32 noundef %9) #25
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit, label %12
 
@@ -1114,9 +1114,9 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread70: ; preds = %17, %15
   br label %31
 
 20:                                               ; preds = %14
-  %21 = tail call ptr @__errno_location() #25
+  %21 = tail call ptr @__errno_location() #26
   %22 = load i32, ptr %21, align 4
-  %23 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %22) #24
+  %23 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %22) #25
   %.sroa.652.sroa.6.0.extract.shift55 = lshr i16 %23, 8
   %switch.i.i.i = icmp samesign ugt i32 %10, 2
   br i1 %switch.i.i.i, label %24, label %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread
@@ -1129,11 +1129,11 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread70: ; preds = %17, %15
   %27 = landingpad { ptr, i32 }
           catch ptr null
   %28 = extractvalue { ptr, i32 } %27, 0
-  tail call void @__clang_call_terminate(ptr %28) #23
+  tail call void @__clang_call_terminate(ptr %28) #24
   unreachable
 
 _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit:         ; preds = %8
-  %29 = tail call ptr @__errno_location() #25
+  %29 = tail call ptr @__errno_location() #26
   %30 = load i32, ptr %29, align 4
   br label %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split
 
@@ -1143,7 +1143,7 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit:         ; preds = %8
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
-  tail call void @rewinddir(ptr noundef nonnull %32) #24
+  tail call void @rewinddir(ptr noundef nonnull %32) #25
   br label %39
 
 35:                                               ; preds = %31
@@ -1153,7 +1153,7 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit:         ; preds = %8
   br i1 %.not76, label %39, label %38
 
 38:                                               ; preds = %35
-  tail call void @seekdir(ptr noundef nonnull %32, i64 noundef %3) #24
+  tail call void @seekdir(ptr noundef nonnull %32, i64 noundef %3) #25
   br label %39
 
 39:                                               ; preds = %35, %38, %34
@@ -1208,7 +1208,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %_ZSt4copyIN9__gnu_c
 63:                                               ; preds = %_ZNSt6vectorIhSaIhEE5clearEv.exit, %43
   %.sroa.045.1 = phi ptr [ %.sroa.045.0, %43 ], [ %56, %_ZNSt6vectorIhSaIhEE5clearEv.exit ]
   %.sroa.447.1 = phi i64 [ %.sroa.447.0, %43 ], [ %55, %_ZNSt6vectorIhSaIhEE5clearEv.exit ]
-  %64 = tail call ptr @__errno_location() #25
+  %64 = tail call ptr @__errno_location() #26
   store i32 0, ptr %64, align 4
   %65 = load ptr, ptr %6, align 8
   %66 = invoke ptr @readdir(ptr noundef %65)
@@ -1228,7 +1228,7 @@ _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   %73 = load i64, ptr %72, align 8
   store i64 %73, ptr %42, align 8
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 19
-  %75 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #24
+  %75 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #25
   %76 = add i64 %75, 24
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %40, i64 noundef %76)
           to label %77 unwind label %.loopexit77
@@ -1285,7 +1285,7 @@ _ZN8WasmEdge4Host4WASI6detail12fromFileTypeEh.exit: ; preds = %77, %switch.looku
 
 _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread.sink.split: ; preds = %69, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit
   %.sink81 = phi i32 [ %30, %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit ], [ %70, %69 ]
-  %98 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %.sink81) #24
+  %98 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %.sink81) #25
   %.sroa.652.sroa.6.0.extract.shift = lshr i16 %98, 8
   br label %_ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread
 
@@ -1314,7 +1314,7 @@ _ZN8WasmEdge4Host4WASI8FdHolderD2Ev.exit.thread:  ; preds = %.loopexit, %_ZNSt6v
 99:                                               ; preds = %.loopexit.split-lp, %.loopexit77
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit77 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %100 = extractvalue { ptr, i32 } %lpad.phi, 0
-  tail call void @__clang_call_terminate(ptr %100) #23
+  tail call void @__clang_call_terminate(ptr %100) #24
   unreachable
 }
 
@@ -1378,14 +1378,14 @@ _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %
   br i1 %26, label %27, label %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
 
 27:                                               ; preds = %25
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #27
   unreachable
 
 _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %.sroa.speculated.i.i = tail call i64 @llvm.umax.i64(i64 %8, i64 %11)
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
-  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #27
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1
   %32 = add nsw i64 %11, -1
@@ -1411,7 +1411,7 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
 
 37:                                               ; preds = %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
   %38 = sub i64 %14, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %38) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef %38) #29
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
@@ -1444,14 +1444,14 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdSeekEl15__wasi_
 switch.lookup:
   %4 = load i32, ptr %0, align 8
   %switch.idx.cast = zext i8 %2 to i32
-  %5 = tail call i64 @lseek(i32 noundef %4, i64 noundef %1, i32 noundef %switch.idx.cast) #24
+  %5 = tail call i64 @lseek(i32 noundef %4, i64 noundef %1, i32 noundef %switch.idx.cast) #25
   %6 = icmp slt i64 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %switch.lookup
-  %8 = tail call ptr @__errno_location() #25
+  %8 = tail call ptr @__errno_location() #26
   %9 = load i32, ptr %8, align 4
-  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #24
+  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #25
   %11 = zext i16 %10 to i32
   %12 = shl nuw i32 %11, 16
   br label %14
@@ -1479,9 +1479,9 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdSyncEv(ptr noun
   br i1 %.not, label %11, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @__errno_location() #25
+  %6 = tail call ptr @__errno_location() #26
   %7 = load i32, ptr %6, align 4
-  %8 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %7) #24
+  %8 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %7) #25
   %9 = zext i16 %8 to i32
   %10 = shl nuw i32 %9, 16
   br label %11
@@ -1494,7 +1494,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdSyncEv(ptr noun
   %13 = landingpad { ptr, i32 }
           catch ptr null
   %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #23
+  tail call void @__clang_call_terminate(ptr %14) #24
   unreachable
 }
 
@@ -1503,14 +1503,14 @@ declare i32 @fsync(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode6fdTellERm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
-  %4 = tail call i64 @lseek(i32 noundef %3, i64 noundef 0, i32 noundef 1) #24
+  %4 = tail call i64 @lseek(i32 noundef %3, i64 noundef 0, i32 noundef 1) #25
   %5 = icmp slt i64 %4, 0
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %10 = zext i16 %9 to i32
   %11 = shl nuw i32 %10, 16
   br label %13
@@ -1560,7 +1560,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdWriteEN5cxx204s
 
 18:                                               ; preds = %._crit_edge
   %19 = load i32, ptr %0, align 8
-  %20 = tail call i64 @lseek(i32 noundef %19, i64 noundef 0, i32 noundef 2) #24
+  %20 = tail call i64 @lseek(i32 noundef %19, i64 noundef 0, i32 noundef 2) #25
   br label %21
 
 21:                                               ; preds = %18, %._crit_edge
@@ -1573,9 +1573,9 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdWriteEN5cxx204s
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %24
-  %27 = tail call ptr @__errno_location() #25
+  %27 = tail call ptr @__errno_location() #26
   %28 = load i32, ptr %27, align 4
-  %29 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %28) #24
+  %29 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %28) #25
   %30 = zext i16 %29 to i32
   %31 = shl nuw i32 %30, 16
   br label %34
@@ -1593,7 +1593,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode7fdWriteEN5cxx204s
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #23
+  call void @__clang_call_terminate(ptr %37) #24
   unreachable
 }
 
@@ -1610,15 +1610,15 @@ define { i8, i64 } @_ZNK8WasmEdge4Host4WASI5INode16getNativeHandlerEv(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode19pathCreateDirectoryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
-  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  %5 = tail call i32 @mkdirat(i32 noundef %3, ptr noundef %4, i32 noundef 493) #24
+  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %5 = tail call i32 @mkdirat(i32 noundef %3, ptr noundef %4, i32 noundef 493) #25
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %10 = zext i16 %9 to i32
   %11 = shl nuw i32 %10, 16
   br label %12
@@ -1635,15 +1635,15 @@ declare i32 @mkdirat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode15pathFilestatGetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER17__wasi_filestat_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.stat, align 8
   %5 = load i32, ptr %0, align 8
-  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  %7 = call i32 @fstatat(i32 noundef %5, ptr noundef %6, ptr noundef nonnull %4, i32 noundef 256) #24
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %7 = call i32 @fstatat(i32 noundef %5, ptr noundef %6, ptr noundef nonnull %4, i32 noundef 256) #25
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #25
+  %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
-  %11 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #24
+  %11 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
   %12 = zext i16 %11 to i32
   %13 = shl nuw i32 %12, 16
   br label %54
@@ -1777,15 +1777,15 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode20pathFilestatSetT
 
 27:                                               ; preds = %25, %26, %18
   %28 = load i32, ptr %0, align 8
-  %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  %30 = call i32 @utimensat(i32 noundef %28, ptr noundef %29, ptr noundef nonnull %6, i32 noundef 256) #24
+  %29 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %30 = call i32 @utimensat(i32 noundef %28, ptr noundef %29, ptr noundef nonnull %6, i32 noundef 256) #25
   %.not17 = icmp eq i32 %30, 0
   br i1 %.not17, label %37, label %31
 
 31:                                               ; preds = %27
-  %32 = tail call ptr @__errno_location() #25
+  %32 = tail call ptr @__errno_location() #26
   %33 = load i32, ptr %32, align 4
-  %34 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %33) #24
+  %34 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %33) #25
   %35 = zext i16 %34 to i32
   %36 = shl nuw i32 %35, 16
   br label %37
@@ -1801,17 +1801,17 @@ declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode8pathLinkERKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %0, align 8
-  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %7 = load i32, ptr %2, align 8
-  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  %9 = tail call i32 @linkat(i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef 0) #24
+  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
+  %9 = tail call i32 @linkat(i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, i32 noundef 0) #25
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__errno_location() #25
+  %11 = tail call ptr @__errno_location() #26
   %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #24
+  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #25
   %14 = zext i16 %13 to i32
   %15 = shl nuw i32 %14, 16
   br label %16
@@ -1877,7 +1877,7 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_19openFlagsE15__wasi_oflags_t16__wasi_fdflags
   %33 = icmp eq i16 %32, 0
   %.8.i = select i1 %33, i32 %.6.i, i32 %31
   %34 = load i32, ptr %1, align 8
-  %35 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
+  %35 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %36 = invoke i32 (i32, ptr, i32, ...) @openat(i32 noundef %34, ptr noundef %35, i32 noundef %.8.i, i32 noundef 420)
           to label %37 unwind label %54
 
@@ -1887,9 +1887,9 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_19openFlagsE15__wasi_oflags_t16__wasi_fdflags
   br i1 %38, label %40, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 40:                                               ; preds = %37
-  %41 = tail call ptr @__errno_location() #25
+  %41 = tail call ptr @__errno_location() #26
   %42 = load i32, ptr %41, align 4
-  %43 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %42) #24
+  %43 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %42) #25
   store i16 %43, ptr %39, align 8
   br label %53
 
@@ -1919,7 +1919,7 @@ _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %37
   %55 = landingpad { ptr, i32 }
           catch ptr null
   %56 = extractvalue { ptr, i32 } %55, 0
-  tail call void @__clang_call_terminate(ptr %56) #23
+  tail call void @__clang_call_terminate(ptr %56) #24
   unreachable
 }
 
@@ -1928,15 +1928,15 @@ declare i32 @openat(i32 noundef, ptr noundef, i32 noundef, ...) local_unnamed_ad
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12pathReadlinkENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5cxx204spanIcLm18446744073709551615EEERj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1, ptr %2, i64 %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load i32, ptr %0, align 8
-  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  %8 = tail call i64 @readlinkat(i32 noundef %6, ptr noundef %7, ptr noundef %2, i64 noundef %3) #24
+  %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %8 = tail call i64 @readlinkat(i32 noundef %6, ptr noundef %7, ptr noundef %2, i64 noundef %3) #25
   %9 = icmp slt i64 %8, 0
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
-  %11 = tail call ptr @__errno_location() #25
+  %11 = tail call ptr @__errno_location() #26
   %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #24
+  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #25
   %14 = zext i16 %13 to i32
   %15 = shl nuw i32 %14, 16
   br label %18
@@ -1957,15 +1957,15 @@ declare i64 @readlinkat(i32 noundef, ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode19pathRemoveDirectoryENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
-  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  %5 = tail call i32 @unlinkat(i32 noundef %3, ptr noundef %4, i32 noundef 512) #24
+  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %5 = tail call i32 @unlinkat(i32 noundef %3, ptr noundef %4, i32 noundef 512) #25
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #25
+  %8 = tail call ptr @__errno_location() #26
   %9 = load i32, ptr %8, align 4
-  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #24
+  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #25
   %11 = zext i16 %10 to i32
   %12 = shl nuw i32 %11, 16
   br label %13
@@ -1981,17 +1981,17 @@ declare i32 @unlinkat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode10pathRenameERKS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_SA_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load i32, ptr %0, align 8
-  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %7 = load i32, ptr %2, align 8
-  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #24
-  %9 = tail call i32 @renameat(i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) #24
+  %8 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #25
+  %9 = tail call i32 @renameat(i32 noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8) #25
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__errno_location() #25
+  %11 = tail call ptr @__errno_location() #26
   %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #24
+  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #25
   %14 = zext i16 %13 to i32
   %15 = shl nuw i32 %14, 16
   br label %16
@@ -2006,17 +2006,17 @@ declare i32 @renameat(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode11pathSymlinkENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
+  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %5 = load i32, ptr %0, align 8
-  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
-  %7 = tail call i32 @symlinkat(ptr noundef %4, i32 noundef %5, ptr noundef %6) #24
+  %6 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
+  %7 = tail call i32 @symlinkat(ptr noundef %4, i32 noundef %5, ptr noundef %6) #25
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call ptr @__errno_location() #25
+  %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #24
+  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
   %12 = zext i16 %11 to i32
   %13 = shl nuw i32 %12, 16
   br label %14
@@ -2032,15 +2032,15 @@ declare i32 @symlinkat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode14pathUnlinkFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
-  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #24
-  %5 = tail call i32 @unlinkat(i32 noundef %3, ptr noundef %4, i32 noundef 0) #24
+  %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
+  %5 = tail call i32 @unlinkat(i32 noundef %3, ptr noundef %4, i32 noundef 0) #25
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #25
+  %8 = tail call ptr @__errno_location() #26
   %9 = load i32, ptr %8, align 4
-  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #24
+  %10 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %9) #25
   %11 = zext i16 %10 to i32
   %12 = shl nuw i32 %11, 16
   br label %13
@@ -2058,7 +2058,7 @@ define range(i32 0, 5701634) i32 @_ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17
   br i1 %14, label %_ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %11
-  %15 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %0) #24, !noalias !7
+  %15 = tail call ptr @memchr(ptr noundef %1, i32 noundef 0, i64 noundef %0) #25, !noalias !7
   %.not.i.i.i = icmp eq ptr %15, null
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %1 to i64
@@ -2069,7 +2069,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %11
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEcm.exit.thread.i: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %19 = add i64 %0, 1
-  %20 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %19) #27
+  %20 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %19) #28
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i unwind label %23, !noalias !7
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEcm.exit.thread.i
@@ -2084,7 +2084,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt17bas
   %24 = landingpad { ptr, i32 }
           catch ptr null
   %25 = extractvalue { ptr, i32 } %24, 0
-  tail call void @__clang_call_terminate(ptr %25) #23, !noalias !7
+  tail call void @__clang_call_terminate(ptr %25) #24, !noalias !7
   unreachable
 
 _ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %11, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i
@@ -2094,7 +2094,7 @@ _ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_strin
   br i1 %26, label %_ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit66, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i57
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i57: ; preds = %_ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %27 = tail call ptr @memchr(ptr noundef %3, i32 noundef 0, i64 noundef %2) #24, !noalias !10
+  %27 = tail call ptr @memchr(ptr noundef %3, i32 noundef 0, i64 noundef %2) #25, !noalias !10
   %.not.i.i.i58 = icmp eq ptr %27, null
   %28 = ptrtoint ptr %27 to i64
   %29 = ptrtoint ptr %3 to i64
@@ -2105,7 +2105,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i57: ; preds = %_ZN8WasmEdge4Host4W
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEcm.exit.thread.i63: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i57
   %31 = add i64 %2, 1
-  %32 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #27
+  %32 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %31) #28
           to label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i64 unwind label %35, !noalias !10
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i64: ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEcm.exit.thread.i63
@@ -2120,7 +2120,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i64: ; preds = %_ZNKSt17b
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #23, !noalias !10
+  tail call void @__clang_call_terminate(ptr %37) #24, !noalias !10
   unreachable
 
 _ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit66: ; preds = %_ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i57, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit.i64
@@ -2290,7 +2290,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit: ; preds = %_ZN8WasmEdge
   br i1 %.not, label %118, label %105
 
 105:                                              ; preds = %_ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit
-  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #29
+  %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #30
   %107 = trunc i64 %106 to i32
   %108 = load ptr, ptr %72, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 20
@@ -2374,7 +2374,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit77: ; preds = %123, %128,
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN8WasmEdge4Host4WASI12_GLOBAL__N_131calculateAddrinfoLinkedListSizeEP8addrinfo.exit
   %147 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %64, %_ZN8WasmEdge4Host4WASI12_GLOBAL__N_131calculateAddrinfoLinkedListSizeEP8addrinfo.exit ]
-  call void @freeaddrinfo(ptr noundef %147) #24
+  call void @freeaddrinfo(ptr noundef %147) #25
   br label %_ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit
 
 _ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit: ; preds = %switch.lookup, %._crit_edge
@@ -2384,7 +2384,7 @@ _ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit: ; preds = %switch.lookup, %.
   br i1 %.not.i.i, label %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i: ; preds = %_ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.05.0.i62) #28
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.05.0.i62) #29
   br label %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit
 
 _ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit: ; preds = %_ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
@@ -2392,7 +2392,7 @@ _ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit: ; preds = %_
   br i1 %.not.i.i79, label %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit82, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i80
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i80: ; preds = %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.05.0.i) #28
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.05.0.i) #29
   br label %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit82
 
 _ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit82: ; preds = %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i80
@@ -2403,13 +2403,13 @@ _ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit82: ; preds = 
   %149 = landingpad { ptr, i32 }
           catch ptr null
   %150 = extractvalue { ptr, i32 } %149, 0
-  call void @__clang_call_terminate(ptr %150) #23
+  call void @__clang_call_terminate(ptr %150) #24
   unreachable
 }
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
@@ -2447,14 +2447,14 @@ switch.lookup:                                    ; preds = %3
 
 11:                                               ; preds = %switch.lookup, %8
   %.07 = phi i32 [ 1, %8 ], [ 2, %switch.lookup ]
-  %12 = tail call i32 @socket(i32 noundef %switch.load, i32 noundef %.07, i32 noundef 0) #24
+  %12 = tail call i32 @socket(i32 noundef %switch.load, i32 noundef %.07, i32 noundef 0) #25
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @__errno_location() #25
+  %15 = tail call ptr @__errno_location() #26
   %16 = load i32, ptr %15, align 4
-  %17 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %16) #24
+  %17 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %16) #25
   store i8 0, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %17, ptr %18, align 8
@@ -2505,7 +2505,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode8sockBindE23__wasi_
   store i64 0, ptr %11, align 8, !alias.scope !15
   store i8 3, ptr %7, align 8, !alias.scope !15
   store i16 2, ptr %6, align 8, !alias.scope !15
-  %12 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #25
+  %12 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #26
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %12, ptr %13, align 2, !alias.scope !15
   %14 = icmp ugt i64 %3, 3
@@ -2520,7 +2520,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode8sockBindE23__wasi_
   store i32 0, ptr %18, align 8, !alias.scope !15
   store i8 4, ptr %7, align 8, !alias.scope !15
   store i16 10, ptr %6, align 8, !alias.scope !15
-  %19 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #25
+  %19 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #26
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %19, ptr %20, align 2, !alias.scope !15
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -2546,14 +2546,14 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   %28 = phi ptr [ %6, %24 ], [ %6, %17 ], [ %6, %10 ], [ null, %.thread ]
   %.0.i.i = phi i32 [ 110, %24 ], [ 28, %17 ], [ 16, %10 ], [ 0, %.thread ]
   %29 = load i32, ptr %0, align 8
-  %30 = call i32 @bind(i32 noundef %29, ptr noundef %28, i32 noundef %.0.i.i) #24
+  %30 = call i32 @bind(i32 noundef %29, ptr noundef %28, i32 noundef %.0.i.i) #25
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %32, label %38
 
 32:                                               ; preds = %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit
-  %33 = tail call ptr @__errno_location() #25
+  %33 = tail call ptr @__errno_location() #26
   %34 = load i32, ptr %33, align 4
-  %35 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %34) #24
+  %35 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %34) #25
   %36 = zext i16 %35 to i32
   %37 = shl nuw i32 %36, 16
   br label %38
@@ -2569,14 +2569,14 @@ declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode10sockListenEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %0, align 8
-  %4 = tail call i32 @listen(i32 noundef %3, i32 noundef %1) #24
+  %4 = tail call i32 @listen(i32 noundef %3, i32 noundef %1) #25
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %10 = zext i16 %9 to i32
   %11 = shl nuw i32 %10, 16
   br label %12
@@ -2600,9 +2600,9 @@ define void @_ZN8WasmEdge4Host4WASI5INode10sockAcceptE16__wasi_fdflags_t(ptr dea
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %6
-  %9 = tail call ptr @__errno_location() #25
+  %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #24
+  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
   store i8 0, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %11, ptr %12, align 8
@@ -2643,9 +2643,9 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %13, %21
   br label %_ZN8WasmEdge4Host4WASI5INodeD2Ev.exit
 
 28:                                               ; preds = %21
-  %29 = tail call ptr @__errno_location() #25
+  %29 = tail call ptr @__errno_location() #26
   %30 = load i32, ptr %29, align 4
-  %31 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %30) #24
+  %31 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %30) #25
   store i8 0, ptr %0, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %31, ptr %32, align 8
@@ -2660,7 +2660,7 @@ _ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i:      ; preds = %13, %21
   %36 = landingpad { ptr, i32 }
           catch ptr null
   %37 = extractvalue { ptr, i32 } %36, 0
-  tail call void @__clang_call_terminate(ptr %37) #23
+  tail call void @__clang_call_terminate(ptr %37) #24
   unreachable
 
 _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI9DirHolderD2Ev.exit.i, %33, %28, %8
@@ -2670,7 +2670,7 @@ _ZN8WasmEdge4Host4WASI5INodeD2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4W
   %39 = landingpad { ptr, i32 }
           catch ptr null
   %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #23
+  tail call void @__clang_call_terminate(ptr %40) #24
   unreachable
 }
 
@@ -2699,7 +2699,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode11sockConnectE23__w
   store i64 0, ptr %11, align 8, !alias.scope !18
   store i8 3, ptr %7, align 8, !alias.scope !18
   store i16 2, ptr %6, align 8, !alias.scope !18
-  %12 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #25
+  %12 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #26
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %12, ptr %13, align 2, !alias.scope !18
   %14 = icmp ugt i64 %3, 3
@@ -2714,7 +2714,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5INode11sockConnectE23__w
   store i32 0, ptr %18, align 8, !alias.scope !18
   store i8 4, ptr %7, align 8, !alias.scope !18
   store i16 10, ptr %6, align 8, !alias.scope !18
-  %19 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #25
+  %19 = tail call zeroext i16 @htons(i16 noundef zeroext %4) #26
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %19, ptr %20, align 2, !alias.scope !18
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -2748,9 +2748,9 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   br i1 %32, label %33, label %39
 
 33:                                               ; preds = %31
-  %34 = tail call ptr @__errno_location() #25
+  %34 = tail call ptr @__errno_location() #26
   %35 = load i32, ptr %34, align 4
-  %36 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %35) #24
+  %36 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %35) #25
   %37 = zext i16 %36 to i32
   %38 = shl nuw i32 %37, 16
   br label %39
@@ -2763,7 +2763,7 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   %41 = landingpad { ptr, i32 }
           catch ptr null
   %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #23
+  call void @__clang_call_terminate(ptr %42) #24
   unreachable
 }
 
@@ -2773,7 +2773,7 @@ declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode8sockRecvEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tRjR16__wasi_roflags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr captures(address) %1, i64 %2, i16 noundef zeroext %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.cxx20::span.25", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %8 = tail call i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 noundef zeroext %3, ptr noundef null, ptr noundef nonnull byval(%"struct.cxx20::span.25") align 8 %7, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 2 dereferenceable(2) %5) #24
+  %8 = tail call i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 noundef zeroext %3, ptr noundef null, ptr noundef nonnull byval(%"struct.cxx20::span.25") align 8 %7, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 2 dereferenceable(2) %5) #25
   ret i32 %8
 }
 
@@ -2851,9 +2851,9 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5c
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %40
-  %43 = tail call ptr @__errno_location() #25
+  %43 = tail call ptr @__errno_location() #26
   %44 = load i32, ptr %43, align 4
-  %45 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %44) #24
+  %45 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %44) #25
   %.sroa.660.sroa.6.0.extract.shift = and i16 %45, -256
   %46 = and i16 %45, 255
   br label %92
@@ -2980,7 +2980,7 @@ _ZN6spdlog4warnIA27_cEEvRKT_.exit:                ; preds = %.noexc, %86, %64, %
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #23
+  call void @__clang_call_terminate(ptr %95) #24
   unreachable
 }
 
@@ -2990,7 +2990,7 @@ declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8sockSendEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEtRj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr captures(address) %1, i64 %2, i16 noundef zeroext %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.cxx20::span.29", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  %7 = tail call i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 zeroext poison, i8 noundef zeroext 0, ptr noundef nonnull byval(%"struct.cxx20::span.29") align 8 %6, i16 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(4) %4) #24
+  %7 = tail call i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 zeroext poison, i8 noundef zeroext 0, ptr noundef nonnull byval(%"struct.cxx20::span.29") align 8 %6, i16 noundef zeroext 0, ptr noundef nonnull align 4 dereferenceable(4) %4) #25
   ret i32 %7
 }
 
@@ -3014,7 +3014,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   ]
 
 16:                                               ; preds = %15
-  %17 = tail call zeroext i16 @htons(i16 noundef zeroext %6) #25
+  %17 = tail call zeroext i16 @htons(i16 noundef zeroext %6) #26
   %18 = icmp ugt i64 %14, 3
   tail call void @llvm.assume(i1 %18)
   %19 = load i32, ptr %.val, align 1, !noalias !21
@@ -3028,7 +3028,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockSendToEN5cxx
   br label %_ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE16sockaddr_storage8sockaddr11sockaddr_in12sockaddr_in611sockaddr_unEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISG_EEEEE4typeEE4typeEOSP_EEEE4typeEOSE_DpOSG_.exit.sink.split
 
 20:                                               ; preds = %15
-  %21 = tail call zeroext i16 @htons(i16 noundef zeroext %6) #25
+  %21 = tail call zeroext i16 @htons(i16 noundef zeroext %6) #26
   %22 = icmp ugt i64 %14, 15
   tail call void @llvm.assume(i1 %22)
   %.sroa.9.8.copyload = load i64, ptr %.val, align 1
@@ -3125,9 +3125,9 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %41
-  %44 = tail call ptr @__errno_location() #25
+  %44 = tail call ptr @__errno_location() #26
   %45 = load i32, ptr %44, align 4
-  %46 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %45) #24
+  %46 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %45) #25
   %47 = zext i16 %46 to i32
   %48 = shl nuw i32 %47, 16
   br label %51
@@ -3145,7 +3145,7 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
   %53 = landingpad { ptr, i32 }
           catch ptr null
   %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #23
+  call void @__clang_call_terminate(ptr %54) #24
   unreachable
 }
 
@@ -3169,14 +3169,14 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockShutdownE16_
 6:                                                ; preds = %4, %2, %3
   %.0 = phi i32 [ 1, %3 ], [ 0, %2 ], [ %spec.select, %4 ]
   %7 = load i32, ptr %0, align 8
-  %8 = tail call i32 @shutdown(i32 noundef %7, i32 noundef %.0) #24
+  %8 = tail call i32 @shutdown(i32 noundef %7, i32 noundef %.0) #25
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @__errno_location() #25
+  %11 = tail call ptr @__errno_location() #26
   %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #24
+  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #25
   %14 = zext i16 %13 to i32
   %15 = shl nuw i32 %14, 16
   br label %16
@@ -3202,14 +3202,14 @@ switch.lookup:
   store i32 %8, ptr %4, align 4
   %9 = load i32, ptr %0, align 8
   %10 = load ptr, ptr %3, align 8
-  %11 = call i32 @getsockopt(i32 noundef %9, i32 noundef 1, i32 noundef %switch.load, ptr noundef %10, ptr noundef nonnull %4) #24
+  %11 = call i32 @getsockopt(i32 noundef %9, i32 noundef 1, i32 noundef %switch.load, ptr noundef %10, ptr noundef nonnull %4) #25
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %switch.lookup
-  %14 = tail call ptr @__errno_location() #25
+  %14 = tail call ptr @__errno_location() #26
   %15 = load i32, ptr %14, align 4
-  %16 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %15) #24
+  %16 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %15) #25
   %.sroa.431.sroa.4.0.extract.shift = and i16 %16, -256
   %17 = and i16 %16, 255
   br label %32
@@ -3227,7 +3227,7 @@ switch.lookup:
   %22 = load ptr, ptr %3, align 8
   store i64 4, ptr %6, align 8
   %23 = load i32, ptr %22, align 4
-  %24 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %23) #24
+  %24 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %23) #25
   %25 = zext i16 %24 to i32
   store i32 %25, ptr %22, align 4
   br label %32
@@ -3271,14 +3271,14 @@ switch.lookup:
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = load i32, ptr %0, align 8
   %7 = trunc i64 %4 to i32
-  %8 = tail call i32 @setsockopt(i32 noundef %6, i32 noundef 1, i32 noundef %switch.load, ptr noundef %3, i32 noundef %7) #24
+  %8 = tail call i32 @setsockopt(i32 noundef %6, i32 noundef 1, i32 noundef %switch.load, ptr noundef %3, i32 noundef %7) #25
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %switch.lookup
-  %11 = tail call ptr @__errno_location() #25
+  %11 = tail call ptr @__errno_location() #26
   %12 = load i32, ptr %11, align 4
-  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #24
+  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #25
   %14 = zext i16 %13 to i32
   %15 = shl nuw i32 %14, 16
   br label %16
@@ -3298,14 +3298,14 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 128, ptr %7, align 4
   %8 = load i32, ptr %0, align 8
-  %9 = call i32 @getsockname(i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
+  %9 = call i32 @getsockname(i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %5
-  %12 = tail call ptr @__errno_location() #25
+  %12 = tail call ptr @__errno_location() #26
   %13 = load i32, ptr %12, align 4
-  %14 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %13) #24
+  %14 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %13) #25
   %.sroa.1232.sroa.12.0.extract.shift = and i16 %14, -256
   %15 = and i16 %14, 255
   br label %47
@@ -3337,7 +3337,7 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddr
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %25 = load i16, ptr %24, align 2
-  %26 = call zeroext i16 @ntohs(i16 noundef zeroext %25) #25
+  %26 = call zeroext i16 @ntohs(i16 noundef zeroext %25) #26
   store i16 %26, ptr %4, align 2
   br label %27
 
@@ -3366,7 +3366,7 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddr
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %37 = load i16, ptr %36, align 2
-  %38 = call zeroext i16 @ntohs(i16 noundef zeroext %37) #25
+  %38 = call zeroext i16 @ntohs(i16 noundef zeroext %37) #26
   store i16 %38, ptr %4, align 2
   br label %39
 
@@ -3406,8 +3406,8 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddr
 ; Function Attrs: nounwind
 declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #9
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef writeonly captures(address_is_null) %1, ptr writeonly captures(none) %2, i64 %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -3416,14 +3416,14 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
   store i32 128, ptr %7, align 4
   %8 = load i32, ptr %0, align 8
-  %9 = call i32 @getpeername(i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
+  %9 = call i32 @getpeername(i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %5
-  %12 = tail call ptr @__errno_location() #25
+  %12 = tail call ptr @__errno_location() #26
   %13 = load i32, ptr %12, align 4
-  %14 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %13) #24
+  %14 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %13) #25
   %.sroa.1232.sroa.12.0.extract.shift = and i16 %14, -256
   %15 = and i16 %14, 255
   br label %47
@@ -3455,7 +3455,7 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrE
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %25 = load i16, ptr %24, align 2
-  %26 = call zeroext i16 @ntohs(i16 noundef zeroext %25) #25
+  %26 = call zeroext i16 @ntohs(i16 noundef zeroext %25) #26
   store i16 %26, ptr %4, align 2
   br label %27
 
@@ -3484,7 +3484,7 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrE
 35:                                               ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %37 = load i16, ptr %36, align 2
-  %38 = call zeroext i16 @ntohs(i16 noundef zeroext %37) #25
+  %38 = call zeroext i16 @ntohs(i16 noundef zeroext %37) #26
   store i16 %38, ptr %4, align 2
   br label %39
 
@@ -3536,14 +3536,14 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode8filetypeEv(ptr no
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
-  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
+  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #25
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit: ; preds = %5
-  %9 = tail call ptr @__errno_location() #25
+  %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #24
+  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
   %.sroa.34.sroa.3.0.extract.shift = and i16 %11, -256
   %12 = and i16 %11, 255
   br label %_ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit
@@ -3587,14 +3587,14 @@ define noundef zeroext i1 @_ZNK8WasmEdge4Host4WASI5INode11isDirectoryEv(ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
-  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
+  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #25
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit: ; preds = %5
-  %9 = tail call ptr @__errno_location() #25
+  %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #24
+  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
   br label %16
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread: ; preds = %5, %1
@@ -3621,14 +3621,14 @@ define noundef zeroext i1 @_ZNK8WasmEdge4Host4WASI5INode9isSymlinkEv(ptr noundef
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
-  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
+  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #25
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit: ; preds = %5
-  %9 = tail call ptr @__errno_location() #25
+  %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #24
+  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
   br label %16
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread: ; preds = %5, %1
@@ -3655,14 +3655,14 @@ define { i8, i64 } @_ZNK8WasmEdge4Host4WASI5INode8filesizeEv(ptr noundef nonnull
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %6, i8 0, i64 144, i1 false)
   store i8 1, ptr %2, align 8
   %7 = load i32, ptr %0, align 8
-  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #24
+  %8 = tail call i32 @fstat(i32 noundef %7, ptr noundef nonnull %6) #25
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread, label %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit: ; preds = %5
-  %9 = tail call ptr @__errno_location() #25
+  %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
-  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #24
+  %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
   br label %14
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread: ; preds = %5, %1
@@ -3686,7 +3686,7 @@ _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread: ; preds = %5, %1
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZNK8WasmEdge4Host4WASI5INode9canBrowseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
-  %3 = tail call i32 @faccessat(i32 noundef %2, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef 0) #24
+  %3 = tail call i32 @faccessat(i32 noundef %2, ptr noundef nonnull @.str.1, i32 noundef 1, i32 noundef 0) #25
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
@@ -3700,12 +3700,12 @@ declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unname
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge4Host4WASI13PollerContext12acquireTimerE16__wasi_clockid_t(ptr dead_on_unwind noalias writable sret(%"class.cxx20::expected.80") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<__wasi_clockid_t, std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>, std::allocator<std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>>, std::__detail::_Select1st, std::equal_to<__wasi_clockid_t>, std::hash<__wasi_clockid_t>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #24
+  %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   %.not.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %6
 
 6:                                                ; preds = %3
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %5) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %5) #27
           to label %.noexc unwind label %87
 
 .noexc:                                           ; preds = %6
@@ -3754,7 +3754,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   store ptr %7, ptr %4, align 8
-  %28 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
+  %28 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc4 unwind label %87
 
 .noexc4:                                          ; preds = %.loopexit.i.i
@@ -3771,7 +3771,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
 33:                                               ; preds = %.noexc4
   %34 = landingpad { ptr, i32 }
           catch ptr null
-  call void @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #24
+  call void @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
   br label %.body
 
 .loopexit:                                        ; preds = %20, %.noexc4, %15
@@ -3785,16 +3785,16 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %3
   br i1 %39, label %40, label %55
 
 40:                                               ; preds = %.loopexit
-  %41 = tail call i32 @timerfd_create(i32 noundef %2, i32 noundef 526336) #24
+  %41 = tail call i32 @timerfd_create(i32 noundef %2, i32 noundef 526336) #25
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit, label %_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit.thread
 
 _ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit: ; preds = %40
-  %43 = tail call ptr @__errno_location() #25
+  %43 = tail call ptr @__errno_location() #26
   %44 = load i32, ptr %43, align 4
-  %45 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %44) #24
+  %45 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %44) #25
   %46 = load i32, ptr %43, align 4
-  %47 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %46) #24
+  %47 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %46) #25
   store i8 0, ptr %0, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %47, ptr %48, align 4
@@ -3853,7 +3853,7 @@ _ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit.thread: ; preds = %40
   %77 = landingpad { ptr, i32 }
           catch ptr null
   %78 = extractvalue { ptr, i32 } %77, 0
-  tail call void @__clang_call_terminate(ptr %78) #23
+  tail call void @__clang_call_terminate(ptr %78) #24
   unreachable
 
 _ZN8WasmEdge4Host4WASI6Poller5TimerD2Ev.exit7:    ; preds = %55, %69, %75
@@ -3871,7 +3871,7 @@ _ZN8WasmEdge4Host4WASI6Poller5TimerD2Ev.exit7:    ; preds = %55, %69, %75
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4WASI6Poller5TimerD2Ev.exit7, %_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit.thread, %_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv.exit
-  %86 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #24
+  %86 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #25
   ret void
 
 87:                                               ; preds = %.loopexit.i.i, %6
@@ -3882,7 +3882,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4W
 .body:                                            ; preds = %33, %87
   %eh.lpad-body = phi { ptr, i32 } [ %88, %87 ], [ %34, %33 ]
   %89 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  call void @__clang_call_terminate(ptr %89) #23
+  call void @__clang_call_terminate(ptr %89) #24
   unreachable
 }
 
@@ -3890,14 +3890,14 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZN8WasmEdge4Host4W
 define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
-  %4 = tail call i32 @timerfd_create(i32 noundef %3, i32 noundef 526336) #24
+  %4 = tail call i32 @timerfd_create(i32 noundef %3, i32 noundef 526336) #25
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
-  %7 = tail call ptr @__errno_location() #25
+  %7 = tail call ptr @__errno_location() #26
   %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #24
+  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
   %10 = zext i16 %9 to i32
   %11 = shl nuw i32 %10, 16
   br label %19
@@ -3915,7 +3915,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI6Poller5Timer6createEv(pt
   %17 = landingpad { ptr, i32 }
           catch ptr null
   %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #23
+  tail call void @__clang_call_terminate(ptr %18) #24
   unreachable
 
 _ZN8WasmEdge4Host4WASI8FdHolder7emplaceEi.exit:   ; preds = %12, %14
@@ -3959,7 +3959,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerE
   %16 = landingpad { ptr, i32 }
           catch ptr null
   %17 = extractvalue { ptr, i32 } %16, 0
-  tail call void @__clang_call_terminate(ptr %17) #23
+  tail call void @__clang_call_terminate(ptr %17) #24
   unreachable
 
 _ZNSt16allocator_traitsISaIN8WasmEdge4Host4WASI6Poller5TimerEEE7destroyIS4_EEvRS5_PT_.exit: ; preds = %1, %8, %14
@@ -3969,12 +3969,12 @@ _ZNSt16allocator_traitsISaIN8WasmEdge4Host4WASI6Poller5TimerEEE7destroyIS4_EEvRS
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Hashtable<__wasi_clockid_t, std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>, std::allocator<std::pair<const __wasi_clockid_t, std::vector<WasmEdge::Host::WASI::Poller::Timer>>>, std::__detail::_Select1st, std::equal_to<__wasi_clockid_t>, std::hash<__wasi_clockid_t>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
-  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+  %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   %.not.i.i.i = icmp eq i32 %4, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %5
 
 5:                                                ; preds = %2
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %4) #26
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %4) #27
           to label %.noexc unwind label %70
 
 .noexc:                                           ; preds = %5
@@ -4025,7 +4025,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   store ptr %8, ptr %3, align 8
-  %29 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
+  %29 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
           to label %.noexc5 unwind label %61
 
 .noexc5:                                          ; preds = %.loopexit.i.i
@@ -4043,7 +4043,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
   %35 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr null
-  call void @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #24
+  call void @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %.body
 
 .loopexit:                                        ; preds = %21, %.noexc5, %16
@@ -4100,33 +4100,33 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
   %eh.lpad-body = phi { ptr, i32 } [ %62, %61 ], [ %35, %34 ]
   %63 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %64 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #24
+  %65 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #25
   %66 = icmp eq i32 %64, %65
   br i1 %66, label %67, label %73
 
 67:                                               ; preds = %.body
-  %68 = call ptr @__cxa_begin_catch(ptr %63) #24
+  %68 = call ptr @__cxa_begin_catch(ptr %63) #25
   invoke void @__cxa_end_catch()
           to label %_ZNSt11unique_lockISt5mutexED2Ev.exit unwind label %70
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %67, %59, %40
-  %69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+  %69 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   ret void
 
 70:                                               ; preds = %5, %67
   %71 = landingpad { ptr, i32 }
           catch ptr null
   %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #23
+  call void @__clang_call_terminate(ptr %72) #24
   unreachable
 
 73:                                               ; preds = %.body
-  call void @__clang_call_terminate(ptr %63) #23
+  call void @__clang_call_terminate(ptr %63) #24
   unreachable
 }
 
 ; Function Attrs: nofree nosync nounwind memory(none)
-declare i32 @llvm.eh.typeid.for.p0(ptr) #15
+declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 declare void @__cxa_end_catch() local_unnamed_addr
 
@@ -4139,12 +4139,12 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI6Poller5Timer7setTimeEmm2
   %6 = alloca %struct.itimerspec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %7 = load i32, ptr %0, align 4
-  %8 = call i32 @timerfd_settime(i32 noundef %7, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #24
+  %8 = call i32 @timerfd_settime(i32 noundef %7, i32 noundef 0, ptr noundef nonnull %5, ptr noundef null) #25
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %4
-  %11 = tail call ptr @__errno_location() #25
+  %11 = tail call ptr @__errno_location() #26
   store i32 0, ptr %11, align 4
   br label %12
 
@@ -4161,14 +4161,14 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI6Poller5Timer7setTimeEmm2
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %16, ptr %17, align 8
   %18 = load i32, ptr %0, align 4
-  %19 = call i32 @timerfd_settime(i32 noundef %18, i32 noundef %spec.select, ptr noundef nonnull %6, ptr noundef null) #24
+  %19 = call i32 @timerfd_settime(i32 noundef %18, i32 noundef %spec.select, ptr noundef nonnull %6, ptr noundef null) #25
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %21, label %27
 
 21:                                               ; preds = %12
-  %22 = tail call ptr @__errno_location() #25
+  %22 = tail call ptr @__errno_location() #26
   %23 = load i32, ptr %22, align 4
-  %24 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %23) #24
+  %24 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %23) #25
   %25 = zext i16 %24 to i32
   %26 = shl nuw i32 %25, 16
   br label %27
@@ -4183,7 +4183,7 @@ declare i32 @timerfd_settime(i32 noundef, i32 noundef, ptr noundef, ptr noundef)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8WasmEdge4Host4WASI6PollerC2ERNS1_13PollerContextE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 4), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
-  %3 = tail call i32 @epoll_create1(i32 noundef 524288) #24
+  %3 = tail call i32 @epoll_create1(i32 noundef 524288) #25
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4
@@ -4233,7 +4233,7 @@ define range(i32 1, 3145729) i32 @_ZN8WasmEdge4Host4WASI6Poller7prepareEN5cxx204
   br i1 %6, label %7, label %8
 
 7:                                                ; preds = %3
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #27
           to label %.noexc unwind label %50
 
 .noexc:                                           ; preds = %7
@@ -4256,7 +4256,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_M_allo
   %19 = ptrtoint ptr %18 to i64
   %20 = sub i64 %19, %13
   %21 = mul nuw nsw i64 %2, 40
-  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #27
+  %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #28
           to label %.noexc3 unwind label %50
 
 .noexc3:                                          ; preds = %_ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_M_allocateEm.exit.i
@@ -4272,7 +4272,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
   br i1 %.not.i8.i, label %_ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE13_M_deallocateEPS4_m.exit.i, label %25
 
 25:                                               ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %14) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %11, i64 noundef %14) #29
   br label %_ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE13_M_deallocateEPS4_m.exit.i
 
 _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %25, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
@@ -4306,7 +4306,7 @@ _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE11_M_allocateEm.exit.i: ; preds = %29
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %41, %35
   %43 = mul nuw nsw i64 %2, 12
-  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #27
+  %44 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %43) #28
           to label %.noexc6 unwind label %50
 
 .noexc6:                                          ; preds = %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE11_M_allocateEm.exit.i
@@ -4322,7 +4322,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; preds =
   br i1 %.not.i8.i4, label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit.i, label %47
 
 47:                                               ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %36) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %36) #29
   br label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit.i
 
 _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds = %47, %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i
@@ -4339,12 +4339,12 @@ _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit.i: ; preds =
           catch ptr null
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = extractvalue { ptr, i32 } %51, 1
-  %54 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #24
+  %54 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #25
   %55 = icmp eq i32 %53, %54
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %50
-  %57 = tail call ptr @__cxa_begin_catch(ptr %52) #24
+  %57 = tail call ptr @__cxa_begin_catch(ptr %52) #25
   invoke void @__cxa_end_catch()
           to label %_ZNSt6vectorI11epoll_eventSaIS0_EE7reserveEm.exit unwind label %58
 
@@ -4356,11 +4356,11 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE7reserveEm.exit: ; preds = %29, %_ZNSt12_Vecto
   %59 = landingpad { ptr, i32 }
           catch ptr null
   %60 = extractvalue { ptr, i32 } %59, 0
-  tail call void @__clang_call_terminate(ptr %60) #23
+  tail call void @__clang_call_terminate(ptr %60) #24
   unreachable
 
 61:                                               ; preds = %50
-  tail call void @__clang_call_terminate(ptr %52) #23
+  tail call void @__clang_call_terminate(ptr %52) #24
   unreachable
 }
 
@@ -4370,7 +4370,7 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_E
   br i1 %3, label %4, label %5
 
 4:                                                ; preds = %2
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.7) #27
   unreachable
 
 5:                                                ; preds = %2
@@ -4390,7 +4390,7 @@ _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_M_allocateEm.ex
   %16 = ptrtoint ptr %15 to i64
   %17 = sub i64 %16, %10
   %18 = mul nuw nsw i64 %1, 12
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #27
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #28
   %.not10.i.i.i = icmp eq ptr %8, %15
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i
 
@@ -4436,7 +4436,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_S_relocateEPS4_S7_S7_R
   %38 = ptrtoint ptr %37 to i64
   %39 = ptrtoint ptr %35 to i64
   %40 = sub i64 %38, %39
-  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %40) #29
   br label %_ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %36
@@ -4484,7 +4484,7 @@ define void @_ZN8WasmEdge4Host4WASI6Poller5clockE16__wasi_clockid_tmm22__wasi_su
   br i1 %26, label %27, label %_ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 27:                                               ; preds = %25
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
           to label %.noexc unwind label %229
 
 .noexc:                                           ; preds = %27
@@ -4499,7 +4499,7 @@ _ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenE
   %.not.i.i.i = icmp ne i64 %31, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %32 = mul nuw nsw i64 %31, 40
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #27
+  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #28
           to label %.noexc34 unwind label %229
 
 .noexc34:                                         ; preds = %_ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -4518,7 +4518,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
   br i1 %.not.i16.i.i, label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %38
 
 38:                                               ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %15) #29
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
@@ -4537,7 +4537,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJ
   store i8 0, ptr %42, align 2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  call void @_ZN8WasmEdge4Host4WASI13PollerContext12acquireTimerE16__wasi_clockid_t(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.80") align 4 %7, ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef %1) #24
+  call void @_ZN8WasmEdge4Host4WASI13PollerContext12acquireTimerE16__wasi_clockid_t(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.80") align 4 %7, ptr noundef nonnull align 8 dereferenceable(96) %44, i32 noundef %1) #25
   %45 = load i8, ptr %7, align 4
   %46 = trunc i8 %45 to i1
   br i1 %46, label %51, label %47
@@ -4627,7 +4627,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE12emplace_backIJS4_EEERS4
   %94 = landingpad { ptr, i32 }
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #23
+  call void @__clang_call_terminate(ptr %95) #24
   unreachable
 
 _ZN5cxx208expectedIN8WasmEdge4Host4WASI6Poller5TimerE14__wasi_errno_tED2Ev.exit: ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit, %81, %86, %92
@@ -4638,7 +4638,7 @@ _ZN5cxx208expectedIN8WasmEdge4Host4WASI6Poller5TimerE14__wasi_errno_tED2Ev.exit:
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 -12
-  %101 = call i32 @_ZN8WasmEdge4Host4WASI6Poller5Timer7setTimeEmm22__wasi_subclockflags_t(ptr noundef nonnull align 4 dereferenceable(12) %100, i64 noundef %2, i64 poison, i16 noundef zeroext %4) #24
+  %101 = call i32 @_ZN8WasmEdge4Host4WASI6Poller5Timer7setTimeEmm22__wasi_subclockflags_t(ptr noundef nonnull align 4 dereferenceable(12) %100, i64 noundef %2, i64 poison, i16 noundef zeroext %4) #25
   %.sroa.243.0.extract.shift = lshr i32 %101, 16
   %.sroa.243.0.extract.trunc = trunc nuw i32 %.sroa.243.0.extract.shift to i16
   %102 = trunc i32 %101 to i1
@@ -4646,7 +4646,7 @@ _ZN5cxx208expectedIN8WasmEdge4Host4WASI6Poller5TimerE14__wasi_errno_tED2Ev.exit:
 
 103:                                              ; preds = %96
   %104 = load ptr, ptr %43, align 8
-  call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %104, ptr noundef nonnull align 4 dereferenceable(12) %100) #24
+  call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %104, ptr noundef nonnull align 4 dereferenceable(12) %100) #25
   %105 = load ptr, ptr %98, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 -12
   store ptr %106, ptr %98, align 8
@@ -4676,7 +4676,7 @@ _ZN5cxx208expectedIN8WasmEdge4Host4WASI6Poller5TimerE14__wasi_errno_tED2Ev.exit:
   %118 = landingpad { ptr, i32 }
           catch ptr null
   %119 = extractvalue { ptr, i32 } %118, 0
-  call void @__clang_call_terminate(ptr %119) #23
+  call void @__clang_call_terminate(ptr %119) #24
   unreachable
 
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit: ; preds = %103, %110, %116
@@ -4729,7 +4729,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit: ; preds
   br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %132, %..loopexit_crit_edge21.i.i.i.i, %120
-  %145 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+  %145 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
           to label %.noexc37 unwind label %217
 
 .noexc37:                                         ; preds = %.loopexit.i.i
@@ -4745,7 +4745,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %149 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr null
-  call void @_ZdlPvm(ptr noundef nonnull %145, i64 noundef 32) #28
+  call void @_ZdlPvm(ptr noundef nonnull %145, i64 noundef 32) #29
   br label %.body
 
 150:                                              ; preds = %.noexc37
@@ -4756,7 +4756,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %153 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %152, ptr %153, align 4
   %154 = load i32, ptr %0, align 8
-  %155 = call i32 @epoll_ctl(i32 noundef %154, i32 noundef 1, i32 noundef %152, ptr noundef nonnull %8) #24
+  %155 = call i32 @epoll_ctl(i32 noundef %154, i32 noundef 1, i32 noundef %152, ptr noundef nonnull %8) #25
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %228
 
@@ -4837,13 +4837,13 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
 193:                                              ; preds = %191, %186, %185, %184, %171
   %194 = load ptr, ptr %148, align 8
   store ptr %194, ptr %.0.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef 32) #28
+  call void @_ZdlPvm(ptr noundef nonnull %148, i64 noundef 32) #29
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %196 = load i64, ptr %195, align 8
   %197 = add i64 %196, -1
   store i64 %197, ptr %195, align 8
   %198 = load ptr, ptr %43, align 8
-  call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %198, ptr noundef nonnull align 4 dereferenceable(12) %100) #24
+  call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %198, ptr noundef nonnull align 4 dereferenceable(12) %100) #25
   %199 = load ptr, ptr %98, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 -12
   store ptr %200, ptr %98, align 8
@@ -4873,14 +4873,14 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %212 = landingpad { ptr, i32 }
           catch ptr null
   %213 = extractvalue { ptr, i32 } %212, 0
-  call void @__clang_call_terminate(ptr %213) #23
+  call void @__clang_call_terminate(ptr %213) #24
   unreachable
 
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit41: ; preds = %193, %204, %210
   store i8 1, ptr %41, align 8
-  %214 = tail call ptr @__errno_location() #25
+  %214 = tail call ptr @__errno_location() #26
   %215 = load i32, ptr %214, align 4
-  %216 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %215) #24
+  %216 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %215) #25
   br label %.sink.split
 
 217:                                              ; preds = %.loopexit.i.i
@@ -4893,15 +4893,15 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit41: ; pre
   %eh.lpad-body = phi { ptr, i32 } [ %218, %217 ], [ %149, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit18.i.i ]
   %219 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %220 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %221 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #24
+  %221 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #25
   %222 = icmp eq i32 %220, %221
   br i1 %222, label %223, label %232
 
 223:                                              ; preds = %.body
-  %224 = call ptr @__cxa_begin_catch(ptr %219) #24
+  %224 = call ptr @__cxa_begin_catch(ptr %219) #25
   %225 = load ptr, ptr %43, align 8
-  call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %225, ptr noundef nonnull align 4 dereferenceable(12) %100) #24
-  call void @_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %97) #24
+  call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %225, ptr noundef nonnull align 4 dereferenceable(12) %100) #25
+  call void @_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(24) %97) #25
   store i8 1, ptr %41, align 8
   %226 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i16 48, ptr %226, align 8
@@ -4921,11 +4921,11 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE8pop_backEv.exit41: ; pre
   %230 = landingpad { ptr, i32 }
           catch ptr null
   %231 = extractvalue { ptr, i32 } %230, 0
-  call void @__clang_call_terminate(ptr %231) #23
+  call void @__clang_call_terminate(ptr %231) #24
   unreachable
 
 232:                                              ; preds = %.body
-  call void @__clang_call_terminate(ptr %219) #23
+  call void @__clang_call_terminate(ptr %219) #24
   unreachable
 }
 
@@ -4950,7 +4950,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #23
+  tail call void @__clang_call_terminate(ptr %9) #24
   unreachable
 }
 
@@ -4986,7 +4986,7 @@ define void @_ZN8WasmEdge4Host4WASI6Poller4readERKNS1_5INodeENS1_11TriggerTypeEm
   br i1 %23, label %24, label %_ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 24:                                               ; preds = %22
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
           to label %.noexc unwind label %183
 
 .noexc:                                           ; preds = %24
@@ -5001,7 +5001,7 @@ _ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenE
   %.not.i.i.i = icmp ne i64 %28, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %29 = mul nuw nsw i64 %28, 40
-  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #27
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #28
           to label %.noexc35 unwind label %183
 
 .noexc35:                                         ; preds = %_ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -5020,7 +5020,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
   br i1 %.not.i16.i.i, label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %12) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %12) #29
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
@@ -5081,7 +5081,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJ
   br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
-  %64 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+  %64 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
           to label %.noexc36 unwind label %106
 
 .noexc36:                                         ; preds = %.loopexit.i.i
@@ -5097,7 +5097,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %68 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr null
-  tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 32) #29
   br label %.body
 
 .loopexit:                                        ; preds = %56, %.noexc36, %51
@@ -5194,12 +5194,12 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %eh.lpad-body = phi { ptr, i32 } [ %107, %106 ], [ %68, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit18.i.i ]
   %108 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %109 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %110 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #24
+  %110 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #25
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %186
 
 112:                                              ; preds = %.body
-  %113 = tail call ptr @__cxa_begin_catch(ptr %108) #24
+  %113 = tail call ptr @__cxa_begin_catch(ptr %108) #25
   store i8 1, ptr %38, align 8
   %114 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i16 48, ptr %114, align 8
@@ -5230,7 +5230,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   br i1 %brmerge.not, label %128, label %174
 
 128:                                              ; preds = %119
-  %129 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 1, i32 noundef %125, ptr noundef nonnull %5) #24
+  %129 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 1, i32 noundef %125, ptr noundef nonnull %5) #25
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %131, label %182
 
@@ -5310,27 +5310,27 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
 166:                                              ; preds = %164, %159, %158, %157, %144
   %167 = load ptr, ptr %.sroa.025.0.i.i, align 8
   store ptr %167, ptr %.0.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i.i, i64 noundef 32) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i.i, i64 noundef 32) #29
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %169, -1
   store i64 %170, ptr %168, align 8
   store i8 1, ptr %38, align 8
-  %171 = tail call ptr @__errno_location() #25
+  %171 = tail call ptr @__errno_location() #26
   %172 = load i32, ptr %171, align 4
-  %173 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %172) #24
+  %173 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %172) #25
   br label %.sink.split
 
 174:                                              ; preds = %119
-  %175 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 3, i32 noundef %125, ptr noundef nonnull %5) #24
+  %175 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 3, i32 noundef %125, ptr noundef nonnull %5) #25
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %177, label %182
 
 177:                                              ; preds = %174
   store i8 1, ptr %38, align 8
-  %178 = tail call ptr @__errno_location() #25
+  %178 = tail call ptr @__errno_location() #26
   %179 = load i32, ptr %178, align 4
-  %180 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %179) #24
+  %180 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %179) #25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %105, %166, %177
@@ -5346,11 +5346,11 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  tail call void @__clang_call_terminate(ptr %185) #23
+  tail call void @__clang_call_terminate(ptr %185) #24
   unreachable
 
 186:                                              ; preds = %.body
-  tail call void @__clang_call_terminate(ptr %108) #23
+  tail call void @__clang_call_terminate(ptr %108) #24
   unreachable
 }
 
@@ -5386,7 +5386,7 @@ define void @_ZN8WasmEdge4Host4WASI6Poller5writeERKNS1_5INodeENS1_11TriggerTypeE
   br i1 %23, label %24, label %_ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenEmPKc.exit.i.i
 
 24:                                               ; preds = %22
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #26
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
           to label %.noexc unwind label %183
 
 .noexc:                                           ; preds = %24
@@ -5401,7 +5401,7 @@ _ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenE
   %.not.i.i.i = icmp ne i64 %28, 0
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %29 = mul nuw nsw i64 %28, 40
-  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #27
+  %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #28
           to label %.noexc35 unwind label %183
 
 .noexc35:                                         ; preds = %_ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12_M_check_lenEmPKc.exit.i.i
@@ -5420,7 +5420,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS
   br i1 %.not.i16.i.i, label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %12) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %12) #29
   br label %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i
 
 _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit15.i.i
@@ -5481,7 +5481,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJ
   br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %..loopexit_crit_edge21.i.i.i.i, %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller13OptionalEventESaIS4_EE12emplace_backIJEEERS4_DpOT_.exit
-  %64 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+  %64 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
           to label %.noexc36 unwind label %106
 
 .noexc36:                                         ; preds = %.loopexit.i.i
@@ -5497,7 +5497,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %68 = landingpad { ptr, i32 }
           catch ptr @_ZTISt9bad_alloc
           catch ptr null
-  tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %64, i64 noundef 32) #29
   br label %.body
 
 .loopexit:                                        ; preds = %56, %.noexc36, %51
@@ -5594,12 +5594,12 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %eh.lpad-body = phi { ptr, i32 } [ %107, %106 ], [ %68, %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit18.i.i ]
   %108 = extractvalue { ptr, i32 } %eh.lpad-body, 0
   %109 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %110 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #24
+  %110 = tail call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9bad_alloc) #25
   %111 = icmp eq i32 %109, %110
   br i1 %111, label %112, label %186
 
 112:                                              ; preds = %.body
-  %113 = tail call ptr @__cxa_begin_catch(ptr %108) #24
+  %113 = tail call ptr @__cxa_begin_catch(ptr %108) #25
   store i8 1, ptr %38, align 8
   %114 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i16 48, ptr %114, align 8
@@ -5630,7 +5630,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   br i1 %brmerge.not, label %128, label %174
 
 128:                                              ; preds = %119
-  %129 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 1, i32 noundef %125, ptr noundef nonnull %5) #24
+  %129 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 1, i32 noundef %125, ptr noundef nonnull %5) #25
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %131, label %182
 
@@ -5710,27 +5710,27 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
 166:                                              ; preds = %164, %159, %158, %157, %144
   %167 = load ptr, ptr %.sroa.025.0.i.i, align 8
   store ptr %167, ptr %.0.i.i.i.i, align 8
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i.i, i64 noundef 32) #28
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.025.0.i.i, i64 noundef 32) #29
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %169 = load i64, ptr %168, align 8
   %170 = add i64 %169, -1
   store i64 %170, ptr %168, align 8
   store i8 1, ptr %38, align 8
-  %171 = tail call ptr @__errno_location() #25
+  %171 = tail call ptr @__errno_location() #26
   %172 = load i32, ptr %171, align 4
-  %173 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %172) #24
+  %173 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %172) #25
   br label %.sink.split
 
 174:                                              ; preds = %119
-  %175 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 3, i32 noundef %125, ptr noundef nonnull %5) #24
+  %175 = call i32 @epoll_ctl(i32 noundef %127, i32 noundef 3, i32 noundef %125, ptr noundef nonnull %5) #25
   %176 = icmp slt i32 %175, 0
   br i1 %176, label %177, label %182
 
 177:                                              ; preds = %174
   store i8 1, ptr %38, align 8
-  %178 = tail call ptr @__errno_location() #25
+  %178 = tail call ptr @__errno_location() #26
   %179 = load i32, ptr %178, align 4
-  %180 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %179) #24
+  %180 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %179) #25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %105, %166, %177
@@ -5746,11 +5746,11 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %184 = landingpad { ptr, i32 }
           catch ptr null
   %185 = extractvalue { ptr, i32 } %184, 0
-  tail call void @__clang_call_terminate(ptr %185) #23
+  tail call void @__clang_call_terminate(ptr %185) #24
   unreachable
 
 186:                                              ; preds = %.body
-  tail call void @__clang_call_terminate(ptr %108) #23
+  tail call void @__clang_call_terminate(ptr %108) #24
   unreachable
 }
 
@@ -5830,7 +5830,7 @@ define void @_ZN8WasmEdge4Host4WASI6Poller4waitEv(ptr noundef nonnull align 8 de
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %.preheader122, %17, %..loopexit_crit_edge21.i.i.i.i
   %37 = load i32, ptr %0, align 8
-  %38 = tail call i32 @epoll_ctl(i32 noundef %37, i32 noundef 2, i32 noundef %12, ptr noundef nonnull %0) #24
+  %38 = tail call i32 @epoll_ctl(i32 noundef %37, i32 noundef 2, i32 noundef %12, ptr noundef nonnull %0) #25
   br label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE4findERSA_.exit
 
 _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE4findERSA_.exit: ; preds = %29, %13, %24, %.loopexit
@@ -5911,9 +5911,9 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE6resizeEm.exit: ; preds = %._ZNSt6vectorI11epo
   br label %86
 
 77:                                               ; preds = %71
-  %78 = tail call ptr @__errno_location() #25
+  %78 = tail call ptr @__errno_location() #26
   %79 = load i32, ptr %78, align 4
-  %80 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %79) #24
+  %80 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %79) #25
   %81 = load ptr, ptr %40, align 8
   %82 = load ptr, ptr %41, align 8
   %.not8197 = icmp eq ptr %81, %82
@@ -6029,7 +6029,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   br label %.critedge
 
 .critedge:                                        ; preds = %125, %130
-  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %126) #24
+  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %126) #25
   %.pre109 = load i32, ptr %88, align 1
   br label %132
 
@@ -6062,7 +6062,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %143 = load i8, ptr %142, align 2
   %144 = icmp eq i8 %143, 2
   tail call void @llvm.assume(i1 %144)
-  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %141) #24
+  tail call fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK11epoll_eventRNS2_13OptionalEventE"(ptr noundef nonnull align 1 dereferenceable(12) %88, ptr noundef nonnull align 8 dereferenceable(33) %141) #25
   br label %145
 
 145:                                              ; preds = %135, %137, %140
@@ -6086,9 +6086,9 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %.sroa.054.093 = phi ptr [ %147, %.lr.ph95 ], [ %156, %151 ]
   %152 = load i32, ptr %0, align 8
   %153 = load i32, ptr %.sroa.054.093, align 4
-  %154 = tail call i32 @epoll_ctl(i32 noundef %152, i32 noundef 2, i32 noundef %153, ptr noundef nonnull %0) #24
+  %154 = tail call i32 @epoll_ctl(i32 noundef %152, i32 noundef 2, i32 noundef %153, ptr noundef nonnull %0) #25
   %155 = load ptr, ptr %150, align 8
-  tail call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %155, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.054.093) #24
+  tail call void @_ZN8WasmEdge4Host4WASI13PollerContext12releaseTimerEONS1_6Poller5TimerE(ptr noundef nonnull align 8 dereferenceable(96) %155, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.054.093) #25
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.054.093, i64 12
   %.not80 = icmp eq ptr %156, %149
   br i1 %.not80, label %._crit_edge96, label %151
@@ -6191,7 +6191,7 @@ _ZSt4swapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pair
 .lr.ph.i.i.i:                                     ; preds = %_ZSt4swapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEvRSt13unordered_mapIT_T0_T1_T2_T3_ESK_.exit, %.lr.ph.i.i.i
   %.06.i.i.i = phi ptr [ %202, %.lr.ph.i.i.i ], [ %201, %_ZSt4swapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEEvRSt13unordered_mapIT_T0_T1_T2_T3_ESK_.exit ]
   %202 = load ptr, ptr %.06.i.i.i, align 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i, i64 noundef 32) #29
   %.not.i.i.i = icmp eq ptr %202, null
   br i1 %.not.i.i.i, label %_ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIiESaISt4pairIKiS4_EEE5clearEv.exit, label %.lr.ph.i.i.i, !llvm.loop !35
 
@@ -6234,7 +6234,7 @@ _ZNSt13unordered_mapIiN8WasmEdge4Host4WASI6Poller6FdDataESt4hashIiESt8equal_toIi
   %219 = landingpad { ptr, i32 }
           catch ptr null
   %220 = extractvalue { ptr, i32 } %219, 0
-  tail call void @__clang_call_terminate(ptr %220) #23
+  tail call void @__clang_call_terminate(ptr %220) #24
   unreachable
 
 _ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i.i: ; preds = %217, %211, %.lr.ph.i.i.i.i.i
@@ -6263,7 +6263,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE5clearEv.exit:  ; preds = %.lr.ph100, %77, %22
   %226 = landingpad { ptr, i32 }
           catch ptr null
   %227 = extractvalue { ptr, i32 } %226, 0
-  tail call void @__clang_call_terminate(ptr %227) #23
+  tail call void @__clang_call_terminate(ptr %227) #24
   unreachable
 }
 
@@ -6298,7 +6298,7 @@ define internal fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK1
   store i32 0, ptr %3, align 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 1
-  %19 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 21531, ptr noundef nonnull %3) #24
+  %19 = call i32 (i32, i64, ...) @ioctl(i32 noundef %18, i64 noundef 21531, ptr noundef nonnull %3) #25
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %22
 
@@ -6325,11 +6325,11 @@ define internal fastcc void @"_ZZN8WasmEdge4Host4WASI6Poller4waitEvENK3$_0clERK1
   store i32 4, ptr %5, align 4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 1
-  %33 = call i32 @getsockopt(i32 noundef %32, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
+  %33 = call i32 @getsockopt(i32 noundef %32, i32 noundef 1, i32 noundef 7, ptr noundef nonnull %4, ptr noundef nonnull %5) #25
   %34 = icmp ne i32 %33, 0
   store i32 0, ptr %6, align 4
   %35 = load i32, ptr %31, align 1
-  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef %35, i64 noundef 21521, ptr noundef nonnull %6) #24
+  %36 = call i32 (i32, i64, ...) @ioctl(i32 noundef %35, i64 noundef 21521, ptr noundef nonnull %6) #25
   %37 = icmp ne i32 %36, 0
   %.1 = select i1 %37, i1 true, i1 %34
   br i1 %.1, label %38, label %39
@@ -6377,37 +6377,37 @@ define noundef zeroext i1 @_ZN8WasmEdge4Host4WASI6Poller2okEv(ptr noundef nonnul
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #17
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #16
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #9
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: noreturn
-declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #18
+declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #19
 
 ; Function Attrs: noreturn
-declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #18
+declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #19
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -6419,7 +6419,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef
   %4 = alloca %"struct.spdlog::source_loc", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(27) %1) #24
+  %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(27) %1) #25
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load atomic i32, ptr %6 monotonic, align 8
@@ -6431,8 +6431,8 @@ define linkonce_odr hidden void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
-  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #24
+  %13 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
+  %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
   call void @_ZN6spdlog7details7log_msgC1ENS_10source_locEN3fmt2v817basic_string_viewIcEENS_5level10level_enumES6_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %4, ptr %13, i64 %14, i32 noundef 3, ptr nonnull align 1 dereferenceable(27) %1, i64 %5)
   call void @_ZN6spdlog6logger7log_it_ERKNS_7details7log_msgEbb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(96) %3, i1 noundef zeroext %8, i1 noundef zeroext %10)
   br label %_ZN6spdlog6logger3logIA27_cEEvNS_5level10level_enumERKT_.exit
@@ -6456,7 +6456,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #18
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
@@ -6487,9 +6487,9 @@ define linkonce_odr ptr @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vect
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #24
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #25
   store i64 %8, ptr %7, align 8
-  invoke void @__cxa_rethrow() #26
+  invoke void @__cxa_rethrow() #27
           to label %28 unwind label %22
 
 22:                                               ; preds = %18
@@ -6505,7 +6505,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vect
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #23
+  tail call void @__clang_call_terminate(ptr %27) #24
   unreachable
 
 28:                                               ; preds = %18
@@ -6609,7 +6609,7 @@ define linkonce_odr hidden void @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0
   %20 = landingpad { ptr, i32 }
           catch ptr null
   %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #23
+  tail call void @__clang_call_terminate(ptr %21) #24
   unreachable
 
 _ZSt8_DestroyIN8WasmEdge4Host4WASI6Poller5TimerEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %18, %12, %.lr.ph.i.i.i.i.i.i.i.i
@@ -6632,11 +6632,11 @@ _ZSt8_DestroyIPN8WasmEdge4Host4WASI6Poller5TimerES4_EvT_S6_RSaIT0_E.exit.i.i.i.i
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub i64 %27, %28
-  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %23, i64 noundef %29) #29
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK16__wasi_clockid_tSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK16__wasi_clockid_tSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit: ; preds = %_ZSt8_DestroyIPN8WasmEdge4Host4WASI6Poller5TimerES4_EvT_S6_RSaIT0_E.exit.i.i.i.i.i, %24
-  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 40) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 40) #29
   br label %30
 
 30:                                               ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK16__wasi_clockid_tSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaISA_EEELb0EEEEE18_M_deallocate_nodeEPSE_.exit, %1
@@ -6664,16 +6664,16 @@ define linkonce_odr void @_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vec
   br i1 %9, label %.noexc.i.i, label %.noexc7.i.i
 
 .noexc.i.i:                                       ; preds = %8
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #26
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
 .noexc7.i.i:                                      ; preds = %8
-  tail call void @_ZSt17__throw_bad_allocv() #26
+  tail call void @_ZSt17__throw_bad_allocv() #27
   unreachable
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIK16__wasi_clockid_tSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaISA_EEELb0EEEEE19_M_allocate_bucketsEm.exit.i: ; preds = %6
   %10 = shl nuw nsw i64 %1, 3
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #27
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #28
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %11, i8 0, i64 %10, i1 false)
   br label %_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -6734,7 +6734,7 @@ _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6P
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = shl i64 %35, 3
-  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %36) #28
+  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %36) #29
   br label %_ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableI16__wasi_clockid_tSt4pairIKS0_St6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS8_EEESaISB_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %33
@@ -6756,7 +6756,7 @@ define linkonce_odr void @_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_E
   br i1 %10, label %11, label %_ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE12_M_check_lenEmPKc.exit
 
 11:                                               ; preds = %3
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.5) #27
   unreachable
 
 _ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE12_M_check_lenEmPKc.exit: ; preds = %3
@@ -6771,7 +6771,7 @@ _ZNKSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE12_M_check_lenEmPKc.exit
   %.not.i = icmp ne i64 %16, 0
   tail call void @llvm.assume(i1 %.not.i)
   %19 = mul nuw nsw i64 %16, 12
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #27
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #28
   %21 = getelementptr inbounds i8, ptr %20, i64 %18
   %22 = load i32, ptr %2, align 4
   store i32 -1, ptr %2, align 4
@@ -6863,7 +6863,7 @@ _ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_S_relocateEPS4_S7_S7_R
   %65 = load ptr, ptr %63, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = sub i64 %66, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %67) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %67) #29
   br label %_ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE13_M_deallocateEPS4_m.exit
 
 _ZNSt12_Vector_baseIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN8WasmEdge4Host4WASI6Poller5TimerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %64
@@ -6897,9 +6897,9 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Polle
   %19 = landingpad { ptr, i32 }
           catch ptr null
   %20 = extractvalue { ptr, i32 } %19, 0
-  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #24
+  %21 = tail call ptr @__cxa_begin_catch(ptr %20) #25
   store i64 %8, ptr %7, align 8
-  invoke void @__cxa_rethrow() #26
+  invoke void @__cxa_rethrow() #27
           to label %28 unwind label %22
 
 22:                                               ; preds = %18
@@ -6915,7 +6915,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Polle
   %26 = landingpad { ptr, i32 }
           catch ptr null
   %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #23
+  tail call void @__clang_call_terminate(ptr %27) #24
   unreachable
 
 28:                                               ; preds = %18
@@ -6995,16 +6995,16 @@ define linkonce_odr void @_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poll
   br i1 %9, label %.noexc.i.i, label %.noexc7.i.i
 
 .noexc.i.i:                                       ; preds = %8
-  tail call void @_ZSt28__throw_bad_array_new_lengthv() #26
+  tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
 .noexc7.i.i:                                      ; preds = %8
-  tail call void @_ZSt17__throw_bad_allocv() #26
+  tail call void @_ZSt17__throw_bad_allocv() #27
   unreachable
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEELb0EEEEE19_M_allocate_bucketsEm.exit.i: ; preds = %6
   %10 = shl nuw nsw i64 %1, 3
-  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #27
+  %11 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %10) #28
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %11, i8 0, i64 %10, i1 false)
   br label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -7065,7 +7065,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = shl i64 %35, 3
-  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %36) #28
+  tail call void @_ZdlPvm(ptr noundef %30, i64 noundef %36) #29
   br label %_ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %._crit_edge, %33
@@ -7243,7 +7243,7 @@ _ZNSt10_HashtableIiSt4pairIKiN8WasmEdge4Host4WASI6Poller6FdDataEESaIS7_ENSt8__de
   %.01742 = phi ptr [ %.0174352, %51 ], [ %.0174353, %69 ], [ %.017, %70 ], [ %.017, %71 ], [ %.017, %76 ]
   %78 = load ptr, ptr %.01742, align 8
   store ptr %78, ptr %.01545, align 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %.01742, i64 noundef 32) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %.01742, i64 noundef 32) #29
   %79 = load i64, ptr %3, align 8
   %80 = add i64 %79, -1
   store i64 %80, ptr %3, align 8
@@ -7307,7 +7307,7 @@ _ZSt27__uninitialized_default_n_aIP11epoll_eventmS0_ET_S2_T0_RSaIT1_E.exit: ; pr
   br i1 %26, label %27, label %_ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit
 
 27:                                               ; preds = %25
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #26
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #27
   unreachable
 
 _ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %25
@@ -7315,7 +7315,7 @@ _ZNKSt6vectorI11epoll_eventSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %25
   %28 = add nuw nsw i64 %.sroa.speculated.i, %10
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 768614336404564650)
   %30 = mul nuw nsw i64 %29, 12
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #27
+  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #28
   %32 = getelementptr inbounds i8, ptr %31, i64 %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %32, i8 0, i64 12, i1 false)
   %33 = icmp eq i64 %1, 1
@@ -7347,7 +7347,7 @@ _ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %
 
 40:                                               ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %41 = sub i64 %13, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #28
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %41) #29
   br label %_ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37
 
 _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds = %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %40
@@ -7363,25 +7363,25 @@ _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit37: ; preds =
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #19
+declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
+declare i64 @llvm.umax.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #20
+declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #20
+declare i32 @llvm.umin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #21
+declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7397,22 +7397,23 @@ attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(arg
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nofree nosync nounwind memory(none) }
-attributes #16 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #22 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #23 = { noreturn nounwind }
-attributes #24 = { nounwind }
-attributes #25 = { nounwind willreturn memory(none) }
-attributes #26 = { noreturn }
-attributes #27 = { builtin allocsize(0) }
-attributes #28 = { builtin nounwind }
-attributes #29 = { nounwind willreturn memory(read) }
+attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nofree nosync nounwind memory(none) }
+attributes #17 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #22 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #23 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #24 = { noreturn nounwind }
+attributes #25 = { nounwind }
+attributes #26 = { nounwind willreturn memory(none) }
+attributes #27 = { noreturn }
+attributes #28 = { builtin allocsize(0) }
+attributes #29 = { builtin nounwind }
+attributes #30 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
