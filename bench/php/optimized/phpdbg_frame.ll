@@ -1274,15 +1274,15 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
   %.not70.us106 = icmp eq i32 %115, 0
   br i1 %.not70.us106, label %._crit_edge.thread, label %.lr.ph.split.split.us
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %146
-  %.05497 = phi ptr [ %148, %146 ], [ %75, %.lr.ph.split ]
-  %.05696 = phi i32 [ %149, %146 ], [ %73, %.lr.ph.split ]
-  %.05895 = phi i8 [ %.1, %146 ], [ 0, %.lr.ph.split ]
-  %.05993 = phi i32 [ %.160, %146 ], [ 0, %.lr.ph.split ]
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %147
+  %.05497 = phi ptr [ %149, %147 ], [ %75, %.lr.ph.split ]
+  %.05696 = phi i32 [ %150, %147 ], [ %73, %.lr.ph.split ]
+  %.05895 = phi i8 [ %.1, %147 ], [ 0, %.lr.ph.split ]
+  %.05993 = phi i32 [ %.160, %147 ], [ 0, %.lr.ph.split ]
   %116 = getelementptr inbounds nuw i8, ptr %.05497, i64 8
   %117 = load i8, ptr %116, align 8, !tbaa !27
   %118 = icmp eq i8 %117, 0
-  br i1 %118, label %146, label %119, !prof !52
+  br i1 %118, label %147, label %119, !prof !52
 
 119:                                              ; preds = %.lr.ph.split.split
   %.not71 = icmp eq i32 %.05993, 0
@@ -1295,7 +1295,7 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
 
 123:                                              ; preds = %120, %119
   %124 = icmp slt i32 %.05993, %.fr
-  br i1 %124, label %125, label %142
+  br i1 %124, label %125, label %143
 
 125:                                              ; preds = %123
   %126 = load i8, ptr %.05586, align 8, !tbaa !27
@@ -1314,48 +1314,47 @@ define internal fastcc void @phpdbg_dump_prototype(ptr noundef readonly captures
   %135 = load i32, ptr %134, align 8, !tbaa !124
   %136 = lshr i32 %135, 27
   %137 = trunc nuw nsw i32 %136 to i8
-  %.pre = trunc i32 %136 to i1
-  %138 = select i1 %.pre, ptr @.str.22, ptr @.str.23
   br label %.thread87
 
 .thread87:                                        ; preds = %125, %132
-  %.pre-phi = phi ptr [ @.str.22, %125 ], [ %138, %132 ]
-  %.3.in = phi i8 [ %.05895, %125 ], [ %137, %132 ]
-  %139 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
+  %.3.in = phi i8 [ 1, %125 ], [ %137, %132 ]
+  %138 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
   %.not74 = icmp eq ptr %130, null
-  %140 = select i1 %.not74, ptr @.str.18, ptr %.053
-  %141 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %139, ptr noundef nonnull @.str.21, ptr noundef nonnull %140, ptr noundef nonnull %.pre-phi) #11
-  br label %142
+  %139 = select i1 %.not74, ptr @.str.18, ptr %.053
+  %140 = trunc i8 %.3.in to i1
+  %141 = select i1 %140, ptr @.str.22, ptr @.str.23
+  %142 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %138, ptr noundef nonnull @.str.21, ptr noundef nonnull %139, ptr noundef nonnull %141) #11
+  br label %143
 
-142:                                              ; preds = %.thread87, %123
+143:                                              ; preds = %.thread87, %123
   %.2 = phi i8 [ %.3.in, %.thread87 ], [ %.05895, %123 ]
-  %143 = add nsw i32 %.05993, 1
-  %144 = call ptr @phpdbg_short_zval_print(ptr noundef nonnull %.05497, i32 noundef 40) #11
-  %145 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.24, ptr noundef %144) #11
-  call void @_efree(ptr noundef %144) #11
-  br label %146
+  %144 = add nsw i32 %.05993, 1
+  %145 = call ptr @phpdbg_short_zval_print(ptr noundef nonnull %.05497, i32 noundef 40) #11
+  %146 = call i64 (ptr, ...) @php_printf(ptr noundef nonnull @.str.24, ptr noundef %145) #11
+  call void @_efree(ptr noundef %145) #11
+  br label %147
 
-146:                                              ; preds = %.lr.ph.split.split, %142
-  %.160 = phi i32 [ %.05993, %.lr.ph.split.split ], [ %143, %142 ]
-  %.1 = phi i8 [ %.05895, %.lr.ph.split.split ], [ %.2, %142 ]
-  %147 = getelementptr inbounds nuw i8, ptr %.05497, i64 %81
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %149 = add i32 %.05696, -1
-  %.not70 = icmp eq i32 %149, 0
+147:                                              ; preds = %.lr.ph.split.split, %143
+  %.160 = phi i32 [ %.05993, %.lr.ph.split.split ], [ %144, %143 ]
+  %.1 = phi i8 [ %.05895, %.lr.ph.split.split ], [ %.2, %143 ]
+  %148 = getelementptr inbounds nuw i8, ptr %.05497, i64 %81
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
+  %150 = add i32 %.05696, -1
+  %.not70 = icmp eq i32 %150, 0
   br i1 %.not70, label %._crit_edge, label %.lr.ph.split.split
 
-._crit_edge:                                      ; preds = %146
-  %150 = trunc i8 %.1 to i1
-  br i1 %150, label %151, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %147
+  %151 = trunc i8 %.1 to i1
+  br i1 %151, label %152, label %._crit_edge.thread
 
-151:                                              ; preds = %._crit_edge
-  %152 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
-  %153 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %152, ptr noundef nonnull @.str.25) #11
+152:                                              ; preds = %._crit_edge
+  %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
+  %154 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %153, ptr noundef nonnull @.str.25) #11
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %112, %93, %70, %._crit_edge, %151, %44
-  %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
-  %155 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %154, ptr noundef nonnull @.str.26) #11
+._crit_edge.thread:                               ; preds = %112, %93, %70, %._crit_edge, %152, %44
+  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !111
+  %156 = call i32 (i32, ptr, ...) @phpdbg_out_internal(i32 noundef %155, ptr noundef nonnull @.str.26) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0)
   ret void
 }

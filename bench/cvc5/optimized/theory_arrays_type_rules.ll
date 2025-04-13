@@ -1760,38 +1760,36 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory6arrays18ArrayStoreTyp
   %61 = load ptr, ptr %3, align 8, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8
-  %64 = trunc i64 %63 to i32
-  %65 = and i32 %64, 1023
-  %66 = icmp eq i32 %65, 216
-  br i1 %66, label %67, label %.critedge.preheader
+  %64 = and i64 %63, 1023
+  %65 = icmp eq i64 %64, 216
+  br i1 %65, label %66, label %.critedge.preheader
 
-67:                                               ; preds = %60
-  %68 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 216)
-  %69 = icmp eq i32 %68, 2
-  %spec.select.i.i67 = select i1 %69, i64 2, i64 1
-  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %71 = getelementptr inbounds nuw [0 x ptr], ptr %70, i64 0, i64 %spec.select.i.i67
-  %72 = load ptr, ptr %71, align 8, !tbaa !19, !noalias !109
-  %73 = load i64, ptr %72, align 8
-  %74 = and i64 %73, 1099511627775
-  %75 = load ptr, ptr %4, align 8, !tbaa !14
-  %76 = load i64, ptr %75, align 8
-  %77 = and i64 %76, 1099511627775
-  %.not = icmp samesign ult i64 %74, %77
+66:                                               ; preds = %60
+  %67 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 216)
+  %68 = icmp eq i32 %67, 2
+  %spec.select.i.i67 = select i1 %68, i64 2, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  %70 = getelementptr inbounds nuw [0 x ptr], ptr %69, i64 0, i64 %spec.select.i.i67
+  %71 = load ptr, ptr %70, align 8, !tbaa !19, !noalias !109
+  %72 = load i64, ptr %71, align 8
+  %73 = and i64 %72, 1099511627775
+  %74 = load ptr, ptr %4, align 8, !tbaa !14
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, 1099511627775
+  %.not = icmp samesign ult i64 %73, %76
   br i1 %.not, label %..critedge.preheader_crit_edge, label %280
 
-..critedge.preheader_crit_edge:                   ; preds = %67
+..critedge.preheader_crit_edge:                   ; preds = %66
   %.pre = load ptr, ptr %3, align 8, !tbaa !14
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre94 = load i64, ptr %.phi.trans.insert, align 8
-  %.pre98 = trunc i64 %.pre94 to i32
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %..critedge.preheader_crit_edge, %60
-  %.pre-phi = phi i32 [ %.pre98, %..critedge.preheader_crit_edge ], [ %64, %60 ]
+  %77 = phi i64 [ %.pre94, %..critedge.preheader_crit_edge ], [ %63, %60 ]
   %78 = phi ptr [ %.pre, %..critedge.preheader_crit_edge ], [ %61, %60 ]
-  %79 = and i32 %.pre-phi, 1023
-  %80 = icmp eq i32 %79, 216
+  %79 = and i64 %77, 1023
+  %80 = icmp eq i64 %79, 216
   br i1 %80, label %.lr.ph, label %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_13ArrayStoreAllEEERKT_v.exit
 
 .lr.ph:                                           ; preds = %.critedge.preheader, %_ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit
@@ -2274,8 +2272,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %266, %269, %275
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   resume { ptr, i32 } %.pn49.pn.pn.pn.pn.pn.pn.pn.pn
 
-280:                                              ; preds = %67, %2, %56, %58, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.0 = phi i1 [ %.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %58 ], [ false, %56 ], [ false, %2 ], [ false, %67 ]
+280:                                              ; preds = %66, %2, %56, %58, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %.0 = phi i1 [ %.1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ false, %58 ], [ false, %56 ], [ false, %2 ], [ false, %66 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17

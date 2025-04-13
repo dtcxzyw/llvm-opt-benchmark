@@ -1888,7 +1888,7 @@ str_prev_ofs.exit:                                ; preds = %.preheader.i, %58
   br i1 %exitcond.not.i159, label %mem_strndup.exit.thread168, label %.lr.ph.i, !llvm.loop !83
 
 mem_strndup.exit.thread168:                       ; preds = %.lr.ph.i, %89, %.preheader.i158
-  %.022.i.lcssa.sink = phi i64 [ %79, %.preheader.i158 ], [ %79, %89 ], [ %.022.i, %.lr.ph.i ]
+  %.022.i.lcssa.sink = phi i64 [ 0, %.preheader.i158 ], [ %79, %89 ], [ %.022.i, %.lr.ph.i ]
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 %.022.i.lcssa.sink
   store i8 0, ptr %92, align 1, !tbaa !4
   %93 = icmp sgt i64 %78, 0
@@ -3152,10 +3152,11 @@ ic_strlen.exit:                                   ; preds = %3
   br i1 %13, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %10, %9
+  %.029.ph = phi i64 [ 0, %9 ], [ %1, %10 ]
   br label %14
 
 14:                                               ; preds = %.preheader, %19
-  %.029 = phi i64 [ %22, %19 ], [ %1, %.preheader ]
+  %.029 = phi i64 [ %22, %19 ], [ %.029.ph, %.preheader ]
   %15 = icmp slt i64 %.029, %8
   br i1 %15, label %16, label %.thread41
 
@@ -3205,10 +3206,11 @@ ic_strlen.exit.i:                                 ; preds = %4
   br i1 %14, label %ic_is_token.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %11, %10
+  %.029.i.ph = phi i64 [ 0, %10 ], [ %1, %11 ]
   br label %15
 
 15:                                               ; preds = %.preheader, %20
-  %.029.i = phi i64 [ %23, %20 ], [ %1, %.preheader ]
+  %.029.i = phi i64 [ %23, %20 ], [ %.029.i.ph, %.preheader ]
   %16 = icmp slt i64 %.029.i, %9
   br i1 %16, label %17, label %ic_is_token.exit
 
@@ -3275,10 +3277,11 @@ ic_strlen.exit.i:                                 ; preds = %4
   br i1 %14, label %ic_is_token.exit.thread, label %.preheader37
 
 .preheader37:                                     ; preds = %11, %10
+  %.029.i.ph = phi i64 [ 0, %10 ], [ %1, %11 ]
   br label %15
 
 15:                                               ; preds = %.preheader37, %20
-  %.029.i = phi i64 [ %23, %20 ], [ %1, %.preheader37 ]
+  %.029.i = phi i64 [ %23, %20 ], [ %.029.i.ph, %.preheader37 ]
   %16 = icmp slt i64 %.029.i, %9
   br i1 %16, label %17, label %ic_is_token.exit
 
@@ -11177,10 +11180,11 @@ sub_189:                                          ; preds = %.tail
   br i1 %.not22.i, label %ic_istarts_with.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.tail87.thread.thread, %.thread, %47
+  %.ph = phi i8 [ %35, %47 ], [ 46, %.thread ], [ 46, %.tail87.thread.thread ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %58
-  %48 = phi i8 [ %61, %58 ], [ %35, %.lr.ph.i.preheader ]
+  %48 = phi i8 [ %61, %58 ], [ %.ph, %.lr.ph.i.preheader ]
   %.023.i = phi i64 [ %59, %58 ], [ 0, %.lr.ph.i.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 %.023.i
   %50 = load i8, ptr %49, align 1, !tbaa !4

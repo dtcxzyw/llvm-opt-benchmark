@@ -109,22 +109,25 @@ define i64 @ossl_quic_engine_make_real_time(ptr noundef readonly captures(none) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %.not = icmp eq ptr %4, null
-  %5 = add i64 %1, 1
-  %6 = icmp ult i64 %5, 2
-  %or.cond15 = select i1 %.not, i1 true, i1 %6
-  br i1 %or.cond15, label %12, label %7
+  br i1 %.not, label %.fold.split, label %5
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
-  %10 = tail call i64 %4(ptr noundef %9) #10
-  %..i = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %10)
-  %11 = tail call i64 @ossl_time_now() #10
-  %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %..i, i64 %11)
-  br label %12
+5:                                                ; preds = %2
+  switch i64 %1, label %6 [
+    i64 0, label %.fold.split
+    i64 -1, label %.fold.split
+  ]
 
-12:                                               ; preds = %7, %2
-  %.sroa.07.0 = phi i64 [ %.sroa.03.0.i, %7 ], [ %1, %2 ]
+6:                                                ; preds = %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = load ptr, ptr %7, align 8, !tbaa !28
+  %9 = tail call i64 %4(ptr noundef %8) #10
+  %..i = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %9)
+  %10 = tail call i64 @ossl_time_now() #10
+  %.sroa.03.0.i = tail call i64 @llvm.uadd.sat.i64(i64 %..i, i64 %10)
+  br label %.fold.split
+
+.fold.split:                                      ; preds = %5, %5, %6, %2
+  %.sroa.07.0 = phi i64 [ %1, %5 ], [ %.sroa.03.0.i, %6 ], [ %1, %2 ], [ %1, %5 ]
   ret i64 %.sroa.07.0
 }
 

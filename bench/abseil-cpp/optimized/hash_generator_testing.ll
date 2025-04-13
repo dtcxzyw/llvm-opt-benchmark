@@ -127,7 +127,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i
 
 common.resume:                                    ; preds = %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i
-  %common.resume.op = phi { ptr, i32 } [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i ], [ %52, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit1 ]
+  %common.resume.op = phi { ptr, i32 } [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i ], [ %47, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit1 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i4.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i5.i.i
@@ -142,7 +142,7 @@ _ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqC2
 .lr.ph.i.i.i:                                     ; preds = %.noexc, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqC2Ev.exit
   %.06.i.idx.i.i = phi i64 [ %.06.i.add.i.i, %.noexc ], [ 0, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqC2Ev.exit ]
   %23 = invoke noundef i32 @_ZNSt13random_device9_M_getvalEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %.noexc unwind label %51
+          to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %.lr.ph.i.i.i
   %.06.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.06.i.idx.i.i
@@ -151,67 +151,81 @@ _ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqC2
   %.not.i.i.i = icmp eq i64 %.06.i.add.i.i, 2496
   br i1 %.not.i.i.i, label %.preheader.i.i, label %.lr.ph.i.i.i, !llvm.loop !20
 
-.preheader.i.i:                                   ; preds = %.noexc, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i
-  %.01826.i.i = phi i64 [ %44, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ], [ 0, %.noexc ]
-  %.01925.i.i = phi i8 [ %.1.i.i, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ], [ 1, %.noexc ]
+.preheader.i.i:                                   ; preds = %.noexc, %.preheader.i.i.backedge
+  %.01826.i.i = phi i64 [ %.01826.i.i.be, %.preheader.i.i.backedge ], [ 0, %.noexc ]
+  %.01925.i.i = phi i1 [ %.01925.i.i.be, %.preheader.i.i.backedge ], [ true, %.noexc ]
   %24 = shl nuw nsw i64 %.01826.i.i, 1
-  br label %30
+  br label %28
 
 25:                                               ; preds = %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i
-  %26 = trunc nuw i8 %.1.i.i to i1
-  br i1 %26, label %45, label %46
+  br i1 %.not.i.i, label %41, label %.loopexit
 
-27:                                               ; preds = %30
-  %28 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %.01826.i.i
-  store i64 %37, ptr %28, align 8, !tbaa !9
-  %29 = trunc nuw i8 %.01925.i.i to i1
-  br i1 %29, label %39, label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i
+26:                                               ; preds = %28
+  %27 = getelementptr inbounds nuw [312 x i64], ptr %0, i64 0, i64 %.01826.i.i
+  store i64 %35, ptr %27, align 8, !tbaa !9
+  br i1 %.01925.i.i, label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i, label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i
 
-30:                                               ; preds = %30, %.preheader.i.i
-  %31 = phi i1 [ true, %.preheader.i.i ], [ false, %30 ]
-  %.024.i.i = phi i64 [ 0, %.preheader.i.i ], [ 1, %30 ]
-  %.01623.i.i = phi i64 [ 0, %.preheader.i.i ], [ %37, %30 ]
-  %.01722.i.i = phi i64 [ 1, %.preheader.i.i ], [ %38, %30 ]
-  %32 = or disjoint i64 %.024.i.i, %24
-  %33 = getelementptr inbounds nuw [624 x i32], ptr %2, i64 0, i64 %32
-  %34 = load i32, ptr %33, align 4, !tbaa !18
-  %35 = zext i32 %34 to i64
-  %36 = mul i64 %.01722.i.i, %35
-  %37 = add i64 %36, %.01623.i.i
-  %38 = shl i64 %.01722.i.i, 32
-  br i1 %31, label %30, label %27, !llvm.loop !22
+28:                                               ; preds = %28, %.preheader.i.i
+  %29 = phi i1 [ true, %.preheader.i.i ], [ false, %28 ]
+  %.024.i.i = phi i64 [ 0, %.preheader.i.i ], [ 1, %28 ]
+  %.01623.i.i = phi i64 [ 0, %.preheader.i.i ], [ %35, %28 ]
+  %.01722.i.i = phi i64 [ 1, %.preheader.i.i ], [ %36, %28 ]
+  %30 = or disjoint i64 %.024.i.i, %24
+  %31 = getelementptr inbounds nuw [624 x i32], ptr %2, i64 0, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !18
+  %33 = zext i32 %32 to i64
+  %34 = mul i64 %.01722.i.i, %33
+  %35 = add i64 %34, %.01623.i.i
+  %36 = shl i64 %.01722.i.i, 32
+  br i1 %29, label %28, label %26, !llvm.loop !22
 
-39:                                               ; preds = %27
-  %40 = icmp eq i64 %.01826.i.i, 0
-  br i1 %40, label %41, label %43
+_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i: ; preds = %26
+  %37 = icmp eq i64 %.01826.i.i, 0
+  %38 = load i64, ptr %0, align 8
+  %.not20.i.i = icmp ult i64 %38, 2147483648
+  %.not.i.i = icmp eq i64 %35, 0
+  %.1.shrunk.i.i = select i1 %37, i1 %.not20.i.i, i1 %.not.i.i
+  %39 = add nuw nsw i64 %.01826.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %39, 312
+  br i1 %exitcond.not.i.i, label %25, label %.preheader.i.i.backedge
 
-41:                                               ; preds = %39
-  %42 = load i64, ptr %0, align 8, !tbaa !9
-  %.not20.i.i = icmp ult i64 %42, 2147483648
-  %spec.select.i.i = select i1 %.not20.i.i, i8 %.01925.i.i, i8 0
-  br label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i
+_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i: ; preds = %26
+  %40 = add nuw nsw i64 %.01826.i.i, 1
+  %exitcond.not28.i.i = icmp eq i64 %40, 312
+  br i1 %exitcond.not28.i.i, label %.loopexit, label %.preheader.i.i.backedge
 
-43:                                               ; preds = %39
-  %.not.i.i = icmp eq i64 %37, 0
-  %spec.select21.i.i = select i1 %.not.i.i, i8 %.01925.i.i, i8 0
-  br label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i
+.preheader.i.i.backedge:                          ; preds = %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i
+  %.01826.i.i.be = phi i64 [ %39, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ], [ %40, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i ]
+  %.01925.i.i.be = phi i1 [ %.1.shrunk.i.i, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i ], [ false, %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i ]
+  br label %.preheader.i.i, !llvm.loop !23
 
-_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.i.i: ; preds = %43, %41, %27
-  %.1.i.i = phi i8 [ 0, %27 ], [ %spec.select.i.i, %41 ], [ %spec.select21.i.i, %43 ]
-  %44 = add nuw nsw i64 %.01826.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %44, 312
-  br i1 %exitcond.not.i.i, label %25, label %.preheader.i.i, !llvm.loop !23
-
-45:                                               ; preds = %25
+41:                                               ; preds = %25
   store i64 -9223372036854775808, ptr %0, align 8, !tbaa !9
-  br label %46
+  br label %.loopexit
 
-46:                                               ; preds = %45, %25
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2496
-  store i64 312, ptr %47, align 8, !tbaa !24
+.loopexit:                                        ; preds = %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8generateIPjEEvT_S6_.exit.thread.i.i, %41, %25
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2496
+  store i64 312, ptr %42, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %2) #14
   invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit unwind label %48
+          to label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit unwind label %43
+
+43:                                               ; preds = %.loopexit
+  %44 = landingpad { ptr, i32 }
+          catch ptr null
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #16
+  unreachable
+
+_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit: ; preds = %.loopexit
+  call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %4) #14
+  ret void
+
+46:                                               ; preds = %.lr.ph.i.i.i
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
+          to label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit1 unwind label %48
 
 48:                                               ; preds = %46
   %49 = landingpad { ptr, i32 }
@@ -220,24 +234,7 @@ _ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeq8g
   call void @__clang_call_terminate(ptr %50) #16
   unreachable
 
-_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit: ; preds = %46
-  call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %4) #14
-  ret void
-
-51:                                               ; preds = %.lr.ph.i.i.i
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000) %4)
-          to label %_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit1 unwind label %53
-
-53:                                               ; preds = %51
-  %54 = landingpad { ptr, i32 }
-          catch ptr null
-  %55 = extractvalue { ptr, i32 } %54, 0
-  call void @__clang_call_terminate(ptr %55) #16
-  unreachable
-
-_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit1: ; preds = %51
+_ZN4absl18container_internal13hash_internal12_GLOBAL__N_119RandomDeviceSeedSeqD2Ev.exit1: ; preds = %46
   call void @llvm.lifetime.end.p0(i64 5000, ptr nonnull %4) #14
   br label %common.resume
 }

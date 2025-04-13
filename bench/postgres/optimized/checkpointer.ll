@@ -1271,6 +1271,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
   br label %48
 
 ._crit_edge:                                      ; preds = %42, %15
+  %.pre.pre-phi = phi i32 [ %31, %15 ], [ 32, %42 ]
   %.lcssa44 = phi ptr [ %27, %15 ], [ %44, %42 ]
   %.lcssa42 = phi i32 [ %29, %15 ], [ %46, %42 ]
   %36 = load ptr, ptr %.lcssa44, align 8
@@ -1298,7 +1299,8 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #3 {
   br i1 %47, label %.lr.ph.split, label %._crit_edge
 
 48:                                               ; preds = %.split, %34, %._crit_edge
-  %.not28 = icmp eq i32 %31, 0
+  %.pre-phi = phi i32 [ %.pre.pre-phi, %._crit_edge ], [ %31, %34 ], [ %31, %.split ]
+  %.not28 = icmp eq i32 %.pre-phi, 0
   br i1 %.not28, label %98, label %49
 
 49:                                               ; preds = %48

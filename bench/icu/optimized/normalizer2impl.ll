@@ -5089,8 +5089,8 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
 
 .preheader:                                       ; preds = %_ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.not6274 = icmp eq ptr %1, %2
-  br i1 %.not6274, label %.thread, label %.lr.ph
+  %.not6273 = icmp eq ptr %1, %2
+  br i1 %.not6273, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5103,12 +5103,12 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   br label %114
 
 34:                                               ; preds = %.lr.ph, %101
-  %.04678 = phi i1 [ true, %.lr.ph ], [ false, %101 ]
-  %.04877 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %101 ]
-  %.05176 = phi ptr [ %1, %.lr.ph ], [ %.253, %101 ]
-  %.05575 = phi i8 [ 0, %.lr.ph ], [ %.0.i, %101 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.05176, i64 2
-  %36 = load i16, ptr %.05176, align 2, !tbaa !32
+  %.04677 = phi i1 [ true, %.lr.ph ], [ false, %101 ]
+  %.04876 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %101 ]
+  %.05175 = phi ptr [ %1, %.lr.ph ], [ %.253, %101 ]
+  %.05574 = phi i8 [ 0, %.lr.ph ], [ %.0.i, %101 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.05175, i64 2
+  %36 = load i16, ptr %.05175, align 2, !tbaa !32
   %37 = zext i16 %36 to i32
   %38 = and i32 %37, 63488
   %39 = icmp eq i32 %38, 55296
@@ -5142,39 +5142,39 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   %55 = zext i16 %54 to i32
   %56 = and i32 %55, 64512
   %57 = icmp eq i32 %56, 56320
-  %.pre92 = load ptr, ptr %29, align 8, !tbaa !45
+  %.pre91 = load ptr, ptr %29, align 8, !tbaa !45
   br i1 %57, label %58, label %71
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %.05176, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.05175, i64 4
   %60 = shl nuw nsw i32 %37, 10
   %61 = add nsw i32 %60, -56613888
   %62 = add nuw nsw i32 %61, %55
-  %63 = getelementptr inbounds nuw i8, ptr %.pre92, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.pre91, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !49
   %.not64 = icmp slt i32 %62, %64
   br i1 %.not64, label %69, label %65
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %.pre92, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.pre91, i64 20
   %67 = load i32, ptr %66, align 4, !tbaa !50
   %68 = add nsw i32 %67, -2
   br label %76
 
 69:                                               ; preds = %58
-  %70 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre92, i32 noundef %62)
-  %.pre93 = load ptr, ptr %29, align 8, !tbaa !45
+  %70 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre91, i32 noundef %62)
+  %.pre92 = load ptr, ptr %29, align 8, !tbaa !45
   br label %76
 
 71:                                               ; preds = %._crit_edge, %53
-  %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre92, %53 ]
+  %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre91, %53 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 20
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = add nsw i32 %74, -1
   br label %76
 
 76:                                               ; preds = %71, %69, %65, %40
-  %77 = phi ptr [ %41, %40 ], [ %72, %71 ], [ %.pre93, %69 ], [ %.pre92, %65 ]
+  %77 = phi ptr [ %41, %40 ], [ %72, %71 ], [ %.pre92, %69 ], [ %.pre91, %65 ]
   %.253 = phi ptr [ %35, %40 ], [ %35, %71 ], [ %59, %69 ], [ %59, %65 ]
   %.045 = phi i32 [ %49, %40 ], [ %75, %71 ], [ %70, %69 ], [ %68, %65 ]
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -5219,14 +5219,14 @@ _ZNK6icu_7715Normalizer2Impl5getCCEt.exit:        ; preds = %84, %97
   br i1 %100, label %.thread, label %101
 
 101:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit
-  %spec.select = select i1 %.04678, i8 %.0.i, i8 %.04877
+  %spec.select = select i1 %.04677, i8 %.0.i, i8 %.04876
   %.not62 = icmp eq ptr %.253, %2
   br i1 %.not62, label %.thread, label %34
 
 .thread:                                          ; preds = %101, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit, %86, %90, %.preheader
-  %.055.lcssa = phi i8 [ 0, %.preheader ], [ %.05575, %90 ], [ %.05575, %86 ], [ %.05575, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.0.i, %101 ]
-  %.051.lcssa = phi ptr [ %1, %.preheader ], [ %.05176, %90 ], [ %.05176, %86 ], [ %.05176, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.253, %101 ]
-  %.048.lcssa = phi i8 [ 0, %.preheader ], [ %.04877, %90 ], [ %.04877, %86 ], [ %.04877, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %spec.select, %101 ]
+  %.055.lcssa = phi i8 [ 0, %.preheader ], [ %.05574, %90 ], [ %.05574, %86 ], [ %.05574, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.0.i, %101 ]
+  %.051.lcssa = phi ptr [ %1, %.preheader ], [ %.05175, %90 ], [ %.05175, %86 ], [ %.05175, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.253, %101 ]
+  %.048.lcssa = phi i8 [ 0, %.preheader ], [ %.04876, %90 ], [ %.04876, %86 ], [ %.04876, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %spec.select, %101 ]
   %102 = icmp eq ptr %2, null
   br i1 %102, label %103, label %105
 
@@ -5894,7 +5894,6 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
 
 .outer.outer:                                     ; preds = %.outer.outer.backedge, %.preheader183
   %.0141.ph.ph = phi ptr [ null, %.preheader183 ], [ %271, %.outer.outer.backedge ]
-  %.0129.ph.ph = phi i8 [ 0, %.preheader183 ], [ %72, %.outer.outer.backedge ]
   %.0126.ph.ph = phi i8 [ 0, %.preheader183 ], [ %.0126.ph.ph.be, %.outer.outer.backedge ]
   %.0121.ph.ph = phi ptr [ null, %.preheader183 ], [ %.0121.ph.ph.be, %.outer.outer.backedge ]
   %.0114.ph.ph = phi ptr [ %10, %.preheader183 ], [ %.0114, %.outer.outer.backedge ]
@@ -5907,7 +5906,7 @@ define void @_ZNK6icu_7715Normalizer2Impl9recomposeERNS_16ReorderingBufferEia(pt
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
   %.0141.ph = phi ptr [ %.0141.ph.ph, %.outer.outer ], [ %.0141.ph.be, %.outer.backedge ]
-  %.0129.ph = phi i8 [ %.0129.ph.ph, %.outer.outer ], [ %72, %.outer.backedge ]
+  %.0129.ph = phi i8 [ 0, %.outer.outer ], [ %72, %.outer.backedge ]
   %.0126.ph = phi i8 [ %.0126.ph.ph, %.outer.outer ], [ %.0126.ph187, %.outer.backedge ]
   %.0114.ph = phi ptr [ %.0114.ph.ph, %.outer.outer ], [ %.0114, %.outer.backedge ]
   %.0.ph = phi ptr [ %.0.ph.ph, %.outer.outer ], [ %.1, %.outer.backedge ]

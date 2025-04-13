@@ -204,7 +204,6 @@ _ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15dif
   %.lcssa228 = phi i32 [ %.sroa.speculated.i.i.i.i.i241, %2 ], [ %40, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
   %.lcssa226 = phi i32 [ 1, %2 ], [ %42, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
   %.lcssa224 = phi i32 [ %13, %2 ], [ %43, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
-  %.lcssa = phi i32 [ %14, %2 ], [ %44, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
   %.pre = add nsw i32 %.sroa.speculated.i.i.i.i.i.lcssa, %.sroa.1951.sroa.12.0.lcssa
   %18 = icmp sgt i32 %.lcssa231, -1
   %19 = icmp sgt i32 %.lcssa233, -1
@@ -267,7 +266,7 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %.lr.ph
   %50 = phi i32 [ %.lcssa228, %_ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15difference_typeE.exit..critedge_crit_edge ], [ %23, %.lr.ph ]
   %51 = phi i32 [ %.lcssa226, %_ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15difference_typeE.exit..critedge_crit_edge ], [ %22, %.lr.ph ]
   %52 = phi i32 [ %.lcssa224, %_ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15difference_typeE.exit..critedge_crit_edge ], [ %21, %.lr.ph ]
-  %53 = phi i32 [ %.lcssa, %_ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15difference_typeE.exit..critedge_crit_edge ], [ %20, %.lr.ph ]
+  %53 = phi i32 [ 0, %_ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15difference_typeE.exit..critedge_crit_edge ], [ %20, %.lr.ph ]
   %.pre-phi = phi i32 [ %.pre, %_ZSt4nextIN8rawspeed21Cr2OutputTileIteratorEET_S2_NSt15iterator_traitsIS2_E15difference_typeE.exit..critedge_crit_edge ], [ %31, %.lr.ph ]
   %54 = icmp samesign ult i32 %.sroa.14.0239, %4
   tail call void @llvm.assume(i1 %54)

@@ -2150,10 +2150,11 @@ clause_fetch.exit.i.i172.i.i:                     ; preds = %494, %.lr.ph86.i.i.
   br i1 %.not5581.i.i.i.i, label %.lr.ph.i.i174.i.i.preheader, label %.critedge57.loopexit.i.i.i.i
 
 .lr.ph.i.i174.i.i.preheader:                      ; preds = %518, %515, %504
+  %.ph = phi i32 [ 2, %504 ], [ 2, %515 ], [ %502, %518 ]
   br label %.lr.ph.i.i174.i.i
 
 .lr.ph.i.i174.i.i:                                ; preds = %.lr.ph.i.i174.i.i.preheader, %612
-  %519 = phi i32 [ %613, %612 ], [ %502, %.lr.ph.i.i174.i.i.preheader ]
+  %519 = phi i32 [ %613, %612 ], [ %.ph, %.lr.ph.i.i174.i.i.preheader ]
   %indvars.iv.i.i175.i.i = phi i64 [ %indvars.iv.next.i.i176.i.i, %612 ], [ 1, %.lr.ph.i.i174.i.i.preheader ]
   %520 = getelementptr inbounds nuw i32, ptr %500, i64 %indvars.iv.i.i175.i.i
   %521 = load i32, ptr %520, align 4, !tbaa !35

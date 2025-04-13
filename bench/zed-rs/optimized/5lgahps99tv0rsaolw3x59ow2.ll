@@ -407,23 +407,26 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i22: ; preds = %103
   %137 = urem i32 %136, %98
   %138 = uitofp i32 %137 to float
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  br label %.outer
+
+.outer:                                           ; preds = %.thread, %.lr.ph53
+  %.sroa.0.151.ph = phi i1 [ true, %.thread ], [ false, %.lr.ph53 ]
+  %.sroa.8.150.ph = phi float [ %153, %.thread ], [ undef, %.lr.ph53 ]
+  %.sroa.14.049.ph = phi i64 [ 1, %.thread ], [ 0, %.lr.ph53 ]
   br label %142
 
 140:                                              ; preds = %.loopexit
   tail call void @_ZN4core9panicking11panic_const23panic_const_rem_by_zero17h1bfa65ef1309b877E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f085cfcccbfba9c314a9b6d9e5f7a063.6) #14
   unreachable
 
-._crit_edge54:                                    ; preds = %180
+._crit_edge54:                                    ; preds = %177
   %.pre = load i32, ptr %17, align 4
   %141 = add i32 %.pre, 1
   store i32 %141, ptr %17, align 4
-  %trunc = trunc nuw i32 %.sroa.0.2 to i1
-  br i1 %trunc, label %169, label %155
+  br i1 %.sroa.0.151.ph, label %169, label %155
 
-142:                                              ; preds = %.lr.ph53, %180
-  %.sroa.0.151 = phi i32 [ 0, %.lr.ph53 ], [ %.sroa.0.2, %180 ]
-  %.sroa.8.150 = phi float [ undef, %.lr.ph53 ], [ %.sroa.8.2, %180 ]
-  %.sroa.14.049 = phi i64 [ 0, %.lr.ph53 ], [ %143, %180 ]
+142:                                              ; preds = %.outer, %177
+  %.sroa.14.049 = phi i64 [ %143, %177 ], [ %.sroa.14.049.ph, %.outer ]
   %143 = add nuw i64 %.sroa.14.049, 1
   %144 = getelementptr inbounds float, ptr %127, i64 %.sroa.14.049
   %145 = getelementptr inbounds float, ptr %131, i64 %.sroa.14.049
@@ -436,10 +439,10 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit.i22: ; preds = %103
   %152 = fdiv float %150, %151
   %153 = fadd float %146, %152
   %154 = icmp eq i64 %.sroa.14.049, 0
-  br i1 %154, label %180, label %172
+  br i1 %154, label %.thread, label %172
 
 155:                                              ; preds = %._crit_edge54.thread, %._crit_edge54
-  %.sroa.8.1.lcssa61 = phi float [ undef, %._crit_edge54.thread ], [ %.sroa.8.2, %._crit_edge54 ]
+  %.sroa.8.1.lcssa60 = phi float [ undef, %._crit_edge54.thread ], [ %.sroa.8.150.ph, %._crit_edge54 ]
   %156 = load i64, ptr %128, align 8, !noundef !4
   %157 = icmp eq i64 %156, 0
   br i1 %157, label %169, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit31"
@@ -471,9 +474,9 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit: ; preds = %163
   store i64 0, ptr %128, align 8
   br label %169
 
-169:                                              ; preds = %155, %._crit_edge54, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit", %12
-  %.sroa.8.0 = phi float [ %15, %12 ], [ %159, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %.sroa.8.2, %._crit_edge54 ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa61, %155 ]
-  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 1, %._crit_edge54 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %155 ]
+169:                                              ; preds = %._crit_edge54.thread66, %155, %._crit_edge54, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit", %12
+  %.sroa.8.0 = phi float [ %15, %12 ], [ %159, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ %.sroa.8.150.ph, %._crit_edge54 ], [ %22, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ %.sroa.8.1.lcssa60, %155 ], [ %153, %._crit_edge54.thread66 ]
+  %.sroa.0.0 = phi i32 [ %14, %12 ], [ 1, %_ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit ], [ 1, %._crit_edge54 ], [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h0f58527ee8f0cc7eE.exit" ], [ 0, %155 ], [ 1, %._crit_edge54.thread66 ]
   %170 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
   %171 = insertvalue { i32, float } %170, float %.sroa.8.0, 1
   ret { i32, float } %171
@@ -482,25 +485,30 @@ _ZN4core10intrinsics10typed_swap17h5d4f9f35dc9407bfE.exit: ; preds = %163
   %173 = load i64, ptr %9, align 8, !alias.scope !36, !noundef !4
   %174 = load i64, ptr %8, align 8, !alias.scope !36, !noundef !4
   %175 = icmp eq i64 %173, %174
-  br i1 %175, label %176, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit"
+  br i1 %175, label %176, label %177
 
 176:                                              ; preds = %172
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h813dde4289956433E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
-  br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit"
+  br label %177
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit": ; preds = %172, %176
-  %177 = load ptr, ptr %139, align 8, !alias.scope !36, !nonnull !4, !noundef !4
-  %178 = getelementptr inbounds float, ptr %177, i64 %173
-  store float %153, ptr %178, align 4
-  %179 = add i64 %173, 1
-  store i64 %179, ptr %9, align 8, !alias.scope !36
-  br label %180
-
-180:                                              ; preds = %142, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit"
-  %.sroa.8.2 = phi float [ %.sroa.8.150, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit" ], [ %153, %142 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.151, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hbb54981e4606499dE.exit" ], [ 1, %142 ]
+177:                                              ; preds = %176, %172
+  %178 = load ptr, ptr %139, align 8, !alias.scope !36, !nonnull !4, !noundef !4
+  %179 = getelementptr inbounds float, ptr %178, i64 %173
+  store float %153, ptr %179, align 4
+  %180 = add i64 %173, 1
+  store i64 %180, ptr %9, align 8, !alias.scope !36
   %exitcond.not = icmp eq i64 %143, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %exitcond.not, label %._crit_edge54, label %142
+
+.thread:                                          ; preds = %142
+  %exitcond.not63 = icmp eq i64 %143, %.sroa.0.0.sroa.speculated.i.i.i
+  br i1 %exitcond.not63, label %._crit_edge54.thread66, label %.outer
+
+._crit_edge54.thread66:                           ; preds = %.thread
+  %.pre69 = load i32, ptr %17, align 4
+  %181 = add i32 %.pre69, 1
+  store i32 %181, ptr %17, align 4
+  br label %169
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

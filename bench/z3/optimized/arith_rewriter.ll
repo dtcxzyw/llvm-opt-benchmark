@@ -51230,7 +51230,8 @@ _ZN8rationalpLERKS_.exit:                         ; preds = %41
 
 _ZNK13poly_rewriterI19arith_rewriter_coreE6mon_ltclEP4exprS4_.exit: ; preds = %.noexc117, %61
   %.0.i = phi i1 [ %66, %.noexc117 ], [ %62, %61 ]
-  %spec.select = select i1 %.0.i, i8 0, i8 %.087413
+  %not..0.i = xor i1 %.0.i, true
+  %spec.select = zext i1 %not..0.i to i8
   br label %67
 
 67:                                               ; preds = %_ZNK13poly_rewriterI19arith_rewriter_coreE6mon_ltclEP4exprS4_.exit, %55, %51, %_ZN8rationalpLERKS_.exit
@@ -53610,7 +53611,8 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %._crit_edge.i.i102,
 
 .lr.ph237.preheader:                              ; preds = %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.thread, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit
   %.ph = phi i32 [ %140, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ 1, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.thread ]
-  %.ph371 = phi ptr [ %130, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ %.pre.i109, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.thread ]
+  %.ph371 = phi i32 [ 0, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ %128, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.thread ]
+  %.ph372 = phi ptr [ %130, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit ], [ %.pre.i109, %_ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.thread ]
   br label %.lr.ph237
 
 .preheader:                                       ; preds = %.loopexit194
@@ -53631,9 +53633,9 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit: ; preds = %._crit_edge.i.i102,
 
 .lr.ph237:                                        ; preds = %.lr.ph237.preheader, %.loopexit194
   %148 = phi i32 [ %203, %.loopexit194 ], [ %.ph, %.lr.ph237.preheader ]
-  %.pre.i128279 = phi ptr [ %.pre.i128280, %.loopexit194 ], [ %.ph371, %.lr.ph237.preheader ]
-  %149 = phi i32 [ %204, %.loopexit194 ], [ %128, %.lr.ph237.preheader ]
-  %150 = phi ptr [ %205, %.loopexit194 ], [ %.ph371, %.lr.ph237.preheader ]
+  %.pre.i128279 = phi ptr [ %.pre.i128280, %.loopexit194 ], [ %.ph372, %.lr.ph237.preheader ]
+  %149 = phi i32 [ %204, %.loopexit194 ], [ %.ph371, %.lr.ph237.preheader ]
+  %150 = phi ptr [ %205, %.loopexit194 ], [ %.ph372, %.lr.ph237.preheader ]
   %.037236 = phi i32 [ %.138, %.loopexit194 ], [ 0, %.lr.ph237.preheader ]
   %151 = zext i32 %.037236 to i64
   %152 = getelementptr inbounds nuw ptr, ptr %150, i64 %151
@@ -58289,9 +58291,9 @@ _ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31: ; preds = %35
 
 _ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31.thread: ; preds = %35, %30, %_ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31, %46
   %53 = phi i32 [ %.pre, %46 ], [ %32, %_ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31 ], [ %32, %30 ], [ %32, %35 ]
+  %.1 = phi i1 [ false, %46 ], [ true, %_ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31 ], [ true, %30 ], [ true, %35 ]
   %.044 = phi ptr [ %48, %46 ], [ %.02450, %_ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31 ], [ %.02450, %30 ], [ %.02450, %35 ]
   %.125 = phi ptr [ %50, %46 ], [ %.02450, %_ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31 ], [ %.02450, %30 ], [ %.02450, %35 ]
-  %.1 = phi i1 [ false, %46 ], [ true, %_ZNK13poly_rewriterI19arith_rewriter_coreE6is_addEP4expr.exit31 ], [ true, %30 ], [ true, %35 ]
   %trunc = trunc i32 %53 to i16
   switch i16 %trunc, label %.critedge [
     i16 0, label %_Z9is_groundPK4expr.exit32

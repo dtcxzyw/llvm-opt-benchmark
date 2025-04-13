@@ -3357,8 +3357,8 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
   %.not125 = icmp eq i8 %36, 0
   %37 = and i8 %12, 16
   %.not126 = icmp eq i8 %37, 0
-  %or.cond175 = or i1 %.not125, %.not126
-  br i1 %or.cond175, label %38, label %decUnitCompare.exit
+  %or.cond174 = or i1 %.not125, %.not126
+  br i1 %or.cond174, label %38, label %decUnitCompare.exit
 
 38:                                               ; preds = %35
   %39 = load i32, ptr %1, align 4, !tbaa !10
@@ -3434,9 +3434,9 @@ define internal fastcc noundef ptr @decCompareOp(ptr noundef returned %0, ptr no
 decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, %65, %62, %32, %30, %28
   %.1 = phi i32 [ -1, %28 ], [ 1, %30 ], [ -1, %32 ], [ 1, %62 ], [ -1, %65 ], [ 1, %35 ], [ 1, %71 ], [ -1, %75 ], [ 0, %70 ]
   %77 = sub nsw i32 0, %.1
-  %.not127177 = icmp slt i8 %10, 0
-  %spec.select = select i1 %.not127177, i32 %77, i32 %.1
-  br label %.thread
+  %.not127176 = icmp slt i8 %10, 0
+  %spec.select = select i1 %.not127176, i32 %77, i32 %.1
+  br label %.thread.thread
 
 78:                                               ; preds = %27
   %79 = and i8 %21, 16
@@ -3449,9 +3449,9 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   %82 = and i32 %20, 48
   %.not119 = icmp eq i32 %82, 0
   %or.cond134 = or i1 %.not118, %.not119
-  br i1 %or.cond134, label %.thread172, label %.thread.thread159
+  br i1 %or.cond134, label %.thread166, label %.thread.thread159
 
-.thread172:                                       ; preds = %80
+.thread166:                                       ; preds = %80
   %83 = and i8 %10, 32
   %.not120 = icmp eq i8 %83, 0
   %. = select i1 %.not120, i32 1, i32 -1
@@ -3466,8 +3466,8 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
 85:                                               ; preds = %._crit_edge
   %86 = add nsw i8 %4, -7
   %or.cond = icmp ult i8 %86, 2
-  %.184 = zext i1 %or.cond to i8
-  %87 = tail call fastcc i32 @decCompare(ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext %.184)
+  %.183 = zext i1 %or.cond to i8
+  %87 = tail call fastcc i32 @decCompare(ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext %.183)
   %88 = icmp eq i32 %87, -2147483648
   br i1 %88, label %89, label %.thread
 
@@ -3477,21 +3477,22 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   store i32 %91, ptr %5, align 4, !tbaa !16
   br label %149
 
-.thread:                                          ; preds = %decUnitCompare.exit, %85
-  %.0103142 = phi i32 [ %87, %85 ], [ %spec.select, %decUnitCompare.exit ]
+.thread:                                          ; preds = %85
   switch i8 %4, label %117 [
-    i8 6, label %92
-    i8 4, label %92
-    i8 1, label %92
+    i8 6, label %.thread.thread
+    i8 4, label %.thread.thread
+    i8 1, label %.thread.thread
     i8 5, label %149
   ]
 
-92:                                               ; preds = %.thread, %.thread, %.thread
-  %93 = icmp eq i32 %.0103142, 0
-  %or.cond10 = and i1 %8, %93
+.thread.thread:                                   ; preds = %decUnitCompare.exit, %.thread, %.thread, %.thread
+  %92 = phi i1 [ %8, %.thread ], [ %8, %.thread ], [ %8, %.thread ], [ true, %decUnitCompare.exit ]
+  %.0103142153 = phi i32 [ %87, %.thread ], [ %87, %.thread ], [ %87, %.thread ], [ %spec.select, %decUnitCompare.exit ]
+  %93 = icmp eq i32 %.0103142153, 0
+  %or.cond10 = and i1 %92, %93
   br i1 %or.cond10, label %94, label %105
 
-94:                                               ; preds = %92
+94:                                               ; preds = %.thread.thread
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !9
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3514,11 +3515,11 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   %.135 = select i1 %102, i32 -1, i32 1
   %103 = load i8, ptr %17, align 4, !tbaa !4
   %104 = sub nsw i32 0, %.135
-  %.not131178 = icmp slt i8 %103, 0
-  %spec.select139 = select i1 %.not131178, i32 %104, i32 %.135
+  %.not131177 = icmp slt i8 %103, 0
+  %spec.select139 = select i1 %.not131177, i32 %104, i32 %.135
   br label %.sink.split
 
-105:                                              ; preds = %92
+105:                                              ; preds = %.thread.thread
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %106, align 4, !tbaa !4
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3529,7 +3530,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   br i1 %93, label %149, label %112
 
 .sink.split:                                      ; preds = %13, %15, %.thread147
-  %.2150.ph = phi i32 [ %spec.select139, %.thread147 ], [ -1, %13 ], [ 1, %15 ]
+  %.2150.ph = phi i32 [ %spec.select139, %.thread147 ], [ 1, %15 ], [ -1, %13 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %109, align 4, !tbaa !4
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3541,7 +3542,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
 112:                                              ; preds = %.sink.split, %105
   %113 = phi ptr [ %108, %105 ], [ %111, %.sink.split ]
   %114 = phi ptr [ %106, %105 ], [ %109, %.sink.split ]
-  %.2150 = phi i32 [ %.0103142, %105 ], [ %.2150.ph, %.sink.split ]
+  %.2150 = phi i32 [ %.0103142153, %105 ], [ %.2150.ph, %.sink.split ]
   store i16 1, ptr %113, align 2, !tbaa !11
   %115 = icmp slt i32 %.2150, 0
   br i1 %115, label %116, label %149
@@ -3553,7 +3554,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
 117:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #18
   store i32 0, ptr %7, align 4, !tbaa !16
-  %118 = icmp eq i32 %.0103142, 0
+  %118 = icmp eq i32 %87, 0
   br i1 %118, label %119, label %135
 
 119:                                              ; preds = %117
@@ -3589,7 +3590,7 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   br label %135
 
 135:                                              ; preds = %124, %131, %133, %117
-  %.4 = phi i32 [ %.0103142, %117 ], [ %.136, %124 ], [ %.137, %131 ], [ %.138, %133 ]
+  %.4 = phi i32 [ %87, %117 ], [ %.136, %124 ], [ %.137, %131 ], [ %.138, %133 ]
   switch i8 %4, label %138 [
     i8 8, label %136
     i8 3, label %136
@@ -3599,8 +3600,8 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
   %137 = sub nsw i32 0, %.4
   br label %138
 
-138:                                              ; preds = %.thread172, %135, %136
-  %.6 = phi i32 [ %137, %136 ], [ %.4, %135 ], [ %., %.thread172 ]
+138:                                              ; preds = %.thread166, %135, %136
+  %.6 = phi i32 [ %137, %136 ], [ %.4, %135 ], [ %., %.thread166 ]
   %139 = icmp sgt i32 %.6, 0
   %140 = select i1 %139, ptr %1, ptr %2
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -3626,78 +3627,42 @@ decUnitCompare.exit:                              ; preds = %75, %71, %70, %35, 
 define dso_local noundef ptr @decNumberCompareSignal(ptr noundef returned %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i8, ptr %6, align 4, !tbaa !4
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %9 = load i8, ptr %8, align 4, !tbaa !4
-  %10 = or i8 %9, %7
-  %11 = and i8 %10, 48
-  %.not116.i = icmp eq i8 %11, 0
-  br i1 %.not116.i, label %12, label %decCompareOp.exit
+  store i32 0, ptr %5, align 4, !tbaa !16
+  %6 = call fastcc ptr @decCompareOp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext 6, ptr noundef %5)
+  %7 = load i32, ptr %5, align 4, !tbaa !16
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %19, label %8
 
-12:                                               ; preds = %4
-  %13 = tail call fastcc i32 @decCompare(ptr noundef nonnull %1, ptr noundef nonnull %2, i8 noundef zeroext 0)
-  %14 = icmp eq i32 %13, -2147483648
-  br i1 %14, label %.thread9, label %.thread.i
+8:                                                ; preds = %4
+  %9 = and i32 %7, 221
+  %.not.i = icmp eq i32 %9, 0
+  br i1 %.not.i, label %decStatus.exit, label %10
 
-.thread.i:                                        ; preds = %12
-  %15 = icmp eq i32 %13, 0
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %16, align 4, !tbaa !4
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %17, align 4, !tbaa !9
-  store i32 1, ptr %0, align 4, !tbaa !10
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 0, ptr %18, align 2, !tbaa !11
-  br i1 %15, label %decCompareOp.exit.thread, label %19
+10:                                               ; preds = %8
+  %11 = and i32 %7, 1073741824
+  %.not6.i = icmp eq i32 %11, 0
+  br i1 %.not6.i, label %14, label %12
 
-19:                                               ; preds = %.thread.i
-  store i16 1, ptr %18, align 2, !tbaa !11
-  %20 = icmp slt i32 %13, 0
-  br i1 %20, label %21, label %decCompareOp.exit.thread
-
-21:                                               ; preds = %19
-  store i8 -128, ptr %16, align 4, !tbaa !4
-  br label %decCompareOp.exit.thread
-
-decCompareOp.exit:                                ; preds = %4
-  store i32 1073741952, ptr %5, align 4, !tbaa !16
-  %22 = call fastcc ptr @decNaNs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef readonly %3, ptr noundef nonnull %5)
-  %.pr.pre = load i32, ptr %5, align 4, !tbaa !16
-  %.not = icmp eq i32 %.pr.pre, 0
-  br i1 %.not, label %decCompareOp.exit.thread, label %23
-
-23:                                               ; preds = %decCompareOp.exit
-  %24 = and i32 %.pr.pre, 221
-  %.not.i = icmp eq i32 %24, 0
-  br i1 %.not.i, label %decStatus.exit, label %25
-
-25:                                               ; preds = %23
-  %26 = and i32 %.pr.pre, 1073741824
-  %.not6.i = icmp eq i32 %26, 0
-  br i1 %.not6.i, label %.thread9, label %27
-
-27:                                               ; preds = %25
-  %28 = and i32 %.pr.pre, -1073741825
+12:                                               ; preds = %10
+  %13 = and i32 %7, -1073741825
   br label %decStatus.exit
 
-.thread9:                                         ; preds = %12, %25
-  %29 = phi i32 [ %.pr.pre, %25 ], [ 16, %12 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %31, align 4, !tbaa !9
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %16, align 4, !tbaa !9
   store i32 1, ptr %0, align 4, !tbaa !10
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 0, ptr %32, align 2, !tbaa !11
-  store i8 32, ptr %30, align 4, !tbaa !4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  store i16 0, ptr %17, align 2, !tbaa !11
+  store i8 32, ptr %15, align 4, !tbaa !4
   br label %decStatus.exit
 
-decStatus.exit:                                   ; preds = %23, %27, %.thread9
-  %.0.i = phi i32 [ %28, %27 ], [ %29, %.thread9 ], [ %.pr.pre, %23 ]
-  %33 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
-  br label %decCompareOp.exit.thread
+decStatus.exit:                                   ; preds = %8, %12, %14
+  %.0.i = phi i32 [ %13, %12 ], [ %7, %14 ], [ %7, %8 ]
+  %18 = tail call ptr @decContextSetStatus(ptr noundef %3, i32 noundef %.0.i) #18
+  br label %19
 
-decCompareOp.exit.thread:                         ; preds = %21, %19, %.thread.i, %decStatus.exit, %decCompareOp.exit
+19:                                               ; preds = %decStatus.exit, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #18
   ret ptr %0
 }
@@ -9377,7 +9342,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %11
   br label %decStatus.exit
 
 decStatus.exit:                                   ; preds = %38, %36, %40
-  %.0.i = phi i32 [ %35, %40 ], [ %35, %36 ], [ 128, %38 ]
+  %.0.i = phi i32 [ 128, %40 ], [ %35, %36 ], [ 128, %38 ]
   %44 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #18
   br label %45
 
@@ -9512,7 +9477,7 @@ decSetMaxValue.exit:                              ; preds = %.lr.ph.i, %10
   br label %decStatus.exit
 
 decStatus.exit:                                   ; preds = %37, %35, %39
-  %.0.i = phi i32 [ %34, %39 ], [ %34, %35 ], [ 128, %37 ]
+  %.0.i = phi i32 [ 128, %39 ], [ %34, %35 ], [ 128, %37 ]
   %43 = call ptr @decContextSetStatus(ptr noundef nonnull %2, i32 noundef %.0.i) #18
   br label %44
 

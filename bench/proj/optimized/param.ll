@@ -44,7 +44,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %47, label %.preheader
+  br i1 %3, label %48, label %.preheader
 
 .preheader:                                       ; preds = %2
   %4 = tail call ptr @__ctype_b_loc() #18
@@ -67,78 +67,80 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   %spec.select.idx = zext i1 %14 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.038, i64 %spec.select.idx
   %15 = load i8, ptr %spec.select, align 1, !tbaa !3
-  %.not4452 = icmp eq i8 %15, 0
-  br i1 %.not4452, label %._crit_edge, label %.lr.ph
+  %.not4450 = icmp eq i8 %15, 0
+  br i1 %.not4450, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %13, %36
-  %16 = phi i8 [ %39, %36 ], [ %15, %13 ]
-  %17 = phi ptr [ %38, %36 ], [ %spec.select, %13 ]
-  %.054 = phi i1 [ %.1, %36 ], [ false, %13 ]
-  %.03453 = phi i64 [ %37, %36 ], [ 0, %13 ]
-  br i1 %.054, label %18, label %25
+.lr.ph:                                           ; preds = %13, %37
+  %16 = phi i8 [ %40, %37 ], [ %15, %13 ]
+  %17 = phi ptr [ %39, %37 ], [ %spec.select, %13 ]
+  %.052 = phi i1 [ %.1, %37 ], [ false, %13 ]
+  %.03451 = phi i64 [ %38, %37 ], [ 0, %13 ]
+  br i1 %.052, label %18, label %26
 
 18:                                               ; preds = %.lr.ph
-  %19 = icmp eq i8 %16, 34
-  br i1 %19, label %20, label %36
+  %19 = icmp ne i8 %16, 34
+  br i1 %19, label %25, label %20
 
 20:                                               ; preds = %18
-  %21 = add i64 %.03453, 1
+  %21 = add i64 %.03451, 1
   %22 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = icmp eq i8 %23, 34
-  %spec.select48 = select i1 %24, i64 %21, i64 %.03453
-  br label %36
+  br i1 %24, label %37, label %25
 
-25:                                               ; preds = %.lr.ph
-  %26 = icmp eq i8 %16, 61
-  br i1 %26, label %27, label %31
+25:                                               ; preds = %20, %18
+  br label %37
 
-27:                                               ; preds = %25
-  %28 = getelementptr i8, ptr %17, i64 1
-  %29 = load i8, ptr %28, align 1, !tbaa !3
-  %30 = icmp eq i8 %29, 34
-  br i1 %30, label %36, label %31
+26:                                               ; preds = %.lr.ph
+  %27 = icmp eq i8 %16, 61
+  br i1 %27, label %28, label %32
 
-31:                                               ; preds = %27, %25
-  %32 = sext i8 %16 to i64
-  %33 = getelementptr inbounds i16, ptr %5, i64 %32
-  %34 = load i16, ptr %33, align 2, !tbaa !11
-  %35 = and i16 %34, 8192
-  %.not45 = icmp eq i16 %35, 0
-  br i1 %.not45, label %36, label %._crit_edge
+28:                                               ; preds = %26
+  %29 = getelementptr i8, ptr %17, i64 1
+  %30 = load i8, ptr %29, align 1, !tbaa !3
+  %31 = icmp eq i8 %30, 34
+  br i1 %31, label %37, label %32
 
-36:                                               ; preds = %20, %18, %27, %31
-  %.135 = phi i64 [ %.03453, %31 ], [ %.03453, %27 ], [ %.03453, %18 ], [ %spec.select48, %20 ]
-  %.1 = phi i1 [ false, %31 ], [ true, %27 ], [ true, %18 ], [ %24, %20 ]
-  %37 = add i64 %.135, 1
-  %38 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !3
-  %.not44 = icmp eq i8 %39, 0
+32:                                               ; preds = %28, %26
+  %33 = sext i8 %16 to i64
+  %34 = getelementptr inbounds i16, ptr %5, i64 %33
+  %35 = load i16, ptr %34, align 2, !tbaa !11
+  %36 = and i16 %35, 8192
+  %.not45 = icmp eq i16 %36, 0
+  br i1 %.not45, label %37, label %._crit_edge
+
+37:                                               ; preds = %25, %28, %20, %32
+  %.135 = phi i64 [ %.03451, %32 ], [ %21, %20 ], [ %.03451, %25 ], [ %.03451, %28 ]
+  %.1 = phi i1 [ false, %32 ], [ true, %20 ], [ %19, %25 ], [ true, %28 ]
+  %38 = add i64 %.135, 1
+  %39 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %38
+  %40 = load i8, ptr %39, align 1, !tbaa !3
+  %.not44 = icmp eq i8 %40, 0
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %36, %31, %13
-  %.034.lcssa = phi i64 [ 0, %13 ], [ %.03453, %31 ], [ %37, %36 ]
-  %.lcssa = phi ptr [ %spec.select, %13 ], [ %17, %31 ], [ %38, %36 ]
+._crit_edge:                                      ; preds = %37, %32, %13
+  %.034.lcssa = phi i64 [ 0, %13 ], [ %.03451, %32 ], [ %38, %37 ]
+  %.lcssa = phi ptr [ %spec.select, %13 ], [ %17, %32 ], [ %39, %37 ]
   %.not46 = icmp eq ptr %1, null
-  br i1 %.not46, label %41, label %40
+  br i1 %.not46, label %42, label %41
 
-40:                                               ; preds = %._crit_edge
+41:                                               ; preds = %._crit_edge
   store ptr %.lcssa, ptr %1, align 8, !tbaa !16
-  br label %41
+  br label %42
 
-41:                                               ; preds = %40, %._crit_edge
-  %42 = add i64 %.034.lcssa, 17
-  %43 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %42) #19
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %47, label %45
+42:                                               ; preds = %41, %._crit_edge
+  %43 = add i64 %.034.lcssa, 17
+  %44 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %43) #19
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %48, label %46
 
-45:                                               ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %spec.select, i64 %.034.lcssa, i1 false)
-  br label %47
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %spec.select, i64 %.034.lcssa, i1 false)
+  br label %48
 
-47:                                               ; preds = %45, %41, %2
-  %.036 = phi ptr [ null, %2 ], [ %43, %45 ], [ null, %41 ]
+48:                                               ; preds = %46, %42, %2
+  %.036 = phi ptr [ null, %2 ], [ %44, %46 ], [ null, %42 ]
   ret ptr %.036
 }
 

@@ -3419,8 +3419,8 @@ switch.lookup:
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit"
-  %11 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %299, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
-  %12 = phi ptr [ %6, %.lr.ph.lr.ph ], [ %298, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
+  %11 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %296, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
+  %12 = phi ptr [ %6, %.lr.ph.lr.ph ], [ %295, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
   %.sroa.10.sroa.0.0.ph156 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
   %.sroa.619.0.ph155 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit" ]
   br label %13
@@ -4024,26 +4024,25 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hebd02bf52e029b50E.exit:
   unreachable
 
 "_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17h25b24d5973f54cc6E.exit": ; preds = %285
-  %.not.i = icmp ne i64 %.sroa.027.0.insert.ext, 2
+  %.not.i = icmp eq i64 %.sroa.027.0.insert.ext, 2
   %289 = and i64 %.sroa.027.0.insert.insert, -4294967295
   %or.cond.i62 = icmp eq i64 %289, 0
-  %or.cond18.i = and i1 %.not.i, %or.cond.i62
-  %290 = and i64 %.sroa.8.0, 65280
+  %spec.select.i = select i1 %or.cond.i62, i64 5120, i64 %.sroa.8.0
+  %.sroa.617.17.insert.ext.i = select i1 %.not.i, i64 %.sroa.8.0, i64 %spec.select.i
+  %.sroa.617.17.insert.shift.i = and i64 %.sroa.617.17.insert.ext.i, 65280
+  %290 = or i1 %.not.i, %or.cond.i62
   %291 = extractvalue { i32, i1 } %283, 0
   %292 = extractvalue { i32, i1 } %286, 0
-  %293 = icmp eq i64 %.sroa.027.0.insert.ext, 2
-  %294 = or i1 %293, %or.cond.i62
-  %spec.select.i.i.i = zext i1 %294 to i64
-  %295 = or disjoint i64 %290, 137438953472
-  %.sroa.38.0.insert.insert.i.i.i = select i1 %or.cond18.i, i64 137438958592, i64 %295
-  %.sroa.07.0.insert.insert.i.i.i = or disjoint i64 %.sroa.38.0.insert.insert.i.i.i, %spec.select.i.i.i
-  %296 = getelementptr inbounds nuw i8, ptr %280, i64 32
-  %297 = load ptr, ptr %296, align 8, !invariant.load !10, !noalias !317, !nonnull !10
-  call void %297(ptr noundef nonnull align 1 %279, i32 noundef %291, i32 noundef %292, i64 %.sroa.07.0.insert.insert.i.i.i), !noalias !317
-  %298 = load ptr, ptr %7, align 8, !alias.scope !320, !nonnull !10, !noundef !10
-  %299 = load ptr, ptr %5, align 8, !alias.scope !320, !nonnull !10, !noundef !10
-  %300 = icmp eq ptr %299, %298
-  br i1 %300, label %.thread, label %.lr.ph
+  %spec.select.i.i.i = zext i1 %290 to i64
+  %.sroa.38.0.insert.insert.i.i.i = or disjoint i64 %.sroa.617.17.insert.shift.i, %spec.select.i.i.i
+  %.sroa.07.0.insert.insert.i.i.i = or disjoint i64 %.sroa.38.0.insert.insert.i.i.i, 137438953472
+  %293 = getelementptr inbounds nuw i8, ptr %280, i64 32
+  %294 = load ptr, ptr %293, align 8, !invariant.load !10, !noalias !317, !nonnull !10
+  call void %294(ptr noundef nonnull align 1 %279, i32 noundef %291, i32 noundef %292, i64 %.sroa.07.0.insert.insert.i.i.i), !noalias !317
+  %295 = load ptr, ptr %7, align 8, !alias.scope !320, !nonnull !10, !noundef !10
+  %296 = load ptr, ptr %5, align 8, !alias.scope !320, !nonnull !10, !noundef !10
+  %297 = icmp eq ptr %296, %295
+  br i1 %297, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4511,8 +4510,8 @@ switch.lookup:
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit"
-  %8 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %217, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
-  %9 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %216, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
+  %8 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %216, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
+  %9 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %215, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   %.sroa.10.sroa.0.0.ph107 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   %.sroa.619.0.ph106 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   br label %10
@@ -4947,20 +4946,23 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit:
   br i1 %212, label %213, label %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit"
 
 213:                                              ; preds = %.loopexit
-  %.not.i = icmp ne i64 %.sroa.027.0.insert.ext, 2
-  %or.cond18.i = and i1 %.not.i, %or.cond.i61
+  %.sroa.428.0.insert.ext = and i64 %.sroa.8.0, 65280
+  %.sroa.428.0.insert.insert = or disjoint i64 %.sroa.529.0.insert.shift, %.sroa.428.0.insert.ext
+  %214 = and i64 %.sroa.0.0, 254
+  %.not.i = icmp eq i64 %214, 2
   %.val.i = load ptr, ptr %.val.i.i, align 8, !nonnull !10, !noundef !10
-  %214 = lshr i64 %.sroa.8.0, 8
-  %215 = trunc i64 %214 to i8
-  %.sroa.4.0.extract.trunc.i.i = select i1 %or.cond18.i, i8 20, i8 %215
+  %.sroa.4.0.extract.shift.i = lshr exact i64 %.sroa.428.0.insert.insert, 8
+  %spec.select.i = select i1 %or.cond.i61, i64 20, i64 %.sroa.4.0.extract.shift.i
+  %.sroa.5.0.i = select i1 %.not.i, i64 %.sroa.4.0.extract.shift.i, i64 %spec.select.i
+  %.sroa.4.0.extract.trunc.i.i = trunc i64 %.sroa.5.0.i to i8
   call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val.i, i64 noundef 1, i64 noundef %64, i8 noundef %.sroa.4.0.extract.trunc.i.i)
   br label %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit"
 
 "_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit": ; preds = %.loopexit, %213
-  %216 = load ptr, ptr %6, align 8, !alias.scope !425, !nonnull !10, !noundef !10
-  %217 = load ptr, ptr %4, align 8, !alias.scope !425, !nonnull !10, !noundef !10
-  %218 = icmp eq ptr %217, %216
-  br i1 %218, label %.thread, label %.lr.ph
+  %215 = load ptr, ptr %6, align 8, !alias.scope !425, !nonnull !10, !noundef !10
+  %216 = load ptr, ptr %4, align 8, !alias.scope !425, !nonnull !10, !noundef !10
+  %217 = icmp eq ptr %216, %215
+  br i1 %217, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6333,15 +6335,15 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hc0fb008e0439a2a1E.exit:
   %219 = add i64 %.neg, %1
   %.sroa.529.0.insert.ext = zext i48 %.sroa.10.sroa.0.1 to i64
   %.sroa.529.0.insert.shift = shl nuw i64 %.sroa.529.0.insert.ext, 16
-  %.sroa.428.0.insert.ext = and i64 %.sroa.8.0, 65280
   %.sroa.027.0.insert.ext = and i64 %.sroa.0.0, 255
-  %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.027.0.insert.ext, %.sroa.529.0.insert.shift
-  %.not.i = icmp ne i64 %.sroa.027.0.insert.ext, 2
+  %.sroa.027.0.insert.insert = or disjoint i64 %.sroa.529.0.insert.shift, %.sroa.027.0.insert.ext
+  %.not.i = icmp eq i64 %.sroa.027.0.insert.ext, 2
   %220 = and i64 %.sroa.027.0.insert.insert, -4294967295
   %or.cond.i61 = icmp eq i64 %220, 0
-  %or.cond18.i = and i1 %.not.i, %or.cond.i61
+  %spec.select.i = select i1 %or.cond.i61, i64 5120, i64 %.sroa.8.0
   %.sroa.617.16.insert.ext.i = select i1 %or.cond.i61, i64 2, i64 %.sroa.027.0.insert.ext
-  %.sroa.617.17.insert.shift.i = select i1 %or.cond18.i, i64 5120, i64 %.sroa.428.0.insert.ext
+  %.sroa.617.17.insert.ext.i = select i1 %.not.i, i64 %.sroa.8.0, i64 %spec.select.i
+  %.sroa.617.17.insert.shift.i = and i64 %.sroa.617.17.insert.ext.i, 65280
   %221 = or disjoint i64 %.sroa.529.0.insert.shift, %.sroa.617.17.insert.shift.i
   %.sroa.617.20.insert.insert.i = or disjoint i64 %221, %.sroa.617.16.insert.ext.i
   call void @llvm.experimental.noalias.scope.decl(metadata !598)

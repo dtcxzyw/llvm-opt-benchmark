@@ -1551,6 +1551,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   br i1 %91, label %.lr.ph.split.i.i.i.preheader, label %92
 
 .lr.ph.split.i.i.i.preheader:                     ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i106.i", %93, %87
+  %.ph = phi i64 [ 0, %87 ], [ %90, %93 ], [ %90, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i106.i" ]
   br label %.lr.ph.split.i.i.i
 
 92:                                               ; preds = %87
@@ -1572,7 +1573,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   unreachable
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.split.i.i.i.preheader, %103
-  %99 = phi i64 [ %106, %103 ], [ %90, %.lr.ph.split.i.i.i.preheader ]
+  %99 = phi i64 [ %106, %103 ], [ %.ph, %.lr.ph.split.i.i.i.preheader ]
   %100 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 %89, i64 noundef %99), !noalias !216
   %101 = extractvalue { i64, i64 } %100, 0
   %102 = icmp eq i64 %101, 1
@@ -1720,6 +1721,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   br i1 %151, label %.lr.ph.split.i.i119.i.preheader, label %152
 
 .lr.ph.split.i.i119.i.preheader:                  ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i117.i", %153, %147
+  %.ph73 = phi i64 [ 0, %147 ], [ %150, %153 ], [ %150, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i117.i" ]
   br label %.lr.ph.split.i.i119.i
 
 152:                                              ; preds = %147
@@ -1741,7 +1743,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   unreachable
 
 .lr.ph.split.i.i119.i:                            ; preds = %.lr.ph.split.i.i119.i.preheader, %163
-  %159 = phi i64 [ %166, %163 ], [ %150, %.lr.ph.split.i.i119.i.preheader ]
+  %159 = phi i64 [ %166, %163 ], [ %.ph73, %.lr.ph.split.i.i119.i.preheader ]
   %160 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef 39, ptr noalias noundef nonnull readonly align 1 %149, i64 noundef %159), !noalias !233
   %161 = extractvalue { i64, i64 } %160, 0
   %162 = icmp eq i64 %161, 1
@@ -1888,6 +1890,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   br i1 %212, label %.lr.ph.split.i.i141.i.preheader, label %213
 
 .lr.ph.split.i.i141.i.preheader:                  ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i139.i", %214, %208
+  %.ph75 = phi i64 [ 0, %208 ], [ %211, %214 ], [ %211, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i139.i" ]
   br label %.lr.ph.split.i.i141.i
 
 213:                                              ; preds = %208
@@ -1909,7 +1912,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   unreachable
 
 .lr.ph.split.i.i141.i:                            ; preds = %.lr.ph.split.i.i141.i.preheader, %224
-  %220 = phi i64 [ %227, %224 ], [ %211, %.lr.ph.split.i.i141.i.preheader ]
+  %220 = phi i64 [ %227, %224 ], [ %.ph75, %.lr.ph.split.i.i141.i.preheader ]
   %221 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef 34, ptr noalias noundef nonnull readonly align 1 %210, i64 noundef %220), !noalias !250
   %222 = extractvalue { i64, i64 } %221, 0
   %223 = icmp eq i64 %222, 1
@@ -1991,6 +1994,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   br i1 %256, label %.lr.ph.split.i.i160.i.preheader, label %257
 
 .lr.ph.split.i.i160.i.preheader:                  ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i158.i", %258, %252
+  %.ph77 = phi i64 [ 0, %252 ], [ %255, %258 ], [ %255, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i158.i" ]
   br label %.lr.ph.split.i.i160.i
 
 257:                                              ; preds = %252
@@ -2012,7 +2016,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   unreachable
 
 .lr.ph.split.i.i160.i:                            ; preds = %.lr.ph.split.i.i160.i.preheader, %268
-  %264 = phi i64 [ %271, %268 ], [ %255, %.lr.ph.split.i.i160.i.preheader ]
+  %264 = phi i64 [ %271, %268 ], [ %.ph77, %.lr.ph.split.i.i160.i.preheader ]
   %265 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef 34, ptr noalias noundef nonnull readonly align 1 %254, i64 noundef %264), !noalias !270
   %266 = extractvalue { i64, i64 } %265, 0
   %267 = icmp eq i64 %266, 1
@@ -2094,6 +2098,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   br i1 %300, label %.lr.ph.split.i.i179.i.preheader, label %301
 
 .lr.ph.split.i.i179.i.preheader:                  ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i177.i", %302, %296
+  %.ph79 = phi i64 [ 0, %296 ], [ %299, %302 ], [ %299, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.5152333202562116933.exit.i177.i" ]
   br label %.lr.ph.split.i.i179.i
 
 301:                                              ; preds = %296
@@ -2115,7 +2120,7 @@ _ZN6parser9lexed_str27error_to_diagnostic_message17h27691eb4c718e1b3E.exit.i: ; 
   unreachable
 
 .lr.ph.split.i.i179.i:                            ; preds = %.lr.ph.split.i.i179.i.preheader, %312
-  %308 = phi i64 [ %315, %312 ], [ %299, %.lr.ph.split.i.i179.i.preheader ]
+  %308 = phi i64 [ %315, %312 ], [ %.ph79, %.lr.ph.split.i.i179.i.preheader ]
   %309 = tail call { i64, i64 } @_ZN4core5slice6memchr7memrchr17h462a3d5412d47c9fE(i8 noundef 34, ptr noalias noundef nonnull readonly align 1 %298, i64 noundef %308), !noalias !290
   %310 = extractvalue { i64, i64 } %309, 0
   %311 = icmp eq i64 %310, 1

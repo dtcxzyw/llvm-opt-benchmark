@@ -263,10 +263,11 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   ]
 
 .preheader136:                                    ; preds = %95, %98
+  %.ph137 = phi i32 [ 23, %98 ], [ %96, %95 ]
   br label %102
 
 102:                                              ; preds = %.preheader136, %.backedge132
-  %103 = phi i32 [ %.pre133, %.backedge132 ], [ %96, %.preheader136 ]
+  %103 = phi i32 [ %.pre133, %.backedge132 ], [ %.ph137, %.preheader136 ]
   %.0100 = phi ptr [ %.0100.be, %.backedge132 ], [ %92, %.preheader136 ]
   switch i32 %103, label %.critedge122 [
     i32 31, label %104
@@ -320,10 +321,11 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   ]
 
 .preheader:                                       ; preds = %114, %117
+  %.ph = phi i32 [ 23, %117 ], [ %115, %114 ]
   br label %121
 
 121:                                              ; preds = %.preheader, %.backedge
-  %122 = phi i32 [ %.pre134, %.backedge ], [ %115, %.preheader ]
+  %122 = phi i32 [ %.pre134, %.backedge ], [ %.ph, %.preheader ]
   %.098 = phi ptr [ %.098.be, %.backedge ], [ %112, %.preheader ]
   switch i32 %122, label %.critedge124 [
     i32 31, label %123
@@ -460,10 +462,11 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 .preheader61:                                     ; preds = %21, %24
+  %.ph62 = phi i32 [ 23, %24 ], [ %22, %21 ]
   br label %28
 
 28:                                               ; preds = %.preheader61, %.backedge58
-  %29 = phi i32 [ %.pre, %.backedge58 ], [ %22, %.preheader61 ]
+  %29 = phi i32 [ %.pre, %.backedge58 ], [ %.ph62, %.preheader61 ]
   %.048 = phi ptr [ %.048.be, %.backedge58 ], [ %18, %.preheader61 ]
   switch i32 %29, label %.critedge [
     i32 31, label %30
@@ -516,10 +519,11 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 .preheader:                                       ; preds = %38, %41
+  %.ph = phi i32 [ 23, %41 ], [ %39, %38 ]
   br label %45
 
 45:                                               ; preds = %.preheader, %.backedge
-  %46 = phi i32 [ %.pre59, %.backedge ], [ %39, %.preheader ]
+  %46 = phi i32 [ %.pre59, %.backedge ], [ %.ph, %.preheader ]
   %.046 = phi ptr [ %.046.be, %.backedge ], [ %36, %.preheader ]
   switch i32 %46, label %.critedge56 [
     i32 31, label %47
@@ -696,10 +700,11 @@ type_flatten.exit85:                              ; preds = %20
   ]
 
 .preheader103:                                    ; preds = %44, %47
+  %.ph104 = phi i32 [ 23, %47 ], [ %45, %44 ]
   br label %51
 
 51:                                               ; preds = %.preheader103, %.backedge87
-  %52 = phi i32 [ %.pre, %.backedge87 ], [ %45, %.preheader103 ]
+  %52 = phi i32 [ %.pre, %.backedge87 ], [ %.ph104, %.preheader103 ]
   %.068 = phi ptr [ %.068.be, %.backedge87 ], [ %41, %.preheader103 ]
   switch i32 %52, label %.critedge [
     i32 31, label %53
@@ -752,10 +757,11 @@ type_flatten.exit85:                              ; preds = %20
   ]
 
 .preheader:                                       ; preds = %62, %65
+  %.ph = phi i32 [ 23, %65 ], [ %63, %62 ]
   br label %69
 
 69:                                               ; preds = %.preheader, %.backedge
-  %70 = phi i32 [ %.pre94, %.backedge ], [ %63, %.preheader ]
+  %70 = phi i32 [ %.pre94, %.backedge ], [ %.ph, %.preheader ]
   %.066 = phi ptr [ %.066.be, %.backedge ], [ %60, %.preheader ]
   switch i32 %70, label %.critedge81 [
     i32 31, label %71
@@ -1716,10 +1722,11 @@ type_flatten.exit:                                ; preds = %5
   ]
 
 .preheader:                                       ; preds = %22, %25
+  %.ph = phi i32 [ 23, %25 ], [ %23, %22 ]
   br label %29
 
 29:                                               ; preds = %.preheader, %.backedge
-  %30 = phi i32 [ %.pre, %.backedge ], [ %23, %.preheader ]
+  %30 = phi i32 [ %.pre, %.backedge ], [ %.ph, %.preheader ]
   %.056 = phi ptr [ %.056.be, %.backedge ], [ %19, %.preheader ]
   switch i32 %30, label %.critedge [
     i32 31, label %31
@@ -2639,10 +2646,11 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   ]
 
 .preheader76:                                     ; preds = %34, %37
+  %.ph77 = phi i32 [ 23, %37 ], [ %35, %34 ]
   br label %41
 
 41:                                               ; preds = %.preheader76, %.backedge73
-  %42 = phi i32 [ %.pre, %.backedge73 ], [ %35, %.preheader76 ]
+  %42 = phi i32 [ %.pre, %.backedge73 ], [ %.ph77, %.preheader76 ]
   %.062 = phi ptr [ %.062.be, %.backedge73 ], [ %31, %.preheader76 ]
   switch i32 %42, label %.critedge [
     i32 31, label %43
@@ -2700,10 +2708,11 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   ]
 
 .preheader:                                       ; preds = %55, %58
+  %.ph = phi i32 [ 23, %58 ], [ %56, %55 ]
   br label %62
 
 62:                                               ; preds = %.preheader, %.backedge
-  %63 = phi i32 [ %.pre74, %.backedge ], [ %56, %.preheader ]
+  %63 = phi i32 [ %.pre74, %.backedge ], [ %.ph, %.preheader ]
   %.058 = phi ptr [ %.058.be, %.backedge ], [ %53, %.preheader ]
   switch i32 %63, label %.critedge70 [
     i32 31, label %64
@@ -3227,10 +3236,11 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   ]
 
 .preheader:                                       ; preds = %45, %48
+  %.ph98 = phi i32 [ 23, %48 ], [ %46, %45 ]
   br label %52
 
 52:                                               ; preds = %.preheader, %.backedge
-  %53 = phi i32 [ %.pre90, %.backedge ], [ %46, %.preheader ]
+  %53 = phi i32 [ %.pre90, %.backedge ], [ %.ph98, %.preheader ]
   %.072 = phi ptr [ %.072.be, %.backedge ], [ %42, %.preheader ]
   switch i32 %53, label %.loopexit.sink.split [
     i32 31, label %54
@@ -3270,23 +3280,24 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 66:                                               ; preds = %56
   %67 = load i32, ptr %63, align 8
   %68 = icmp eq i32 %67, 23
-  br i1 %68, label %69, label %.preheader98
+  br i1 %68, label %69, label %.preheader99
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %71, align 8
-  switch i32 %72, label %.preheader98 [
+  switch i32 %72, label %.preheader99 [
     i32 33, label %.loopexit
     i32 37, label %.loopexit
   ]
 
-.preheader98:                                     ; preds = %66, %69
+.preheader99:                                     ; preds = %66, %69
+  %.ph100 = phi i32 [ 23, %69 ], [ %67, %66 ]
   br label %73
 
-73:                                               ; preds = %.preheader98, %.backedge89
-  %74 = phi i32 [ %.pre, %.backedge89 ], [ %67, %.preheader98 ]
-  %.077 = phi ptr [ %.077.be, %.backedge89 ], [ %63, %.preheader98 ]
+73:                                               ; preds = %.preheader99, %.backedge89
+  %74 = phi i32 [ %.pre, %.backedge89 ], [ %.ph100, %.preheader99 ]
+  %.077 = phi ptr [ %.077.be, %.backedge89 ], [ %63, %.preheader99 ]
   switch i32 %74, label %.loopexit.sink.split [
     i32 31, label %75
     i32 40, label %.backedge89
@@ -3405,10 +3416,11 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   ]
 
 .preheader118:                                    ; preds = %19, %22
+  %.ph119 = phi i32 [ 23, %22 ], [ %20, %19 ]
   br label %26
 
 26:                                               ; preds = %.preheader118, %.backedge111
-  %27 = phi i32 [ %.pre114, %.backedge111 ], [ %20, %.preheader118 ]
+  %27 = phi i32 [ %.pre114, %.backedge111 ], [ %.ph119, %.preheader118 ]
   %.085 = phi ptr [ %.085.be, %.backedge111 ], [ %16, %.preheader118 ]
   switch i32 %27, label %.critedge [
     i32 31, label %28
@@ -3465,10 +3477,11 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   ]
 
 .preheader:                                       ; preds = %39, %42
+  %.ph = phi i32 [ 23, %42 ], [ %40, %39 ]
   br label %46
 
 46:                                               ; preds = %.preheader, %.backedge
-  %47 = phi i32 [ %.pre115, %.backedge ], [ %40, %.preheader ]
+  %47 = phi i32 [ %.pre115, %.backedge ], [ %.ph, %.preheader ]
   %.091 = phi ptr [ %.091.be, %.backedge ], [ %37, %.preheader ]
   switch i32 %47, label %.critedge102 [
     i32 31, label %48
@@ -3581,23 +3594,24 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 97:                                               ; preds = %87
   %98 = load i32, ptr %94, align 8
   %99 = icmp eq i32 %98, 23
-  br i1 %99, label %100, label %.preheader119
+  br i1 %99, label %100, label %.preheader120
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %102, align 8
-  switch i32 %103, label %.preheader119 [
+  switch i32 %103, label %.preheader120 [
     i32 33, label %.loopexit112
     i32 37, label %.loopexit112
   ]
 
-.preheader119:                                    ; preds = %97, %100
+.preheader120:                                    ; preds = %97, %100
+  %.ph121 = phi i32 [ 23, %100 ], [ %98, %97 ]
   br label %104
 
-104:                                              ; preds = %.preheader119, %.backedge113
-  %105 = phi i32 [ %.pre, %.backedge113 ], [ %98, %.preheader119 ]
-  %.089 = phi ptr [ %.089.be, %.backedge113 ], [ %94, %.preheader119 ]
+104:                                              ; preds = %.preheader120, %.backedge113
+  %105 = phi i32 [ %.pre, %.backedge113 ], [ %.ph121, %.preheader120 ]
+  %.089 = phi ptr [ %.089.be, %.backedge113 ], [ %94, %.preheader120 ]
   switch i32 %105, label %.critedge104 [
     i32 31, label %106
     i32 40, label %.backedge113
@@ -3746,10 +3760,11 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   ]
 
 .preheader80:                                     ; preds = %36, %39
+  %.ph81 = phi i32 [ 23, %39 ], [ %37, %36 ]
   br label %43
 
 43:                                               ; preds = %.preheader80, %.backedge77
-  %44 = phi i32 [ %.pre, %.backedge77 ], [ %37, %.preheader80 ]
+  %44 = phi i32 [ %.pre, %.backedge77 ], [ %.ph81, %.preheader80 ]
   %.064 = phi ptr [ %.064.be, %.backedge77 ], [ %33, %.preheader80 ]
   switch i32 %44, label %48 [
     i32 31, label %45
@@ -3815,10 +3830,11 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   ]
 
 .preheader:                                       ; preds = %61, %64
+  %.ph = phi i32 [ 23, %64 ], [ %62, %61 ]
   br label %68
 
 68:                                               ; preds = %.preheader, %.backedge
-  %69 = phi i32 [ %.pre78, %.backedge ], [ %62, %.preheader ]
+  %69 = phi i32 [ %.pre78, %.backedge ], [ %.ph, %.preheader ]
   %.060 = phi ptr [ %.060.be, %.backedge ], [ %59, %.preheader ]
   switch i32 %69, label %.critedge72 [
     i32 31, label %70
@@ -3965,10 +3981,11 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   ]
 
 .preheader:                                       ; preds = %35, %38
+  %.ph = phi i32 [ 23, %38 ], [ %36, %35 ]
   br label %42
 
 42:                                               ; preds = %.preheader, %.backedge
-  %43 = phi i32 [ %.pre, %.backedge ], [ %36, %.preheader ]
+  %43 = phi i32 [ %.pre, %.backedge ], [ %.ph, %.preheader ]
   %.037 = phi ptr [ %.037.be, %.backedge ], [ %32, %.preheader ]
   switch i32 %43, label %.critedge [
     i32 31, label %44
@@ -4077,10 +4094,11 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
   ]
 
 .preheader:                                       ; preds = %13, %16
+  %.ph = phi i32 [ 23, %16 ], [ %14, %13 ]
   br label %20
 
 20:                                               ; preds = %.preheader, %.backedge
-  %21 = phi i32 [ %.pre, %.backedge ], [ %14, %.preheader ]
+  %21 = phi i32 [ %.pre, %.backedge ], [ %.ph, %.preheader ]
   %.027 = phi ptr [ %.027.be, %.backedge ], [ %10, %.preheader ]
   switch i32 %21, label %.critedge [
     i32 31, label %22
@@ -4481,10 +4499,11 @@ type_flatten.exit:                                ; preds = %17
   ]
 
 .preheader:                                       ; preds = %35, %38
+  %.ph = phi i32 [ 23, %38 ], [ %36, %35 ]
   br label %42
 
 42:                                               ; preds = %.preheader, %.backedge
-  %43 = phi i32 [ %.pre, %.backedge ], [ %36, %.preheader ]
+  %43 = phi i32 [ %.pre, %.backedge ], [ %.ph, %.preheader ]
   %.038 = phi ptr [ %.038.be, %.backedge ], [ %32, %.preheader ]
   switch i32 %43, label %.critedge [
     i32 31, label %44
@@ -4668,10 +4687,11 @@ type_flatten.exit:                                ; preds = %30
   ]
 
 .preheader95:                                     ; preds = %48, %51
+  %.ph96 = phi i32 [ 23, %51 ], [ %49, %48 ]
   br label %55
 
 55:                                               ; preds = %.preheader95, %.backedge88
-  %56 = phi i32 [ %.pre, %.backedge88 ], [ %49, %.preheader95 ]
+  %56 = phi i32 [ %.pre, %.backedge88 ], [ %.ph96, %.preheader95 ]
   %.066 = phi ptr [ %.066.be, %.backedge88 ], [ %45, %.preheader95 ]
   switch i32 %56, label %59 [
     i32 31, label %57
@@ -4767,10 +4787,11 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   ]
 
 .preheader:                                       ; preds = %82, %85
+  %.ph = phi i32 [ 23, %85 ], [ %83, %82 ]
   br label %89
 
 89:                                               ; preds = %.preheader, %.backedge
-  %90 = phi i32 [ %.pre91, %.backedge ], [ %83, %.preheader ]
+  %90 = phi i32 [ %.pre91, %.backedge ], [ %.ph, %.preheader ]
   %.062 = phi ptr [ %.062.be, %.backedge ], [ %79, %.preheader ]
   switch i32 %90, label %.critedge76 [
     i32 31, label %91

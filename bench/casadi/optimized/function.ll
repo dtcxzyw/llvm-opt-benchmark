@@ -13509,21 +13509,18 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixId
   %46 = icmp eq i64 %43, %.sroa.0186.0226
   %47 = icmp eq i64 %44, %.sroa.9.0225
   %.not3.i.not = select i1 %46, i1 %47, i1 false
-  br i1 %.not3.i.not, label %.thread, label %._crit_edge
+  br i1 %.not3.i.not, label %.thread, label %.thread206
 
 .thread:                                          ; preds = %39, %.lr.ph, %36, %45
-  %.373202 = phi i8 [ %.070227, %45 ], [ %.070227, %36 ], [ %.070227, %.lr.ph ], [ 1, %39 ]
+  %.373202 = phi i8 [ 1, %45 ], [ %.070227, %36 ], [ %.070227, %.lr.ph ], [ 1, %39 ]
   %.sroa.0186.2201 = phi i64 [ %.sroa.0186.0226, %45 ], [ %.sroa.0186.0226, %36 ], [ %.sroa.0186.0226, %.lr.ph ], [ %43, %39 ]
   %.sroa.9.2200 = phi i64 [ %.sroa.9.0225, %45 ], [ %.sroa.9.0225, %36 ], [ %.sroa.9.0225, %.lr.ph ], [ %44, %39 ]
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0183.0224, i64 40
   %.not = icmp eq ptr %48, %33
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %45, %.thread
-  %.sroa.9.0.lcssa.ph = phi i64 [ %.sroa.9.0225, %45 ], [ %.sroa.9.2200, %.thread ]
-  %.sroa.0186.0.lcssa.ph = phi i64 [ %.sroa.0186.0226, %45 ], [ %.sroa.0186.2201, %.thread ]
-  %.171.ph = phi i8 [ 0, %45 ], [ %.373202, %.thread ]
-  %49 = trunc nuw i8 %.171.ph to i1
+._crit_edge:                                      ; preds = %.thread
+  %49 = trunc nuw i8 %.373202 to i1
   br i1 %49, label %50, label %.thread206
 
 50:                                               ; preds = %._crit_edge
@@ -13593,7 +13590,7 @@ _ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_
 _ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit: ; preds = %61, %63, %65, %_ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit.i.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #30, !noalias !192
-  call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %9, i64 noundef %.sroa.0186.0.lcssa.ph, i64 noundef %.sroa.9.0.lcssa.ph), !noalias !192
+  call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %9, i64 noundef %.sroa.0186.2201, i64 noundef %.sroa.9.2200), !noalias !192
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30, !noalias !197
   store double 0.000000e+00, ptr %8, align 8, !tbaa !200, !noalias !197
   invoke void @_ZN6casadi6MatrixIdEC1ERKNS_8SparsityERKdb(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8, i1 noundef zeroext false)
@@ -13664,11 +13661,11 @@ _ZN6casadi13GenericMatrixINS_6MatrixIdEEE5zerosERKSt4pairIxxE.exit: ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #30
   store i64 0, ptr %13, align 8, !tbaa !201
-  %97 = icmp sgt i64 %.sroa.9.0.lcssa.ph, 0
+  %97 = icmp sgt i64 %.sroa.9.2200, 0
   br i1 %97, label %.lr.ph246, label %_ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit.i.thread
 
 .lr.ph246:                                        ; preds = %96
-  %98 = icmp sgt i64 %.sroa.0186.0.lcssa.ph, 0
+  %98 = icmp sgt i64 %.sroa.0186.2201, 0
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %100 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %101 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -13714,7 +13711,7 @@ _ZN6casadi13GenericMatrixINS_6MatrixIdEEE5zerosERKSt4pairIxxE.exit: ; preds = %8
   %127 = load i64, ptr %14, align 8, !tbaa !201
   %128 = add nsw i64 %127, 1
   store i64 %128, ptr %14, align 8, !tbaa !201
-  %129 = icmp slt i64 %128, %.sroa.0186.0.lcssa.ph
+  %129 = icmp slt i64 %128, %.sroa.0186.2201
   br i1 %129, label %.preheader222.us, label %._crit_edge244.us, !llvm.loop !202
 
 .lr.ph242.us:                                     ; preds = %.preheader.us, %_ZN6casadi6MatrixIdED2Ev.exit135.us
@@ -13825,8 +13822,8 @@ _ZN6casadi6MatrixIdED2Ev.exit135.us:              ; preds = %_ZNSt6vectorIdSaIdE
 _ZNK6casadi13GenericMatrixINS_6MatrixIdEEE4sizeEv.exit.us: ; preds = %.noexc.us
   %172 = extractvalue { i64, i64 } %171, 0
   %173 = extractvalue { i64, i64 } %171, 1
-  %174 = icmp eq i64 %172, %.sroa.0186.0.lcssa.ph
-  %175 = icmp eq i64 %173, %.sroa.9.0.lcssa.ph
+  %174 = icmp eq i64 %172, %.sroa.0186.2201
+  %175 = icmp eq i64 %173, %.sroa.9.2200
   %176 = select i1 %174, i1 %175, i1 false
   br i1 %176, label %177, label %191
 
@@ -13890,7 +13887,7 @@ _ZN6casadi6MatrixIdED2Ev.exit111.us:              ; preds = %_ZNSt6vectorIdSaIdE
   %202 = load i64, ptr %13, align 8, !tbaa !201
   %203 = add nsw i64 %202, 1
   store i64 %203, ptr %13, align 8, !tbaa !201
-  %204 = icmp slt i64 %203, %.sroa.9.0.lcssa.ph
+  %204 = icmp slt i64 %203, %.sroa.9.2200
   br i1 %204, label %.preheader222.lr.ph.us, label %._crit_edge247, !llvm.loop !218
 
 .split.us:                                        ; preds = %._crit_edge240.us
@@ -14574,7 +14571,7 @@ _ZN6casadi6MatrixIdED2Ev.exit162:                 ; preds = %_ZNSt6vectorIdSaIdE
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #30
   br label %461
 
-.thread206:                                       ; preds = %30, %._crit_edge, %5
+.thread206:                                       ; preds = %45, %30, %._crit_edge, %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #30
   store i64 1, ptr %27, align 8, !tbaa !201
   %429 = call noundef zeroext i1 @_ZNK6casadi16FunctionInternal12matching_argINS_6MatrixIdEEEEbRKSt6vectorIT_SaIS5_EERx(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %27)
@@ -15200,21 +15197,18 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixIN
   %44 = icmp eq i64 %41, %.sroa.0235.0275
   %45 = icmp eq i64 %42, %.sroa.9.0274
   %.not3.i.not = select i1 %44, i1 %45, i1 false
-  br i1 %.not3.i.not, label %.thread, label %._crit_edge
+  br i1 %.not3.i.not, label %.thread, label %.thread255
 
 .thread:                                          ; preds = %37, %.lr.ph, %34, %43
-  %.373251 = phi i8 [ %.070276, %43 ], [ %.070276, %34 ], [ %.070276, %.lr.ph ], [ 1, %37 ]
+  %.373251 = phi i8 [ 1, %43 ], [ %.070276, %34 ], [ %.070276, %.lr.ph ], [ 1, %37 ]
   %.sroa.0235.2250 = phi i64 [ %.sroa.0235.0275, %43 ], [ %.sroa.0235.0275, %34 ], [ %.sroa.0235.0275, %.lr.ph ], [ %41, %37 ]
   %.sroa.9.2249 = phi i64 [ %.sroa.9.0274, %43 ], [ %.sroa.9.0274, %34 ], [ %.sroa.9.0274, %.lr.ph ], [ %42, %37 ]
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0232.0273, i64 40
   %.not = icmp eq ptr %46, %31
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %43, %.thread
-  %.sroa.9.0.lcssa.ph = phi i64 [ %.sroa.9.0274, %43 ], [ %.sroa.9.2249, %.thread ]
-  %.sroa.0235.0.lcssa.ph = phi i64 [ %.sroa.0235.0275, %43 ], [ %.sroa.0235.2250, %.thread ]
-  %.171.ph = phi i8 [ 0, %43 ], [ %.373251, %.thread ]
-  %47 = trunc nuw i8 %.171.ph to i1
+._crit_edge:                                      ; preds = %.thread
+  %47 = trunc nuw i8 %.373251 to i1
   br i1 %47, label %48, label %.thread255
 
 48:                                               ; preds = %._crit_edge
@@ -15222,7 +15216,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixIN
   %50 = load i64, ptr %49, align 8, !tbaa !183
   tail call void @_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %50)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #30
-  call void @_ZN6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5zerosExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Matrix.317") align 8 %8, i64 noundef %.sroa.0235.0.lcssa.ph, i64 noundef %.sroa.9.0.lcssa.ph)
+  call void @_ZN6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5zerosExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Matrix.317") align 8 %8, i64 noundef %.sroa.0235.2250, i64 noundef %.sroa.9.2249)
   %51 = load ptr, ptr %2, align 8, !tbaa !223
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !223
@@ -15254,11 +15248,11 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixIN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #30
   store i64 0, ptr %11, align 8, !tbaa !201
-  %60 = icmp sgt i64 %.sroa.9.0.lcssa.ph, 0
+  %60 = icmp sgt i64 %.sroa.9.2249, 0
   br i1 %60, label %.lr.ph296, label %_ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E.exit.i.thread
 
 .lr.ph296:                                        ; preds = %59
-  %61 = icmp sgt i64 %.sroa.0235.0.lcssa.ph, 0
+  %61 = icmp sgt i64 %.sroa.0235.2250, 0
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -15306,7 +15300,7 @@ define linkonce_odr hidden void @_ZNK6casadi16FunctionInternal4callINS_6MatrixIN
   %92 = load i64, ptr %12, align 8, !tbaa !201
   %93 = add nsw i64 %92, 1
   store i64 %93, ptr %12, align 8, !tbaa !201
-  %94 = icmp slt i64 %93, %.sroa.0235.0.lcssa.ph
+  %94 = icmp slt i64 %93, %.sroa.0235.2250
   br i1 %94, label %.preheader271.us, label %._crit_edge294.us, !llvm.loop !224
 
 .lr.ph292.us:                                     ; preds = %.preheader.us, %_ZN6casadi6MatrixINS_6SXElemEED2Ev.exit156.us
@@ -15434,8 +15428,8 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit156.us:    ; preds = %_ZNSt6vectorIN6casa
 _ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE4sizeEv.exit.us: ; preds = %.noexc.us
   %140 = extractvalue { i64, i64 } %139, 0
   %141 = extractvalue { i64, i64 } %139, 1
-  %142 = icmp eq i64 %140, %.sroa.0235.0.lcssa.ph
-  %143 = icmp eq i64 %141, %.sroa.9.0.lcssa.ph
+  %142 = icmp eq i64 %140, %.sroa.0235.2250
+  %143 = icmp eq i64 %141, %.sroa.9.2249
   %144 = select i1 %142, i1 %143, i1 false
   br i1 %144, label %145, label %162
 
@@ -15516,7 +15510,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit125.us:    ; preds = %_ZNSt6vectorIN6casa
   %173 = load i64, ptr %11, align 8, !tbaa !201
   %174 = add nsw i64 %173, 1
   store i64 %174, ptr %11, align 8, !tbaa !201
-  %175 = icmp slt i64 %174, %.sroa.9.0.lcssa.ph
+  %175 = icmp slt i64 %174, %.sroa.9.2249
   br i1 %175, label %.preheader271.lr.ph.us, label %._crit_edge297, !llvm.loop !235
 
 .split.us:                                        ; preds = %._crit_edge290.us
@@ -16308,7 +16302,7 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit204:       ; preds = %_ZNSt6vectorIN6casa
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #30
   br label %460
 
-.thread255:                                       ; preds = %28, %._crit_edge, %5
+.thread255:                                       ; preds = %43, %28, %._crit_edge, %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #30
   store i64 1, ptr %25, align 8, !tbaa !201
   %424 = call noundef zeroext i1 @_ZNK6casadi16FunctionInternal12matching_argINS_6MatrixINS_6SXElemEEEEEbRKSt6vectorIT_SaIS6_EERx(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %25)
@@ -16953,21 +16947,18 @@ define linkonce_odr void @_ZNK6casadi16FunctionInternal4callINS_2MXEEEvRKSt6vect
   %43 = icmp eq i64 %40, %.sroa.0176.0217
   %44 = icmp eq i64 %41, %.sroa.9.0216
   %.not3.i.not = select i1 %43, i1 %44, i1 false
-  br i1 %.not3.i.not, label %.thread, label %._crit_edge
+  br i1 %.not3.i.not, label %.thread, label %.thread196
 
 .thread:                                          ; preds = %36, %.lr.ph, %33, %42
-  %.373192 = phi i8 [ %.070218, %42 ], [ %.070218, %33 ], [ %.070218, %.lr.ph ], [ 1, %36 ]
+  %.373192 = phi i8 [ 1, %42 ], [ %.070218, %33 ], [ %.070218, %.lr.ph ], [ 1, %36 ]
   %.sroa.0176.2191 = phi i64 [ %.sroa.0176.0217, %42 ], [ %.sroa.0176.0217, %33 ], [ %.sroa.0176.0217, %.lr.ph ], [ %40, %36 ]
   %.sroa.9.2190 = phi i64 [ %.sroa.9.0216, %42 ], [ %.sroa.9.0216, %33 ], [ %.sroa.9.0216, %.lr.ph ], [ %41, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0173.0215, i64 8
   %.not = icmp eq ptr %45, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %42, %.thread
-  %.sroa.9.0.lcssa.ph = phi i64 [ %.sroa.9.0216, %42 ], [ %.sroa.9.2190, %.thread ]
-  %.sroa.0176.0.lcssa.ph = phi i64 [ %.sroa.0176.0217, %42 ], [ %.sroa.0176.2191, %.thread ]
-  %.171.ph = phi i8 [ 0, %42 ], [ %.373192, %.thread ]
-  %46 = trunc nuw i8 %.171.ph to i1
+._crit_edge:                                      ; preds = %.thread
+  %46 = trunc nuw i8 %.373192 to i1
   br i1 %46, label %47, label %.thread196
 
 47:                                               ; preds = %._crit_edge
@@ -17011,7 +17002,7 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.
 _ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit:  ; preds = %58, %60, %62, %_ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #30, !noalias !240
-  call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %8, i64 noundef %.sroa.0176.0.lcssa.ph, i64 noundef %.sroa.9.0.lcssa.ph), !noalias !240
+  call void @_ZN6casadi8Sparsity5denseExx(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Sparsity") align 8 %8, i64 noundef %.sroa.0176.2191, i64 noundef %.sroa.9.2190), !noalias !240
   invoke void @_ZN6casadi2MXC1ERKNS_8SparsityEdb(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef 0.000000e+00, i1 noundef zeroext false)
           to label %_ZN6casadi13GenericMatrixINS_2MXEE5zerosERKNS_8SparsityE.exit.i.i unwind label %68
 
@@ -17077,11 +17068,11 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %.lr.ph227
 79:                                               ; preds = %._crit_edge228
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %80 = icmp sgt i64 %.sroa.9.0.lcssa.ph, 0
+  %80 = icmp sgt i64 %.sroa.9.2190, 0
   br i1 %80, label %.preheader213.lr.ph, label %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit
 
 .preheader213.lr.ph:                              ; preds = %79
-  %81 = icmp sgt i64 %.sroa.0176.0.lcssa.ph, 0
+  %81 = icmp sgt i64 %.sroa.0176.2191, 0
   %82 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %84 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -17118,7 +17109,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %.lr.ph227
 
 ._crit_edge234.us:                                ; preds = %128, %.preheader.us
   %104 = add nuw nsw i64 %storemerge76235.us, 1
-  %exitcond.not = icmp eq i64 %104, %.sroa.0176.0.lcssa.ph
+  %exitcond.not = icmp eq i64 %104, %.sroa.0176.2191
   br i1 %exitcond.not, label %._crit_edge236.us, label %.preheader212.us, !llvm.loop !245
 
 .lr.ph233.us:                                     ; preds = %.preheader.us, %128
@@ -17220,8 +17211,8 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.i7.i.us:            ; preds = %123, %_ZN6casadi6Ma
 _ZNK6casadi13GenericMatrixINS_2MXEE4sizeEv.exit.us: ; preds = %.noexc.us
   %141 = extractvalue { i64, i64 } %140, 0
   %142 = extractvalue { i64, i64 } %140, 1
-  %143 = icmp eq i64 %141, %.sroa.0176.0.lcssa.ph
-  %144 = icmp eq i64 %142, %.sroa.9.0.lcssa.ph
+  %143 = icmp eq i64 %141, %.sroa.0176.2191
+  %144 = icmp eq i64 %142, %.sroa.9.2190
   %145 = select i1 %143, i1 %144, i1 false
   br i1 %145, label %146, label %152
 
@@ -17271,7 +17262,7 @@ _ZN6casadi2MXaSERKS0_.exit107.us:                 ; preds = %_ZNK6casadi13Generi
 
 ._crit_edge236.us:                                ; preds = %._crit_edge234.us
   %163 = add nuw nsw i64 %storemerge237.us, 1
-  %exitcond277.not = icmp eq i64 %163, %.sroa.9.0.lcssa.ph
+  %exitcond277.not = icmp eq i64 %163, %.sroa.9.2190
   br i1 %exitcond277.not, label %._crit_edge238, label %.preheader213.us, !llvm.loop !256
 
 .split.us:                                        ; preds = %._crit_edge231.us
@@ -17790,7 +17781,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit150:    ; preds = %304, %_ZSt8_Destroy
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #30
   br label %332
 
-.thread196:                                       ; preds = %27, %._crit_edge, %5
+.thread196:                                       ; preds = %42, %27, %._crit_edge, %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #30
   store i64 1, ptr %24, align 8, !tbaa !201
   %312 = call noundef zeroext i1 @_ZNK6casadi16FunctionInternal12matching_argINS_2MXEEEbRKSt6vectorIT_SaIS4_EERx(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %24)

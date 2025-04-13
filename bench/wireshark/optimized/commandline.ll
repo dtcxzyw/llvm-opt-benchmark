@@ -685,7 +685,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i1
   br label %.backedge
 
 39:                                               ; preds = %6
-  br i1 %.015, label %.thread, label %40
+  br i1 %.015, label %.critedge, label %40
 
 40:                                               ; preds = %39
   %41 = load i32, ptr @ws_optind, align 4
@@ -693,48 +693,44 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i1
   %43 = sext i32 %41 to i64
   %44 = getelementptr ptr, ptr %1, i64 %43
   %45 = icmp sgt i32 %42, 0
-  br i1 %45, label %46, label %.thread31
+  br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %40
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 24), align 8
   %.not22.not = icmp eq ptr %47, null
-  br i1 %.not22.not, label %49, label %48
+  br i1 %.not22.not, label %48, label %.thread38
 
 48:                                               ; preds = %46
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19)
-  br label %52
-
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %44, align 8
-  %51 = tail call noalias ptr @g_strdup(ptr noundef %50)
-  store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 24), align 8
-  br label %52
-
-52:                                               ; preds = %48, %49
-  %53 = getelementptr i8, ptr %44, i64 8
+  %49 = load ptr, ptr %44, align 8
+  %50 = tail call noalias ptr @g_strdup(ptr noundef %49)
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @global_commandline_info, i64 24), align 8
+  %51 = getelementptr i8, ptr %44, i64 8
   %.not23 = icmp eq i32 %42, 1
-  br i1 %.not23, label %56, label %54
+  br i1 %.not23, label %.thread30, label %53
 
-.thread31:                                        ; preds = %40
-  %.not2335 = icmp eq i32 %0, %41
-  br i1 %.not2335, label %.thread38, label %54
+.thread38:                                        ; preds = %46
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.19)
+  %52 = getelementptr i8, ptr %44, i64 8
+  %.not2339 = icmp eq i32 %42, 1
+  br i1 %.not2339, label %.critedge, label %53
 
-54:                                               ; preds = %.thread31, %52
-  %.01836 = phi ptr [ %44, %.thread31 ], [ %53, %52 ]
-  %55 = load ptr, ptr %.01836, align 8
-  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20, ptr noundef %55)
-  br label %.thread
+.thread:                                          ; preds = %40
+  %.not2327 = icmp eq i32 %0, %41
+  br i1 %.not2327, label %.thread30, label %53
 
-56:                                               ; preds = %52
-  br i1 %.not22.not, label %.thread38, label %.thread
+53:                                               ; preds = %.thread38, %.thread, %48
+  %.01828 = phi ptr [ %44, %.thread ], [ %51, %48 ], [ %52, %.thread38 ]
+  %54 = load ptr, ptr %.01828, align 8
+  tail call void (ptr, ...) @cmdarg_err(ptr noundef nonnull @.str.20, ptr noundef %54)
+  br label %.critedge
 
-.thread:                                          ; preds = %54, %39, %56
+.critedge:                                        ; preds = %.thread38, %39, %53
   tail call fastcc void @print_no_capture_support_error()
   tail call fastcc void @commandline_print_usage(i1 noundef zeroext false)
   tail call void @exit_application(i32 noundef 1) #13
   unreachable
 
-.thread38:                                        ; preds = %.thread31, %56
+.thread30:                                        ; preds = %48, %.thread
   ret void
 }
 

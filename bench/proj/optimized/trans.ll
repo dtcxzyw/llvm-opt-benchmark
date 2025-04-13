@@ -1744,7 +1744,7 @@ define noundef i32 @proj_trans_array(ptr noundef %0, i32 noundef %1, i64 noundef
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.031 = phi i64 [ %9, %.lr.ph ], [ 0, %4 ]
+  %.031 = phi i64 [ %11, %.lr.ph ], [ 0, %4 ]
   %.01930 = phi i1 [ %.1, %.lr.ph ], [ true, %4 ]
   %.02029 = phi i1 [ %.121, %.lr.ph ], [ false, %4 ]
   %.02228 = phi i32 [ %.123, %.lr.ph ], [ 0, %4 ]
@@ -1756,24 +1756,28 @@ define noundef i32 @proj_trans_array(ptr noundef %0, i32 noundef %1, i64 noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #18
   %8 = call i32 @proj_errno(ptr noundef nonnull %0)
-  %.not = icmp ne i32 %8, 0
-  %brmerge.not = select i1 %.not, i1 %.02029, i1 false
-  %.not25 = icmp ne i32 %.02228, %8
-  %or.cond.not = select i1 %.01930, i1 %.not25, i1 false
-  %spec.select = select i1 %or.cond.not, i32 2048, i32 %.02228
-  %.022.mux = select i1 %.02029, i32 %spec.select, i32 %8
-  %.123 = select i1 %.not, i32 %.022.mux, i32 %.02228
-  %.121 = select i1 %.not, i1 true, i1 %.02029
-  %spec.select27 = select i1 %brmerge.not, i1 %or.cond.not, i1 false
-  %.1 = xor i1 %.01930, %spec.select27
-  %9 = add nuw i64 %.031, 1
-  %exitcond.not = icmp eq i64 %9, %2
+  %.not = icmp eq i32 %8, 0
+  %.020.not = xor i1 %.02029, true
+  %brmerge = select i1 %.not, i1 true, i1 %.020.not
+  %.019.not = xor i1 %.01930, true
+  %brmerge27 = select i1 %brmerge, i1 true, i1 %.019.not
+  %9 = select i1 %.not, i1 true, i1 %.02029
+  %.022.mux.mux = select i1 %9, i32 %.02228, i32 %8
+  %.not25 = icmp eq i32 %.02228, %8
+  %spec.select = select i1 %.not25, i32 %.02228, i32 2048
+  %.123 = select i1 %brmerge27, i32 %.022.mux.mux, i32 %spec.select
+  %10 = xor i1 %.not, true
+  %.121 = select i1 %10, i1 true, i1 %.02029
+  %.019.mux = select i1 %.01930, i1 %.not25, i1 false
+  %.1 = select i1 %brmerge, i1 %.01930, i1 %.019.mux
+  %11 = add nuw i64 %.031, 1
+  %exitcond.not = icmp eq i64 %11, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !120
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.022.lcssa = phi i32 [ 0, %4 ], [ %.123, %.lr.ph ]
-  %10 = load ptr, ptr %0, align 8, !tbaa !49
-  call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %10, i32 noundef %.022.lcssa)
+  %12 = load ptr, ptr %0, align 8, !tbaa !49
+  call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %12, i32 noundef %.022.lcssa)
   ret i32 %.022.lcssa
 }
 

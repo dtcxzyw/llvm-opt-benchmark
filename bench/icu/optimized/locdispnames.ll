@@ -1796,6 +1796,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 .loopexit360.preheader:                           ; preds = %.lr.ph, %.preheader359, %87, %88
   %.3230408.ph = phi i32 [ %.3246, %88 ], [ 0, %87 ], [ 0, %.preheader359 ], [ %.3246, %.lr.ph ]
   %.3238407.ph = phi ptr [ %2, %88 ], [ %2, %87 ], [ %2, %.preheader359 ], [ %92, %.lr.ph ]
+  %.4247406.ph = phi i32 [ %.3246, %88 ], [ 0, %87 ], [ %.3246, %.preheader359 ], [ %.3246, %.lr.ph ]
   br label %.loopexit360
 
 .preheader359:                                    ; preds = %88
@@ -1839,7 +1840,7 @@ _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2E
   br i1 %.not318, label %265, label %87, !llvm.loop !32
 
 .loopexit360:                                     ; preds = %.loopexit360.preheader, %262
-  %.1198415 = phi i32 [ %.6, %262 ], [ %.3246, %.loopexit360.preheader ]
+  %.1198415 = phi i32 [ %.6, %262 ], [ %.4247406.ph, %.loopexit360.preheader ]
   %.0211414 = phi i32 [ %.1212, %262 ], [ 0, %.loopexit360.preheader ]
   %.0213413 = phi i32 [ %.1214, %262 ], [ 0, %.loopexit360.preheader ]
   %.0215412 = phi i32 [ %.1216, %262 ], [ 0, %.loopexit360.preheader ]
@@ -1848,7 +1849,7 @@ _ZN6icu_778internal16LocalOpenPointerI12UEnumerationXadL_Z14uenum_close_77EEED2E
   %.0224409 = phi i32 [ %.2226, %262 ], [ 0, %.loopexit360.preheader ]
   %.3230408 = phi i32 [ %.4231, %262 ], [ %.3230408.ph, %.loopexit360.preheader ]
   %.3238407 = phi ptr [ %.14, %262 ], [ %.3238407.ph, %.loopexit360.preheader ]
-  %.4247406 = phi i32 [ %.5248, %262 ], [ %.3246, %.loopexit360.preheader ]
+  %.4247406 = phi i32 [ %.5248, %262 ], [ %.4247406.ph, %.loopexit360.preheader ]
   %.1278405 = phi i8 [ %.2279, %262 ], [ %.0277, %.loopexit360.preheader ]
   %.1282404 = phi i8 [ %.2283, %262 ], [ %.0281, %.loopexit360.preheader ]
   %.1286403 = phi i8 [ %.3288, %262 ], [ %.0285, %.loopexit360.preheader ]

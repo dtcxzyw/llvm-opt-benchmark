@@ -702,11 +702,11 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
 10:                                               ; preds = %5
   tail call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef nonnull %2)
   %.pre = load ptr, ptr %8, align 8, !tbaa !40
-  %.pre126 = load ptr, ptr %6, align 8, !tbaa !41
+  %.pre125 = load ptr, ptr %6, align 8, !tbaa !41
   br label %11
 
 11:                                               ; preds = %10, %5
-  %12 = phi ptr [ %.pre126, %10 ], [ %7, %5 ]
+  %12 = phi ptr [ %.pre125, %10 ], [ %7, %5 ]
   %13 = phi ptr [ %.pre, %10 ], [ %9, %5 ]
   %14 = add nsw i32 %1, -1
   %15 = ptrtoint ptr %13 to i64
@@ -726,9 +726,9 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
 .lr.ph112:                                        ; preds = %.preheader99, %53
   %24 = phi ptr [ %54, %53 ], [ %13, %.preheader99 ]
   %25 = phi ptr [ %55, %53 ], [ %12, %.preheader99 ]
-  %.066111 = phi i16 [ %.1136146, %53 ], [ 0, %.preheader99 ]
-  %.067110 = phi ptr [ %.269134147, %53 ], [ %0, %.preheader99 ]
-  %.076109 = phi i32 [ %.177131149, %53 ], [ 0, %.preheader99 ]
+  %.066111 = phi i16 [ %.1, %53 ], [ 0, %.preheader99 ]
+  %.067110 = phi ptr [ %.269, %53 ], [ %0, %.preheader99 ]
+  %.076109 = phi i32 [ %.177, %53 ], [ 0, %.preheader99 ]
   %.081108 = phi i32 [ %60, %53 ], [ %19, %.preheader99 ]
   %26 = sub nsw i32 %14, %.076109
   %27 = icmp slt i32 %.081108, %26
@@ -736,14 +736,16 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %29 = getelementptr inbounds i16, ptr %25, i64 %28
   %.071 = select i1 %27, ptr %24, ptr %29
   %.not90 = icmp eq i16 %.066111, 0
-  %30 = icmp ult ptr %25, %.071
-  %or.cond115 = select i1 %.not90, i1 %30, i1 false
-  br i1 %or.cond115, label %.lr.ph, label %.critedge92
+  br i1 %.not90, label %.preheader, label %.critedge92
 
-.lr.ph:                                           ; preds = %.lr.ph112, %34
-  %.370105 = phi ptr [ %37, %34 ], [ %.067110, %.lr.ph112 ]
-  %.173104 = phi ptr [ %36, %34 ], [ %25, %.lr.ph112 ]
-  %.278103 = phi i32 [ %35, %34 ], [ %.076109, %.lr.ph112 ]
+.preheader:                                       ; preds = %.lr.ph112
+  %30 = icmp ult ptr %25, %.071
+  br i1 %30, label %.lr.ph, label %.critedge92
+
+.lr.ph:                                           ; preds = %.preheader, %34
+  %.370105 = phi ptr [ %37, %34 ], [ %.067110, %.preheader ]
+  %.173104 = phi ptr [ %36, %34 ], [ %25, %.preheader ]
+  %.278103 = phi i32 [ %35, %34 ], [ %.076109, %.preheader ]
   %31 = load i16, ptr %.173104, align 2, !tbaa !38
   %32 = add i16 %31, -10
   %or.cond = icmp ult i16 %32, 4
@@ -762,7 +764,7 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %37 = getelementptr inbounds nuw i8, ptr %.370105, i64 2
   store i16 %31, ptr %.370105, align 2, !tbaa !38
   %38 = icmp ult ptr %36, %.071
-  br i1 %38, label %.lr.ph, label %.critedge4.thread141, !llvm.loop !44
+  br i1 %38, label %.lr.ph, label %.critedge92, !llvm.loop !44
 
 .critedge2:                                       ; preds = %33, %33, %33, %.lr.ph
   %39 = icmp eq i16 %31, 13
@@ -773,17 +775,13 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   store i16 %31, ptr %.370105, align 2, !tbaa !38
   br label %.critedge92
 
-.critedge92:                                      ; preds = %.critedge2, %.lr.ph112
-  %.177 = phi i32 [ %.076109, %.lr.ph112 ], [ %40, %.critedge2 ]
-  %.072 = phi ptr [ %25, %.lr.ph112 ], [ %41, %.critedge2 ]
-  %.269 = phi ptr [ %.067110, %.lr.ph112 ], [ %42, %.critedge2 ]
-  %.1 = phi i16 [ %.066111, %.lr.ph112 ], [ %., %.critedge2 ]
+.critedge92:                                      ; preds = %34, %.preheader, %.critedge2, %.lr.ph112
+  %.177 = phi i32 [ %.076109, %.lr.ph112 ], [ %40, %.critedge2 ], [ %.076109, %.preheader ], [ %35, %34 ]
+  %.072 = phi ptr [ %25, %.lr.ph112 ], [ %41, %.critedge2 ], [ %25, %.preheader ], [ %36, %34 ]
+  %.269 = phi ptr [ %.067110, %.lr.ph112 ], [ %42, %.critedge2 ], [ %.067110, %.preheader ], [ %37, %34 ]
+  %.1 = phi i16 [ %.066111, %.lr.ph112 ], [ %., %.critedge2 ], [ 0, %.preheader ], [ 0, %34 ]
   %43 = icmp ult ptr %.072, %.071
   br i1 %43, label %44, label %.critedge4
-
-.critedge4.thread141:                             ; preds = %34
-  store ptr %36, ptr %6, align 8, !tbaa !41
-  br label %53
 
 44:                                               ; preds = %.critedge92
   %45 = icmp eq i16 %.1, 13
@@ -811,10 +809,7 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %52 = icmp eq i16 %.1, 1
   br i1 %52, label %.loopexit, label %53
 
-53:                                               ; preds = %.critedge4.thread141, %.critedge4
-  %.177131149 = phi i32 [ %35, %.critedge4.thread141 ], [ %.177, %.critedge4 ]
-  %.269134147 = phi ptr [ %37, %.critedge4.thread141 ], [ %.269, %.critedge4 ]
-  %.1136146 = phi i16 [ 0, %.critedge4.thread141 ], [ %.1, %.critedge4 ]
+53:                                               ; preds = %.critedge4
   tail call void @_Z26ufile_fill_uchar_buffer_77P5UFILE(ptr noundef nonnull %2)
   %54 = load ptr, ptr %8, align 8, !tbaa !40
   %55 = load ptr, ptr %6, align 8, !tbaa !41
@@ -824,12 +819,12 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   %59 = lshr exact i64 %58, 1
   %60 = trunc i64 %59 to i32
   %61 = icmp sgt i32 %60, 0
-  %62 = icmp slt i32 %.177131149, %14
+  %62 = icmp slt i32 %.177, %14
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %.lr.ph112, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %53, %.critedge4, %.preheader99, %.critedge4.thread
-  %.168 = phi ptr [ %.4.ph, %.critedge4.thread ], [ %0, %.preheader99 ], [ %.269134147, %53 ], [ %.269, %.critedge4 ]
+  %.168 = phi ptr [ %.4.ph, %.critedge4.thread ], [ %0, %.preheader99 ], [ %.269, %.critedge4 ], [ %.269, %53 ]
   store i16 0, ptr %.168, align 2, !tbaa !38
   br label %64
 

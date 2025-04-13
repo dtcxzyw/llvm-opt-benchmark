@@ -92071,8 +92071,7 @@ _ZNSt6vectorIPN6casadi6SXNodeESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Vector
   store ptr %160, ptr %162, align 8, !tbaa !610
   store ptr %160, ptr %163, align 8, !tbaa !611
   store i64 0, ptr %164, align 8, !tbaa !612
-  %.not875 = icmp eq ptr %1093, %1092
-  br i1 %.not875, label %._crit_edge, label %.lr.ph856
+  br i1 %.not701, label %._crit_edge, label %.lr.ph856
 
 ._crit_edge:                                      ; preds = %1210, %_ZNSt6vectorIPN6casadi6SXNodeESaIS2_EE7reserveEm.exit
   %.sroa.0591.3.lcssa = phi ptr [ %.sroa.0591.9, %_ZNSt6vectorIPN6casadi6SXNodeESaIS2_EE7reserveEm.exit ], [ %.sroa.0591.6, %1210 ]
@@ -107562,7 +107561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit442: ; preds = %_Z
   br label %.loopexit814
 
 .loopexit814:                                     ; preds = %.loopexit814.loopexit, %.preheader815, %._crit_edge
-  %.0772.lcssa974 = phi i8 [ %.sroa.speculated720, %._crit_edge ], [ 0, %.preheader815 ], [ %.sroa.speculated720, %.loopexit814.loopexit ]
+  %.0772.lcssa974 = phi i8 [ %.sroa.speculated720, %._crit_edge ], [ 0, %.preheader815 ], [ 2, %.loopexit814.loopexit ]
   %.1225 = phi i1 [ %810, %._crit_edge ], [ %810, %.preheader815 ], [ %852, %.loopexit814.loopexit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %104) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %104, i8 0, i64 24, i1 false)

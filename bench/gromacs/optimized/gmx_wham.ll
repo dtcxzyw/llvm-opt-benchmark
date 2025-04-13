@@ -11921,7 +11921,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 47:                                               ; preds = %3
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %418
+  br label %417
 
 49:                                               ; preds = %19
   %50 = landingpad { ptr, i32 }
@@ -11937,7 +11937,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 53:                                               ; preds = %51, %49
   %.pn = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #26
-  br label %417
+  br label %416
 
 54:                                               ; preds = %44
   %55 = landingpad { ptr, i32 }
@@ -11953,7 +11953,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 58:                                               ; preds = %56, %54
   %.pn199 = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #26
-  br label %417
+  br label %416
 
 59:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 600
@@ -11990,7 +11990,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 73:                                               ; preds = %71, %69
   %.pn230 = phi { ptr, i32 } [ %72, %71 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #26
-  br label %417
+  br label %416
 
 74:                                               ; preds = %59
   store i32 %63, ptr %1, align 8, !tbaa !407
@@ -12037,7 +12037,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 95:                                               ; preds = %74
   %96 = landingpad { ptr, i32 }
           cleanup
-  br label %417
+  br label %416
 
 97:                                               ; preds = %.lr.ph, %182
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %182 ]
@@ -12131,7 +12131,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 157:                                              ; preds = %114, %97
   %158 = landingpad { ptr, i32 }
           cleanup
-  br label %417
+  br label %416
 
 159:                                              ; preds = %154
   %160 = landingpad { ptr, i32 }
@@ -12147,7 +12147,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 163:                                              ; preds = %161, %159
   %.pn227 = phi { ptr, i32 } [ %162, %161 ], [ %160, %159 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #26
-  br label %417
+  br label %416
 
 164:                                              ; preds = %145, %141
   br i1 %.not223, label %._crit_edge82, label %165
@@ -12195,7 +12195,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 181:                                              ; preds = %179, %177
   %.pn225 = phi { ptr, i32 } [ %180, %179 ], [ %178, %177 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #26
-  br label %417
+  br label %416
 
 182:                                              ; preds = %._crit_edge82, %165
   %183 = phi i32 [ %.pre83, %._crit_edge82 ], [ %166, %165 ]
@@ -12271,7 +12271,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 213:                                              ; preds = %211, %209
   %.pn218 = phi { ptr, i32 } [ %212, %211 ], [ %210, %209 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #26
-  br label %417
+  br label %416
 
 214:                                              ; preds = %194
   %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %196, i64 4
@@ -12331,7 +12331,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 239:                                              ; preds = %237, %235
   %.pn216 = phi { ptr, i32 } [ %238, %237 ], [ %236, %235 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #26
-  br label %417
+  br label %416
 
 240:                                              ; preds = %.thread, %221
   %.sroa.10.197 = phi i32 [ %220, %.thread ], [ %.sroa.10.035, %221 ]
@@ -12402,7 +12402,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 277:                                              ; preds = %275, %273
   %.pn214 = phi { ptr, i32 } [ %276, %275 ], [ %274, %273 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #26
-  br label %417
+  br label %416
 
 278:                                              ; preds = %246
   %279 = icmp eq i32 %.pre86, 2
@@ -12454,7 +12454,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 301:                                              ; preds = %299, %297
   %.pn212 = phi { ptr, i32 } [ %300, %299 ], [ %298, %297 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #26
-  br label %417
+  br label %416
 
 302:                                              ; preds = %280, %278
   %303 = getelementptr inbounds nuw %struct.t_pullcoord, ptr %195, i64 %indvars.iv74, i32 5
@@ -12495,7 +12495,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 320:                                              ; preds = %318, %316
   %.pn210 = phi { ptr, i32 } [ %319, %318 ], [ %317, %316 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17) #26
-  br label %417
+  br label %416
 
 321:                                              ; preds = %189, %302
   %.sroa.0.2 = phi i32 [ %.sroa.0.195, %302 ], [ %.sroa.0.033, %189 ]
@@ -12560,7 +12560,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
 351:                                              ; preds = %.lr.ph43
   %352 = landingpad { ptr, i32 }
           cleanup
-  br label %417
+  br label %416
 
 ._crit_edge49:                                    ; preds = %403, %._crit_edge44
   %353 = load i8, ptr %80, align 1, !tbaa !411, !range !76, !noundef !77
@@ -12572,7 +12572,7 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
   %.b.pre = load i1, ptr @_ZZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselectionE5first, align 4
   %357 = trunc nuw i8 %.pre87 to i1
   %358 = select i1 %357, i1 true, i1 %.b.pre
-  br label %413
+  br i1 %358, label %415, label %414
 
 359:                                              ; preds = %.lr.ph48, %403
   %indvars.iv79 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next80, %403 ]
@@ -12645,17 +12645,16 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
   %412 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %18) #26
-  br label %417
-
-413:                                              ; preds = %._crit_edge, %._crit_edge49
-  %414 = phi i1 [ %.b197, %._crit_edge ], [ %358, %._crit_edge49 ]
-  br i1 %414, label %416, label %415
-
-415:                                              ; preds = %413
-  %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
   br label %416
 
-416:                                              ; preds = %415, %413
+413:                                              ; preds = %._crit_edge
+  br i1 %.b197, label %415, label %414
+
+414:                                              ; preds = %._crit_edge49, %413
+  %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
+  br label %415
+
+415:                                              ; preds = %._crit_edge49, %414, %413
   store i1 true, ptr @_ZZL15read_tpr_headerPKcP16t_UmbrellaHeaderP15UmbrellaOptionsP16t_coordselectionE5first, align 4
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %6) #26
   call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %6) #26
@@ -12663,13 +12662,13 @@ _ZL13gmx_snew_implI11t_pullcoordEvPKcS2_iRPT_m.exit: ; preds = %74
   call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %5) #26
   ret void
 
-417:                                              ; preds = %320, %301, %277, %239, %213, %411, %351, %157, %163, %181, %95, %73, %58, %53
+416:                                              ; preds = %320, %301, %277, %239, %213, %411, %351, %157, %163, %181, %95, %73, %58, %53
   %.pn230.pn = phi { ptr, i32 } [ %.pn230, %73 ], [ %96, %95 ], [ %.pn199, %58 ], [ %.pn, %53 ], [ %.pn227, %163 ], [ %.pn225, %181 ], [ %158, %157 ], [ %.pn218, %213 ], [ %.pn216, %239 ], [ %.pn214, %277 ], [ %.pn212, %301 ], [ %.pn210, %320 ], [ %352, %351 ], [ %412, %411 ]
   call void @_ZN7t_stateD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %6) #26
-  br label %418
+  br label %417
 
-418:                                              ; preds = %417, %47
-  %.pn230.pn.pn = phi { ptr, i32 } [ %.pn230.pn, %417 ], [ %48, %47 ]
+417:                                              ; preds = %416, %47
+  %.pn230.pn.pn = phi { ptr, i32 } [ %.pn230.pn, %416 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(i64 832, ptr nonnull %6) #26
   call void @_ZN10t_inputrecD1Ev(ptr noundef nonnull align 8 dereferenceable(880) %5) #26
   call void @llvm.lifetime.end.p0(i64 880, ptr nonnull %5) #26

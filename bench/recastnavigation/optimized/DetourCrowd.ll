@@ -813,7 +813,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   %8 = alloca i32, align 4
   %9 = alloca [3 x float], align 4
   %invariant.gep = getelementptr i8, ptr %3, i64 -8
-  %invariant.gep169 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %invariant.gep162 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i32, ptr %0, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -828,9 +828,9 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
 
 .preheader:                                       ; preds = %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit
   %17 = icmp sgt i32 %.1128, 0
-  br i1 %17, label %.lr.ph174, label %._crit_edge
+  br i1 %17, label %.lr.ph167, label %._crit_edge
 
-.lr.ph174:                                        ; preds = %.preheader
+.lr.ph167:                                        ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %wide.trip.count = zext nneg i32 %.1128 to i64
@@ -838,7 +838,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
 
 20:                                               ; preds = %.lr.ph, %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit ]
-  %.0127172 = phi i32 [ 0, %.lr.ph ], [ %.1128, %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit ]
+  %.0127165 = phi i32 [ 0, %.lr.ph ], [ %.1128, %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit ]
   %21 = load ptr, ptr %12, align 8
   %22 = getelementptr inbounds nuw %struct.dtCrowdAgent, ptr %21, i64 %indvars.iv
   %23 = load i8, ptr %22, align 8
@@ -919,7 +919,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   %72 = load i32, ptr %71, align 4
   %73 = load i32, ptr %45, align 4
   %.not = icmp eq i32 %72, %73
-  br i1 %.not, label %.thread195, label %74
+  br i1 %.not, label %.thread189, label %74
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %13, align 8
@@ -927,7 +927,7 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %.thread.sink.split, label %83
 
-.thread195:                                       ; preds = %68
+.thread189:                                       ; preds = %68
   %78 = load float, ptr %48, align 4
   store float %78, ptr %4, align 4
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 604
@@ -961,8 +961,8 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   store i32 1, ptr %6, align 4
   br label %90
 
-90:                                               ; preds = %.thread195, %.thread, %83
-  %91 = phi i32 [ 1, %.thread ], [ %.pr.pre, %83 ], [ %66, %.thread195 ]
+90:                                               ; preds = %.thread189, %.thread, %83
+  %91 = phi i32 [ 1, %.thread ], [ %.pr.pre, %83 ], [ %66, %.thread189 ]
   call void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %91)
   %92 = getelementptr inbounds nuw i8, ptr %22, i64 48
   call void @_ZN15dtLocalBoundary5resetEv(ptr noundef nonnull align 4 dereferenceable(308) %92)
@@ -988,13 +988,13 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   br label %102
 
 102:                                              ; preds = %29, %.thread156
-  %.not.i = icmp eq i32 %.0127172, 0
+  %.not.i = icmp eq i32 %.0127165, 0
   br i1 %.not.i, label %132, label %103
 
 103:                                              ; preds = %102
   %104 = getelementptr inbounds nuw i8, ptr %22, i64 620
   %105 = load float, ptr %104, align 4
-  %106 = sext i32 %.0127172 to i64
+  %106 = sext i32 %.0127165 to i64
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %106
   %107 = load ptr, ptr %gep, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 620
@@ -1003,15 +1003,15 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   br i1 %110, label %.preheader.i, label %112
 
 .preheader.i:                                     ; preds = %103
-  %111 = icmp sgt i32 %.0127172, 0
+  %111 = icmp sgt i32 %.0127165, 0
   br i1 %111, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %.0127172 to i64
+  %wide.trip.count.i = zext nneg i32 %.0127165 to i64
   br label %.lr.ph.i
 
 112:                                              ; preds = %103
-  %113 = icmp sgt i32 %.0127172, 7
+  %113 = icmp sgt i32 %.0127165, 7
   br i1 %113, label %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit, label %132
 
 .lr.ph.i:                                         ; preds = %119, %.lr.ph.preheader.i
@@ -1033,8 +1033,8 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %119, %.loopexit.split.loop.exit47.i, %.preheader.i
-  %.038.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %120, %.loopexit.split.loop.exit47.i ], [ %.0127172, %119 ]
-  %121 = sub nsw i32 %.0127172, %.038.lcssa.i
+  %.038.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %120, %.loopexit.split.loop.exit47.i ], [ %.0127165, %119 ]
+  %121 = sub nsw i32 %.0127165, %.038.lcssa.i
   %122 = sub nsw i32 7, %.038.lcssa.i
   %123 = call noundef i32 @llvm.smin.i32(i32 %121, i32 %122)
   %124 = call noundef ptr @_Z21dtAssertFailGetCustomv()
@@ -1043,34 +1043,34 @@ define void @_ZN7dtCrowd17updateMoveRequestEf(ptr noundef nonnull align 8 derefe
 
 126:                                              ; preds = %.loopexit.i
   %127 = sext i32 %.038.lcssa.i to i64
-  %gep170 = getelementptr ptr, ptr %invariant.gep169, i64 %127
+  %gep163 = getelementptr ptr, ptr %invariant.gep162, i64 %127
   %128 = zext nneg i32 %.038.lcssa.i to i64
   %129 = getelementptr inbounds nuw ptr, ptr %3, i64 %128
   %130 = zext nneg i32 %123 to i64
   %131 = shl nuw nsw i64 %130, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %gep170, ptr nonnull align 8 %129, i64 %131, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %gep163, ptr nonnull align 8 %129, i64 %131, i1 false)
   br label %132
 
 132:                                              ; preds = %126, %.loopexit.i, %112, %102
-  %.037.i = phi i32 [ 0, %102 ], [ %.0127172, %112 ], [ %.038.lcssa.i, %126 ], [ %.038.lcssa.i, %.loopexit.i ]
+  %.037.i = phi i32 [ 0, %102 ], [ %.0127165, %112 ], [ %.038.lcssa.i, %126 ], [ %.038.lcssa.i, %.loopexit.i ]
   %133 = sext i32 %.037.i to i64
   %134 = getelementptr inbounds ptr, ptr %3, i64 %133
   store ptr %22, ptr %134, align 8
-  %135 = call i32 @llvm.smin.i32(i32 %.0127172, i32 7)
+  %135 = call i32 @llvm.smin.i32(i32 %.0127165, i32 7)
   %136 = add nsw i32 %135, 1
   br label %_ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit
 
 _ZL14addToPathQueueP12dtCrowdAgentPS0_ii.exit:    ; preds = %29, %132, %112, %.thread157, %25, %20
-  %.1128 = phi i32 [ %.0127172, %25 ], [ %.0127172, %20 ], [ %.0127172, %.thread157 ], [ %136, %132 ], [ %.0127172, %112 ], [ %.0127172, %29 ]
+  %.1128 = phi i32 [ %.0127165, %25 ], [ %.0127165, %20 ], [ %.0127165, %.thread157 ], [ %136, %132 ], [ %.0127165, %112 ], [ %.0127165, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = load i32, ptr %0, align 8
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next, %138
   br i1 %139, label %20, label %.preheader, !llvm.loop !12
 
-140:                                              ; preds = %.lr.ph174, %165
-  %indvars.iv186 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next187, %165 ]
-  %141 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv186
+140:                                              ; preds = %.lr.ph167, %165
+  %indvars.iv179 = phi i64 [ 0, %.lr.ph167 ], [ %indvars.iv.next180, %165 ]
+  %141 = getelementptr inbounds nuw [8 x ptr], ptr %3, i64 0, i64 %indvars.iv179
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %144 = load i32, ptr %143, align 8
@@ -1108,8 +1108,8 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   br label %165
 
 165:                                              ; preds = %_ZNK14dtPathCorridor11getLastPolyEv.exit, %163
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %140, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %165, %2, %.preheader
@@ -1117,9 +1117,9 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   call void @_ZN11dtPathQueue6updateEi(ptr noundef nonnull align 8 dereferenceable(600) %166, i32 noundef 100)
   %167 = load i32, ptr %0, align 8
   %168 = icmp sgt i32 %167, 0
-  br i1 %168, label %.lr.ph182, label %._crit_edge183
+  br i1 %168, label %.lr.ph175, label %._crit_edge176
 
-.lr.ph182:                                        ; preds = %._crit_edge
+.lr.ph175:                                        ; preds = %._crit_edge
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %170 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %171 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1130,19 +1130,19 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   %176 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %177
 
-177:                                              ; preds = %.lr.ph182, %290
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next190, %290 ]
+177:                                              ; preds = %.lr.ph175, %289
+  %indvars.iv182 = phi i64 [ 0, %.lr.ph175 ], [ %indvars.iv.next183, %289 ]
   %178 = load ptr, ptr %169, align 8
-  %179 = getelementptr inbounds nuw %struct.dtCrowdAgent, ptr %178, i64 %indvars.iv189
+  %179 = getelementptr inbounds nuw %struct.dtCrowdAgent, ptr %178, i64 %indvars.iv182
   %180 = load i8, ptr %179, align 8
   %181 = trunc i8 %180 to i1
-  br i1 %181, label %182, label %290
+  br i1 %181, label %182, label %289
 
 182:                                              ; preds = %177
   %183 = getelementptr inbounds nuw i8, ptr %179, i64 592
   %184 = load i8, ptr %183, align 8
   %cond = icmp eq i8 %184, 5
-  br i1 %cond, label %185, label %290
+  br i1 %cond, label %185, label %289
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds nuw i8, ptr %179, i64 612
@@ -1160,8 +1160,8 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   br label %.sink.split
 
 193:                                              ; preds = %185
-  %.not163 = icmp samesign ult i32 %188, 1073741824
-  br i1 %.not163, label %290, label %194
+  %.not158 = icmp samesign ult i32 %188, 1073741824
+  br i1 %.not158, label %289, label %194
 
 194:                                              ; preds = %193
   %195 = getelementptr inbounds nuw i8, ptr %179, i64 8
@@ -1194,16 +1194,16 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   %212 = load i32, ptr %186, align 4
   %213 = load i32, ptr %173, align 8
   %214 = call noundef i32 @_ZN11dtPathQueue13getPathResultEjPjPii(ptr noundef nonnull align 8 dereferenceable(600) %166, i32 noundef %212, ptr noundef %211, ptr noundef nonnull %8, i32 noundef %213)
-  %215 = icmp sgt i32 %214, -1
+  %215 = icmp slt i32 %214, 0
   %216 = load i32, ptr %8, align 4
-  %217 = icmp ne i32 %216, 0
-  %or.cond4.not.not = select i1 %215, i1 %217, i1 false
+  %217 = icmp eq i32 %216, 0
+  %or.cond4.not = select i1 %215, i1 true, i1 %217
   %218 = trunc i32 %214 to i8
   %219 = lshr i8 %218, 6
   %spec.select = and i8 %219, 1
   %220 = getelementptr inbounds nuw i8, ptr %179, i64 2
   store i8 %spec.select, ptr %220, align 2
-  br i1 %or.cond4.not.not, label %221, label %.sink.split
+  br i1 %or.cond4.not, label %.sink.split, label %221
 
 221:                                              ; preds = %204
   %222 = sext i32 %199 to i64
@@ -1245,25 +1245,25 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   %245 = load i32, ptr %8, align 4
   %246 = add nsw i32 %245, %230
   store i32 %246, ptr %8, align 4
-  %invariant.gep175 = getelementptr i8, ptr %211, i64 -4
+  %invariant.gep168 = getelementptr i8, ptr %211, i64 -4
   %247 = icmp sgt i32 %246, 0
-  br i1 %247, label %.lr.ph179, label %.loopexit
+  br i1 %247, label %.lr.ph172, label %.loopexit
 
-.lr.ph179:                                        ; preds = %236, %267
+.lr.ph172:                                        ; preds = %236, %267
   %248 = phi i32 [ %268, %267 ], [ %246, %236 ]
-  %.0177 = phi i32 [ %269, %267 ], [ 0, %236 ]
-  %249 = icmp sgt i32 %.0177, 0
+  %.0170 = phi i32 [ %269, %267 ], [ 0, %236 ]
+  %249 = icmp sgt i32 %.0170, 0
   br i1 %249, label %250, label %267
 
-250:                                              ; preds = %.lr.ph179
-  %251 = add nuw nsw i32 %.0177, 1
+250:                                              ; preds = %.lr.ph172
+  %251 = add nuw nsw i32 %.0170, 1
   %252 = icmp slt i32 %251, %248
   br i1 %252, label %253, label %267
 
 253:                                              ; preds = %250
-  %254 = zext nneg i32 %.0177 to i64
-  %gep176 = getelementptr i32, ptr %invariant.gep175, i64 %254
-  %255 = load i32, ptr %gep176, align 4
+  %254 = zext nneg i32 %.0170 to i64
+  %gep169 = getelementptr i32, ptr %invariant.gep168, i64 %254
+  %255 = load i32, ptr %gep169, align 4
   %256 = zext nneg i32 %251 to i64
   %257 = getelementptr inbounds nuw i32, ptr %211, i64 %256
   %258 = load i32, ptr %257, align 4
@@ -1274,19 +1274,19 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   %261 = sub nsw i32 %248, %251
   %262 = sext i32 %261 to i64
   %263 = shl nsw i64 %262, 2
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %gep176, ptr nonnull align 4 %257, i64 %263, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %gep169, ptr nonnull align 4 %257, i64 %263, i1 false)
   %264 = load i32, ptr %8, align 4
   %265 = add nsw i32 %264, -2
   store i32 %265, ptr %8, align 4
-  %266 = add nsw i32 %.0177, -2
+  %266 = add nsw i32 %.0170, -2
   br label %267
 
-267:                                              ; preds = %.lr.ph179, %250, %260, %253
-  %268 = phi i32 [ %265, %260 ], [ %248, %253 ], [ %248, %250 ], [ %248, %.lr.ph179 ]
-  %.1 = phi i32 [ %266, %260 ], [ %.0177, %253 ], [ %.0177, %250 ], [ %.0177, %.lr.ph179 ]
+267:                                              ; preds = %.lr.ph172, %250, %260, %253
+  %268 = phi i32 [ %265, %260 ], [ %248, %253 ], [ %248, %250 ], [ %248, %.lr.ph172 ]
+  %.1 = phi i32 [ %266, %260 ], [ %.0170, %253 ], [ %.0170, %250 ], [ %.0170, %.lr.ph172 ]
   %269 = add nsw i32 %.1, 1
   %270 = icmp slt i32 %269, %268
-  br i1 %270, label %.lr.ph179, label %.loopexit, !llvm.loop !14
+  br i1 %270, label %.lr.ph172, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %267, %236, %227
   %271 = phi i32 [ %246, %236 ], [ %.pre, %227 ], [ %268, %267 ]
@@ -1297,14 +1297,14 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   %276 = getelementptr inbounds nuw i8, ptr %179, i64 596
   %277 = load i32, ptr %276, align 4
   %.not147 = icmp eq i32 %275, %277
-  br i1 %.not147, label %286, label %278
+  br i1 %.not147, label %.critedge153, label %278
 
 278:                                              ; preds = %.loopexit
   %279 = load ptr, ptr %174, align 8
   %280 = call noundef i32 @_ZNK14dtNavMeshQuery18closestPointOnPolyEjPKfPfPb(ptr noundef nonnull align 8 dereferenceable(104) %279, i32 noundef %275, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef null)
   %281 = and i32 %280, 1073741824
-  %.not167 = icmp eq i32 %281, 0
-  br i1 %.not167, label %.sink.split, label %282
+  %.not160 = icmp eq i32 %281, 0
+  br i1 %.not160, label %.sink.split, label %282
 
 282:                                              ; preds = %278
   %283 = load float, ptr %9, align 4
@@ -1313,30 +1313,31 @@ _ZNK14dtPathCorridor11getLastPolyEv.exit:         ; preds = %140, %145
   store float %284, ptr %170, align 4
   %285 = load float, ptr %176, align 4
   store float %285, ptr %171, align 4
-  br label %286
+  %.pre187 = load i32, ptr %8, align 4
+  br label %.critedge153
 
-286:                                              ; preds = %282, %.loopexit
-  %287 = load i32, ptr %8, align 4
-  call void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull %7, ptr noundef nonnull %211, i32 noundef %287)
-  %288 = getelementptr inbounds nuw i8, ptr %179, i64 48
-  call void @_ZN15dtLocalBoundary5resetEv(ptr noundef nonnull align 4 dereferenceable(308) %288)
+.critedge153:                                     ; preds = %.loopexit, %282
+  %286 = phi i32 [ %271, %.loopexit ], [ %.pre187, %282 ]
+  call void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr noundef nonnull align 8 dereferenceable(40) %195, ptr noundef nonnull %7, ptr noundef nonnull %211, i32 noundef %286)
+  %287 = getelementptr inbounds nuw i8, ptr %179, i64 48
+  call void @_ZN15dtLocalBoundary5resetEv(ptr noundef nonnull align 4 dereferenceable(308) %287)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %286, %221, %278, %204, %190
-  %storemerge.sink = phi i8 [ %., %190 ], [ 2, %286 ], [ 1, %221 ], [ 1, %278 ], [ 1, %204 ]
+.sink.split:                                      ; preds = %.critedge153, %221, %278, %204, %190
+  %storemerge.sink = phi i8 [ %., %190 ], [ 2, %.critedge153 ], [ 1, %221 ], [ 1, %278 ], [ 1, %204 ]
   store i8 %storemerge.sink, ptr %183, align 8
-  %289 = getelementptr inbounds nuw i8, ptr %179, i64 620
-  store float 0.000000e+00, ptr %289, align 4
-  br label %290
+  %288 = getelementptr inbounds nuw i8, ptr %179, i64 620
+  store float 0.000000e+00, ptr %288, align 4
+  br label %289
 
-290:                                              ; preds = %.sink.split, %182, %193, %177
-  %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %291 = load i32, ptr %0, align 8
-  %292 = sext i32 %291 to i64
-  %293 = icmp slt i64 %indvars.iv.next190, %292
-  br i1 %293, label %177, label %._crit_edge183, !llvm.loop !15
+289:                                              ; preds = %.sink.split, %182, %193, %177
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %290 = load i32, ptr %0, align 8
+  %291 = sext i32 %290 to i64
+  %292 = icmp slt i64 %indvars.iv.next183, %291
+  br i1 %292, label %177, label %._crit_edge176, !llvm.loop !15
 
-._crit_edge183:                                   ; preds = %290, %._crit_edge
+._crit_edge176:                                   ; preds = %289, %._crit_edge
   ret void
 }
 

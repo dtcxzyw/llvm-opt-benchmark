@@ -5628,98 +5628,97 @@ define internal void @_init_gradient(ptr noundef %0, ptr noundef readonly captur
   store i32 0, ptr %12, align 4, !tbaa !273
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 8, !tbaa !163
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  %.not70 = icmp eq i32 %14, 0
-  br i1 %.not70, label %._crit_edge66, label %.lr.ph65
+  %.not69 = icmp eq i32 %14, 0
+  br i1 %.not69, label %.loopexit, label %.lr.ph66
 
-.lr.ph65:                                         ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+.lr.ph66:                                         ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %wide.trip.count = zext i32 %14 to i64
-  br label %17
+  br label %18
 
-17:                                               ; preds = %.lr.ph65, %.thread
-  %indvars.iv = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next, %.thread ]
-  %.063 = phi i32 [ 0, %.lr.ph65 ], [ %.253, %.thread ]
-  %18 = load ptr, ptr %16, align 8, !tbaa !164
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !165
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = tail call i32 @lv_array_size(ptr noundef nonnull %21) #10
-  %23 = tail call i24 @lv_color_black() #10
-  %.not71 = icmp eq i32 %22, 0
-  br i1 %.not71, label %.thread, label %.lr.ph
+._crit_edge67.loopexit:                           ; preds = %.thread
+  %17 = trunc i32 %.253 to i16
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %40
-  br i1 %.149, label %42, label %.thread
+18:                                               ; preds = %.lr.ph66, %.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %.thread ]
+  %.064 = phi i32 [ 0, %.lr.ph66 ], [ %.253, %.thread ]
+  %19 = load ptr, ptr %15, align 8, !tbaa !164
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8, !tbaa !165
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %23 = tail call i32 @lv_array_size(ptr noundef nonnull %22) #10
+  %24 = tail call i24 @lv_color_black() #10
+  %.not70 = icmp eq i32 %23, 0
+  br i1 %.not70, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %40
-  %.04358 = phi i32 [ %41, %40 ], [ 0, %17 ]
-  %.04457 = phi i8 [ %.145, %40 ], [ 0, %17 ]
-  %.04656 = phi i8 [ %.147, %40 ], [ -1, %17 ]
-  %.sroa.08.055 = phi i24 [ %.sroa.08.1, %40 ], [ %23, %17 ]
-  %.04854 = phi i1 [ %.149, %40 ], [ false, %17 ]
-  %24 = tail call ptr @lv_array_at(ptr noundef nonnull %21, i32 noundef %.04358) #10
-  %25 = load i8, ptr %24, align 8, !tbaa !182
-  switch i8 %25, label %40 [
-    i8 44, label %26
-    i8 45, label %30
-    i8 43, label %35
+._crit_edge:                                      ; preds = %41
+  br i1 %.149, label %43, label %.thread
+
+.lr.ph:                                           ; preds = %18, %41
+  %.04359 = phi i32 [ %42, %41 ], [ 0, %18 ]
+  %.04458 = phi i8 [ %.145, %41 ], [ 0, %18 ]
+  %.04657 = phi i8 [ %.147, %41 ], [ -1, %18 ]
+  %.sroa.08.056 = phi i24 [ %.sroa.08.1, %41 ], [ %24, %18 ]
+  %.04855 = phi i1 [ %.149, %41 ], [ false, %18 ]
+  %25 = tail call ptr @lv_array_at(ptr noundef nonnull %22, i32 noundef %.04359) #10
+  %26 = load i8, ptr %25, align 8, !tbaa !182
+  switch i8 %26, label %41 [
+    i8 44, label %27
+    i8 45, label %31
+    i8 43, label %36
   ]
 
-26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !184
-  %29 = tail call i24 @lv_color_hex(i32 noundef %28) #10
-  br label %40
+27:                                               ; preds = %.lr.ph
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !184
+  %30 = tail call i24 @lv_color_hex(i32 noundef %29) #10
+  br label %41
 
-30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %32 = load float, ptr %31, align 8, !tbaa !184
-  %33 = fmul float %32, 2.550000e+02
-  %34 = fptoui float %33 to i8
-  br label %40
+31:                                               ; preds = %.lr.ph
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %33 = load float, ptr %32, align 8, !tbaa !184
+  %34 = fmul float %33, 2.550000e+02
+  %35 = fptoui float %34 to i8
+  br label %41
 
-35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %37 = load float, ptr %36, align 8, !tbaa !184
-  %38 = fmul float %37, 2.550000e+02
-  %39 = fptoui float %38 to i8
-  br label %40
+36:                                               ; preds = %.lr.ph
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %38 = load float, ptr %37, align 8, !tbaa !184
+  %39 = fmul float %38, 2.550000e+02
+  %40 = fptoui float %39 to i8
+  br label %41
 
-40:                                               ; preds = %35, %30, %26, %.lr.ph
-  %.149 = phi i1 [ %.04854, %.lr.ph ], [ true, %35 ], [ true, %30 ], [ true, %26 ]
-  %.sroa.08.1 = phi i24 [ %.sroa.08.055, %.lr.ph ], [ %.sroa.08.055, %35 ], [ %.sroa.08.055, %30 ], [ %29, %26 ]
-  %.147 = phi i8 [ %.04656, %.lr.ph ], [ %.04656, %35 ], [ %34, %30 ], [ %.04656, %26 ]
-  %.145 = phi i8 [ %.04457, %.lr.ph ], [ %39, %35 ], [ %.04457, %30 ], [ %.04457, %26 ]
-  %41 = add nuw i32 %.04358, 1
-  %exitcond.not = icmp eq i32 %41, %22
+41:                                               ; preds = %36, %31, %27, %.lr.ph
+  %.149 = phi i1 [ %.04855, %.lr.ph ], [ true, %36 ], [ true, %31 ], [ true, %27 ]
+  %.sroa.08.1 = phi i24 [ %.sroa.08.056, %.lr.ph ], [ %.sroa.08.056, %36 ], [ %.sroa.08.056, %31 ], [ %30, %27 ]
+  %.147 = phi i8 [ %.04657, %.lr.ph ], [ %.04657, %36 ], [ %35, %31 ], [ %.04657, %27 ]
+  %.145 = phi i8 [ %.04458, %.lr.ph ], [ %40, %36 ], [ %.04458, %31 ], [ %.04458, %27 ]
+  %42 = add nuw i32 %.04359, 1
+  %exitcond.not = icmp eq i32 %42, %23
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !274
 
-42:                                               ; preds = %._crit_edge
-  %43 = zext i32 %.063 to i64
-  %44 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %15, i64 0, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 3
-  store i8 %.147, ptr %45, align 1, !tbaa !275
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i8 %.145, ptr %46, align 1, !tbaa !277
-  store i24 %.sroa.08.1, ptr %44, align 1
-  %47 = add i32 %.063, 1
-  %.not = icmp eq i32 %47, 2
-  br i1 %.not, label %._crit_edge66.loopexit, label %.thread
+43:                                               ; preds = %._crit_edge
+  %44 = zext i32 %.064 to i64
+  %45 = getelementptr inbounds nuw [2 x %struct.lv_grad_stop_t], ptr %16, i64 0, i64 %44
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 3
+  store i8 %.147, ptr %46, align 1, !tbaa !275
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i8 %.145, ptr %47, align 1, !tbaa !277
+  store i24 %.sroa.08.1, ptr %45, align 1
+  %48 = add i32 %.064, 1
+  %.not = icmp eq i32 %48, 2
+  br i1 %.not, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %17, %._crit_edge, %42
-  %.253 = phi i32 [ %47, %42 ], [ %.063, %._crit_edge ], [ %.063, %17 ]
+.thread:                                          ; preds = %18, %._crit_edge, %43
+  %.253 = phi i32 [ %48, %43 ], [ %.064, %._crit_edge ], [ %.064, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond73.not, label %._crit_edge66.loopexit, label %17, !llvm.loop !278
+  %exitcond72.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond72.not, label %._crit_edge67.loopexit, label %18, !llvm.loop !278
 
-._crit_edge66.loopexit:                           ; preds = %.thread, %42
-  %.1.ph = phi i32 [ 2, %42 ], [ %.253, %.thread ]
-  %48 = trunc i32 %.1.ph to i16
-  br label %._crit_edge66
-
-._crit_edge66:                                    ; preds = %._crit_edge66.loopexit, %2
-  %.1 = phi i16 [ 0, %2 ], [ %48, %._crit_edge66.loopexit ]
+.loopexit:                                        ; preds = %43, %2, %._crit_edge67.loopexit
+  %.1 = phi i16 [ 0, %2 ], [ %17, %._crit_edge67.loopexit ], [ 2, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 598
   store i16 %.1, ptr %49, align 2, !tbaa !279
   ret void

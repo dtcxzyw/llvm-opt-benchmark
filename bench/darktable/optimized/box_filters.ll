@@ -99,11 +99,12 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
   br i1 %exitcond.not.i.us.i, label %.preheader93.i.us.i.preheader, label %.lr.ph.i.us.i, !llvm.loop !18
 
 .preheader93.i.us.i.preheader:                    ; preds = %.lr.ph.i.us.i, %26
+  %.1100.i.us.i.ph = phi i64 [ 0, %26 ], [ %22, %.lr.ph.i.us.i ]
   %.sroa.087.198.i.us.i.ph = phi float [ 0.000000e+00, %26 ], [ %31, %.lr.ph.i.us.i ]
   br label %.preheader93.i.us.i
 
 .preheader93.i.us.i:                              ; preds = %.preheader93.i.us.i.preheader, %32
-  %.1100.i.us.i = phi i64 [ %34, %32 ], [ %22, %.preheader93.i.us.i.preheader ]
+  %.1100.i.us.i = phi i64 [ %34, %32 ], [ %.1100.i.us.i.ph, %.preheader93.i.us.i.preheader ]
   %.06899.i.us.i = phi i64 [ %42, %32 ], [ 0, %.preheader93.i.us.i.preheader ]
   %.sroa.087.198.i.us.i = phi float [ %38, %32 ], [ %.sroa.087.198.i.us.i.ph, %.preheader93.i.us.i.preheader ]
   %exitcond118.not.i.us.i = icmp eq i64 %.06899.i.us.i, %24
@@ -312,12 +313,13 @@ _ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit.critedge.i.us.i: ; preds = %_ZL9_load_a
   br i1 %exitcond.not.i.us.i42, label %.preheader112.i.us.i.preheader, label %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit.critedge.i.us.i, !llvm.loop !61
 
 .preheader112.i.us.i.preheader:                   ; preds = %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit.critedge.i.us.i, %105
+  %.1125.i.us.i.ph = phi i64 [ 0, %105 ], [ %101, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit.critedge.i.us.i ]
   %.ph = phi float [ 0.000000e+00, %105 ], [ %113, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit.critedge.i.us.i ]
   %.ph265 = phi float [ 0.000000e+00, %105 ], [ %116, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit.critedge.i.us.i ]
   br label %.preheader112.i.us.i
 
 .preheader112.i.us.i:                             ; preds = %.preheader112.i.us.i.preheader, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit81.critedge.i.us.i
-  %.1125.i.us.i = phi i64 [ %120, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %101, %.preheader112.i.us.i.preheader ]
+  %.1125.i.us.i = phi i64 [ %120, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %.1125.i.us.i.ph, %.preheader112.i.us.i.preheader ]
   %.068124.i.us.i = phi i64 [ %137, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ 0, %.preheader112.i.us.i.preheader ]
   %117 = phi float [ %127, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %.ph, %.preheader112.i.us.i.preheader ]
   %118 = phi float [ %131, %_ZL9_load_addILm2ELb0EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %.ph265, %.preheader112.i.us.i.preheader ]
@@ -578,10 +580,11 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i.us.i:  ; preds = %228
   br i1 %exitcond.not.i.us.i71, label %.preheader102.i.us.i.preheader, label %.lr.ph.i.us.i70, !llvm.loop !127
 
 .preheader102.i.us.i.preheader:                   ; preds = %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i.us.i, %224
+  %.1108.i.us.i.ph = phi i64 [ 0, %224 ], [ %220, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i.us.i ]
   br label %.preheader102.i.us.i
 
 .preheader102.i.us.i:                             ; preds = %.preheader102.i.us.i.preheader, %_ZL13_store_scaledILm4EEvPfPKff.exit.i.us.i
-  %.1108.i.us.i = phi i64 [ %248, %_ZL13_store_scaledILm4EEvPfPKff.exit.i.us.i ], [ %220, %.preheader102.i.us.i.preheader ]
+  %.1108.i.us.i = phi i64 [ %248, %_ZL13_store_scaledILm4EEvPfPKff.exit.i.us.i ], [ %.1108.i.us.i.ph, %.preheader102.i.us.i.preheader ]
   %.068107.i.us.i = phi i64 [ %258, %_ZL13_store_scaledILm4EEvPfPKff.exit.i.us.i ], [ 0, %.preheader102.i.us.i.preheader ]
   %exitcond121.not.i.us.i = icmp eq i64 %.068107.i.us.i, %222
   br i1 %exitcond121.not.i.us.i, label %.critedge.i.us.i75, label %236
@@ -911,12 +914,13 @@ _ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit.critedge.i.us.i: ; preds = %_ZL9_load_a
   br i1 %exitcond.not.i.us.i106, label %.preheader143.i.us.i.preheader, label %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit.critedge.i.us.i, !llvm.loop !219
 
 .preheader143.i.us.i.preheader:                   ; preds = %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit.critedge.i.us.i, %356
+  %.1165.i.us.i.ph = phi i64 [ 0, %356 ], [ %352, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit.critedge.i.us.i ]
   %.ph280 = phi float [ 0.000000e+00, %356 ], [ %364, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit.critedge.i.us.i ]
   %.ph281 = phi float [ 0.000000e+00, %356 ], [ %367, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit.critedge.i.us.i ]
   br label %.preheader143.i.us.i
 
 .preheader143.i.us.i:                             ; preds = %.preheader143.i.us.i.preheader, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit81.critedge.i.us.i
-  %.1165.i.us.i = phi i64 [ %371, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %352, %.preheader143.i.us.i.preheader ]
+  %.1165.i.us.i = phi i64 [ %371, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %.1165.i.us.i.ph, %.preheader143.i.us.i.preheader ]
   %.068164.i.us.i = phi i64 [ %388, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ 0, %.preheader143.i.us.i.preheader ]
   %368 = phi float [ %378, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %.ph280, %.preheader143.i.us.i.preheader ]
   %369 = phi float [ %382, %_ZL9_load_addILm2ELb1EEvPfS0_PKfS0_.exit81.critedge.i.us.i ], [ %.ph281, %.preheader143.i.us.i.preheader ]
@@ -2021,10 +2025,11 @@ _ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit.i:      ; preds = %29
   br i1 %exitcond.not.i, label %.preheader128.i.preheader, label %.lr.ph135.i, !llvm.loop !499
 
 .preheader128.i.preheader:                        ; preds = %_ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit.i, %._crit_edge.i
+  %.1138.i.ph = phi i64 [ 0, %._crit_edge.i ], [ %12, %_ZL9_load_addILm16ELb1EEvPfS0_PKfS0_.exit.i ]
   br label %.preheader128.i
 
 .preheader128.i:                                  ; preds = %.preheader128.i.preheader, %_ZL13_store_scaledILm16EEvPfPKff.exit.i
-  %.1138.i = phi i64 [ %57, %_ZL13_store_scaledILm16EEvPfPKff.exit.i ], [ %12, %.preheader128.i.preheader ]
+  %.1138.i = phi i64 [ %57, %_ZL13_store_scaledILm16EEvPfPKff.exit.i ], [ %.1138.i.ph, %.preheader128.i.preheader ]
   %.085137.i = phi i64 [ %68, %_ZL13_store_scaledILm16EEvPfPKff.exit.i ], [ 0, %.preheader128.i.preheader ]
   %exitcond154.not.i = icmp eq i64 %.085137.i, %13
   br i1 %exitcond154.not.i, label %.critedge.i, label %40
@@ -2353,10 +2358,11 @@ _ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit.i:       ; preds = %170
   br i1 %exitcond.not.i46, label %.preheader128.i47.preheader, label %.lr.ph135.i41, !llvm.loop !612
 
 .preheader128.i47.preheader:                      ; preds = %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit.i, %._crit_edge.i38
+  %.1138.i48.ph = phi i64 [ 0, %._crit_edge.i38 ], [ %12, %_ZL9_load_addILm4ELb1EEvPfS0_PKfS0_.exit.i ]
   br label %.preheader128.i47
 
 .preheader128.i47:                                ; preds = %.preheader128.i47.preheader, %_ZL13_store_scaledILm4EEvPfPKff.exit.i
-  %.1138.i48 = phi i64 [ %198, %_ZL13_store_scaledILm4EEvPfPKff.exit.i ], [ %12, %.preheader128.i47.preheader ]
+  %.1138.i48 = phi i64 [ %198, %_ZL13_store_scaledILm4EEvPfPKff.exit.i ], [ %.1138.i48.ph, %.preheader128.i47.preheader ]
   %.085137.i49 = phi i64 [ %209, %_ZL13_store_scaledILm4EEvPfPKff.exit.i ], [ 0, %.preheader128.i47.preheader ]
   %exitcond154.not.i50 = icmp eq i64 %.085137.i49, %13
   br i1 %exitcond154.not.i50, label %.critedge.i58, label %181
@@ -2657,11 +2663,12 @@ _ZL14_blur_verticalILm4ELb1EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   br i1 %exitcond.not.i94, label %.preheader115.i.preheader, label %.critedge96.i, !llvm.loop !714
 
 .preheader115.i.preheader:                        ; preds = %.critedge96.i, %.critedge96.preheader.i
+  %.1126.i.ph = phi i64 [ 0, %.critedge96.preheader.i ], [ %12, %.critedge96.i ]
   %.sroa.0109.1124.i.ph = phi float [ 0.000000e+00, %.critedge96.preheader.i ], [ %313, %.critedge96.i ]
   br label %.preheader115.i
 
 .preheader115.i:                                  ; preds = %.preheader115.i.preheader, %314
-  %.1126.i = phi i64 [ %316, %314 ], [ %12, %.preheader115.i.preheader ]
+  %.1126.i = phi i64 [ %316, %314 ], [ %.1126.i.ph, %.preheader115.i.preheader ]
   %.085125.i = phi i64 [ %327, %314 ], [ 0, %.preheader115.i.preheader ]
   %.sroa.0109.1124.i = phi float [ %322, %314 ], [ %.sroa.0109.1124.i.ph, %.preheader115.i.preheader ]
   %exitcond147.not.i = icmp eq i64 %.085125.i, %13
@@ -4149,10 +4156,11 @@ _ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit.i:      ; preds = %27
   br i1 %exitcond.not.i, label %.preheader121.i.preheader, label %.lr.ph128.i, !llvm.loop !976
 
 .preheader121.i.preheader:                        ; preds = %_ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit.i, %._crit_edge.i
+  %.1131.i.ph = phi i64 [ 0, %._crit_edge.i ], [ %10, %_ZL9_load_addILm16ELb0EEvPfS0_PKfS0_.exit.i ]
   br label %.preheader121.i
 
 .preheader121.i:                                  ; preds = %.preheader121.i.preheader, %_ZL13_store_scaledILm16EEvPfPKff.exit.i
-  %.1131.i = phi i64 [ %49, %_ZL13_store_scaledILm16EEvPfPKff.exit.i ], [ %10, %.preheader121.i.preheader ]
+  %.1131.i = phi i64 [ %49, %_ZL13_store_scaledILm16EEvPfPKff.exit.i ], [ %.1131.i.ph, %.preheader121.i.preheader ]
   %.085130.i = phi i64 [ %60, %_ZL13_store_scaledILm16EEvPfPKff.exit.i ], [ 0, %.preheader121.i.preheader ]
   %exitcond147.not.i = icmp eq i64 %.085130.i, %11
   br i1 %exitcond147.not.i, label %.critedge.i, label %35
@@ -4453,10 +4461,11 @@ _ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i:       ; preds = %153
   br i1 %exitcond.not.i46, label %.preheader121.i47.preheader, label %.lr.ph128.i41, !llvm.loop !1067
 
 .preheader121.i47.preheader:                      ; preds = %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i, %._crit_edge.i38
+  %.1131.i48.ph = phi i64 [ 0, %._crit_edge.i38 ], [ %10, %_ZL9_load_addILm4ELb0EEvPfS0_PKfS0_.exit.i ]
   br label %.preheader121.i47
 
 .preheader121.i47:                                ; preds = %.preheader121.i47.preheader, %_ZL13_store_scaledILm4EEvPfPKff.exit.i
-  %.1131.i48 = phi i64 [ %175, %_ZL13_store_scaledILm4EEvPfPKff.exit.i ], [ %10, %.preheader121.i47.preheader ]
+  %.1131.i48 = phi i64 [ %175, %_ZL13_store_scaledILm4EEvPfPKff.exit.i ], [ %.1131.i48.ph, %.preheader121.i47.preheader ]
   %.085130.i49 = phi i64 [ %186, %_ZL13_store_scaledILm4EEvPfPKff.exit.i ], [ 0, %.preheader121.i47.preheader ]
   %exitcond147.not.i50 = icmp eq i64 %.085130.i49, %11
   br i1 %exitcond147.not.i50, label %.critedge.i58, label %161
@@ -4736,11 +4745,12 @@ _ZL14_blur_verticalILm4ELb0EEvPfmmmS0_.exit:      ; preds = %_ZL13_store_scaledI
   br i1 %exitcond.not.i94, label %.preheader111.i.preheader, label %.critedge96.i, !llvm.loop !1152
 
 .preheader111.i.preheader:                        ; preds = %.critedge96.i, %.critedge96.preheader.i
+  %.1122.i.ph = phi i64 [ 0, %.critedge96.preheader.i ], [ %10, %.critedge96.i ]
   %.sroa.0105.1120.i.ph = phi float [ 0.000000e+00, %.critedge96.preheader.i ], [ %281, %.critedge96.i ]
   br label %.preheader111.i
 
 .preheader111.i:                                  ; preds = %.preheader111.i.preheader, %282
-  %.1122.i = phi i64 [ %284, %282 ], [ %10, %.preheader111.i.preheader ]
+  %.1122.i = phi i64 [ %284, %282 ], [ %.1122.i.ph, %.preheader111.i.preheader ]
   %.085121.i = phi i64 [ %295, %282 ], [ 0, %.preheader111.i.preheader ]
   %.sroa.0105.1120.i = phi float [ %290, %282 ], [ %.sroa.0105.1120.i.ph, %.preheader111.i.preheader ]
   %exitcond143.not.i = icmp eq i64 %.085121.i, %11

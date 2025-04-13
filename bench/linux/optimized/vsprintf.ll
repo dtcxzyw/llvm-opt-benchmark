@@ -12330,12 +12330,13 @@ put_dec_trunc8.exit:                              ; preds = %.split, %62
   br i1 %85, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %put_dec_trunc8.exit, %82, %.thread
-  %.ph = phi ptr [ %84, %.thread ], [ %83, %82 ], [ %57, %put_dec_trunc8.exit ]
+  %.ph = phi i32 [ %80, %.thread ], [ 2, %82 ], [ %80, %put_dec_trunc8.exit ]
+  %.ph21 = phi ptr [ %84, %.thread ], [ %83, %82 ], [ %57, %put_dec_trunc8.exit ]
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %86 = phi i32 [ %88, %.preheader ], [ %80, %.preheader.preheader ]
-  %87 = phi ptr [ %92, %.preheader ], [ %.ph, %.preheader.preheader ]
+  %86 = phi i32 [ %88, %.preheader ], [ %.ph, %.preheader.preheader ]
+  %87 = phi ptr [ %92, %.preheader ], [ %.ph21, %.preheader.preheader ]
   %88 = add i32 %86, -1
   %89 = sext i32 %88 to i64
   %90 = getelementptr [4 x i8], ptr %3, i64 0, i64 %89

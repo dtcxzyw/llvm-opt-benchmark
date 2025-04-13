@@ -11718,7 +11718,6 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4c2d634e3f
 ._crit_edge84:                                    ; preds = %13, %.lr.ph
   %.sroa.6.040.lcssa = phi i32 [ undef, %.lr.ph ], [ %.sroa.4.0.copyload.i82, %13 ]
   %.sroa.8.039.lcssa = phi ptr [ undef, %.lr.ph ], [ %.sroa.5.0.copyload.i83, %13 ]
-  %.sroa.0.0.copyload.i.lcssa = phi i32 [ %.sroa.0.0.copyload.i78, %.lr.ph ], [ %.sroa.0.0.copyload.i, %13 ]
   %.sroa.5.0.copyload.i.lcssa = phi ptr [ %.sroa.5.0.copyload.i80, %.lr.ph ], [ %.sroa.5.0.copyload.i, %13 ]
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val.le = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
@@ -11759,7 +11758,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4c2d634e3f
   br i1 %27, label %._crit_edge, label %13
 
 .loopexit:                                        ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit.thread"
-  %.sroa.0.0.copyload.i69 = phi i32 [ %.sroa.0.0.copyload.i.lcssa, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit.thread" ], [ %.sroa.0.0.copyload.i81, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit" ]
+  %.sroa.0.0.copyload.i69 = phi i32 [ 24, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit.thread" ], [ %.sroa.0.0.copyload.i81, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit" ]
   %.sroa.6.119 = phi i32 [ %.sroa.6.040.lcssa, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit.thread" ], [ %.sroa.4.0.copyload.i82, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit" ]
   %.sroa.8.117 = phi ptr [ %.sroa.8.039.lcssa, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit.thread" ], [ %.sroa.5.0.copyload.i83, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hde9dfedafb058090E.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %.sroa.4, ptr noundef nonnull align 16 dereferenceable(32) %.sroa.9, i64 32, i1 false)
@@ -24004,8 +24003,8 @@ define internal fastcc { i64, ptr } @_ZN8wasmtime7runtime6module6Module14from_pa
   unreachable
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$wasmtime..runtime..code..CodeObject$GT$$GT$17h69d3fadad9f81329E.exit55": ; preds = %58, %74, %78
-  %.pn10 = phi { ptr, i32 } [ %.pn.ph, %74 ], [ %.pn.ph, %78 ], [ %59, %58 ]
-  resume { ptr, i32 } %.pn10
+  %.pn9 = phi { ptr, i32 } [ %.pn.ph, %74 ], [ %.pn.ph, %78 ], [ %59, %58 ]
+  resume { ptr, i32 } %.pn9
 
 74:                                               ; preds = %70, %13, %16
   %.pn.ph = phi { ptr, i32 } [ %17, %16 ], [ %14, %13 ], [ %71, %70 ]

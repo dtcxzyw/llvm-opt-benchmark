@@ -1251,7 +1251,7 @@ _ZN6dimacs13stream_bufferppEv.exit4.i.preheader:  ; preds = %_ZN6dimacs13stream_
   br label %_ZN6dimacs13stream_bufferppEv.exit.i.backedge
 
 _ZN6dimacs13stream_bufferppEv.exit.i.backedge:    ; preds = %_ZN6dimacs13stream_bufferppEv.exit4.i, %9, %.noexc, %.noexc11, %19
-  %.be = phi i32 [ %7, %9 ], [ %7, %.noexc ], [ %17, %.noexc11 ], [ 10, %19 ], [ %14, %_ZN6dimacs13stream_bufferppEv.exit4.i ]
+  %.be = phi i32 [ 10, %9 ], [ %7, %.noexc ], [ %17, %.noexc11 ], [ 10, %19 ], [ %14, %_ZN6dimacs13stream_bufferppEv.exit4.i ]
   br label %_ZN6dimacs13stream_bufferppEv.exit.i, !llvm.loop !12
 
 .loopexit:                                        ; preds = %224, %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i84
@@ -1398,14 +1398,13 @@ _ZN6dimacs13stream_bufferppEv.exit4.i.backedge:   ; preds = %26, %.noexc12
   br i1 %32, label %_ZN6dimacs13stream_bufferppEv.exit.sink.split, label %_ZN6dimacs13stream_bufferppEv.exit.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit.sink.split:    ; preds = %.noexc13, %39
-  %.val.i15.ph = phi i32 [ %37, %39 ], [ %31, %.noexc13 ]
   %33 = load i32, ptr %3, align 4, !tbaa !8
   %34 = add i32 %33, 1
   store i32 %34, ptr %3, align 4, !tbaa !8
   br label %_ZN6dimacs13stream_bufferppEv.exit.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit.preheader:     ; preds = %.noexc13, %_ZN6dimacs13stream_bufferppEv.exit.sink.split
-  %.val.i15.ph165 = phi i32 [ %.val.i15.ph, %_ZN6dimacs13stream_bufferppEv.exit.sink.split ], [ %31, %.noexc13 ]
+  %.val.i15.ph165 = phi i32 [ 10, %_ZN6dimacs13stream_bufferppEv.exit.sink.split ], [ %31, %.noexc13 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit
 
 _ZN6dimacs13stream_bufferppEv.exit:               ; preds = %_ZN6dimacs13stream_bufferppEv.exit.preheader, %.noexc17
@@ -1513,14 +1512,13 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i: ; preds = %.noexc20, %53
   br i1 %73, label %_ZN6dimacs13stream_bufferppEv.exit23.sink.split, label %_ZN6dimacs13stream_bufferppEv.exit23.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit23.sink.split:  ; preds = %.noexc22, %80
-  %.val.i25.ph = phi i32 [ %78, %80 ], [ %72, %.noexc22 ]
   %74 = load i32, ptr %3, align 4, !tbaa !8
   %75 = add i32 %74, 1
   store i32 %75, ptr %3, align 4, !tbaa !8
   br label %_ZN6dimacs13stream_bufferppEv.exit23.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit23.preheader:   ; preds = %.noexc22, %_ZN6dimacs13stream_bufferppEv.exit23.sink.split
-  %.val.i25.ph166 = phi i32 [ %.val.i25.ph, %_ZN6dimacs13stream_bufferppEv.exit23.sink.split ], [ %72, %.noexc22 ]
+  %.val.i25.ph166 = phi i32 [ 10, %_ZN6dimacs13stream_bufferppEv.exit23.sink.split ], [ %72, %.noexc22 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit23
 
 _ZN6dimacs13stream_bufferppEv.exit23:             ; preds = %_ZN6dimacs13stream_bufferppEv.exit23.preheader, %.noexc27
@@ -1666,14 +1664,13 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i37: ; preds = %.noexc42, %1
   br i1 %123, label %_ZN6dimacs13stream_bufferppEv.exit46.sink.split, label %_ZN6dimacs13stream_bufferppEv.exit46.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit46.sink.split:  ; preds = %.noexc45, %130
-  %.val.i48.ph = phi i32 [ %128, %130 ], [ %122, %.noexc45 ]
   %124 = load i32, ptr %3, align 4, !tbaa !8
   %125 = add i32 %124, 1
   store i32 %125, ptr %3, align 4, !tbaa !8
   br label %_ZN6dimacs13stream_bufferppEv.exit46.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit46.preheader:   ; preds = %.noexc45, %_ZN6dimacs13stream_bufferppEv.exit46.sink.split
-  %.val.i48.ph168 = phi i32 [ %.val.i48.ph, %_ZN6dimacs13stream_bufferppEv.exit46.sink.split ], [ %122, %.noexc45 ]
+  %.val.i48.ph168 = phi i32 [ 10, %_ZN6dimacs13stream_bufferppEv.exit46.sink.split ], [ %122, %.noexc45 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit46
 
 _ZN6dimacs13stream_bufferppEv.exit46:             ; preds = %_ZN6dimacs13stream_bufferppEv.exit46.preheader, %.noexc50
@@ -1781,14 +1778,13 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i55: ; preds = %.noexc60, %1
   br i1 %164, label %_ZN6dimacs13stream_bufferppEv.exit64.sink.split, label %_ZN6dimacs13stream_bufferppEv.exit64.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit64.sink.split:  ; preds = %.noexc63, %171
-  %.val.i66.ph = phi i32 [ %169, %171 ], [ %163, %.noexc63 ]
   %165 = load i32, ptr %3, align 4, !tbaa !8
   %166 = add i32 %165, 1
   store i32 %166, ptr %3, align 4, !tbaa !8
   br label %_ZN6dimacs13stream_bufferppEv.exit64.preheader
 
 _ZN6dimacs13stream_bufferppEv.exit64.preheader:   ; preds = %.noexc63, %_ZN6dimacs13stream_bufferppEv.exit64.sink.split
-  %.val.i66.ph170 = phi i32 [ %.val.i66.ph, %_ZN6dimacs13stream_bufferppEv.exit64.sink.split ], [ %163, %.noexc63 ]
+  %.val.i66.ph170 = phi i32 [ 10, %_ZN6dimacs13stream_bufferppEv.exit64.sink.split ], [ %163, %.noexc63 ]
   br label %_ZN6dimacs13stream_bufferppEv.exit64
 
 _ZN6dimacs13stream_bufferppEv.exit64:             ; preds = %_ZN6dimacs13stream_bufferppEv.exit64.preheader, %.noexc68

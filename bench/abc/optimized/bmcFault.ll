@@ -3258,7 +3258,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 11:                                               ; preds = %tailrecurse._crit_edge
   %putchar55 = tail call i32 @putchar(i32 %9)
-  br label %common.ret113
+  br label %common.ret109
 
 12:                                               ; preds = %tailrecurse._crit_edge
   %13 = add i8 %8, -65
@@ -3269,24 +3269,24 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %narrow54 = or disjoint i8 %8, 32
   %15 = zext nneg i8 %narrow54 to i32
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %15)
-  br label %common.ret113
+  br label %common.ret109
 
 17:                                               ; preds = %12
   %18 = and i8 %8, -8
-  switch i8 %18, label %common.ret113 [
+  switch i8 %18, label %common.ret109 [
     i8 112, label %19
     i8 80, label %20
   ]
 
 19:                                               ; preds = %17
   %putchar52 = tail call i32 @putchar(i32 %9)
-  br label %common.ret113
+  br label %common.ret109
 
 20:                                               ; preds = %17
   %narrow = or disjoint i8 %8, 32
   %21 = zext nneg i8 %narrow to i32
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %21)
-  br label %common.ret113
+  br label %common.ret109
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
   %23 = phi ptr [ %6, %tailrecurse ], [ %3, %2 ]
@@ -3330,10 +3330,11 @@ Gia_ManFormulaEndToken.exit:                      ; preds = %.preheader, %31
   br i1 %35, label %tailrecurse, label %.preheader104
 
 .preheader104:                                    ; preds = %Gia_ManFormulaEndToken.exit, %.lr.ph
+  %.ph = phi i8 [ %24, %.lr.ph ], [ 40, %Gia_ManFormulaEndToken.exit ]
   br label %36
 
 36:                                               ; preds = %.preheader104, %45
-  %37 = phi i8 [ %.pre, %45 ], [ %24, %.preheader104 ]
+  %37 = phi i8 [ %.pre, %45 ], [ %.ph, %.preheader104 ]
   %.09.i59 = phi i32 [ %.1.i61, %45 ], [ 0, %.preheader104 ]
   %.0.i60 = phi ptr [ %44, %45 ], [ %.tr80, %.preheader104 ]
   switch i8 %37, label %42 [
@@ -3421,7 +3422,7 @@ Gia_ManFormulaEndToken.exit68:                    ; preds = %52, %58
   tail call void @Gia_ManPrintFormula_rec(ptr noundef nonnull %51, ptr noundef %.010.i67)
   %putchar48 = tail call i32 @putchar(i32 41)
   %61 = icmp eq i8 %46, 63
-  br i1 %61, label %62, label %common.ret113
+  br i1 %61, label %62, label %common.ret109
 
 62:                                               ; preds = %Gia_ManFormulaEndToken.exit68
   %putchar49 = tail call i32 @putchar(i32 58)
@@ -3452,7 +3453,7 @@ Gia_ManFormulaEndToken.exit68:                    ; preds = %52, %58
   %72 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 1
   br i1 %71, label %Gia_ManFormulaEndToken.exit73, label %64, !llvm.loop !90
 
-common.ret113:                                    ; preds = %Gia_ManFormulaEndToken.exit68, %11, %19, %20, %14, %17, %Gia_ManFormulaEndToken.exit73
+common.ret109:                                    ; preds = %Gia_ManFormulaEndToken.exit68, %11, %19, %20, %14, %17, %Gia_ManFormulaEndToken.exit73
   ret void
 
 Gia_ManFormulaEndToken.exit73:                    ; preds = %64, %70
@@ -3460,7 +3461,7 @@ Gia_ManFormulaEndToken.exit73:                    ; preds = %64, %70
   %putchar50 = tail call i32 @putchar(i32 40)
   tail call void @Gia_ManPrintFormula_rec(ptr noundef nonnull %63, ptr noundef %.010.i72)
   %putchar51 = tail call i32 @putchar(i32 41)
-  br label %common.ret113
+  br label %common.ret109
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -3499,7 +3500,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %16 = getelementptr i32, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -388
   %18 = load i32, ptr %17, align 4, !tbaa !34
-  br label %common.ret136
+  br label %common.ret132
 
 19:                                               ; preds = %tailrecurse._crit_edge
   %20 = add i8 %12, -65
@@ -3512,11 +3513,11 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %24 = getelementptr i8, ptr %23, i64 -260
   %25 = load i32, ptr %24, align 4, !tbaa !34
   %26 = xor i32 %25, 1
-  br label %common.ret136
+  br label %common.ret132
 
 27:                                               ; preds = %19
   %28 = and i8 %12, -8
-  switch i8 %28, label %common.ret136 [
+  switch i8 %28, label %common.ret132 [
     i8 112, label %29
     i8 80, label %34
   ]
@@ -3526,7 +3527,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %31 = getelementptr i32, ptr %2, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -448
   %33 = load i32, ptr %32, align 4, !tbaa !34
-  br label %common.ret136
+  br label %common.ret132
 
 34:                                               ; preds = %27
   %35 = zext nneg i8 %12 to i64
@@ -3534,7 +3535,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %6
   %37 = getelementptr i8, ptr %36, i64 -320
   %38 = load i32, ptr %37, align 4, !tbaa !34
   %39 = xor i32 %38, 1
-  br label %common.ret136
+  br label %common.ret132
 
 .lr.ph:                                           ; preds = %6, %tailrecurse
   %40 = phi ptr [ %10, %tailrecurse ], [ %7, %6 ]
@@ -3578,10 +3579,11 @@ Gia_ManFormulaEndToken.exit:                      ; preds = %.preheader, %48
   br i1 %52, label %tailrecurse, label %.preheader127
 
 .preheader127:                                    ; preds = %Gia_ManFormulaEndToken.exit, %.lr.ph
+  %.ph = phi i8 [ %41, %.lr.ph ], [ 40, %Gia_ManFormulaEndToken.exit ]
   br label %53
 
 53:                                               ; preds = %.preheader127, %62
-  %54 = phi i8 [ %.pre, %62 ], [ %41, %.preheader127 ]
+  %54 = phi i8 [ %.pre, %62 ], [ %.ph, %.preheader127 ]
   %.09.i78 = phi i32 [ %.1.i80, %62 ], [ 0, %.preheader127 ]
   %.0.i79 = phi ptr [ %61, %62 ], [ %.tr95103, %.preheader127 ]
   switch i8 %54, label %59 [
@@ -3650,15 +3652,15 @@ Gia_ManFormulaEndToken.exit87:                    ; preds = %66, %72
 
 76:                                               ; preds = %Gia_ManFormulaEndToken.exit87
   %77 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %63, i32 noundef %75) #23
-  br label %common.ret136
+  br label %common.ret132
 
 78:                                               ; preds = %Gia_ManFormulaEndToken.exit87
   %79 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %63, i32 noundef %75) #23
-  br label %common.ret136
+  br label %common.ret132
 
 80:                                               ; preds = %Gia_ManFormulaEndToken.exit87
   %81 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %63, i32 noundef %75) #23
-  br label %common.ret136
+  br label %common.ret132
 
 82:                                               ; preds = %Gia_ManFormulaEndToken.exit87
   %83 = getelementptr inbounds nuw i8, ptr %.010.i86, i64 1
@@ -3688,15 +3690,15 @@ Gia_ManFormulaEndToken.exit87:                    ; preds = %66, %72
   %92 = getelementptr inbounds nuw i8, ptr %.0.i89, i64 1
   br i1 %91, label %Gia_ManFormulaEndToken.exit92, label %84, !llvm.loop !90
 
-common.ret136:                                    ; preds = %80, %78, %76, %34, %29, %21, %14, %27, %Gia_ManFormulaEndToken.exit92
-  %common.ret136.op = phi i32 [ %94, %Gia_ManFormulaEndToken.exit92 ], [ %18, %14 ], [ %26, %21 ], [ %33, %29 ], [ %39, %34 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ -1, %27 ]
-  ret i32 %common.ret136.op
+common.ret132:                                    ; preds = %80, %78, %76, %34, %29, %21, %14, %27, %Gia_ManFormulaEndToken.exit92
+  %common.ret132.op = phi i32 [ %94, %Gia_ManFormulaEndToken.exit92 ], [ %18, %14 ], [ %26, %21 ], [ %33, %29 ], [ %39, %34 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ -1, %27 ]
+  ret i32 %common.ret132.op
 
 Gia_ManFormulaEndToken.exit92:                    ; preds = %84, %90
   %.010.i91 = phi ptr [ %92, %90 ], [ null, %84 ]
   %93 = tail call i32 @Gia_ManRealizeFormula_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %83, ptr noundef %.010.i91, i32 noundef %5)
   %94 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %63, i32 noundef %75, i32 noundef %93) #23
-  br label %common.ret136
+  br label %common.ret132
 }
 
 ; Function Attrs: nounwind uwtable

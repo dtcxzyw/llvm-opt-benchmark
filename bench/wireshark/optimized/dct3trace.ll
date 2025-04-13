@@ -184,35 +184,36 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
 .outer.outer:                                     ; preds = %.outer.outer.outer, %112
   %.084.ph.ph = phi i32 [ %.185, %112 ], [ %.084.ph.ph.ph, %.outer.outer.outer ]
   %.077.ph.ph = phi i8 [ %.178, %112 ], [ %.077.ph.ph.ph, %.outer.outer.outer ]
-  br label %.outer.outer272
+  br label %.outer
 
-.outer:                                           ; preds = %41, %.outer.outer272
-  br i1 %24, label %.outer.split.us, label %.outer.split
+.outer:                                           ; preds = %.outer.backedge, %.outer.outer
+  %.077.ph = phi i8 [ %.077.ph.ph, %.outer.outer ], [ %.077.ph.be, %.outer.backedge ]
+  %18 = trunc nuw i8 %.077.ph to i1
+  br i1 %18, label %.outer.split.us, label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
-  %18 = call ptr @file_gets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef %0)
-  %.not.us = icmp eq ptr %18, null
-  br i1 %.not.us, label %.split.us, label %19
+  %19 = call ptr @file_gets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef %0)
+  %.not.us = icmp eq ptr %19, null
+  br i1 %.not.us, label %.split.us, label %20
 
-19:                                               ; preds = %.outer.split.us
+20:                                               ; preds = %.outer.split.us
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @dct3trace_magic_end, ptr noundef nonnull dereferenceable(7) %5, i64 7)
-  %20 = icmp eq i32 %bcmp.us, 0
-  br i1 %20, label %.split170.us, label %21
+  %21 = icmp eq i32 %bcmp.us, 0
+  br i1 %21, label %.split170.us, label %22
 
-21:                                               ; preds = %19
+22:                                               ; preds = %20
   %bcmp95.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @dct3trace_magic_record_end, ptr noundef nonnull dereferenceable(5) %5, i64 5)
-  %22 = icmp eq i32 %bcmp95.us, 0
-  br i1 %22, label %.split172.us.thread, label %23
+  %23 = icmp eq i32 %bcmp95.us, 0
+  br i1 %23, label %.split172.us.thread, label %24
 
-23:                                               ; preds = %21
+24:                                               ; preds = %22
   %rhsv.us = load i32, ptr %5, align 16
   %.not96.us = icmp eq i32 %rhsv.us, 540109884
-  br i1 %.not96.us, label %.split175.us, label %.outer.outer272, !llvm.loop !6
+  br i1 %.not96.us, label %.split175.us, label %.outer.backedge
 
-.outer.outer272:                                  ; preds = %.outer.outer, %23
-  %.077.ph.ph273 = phi i8 [ %.077.ph.ph, %.outer.outer ], [ 1, %23 ]
-  %24 = trunc nuw i8 %.077.ph.ph273 to i1
-  br label %.outer
+.outer.backedge:                                  ; preds = %41, %24
+  %.077.ph.be = phi i8 [ 1, %24 ], [ 0, %41 ]
+  br label %.outer, !llvm.loop !6
 
 .outer.split:                                     ; preds = %.outer, %113
   %25 = call ptr @file_gets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef %0)
@@ -224,7 +225,7 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
   %27 = icmp eq i32 %bcmp, 0
   br i1 %27, label %.split170.us, label %28
 
-.split170.us:                                     ; preds = %19, %26
+.split170.us:                                     ; preds = %20, %26
   store i32 0, ptr %2, align 4
   br label %168
 
@@ -233,7 +234,7 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
   %29 = icmp eq i32 %bcmp95, 0
   br i1 %29, label %.split172.us, label %41
 
-.split172.us.thread:                              ; preds = %21
+.split172.us.thread:                              ; preds = %22
   store i32 0, ptr %1, align 8
   %30 = call ptr @wtap_block_create(i32 noundef 5)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -263,12 +264,12 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
 
 41:                                               ; preds = %28
   %rhsv = load i32, ptr %5, align 16
-  switch i32 %rhsv, label %.outer [
+  switch i32 %rhsv, label %.outer.backedge [
     i32 540109884, label %.split175.us
     i32 540175420, label %113
   ], !llvm.loop !6
 
-.split175.us:                                     ; preds = %23, %41
+.split175.us:                                     ; preds = %24, %41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %42 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.2) #9
@@ -432,7 +433,7 @@ hex2bin.exit.thread:                              ; preds = %hex2bin.exit, %91
 
 112:                                              ; preds = %68, %hex2bin.exit
   %.185 = phi i32 [ %107, %hex2bin.exit ], [ %.084.ph.ph, %68 ]
-  %.178 = phi i8 [ 1, %hex2bin.exit ], [ %.077.ph.ph273, %68 ]
+  %.178 = phi i8 [ 1, %hex2bin.exit ], [ %.077.ph, %68 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   br label %.outer.outer, !llvm.loop !6

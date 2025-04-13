@@ -5380,13 +5380,13 @@ define noundef zeroext i1 @_ZN7httplib6detail18stream_line_reader7getlineEv(ptr 
 
 16:                                               ; preds = %.lr.ph, %59
   %17 = phi i64 [ %11, %.lr.ph ], [ %65, %59 ]
-  %.01225 = phi i64 [ 0, %.lr.ph ], [ %60, %59 ]
-  %.01324 = phi i8 [ 0, %.lr.ph ], [ %57, %59 ]
+  %.01226 = phi i64 [ 0, %.lr.ph ], [ %60, %59 ]
+  %.01325 = phi i8 [ 0, %.lr.ph ], [ %57, %59 ]
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %16
-  %20 = icmp ne i64 %.01225, 0
+  %20 = icmp ne i64 %.01226, 0
   br label %.thread
 
 21:                                               ; preds = %16
@@ -5459,7 +5459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %50,
   br label %.loopexit
 
 55:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i, %27
-  %56 = icmp eq i8 %.01324, 13
+  %56 = icmp eq i8 %.01325, 13
   %57 = load i8, ptr %2, align 1
   %58 = icmp eq i8 %57, 10
   %or.cond = select i1 %56, i1 %58, i1 false
@@ -5467,7 +5467,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %50,
   br i1 %or.cond, label %.loopexit, label %59
 
 59:                                               ; preds = %55
-  %60 = add i64 %.01225, 1
+  %60 = add i64 %.01226, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #47
   %61 = load ptr, ptr %0, align 8, !tbaa !128
   %62 = load ptr, ptr %61, align 8, !tbaa !29
@@ -5478,8 +5478,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %50,
   br i1 %66, label %.thread, label %16, !llvm.loop !129
 
 .loopexit:                                        ; preds = %55, %.thread
-  %cond121 = phi i1 [ %cond1.ph, %.thread ], [ true, %55 ]
-  ret i1 %cond121
+  %cond122 = phi i1 [ %cond1.ph, %.thread ], [ true, %55 ]
+  ret i1 %cond122
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13532,49 +13532,46 @@ define linkonce_odr void @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31E
   call void @_ZNSt8seed_seq8generateIPjEEvT_S2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %3, ptr noundef nonnull %4)
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %17, %2
-  %.01825.i = phi i64 [ 0, %2 ], [ %18, %17 ]
-  %.01924.i = phi i8 [ 1, %2 ], [ %.1.i, %17 ]
+.preheader.i:                                     ; preds = %.preheader.i.backedge, %2
+  %.01825.i = phi i64 [ 0, %2 ], [ %.01825.i.be, %.preheader.i.backedge ]
+  %.01924.i = phi i1 [ true, %2 ], [ %.01924.i.be, %.preheader.i.backedge ]
   %5 = getelementptr inbounds nuw [624 x i32], ptr %3, i64 0, i64 %.01825.i
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw [624 x i64], ptr %0, i64 0, i64 %.01825.i
   store i64 %7, ptr %8, align 8, !tbaa !83
-  %9 = trunc nuw i8 %.01924.i to i1
-  br i1 %9, label %12, label %17
+  br i1 %.01924.i, label %10, label %.thread.i
 
-10:                                               ; preds = %17
-  %11 = trunc nuw i8 %.1.i to i1
-  br i1 %11, label %19, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedISt8seed_seqEENSt9enable_ifIXsr8__detail13__is_seed_seqIT_S0_mEE5valueEvE4typeERS4_.exit
+9:                                                ; preds = %10
+  br i1 %.not.i, label %15, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedISt8seed_seqEENSt9enable_ifIXsr8__detail13__is_seed_seqIT_S0_mEE5valueEvE4typeERS4_.exit
 
-12:                                               ; preds = %.preheader.i
-  %13 = icmp eq i64 %.01825.i, 0
-  br i1 %13, label %14, label %16
-
-14:                                               ; preds = %12
-  %15 = load i64, ptr %0, align 8, !tbaa !83
-  %.not20.i = icmp ult i64 %15, 2147483648
-  %spec.select.i = select i1 %.not20.i, i8 %.01924.i, i8 0
-  br label %17
-
-16:                                               ; preds = %12
+10:                                               ; preds = %.preheader.i
+  %11 = icmp eq i64 %.01825.i, 0
+  %12 = load i64, ptr %0, align 8
+  %.not20.i = icmp ult i64 %12, 2147483648
   %.not.i = icmp eq i32 %6, 0
-  %spec.select21.i = select i1 %.not.i, i8 %.01924.i, i8 0
-  br label %17
+  %.1.shrunk.i = select i1 %11, i1 %.not20.i, i1 %.not.i
+  %13 = add nuw nsw i64 %.01825.i, 1
+  %exitcond.not.i = icmp eq i64 %13, 624
+  br i1 %exitcond.not.i, label %9, label %.preheader.i.backedge
 
-17:                                               ; preds = %16, %14, %.preheader.i
-  %.1.i = phi i8 [ 0, %.preheader.i ], [ %spec.select.i, %14 ], [ %spec.select21.i, %16 ]
-  %18 = add nuw nsw i64 %.01825.i, 1
-  %exitcond.not.i = icmp eq i64 %18, 624
-  br i1 %exitcond.not.i, label %10, label %.preheader.i, !llvm.loop !276
+.thread.i:                                        ; preds = %.preheader.i
+  %14 = add nuw nsw i64 %.01825.i, 1
+  %exitcond.not27.i = icmp eq i64 %14, 624
+  br i1 %exitcond.not27.i, label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedISt8seed_seqEENSt9enable_ifIXsr8__detail13__is_seed_seqIT_S0_mEE5valueEvE4typeERS4_.exit, label %.preheader.i.backedge
 
-19:                                               ; preds = %10
+.preheader.i.backedge:                            ; preds = %.thread.i, %10
+  %.01825.i.be = phi i64 [ %13, %10 ], [ %14, %.thread.i ]
+  %.01924.i.be = phi i1 [ %.1.shrunk.i, %10 ], [ false, %.thread.i ]
+  br label %.preheader.i, !llvm.loop !276
+
+15:                                               ; preds = %9
   store i64 2147483648, ptr %0, align 8, !tbaa !83
   br label %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedISt8seed_seqEENSt9enable_ifIXsr8__detail13__is_seed_seqIT_S0_mEE5valueEvE4typeERS4_.exit
 
-_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedISt8seed_seqEENSt9enable_ifIXsr8__detail13__is_seed_seqIT_S0_mEE5valueEvE4typeERS4_.exit: ; preds = %10, %19
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4992
-  store i64 624, ptr %20, align 8, !tbaa !277
+_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE4seedISt8seed_seqEENSt9enable_ifIXsr8__detail13__is_seed_seqIT_S0_mEE5valueEvE4typeERS4_.exit: ; preds = %.thread.i, %9, %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4992
+  store i64 624, ptr %16, align 8, !tbaa !277
   call void @llvm.lifetime.end.p0(i64 2496, ptr nonnull %3) #47
   ret void
 }
@@ -128482,7 +128479,7 @@ _ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt
   %.sroa.4.2.i3.i.i = phi i64 [ 0, %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit.i.i ], [ %spec.select6.i8.i.i, %56 ]
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.2.i3.i.i, i64 %.sroa.4.2.i.i.i)
   %.not.i.i.i = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %.not.i.i.i, label %select.unfold.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  br i1 %.not.i.i.i, label %65, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
   %bcmp.i = tail call i32 @bcmp(ptr %.sroa.0.2.i.i.i, ptr %.sroa.0.2.i2.i.i, i64 %.sroa.speculated.i.i.i)
@@ -128490,19 +128487,19 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %_ZNKSt7__cxx119sub_
   %63 = sub i64 %.sroa.4.2.i.i.i, %.sroa.4.2.i3.i.i
   %64 = icmp sgt i64 %63, 2147483647
   %or.cond.i = select i1 %.not14.i.i.i, i1 true, i1 %64
-  br i1 %or.cond.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %65
+  br i1 %or.cond.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %66
 
-select.unfold.i.i.i:                              ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
+65:                                               ; preds = %_ZNKSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEE6_M_strISA_EENSt9enable_ifIXsr8__detail20__is_contiguous_iterIT_EE5valueENSB_13__string_viewEE4typeEv.exit9.i.i
   %.old.i = sub i64 %.sroa.4.2.i.i.i, %.sroa.4.2.i3.i.i
   %.old2.i = icmp sgt i64 %.old.i, 2147483647
-  br i1 %.old2.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %65
+  br i1 %.old2.i, label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit, label %66
 
-65:                                               ; preds = %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
-  %66 = icmp eq i64 %.sroa.4.2.i.i.i, %.sroa.4.2.i3.i.i
+66:                                               ; preds = %65, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
+  %67 = icmp eq i64 %.sroa.4.2.i.i.i, %.sroa.4.2.i3.i.i
   br label %_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit
 
-_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit: ; preds = %65, %select.unfold.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %11, %15, %21, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ false, %9 ], [ false, %select.unfold.i.i.i ], [ %66, %65 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+_ZNSt7__cxx11eqIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_stringIcSt11char_traitsIcESaIcEEEEEEEbRKNS_9sub_matchIT_EESF_.exit: ; preds = %66, %65, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %9, %11, %15, %21, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %21 ], [ false, %15 ], [ false, %11 ], [ false, %9 ], [ false, %65 ], [ %67, %66 ], [ false, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   ret i1 %.0
 }
 
