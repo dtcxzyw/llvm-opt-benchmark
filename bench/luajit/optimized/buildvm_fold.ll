@@ -98,7 +98,7 @@ define dso_local void @emit_fold(ptr noundef readonly captures(none) %0) local_u
   store i32 0, ptr @nkeys, align 4, !tbaa !20
   %35 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 256, ptr noundef %.0)
   %.not3965 = icmp eq ptr %35, null
-  br i1 %.not3965, label %._crit_edge, label %.lr.ph
+  br i1 %.not3966, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 6
@@ -190,7 +190,7 @@ nexttoken.exit.i:                                 ; preds = %.lr.ph164.i.i
   unreachable
 
 76:                                               ; preds = %88, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %72, %.lr.ph.i ], [ %77, %88 ]
+  %indvars.iv.i = phi i64 [ %72, %.lr.ph.i ], [ %indvars.iv.next.i, %88 ]
   %77 = add nsw i64 %indvars.iv.i, -1
   %78 = getelementptr inbounds nuw [4096 x i32], ptr @foldkeys, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !20
@@ -213,7 +213,7 @@ nexttoken.exit.i:                                 ; preds = %.lr.ph164.i.i
   %89 = getelementptr inbounds nuw [4096 x i32], ptr @foldkeys, i64 0, i64 %indvars.iv.i
   store i32 %79, ptr %89, align 4, !tbaa !20
   %.not.wide.i = icmp eq i64 %77, 0
-  br i1 %.not.wide.i, label %._crit_edge.loopexit.i, label %76, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %76, !llvm.loop !24
 
 ._crit_edge.loopexit.i:                           ; preds = %88, %76
   %.0.lcssa.ph.i = phi i64 [ 0, %88 ], [ %indvars.iv.i, %76 ]
@@ -304,7 +304,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
   br label %tryhash.exit.i
 
 .preheader49.i:                                   ; preds = %228, %.preheader49.preheader.i
-  %indvars.iv.i42 = phi i64 [ %125, %.preheader49.preheader.i ], [ %indvars.iv.next.i, %228 ]
+  %indvars.iv.i42 = phi i64 [ %125, %.preheader49.preheader.i ], [ %indvars.iv.next.i44, %228 ]
   %indvars84.i = trunc nuw nsw i64 %indvars.iv.i42 to i32
   %126 = shl nuw nsw i64 %indvars.iv.i42, 2
   %127 = add nuw nsw i64 %126, 4

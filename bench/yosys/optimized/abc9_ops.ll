@@ -64643,7 +64643,7 @@ _ZNK5Yosys5RTLIL6SigBiteqERKS1_.exit.thread:      ; preds = %8409, %8416, %_ZNK5
 _ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit.us: ; preds = %.split.us
   %8435 = sext i32 %8434 to i64
   %8436 = icmp slt i64 %indvars.iv8784, %8435
-  br i1 %8436, label %.preheader.us, label %.split6856.us.loopexit10505
+  br i1 %8436, label %.preheader.us, label %.split6856.us
 
 8437:                                             ; preds = %.preheader.us, %8442
   %indvars.iv8780 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next8781, %8442 ]
@@ -64713,11 +64713,11 @@ _ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit:   ; preds = %.split
           cleanup
   br label %.loopexit4115
 
-.split6856.us.loopexit10505:                      ; preds = %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit.us
+.split6856.us:                                    ; preds = %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit.us
   %8455 = zext nneg i32 %.0554.lcssa8935 to i64
   br label %.split6856.us
 
-.split6856.us:                                    ; preds = %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit, %.split6856.us.loopexit10505
+8458:                                             ; preds = %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit, %.split6856.us
   %.0554.lcssa8934 = phi i64 [ %8455, %.split6856.us.loopexit10505 ], [ 31, %_ZN5Yosys7GetSizeINS_5RTLIL5ConstEEEiRKT_.exit ]
   %8456 = load ptr, ptr %8050, align 8, !tbaa !130
   %8457 = load ptr, ptr %8051, align 8, !tbaa !130

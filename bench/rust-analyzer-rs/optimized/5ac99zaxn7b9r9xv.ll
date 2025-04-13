@@ -4035,7 +4035,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17hebd02bf52e029b50E.exit:
   %292 = extractvalue { i32, i1 } %286, 0
   %spec.select.i.i.i = zext i1 %290 to i64
   %.sroa.38.0.insert.insert.i.i.i = or disjoint i64 %.sroa.617.17.insert.shift.i, %spec.select.i.i.i
-  %.sroa.07.0.insert.insert.i.i.i = or disjoint i64 %.sroa.38.0.insert.insert.i.i.i, 137438953472
+  %.sroa.07.0.insert.insert.i.i.i = or disjoint i64 %294, 137438953472
   %293 = getelementptr inbounds nuw i8, ptr %280, i64 32
   %294 = load ptr, ptr %293, align 8, !invariant.load !10, !noalias !317, !nonnull !10
   call void %294(ptr noundef nonnull align 1 %279, i32 noundef %291, i32 noundef %292, i64 %.sroa.07.0.insert.insert.i.i.i), !noalias !317
@@ -4510,8 +4510,8 @@ switch.lookup:
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit"
-  %8 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %216, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
-  %9 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %215, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
+  %8 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %217, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
+  %9 = phi ptr [ %5, %.lr.ph.lr.ph ], [ %216, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   %.sroa.10.sroa.0.0.ph107 = phi i48 [ undef, %.lr.ph.lr.ph ], [ %.sroa.10.sroa.0.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   %.sroa.619.0.ph106 = phi i32 [ undef, %.lr.ph.lr.ph ], [ %.sroa.619.1, %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit" ]
   br label %10
@@ -4952,8 +4952,8 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit:
   %.not.i = icmp eq i64 %214, 2
   %.val.i = load ptr, ptr %.val.i.i, align 8, !nonnull !10, !noundef !10
   %.sroa.4.0.extract.shift.i = lshr exact i64 %.sroa.428.0.insert.insert, 8
-  %spec.select.i = select i1 %or.cond.i61, i64 20, i64 %.sroa.4.0.extract.shift.i
-  %.sroa.5.0.i = select i1 %.not.i, i64 %.sroa.4.0.extract.shift.i, i64 %spec.select.i
+  %spec.select.i = select i1 %or.cond.i61, i64 20, i64 %214
+  %.sroa.5.0.i = select i1 %.not.i, i64 %214, i64 %spec.select.i
   %.sroa.4.0.extract.trunc.i.i = trunc i64 %.sroa.5.0.i to i8
   call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val.i, i64 noundef 1, i64 noundef %64, i8 noundef %.sroa.4.0.extract.trunc.i.i)
   br label %"_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit"
@@ -4961,8 +4961,8 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit:
 "_ZN17ra_ap_rustc_lexer8unescape14unescape_mixed28_$u7b$$u7b$closure$u7d$$u7d$17hdbc6337861df2b44E.exit": ; preds = %.loopexit, %213
   %215 = load ptr, ptr %6, align 8, !alias.scope !425, !nonnull !10, !noundef !10
   %216 = load ptr, ptr %4, align 8, !alias.scope !425, !nonnull !10, !noundef !10
-  %217 = icmp eq ptr %216, %215
-  br i1 %217, label %.thread, label %.lr.ph
+  %217 = icmp eq ptr %217, %216
+  br i1 %218, label %.thread, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable

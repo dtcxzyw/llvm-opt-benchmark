@@ -706,7 +706,7 @@ define noundef ptr @u_fgets_77(ptr noundef writeonly captures(ret: address, prov
   br label %11
 
 11:                                               ; preds = %10, %5
-  %12 = phi ptr [ %.pre125, %10 ], [ %7, %5 ]
+  %12 = phi ptr [ %.pre126, %10 ], [ %7, %5 ]
   %13 = phi ptr [ %.pre, %10 ], [ %9, %5 ]
   %14 = add nsw i32 %1, -1
   %15 = ptrtoint ptr %13 to i64

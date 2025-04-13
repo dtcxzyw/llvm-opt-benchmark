@@ -316,7 +316,7 @@ define { i64, i64 } @softfloat_mulAddF128(i64 noundef %0, i64 noundef %1, i64 no
   %144 = sub i64 %.sroa.37.1, %75
   %145 = icmp ult i64 %.sroa.073.1, %76
   %.neg.i325 = sext i1 %145 to i64
-  %146 = add i64 %144, %.neg.i325
+  %146 = add i64 %144, %.neg.i326
   %147 = or i64 %146, %143
   %148 = icmp ne i64 %147, 0
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -369,9 +369,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   br label %164
 
 164:                                              ; preds = %thread-pre-split, %154
-  %165 = phi i64 [ %.pre335, %thread-pre-split ], [ %152, %154 ]
+  %165 = phi i64 [ %.pre336, %thread-pre-split ], [ %152, %154 ]
   %166 = phi i64 [ %.pre, %thread-pre-split ], [ %150, %154 ]
-  %167 = phi i64 [ %.pr334, %thread-pre-split ], [ %143, %154 ]
+  %167 = phi i64 [ %.pr335, %thread-pre-split ], [ %143, %154 ]
   %168 = phi i64 [ %.pr, %thread-pre-split ], [ %146, %154 ]
   %.1 = phi i1 [ %.1.ph, %thread-pre-split ], [ %27, %154 ]
   %.not287 = icmp eq i64 %168, 0
@@ -514,18 +514,18 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %.not273 = icmp eq i64 %235, 0
   br i1 %.not273, label %236, label %243
 
-236:                                              ; preds = %233
+236:; preds = %233
   %237 = xor i1 %27, %21
   br i1 %237, label %238, label %243
 
-238:                                              ; preds = %236, %142
+238:; preds = %236, %142
   %239 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
   %240 = load i8, ptr %239, align 1, !tbaa !7
   %241 = icmp eq i8 %240, 2
   %242 = select i1 %241, i64 -9223372036854775808, i64 0
   br label %243
 
-243:                                              ; preds = %45, %233, %236, %238, %226, %222, %229
+243:; preds = %45, %233, %236, %238, %226, %222, %229
   %.sroa.0128.1 = phi i64 [ %231, %229 ], [ 0, %222 ], [ 0, %226 ], [ 0, %238 ], [ %5, %233 ], [ 0, %236 ], [ 0, %45 ]
   %.sroa.12.1 = phi i64 [ %232, %229 ], [ %223, %222 ], [ %223, %226 ], [ %242, %238 ], [ %4, %233 ], [ %4, %236 ], [ %4, %45 ]
   %244 = insertvalue { i64, i64 } poison, i64 %.sroa.0128.1, 0

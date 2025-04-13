@@ -5636,13 +5636,13 @@ define internal noundef zeroext i1 @_ZN3ozz7options12_GLOBAL__N_112sort_optionsE
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i8, ptr %6, align 8, !tbaa !12, !range !73
-  br i1 %5, label %8, label %10
+  br i1 %5, label %8, label %._crit_edge
 
 8:                                                ; preds = %2
   %9 = trunc nuw i8 %7 to i1
   br i1 %9, label %.thread, label %17
 
-10:                                               ; preds = %2
+._crit_edge:                                      ; preds = %2
   %.not = icmp eq i8 %4, %7
   br i1 %.not, label %.thread, label %17
 
@@ -5656,7 +5656,7 @@ define internal noundef zeroext i1 @_ZN3ozz7options12_GLOBAL__N_112sort_optionsE
   br label %17
 
 17:                                               ; preds = %10, %.thread, %8
-  %18 = phi i1 [ true, %8 ], [ false, %10 ], [ %16, %.thread ]
+  %18 = phi i1 [ true, %8 ], [ false, %._crit_edge ], [ %16, %.thread ]
   ret i1 %18
 }
 

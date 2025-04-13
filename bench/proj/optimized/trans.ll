@@ -1762,10 +1762,10 @@ define noundef i32 @proj_trans_array(ptr noundef %0, i32 noundef %1, i64 noundef
   %.019.not = xor i1 %.01930, true
   %brmerge27 = select i1 %brmerge, i1 true, i1 %.019.not
   %9 = select i1 %.not, i1 true, i1 %.02029
-  %.022.mux.mux = select i1 %9, i32 %.02228, i32 %8
+  %.022.mux.mux = select i1 %.022.mux, i32 %.02228, i32 %8
   %.not25 = icmp eq i32 %.02228, %8
   %spec.select = select i1 %.not25, i32 %.02228, i32 2048
-  %.123 = select i1 %brmerge27, i32 %.022.mux.mux, i32 %spec.select
+  %.123 = select i1 %spec.select, i32 %.123, i32 %spec.select27
   %10 = xor i1 %.not, true
   %.121 = select i1 %10, i1 true, i1 %.02029
   %.019.mux = select i1 %.01930, i1 %.not25, i1 false
@@ -1777,7 +1777,7 @@ define noundef i32 @proj_trans_array(ptr noundef %0, i32 noundef %1, i64 noundef
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.022.lcssa = phi i32 [ 0, %4 ], [ %.123, %.lr.ph ]
   %12 = load ptr, ptr %0, align 8, !tbaa !49
-  call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %12, i32 noundef %.022.lcssa)
+  call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %10, i32 noundef %.022.lcssa)
   ret i32 %.022.lcssa
 }
 

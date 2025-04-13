@@ -2319,7 +2319,7 @@ define internal fastcc void @_update_info_node(ptr noundef %0, ptr noundef %1) u
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br i1 %11, label %13, label %.thread24
 
-13:                                               ; preds = %10
+19:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %4, ptr noundef nonnull %14, i32 noundef 21, ptr noundef nonnull %3, i32 noundef -1) #11
   %15 = load ptr, ptr %3, align 8
@@ -2329,24 +2329,24 @@ define internal fastcc void @_update_info_node(ptr noundef %0, ptr noundef %1) u
   %.not21 = icmp eq i32 %18, 0
   br i1 %.not21, label %20, label %19
 
-19:                                               ; preds = %13
+19:     ; preds = %13
   store i8 0, ptr %12, align 8
   br label %20
 
-20:                                               ; preds = %13, %19
+20:; preds = %13, %19
   %21 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %21) #11
   %.pre23 = load i8, ptr %12, align 8, !range !11
   %22 = trunc nuw i8 %.pre23 to i1
   br i1 %22, label %23, label %.thread24
 
-23:                                               ; preds = %20
+23:      ; preds = %20
   %24 = tail call i64 @gtk_tree_store_get_type() #12
   %25 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %24) #11
   call fastcc void @_update_node_record(ptr noundef %7, ptr noundef %25)
   br label %32
 
-.thread24:                                        ; preds = %.thread, %10, %20
+.thread24:; preds = %.thread, %10, %20
   %26 = phi ptr [ %12, %20 ], [ %9, %.thread ], [ %12, %10 ]
   %27 = tail call i64 @gtk_tree_store_get_type() #12
   %28 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %27) #11

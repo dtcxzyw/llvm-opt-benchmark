@@ -111,13 +111,13 @@ define i64 @ossl_quic_engine_make_real_time(ptr noundef readonly captures(none) 
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.fold.split, label %5
 
-5:                                                ; preds = %2
+5:; preds = %2
   switch i64 %1, label %6 [
     i64 0, label %.fold.split
     i64 -1, label %.fold.split
   ]
 
-6:                                                ; preds = %5
+6:; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = tail call i64 %4(ptr noundef %8) #10

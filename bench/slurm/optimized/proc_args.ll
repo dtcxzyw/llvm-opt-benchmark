@@ -927,38 +927,38 @@ declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 nound
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @mbytes_to_str(i64 noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq i64 %0, -2
-  br i1 %2, label %15, label %.preheader.preheader
+  br i1 %2, label %16, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %1
   %3 = and i64 %0, 1023
   %.not1833 = icmp eq i64 %3, 0
-  br i1 %.not1833, label %.lr.ph, label %8
+  br i1 %.not1836, label %.lr.ph, label %8
 
 .preheader:                                       ; preds = %.lr.ph
-  %4 = and i64 %.0142235, 1047552
+  %4 = and i64 %.0142238, 1047552
   %.not18 = icmp eq i64 %4, 0
-  br i1 %.not18, label %.lr.ph, label %.preheader._crit_edge, !llvm.loop !11
+  br i1 %.not18, label %.lr.ph, label %.preheader._crit_edge.loopexit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %.0142235 = phi i64 [ %5, %.preheader ], [ %0, %.preheader.preheader ]
   %indvars.iv34 = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
-  %5 = lshr exact i64 %.0142235, 10
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv34, 1
+  %5 = lshr exact i64 %.0142238, 10
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv37, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.thread, label %.preheader, !llvm.loop !11
 
-.preheader._crit_edge:                            ; preds = %.preheader
+.preheader._crit_edge.loopexit:                   ; preds = %.preheader
   %6 = getelementptr inbounds nuw i8, ptr @.str.38, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1
   br label %8
 
-8:                                                ; preds = %.preheader._crit_edge, %.preheader.preheader
+9:                                                ; preds = %.preheader._crit_edge, %.preheader.preheader
   %.lcssa = phi i8 [ %7, %.preheader._crit_edge ], [ 77, %.preheader.preheader ]
   %.01422.lcssa = phi i64 [ %5, %.preheader._crit_edge ], [ %0, %.preheader.preheader ]
   %9 = icmp eq i8 %.lcssa, 77
   br i1 %9, label %10, label %.thread
 
-10:                                               ; preds = %8
+.thread.loopexit:                                 ; preds = %8
   %11 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.39, i64 noundef %.01422.lcssa) #21
   br label %15
 
@@ -966,11 +966,11 @@ define dso_local ptr @mbytes_to_str(i64 noundef %0) local_unnamed_addr #2 {
   %.01421 = phi i64 [ %.01422.lcssa, %8 ], [ %5, %.lr.ph ]
   %12 = phi i8 [ %.lcssa, %8 ], [ 63, %.lr.ph ]
   %13 = sext i8 %12 to i32
-  %14 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.40, i64 noundef %.01421, i32 noundef %13) #21
-  br label %15
+  %14 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.40, i64 noundef %.01421, i32 noundef %14) #21
+  br label %16
 
-15:                                               ; preds = %1, %.thread, %10
-  %.0 = phi ptr [ %11, %10 ], [ %14, %.thread ], [ null, %1 ]
+16:                                               ; preds = %1, %.thread, %10
+  %.0 = phi ptr [ %11, %10 ], [ %15, %.thread ], [ null, %1 ]
   ret ptr %.0
 }
 

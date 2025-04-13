@@ -911,7 +911,7 @@ define internal i32 @cf_hc_shutdown(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 13:                                               ; preds = %3
   store i8 1, ptr %2, align 1, !tbaa !98
-  br label %74
+  br label %75
 
 14:                                               ; preds = %.lr.ph, %cf_hc_baller_is_active.exit.thread
   %.04660 = phi i64 [ 0, %.lr.ph ], [ %35, %cf_hc_baller_is_active.exit.thread ]
@@ -1014,14 +1014,14 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %14, %32, %24, %cf_h
   %54 = phi i32 [ 0, %._crit_edge64 ], [ 1, %._crit_edge ], [ 1, %._crit_edge.thread ], [ 1, %50 ]
   %.2 = phi i32 [ 0, %._crit_edge64 ], [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %spec.select, %50 ]
   %.not52 = icmp eq ptr %1, null
-  br i1 %.not52, label %74, label %55
+  br i1 %.not52, label %75, label %55
 
 55:                                               ; preds = %.loopexit
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 2658
   %57 = load i64, ptr %56, align 2
   %58 = and i64 %57, 2147483648
   %.not53 = icmp eq i64 %58, 0
-  br i1 %.not53, label %74, label %59
+  br i1 %.not53, label %75, label %59
 
 59:                                               ; preds = %55
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 4864
@@ -1035,24 +1035,24 @@ cf_hc_baller_is_active.exit.thread:               ; preds = %14, %32, %24, %cf_h
   %65 = icmp sgt i32 %64, 0
   %66 = icmp ne ptr %0, null
   %or.cond3 = and i1 %66, %65
-  br i1 %or.cond3, label %68, label %74
+  br i1 %or.cond3, label %68, label %75
 
 67:                                               ; preds = %59
   %.old2.not = icmp eq ptr %0, null
-  br i1 %.old2.not, label %74, label %68
+  br i1 %.old2.not, label %75, label %68
 
 68:                                               ; preds = %62, %67
   %69 = load ptr, ptr %0, align 8, !tbaa !81
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !82
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %73, label %74
+  br i1 %72, label %73, label %75
 
 73:                                               ; preds = %68
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.13, i32 noundef %.2, i32 noundef %54) #4
   br label %74
 
-74:                                               ; preds = %.loopexit, %55, %62, %67, %68, %73, %13
+75:                                               ; preds = %.loopexit, %55, %62, %67, %68, %73, %13
   %.0 = phi i32 [ 0, %13 ], [ %.2, %73 ], [ %.2, %68 ], [ %.2, %67 ], [ %.2, %62 ], [ %.2, %55 ], [ %.2, %.loopexit ]
   ret i32 %.0
 }

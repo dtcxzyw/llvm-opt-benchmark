@@ -9140,15 +9140,15 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 38:                                               ; preds = %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9localHeadEv.exit.i
   %.sroa.020.1.sink.in.i.i = phi i64 [ %.sroa.020.1.in.i.i, %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i ], [ %36, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9localHeadEv.exit.i ]
   %.sroa.020.1.sink.i.i = trunc i64 %.sroa.020.1.sink.in.i.i to i32
-  store atomic i32 %.sroa.020.1.sink.i.i, ptr %37 release, align 4
-  %39 = and i64 %.sroa.020.1.sink.in.i.i, 1095216660480
+  store atomic i32 %.sroa.020.0.i.i, ptr %37 release, align 4
+  %39 = and i64 %.sroa.020.0.in.i.i, 1095216660480
   %40 = icmp eq i64 %39, 858993459200
   br i1 %40, label %41, label %52
 
 41:                                               ; preds = %38
-  %42 = and i64 %.sroa.020.1.sink.in.i.i, -1099511627776
+  %42 = and i64 %.sroa.020.0.in.i.i, -1099511627776
   %.sroa.2.0.insert.shift.i2.i.i.i = add i64 %42, 1099511627776
-  %43 = cmpxchg ptr %32, i64 %.sroa.020.1.sink.in.i.i, i64 %.sroa.2.0.insert.shift.i2.i.i.i seq_cst seq_cst, align 8
+  %43 = cmpxchg ptr %32, i64 %.sroa.020.0.in.i.i, i64 %.sroa.2.0.insert.shift.i2.i.i.i seq_cst seq_cst, align 8
   %44 = extractvalue { i64, i1 } %43, 1
   br i1 %44, label %45, label %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
 
@@ -9169,9 +9169,9 @@ _ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomic
   br i1 %51, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE12recycleIndexEj.exit, label %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i.i
 
 52:                                               ; preds = %38
-  %53 = and i64 %.sroa.020.1.sink.in.i.i, -4294967296
+  %53 = and i64 %.sroa.020.0.in.i.i, -4294967296
   %.sroa.0.0.insert.insert.i14.i.reass.i = add i64 %invariant.op.i, %53
-  %54 = cmpxchg ptr %32, i64 %.sroa.020.1.sink.in.i.i, i64 %.sroa.0.0.insert.insert.i14.i.reass.i seq_cst seq_cst, align 8
+  %54 = cmpxchg ptr %32, i64 %.sroa.020.0.in.i.i, i64 %.sroa.0.0.insert.insert.i14.i.reass.i seq_cst seq_cst, align 8
   %55 = extractvalue { i64, i1 } %54, 1
   br i1 %55, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE12recycleIndexEj.exit, label %_ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES4_NS_20IndexedMemPoolTraitsIS5_Lb0ELb0EEEE9TaggedPtrES4_E23compare_exchange_strongERS9_S9_St12memory_orderSC_.exit.i.i
 

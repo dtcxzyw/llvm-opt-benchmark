@@ -24004,7 +24004,7 @@ define internal fastcc { i64, ptr } @_ZN8wasmtime7runtime6module6Module14from_pa
 
 "_ZN4core3ptr80drop_in_place$LT$alloc..sync..Arc$LT$wasmtime..runtime..code..CodeObject$GT$$GT$17h69d3fadad9f81329E.exit55": ; preds = %58, %74, %78
   %.pn9 = phi { ptr, i32 } [ %.pn.ph, %74 ], [ %.pn.ph, %78 ], [ %59, %58 ]
-  resume { ptr, i32 } %.pn9
+  resume { ptr, i32 } %.pn10
 
 74:                                               ; preds = %70, %13, %16
   %.pn.ph = phi { ptr, i32 } [ %17, %16 ], [ %14, %13 ], [ %71, %70 ]

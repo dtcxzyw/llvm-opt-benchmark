@@ -55543,16 +55543,16 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.critedge
 
-_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split:  ; preds = %768, %540
+_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split: ; preds = %768, %540
   %.pre.sink = phi ptr [ %.pre378, %540 ], [ %.pre, %768 ]
   store i32 63, ptr %63, align 8, !tbaa !788
   %71 = getelementptr inbounds i8, ptr %.pre.sink, i64 -8
   store ptr %71, ptr %62, align 8, !tbaa !786
-  br label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+  br label %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
-_ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split, %768, %540
-  %72 = phi i32 [ %770, %768 ], [ %542, %540 ], [ 63, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split ]
-  %73 = phi ptr [ %.pre, %768 ], [ %.pre378, %540 ], [ %71, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split ]
+_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit: ; preds = %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split, %768, %540
+  %72 = phi i32 [ %770, %768 ], [ %542, %540 ], [ 63, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split ]
+  %73 = phi ptr [ %.pre, %768 ], [ %.pre378, %540 ], [ %71, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split ]
   %74 = load ptr, ptr %9, align 8, !tbaa !786
   %75 = icmp eq ptr %74, %73
   %76 = icmp eq i32 %72, 0
@@ -56819,9 +56819,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #39
   br label %850
 
-.lr.ph:                                           ; preds = %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
-  %520 = phi i32 [ %72, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ %388, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
-  %521 = phi ptr [ %73, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ %387, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
+.lr.ph:                                           ; preds = %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
+  %520 = phi i32 [ %72, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ], [ %388, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
+  %521 = phi ptr [ %73, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ], [ %387, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
   %522 = zext i32 %520 to i64
   %523 = add nsw i64 %522, -1
   %524 = sdiv i64 %523, 64
@@ -56872,7 +56872,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store i32 %542, ptr %63, align 8, !tbaa !788
   %543 = icmp eq i32 %541, 0
   %.pre378 = load ptr, ptr %62, align 8, !tbaa !786
-  br i1 %543, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+  br i1 %543, label %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split, label %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
 544:                                              ; preds = %534
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -57525,7 +57525,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store i32 %770, ptr %63, align 8, !tbaa !788
   %771 = icmp eq i32 %769, 0
   %.pre = load ptr, ptr %62, align 8, !tbaa !786
-  br i1 %771, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+  br i1 %771, label %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split, label %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
 772:                                              ; preds = %615
   %773 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -57730,9 +57730,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit330: ; preds = %_Z
   %.pr = load ptr, ptr %9, align 8, !tbaa !786
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIbSaIbEE8pop_backEv.exit, %.loopexitthread-pre-split
-  %841 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %74, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ]
-  %.1 = phi i1 [ %.1.ph, %.loopexitthread-pre-split ], [ true, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ]
+.loopexit:                                        ; preds = %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit, %.loopexitthread-pre-split
+  %841 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %74, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ]
+  %.1 = phi i1 [ %.1.ph, %.loopexitthread-pre-split ], [ true, %_ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ]
   %.not.i.i = icmp eq ptr %841, null
   br i1 %.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %842
 
@@ -59960,16 +59960,16 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %.critedge
 
-_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split:  ; preds = %774, %543
+_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split: ; preds = %774, %543
   %.pre.sink = phi ptr [ %.pre375, %543 ], [ %.pre, %774 ]
   store i32 63, ptr %63, align 8, !tbaa !788
   %73 = getelementptr inbounds i8, ptr %.pre.sink, i64 -8
   store ptr %73, ptr %62, align 8, !tbaa !786
-  br label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+  br label %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
-_ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split, %774, %543
-  %74 = phi i32 [ %778, %774 ], [ %547, %543 ], [ 63, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split ]
-  %75 = phi ptr [ %.pre, %774 ], [ %.pre375, %543 ], [ %73, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split ]
+_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit: ; preds = %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split, %774, %543
+  %74 = phi i32 [ %778, %774 ], [ %547, %543 ], [ 63, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split ]
+  %75 = phi ptr [ %.pre, %774 ], [ %.pre375, %543 ], [ %73, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split ]
   %76 = load ptr, ptr %9, align 8, !tbaa !786
   %77 = icmp eq ptr %76, %75
   %78 = icmp eq i32 %74, 0
@@ -61237,9 +61237,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit244: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #39
   br label %858
 
-.lr.ph:                                           ; preds = %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
-  %526 = phi i32 [ %74, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ %394, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
-  %527 = phi ptr [ %75, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ], [ %393, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
+.lr.ph:                                           ; preds = %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
+  %526 = phi i32 [ %74, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ], [ %394, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
+  %527 = phi ptr [ %75, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ], [ %393, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.preheader ]
   %528 = zext i32 %526 to i64
   %529 = add nsw i64 %528, -1
   %530 = sdiv i64 %529, 64
@@ -61286,7 +61286,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store i32 %547, ptr %63, align 8, !tbaa !788
   %548 = icmp eq i32 %546, 0
   %.pre375 = load ptr, ptr %62, align 8, !tbaa !786
-  br i1 %548, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+  br i1 %548, label %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split, label %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
 549:                                              ; preds = %540
   %550 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -61938,7 +61938,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   store i32 %778, ptr %63, align 8, !tbaa !788
   %779 = icmp eq i32 %777, 0
   %.pre = load ptr, ptr %62, align 8, !tbaa !786
-  br i1 %779, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit.sink.split, label %_ZNSt6vectorIbSaIbEE8pop_backEv.exit
+  br i1 %779, label %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit.sink.split, label %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit
 
 780:                                              ; preds = %620
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -62143,9 +62143,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit332: ; preds = %_Z
   %.pr = load ptr, ptr %9, align 8, !tbaa !786
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNSt6vectorIbSaIbEE8pop_backEv.exit, %.loopexitthread-pre-split
-  %849 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %76, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ]
-  %.1 = phi i1 [ %.1.ph, %.loopexitthread-pre-split ], [ true, %_ZNSt6vectorIbSaIbEE8pop_backEv.exit ]
+.loopexit:                                        ; preds = %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit, %.loopexitthread-pre-split
+  %849 = phi ptr [ %.pr, %.loopexitthread-pre-split ], [ %76, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ]
+  %.1 = phi i1 [ %.1.ph, %.loopexitthread-pre-split ], [ true, %_ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEEEE6stringERSA_.exit ]
   %.not.i.i = icmp eq ptr %849, null
   br i1 %.not.i.i, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %850
 
@@ -74848,7 +74848,7 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118ba
   %11 = load i64, ptr %10, align 8, !tbaa !521
   %12 = and i64 %11, 16
   %.not71 = icmp eq i64 %12, 0
-  br i1 %.not71, label %18, label %13
+  br i1 %.not70, label %18, label %13
 
 13:                                               ; preds = %4
   tail call void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE10_write_docEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1)
@@ -74857,21 +74857,21 @@ define linkonce_odr void @_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118ba
   %16 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %15, i64 %1, i32 4
   %17 = load i64, ptr %16, align 8, !tbaa !1031
   %.not = icmp eq i64 %17, -1
-  br i1 %.not, label %181, label %.thread69
+  br i1 %.not78, label %181, label %.thread68
 
 18:                                               ; preds = %4
   %19 = and i64 %11, 44
   %.not72 = icmp eq i64 %19, 0
-  br i1 %.not72, label %.thread69, label %20
+  br i1 %.not71, label %.thread68, label %20
 
 20:                                               ; preds = %18
   %21 = and i64 %11, 2
   %.not73 = icmp eq i64 %21, 0
-  br i1 %.not73, label %39, label %22
+  br i1 %.not72, label %39, label %22
 
 22:                                               ; preds = %20
   %.not.i57 = icmp eq i64 %6, 0
-  br i1 %.not.i57, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit, label %.lr.ph.i
+  br i1 %.not.i56, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i
   %.04.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %22 ]
@@ -74915,18 +74915,18 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
 
 43:                                               ; preds = %39
   %.not.i58 = icmp eq i64 %6, 0
-  br i1 %.not.i58, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit62, label %.lr.ph.i59
+  br i1 %.not.i57, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit61, label %.lr.ph.i58
 
-.lr.ph.i59:                                       ; preds = %43, %.lr.ph.i59
-  %.04.i60 = phi i64 [ %47, %.lr.ph.i59 ], [ 0, %43 ]
+.lr.ph.i58:                                       ; preds = %43, %.lr.ph.i58
+  %.04.i60 = phi i64 [ %47, %.lr.ph.i58 ], [ 0, %43 ]
   %44 = load ptr, ptr %0, align 8, !tbaa !1022
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %45, i8 noundef signext 32)
-  %47 = add nuw i64 %.04.i60, 1
+  %47 = add nuw i64 %.04.i59, 1
   %exitcond.not.i61 = icmp eq i64 %47, %6
-  br i1 %exitcond.not.i61, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit62, label %.lr.ph.i59, !llvm.loop !1042
+  br i1 %exitcond.not.i60, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit61, label %.lr.ph.i58, !llvm.loop !1042
 
-_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit62: ; preds = %.lr.ph.i59, %43
+_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit61: ; preds = %.lr.ph.i58, %43
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !526
   %50 = add i64 %49, %6
@@ -74939,8 +74939,8 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   store i64 %55, ptr %48, align 8, !tbaa !526
   br label %56
 
-56:                                               ; preds = %39, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit62, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit
-  %.049 = phi i8 [ 1, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit ], [ 0, %39 ], [ 1, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit62 ]
+56:                                               ; preds = %39, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit61, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit
+  %.049 = phi i8 [ 1, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit ], [ 0, %39 ], [ 1, %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS0_4RepCE.exit61 ]
   %57 = load ptr, ptr %7, align 8, !tbaa !529
   %58 = load ptr, ptr %57, align 8, !tbaa !520
   %59 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %58, i64 %1
@@ -75017,7 +75017,7 @@ _ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char
   %.not.i56 = icmp ne i64 %99, 0
   %100 = and i64 %98, 13
   %101 = icmp ne i64 %100, 0
-  %102 = and i1 %.not.i56, %101
+  %102 = and i1 %.not.i55, %101
   br i1 %102, label %103, label %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit
 
 103:                                              ; preds = %_ZN2c43yml7EmitterINS0_13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEEE10_write_tagENS_15basic_substringIKcEE.exit
@@ -75073,17 +75073,17 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   %.not74 = icmp eq i64 %133, -1
   %134 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %131, i64 %1
   %135 = load i64, ptr %134, align 8, !tbaa !521
-  br i1 %.not74, label %138, label %136
+  br i1 %.not73, label %138, label %136
 
 136:                                              ; preds = %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit
   %137 = and i64 %135, 2
   %.not77 = icmp eq i64 %137, 0
-  br i1 %.not77, label %156, label %.thread69.sink.split
+  br i1 %.not76, label %156, label %.thread68.sink.split
 
 138:                                              ; preds = %_ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEE9_do_writeENS_15basic_substringIKcEE.exit
   %139 = and i64 %135, 8
   %.not75 = icmp eq i64 %139, 0
-  br i1 %.not75, label %147, label %140
+  br i1 %.not74, label %147, label %140
 
 140:                                              ; preds = %138
   %141 = load ptr, ptr %0, align 8, !tbaa !1022
@@ -75098,7 +75098,7 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
 147:                                              ; preds = %138
   %148 = and i64 %135, 4
   %.not76 = icmp eq i64 %148, 0
-  br i1 %.not76, label %181, label %149
+  br i1 %.not75, label %181, label %149
 
 149:                                              ; preds = %147
   %150 = load ptr, ptr %0, align 8, !tbaa !1022
@@ -75116,44 +75116,44 @@ _ZN2c43yml13WriterOStreamINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaI
   %159 = icmp eq i64 %158, -1
   %160 = trunc nuw i8 %.251 to i1
   %.not78 = xor i1 %160, true
-  %161 = select i1 %159, i1 %.not78, i1 false
-  %or.cond3 = or i1 %.153, %161
-  %162 = xor i1 %161, true
-  %brmerge = or i1 %.153, %162
+  %161 = select i1 %159, i1 %.not77, i1 false
+  %or.cond3 = or i1 %.153, %.not
+  %162 = xor i1 %.not, true
+  %brmerge = or i1 %.153, %161
   %.mux = select i1 %or.cond3, i8 10, i8 32
   %.mux90 = zext i1 %or.cond3 to i64
-  br i1 %brmerge, label %.thread69.sink.split, label %.thread69
+  br i1 %brmerge, label %.thread68.sink.split, label %.thread68
 
-.thread69.sink.split:                             ; preds = %156, %136
+.thread68.sink.split:                             ; preds = %156, %136
   %.sink88 = phi i8 [ %.mux, %156 ], [ 10, %136 ]
   %.047.ph = phi i64 [ %.mux90, %156 ], [ 1, %136 ]
   %163 = load ptr, ptr %0, align 8, !tbaa !1022
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  %165 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %164, i8 noundef signext %.sink88)
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %165 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %163, i8 noundef signext %.sink88)
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %167 = load i64, ptr %166, align 8, !tbaa !526
-  %168 = add i64 %167, 1
-  store i64 %168, ptr %166, align 8, !tbaa !526
-  br label %.thread69
+  %167 = load i64, ptr %165, align 8, !tbaa !526
+  %168 = add i64 %166, 1
+  store i64 %167, ptr %165, align 8, !tbaa !526
+  br label %.thread68
 
-.thread69:                                        ; preds = %156, %.thread69.sink.split, %18, %13
-  %.047 = phi i64 [ %3, %13 ], [ %3, %18 ], [ %.047.ph, %.thread69.sink.split ], [ 0, %156 ]
+.thread68:                                        ; preds = %156, %.thread68.sink.split, %18, %13
+  %.047 = phi i64 [ %3, %13 ], [ %3, %18 ], [ %.047.ph, %.thread68.sink.split ], [ 0, %156 ]
   %169 = load ptr, ptr %7, align 8, !tbaa !529
-  %170 = load ptr, ptr %169, align 8, !tbaa !520
-  %171 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %170, i64 %1, i32 3
-  %172 = load i64, ptr %171, align 8, !tbaa !1018
-  %173 = icmp eq i64 %172, -1
-  br i1 %173, label %179, label %174
+  %170 = load ptr, ptr %168, align 8, !tbaa !520
+  %171 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %169, i64 %1, i32 3
+  %172 = load i64, ptr %170, align 8, !tbaa !1018
+  %173 = icmp eq i64 %171, -1
+  br i1 %172, label %178, label %173
 
-174:                                              ; preds = %.thread69
+173:                                              ; preds = %.thread68
   %175 = add i64 %2, 1
-  %176 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %170, i64 %1
-  %177 = load i64, ptr %176, align 8, !tbaa !521
-  %178 = and i64 %177, 16
-  %.not79 = icmp eq i64 %178, 0
-  br i1 %.not79, label %180, label %179
+  %176 = getelementptr inbounds nuw %"struct.c4::yml::NodeData", ptr %169, i64 %1
+  %177 = load i64, ptr %175, align 8, !tbaa !521
+  %178 = and i64 %176, 16
+  %.not79 = icmp eq i64 %177, 0
+  br i1 %.not79, label %180, label %178
 
-179:                                              ; preds = %174, %.thread69
+178:                                              ; preds = %173, %.thread68
   br label %180
 
 180:                                              ; preds = %179, %174

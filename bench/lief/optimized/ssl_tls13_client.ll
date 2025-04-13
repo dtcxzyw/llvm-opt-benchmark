@@ -729,45 +729,45 @@ define hidden i32 @mbedtls_ssl_tls13_write_client_hello_exts(ptr noundef %0, ptr
     i16 30, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit59.thread.i
   ]
 
-88:                                               ; preds = %84
+89:                                               ; preds = %84
   %89 = add i16 %87, -261
-  %90 = icmp ult i16 %89, -5
-  br i1 %90, label %91, label %ssl_tls13_get_default_group_id.exit.i
+  %90 = icmp ult i16 %90, -5
+  br i1 %91, label %92, label %ssl_tls13_get_default_group_id.exit.i
 
-91:                                               ; preds = %88
+92:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 104
-  %93 = load ptr, ptr %92, align 8, !tbaa !63
-  %.not7.i.i.i = icmp eq ptr %93, null
+  %93 = load ptr, ptr %93, align 8, !tbaa !63
+  %.not7.i.i.i = icmp eq ptr %94, null
   br i1 %.not7.i.i.i, label %mbedtls_ssl_get_groups.exit.i.i, label %.preheader.i.i
 
-mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %91
+mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %92
   %94 = load ptr, ptr %0, align 8, !tbaa !39
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 256
-  %96 = load ptr, ptr %95, align 8, !tbaa !64
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %ssl_tls13_write_supported_versions_ext.exit, label %.preheader.i.i
+  %95 = getelementptr inbounds nuw i8, ptr %95, i64 256
+  %96 = load ptr, ptr %96, align 8, !tbaa !64
+  %97 = icmp eq ptr %97, null
+  br i1 %98, label %ssl_tls13_write_supported_versions_ext.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %mbedtls_ssl_get_groups.exit.i.i, %91
-  %.0.i24.i.i = phi ptr [ %96, %mbedtls_ssl_get_groups.exit.i.i ], [ %93, %91 ]
+.preheader.i.i:                                   ; preds = %mbedtls_ssl_get_groups.exit.i.i, %92
+  %.0.i24.i.i = phi ptr [ %97, %mbedtls_ssl_get_groups.exit.i.i ], [ %94, %92 ]
   %98 = load i16, ptr %.0.i24.i.i, align 2, !tbaa !65
-  %.not19.i.i = icmp eq i16 %98, 0
+  %.not19.i.i = icmp eq i16 %99, 0
   br i1 %.not19.i.i, label %ssl_tls13_write_supported_versions_ext.exit, label %.lr.ph.i.i
 
-99:                                               ; preds = %107
+100:                                              ; preds = %107
   %100 = getelementptr inbounds nuw i8, ptr %.020.i.i, i64 2
-  %101 = load i16, ptr %100, align 2, !tbaa !65
-  %.not.i.i = icmp eq i16 %101, 0
+  %101 = load i16, ptr %101, align 2, !tbaa !65
+  %.not.i.i = icmp eq i16 %102, 0
   br i1 %.not.i.i, label %ssl_tls13_write_supported_versions_ext.exit, label %.lr.ph.i.i, !llvm.loop !66
 
-.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %99
-  %102 = phi i16 [ %101, %99 ], [ %98, %.preheader.i.i ]
-  %.020.i.i = phi ptr [ %100, %99 ], [ %.0.i24.i.i, %.preheader.i.i ]
-  %103 = tail call i32 @mbedtls_ssl_get_psa_curve_info_from_tls_id(i16 noundef zeroext %102, ptr noundef null, ptr noundef null) #12
-  %104 = icmp eq i32 %103, 0
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %100
+  %102 = phi i16 [ %102, %100 ], [ %99, %.preheader.i.i ]
+  %.020.i.i = phi ptr [ %101, %100 ], [ %.0.i24.i.i, %.preheader.i.i ]
+  %103 = tail call i32 @mbedtls_ssl_get_psa_curve_info_from_tls_id(i16 noundef zeroext %103, ptr noundef null, ptr noundef null) #12
+  %104 = icmp eq i32 %104, 0
   %.pre.i.i = load i16, ptr %.020.i.i, align 2, !tbaa !65
-  br i1 %104, label %105, label %107
+  br i1 %105, label %105, label %107
 
-105:                                              ; preds = %.lr.ph.i.i
+switch.lookup79:                                  ; preds = %.lr.ph.i.i
   %switch.tableidx = add i16 %.pre.i.i, -23
   %106 = icmp ult i16 %switch.tableidx, 8
   %switch.maskindex = trunc i16 %switch.tableidx to i8
@@ -776,18 +776,18 @@ mbedtls_ssl_get_groups.exit.i.i:                  ; preds = %91
   %or.cond = select i1 %106, i1 %switch.lobit, i1 false
   br i1 %or.cond, label %switch.lookup, label %107
 
-107:                                              ; preds = %105, %.lr.ph.i.i
+ssl_tls13_get_default_group_id.exit.i:            ; preds = %switch.lookup79, %.lr.ph.i.i
   %108 = add i16 %.pre.i.i, -261
   %109 = icmp ult i16 %108, -5
-  br i1 %109, label %99, label %ssl_tls13_get_default_group_id.exit.i
+  br i1 %109, label %99, label %mbedtls_ssl_tls13_named_group_is_ecdhe.exit59.thread.i
 
-switch.lookup:                                    ; preds = %105
+113:                                              ; preds = %105
   %110 = zext nneg i16 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw [8 x i16], ptr @switch.table.mbedtls_ssl_tls13_write_client_hello_exts.18, i64 0, i64 %110
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %ssl_tls13_get_default_group_id.exit.i
 
-ssl_tls13_get_default_group_id.exit.i:            ; preds = %107, %switch.lookup, %88, %84, %84, %84, %84
+mbedtls_ssl_tls13_named_group_is_ecdhe.exit59.thread.i: ; preds = %107, %113, %88, %84, %84, %84, %84
   %.066.i = phi i16 [ %87, %88 ], [ %87, %84 ], [ %87, %84 ], [ %87, %84 ], [ %87, %84 ], [ %switch.load, %switch.lookup ], [ %.pre.i.i, %107 ]
   %switch.tableidx77 = add i16 %.066.i, -23
   %111 = icmp ult i16 %switch.tableidx77, 8
@@ -947,8 +947,8 @@ mbedtls_ssl_tls13_named_group_is_ecdhe.exit59.thread.i: ; preds = %switch.lookup
   store i64 %177, ptr %3, align 8, !tbaa !3
   br label %ssl_tls13_write_supported_versions_ext.exit
 
-ssl_tls13_write_supported_versions_ext.exit:      ; preds = %99, %mbedtls_ssl_get_groups.exit.i.i, %.preheader.i.i, %.thread.i, %112, %79, %144, %44, %7, %4, %174
-  %.033 = phi i32 [ 0, %174 ], [ %6, %4 ], [ -27136, %7 ], [ -27136, %44 ], [ -27136, %144 ], [ -24192, %mbedtls_ssl_get_groups.exit.i.i ], [ -28800, %.preheader.i.i ], [ %.1.ph.i, %.thread.i ], [ -27648, %112 ], [ -27136, %79 ], [ -28800, %99 ]
+ssl_tls13_write_supported_versions_ext.exit:      ; preds = %100, %mbedtls_ssl_get_groups.exit.i.i, %.preheader.i.i, %.thread.i, %112, %79, %144, %44, %7, %4, %174
+  %.033 = phi i32 [ 0, %174 ], [ %6, %4 ], [ -27136, %7 ], [ -27136, %44 ], [ -27136, %144 ], [ -24192, %mbedtls_ssl_get_groups.exit.i.i ], [ -28800, %.preheader.i.i ], [ %.1.ph.i, %.thread.i ], [ -27648, %112 ], [ -27136, %79 ], [ -28800, %100 ]
   ret i32 %.033
 }
 

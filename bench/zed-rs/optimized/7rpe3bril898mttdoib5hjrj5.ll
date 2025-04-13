@@ -6567,7 +6567,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %134 = load i64, ptr %132, align 8, !range !1386, !alias.scope !1387, !noalias !1388, !noundef !4
   %135 = load i64, ptr %133, align 8, !range !1386, !alias.scope !1388, !noalias !1387, !noundef !4
   %.not.i.i = icmp eq i64 %134, %135
-  br i1 %.not.i.i, label %136, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.thread"
+  br i1 %.not.i.i, label %136, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
 
 136:                                              ; preds = %131
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -6582,19 +6582,19 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %140 = load i64, ptr %137, align 8, !alias.scope !1387, !noalias !1388, !noundef !4
   %141 = load i64, ptr %138, align 8, !alias.scope !1388, !noalias !1387, !noundef !4
   %142 = icmp eq i64 %140, %141
-  br i1 %142, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.thread"
+  br i1 %142, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
 
 143:                                              ; preds = %136
   %144 = load i64, ptr %137, align 8, !alias.scope !1387, !noalias !1388, !noundef !4
   %145 = load i64, ptr %138, align 8, !alias.scope !1388, !noalias !1387, !noundef !4
   %146 = icmp eq i64 %144, %145
-  br i1 %146, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.thread"
+  br i1 %146, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
 
 147:                                              ; preds = %136
   %148 = load double, ptr %137, align 8, !alias.scope !1387, !noalias !1388, !noundef !4
   %149 = load double, ptr %138, align 8, !alias.scope !1388, !noalias !1387, !noundef !4
   %150 = fcmp oeq double %148, %149
-  br i1 %150, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.thread"
+  br i1 %150, label %"_ZN65_$LT$serde_json..value..Value$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80c278bf3ecfaa2bE.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
 
 151:                                              ; preds = %121
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -6666,7 +6666,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   %.pre81 = tail call i64 @llvm.umin.i64(i64 %.pre80, i64 5)
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.thread": ; preds = %131, %139, %143, %147
+"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit": ; preds = %131, %139, %143, %147
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12)
   br label %185
 
@@ -6704,7 +6704,7 @@ default.unreachable:                              ; preds = %"_ZN4core6option15O
   store i64 -9223372036854775807, ptr %12, align 8, !alias.scope !1402, !noalias !1405
   br label %"_ZN63_$LT$serde_json..value..Value$u20$as$u20$core..clone..Clone$GT$5clone17hf54ec36436643772E.exit.thread"
 
-185:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit.thread", %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
+185:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit", %"_ZN4core6option15Option$LT$T$GT$6map_or17hc2d614bdedfa7b6bE.exit"
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %187 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, ptr noundef nonnull readonly align 8 dereferenceable(16) %186, i64 16, i1 false), !alias.scope !1407

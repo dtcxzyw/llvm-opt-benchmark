@@ -1788,7 +1788,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory6arrays18ArrayStoreTyp
 .critedge.preheader:                              ; preds = %..critedge.preheader_crit_edge, %60
   %77 = phi i64 [ %.pre94, %..critedge.preheader_crit_edge ], [ %63, %60 ]
   %78 = phi ptr [ %.pre, %..critedge.preheader_crit_edge ], [ %61, %60 ]
-  %79 = and i64 %77, 1023
+  %79 = and i64 %.pre-phi, 1023
   %80 = icmp eq i64 %79, 216
   br i1 %80, label %.lr.ph, label %_ZNK4cvc58internal12NodeTemplateILb0EE8getConstINS0_13ArrayStoreAllEEERKT_v.exit
 

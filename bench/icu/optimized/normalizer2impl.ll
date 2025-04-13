@@ -5090,7 +5090,7 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
 .preheader:                                       ; preds = %_ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not6273 = icmp eq ptr %1, %2
-  br i1 %.not6273, label %.thread, label %.lr.ph
+  br i1 %.not6274, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5107,8 +5107,8 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   %.04876 = phi i8 [ 0, %.lr.ph ], [ %spec.select, %101 ]
   %.05175 = phi ptr [ %1, %.lr.ph ], [ %.253, %101 ]
   %.05574 = phi i8 [ 0, %.lr.ph ], [ %.0.i, %101 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.05175, i64 2
-  %36 = load i16, ptr %.05175, align 2, !tbaa !32
+  %35 = getelementptr inbounds nuw i8, ptr %.05176, i64 2
+  %36 = load i16, ptr %.05176, align 2, !tbaa !32
   %37 = zext i16 %36 to i32
   %38 = and i32 %37, 63488
   %39 = icmp eq i32 %38, 55296
@@ -5146,35 +5146,35 @@ _ZNK6icu_7716ReorderingBuffer23copyReorderableSuffixToERNS_13UnicodeStringE.exit
   br i1 %57, label %58, label %71
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i8, ptr %.05175, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.05176, i64 4
   %60 = shl nuw nsw i32 %37, 10
   %61 = add nsw i32 %60, -56613888
   %62 = add nuw nsw i32 %61, %55
-  %63 = getelementptr inbounds nuw i8, ptr %.pre91, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.pre92, i64 24
   %64 = load i32, ptr %63, align 8, !tbaa !49
   %.not64 = icmp slt i32 %62, %64
   br i1 %.not64, label %69, label %65
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %.pre91, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.pre92, i64 20
   %67 = load i32, ptr %66, align 4, !tbaa !50
   %68 = add nsw i32 %67, -2
   br label %76
 
 69:                                               ; preds = %58
-  %70 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre91, i32 noundef %62)
+  %70 = tail call i32 @ucptrie_internalSmallIndex_77(ptr noundef nonnull %.pre92, i32 noundef %62)
   %.pre92 = load ptr, ptr %29, align 8, !tbaa !45
   br label %76
 
 71:                                               ; preds = %._crit_edge, %53
-  %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre91, %53 ]
+  %72 = phi ptr [ %.pre, %._crit_edge ], [ %.pre92, %53 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 20
   %74 = load i32, ptr %73, align 4, !tbaa !50
   %75 = add nsw i32 %74, -1
   br label %76
 
 76:                                               ; preds = %71, %69, %65, %40
-  %77 = phi ptr [ %41, %40 ], [ %72, %71 ], [ %.pre92, %69 ], [ %.pre91, %65 ]
+  %77 = phi ptr [ %41, %40 ], [ %72, %71 ], [ %.pre93, %69 ], [ %.pre92, %65 ]
   %.253 = phi ptr [ %35, %40 ], [ %35, %71 ], [ %59, %69 ], [ %59, %65 ]
   %.045 = phi i32 [ %49, %40 ], [ %75, %71 ], [ %70, %69 ], [ %68, %65 ]
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -5219,14 +5219,14 @@ _ZNK6icu_7715Normalizer2Impl5getCCEt.exit:        ; preds = %84, %97
   br i1 %100, label %.thread, label %101
 
 101:                                              ; preds = %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit
-  %spec.select = select i1 %.04677, i8 %.0.i, i8 %.04876
+  %spec.select = select i1 %.04678, i8 %.0.i, i8 %.04877
   %.not62 = icmp eq ptr %.253, %2
   br i1 %.not62, label %.thread, label %34
 
 .thread:                                          ; preds = %101, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit, %86, %90, %.preheader
-  %.055.lcssa = phi i8 [ 0, %.preheader ], [ %.05574, %90 ], [ %.05574, %86 ], [ %.05574, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.0.i, %101 ]
-  %.051.lcssa = phi ptr [ %1, %.preheader ], [ %.05175, %90 ], [ %.05175, %86 ], [ %.05175, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.253, %101 ]
-  %.048.lcssa = phi i8 [ 0, %.preheader ], [ %.04876, %90 ], [ %.04876, %86 ], [ %.04876, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %spec.select, %101 ]
+  %.055.lcssa = phi i8 [ 0, %.preheader ], [ %.05575, %90 ], [ %.05575, %86 ], [ %.05575, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.0.i, %101 ]
+  %.051.lcssa = phi ptr [ %1, %.preheader ], [ %.05176, %90 ], [ %.05176, %86 ], [ %.05176, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %.253, %101 ]
+  %.048.lcssa = phi i8 [ 0, %.preheader ], [ %.04877, %90 ], [ %.04877, %86 ], [ %.04877, %_ZNK6icu_7715Normalizer2Impl5getCCEt.exit ], [ %spec.select, %101 ]
   %102 = icmp eq ptr %2, null
   br i1 %102, label %103, label %105
 

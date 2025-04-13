@@ -2028,7 +2028,7 @@ define noundef i32 @_Z23llama_kv_cache_cell_maxRK14llama_kv_cache(ptr noundef no
   br label %7
 
 7:                                                ; preds = %.lr.ph, %16
-  %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %8, %16 ]
+  %indvars.iv = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %8 = add nsw i64 %indvars.iv, -1
   %9 = getelementptr inbounds nuw %struct.llama_kv_cell, ptr %5, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !131
@@ -2042,7 +2042,7 @@ define noundef i32 @_Z23llama_kv_cache_cell_maxRK14llama_kv_cache(ptr noundef no
   br i1 %15, label %16, label %._crit_edge.loopexit.split.loop.exit
 
 16:                                               ; preds = %7, %12
-  %.not.wide = icmp eq i64 %8, 0
+  %.not.wide = icmp eq i64 %indvars.iv.next, 0
   br i1 %.not.wide, label %._crit_edge, label %7, !llvm.loop !153
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %12
@@ -2050,7 +2050,7 @@ define noundef i32 @_Z23llama_kv_cache_cell_maxRK14llama_kv_cache(ptr noundef no
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %16, %._crit_edge.loopexit.split.loop.exit, %1
-  %.012.lcssa = phi i32 [ 0, %1 ], [ %17, %._crit_edge.loopexit.split.loop.exit ], [ 0, %16 ]
+  %.012.lcssa = phi i32 [ 0, %1 ], [ %18, %._crit_edge.loopexit.split.loop.exit ], [ 0, %16 ]
   ret i32 %.012.lcssa
 }
 

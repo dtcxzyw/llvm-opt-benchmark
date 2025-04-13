@@ -70,7 +70,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
 
 30:                                               ; preds = %28
   %.not87.i = icmp eq i64 %26, -4
-  br i1 %.not87.i, label %.preheader.split.i, label %.critedge.thread.thread.i, !llvm.loop !6
+  br i1 %.not88.i, label %.preheader.split.i, label %.critedge.thread.thread.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %40
   %.062.i = phi i64 [ %.163.i, %40 ], [ %.062.i.ph, %.critedge.i.preheader ]
@@ -101,7 +101,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
 
 .critedge.thread.i:                               ; preds = %40
   %.not100.i = icmp ult i64 %.4.i, %3
-  br i1 %.not100.i, label %.preheader.i, label %.critedge.thread.thread.i, !llvm.loop !9
+  br i1 %.not101.i, label %.preheader.i, label %.critedge.thread.thread.i, !llvm.loop !9
 
 .critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %24, %.preheader.split.us.i, %30, %.preheader.split.i, %37
   %.26094.i = phi i64 [ %31, %37 ], [ %26, %30 ], [ %.05886.fr.i, %.preheader.split.i ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader.split.us.i ]
@@ -122,11 +122,11 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   %48 = tail call i32 @file_seek(ptr noundef %1, i32 noundef %.061.i, i32 noundef 0) #5
   %49 = icmp slt i32 %48, 0
   %50 = sext i32 %48 to i64
-  %spec.select.i = select i1 %49, i64 %50, i64 %.26094.i
+  %spec.select.i = select i1 %49, i64 %50, i64 %.26095.i
   br label %copyfile.exit
 
 copyfile.exit:                                    ; preds = %47, %45, %.critedge.thread.thread.i, %18, %16, %10, %4
-  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.26094.i, %.critedge.thread.thread.i ], [ %spec.select.i, %47 ]
+  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.26095.i, %.critedge.thread.thread.i ], [ %spec.select.i, %47 ]
   ret i64 %.0
 }
 

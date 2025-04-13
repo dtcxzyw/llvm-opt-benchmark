@@ -3280,24 +3280,24 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 66:                                               ; preds = %56
   %67 = load i32, ptr %63, align 8
   %68 = icmp eq i32 %67, 23
-  br i1 %68, label %69, label %.preheader99
+  br i1 %68, label %69, label %.preheader98
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %71, align 8
-  switch i32 %72, label %.preheader99 [
+  switch i32 %72, label %.preheader98 [
     i32 33, label %.loopexit
     i32 37, label %.loopexit
   ]
 
-.preheader99:                                     ; preds = %66, %69
+.preheader98:                                     ; preds = %66, %69
   %.ph100 = phi i32 [ 23, %69 ], [ %67, %66 ]
   br label %73
 
-73:                                               ; preds = %.preheader99, %.backedge89
-  %74 = phi i32 [ %.pre, %.backedge89 ], [ %.ph100, %.preheader99 ]
-  %.077 = phi ptr [ %.077.be, %.backedge89 ], [ %63, %.preheader99 ]
+73:                                               ; preds = %.preheader98, %.backedge89
+  %74 = phi i32 [ %.pre, %.backedge89 ], [ %.ph100, %.preheader98 ]
+  %.077 = phi ptr [ %.077.be, %.backedge89 ], [ %63, %.preheader98 ]
   switch i32 %74, label %.loopexit.sink.split [
     i32 31, label %75
     i32 40, label %.backedge89
@@ -3594,24 +3594,24 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 97:                                               ; preds = %87
   %98 = load i32, ptr %94, align 8
   %99 = icmp eq i32 %98, 23
-  br i1 %99, label %100, label %.preheader120
+  br i1 %99, label %100, label %.preheader119
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %102, align 8
-  switch i32 %103, label %.preheader120 [
+  switch i32 %103, label %.preheader119 [
     i32 33, label %.loopexit112
     i32 37, label %.loopexit112
   ]
 
-.preheader120:                                    ; preds = %97, %100
+.preheader119:                                    ; preds = %97, %100
   %.ph121 = phi i32 [ 23, %100 ], [ %98, %97 ]
   br label %104
 
-104:                                              ; preds = %.preheader120, %.backedge113
-  %105 = phi i32 [ %.pre, %.backedge113 ], [ %.ph121, %.preheader120 ]
-  %.089 = phi ptr [ %.089.be, %.backedge113 ], [ %94, %.preheader120 ]
+104:                                              ; preds = %.preheader119, %.backedge113
+  %105 = phi i32 [ %.pre, %.backedge113 ], [ %.ph121, %.preheader119 ]
+  %.089 = phi ptr [ %.089.be, %.backedge113 ], [ %94, %.preheader119 ]
   switch i32 %105, label %.critedge104 [
     i32 31, label %106
     i32 40, label %.backedge113

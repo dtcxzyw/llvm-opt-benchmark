@@ -29945,7 +29945,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %99
-  br i1 %100, label %.split.us.loopexit19.i, label %.backedge.i
+  br i1 %100, label %.split.us.loopexit19.i.loopexit22, label %.backedge.i
 
 .backedge.i:                                      ; preds = %.noexc8, %95, %.lr.ph.i
   %.not.i.i.i = icmp eq i16 %86, 0
@@ -30028,55 +30028,55 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.010)
   br label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit"
 
-"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit": ; preds = %76, %148, %144, %143, %.split.us.loopexit19.i, %.thread
+"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit": ; preds = %76, %149, %145, %144, %.split.us.loopexit19.i, %.thread
   ret void
 
-.split.us.loopexit19.i:                           ; preds = %.noexc8
+.split.us.loopexit19.i.loopexit22:                ; preds = %.noexc8
   %.pre = load i8, ptr %8, align 8, !range !1730, !alias.scope !9825
   call void @llvm.experimental.noalias.scope.decl(metadata !9832)
   call void @llvm.experimental.noalias.scope.decl(metadata !9833)
   call void @llvm.experimental.noalias.scope.decl(metadata !9834)
   %.not.i.i.i9 = icmp eq i8 %.pre, 26
-  br i1 %.not.i.i.i9, label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit", label %143
+  br i1 %.not.i.i.i9, label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit", label %144
 
-143:                                              ; preds = %.split.us.loopexit19.i
+144:                                              ; preds = %.split.us.loopexit19.i
   call void @llvm.experimental.noalias.scope.decl(metadata !9835)
   call void @llvm.experimental.noalias.scope.decl(metadata !9838)
   %cond.i.i.i.i.i = icmp eq i8 %.pre, 24
-  br i1 %cond.i.i.i.i.i, label %144, label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit"
+  br i1 %cond.i.i.i.i.i, label %145, label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit"
 
-144:                                              ; preds = %143
+145:                                              ; preds = %144
   call void @llvm.experimental.noalias.scope.decl(metadata !9841)
   call void @llvm.experimental.noalias.scope.decl(metadata !9844)
   %145 = load ptr, ptr %43, align 8, !alias.scope !9847, !nonnull !25, !noundef !25
-  %146 = atomicrmw sub ptr %145, i64 1 release, align 8, !noalias !9847
-  %147 = icmp eq i64 %146, 1
-  br i1 %147, label %148, label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit"
+  %146 = atomicrmw sub ptr %146, i64 1 release, align 8, !noalias !9847
+  %147 = icmp eq i64 %147, 1
+  br i1 %148, label %149, label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit"
 
-148:                                              ; preds = %144
+149:                                              ; preds = %145
   call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.18266587286026290509(i8 noundef 2), !noalias !9847
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17ha78a11c393c5c4dfE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %43)
   br label %"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE.exit"
 
-149:                                              ; preds = %150
+150:                                              ; preds = %151
   resume { ptr, i32 } %lpad.phi
 
 .loopexit:                                        ; preds = %99
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %150
+  br label %151
 
 .loopexit.split-lp:                               ; preds = %31, %.noexc, %15
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %150
+  br label %151
 
-150:                                              ; preds = %.loopexit.split-lp, %.loopexit
+151:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke fastcc void @"_ZN4core3ptr103drop_in_place$LT$$LP$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$C$hir_expand..name..Name$RP$$GT$17h806b56f18569012cE"(ptr noalias noundef align 8 dereferenceable(32) %1) #47
-          to label %149 unwind label %151
+          to label %150 unwind label %152
 
-151:                                              ; preds = %150
+152:                                              ; preds = %151
   %152 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #48

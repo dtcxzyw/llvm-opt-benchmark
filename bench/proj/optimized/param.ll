@@ -44,7 +44,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %48, label %.preheader
+  br i1 %3, label %47, label %.preheader
 
 .preheader:                                       ; preds = %2
   %4 = tail call ptr @__ctype_b_loc() #18
@@ -68,21 +68,21 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   %spec.select = getelementptr inbounds nuw i8, ptr %.038, i64 %spec.select.idx
   %15 = load i8, ptr %spec.select, align 1, !tbaa !3
   %.not4450 = icmp eq i8 %15, 0
-  br i1 %.not4450, label %._crit_edge, label %.lr.ph
+  br i1 %.not4452, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %37
   %16 = phi i8 [ %40, %37 ], [ %15, %13 ]
   %17 = phi ptr [ %39, %37 ], [ %spec.select, %13 ]
   %.052 = phi i1 [ %.1, %37 ], [ false, %13 ]
   %.03451 = phi i64 [ %38, %37 ], [ 0, %13 ]
-  br i1 %.052, label %18, label %26
+  br i1 %.054, label %18, label %26
 
 18:                                               ; preds = %.lr.ph
   %19 = icmp ne i8 %16, 34
   br i1 %19, label %25, label %20
 
 20:                                               ; preds = %18
-  %21 = add i64 %.03451, 1
+  %21 = add i64 %.03453, 1
   %22 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !3
   %24 = icmp eq i8 %23, 34
@@ -91,17 +91,17 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
 25:                                               ; preds = %20, %18
   br label %37
 
-26:                                               ; preds = %.lr.ph
+26:; preds = %.lr.ph
   %27 = icmp eq i8 %16, 61
   br i1 %27, label %28, label %32
 
-28:                                               ; preds = %26
+28:; preds = %26
   %29 = getelementptr i8, ptr %17, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !3
   %31 = icmp eq i8 %30, 34
   br i1 %31, label %37, label %32
 
-32:                                               ; preds = %28, %26
+32: ; preds = %28, %26
   %33 = sext i8 %16 to i64
   %34 = getelementptr inbounds i16, ptr %5, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !11
@@ -109,7 +109,7 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   %.not45 = icmp eq i16 %36, 0
   br i1 %.not45, label %37, label %._crit_edge
 
-37:                                               ; preds = %25, %28, %20, %32
+37:; preds = %25, %28, %20, %32
   %.135 = phi i64 [ %.03451, %32 ], [ %21, %20 ], [ %.03451, %25 ], [ %.03451, %28 ]
   %.1 = phi i1 [ false, %32 ], [ true, %20 ], [ %19, %25 ], [ true, %28 ]
   %38 = add i64 %.135, 1
@@ -119,28 +119,28 @@ define hidden noalias noundef ptr @_Z13pj_mkparam_wsPKcPS0_(ptr noundef %0, ptr 
   br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %37, %32, %13
-  %.034.lcssa = phi i64 [ 0, %13 ], [ %.03451, %32 ], [ %38, %37 ]
+  %.034.lcssa = phi i64 [ 0, %13 ], [ %.03453, %32 ], [ %38, %37 ]
   %.lcssa = phi ptr [ %spec.select, %13 ], [ %17, %32 ], [ %39, %37 ]
   %.not46 = icmp eq ptr %1, null
-  br i1 %.not46, label %42, label %41
+  br i1 %.not46, label %41, label %40
 
-41:                                               ; preds = %._crit_edge
+40:                                               ; preds = %._crit_edge
   store ptr %.lcssa, ptr %1, align 8, !tbaa !16
-  br label %42
+  br label %41
 
-42:                                               ; preds = %41, %._crit_edge
+41:                                               ; preds = %40, %._crit_edge
   %43 = add i64 %.034.lcssa, 17
-  %44 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %43) #19
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %48, label %46
+  %44 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %42) #19
+  %45 = icmp eq ptr %43, null
+  br i1 %44, label %47, label %45
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %47, ptr nonnull align 1 %spec.select, i64 %.034.lcssa, i1 false)
-  br label %48
+45:                                               ; preds = %41
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %46, ptr nonnull align 1 %spec.select, i64 %.034.lcssa, i1 false)
+  br label %47
 
-48:                                               ; preds = %46, %42, %2
-  %.036 = phi ptr [ null, %2 ], [ %44, %46 ], [ null, %42 ]
+47:                                               ; preds = %45, %41, %2
+  %.036 = phi ptr [ null, %2 ], [ %43, %45 ], [ null, %41 ]
   ret ptr %.036
 }
 

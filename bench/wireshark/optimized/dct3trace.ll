@@ -187,31 +187,31 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  %.077.ph = phi i8 [ %.077.ph.ph, %.outer.outer ], [ %.077.ph.be, %.outer.backedge ]
+  %.077.ph = phi i8 [ %.077.ph.ph, %.outer.outer ], [ %.077.ph.be, %.outer.outer272 ]
   %18 = trunc nuw i8 %.077.ph to i1
   br i1 %18, label %.outer.split.us, label %.outer.split
 
 .outer.split.us:                                  ; preds = %.outer
   %19 = call ptr @file_gets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef %0)
-  %.not.us = icmp eq ptr %19, null
-  br i1 %.not.us, label %.split.us, label %20
+  %.not.us = icmp eq ptr %18, null
+  br i1 %.not.us, label %.split.us, label %19
 
-20:                                               ; preds = %.outer.split.us
+19:                                               ; preds = %.outer.split.us
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) @dct3trace_magic_end, ptr noundef nonnull dereferenceable(7) %5, i64 7)
   %21 = icmp eq i32 %bcmp.us, 0
-  br i1 %21, label %.split170.us, label %22
+  br i1 %20, label %.split170.us, label %21
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   %bcmp95.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) @dct3trace_magic_record_end, ptr noundef nonnull dereferenceable(5) %5, i64 5)
   %23 = icmp eq i32 %bcmp95.us, 0
-  br i1 %23, label %.split172.us.thread, label %24
+  br i1 %22, label %.split172.us.thread, label %23
 
-24:                                               ; preds = %22
+23:                                               ; preds = %21
   %rhsv.us = load i32, ptr %5, align 16
   %.not96.us = icmp eq i32 %rhsv.us, 540109884
-  br i1 %.not96.us, label %.split175.us, label %.outer.backedge
+  br i1 %.not96.us, label %.split175.us, label %.outer.outer272
 
-.outer.backedge:                                  ; preds = %41, %24
+.outer.outer272:                                  ; preds = %41, %23
   %.077.ph.be = phi i8 [ 1, %24 ], [ 0, %41 ]
   br label %.outer, !llvm.loop !6
 
@@ -225,7 +225,7 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
   %27 = icmp eq i32 %bcmp, 0
   br i1 %27, label %.split170.us, label %28
 
-.split170.us:                                     ; preds = %20, %26
+.split170.us:                                     ; preds = %19, %26
   store i32 0, ptr %2, align 4
   br label %168
 
@@ -234,7 +234,7 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
   %29 = icmp eq i32 %bcmp95, 0
   br i1 %29, label %.split172.us, label %41
 
-.split172.us.thread:                              ; preds = %22
+.split172.us.thread:                              ; preds = %21
   store i32 0, ptr %1, align 8
   %30 = call ptr @wtap_block_create(i32 noundef 5)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -269,7 +269,7 @@ define internal fastcc noundef zeroext i1 @dct3trace_get_packet(ptr noundef %0, 
     i32 540175420, label %113
   ], !llvm.loop !6
 
-.split175.us:                                     ; preds = %24, %41
+.split175.us:                                     ; preds = %23, %41
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   %42 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.2) #9

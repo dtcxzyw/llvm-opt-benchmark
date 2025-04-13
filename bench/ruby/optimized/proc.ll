@@ -7447,51 +7447,51 @@ define internal fastcc i64 @mnew_internal(ptr noundef %0, i64 noundef %1, i64 no
   %.05986 = phi i64 [ %.160, %105 ], [ %4, %.lr.ph ]
   %53 = phi i1 [ false, %105 ], [ true, %.lr.ph ]
   %54 = getelementptr inbounds nuw i8, ptr %.05887, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !77
-  %.not66 = icmp eq ptr %55, null
-  br i1 %.not66, label %._crit_edge, label %56
+  %55 = load ptr, ptr %53, align 8, !tbaa !77
+  %.not66 = icmp eq ptr %54, null
+  br i1 %.not66, label %._crit_edge, label %55
 
-56:                                               ; preds = %.lr.ph.split
-  %57 = load i64, ptr %55, align 8
-  %58 = and i64 %57, 15
-  %59 = icmp eq i64 %58, 7
-  br i1 %59, label %._crit_edge, label %70
+55:                                               ; preds = %.lr.ph.split
+  %57 = load i64, ptr %54, align 8
+  %58 = and i64 %56, 15
+  %59 = icmp eq i64 %57, 7
+  br i1 %58, label %._crit_edge, label %69
 
-._crit_edge:                                      ; preds = %105, %.lr.ph.split, %56, %.lr.ph125, %.lr.ph.split.us, %52, %.lr.ph.split.us.preheader, %8
-  %.059.lcssa = phi i64 [ %4, %8 ], [ %4, %.lr.ph.split.us.preheader ], [ %.160.us, %52 ], [ %.160.us, %.lr.ph.split.us ], [ %.05986.us123, %.lr.ph125 ], [ %.05986, %56 ], [ %.05986, %.lr.ph.split ], [ %.160, %105 ]
+._crit_edge:                                      ; preds = %105, %.lr.ph.split, %55, %.lr.ph125, %.lr.ph.split.us, %52, %.lr.ph.split.us.preheader, %8
+  %.059.lcssa = phi i64 [ %4, %8 ], [ %4, %.lr.ph.split.us.preheader ], [ %.160.us, %52 ], [ %.160.us, %.lr.ph.split.us ], [ %.05986.us123, %.lr.ph125 ], [ %.05986, %55 ], [ %.05986, %.lr.ph.split ], [ %.160, %105 ]
   %60 = call i64 @rb_id2sym(i64 noundef %.059.lcssa) #21
   %61 = icmp eq i64 %3, 36
-  br i1 %61, label %respond_to_missing_p.exit.thread, label %62
+  br i1 %60, label %respond_to_missing_p.exit.thread, label %61
 
-62:                                               ; preds = %._crit_edge
+61:                                               ; preds = %._crit_edge
   %63 = call i32 @rb_method_basic_definition_p(i64 noundef %1, i64 noundef 157) #21
-  %.not.i = icmp eq i32 %63, 0
+  %.not.i = icmp eq i32 %62, 0
   br i1 %.not.i, label %respond_to_missing_p.exit, label %respond_to_missing_p.exit.thread
 
-respond_to_missing_p.exit:                        ; preds = %62
+respond_to_missing_p.exit:                        ; preds = %61
   %.not8.i = icmp eq i32 %6, 0
   %64 = select i1 %.not8.i, i64 20, i64 0
-  %65 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef 157, i32 noundef 2, i64 noundef %60, i64 noundef %64) #21
-  %66 = and i64 %65, -5
-  %.not79 = icmp eq i64 %66, 0
-  br i1 %.not79, label %respond_to_missing_p.exit.thread, label %67
+  %65 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %3, i64 noundef 157, i32 noundef 2, i64 noundef %59, i64 noundef %63) #21
+  %66 = and i64 %64, -5
+  %.not79 = icmp eq i64 %65, 0
+  br i1 %.not79, label %respond_to_missing_p.exit.thread, label %66
 
-67:                                               ; preds = %respond_to_missing_p.exit
+66:                                               ; preds = %respond_to_missing_p.exit
   %68 = call fastcc i64 @mnew_missing(i64 noundef %1, i64 noundef %3, i64 noundef %.059.lcssa, i64 noundef %5)
   br label %rb_obj_write.exit75
 
-respond_to_missing_p.exit.thread:                 ; preds = %62, %._crit_edge, %respond_to_missing_p.exit
+respond_to_missing_p.exit.thread:                 ; preds = %61, %._crit_edge, %respond_to_missing_p.exit
   %.not70 = icmp eq i32 %7, 0
-  br i1 %.not70, label %rb_obj_write.exit75, label %69
+  br i1 %.not70, label %rb_obj_write.exit75, label %68
 
-69:                                               ; preds = %respond_to_missing_p.exit.thread
+68:                                               ; preds = %respond_to_missing_p.exit.thread
   call void @rb_print_undef(i64 noundef %1, i64 noundef %.059.lcssa, i32 noundef 0) #22
   unreachable
 
-70:                                               ; preds = %56
-  br i1 %53, label %71, label %78
+69:                                               ; preds = %55
+  br i1 %.06185, label %71, label %78
 
-71:                                               ; preds = %70
+71:                                               ; preds = %69
   %72 = load i64, ptr %.05887, align 8, !tbaa !134
   %73 = trunc i64 %72 to i32
   %74 = lshr i32 %73, 16
@@ -7507,7 +7507,7 @@ respond_to_missing_p.exit.thread:                 ; preds = %62, %._crit_edge, %
   call void @rb_print_inaccessible(i64 noundef %1, i64 noundef %.05986, i32 noundef %75) #22
   unreachable
 
-78:                                               ; preds = %71, %70
+78:                                               ; preds = %71, %69
   %79 = icmp eq i64 %58, 5
   br i1 %79, label %80, label %.split.us
 
@@ -7524,7 +7524,7 @@ respond_to_missing_p.exit.thread:                 ; preds = %62, %._crit_edge, %
   %87 = inttoptr i64 %86 to ptr
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i64, ptr %88, align 8, !tbaa !102
-  %90 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %91 = load i64, ptr %90, align 8, !tbaa !105
   %92 = call ptr @rb_callable_method_entry_with_refinements(i64 noundef %89, i64 noundef %91, ptr noundef nonnull %9) #21
   br label %105
@@ -7538,7 +7538,7 @@ respond_to_missing_p.exit.thread:                 ; preds = %62, %._crit_edge, %
   %99 = inttoptr i64 %98 to ptr
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i64, ptr %100, align 8, !tbaa !102
-  %102 = getelementptr inbounds nuw i8, ptr %55, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %103 = load i64, ptr %102, align 8, !tbaa !105
   %104 = call ptr @rb_method_entry_without_refinements(i64 noundef %101, i64 noundef %103, ptr noundef nonnull %9) #21
   br label %105
@@ -7641,8 +7641,8 @@ rb_obj_write.exit74:                              ; preds = %rb_obj_write.exit73
   call void @rb_gc_writebarrier(i64 noundef %106, i64 noundef %146) #21
   br label %rb_obj_write.exit75
 
-rb_obj_write.exit75:                              ; preds = %148, %rb_obj_write.exit74, %76, %respond_to_missing_p.exit.thread, %67
-  %.0 = phi i64 [ %68, %67 ], [ 4, %respond_to_missing_p.exit.thread ], [ 4, %76 ], [ %106, %rb_obj_write.exit74 ], [ %106, %148 ]
+rb_obj_write.exit75:                              ; preds = %148, %rb_obj_write.exit74, %76, %respond_to_missing_p.exit.thread, %66
+  %.0 = phi i64 [ %67, %66 ], [ 4, %respond_to_missing_p.exit.thread ], [ 4, %76 ], [ %106, %rb_obj_write.exit74 ], [ %106, %148 ]
   ret i64 %.0
 }
 
